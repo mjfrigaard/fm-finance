@@ -1,0 +1,9 @@
+# Foundations {.unnumbered}
+
+<br>
+
+Before you optimize investments or chase tax savings, the foundations need to be in place: a working **budget**, **awareness** of where money goes, a **buffer** against bad surprises, and a **plan** for any high-interest debt.
+
+The chapters in this part are deliberately practical -- the goal is a stable base you can build on for decades.
+
+Once the foundations are in place, the next lever is [**Savings**](savings.qmd): turning the gap between income and spending into a deliberate, recurring habit.

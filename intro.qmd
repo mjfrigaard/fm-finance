@@ -1,0 +1,39 @@
+# Introduction
+
+<br>
+
+Personal finance is mostly behavior and a small amount of math. The math matters -- compounding, interest rates, tax-advantaged accounts -- but most of the money you'll have at any point in your life depends on your habits: Are you spending less than you earn? How much are you saving?, and are you regularly investing (and leaving it alone through economic downturns)?
+
+This chapter sets the stage for the rest of the book:
+
+  - The **four** core levers: **income**, **spending**, **savings**, and **investing**.     
+  - Why **automation** beats willpower.       
+  - How to think about **risk** and **time horizon**.     
+  - A short note on **tracking** -- you only manage what you measure.     
+
+## The four levers
+
+```{r}
+#| label: levers
+#| echo: false
+data.frame(
+  Lever     = c("Income", "Spending", "Savings", "Investing"),
+  Question  = c("How much comes in?",
+                "How much goes out?",
+                "How much is set aside?",
+                "What happens to the rest?")
+)
+```
+
+Each lever has its own part in this book:
+
+  - **Income** and **spending** are covered in [Foundations](foundations.qmd).
+  - **Savings** -- the gap between the two -- has its own part:
+    [Savings](savings.qmd).
+  - **Investing** is what happens to savings over the long term:
+    [Investing](investing.qmd).
+
+## Time horizon
+
+Money you need in 12 months should not look like money you won't touch for 30
+years. The rest of the book builds on that distinction.

@@ -1,0 +1,17 @@
+# Savings {.unnumbered}
+
+<br>
+
+**Savings** are the bridge between earning and investing -- the third of
+the four levers introduced in the [Introduction](intro.qmd). This part
+covers how much to save, where to keep it, and how to make the whole
+process **automatic** so willpower isn't part of the equation.
+
+A practical sequence:
+
+  1. Build a starter buffer (covered in [Emergency Fund](emergency_fund.qmd)).
+  2. Pick a target **savings rate** ([Savings Strategies](savings_strategies.qmd)).
+  3. Park the money where it actually grows ([High-Yield Savings Accounts](high_yield_accounts.qmd)).
+  4. Automate the whole flow ([Automating Savings](automating_savings.qmd)).
+
+From there, the money is ready to feed into [Investing](investing.qmd).

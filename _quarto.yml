@@ -1,0 +1,78 @@
+project:
+  type: book
+
+book:
+  title: "Personal Finance: a field manual"
+  author: "Martin Frigaard"
+  reader-mode: true
+  site-url: https://mjfrigaard.github.io/fm-finance/
+  repo-url: https://github.com/mjfrigaard/fm-finance
+  repo-branch: main
+  repo-actions: [edit, issue]
+  page-footer:
+    left: |
+      Personal Finance: field manual was written by Martin Frigaard.
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+  page-navigation: true
+
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - part: foundations.qmd
+      chapters:
+        - budgeting.qmd
+        - tracking_spending.qmd
+        - emergency_fund.qmd
+        - managing_debt.qmd
+    - part: savings.qmd
+      chapters:
+        - savings_strategies.qmd
+        - high_yield_accounts.qmd
+        - automating_savings.qmd
+    - part: investing.qmd
+      chapters:
+        - investing_basics.qmd
+        - retirement_accounts.qmd
+        - index_funds.qmd
+        - asset_allocation.qmd
+    - part: taxes_insurance.qmd
+      chapters:
+        - taxes.qmd
+        - insurance.qmd
+    - part: planning.qmd
+      chapters:
+        - financial_goals.qmd
+        - major_purchases.qmd
+        - estate_planning.qmd
+  appendices:
+    - resources.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: [flatly, custom.scss]
+    highlight-style: arrow
+    toc: true
+    toc-depth: 5
+    toc-location: right
+    toc-expand: 3
+    toc-title: Contents
+    code-link: false
+    code-block-bg: "#f8f8f8"
+    code-block-border-left: "#99bbc9"
+    code-annotations: hover
+    number-sections: true
+    callout-appearance: simple
+    code-fold: show
+    code-summary: 'show/hide'
+    df-print: paged
+    dpi: 320
+    fig-format: retina
+    fig-asp: 0.618
+    fontsize: 1.025em
+    linestretch: 1.30
+
+execute:
+  freeze: auto

@@ -1,0 +1,77 @@
+# Welcome! {.unnumbered}
+
+```{r}
+#| label: setup-r
+#| message: false
+#| warning: false
+#| include: false
+source("_common.R")
+```
+
+```{python}
+#| label: setup-py
+#| include: false
+```
+
+Welcome to the **Personal Finance field manual**, a working reference for the day-to-day decisions that shape your financial life: budgeting, savings, borrowing, investing, taxes, insurance, and planning.
+
+
+```{r}
+#| label: intro-disclaimer
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(color = "r", 
+  header = "NOTE", 
+  contents = "This primary audience for this book is my children. It contains some of the basic principles I was taught (and others I've learned painfully) about managing personal finances.")
+```
+
+
+This book aims to answer questions like:
+
+  - "*Where is my money going each month?*"
+
+  - "*How much should I have in an emergency fund?*"
+
+  - "*Should I pay down debt or invest first?*"
+
+  - "*Which retirement account makes sense for me?*"
+
+  - "*How do I pick an index fund?*"
+
+## How this book is organized
+
+The book is divided into five parts:
+
+1. [**Foundations**](foundations.qmd) -- budgeting, tracking spending, emergency funds, and debt.
+2. [**Savings**](savings.qmd) -- savings strategies, high-yield accounts, and automation.
+3. [**Investing**](investing.qmd)  -- the basics, retirement accounts, index funds, and asset allocation.
+4. [**Taxes & insurance**](taxes_insurance.qmd) -- the protective layer around your finances.
+5. [**Planning**](planning.qmd) -- goals, major purchases, and estate planning.
+
+The five sections of the book map onto the **four levers**: 
+
+1. *Foundations* sets up income and spending  
+2. *Savings* turns the gap between them into a buffer  
+3. *Investing* puts that buffer to work   
+4. *Taxes & insurance* and *Planning* sit around the outside  
+
+Each chapter is short and self-contained so you can jump in where you need to.
+
+## Code
+
+If you'd like to follow along or perform any of the math yourself, the examples use both **R** (with the `tidyverse`) and **Python** (with `pandas` / `NumPy`). Pick whichever you prefer -- the underlying ideas are the same.
+
+```{r}
+#| label: ex-r
+1000 * (1 + 0.05)^10  # future value of $1,000 at 5% for 10 years
+```
+
+```{python}
+#| label: ex-py
+1000 * (1 + 0.05) ** 10
+```
+
+## About the author
+
+Martin Frigaard writes about R, data, and -- now -- personal finance.

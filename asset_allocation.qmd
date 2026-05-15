@@ -1,0 +1,13 @@
+# Asset Allocation
+
+<br>
+
+
+Asset allocation is how you divide your portfolio between **stocks**,
+**bonds**, and **cash**. It's the single biggest driver of long-term
+results -- bigger than fund selection or market timing.
+
+  - Stocks vs. bonds vs. cash
+  - Glide paths and target-date funds
+  - Rebalancing
+  - Why a **three-fund portfolio** is enough for most people [@collins2016simple]

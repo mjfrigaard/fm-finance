@@ -1,0 +1,37 @@
+# Investing Basics
+
+<br>
+
+A short tour of the concepts behind every investment decision.
+
+## Compounding
+
+Compounding is interest earning interest. Over long horizons, it does the
+heavy lifting.
+
+```{r}
+#| label: compounding-r
+years   <- 0:40
+balance <- 10000 * (1.07)^years
+plot(years, balance, type = "l",
+     xlab = "Years", ylab = "Balance ($)",
+     main = "$10,000 at 7% compounded annually")
+```
+
+```{python}
+#| label: compounding-py
+years = list(range(0, 41))
+balance = [10000 * (1.07) ** y for y in years]
+balance[-1]  # ending balance after 40 years
+```
+
+## Risk vs. return
+
+Higher expected return = higher expected volatility. Choose a level you can
+**stick with** through downturns, not just one that looks attractive on a
+spreadsheet.
+
+## Diversification
+
+Don't bet on one company, one sector, or one country. Broad index funds
+make this nearly free.

@@ -1,0 +1,10 @@
+# Tracking Spending
+
+<br>
+
+You only manage what you measure. This chapter covers how to capture every
+dollar that leaves your accounts and turn that data into insight.
+
+  - Categorizing transactions
+  - Reviewing on a monthly cadence
+  - Spotting "leak" categories (subscriptions, delivery fees, impulse buys)

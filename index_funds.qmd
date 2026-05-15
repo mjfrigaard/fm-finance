@@ -1,0 +1,12 @@
+# Index Funds
+
+<br>
+
+A low-cost, broad-market index fund is the closest thing personal finance
+has to a free lunch. You own a tiny slice of thousands of companies, pay
+almost nothing in fees, and beat most active managers over long periods
+[@bogle2017little].
+
+  - Expense ratios -- why a 0.04% vs. 1% fee matters
+  - Total-market vs. S&P 500 vs. international
+  - ETFs vs. mutual funds

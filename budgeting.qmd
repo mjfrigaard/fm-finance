@@ -1,0 +1,46 @@
+# Budgeting
+
+<br>
+
+A budget is a plan for the money you expect to receive. The goal isn't to restrict yourself -- it's to make spending intentional.
+
+## Income (how much do I have?)
+
+
+
+## Budget (how am I spending?)
+
+## A simple starting framework: 50 / 30 / 20
+
+  - **50%** needs (housing, food, utilities, minimum debt payments)
+  - **30%** wants (dining out, entertainment, travel)
+  - **20%** savings & extra debt repayment
+
+```{r}
+#| label: budget-r
+#| code-fold: true
+income <- 5000
+data.frame(
+  Bucket = c("Needs (50%)", "Wants (30%)", "Save/Debt (20%)"),
+  Amount = c(income * 0.50, income * 0.30, income * 0.20)
+)
+```
+
+```{python}
+#| label: budget-py
+#| code-fold: true
+income = 5000
+{
+    "Needs":    income * 0.50,
+    "Wants":    income * 0.30,
+    "Save/Debt": income * 0.20,
+}
+```
+
+## What this chapter covers
+
+  - Fixed vs. variable expenses
+  
+  - Zero-based vs. percentage budgets
+  
+  - Common budgeting tools and spreadsheets
