@@ -2,7 +2,11 @@
 
 <br>
 
-Personal finance is mostly behavior and a small amount of math. The math matters -- compounding, interest rates, tax-advantaged accounts -- but most of the money you'll have at any point in your life depends on your habits: Are you spending less than you earn? How much are you saving?, and are you regularly investing (and leaving it alone through economic downturns)?
+Personal finance is mostly behavior and a small amount of math. The math matters -- compounding, interest rates, tax-advantaged accounts -- but most of your personal finances depends on your habits. These three questions will determine how much money you'll have at any point in your life: 
+
+1. Are you spending less than you earn?   
+2. How much are you saving?   
+3. How much are you investing (and are you leaving it alone through economic downturns)?   
 
 This chapter sets the stage for the rest of the book:
 
