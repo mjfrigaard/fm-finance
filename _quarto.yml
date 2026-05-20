@@ -18,7 +18,6 @@ book:
 
   chapters:
     - index.qmd
-    - intro.qmd
     - part: foundations.qmd
       chapters:
         - income.qmd
