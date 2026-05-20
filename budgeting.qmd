@@ -4,11 +4,70 @@
 
 A budget is a plan for the money you expect to receive. The goal isn't to restrict yourself -- it's to make spending intentional.
 
-## Income (how much do I have?)
+## What this chapter covers
 
+  - Fixed vs. variable expenses
+  
+  - Zero-based vs. percentage budgets
+  
+  - Common budgeting tools and spreadsheets
 
+## What is a budget?
 
-## Budget (how am I spending?)
+## Savings Rate
+
+Your savings rate matters more than your income or investment returns, especially early on. Someone earning $60,000 who saves 20% will often outpace someone earning $120,000 who saves 5%.
+
+```{mermaid}
+%%| fig-cap: 'Conscious Spending Plan'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart LR
+    Income(["Monthly Income"]) --> Taxes["Taxes"]
+    Income --> FixedCosts["Fixed Costs<br/>50-60%"]
+    Income --> Investments["Investments<br/>10%+"]
+    Income --> SavingsGoals["Savings Goals<br/>5-10%"]
+    Income --> GuiltFreeSpend["Guilt-Free Spending<br/>20-35%"]
+    
+    FixedCosts --> Rent("Rent/Mortgage")
+    FixedCosts --> Utilities("Utilities & Insurance")
+    FixedCosts --> Groceries("Groceries & Transport")
+    FixedCosts --> MinDebt("Minimum Debt<br>Payments")
+```
+
+This is Ramit Sethi's **Conscious Spending Plan**—a flexible framework rather than a rigid budget.
+
+## The Four Buckets
+
+The table below displays the 'four buckets' or categories your income should be split into. 
+
+| Bucket | Target % | Purpose |
+|--------|----------|---------|
+| **Fixed Costs** | 50–60% | Rent, utilities, groceries, transport, minimum debt payments |
+| **Investments** | 10%+ | 401(k), Roth IRA, index funds (pay your future self first) |
+| **Savings Goals** | 5–10% | Emergency fund, vacations, down payment, gifts |
+| **Guilt-Free Spending** | 20–35% | Dining out, hobbies, clothes—enjoy life now |
+
+## Living Within Your Means
+
+> "*Spending money to show people how much money you have is the fastest way to have less money.*" — [Morgan Housel, *The Psychology of Money*](https://www.goodreads.com/quotes/10594676-spending-money-to-show-people-how-much-money-you-have)
+
+```{mermaid}
+%%| fig-cap: 'Automate to keep it simple'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Start(["Take-Home Pay"]) --> PayYourselfFirst{"<strong>Automate First</strong>"}
+    PayYourselfFirst --> InvestAuto["Auto-transfer<br>to Investments"]
+    PayYourselfFirst --> SaveAuto["Auto-transfer<br>to Savings"]
+    InvestAuto --> Remainder("What's Left =<br> Your Spending Limit")
+    SaveAuto --> Remainder
+    Remainder --> SpendFreely(["Spend Freely<br>Within This<br>Amount"])
+```
+
+**The trick:** Don't budget what's left after spending. Spend what's left after saving and investing. This single mental shift changes everything.
 
 ## A simple starting framework: 50 / 30 / 20
 
@@ -37,10 +96,4 @@ income = 5000
 }
 ```
 
-## What this chapter covers
 
-  - Fixed vs. variable expenses
-  
-  - Zero-based vs. percentage budgets
-  
-  - Common budgeting tools and spreadsheets
