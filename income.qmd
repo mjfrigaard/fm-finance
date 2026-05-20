@@ -1,0 +1,126 @@
+# Income
+
+```{r}
+#| label: setup-r
+#| message: false
+#| warning: false
+#| include: false
+source("_common.R")
+```
+
+```{python}
+#| label: setup-py
+#| include: false
+```
+
+<br>
+
+Building wealth doesn't start with picking the right stock or finding a hot investment—it starts with how you manage the money flowing in and out of your life. Let's break down the foundational principles.
+
+## Some Core Truths
+
+Here's a counterintuitive insight from [Morgan Housel](https://www.morganhousel.com/):
+
+> *Wealth is the nice cars not purchased. The diamonds not bought. The watches not worn, the clothes forgone and the first-class upgrade declined. Wealth is financial assets that haven’t yet been converted into the stuff you see.*[^wealth]
+
+[^wealth]: From [The Psychology of Money](https://www.goodreads.com/quotes/11756295-wealth-is-the-nice-cars-not-purchased-the-diamonds-not)
+
+The person driving the flashy car isn't necessarily wealthy—they just spent their money on a car. True wealth is the income you *didn't* spend, quietly compounding in the background.
+
+[Ben Felix](https://rationalreminder.ca/) reinforces this with hard data: research consistently shows that *conspicuous consumption (signaling wealth through purchases) is negatively correlated with actual wealth.*[^consp-consump] 
+
+People who *look* rich usually aren't. People who *are* rich typically live below what their income would allow.
+
+[^consp-consump]:Read more [here](https://pmc.ncbi.nlm.nih.gov/articles/PMC7905187/#sec6)
+
+## Your Human Capital
+
+One of Felix's most powerful contributions is reframing how we think about income itself. He encourages investors to view themselves as having two forms of capital. When you're young, your single biggest asset is your future earning potential. 
+
+```{=html}
+<style>
+
+.codeStyle span:not(.nodeLabel) {
+  font-family: monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #9753b8 !important;
+  background-color: #f6f6f6;
+  padding: 0.2em;
+}
+</style>
+```
+
+```{mermaid}
+%%| fig-cap: ' Human Capital'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    TotalWealth(["Your Total<br>Economic Wealth"]) --> HumanCapital("Human Capital:<br/>Future Earning Potential")
+    TotalWealth --> FinancialCapital("Financial Capital:<br/>Investments & Savings")
+    HumanCapital --> EarlyCareer("Early Career:<br/>Human Capital is HUGE")
+    FinancialCapital --> EarlyCareer2("Early Career:<br/>Financial Capital is small")
+    EarlyCareer --> Implication["Implication:<br>Invest in Skills,<br/>Education &<br>Career Growth"]
+    EarlyCareer2 --> Implication2[Implication:<br>Take More Equity<br>Risk When Young]
+
+```
+
+Investing in skills, education, and career mobility often has a higher return than any portfolio decision. **Income growth, especially early in your career, is one of the most powerful wealth-building levers available.**
+
+## Spending and Happiness
+
+The academic research on money and well-being tend to show some surprisingly practical conclusions:
+
+- **Experiences beat possessions.** Research shows experiential purchases generate more lasting happiness than material ones.
+
+- **Buying time is one of the highest-return uses of money.** Outsourcing tasks you dislike (cleaning, lawn care, commuting time) correlates strongly with life satisfaction.
+
+- **Lifestyle inflation is the silent killer.** Hedonic adaptation means each lifestyle upgrade quickly becomes the new baseline—but the financial commitment remains permanent.
+
+- **Housing is the biggest lever.** Because shelter is most people's largest expense, decisions about how much house to buy or rent have an outsized impact on lifetime wealth.Renting is often financially equivalent or superior to buying when the math is done honestly.
+
+## Three Anchoring Rules 
+
+### 1. Spend on What You Love, Cut on What You Don't (Sethi) {.unnumbered}
+
+Love coffee? Buy the $6 latte. But maybe drive a reliable used car instead of a luxury lease. The goal isn't deprivation—it's intentionality.
+
+### 2. Build a Gap Between Ego and Income (Housel) {.unnumbered}
+
+The wider the gap between what you earn and what your ego demands you spend, the wealthier you become. Lifestyle creep is the silent killer of financial freedom.
+
+### 3. Keep It Simple (Bogle) {.unnumbered}
+
+Bogle's philosophy applies to spending too: complexity is the enemy. The more complicated your financial life, the easier it is to lose track. Automate, simplify, repeat.
+
+## As Your Income Grows
+
+This is where most people fail. A raise feels like permission to upgrade everything. Instead, focus on Felix's research-backed advice: *the marginal happiness gained from lifestyle upgrades is much smaller than people expect, while the marginal financial security from saving raises is enormous.*
+
+```{mermaid}
+%%| fig-cap: 'Interactive debugger with `browser()` or breakpoint'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Raise(["Pay Raise"]) --> Split{"<strong>Split the Raise</strong>"}
+    Split --> HalfInvest["50% to<br>Investing/Savings"]
+    Split --> HalfLifestyle["50% to<br>Lifestyle"]
+    HalfInvest --> WealthGrows(["Wealth Compounds"])
+    HalfLifestyle --> EnjoyNow(["Enjoy the Win"])
+```
+
+This way you reward yourself *and* accelerate freedom—without falling into the trap of inflating your lifestyle to match every dollar.
+
+## The Bottom Line
+
+Living within your means isn't about restriction—it's about **control and intention**. As Housel puts it, the highest form of wealth is the ability to wake up and say, "*I can do whatever I want today.*" Felix would add that this control comes from a combination of growing your income, protecting your savings rate, and being evidence-based about what actually makes you happy.
+
+Start here:  
+1. **Calculate your savings rate** (savings + investments ÷ take-home pay)  
+2. **Invest in your human capital**—your career is your biggest asset early on  
+3. **Automate** transfers on payday so you never see the money  
+4. **Track your fixed costs**—aim to keep them under 60% of take-home   
+5. **Spend the rest without guilt** on what genuinely brings you joy—prioritizing experiences and time over possessions 
+

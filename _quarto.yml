@@ -21,6 +21,7 @@ book:
     - intro.qmd
     - part: foundations.qmd
       chapters:
+        - income.qmd
         - budgeting.qmd
         - tracking_spending.qmd
         - emergency_fund.qmd
