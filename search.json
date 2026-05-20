@@ -1,0 +1,529 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Personal Finance: a field manual",
+    "section": "",
+    "text": "Welcome!\nWelcome to the Personal Finance field manual, a working reference for the day-to-day decisions that shape your financial life: budgeting, savings, borrowing, investing, taxes, insurance, and planning.\nThis book aims to answer questions like:",
+    "crumbs": [
+      "Welcome!"
+    ]
+  },
+  {
+    "objectID": "index.html#how-this-book-is-organized",
+    "href": "index.html#how-this-book-is-organized",
+    "title": "Personal Finance: a field manual",
+    "section": "How this book is organized",
+    "text": "How this book is organized\nThe book is divided into five parts:\n\nFoundations – budgeting, tracking spending, emergency funds, and debt.\nSavings – savings strategies, high-yield accounts, and automation.\nInvesting – the basics, retirement accounts, index funds, and asset allocation.\nTaxes & insurance – the protective layer around your finances.\nPlanning – goals, major purchases, and estate planning.\n\nThe five sections of the book map onto the four levers:\n\nFoundations sets up income and spending\n\nSavings turns the gap between them into a buffer\n\nInvesting puts that buffer to work\n\nTaxes & insurance and Planning sit around the outside\n\nEach chapter is short and self-contained so you can jump in where you need to.",
+    "crumbs": [
+      "Welcome!"
+    ]
+  },
+  {
+    "objectID": "index.html#code",
+    "href": "index.html#code",
+    "title": "Personal Finance: a field manual",
+    "section": "Code",
+    "text": "Code\nIf you’d like to follow along or perform any of the math yourself, the examples use both R (with the tidyverse) and Python (with pandas / NumPy). Pick whichever you prefer – the underlying ideas are the same.\n\n\nshow/hide\n1000 * (1 + 0.05)^10  # future value of $1,000 at 5% for 10 years\n#&gt; [1] 1628.895\n\n\n\n\nshow/hide\n1000 * (1 + 0.05) ** 10\n#&gt; 1628.894626777442",
+    "crumbs": [
+      "Welcome!"
+    ]
+  },
+  {
+    "objectID": "index.html#about-the-author",
+    "href": "index.html#about-the-author",
+    "title": "Personal Finance: a field manual",
+    "section": "About the author",
+    "text": "About the author\nMartin Frigaard writes about R, data, and – now – personal finance.",
+    "crumbs": [
+      "Welcome!"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "1.1 The four levers\nPersonal finance is mostly behavior and a small amount of math. The math matters – compounding, interest rates, tax-advantaged accounts – but most of your personal finances depends on your habits. These three questions will determine how much money you’ll have at any point in your life:\nThis chapter sets the stage for the rest of the book:\nEach lever has its own part in this book:",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#the-four-levers",
+    "href": "intro.html#the-four-levers",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "Income and spending are covered in Foundations.\nSavings – the gap between the two – has its own part: Savings.\nInvesting is what happens to savings over the long term: Investing.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#time-horizon",
+    "href": "intro.html#time-horizon",
+    "title": "1  Introduction",
+    "section": "1.2 Time horizon",
+    "text": "1.2 Time horizon\nMoney you need in 12 months should not look like money you won’t touch for 30 years. The rest of the book builds on that distinction.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "foundations.html",
+    "href": "foundations.html",
+    "title": "Foundations",
+    "section": "",
+    "text": "Before you optimize investments or chase tax savings, the foundations need to be in place: a working budget, awareness of where money goes, a buffer against bad surprises, and a plan for any high-interest debt.\nThe chapters in this part are deliberately practical – the goal is a stable base you can build on for decades.\nOnce the foundations are in place, the next lever is Savings: turning the gap between income and spending into a deliberate, recurring habit.",
+    "crumbs": [
+      "Foundations"
+    ]
+  },
+  {
+    "objectID": "income.html",
+    "href": "income.html",
+    "title": "2  Income",
+    "section": "",
+    "text": "2.1 Some Core Truths\nBuilding wealth doesn’t start with picking the right stock or finding a hot investment—it starts with how you manage the money flowing in and out of your life. Let’s break down the foundational principles.\nHere’s a counterintuitive insight from Morgan Housel:\nThe person driving the flashy car isn’t necessarily wealthy—they just spent their money on a car. True wealth is the income you didn’t spend, quietly compounding in the background.\nBen Felix reinforces this with hard data: research consistently shows that conspicuous consumption (signaling wealth through purchases) is negatively correlated with actual wealth.2\nPeople who look rich usually aren’t. People who are rich typically live below what their income would allow.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Income</span>"
+    ]
+  },
+  {
+    "objectID": "income.html#some-core-truths",
+    "href": "income.html#some-core-truths",
+    "title": "2  Income",
+    "section": "",
+    "text": "Wealth is the nice cars not purchased. The diamonds not bought. The watches not worn, the clothes forgone and the first-class upgrade declined. Wealth is financial assets that haven’t yet been converted into the stuff you see.1",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Income</span>"
+    ]
+  },
+  {
+    "objectID": "income.html#your-human-capital",
+    "href": "income.html#your-human-capital",
+    "title": "2  Income",
+    "section": "2.2 Your Human Capital",
+    "text": "2.2 Your Human Capital\nOne of Felix’s most powerful contributions is reframing how we think about income itself. He encourages investors to view themselves as having two forms of capital. When you’re young, your single biggest asset is your future earning potential.\n\n\n\n\n\n\n%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', \"fontSize\":\"16px\"}}}%%\n\nflowchart TD\n    TotalWealth([\"Your Total&lt;br&gt;Economic Wealth\"]) --&gt; HumanCapital(\"Human Capital:&lt;br/&gt;Future Earning Potential\")\n    TotalWealth --&gt; FinancialCapital(\"Financial Capital:&lt;br/&gt;Investments & Savings\")\n    HumanCapital --&gt; EarlyCareer(\"Early Career:&lt;br/&gt;Human Capital is HUGE\")\n    FinancialCapital --&gt; EarlyCareer2(\"Early Career:&lt;br/&gt;Financial Capital is small\")\n    EarlyCareer --&gt; Implication[\"Implication:&lt;br&gt;Invest in Skills,&lt;br/&gt;Education &&lt;br&gt;Career Growth\"]\n    EarlyCareer2 --&gt; Implication2[Implication:&lt;br&gt;Take More Equity&lt;br&gt;Risk When Young]\n\n\n\n Human Capital \n\n\n\nInvesting in skills, education, and career mobility often has a higher return than any portfolio decision. Income growth, especially early in your career, is one of the most powerful wealth-building levers available.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Income</span>"
+    ]
+  },
+  {
+    "objectID": "income.html#spending-and-happiness",
+    "href": "income.html#spending-and-happiness",
+    "title": "2  Income",
+    "section": "2.3 Spending and Happiness",
+    "text": "2.3 Spending and Happiness\nThe academic research on money and well-being tend to show some surprisingly practical conclusions:\n\nExperiences beat possessions. Research shows experiential purchases generate more lasting happiness than material ones.\nBuying time is one of the highest-return uses of money. Outsourcing tasks you dislike (cleaning, lawn care, commuting time) correlates strongly with life satisfaction.\nLifestyle inflation is the silent killer. Hedonic adaptation means each lifestyle upgrade quickly becomes the new baseline—but the financial commitment remains permanent.\nHousing is the biggest lever. Because shelter is most people’s largest expense, decisions about how much house to buy or rent have an outsized impact on lifetime wealth.Renting is often financially equivalent or superior to buying when the math is done honestly.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Income</span>"
+    ]
+  },
+  {
+    "objectID": "income.html#three-anchoring-rules",
+    "href": "income.html#three-anchoring-rules",
+    "title": "2  Income",
+    "section": "2.4 Three Anchoring Rules",
+    "text": "2.4 Three Anchoring Rules\n\n1. Spend on What You Love, Cut on What You Don’t (Sethi)\nLove coffee? Buy the $6 latte. But maybe drive a reliable used car instead of a luxury lease. The goal isn’t deprivation—it’s intentionality.\n\n\n2. Build a Gap Between Ego and Income (Housel)\nThe wider the gap between what you earn and what your ego demands you spend, the wealthier you become. Lifestyle creep is the silent killer of financial freedom.\n\n\n3. Keep It Simple (Bogle)\nBogle’s philosophy applies to spending too: complexity is the enemy. The more complicated your financial life, the easier it is to lose track. Automate, simplify, repeat.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Income</span>"
+    ]
+  },
+  {
+    "objectID": "income.html#as-your-income-grows",
+    "href": "income.html#as-your-income-grows",
+    "title": "2  Income",
+    "section": "2.5 As Your Income Grows",
+    "text": "2.5 As Your Income Grows\nThis is where most people fail. A raise feels like permission to upgrade everything. Instead, focus on Felix’s research-backed advice: the marginal happiness gained from lifestyle upgrades is much smaller than people expect, while the marginal financial security from saving raises is enormous.\n\n\n\n\n\n%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', \"fontSize\":\"16px\"}}}%%\n\nflowchart TD\n    Raise([\"Pay Raise\"]) --&gt; Split{\"&lt;strong&gt;Split the Raise&lt;/strong&gt;\"}\n    Split --&gt; HalfInvest[\"50% to&lt;br&gt;Investing/Savings\"]\n    Split --&gt; HalfLifestyle[\"50% to&lt;br&gt;Lifestyle\"]\n    HalfInvest --&gt; WealthGrows([\"Wealth Compounds\"])\n    HalfLifestyle --&gt; EnjoyNow([\"Enjoy the Win\"])\n\n\n Interactive debugger with browser() or breakpoint \n\n\n\nThis way you reward yourself and accelerate freedom—without falling into the trap of inflating your lifestyle to match every dollar.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Income</span>"
+    ]
+  },
+  {
+    "objectID": "income.html#the-bottom-line",
+    "href": "income.html#the-bottom-line",
+    "title": "2  Income",
+    "section": "2.6 The Bottom Line",
+    "text": "2.6 The Bottom Line\nLiving within your means isn’t about restriction—it’s about control and intention. As Housel puts it, the highest form of wealth is the ability to wake up and say, “I can do whatever I want today.” Felix would add that this control comes from a combination of growing your income, protecting your savings rate, and being evidence-based about what actually makes you happy.\nStart here:\n1. Calculate your savings rate (savings + investments ÷ take-home pay)\n2. Invest in your human capital—your career is your biggest asset early on\n3. Automate transfers on payday so you never see the money\n4. Track your fixed costs—aim to keep them under 60% of take-home\n5. Spend the rest without guilt on what genuinely brings you joy—prioritizing experiences and time over possessions",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Income</span>"
+    ]
+  },
+  {
+    "objectID": "income.html#footnotes",
+    "href": "income.html#footnotes",
+    "title": "2  Income",
+    "section": "",
+    "text": "From The Psychology of Money↩︎\nRead more here↩︎",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Income</span>"
+    ]
+  },
+  {
+    "objectID": "budgeting.html",
+    "href": "budgeting.html",
+    "title": "3  Budgeting",
+    "section": "",
+    "text": "3.1 What this chapter covers\nA budget is a plan for the money you expect to receive. The goal isn’t to restrict yourself – it’s to make spending intentional.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Budgeting</span>"
+    ]
+  },
+  {
+    "objectID": "budgeting.html#what-this-chapter-covers",
+    "href": "budgeting.html#what-this-chapter-covers",
+    "title": "3  Budgeting",
+    "section": "",
+    "text": "Fixed vs. variable expenses\nZero-based vs. percentage budgets\nCommon budgeting tools and spreadsheets",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Budgeting</span>"
+    ]
+  },
+  {
+    "objectID": "budgeting.html#what-is-a-budget",
+    "href": "budgeting.html#what-is-a-budget",
+    "title": "3  Budgeting",
+    "section": "3.2 What is a budget?",
+    "text": "3.2 What is a budget?",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Budgeting</span>"
+    ]
+  },
+  {
+    "objectID": "budgeting.html#savings-rate",
+    "href": "budgeting.html#savings-rate",
+    "title": "3  Budgeting",
+    "section": "3.3 Savings Rate",
+    "text": "3.3 Savings Rate\nYour savings rate matters more than your income or investment returns, especially early on. Someone earning $60,000 who saves 20% will often outpace someone earning $120,000 who saves 5%.\n\n\n\n\n\n%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', \"fontSize\":\"16px\"}}}%%\n\nflowchart LR\n    Income([\"Monthly Income\"]) --&gt; Taxes[\"Taxes\"]\n    Income --&gt; FixedCosts[\"Fixed Costs&lt;br/&gt;50-60%\"]\n    Income --&gt; Investments[\"Investments&lt;br/&gt;10%+\"]\n    Income --&gt; SavingsGoals[\"Savings Goals&lt;br/&gt;5-10%\"]\n    Income --&gt; GuiltFreeSpend[\"Guilt-Free Spending&lt;br/&gt;20-35%\"]\n    \n    FixedCosts --&gt; Rent(\"Rent/Mortgage\")\n    FixedCosts --&gt; Utilities(\"Utilities & Insurance\")\n    FixedCosts --&gt; Groceries(\"Groceries & Transport\")\n    FixedCosts --&gt; MinDebt(\"Minimum Debt&lt;br&gt;Payments\")\n\n\n Conscious Spending Plan \n\n\n\nThis is Ramit Sethi’s Conscious Spending Plan—a flexible framework rather than a rigid budget.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Budgeting</span>"
+    ]
+  },
+  {
+    "objectID": "budgeting.html#the-four-buckets",
+    "href": "budgeting.html#the-four-buckets",
+    "title": "3  Budgeting",
+    "section": "3.4 The Four Buckets",
+    "text": "3.4 The Four Buckets\nThe table below displays the ‘four buckets’ or categories your income should be split into.\n\n\n\n\n\n\n\n\nBucket\nTarget %\nPurpose\n\n\n\n\nFixed Costs\n50–60%\nRent, utilities, groceries, transport, minimum debt payments\n\n\nInvestments\n10%+\n401(k), Roth IRA, index funds (pay your future self first)\n\n\nSavings Goals\n5–10%\nEmergency fund, vacations, down payment, gifts\n\n\nGuilt-Free Spending\n20–35%\nDining out, hobbies, clothes—enjoy life now",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Budgeting</span>"
+    ]
+  },
+  {
+    "objectID": "budgeting.html#living-within-your-means",
+    "href": "budgeting.html#living-within-your-means",
+    "title": "3  Budgeting",
+    "section": "3.5 Living Within Your Means",
+    "text": "3.5 Living Within Your Means\n\n“Spending money to show people how much money you have is the fastest way to have less money.” — Morgan Housel, The Psychology of Money\n\n\n\n\n\n\n%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', \"fontSize\":\"16px\"}}}%%\n\nflowchart TD\n    Start([\"Take-Home Pay\"]) --&gt; PayYourselfFirst{\"&lt;strong&gt;Automate First&lt;/strong&gt;\"}\n    PayYourselfFirst --&gt; InvestAuto[\"Auto-transfer&lt;br&gt;to Investments\"]\n    PayYourselfFirst --&gt; SaveAuto[\"Auto-transfer&lt;br&gt;to Savings\"]\n    InvestAuto --&gt; Remainder(\"What's Left =&lt;br&gt; Your Spending Limit\")\n    SaveAuto --&gt; Remainder\n    Remainder --&gt; SpendFreely([\"Spend Freely&lt;br&gt;Within This&lt;br&gt;Amount\"])\n\n\n Automate to keep it simple \n\n\n\nThe trick: Don’t budget what’s left after spending. Spend what’s left after saving and investing. This single mental shift changes everything.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Budgeting</span>"
+    ]
+  },
+  {
+    "objectID": "budgeting.html#a-simple-starting-framework-50-30-20",
+    "href": "budgeting.html#a-simple-starting-framework-50-30-20",
+    "title": "3  Budgeting",
+    "section": "3.6 A simple starting framework: 50 / 30 / 20",
+    "text": "3.6 A simple starting framework: 50 / 30 / 20\n\n50% needs (housing, food, utilities, minimum debt payments)\n30% wants (dining out, entertainment, travel)\n20% savings & extra debt repayment\n\n\n\nshow/hide\nincome &lt;- 5000\ndata.frame(\n  Bucket = c(\"Needs (50%)\", \"Wants (30%)\", \"Save/Debt (20%)\"),\n  Amount = c(income * 0.50, income * 0.30, income * 0.20)\n)\n\n\n\n  \n\n\n\n\n\nshow/hide\nincome = 5000\n{\n    \"Needs\":    income * 0.50,\n    \"Wants\":    income * 0.30,\n    \"Save/Debt\": income * 0.20,\n}\n\n\n{'Needs': 2500.0, 'Wants': 1500.0, 'Save/Debt': 1000.0}",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Budgeting</span>"
+    ]
+  },
+  {
+    "objectID": "tracking_spending.html",
+    "href": "tracking_spending.html",
+    "title": "4  Tracking Spending",
+    "section": "",
+    "text": "You only manage what you measure. This chapter covers how to capture every dollar that leaves your accounts and turn that data into insight.\n\nCategorizing transactions\nReviewing on a monthly cadence\nSpotting “leak” categories (subscriptions, delivery fees, impulse buys)",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Tracking Spending</span>"
+    ]
+  },
+  {
+    "objectID": "emergency_fund.html",
+    "href": "emergency_fund.html",
+    "title": "5  Emergency Fund",
+    "section": "",
+    "text": "An emergency fund is cash set aside to handle the unexpected without reaching for credit. The standard target is 3 to 6 months of essential expenses, parked somewhere safe and liquid.\n\nHow much you actually need\nWhere to keep it (and where not to)\nHow to rebuild it after a withdrawal",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Emergency Fund</span>"
+    ]
+  },
+  {
+    "objectID": "managing_debt.html",
+    "href": "managing_debt.html",
+    "title": "6  Managing Debt",
+    "section": "",
+    "text": "Not all debt is equal. A 3% mortgage and a 24% credit card balance call for very different strategies.\n\nGood debt vs. bad debt\nThe avalanche method (highest rate first) vs. the snowball method (smallest balance first)\nRefinancing and consolidation\nWhen to prioritize debt payoff over investing",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Managing Debt</span>"
+    ]
+  },
+  {
+    "objectID": "savings.html",
+    "href": "savings.html",
+    "title": "Savings",
+    "section": "",
+    "text": "Savings are the bridge between earning and investing – the third of the four levers introduced in the Introduction. This part covers how much to save, where to keep it, and how to make the whole process automatic so willpower isn’t part of the equation.\nA practical sequence:\n\nBuild a starter buffer (covered in Emergency Fund).\nPick a target savings rate (Savings Strategies).\nPark the money where it actually grows (High-Yield Savings Accounts).\nAutomate the whole flow (Automating Savings).\n\nFrom there, the money is ready to feed into Investing.",
+    "crumbs": [
+      "Savings"
+    ]
+  },
+  {
+    "objectID": "savings_strategies.html",
+    "href": "savings_strategies.html",
+    "title": "7  Savings Strategies",
+    "section": "",
+    "text": "How much should you save? The honest answer is: as much as you can sustain. This chapter covers common targets and how to choose one that matches your goals.\n\nPay-yourself-first\nSinking funds for known future expenses\nThe savings rate as the single most important number",
+    "crumbs": [
+      "Savings",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Savings Strategies</span>"
+    ]
+  },
+  {
+    "objectID": "high_yield_accounts.html",
+    "href": "high_yield_accounts.html",
+    "title": "8  High-Yield Savings Accounts",
+    "section": "",
+    "text": "If your cash is sitting in a 0.01% account at a big bank, you’re leaving real money on the table. A high-yield savings account (HYSA) at an online bank or via a money-market fund can pay many multiples more.\n\nWhat to look for in an HYSA\nFDIC / NCUA coverage\nMoney market funds as an alternative\nWhen CDs and T-bills make sense",
+    "crumbs": [
+      "Savings",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>High-Yield Savings Accounts</span>"
+    ]
+  },
+  {
+    "objectID": "automating_savings.html",
+    "href": "automating_savings.html",
+    "title": "9  Automating Savings",
+    "section": "",
+    "text": "The single most effective trick in personal finance: make saving the default, not a decision. If money leaves your checking account automatically on payday, you’ll adapt your spending to what’s left.\n\nDirect deposit splits\nAutomatic transfers and the “two-account” setup\nIncreasing contributions on a schedule",
+    "crumbs": [
+      "Savings",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Automating Savings</span>"
+    ]
+  },
+  {
+    "objectID": "investing.html",
+    "href": "investing.html",
+    "title": "Investing",
+    "section": "",
+    "text": "Savings keep your purchasing power intact; investing grows it. This part covers the core ideas – compounding, diversification, low-cost index funds, and the right account types to hold them in.\nInvesting is the fourth and final lever from the Introduction. It assumes the previous levers are working: income is coming in, spending is under control, and savings are accumulating somewhere they can be moved into the market.\nThe aim is a portfolio you can leave alone for decades.",
+    "crumbs": [
+      "Investing"
+    ]
+  },
+  {
+    "objectID": "investing_basics.html",
+    "href": "investing_basics.html",
+    "title": "10  Investing Basics",
+    "section": "",
+    "text": "10.1 Compounding\nA short tour of the concepts behind every investment decision.\nCompounding is interest earning interest. Over long horizons, it does the heavy lifting.\nshow/hide\nyears   &lt;- 0:40\nbalance &lt;- 10000 * (1.07)^years\nplot(years, balance, type = \"l\",\n     xlab = \"Years\", ylab = \"Balance ($)\",\n     main = \"$10,000 at 7% compounded annually\")\nshow/hide\nyears = list(range(0, 41))\nbalance = [10000 * (1.07) ** y for y in years]\nbalance[-1]  # ending balance after 40 years\n\n\n149744.57839206984",
+    "crumbs": [
+      "Investing",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Investing Basics</span>"
+    ]
+  },
+  {
+    "objectID": "investing_basics.html#risk-vs.-return",
+    "href": "investing_basics.html#risk-vs.-return",
+    "title": "10  Investing Basics",
+    "section": "10.2 Risk vs. return",
+    "text": "10.2 Risk vs. return\nHigher expected return = higher expected volatility. Choose a level you can stick with through downturns, not just one that looks attractive on a spreadsheet.",
+    "crumbs": [
+      "Investing",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Investing Basics</span>"
+    ]
+  },
+  {
+    "objectID": "investing_basics.html#diversification",
+    "href": "investing_basics.html#diversification",
+    "title": "10  Investing Basics",
+    "section": "10.3 Diversification",
+    "text": "10.3 Diversification\nDon’t bet on one company, one sector, or one country. Broad index funds make this nearly free.",
+    "crumbs": [
+      "Investing",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Investing Basics</span>"
+    ]
+  },
+  {
+    "objectID": "retirement_accounts.html",
+    "href": "retirement_accounts.html",
+    "title": "11  Retirement Accounts",
+    "section": "",
+    "text": "Retirement accounts are tax-advantaged wrappers that hold your investments. Choosing the right one is often worth more than picking the right fund.\n\n401(k) / 403(b) / TSP – employer plans, often with a match\nTraditional IRA – tax-deferred contributions\nRoth IRA – tax-free growth\nHSA – the most tax-advantaged account available if you qualify\nTaxable brokerage – for everything above the limits\n\nA good default order: capture the employer match, max the HSA (if eligible), max IRA, then back to the 401(k) up to the limit.",
+    "crumbs": [
+      "Investing",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Retirement Accounts</span>"
+    ]
+  },
+  {
+    "objectID": "index_funds.html",
+    "href": "index_funds.html",
+    "title": "12  Index Funds",
+    "section": "",
+    "text": "A low-cost, broad-market index fund is the closest thing personal finance has to a free lunch. You own a tiny slice of thousands of companies, pay almost nothing in fees, and beat most active managers over long periods (Bogle 2017).\n\nExpense ratios – why a 0.04% vs. 1% fee matters\nTotal-market vs. S&P 500 vs. international\nETFs vs. mutual funds\n\n\n\n\n\nBogle, John C. 2017. The Little Book of Common Sense Investing. 10th Anniversary. Wiley.",
+    "crumbs": [
+      "Investing",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Index Funds</span>"
+    ]
+  },
+  {
+    "objectID": "asset_allocation.html",
+    "href": "asset_allocation.html",
+    "title": "13  Asset Allocation",
+    "section": "",
+    "text": "Asset allocation is how you divide your portfolio between stocks, bonds, and cash. It’s the single biggest driver of long-term results – bigger than fund selection or market timing.\n\nStocks vs. bonds vs. cash\nGlide paths and target-date funds\nRebalancing\nWhy a three-fund portfolio is enough for most people (Collins 2016)\n\n\n\n\n\nCollins, J. L. 2016. The Simple Path to Wealth. CreateSpace.",
+    "crumbs": [
+      "Investing",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Asset Allocation</span>"
+    ]
+  },
+  {
+    "objectID": "taxes_insurance.html",
+    "href": "taxes_insurance.html",
+    "title": "Taxes & Insurance",
+    "section": "",
+    "text": "Taxes and insurance are the protective layer around the rest of your finances. Get them roughly right and the rest is much easier. Get them wrong and a single event can undo years of saving.",
+    "crumbs": [
+      "Taxes & Insurance"
+    ]
+  },
+  {
+    "objectID": "taxes.html",
+    "href": "taxes.html",
+    "title": "14  Taxes",
+    "section": "",
+    "text": "You don’t need to be a tax expert – you need to know enough to avoid obvious mistakes and capture obvious wins.\n\nMarginal vs. effective tax rates\nPre-tax vs. Roth contributions\nTax-loss harvesting in taxable accounts\nCommon deductions and credits\nWhen to hire a CPA",
+    "crumbs": [
+      "Taxes & Insurance",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Taxes</span>"
+    ]
+  },
+  {
+    "objectID": "insurance.html",
+    "href": "insurance.html",
+    "title": "15  Insurance",
+    "section": "",
+    "text": "Insurance is for losses you can’t absorb on your own. Buy enough to cover the catastrophic; skip the small policies that turn premiums into a slow leak.\n\nHealth\nAuto\nRenters / homeowners\nTerm life (when you have dependents)\nDisability\nUmbrella",
+    "crumbs": [
+      "Taxes & Insurance",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Insurance</span>"
+    ]
+  },
+  {
+    "objectID": "planning.html",
+    "href": "planning.html",
+    "title": "Planning",
+    "section": "",
+    "text": "Long-term planning takes the building blocks from the earlier parts of this book and turns them into specific, dated goals: a down payment, a sabbatical, retirement, what happens to your assets after you’re gone.",
+    "crumbs": [
+      "Planning"
+    ]
+  },
+  {
+    "objectID": "financial_goals.html",
+    "href": "financial_goals.html",
+    "title": "16  Financial Goals",
+    "section": "",
+    "text": "A “goal” without a number and a date is a wish. This chapter is about turning wishes into plans you can actually execute against.\n\nShort / medium / long horizons\nSequencing goals when you can’t fund them all at once\nTracking progress without obsessing over it",
+    "crumbs": [
+      "Planning",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Financial Goals</span>"
+    ]
+  },
+  {
+    "objectID": "major_purchases.html",
+    "href": "major_purchases.html",
+    "title": "17  Major Purchases",
+    "section": "",
+    "text": "Houses, cars, and weddings are where most people accidentally undo years of saving. The mechanics aren’t complicated – the discipline is.\n\nDown payment math\nTotal cost of ownership (the sticker price is the smallest piece)\nFinancing vs. paying cash\nAvoiding lifestyle creep after a raise",
+    "crumbs": [
+      "Planning",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Major Purchases</span>"
+    ]
+  },
+  {
+    "objectID": "estate_planning.html",
+    "href": "estate_planning.html",
+    "title": "18  Estate Planning",
+    "section": "",
+    "text": "You don’t need a complicated trust to do the basics right. A will, named beneficiaries on every account, and a power of attorney cover most people.\n\nWill and (sometimes) trust\nBeneficiary designations override your will – keep them current\nPower of attorney and healthcare directives\nWhere to keep the paperwork so it can actually be found",
+    "crumbs": [
+      "Planning",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Estate Planning</span>"
+    ]
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Books\nA short, opinionated list of further reading and tools.",
+    "crumbs": [
+      "Appendices",
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "resources.html#books",
+    "href": "resources.html#books",
+    "title": "Resources",
+    "section": "",
+    "text": "The Simple Path to Wealth – J. L. Collins (Collins 2016)\nThe Little Book of Common Sense Investing – John C. Bogle (Bogle 2017)",
+    "crumbs": [
+      "Appendices",
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "resources.html#communities",
+    "href": "resources.html#communities",
+    "title": "Resources",
+    "section": "Communities",
+    "text": "Communities\n\nr/personalfinance – the wiki is unusually good\nBogleheads – forum and wiki around low-cost index investing",
+    "crumbs": [
+      "Appendices",
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "resources.html#tools",
+    "href": "resources.html#tools",
+    "title": "Resources",
+    "section": "Tools",
+    "text": "Tools\n\nSpreadsheets (Google Sheets / Excel) – still the most flexible option\nAccount aggregators (Monarch, Copilot, YNAB)",
+    "crumbs": [
+      "Appendices",
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "resources.html#references",
+    "href": "resources.html#references",
+    "title": "Resources",
+    "section": "References",
+    "text": "References\n\n\nBogle, John C. 2017. The Little Book of Common Sense Investing.\n10th Anniversary. Wiley.\n\n\nCollins, J. L. 2016. The Simple Path to Wealth. CreateSpace.",
+    "crumbs": [
+      "Appendices",
+      "Resources"
+    ]
+  }
+]
