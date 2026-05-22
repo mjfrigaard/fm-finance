@@ -33,16 +33,13 @@ data.frame(
 
 Each lever has its own part in this book:
 
-  - **Income** and **spending** are covered in [Foundations](foundations.qmd).
-  - **Savings** -- the gap between the two -- has its own part:
-    [Savings](savings.qmd).
-  - **Investing** is what happens to savings over the long term:
-    [Investing](investing.qmd).
+  - [Foundations](foundations.qmd): **Income**, **budgeting**, and **spending** are the behaviors that will have the biggest impact on your financial health. You'll also want to plan for emergencies, and manage the money your borrow. 
+  - [Savings](savings.qmd) covers different ways to put money aside, different kinds of savings accounts, and -- the most important behavior for disciplined savings -- **automation**.   
+  - [Investing](investing.qmd) is what happens to the money you save **over the long term**. 
 
-## Time horizon
+## Time horizons
 
-Money you need in 12 months should not look like money you won't touch for 30
-years. The rest of the book builds on that distinction.
+Money you need in 12 months should not look like money you won't touch for 30 years. The rest of the book builds on that distinction.
 
 
 Once the foundations are in place, the next lever is [**Savings**](savings.qmd): turning the gap between income and spending into a deliberate, recurring habit.
