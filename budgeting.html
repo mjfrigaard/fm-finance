@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -108,8 +73,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
-<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 </head>
@@ -346,12 +309,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#what-this-chapter-covers" id="toc-what-this-chapter-covers" class="nav-link active" data-scroll-target="#what-this-chapter-covers"><span class="header-section-number">2.1</span> What this chapter covers</a></li>
-  <li><a href="#what-is-a-budget" id="toc-what-is-a-budget" class="nav-link" data-scroll-target="#what-is-a-budget"><span class="header-section-number">2.2</span> What is a budget?</a></li>
-  <li><a href="#savings-rate" id="toc-savings-rate" class="nav-link" data-scroll-target="#savings-rate"><span class="header-section-number">2.3</span> Savings Rate</a></li>
-  <li><a href="#the-four-buckets" id="toc-the-four-buckets" class="nav-link" data-scroll-target="#the-four-buckets"><span class="header-section-number">2.4</span> The Four Buckets</a></li>
-  <li><a href="#living-within-your-means" id="toc-living-within-your-means" class="nav-link" data-scroll-target="#living-within-your-means"><span class="header-section-number">2.5</span> Living Within Your Means</a></li>
-  <li><a href="#a-simple-starting-framework-50-30-20" id="toc-a-simple-starting-framework-50-30-20" class="nav-link" data-scroll-target="#a-simple-starting-framework-50-30-20"><span class="header-section-number">2.6</span> A simple starting framework: 50 / 30 / 20</a></li>
+  <li><a href="#the-budget-mindset-shift" id="toc-the-budget-mindset-shift" class="nav-link active" data-scroll-target="#the-budget-mindset-shift"><span class="header-section-number">2.1</span> The Budget Mindset Shift</a></li>
+  <li><a href="#fixed-vs.-variable-expenses-know-the-difference" id="toc-fixed-vs.-variable-expenses-know-the-difference" class="nav-link" data-scroll-target="#fixed-vs.-variable-expenses-know-the-difference"><span class="header-section-number">2.2</span> Fixed vs.&nbsp;Variable Expenses: Know the Difference</a>
+  <ul>
+  <li><a href="#why-this-matters" id="toc-why-this-matters" class="nav-link" data-scroll-target="#why-this-matters"><span class="header-section-number">2.2.1</span> Why This Matters</a></li>
+  <li><a href="#the-sinking-fund-your-secret-weapon" id="toc-the-sinking-fund-your-secret-weapon" class="nav-link" data-scroll-target="#the-sinking-fund-your-secret-weapon"><span class="header-section-number">2.2.2</span> The Sinking Fund: Your Secret Weapon</a></li>
+  </ul></li>
+  <li><a href="#zero-based-vs.-percentage-budgets" id="toc-zero-based-vs.-percentage-budgets" class="nav-link" data-scroll-target="#zero-based-vs.-percentage-budgets"><span class="header-section-number">2.3</span> Zero-Based vs.&nbsp;Percentage Budgets</a>
+  <ul>
+  <li><a href="#zero-based-budgeting" id="toc-zero-based-budgeting" class="nav-link" data-scroll-target="#zero-based-budgeting"><span class="header-section-number">2.3.1</span> Zero-Based Budgeting</a></li>
+  <li><a href="#percentage-based-budgeting" id="toc-percentage-based-budgeting" class="nav-link" data-scroll-target="#percentage-based-budgeting"><span class="header-section-number">2.3.2</span> Percentage-Based Budgeting</a></li>
+  <li><a href="#which-should-you-choose" id="toc-which-should-you-choose" class="nav-link" data-scroll-target="#which-should-you-choose"><span class="header-section-number">2.3.3</span> Which Should You Choose?</a></li>
+  </ul></li>
+  <li><a href="#common-budgeting-tools-and-spreadsheets" id="toc-common-budgeting-tools-and-spreadsheets" class="nav-link" data-scroll-target="#common-budgeting-tools-and-spreadsheets"><span class="header-section-number">2.4</span> Common Budgeting Tools and Spreadsheets</a>
+  <ul>
+  <li><a href="#apps" id="toc-apps" class="nav-link" data-scroll-target="#apps"><span class="header-section-number">2.4.1</span> Apps</a></li>
+  <li><a href="#the-spreadsheet-approach" id="toc-the-spreadsheet-approach" class="nav-link" data-scroll-target="#the-spreadsheet-approach"><span class="header-section-number">2.4.2</span> The Spreadsheet Approach</a></li>
+  <li><a href="#what-actually-matters-in-a-tool" id="toc-what-actually-matters-in-a-tool" class="nav-link" data-scroll-target="#what-actually-matters-in-a-tool"><span class="header-section-number">2.4.3</span> What Actually Matters in a Tool</a></li>
+  </ul></li>
+  <li><a href="#the-math-you-need-to-master" id="toc-the-math-you-need-to-master" class="nav-link" data-scroll-target="#the-math-you-need-to-master"><span class="header-section-number">2.5</span> The Math You Need to Master</a>
+  <ul>
+  <li><a href="#percentages-your-most-used-skill" id="toc-percentages-your-most-used-skill" class="nav-link" data-scroll-target="#percentages-your-most-used-skill"><span class="header-section-number">2.5.1</span> 1. Percentages (Your Most-Used Skill)</a></li>
+  <li><a href="#savings-rate-your-most-important-metric" id="toc-savings-rate-your-most-important-metric" class="nav-link" data-scroll-target="#savings-rate-your-most-important-metric"><span class="header-section-number">2.5.2</span> 2. Savings Rate (Your Most Important Metric)</a></li>
+  <li><a href="#annualizing-and-monthly-izing" id="toc-annualizing-and-monthly-izing" class="nav-link" data-scroll-target="#annualizing-and-monthly-izing"><span class="header-section-number">2.5.3</span> 3. Annualizing and Monthly-izing</a></li>
+  <li><a href="#compound-interest-the-wealth-equation" id="toc-compound-interest-the-wealth-equation" class="nav-link" data-scroll-target="#compound-interest-the-wealth-equation"><span class="header-section-number">2.5.4</span> 4. Compound Interest (The Wealth Equation)</a></li>
+  <li><a href="#opportunity-cost-math" id="toc-opportunity-cost-math" class="nav-link" data-scroll-target="#opportunity-cost-math"><span class="header-section-number">2.5.5</span> 5. Opportunity Cost Math</a></li>
+  <li><a href="#break-even-and-payback-calculations" id="toc-break-even-and-payback-calculations" class="nav-link" data-scroll-target="#break-even-and-payback-calculations"><span class="header-section-number">2.5.6</span> 6. Break-Even and Payback Calculations</a></li>
+  </ul></li>
+  <li><a href="#putting-it-all-together-a-budget-that-actually-works" id="toc-putting-it-all-together-a-budget-that-actually-works" class="nav-link" data-scroll-target="#putting-it-all-together-a-budget-that-actually-works"><span class="header-section-number">2.6</span> Putting It All Together: A Budget That Actually Works</a></li>
+  <li><a href="#the-bottom-line" id="toc-the-bottom-line" class="nav-link" data-scroll-target="#the-bottom-line"><span class="header-section-number">2.7</span> The Bottom Line</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/budgeting.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -378,92 +364,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><br></p>
-<p>A budget is a plan for the money you expect to receive. The goal isn’t to restrict yourself – it’s to make spending intentional.</p>
-<section id="what-this-chapter-covers" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="what-this-chapter-covers"><span class="header-section-number">2.1</span> What this chapter covers</h2>
-<ul>
-<li><p>Fixed vs.&nbsp;variable expenses</p></li>
-<li><p>Zero-based vs.&nbsp;percentage budgets</p></li>
-<li><p>Common budgeting tools and spreadsheets</p></li>
-</ul>
-</section>
-<section id="what-is-a-budget" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="what-is-a-budget"><span class="header-section-number">2.2</span> What is a budget?</h2>
-</section>
-<section id="savings-rate" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="savings-rate"><span class="header-section-number">2.3</span> Savings Rate</h2>
-<p>Your savings rate matters more than your income or investment returns, especially early on. Someone earning $60,000 who saves 20% will often outpace someone earning $120,000 who saves 5%.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
-
-flowchart LR
-    Income(["Monthly Income"]) --&gt; Taxes["Taxes"]
-    Income --&gt; FixedCosts["Fixed Costs&lt;br/&gt;50-60%"]
-    Income --&gt; Investments["Investments&lt;br/&gt;10%+"]
-    Income --&gt; SavingsGoals["Savings Goals&lt;br/&gt;5-10%"]
-    Income --&gt; GuiltFreeSpend["Guilt-Free Spending&lt;br/&gt;20-35%"]
-    
-    FixedCosts --&gt; Rent("Rent/Mortgage")
-    FixedCosts --&gt; Utilities("Utilities &amp; Insurance")
-    FixedCosts --&gt; Groceries("Groceries &amp; Transport")
-    FixedCosts --&gt; MinDebt("Minimum Debt&lt;br&gt;Payments")
-</pre>
-</div>
-<p></p><figcaption> Conscious Spending Plan</figcaption> </figure><p></p>
-</div>
-</div>
-</div>
-<p>This is Ramit Sethi’s <strong>Conscious Spending Plan</strong>—a flexible framework rather than a rigid budget.</p>
-</section>
-<section id="the-four-buckets" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="the-four-buckets"><span class="header-section-number">2.4</span> The Four Buckets</h2>
-<p>The table below displays the ‘four buckets’ or categories your income should be split into.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 29%">
-<col style="width: 37%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Bucket</th>
-<th>Target %</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Fixed Costs</strong></td>
-<td>50–60%</td>
-<td>Rent, utilities, groceries, transport, minimum debt payments</td>
-</tr>
-<tr class="even">
-<td><strong>Investments</strong></td>
-<td>10%+</td>
-<td>401(k), Roth IRA, index funds (pay your future self first)</td>
-</tr>
-<tr class="odd">
-<td><strong>Savings Goals</strong></td>
-<td>5–10%</td>
-<td>Emergency fund, vacations, down payment, gifts</td>
-</tr>
-<tr class="even">
-<td><strong>Guilt-Free Spending</strong></td>
-<td>20–35%</td>
-<td>Dining out, hobbies, clothes—enjoy life now</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="living-within-your-means" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="living-within-your-means"><span class="header-section-number">2.5</span> Living Within Your Means</h2>
+<p>Let’s get one thing straight upfront: <strong>most people hate budgeting because they’re doing it wrong.</strong> Traditional budgets fail because they treat humans like robots—tracking every penny, restricting every joy, and demanding perfection. The frameworks below, drawn from Sethi, Housel, Bogle, and Felix, are designed for how humans actually behave.</p>
 <blockquote class="blockquote">
-<p>“<em>Spending money to show people how much money you have is the fastest way to have less money.</em>” — <a href="https://www.goodreads.com/quotes/10594676-spending-money-to-show-people-how-much-money-you-have">Morgan Housel, <em>The Psychology of Money</em></a></p>
+<p>“A budget tells your money where to go instead of wondering where it went.” — A principle Ramit Sethi often echoes</p>
 </blockquote>
+<section id="the-budget-mindset-shift" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-budget-mindset-shift"><span class="header-section-number">2.1</span> The Budget Mindset Shift</h2>
+<p>Before tactics, the mindset: a budget isn’t about restriction—it’s about <strong>conscious allocation</strong>. Morgan Housel’s insight applies powerfully here: <strong>room for error is the most underrated financial concept.</strong> A good budget builds in flexibility, not rigidity.</p>
+<style>
+
+.codeStyle span:not(.nodeLabel) {
+  font-family: monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #9753b8 !important;
+  background-color: #f6f6f6;
+  padding: 0.2em;
+}
+</style>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div>
@@ -472,58 +390,384 @@ flowchart LR
 <pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
-    Start(["Take-Home Pay"]) --&gt; PayYourselfFirst{"&lt;strong&gt;Automate First&lt;/strong&gt;"}
-    PayYourselfFirst --&gt; InvestAuto["Auto-transfer&lt;br&gt;to Investments"]
-    PayYourselfFirst --&gt; SaveAuto["Auto-transfer&lt;br&gt;to Savings"]
-    InvestAuto --&gt; Remainder("What's Left =&lt;br&gt; Your Spending Limit")
-    SaveAuto --&gt; Remainder
-    Remainder --&gt; SpendFreely(["Spend Freely&lt;br&gt;Within This&lt;br&gt;Amount"])
+    OldBudget[Old Budget Mindset] --&gt; Restrict[Restrict Everything]
+    Restrict --&gt; Fail[Fails Within Weeks]
+    
+    NewBudget[Conscious Spending Plan] --&gt; Prioritize[Prioritize What Matters]
+    Prioritize --&gt; Sustain[Sustains for Years]
 </pre>
 </div>
-<p></p><figcaption> Automate to keep it simple</figcaption> </figure><p></p>
+<p></p><figcaption> Budget Mindset</figcaption> </figure><p></p>
 </div>
 </div>
 </div>
-<p><strong>The trick:</strong> Don’t budget what’s left after spending. Spend what’s left after saving and investing. This single mental shift changes everything.</p>
 </section>
-<section id="a-simple-starting-framework-50-30-20" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="a-simple-starting-framework-50-30-20"><span class="header-section-number">2.6</span> A simple starting framework: 50 / 30 / 20</h2>
-<ul>
-<li><strong>50%</strong> needs (housing, food, utilities, minimum debt payments)</li>
-<li><strong>30%</strong> wants (dining out, entertainment, travel)</li>
-<li><strong>20%</strong> savings &amp; extra debt repayment</li>
-</ul>
-<div class="cell">
-<details class="code-fold">
-<summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>income <span class="ot">&lt;-</span> <span class="dv">5000</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Bucket =</span> <span class="fu">c</span>(<span class="st">"Needs (50%)"</span>, <span class="st">"Wants (30%)"</span>, <span class="st">"Save/Debt (20%)"</span>),</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Amount =</span> <span class="fu">c</span>(income <span class="sc">*</span> <span class="fl">0.50</span>, income <span class="sc">*</span> <span class="fl">0.30</span>, income <span class="sc">*</span> <span class="fl">0.20</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<section id="fixed-vs.-variable-expenses-know-the-difference" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="fixed-vs.-variable-expenses-know-the-difference"><span class="header-section-number">2.2</span> Fixed vs.&nbsp;Variable Expenses: Know the Difference</h2>
+<p>The first skill in budgeting is correctly categorizing your money. Most people lump everything together and get overwhelmed.</p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["Bucket"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Amount"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Needs (50%)","2":"2500"},{"1":"Wants (30%)","2":"1500"},{"1":"Save/Debt (20%)","2":"1000"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart LR
+    Expenses[Monthly Expenses] --&gt; Fixed[FIXED EXPENSES&lt;br/&gt;Predictable &amp; Recurring]
+    Expenses --&gt; Variable[VARIABLE EXPENSES&lt;br/&gt;Fluctuate Month to Month]
+    Expenses --&gt; Periodic[PERIODIC EXPENSES&lt;br/&gt;Annual or Irregular]
+    
+    Fixed --&gt; Rent[Rent/Mortgage]
+    Fixed --&gt; Insurance[Insurance Premiums]
+    Fixed --&gt; Subs[Subscriptions]
+    Fixed --&gt; Loans[Loan Payments]
+    
+    Variable --&gt; Groceries[Groceries]
+    Variable --&gt; Utilities[Utilities]
+    Variable --&gt; Gas[Gas/Transport]
+    Variable --&gt; Dining[Dining Out]
+    
+    Periodic --&gt; Taxes[Property Taxes]
+    Periodic --&gt; CarMaint[Car Maintenance]
+    Periodic --&gt; Gifts[Gifts/Holidays]
+    Periodic --&gt; Medical[Medical Costs]
+</pre>
+</div>
+<p></p><figcaption> Fixed vs.&nbsp;Variable Expenses</figcaption> </figure><p></p>
 </div>
 </div>
 </div>
-<div class="cell">
-<details class="code-fold">
-<summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">5000</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Needs"</span>:    income <span class="op">*</span> <span class="fl">0.50</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Wants"</span>:    income <span class="op">*</span> <span class="fl">0.30</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Save/Debt"</span>: income <span class="op">*</span> <span class="fl">0.20</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>{'Needs': 2500.0, 'Wants': 1500.0, 'Save/Debt': 1000.0}</code></pre>
+<section id="why-this-matters" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="why-this-matters"><span class="header-section-number">2.2.1</span> Why This Matters</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Fixed Expenses</strong></td>
+<td>Lock these in and forget them. The goal is to <strong>minimize them once</strong>, then automate. Biggest leverage point: housing.</td>
+</tr>
+<tr class="even">
+<td><strong>Variable Expenses</strong></td>
+<td>Where most “budgeting” effort fails. Use <strong>categories with limits</strong>, not line-by-line tracking.</td>
+</tr>
+<tr class="odd">
+<td><strong>Periodic Expenses</strong></td>
+<td>The silent budget-killer. Use a <strong>sinking fund</strong>—set aside 1/12 of the annual cost each month.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-sinking-fund-your-secret-weapon" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="the-sinking-fund-your-secret-weapon"><span class="header-section-number">2.2.2</span> The Sinking Fund: Your Secret Weapon</h3>
+<p>If your car insurance is $1,200/year, don’t get blindsided every six months. Save $100/month into a “Car Insurance” sub-account. When the bill arrives, the money is already there. Repeat for every periodic expense:</p>
+<ul>
+<li>Christmas/gifts: $600/year → $50/month</li>
+<li>Car maintenance: $1,200/year → $100/month</li>
+<li>Annual vacation: $2,400/year → $200/month</li>
+</ul>
+<p>This single technique eliminates 80% of “budget emergencies.”</p>
+</section>
+</section>
+<section id="zero-based-vs.-percentage-budgets" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="zero-based-vs.-percentage-budgets"><span class="header-section-number">2.3</span> Zero-Based vs.&nbsp;Percentage Budgets</h2>
+<p>Two dominant frameworks exist. Both work—pick the one that matches your personality.</p>
+<section id="zero-based-budgeting" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="zero-based-budgeting"><span class="header-section-number">2.3.1</span> Zero-Based Budgeting</h3>
+<p>Every dollar gets a job. Income minus all allocations equals zero. Popularized by tools like YNAB (You Need A Budget).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart LR
+    Income[$5,000 Income] --&gt; Rent2[$1,500 Rent]
+    Income --&gt; Food[$500 Groceries]
+    Income --&gt; Transport[$300 Transport]
+    Income --&gt; Invest[$1,000 Investments]
+    Income --&gt; Save[$500 Savings]
+    Income --&gt; Fun[$700 Fun Money]
+    Income --&gt; Misc[$500 Other]
+    Misc --&gt; Zero[Total = $5,000&lt;br/&gt;Remaining = $0]
+</pre>
+</div>
+<p></p><figcaption> Zero-Based Budgeting</figcaption> </figure><p></p>
 </div>
 </div>
+</div>
+<p><strong>Best for:</strong> Detail-oriented people, those rebuilding from debt, irregular income earners, anyone needing tight control.</p>
+<p><strong>Pros:</strong> Maximum awareness, every dollar intentional, exposes leaks immediately.</p>
+<p><strong>Cons:</strong> High maintenance, can feel restrictive, requires re-budgeting monthly.</p>
+</section>
+<section id="percentage-based-budgeting" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="percentage-based-budgeting"><span class="header-section-number">2.3.2</span> Percentage-Based Budgeting</h3>
+<p>Allocate by percentages, not dollars. This is the foundation of Sethi’s Conscious Spending Plan and similar frameworks (50/30/20, etc.).</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Bucket</th>
+<th>Conscious Spending Plan (Sethi)</th>
+<th>50/30/20 Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fixed Costs</td>
+<td>50–60%</td>
+<td>50% Needs</td>
+</tr>
+<tr class="even">
+<td>Investments</td>
+<td>10%+</td>
+<td>20% Savings/Debt</td>
+</tr>
+<tr class="odd">
+<td>Savings Goals</td>
+<td>5–10%</td>
+<td>(combined above)</td>
+</tr>
+<tr class="even">
+<td>Guilt-Free Spending</td>
+<td>20–35%</td>
+<td>30% Wants</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Best for:</strong> Big-picture thinkers, stable income earners, those who hate detailed tracking.</p>
+<p><strong>Pros:</strong> Simple, sustainable, scales with income, low maintenance.</p>
+<p><strong>Cons:</strong> Less granular, can mask category overspending, requires honesty about category boundaries.</p>
+</section>
+<section id="which-should-you-choose" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="which-should-you-choose"><span class="header-section-number">2.3.3</span> Which Should You Choose?</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Choose[Which Budget Style?] --&gt; Question1{In Debt or&lt;br/&gt;Just Starting?}
+    Question1 --&gt;|Yes| ZeroBased[Zero-Based&lt;br/&gt;for 6-12 months]
+    Question1 --&gt;|No| Question2{Love Spreadsheets&lt;br/&gt;&amp; Details?}
+    Question2 --&gt;|Yes| Hybrid[Hybrid Approach]
+    Question2 --&gt;|No| Percentage[Percentage-Based&lt;br/&gt;Conscious Spending]
+    ZeroBased --&gt; Eventually[Graduate to Percentage&lt;br/&gt;Once Stable]
+</pre>
+</div>
+<p></p><figcaption> Which Budget To Choose?</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>My honest recommendation:</strong> Start with zero-based for 2-3 months to truly understand your spending. Then transition to a percentage-based system with automation. You get the awareness without the long-term burden.</p>
+</section>
+</section>
+<section id="common-budgeting-tools-and-spreadsheets" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="common-budgeting-tools-and-spreadsheets"><span class="header-section-number">2.4</span> Common Budgeting Tools and Spreadsheets</h2>
+<section id="apps" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="apps"><span class="header-section-number">2.4.1</span> Apps</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 45%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>Best For</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>YNAB (You Need A Budget)</strong></td>
+<td>Zero-based devotees, debt payoff</td>
+<td>~$15/month</td>
+</tr>
+<tr class="even">
+<td><strong>Monarch Money</strong></td>
+<td>Couples, net worth tracking</td>
+<td>~$15/month</td>
+</tr>
+<tr class="odd">
+<td><strong>Empower (formerly Personal Capital)</strong></td>
+<td>Investment + budget overview</td>
+<td>Free</td>
+</tr>
+<tr class="even">
+<td><strong>Copilot</strong></td>
+<td>iOS users, beautiful design</td>
+<td>~$13/month</td>
+</tr>
+<tr class="odd">
+<td><strong>Rocket Money</strong></td>
+<td>Subscription cancellation, simple tracking</td>
+<td>Free/Premium</td>
+</tr>
+<tr class="even">
+<td><strong>PocketGuard</strong></td>
+<td>Simple “what can I spend?” view</td>
+<td>Free/Premium</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-spreadsheet-approach" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="the-spreadsheet-approach"><span class="header-section-number">2.4.2</span> The Spreadsheet Approach</h3>
+<p>Bogle would approve: <strong>simplicity wins.</strong> A well-built spreadsheet beats most apps because it forces you to engage with your numbers. Here’s a basic structure:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart LR
+    Spreadsheet[Budget Spreadsheet] --&gt; Tab1[Tab 1: Income]
+    Spreadsheet --&gt; Tab2[Tab 2: Fixed Expenses]
+    Spreadsheet --&gt; Tab3[Tab 3: Variable Expenses]
+    Spreadsheet --&gt; Tab4[Tab 4: Sinking Funds]
+    Spreadsheet --&gt; Tab5[Tab 5: Net Worth Tracker]
+    Spreadsheet --&gt; Tab6[Tab 6: Summary Dashboard]
+    
+    Tab6 --&gt; Metrics[Key Metrics:&lt;br/&gt;Savings Rate&lt;br/&gt;Fixed Cost %&lt;br/&gt;Monthly Cash Flow]
+</pre>
+</div>
+<p></p><figcaption> Spreadsheet</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Free options to get started:</strong></p>
+<ul>
+<li>Google Sheets templates (search “budget template”)<br>
+</li>
+<li>Tiller Money (~$79/year—automates bank imports into Sheets)<br>
+</li>
+<li>The classic envelope spreadsheet from any personal finance blog</li>
+</ul>
+</section>
+<section id="what-actually-matters-in-a-tool" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="what-actually-matters-in-a-tool"><span class="header-section-number">2.4.3</span> What Actually Matters in a Tool</h3>
+<p>Don’t overthink this. The best budgeting tool is <strong>the one you’ll actually use.</strong></p>
+<p>Features that matter:</p>
+<ol type="1">
+<li><strong>Automatic transaction imports</strong> (saves hours per month)</li>
+<li><strong>Easy categorization</strong> (you’ll do this weekly)</li>
+<li><strong>A clear summary view</strong> (your dashboard)</li>
+<li><strong>Goal tracking</strong> (motivation matters)</li>
+</ol>
+<p>Features that don’t matter as much: fancy graphs, AI insights, social features. Substance over style.</p>
+</section>
+</section>
+<section id="the-math-you-need-to-master" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="the-math-you-need-to-master"><span class="header-section-number">2.5</span> The Math You Need to Master</h2>
+<p>Here’s the secret most personal finance content avoids: <strong>budgeting requires only middle-school math.</strong> But you need to be <em>fluent</em> in a few specific calculations.</p>
+<section id="percentages-your-most-used-skill" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="percentages-your-most-used-skill"><span class="header-section-number">2.5.1</span> 1. Percentages (Your Most-Used Skill)</h3>
+<p>You need to instantly answer: “What percentage of my income is X?”</p>
+<p><strong>Formula:</strong> (Expense ÷ Income) × 100</p>
+<p>Example: Rent is $1,500, income is $5,000. → 1,500 ÷ 5,000 = 0.30 → <strong>30% of income on rent.</strong></p>
+<p>Practice until you can do this in your head for the big categories.</p>
+</section>
+<section id="savings-rate-your-most-important-metric" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="savings-rate-your-most-important-metric"><span class="header-section-number">2.5.2</span> 2. Savings Rate (Your Most Important Metric)</h3>
+<p>Felix and Bogle both stress this above all else.</p>
+<p><strong>Formula:</strong> (Savings + Investments) ÷ Gross Income</p>
+<p>Example: You save $500 and invest $700 from a $5,000 gross income. → 1,200 ÷ 5,000 = <strong>24% savings rate.</strong></p>
+<p>Benchmarks to know:</p>
+<ul>
+<li><strong>&lt;10%:</strong> Danger zone—build aggressively<br>
+</li>
+<li><strong>10-20%:</strong> Average—you’ll retire eventually<br>
+</li>
+<li><strong>20-30%:</strong> Strong—you’re building real wealth<br>
+</li>
+<li><strong>30%+:</strong> Path to early financial independence</li>
+</ul>
+</section>
+<section id="annualizing-and-monthly-izing" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="annualizing-and-monthly-izing"><span class="header-section-number">2.5.3</span> 3. Annualizing and Monthly-izing</h3>
+<p>The skill of converting between time periods. Budgets fail because people don’t see annual costs in monthly terms (or vice versa).</p>
+<p><strong>Annual → Monthly:</strong> Divide by 12</p>
+<p><strong>Monthly → Annual:</strong> Multiply by 12</p>
+<p><strong>Weekly → Monthly:</strong> Multiply by 4.33 (not 4)</p>
+<p><strong>Daily habit → Annual:</strong> Multiply by 365</p>
+<p>Example: A $5 daily coffee → $5 × 365 = <strong>$1,825/year.</strong> Suddenly it’s a real number you can evaluate.</p>
+</section>
+<section id="compound-interest-the-wealth-equation" class="level3" data-number="2.5.4">
+<h3 data-number="2.5.4" class="anchored" data-anchor-id="compound-interest-the-wealth-equation"><span class="header-section-number">2.5.4</span> 4. Compound Interest (The Wealth Equation)</h3>
+<p>You don’t need to calculate this by hand, but you need to <em>understand</em> it.</p>
+<p><strong>Formula:</strong> FV = PV × (1 + r)^n</p>
+<p>Where: FV = future value, PV = present value, r = annual return, n = years</p>
+<p><strong>The shortcut you should memorize—the Rule of 72:</strong></p>
+<blockquote class="blockquote">
+<p>Years to double your money = 72 ÷ annual return %</p>
+</blockquote>
+<p>At 7% return, money doubles every ~10 years. At 10%, every ~7 years. This single insight reframes every spending decision.</p>
+</section>
+<section id="opportunity-cost-math" class="level3" data-number="2.5.5">
+<h3 data-number="2.5.5" class="anchored" data-anchor-id="opportunity-cost-math"><span class="header-section-number">2.5.5</span> 5. Opportunity Cost Math</h3>
+<p>This is Felix’s signature framework. <strong>Every dollar spent isn’t just that dollar—it’s what that dollar could have become.</strong></p>
+<p><strong>Formula:</strong> Cost × (1 + r)^n = Opportunity cost in future dollars</p>
+<p>Example: A $40,000 new car vs.&nbsp;a $15,000 used car. The $25,000 difference, invested at 7% real return over 30 years:</p>
+<p>$25,000 × (1.07)^30 = <strong>~$190,000</strong></p>
+<p>That’s not a car payment difference—that’s a retirement chapter.</p>
+</section>
+<section id="break-even-and-payback-calculations" class="level3" data-number="2.5.6">
+<h3 data-number="2.5.6" class="anchored" data-anchor-id="break-even-and-payback-calculations"><span class="header-section-number">2.5.6</span> 6. Break-Even and Payback Calculations</h3>
+<p>Useful for evaluating subscriptions, refinances, and big purchases.</p>
+<p><strong>Formula:</strong> Upfront cost ÷ monthly savings = months to break even</p>
+<p>Example: A $500 annual membership saves you $60/month → 500 ÷ 60 = <strong>8.3 months to break even.</strong> Worth it if you’ll use it longer than that.</p>
+</section>
+</section>
+<section id="putting-it-all-together-a-budget-that-actually-works" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="putting-it-all-together-a-budget-that-actually-works"><span class="header-section-number">2.6</span> Putting It All Together: A Budget That Actually Works</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Start[Build Your Budget] --&gt; Step1[1. Track Spending&lt;br/&gt;for 30 Days]
+    Step1 --&gt; Step2[2. Categorize Fixed vs.&lt;br/&gt;Variable vs. Periodic]
+    Step2 --&gt; Step3[3. Calculate Current&lt;br/&gt;Savings Rate]
+    Step3 --&gt; Step4[4. Choose Framework&lt;br/&gt;Zero-Based or Percentage]
+    Step4 --&gt; Step5[5. Set Up Sinking Funds&lt;br/&gt;for Periodic Expenses]
+    Step5 --&gt; Step6[6. Automate Everything&lt;br/&gt;Investments First]
+    Step6 --&gt; Step7[7. Review Weekly,&lt;br/&gt;Adjust Monthly]
+    Step7 --&gt; Step8[8. Recalibrate Quarterly]
+</pre>
+</div>
+<p></p><figcaption> Put It All Together</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-bottom-line" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="the-bottom-line"><span class="header-section-number">2.7</span> The Bottom Line</h2>
+<p>A budget is just a <strong>plan for your money in advance.</strong> The best one:</p>
+<ol type="1">
+<li><strong>Matches your personality.</strong> Don’t fight your nature—work with it.</li>
+<li><strong>Automates the boring stuff.</strong> Investments, bills, sinking funds—set and forget.</li>
+<li><strong>Leaves room for joy.</strong> Sethi’s guilt-free spending isn’t optional; it’s what makes budgets sustainable.</li>
+<li><strong>Tracks one number above all: your savings rate.</strong> Everything else is detail.</li>
+<li><strong>Builds in margin for error.</strong> Housel’s principle—reality is messier than spreadsheets.</li>
+</ol>
+<p>The math isn’t hard. The categories aren’t complicated. The tools are abundant. What’s actually required is <strong>the decision to be intentional</strong>—and the patience to let small, consistent allocations compound into a life of financial freedom.</p>
+<p>As Bogle reminded us about investing, the same applies to budgeting: <strong>don’t do something, just stand there.</strong> Set up the system, then let it work.</p>
 
 
 </section>
