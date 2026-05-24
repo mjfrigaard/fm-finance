@@ -8,3 +8,63 @@ dollar that leaves your accounts and turn that data into insight.
   - Categorizing transactions
   - Reviewing on a monthly cadence
   - Spotting "leak" categories (subscriptions, delivery fees, impulse buys)
+
+## Online Subscriptions: The Silent Drain
+
+This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries—they're individually small but collectively enormous.
+
+```{=html}
+<style>
+
+.codeStyle span:not(.nodeLabel) {
+  font-family: monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #9753b8 !important;
+  background-color: #f6f6f6;
+  padding: 0.2em;
+}
+</style>
+```
+
+```{mermaid}
+%%| fig-cap: 'Subscription Audit'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Subscriptions[Monthly Subscriptions] --> Audit[Quarterly Audit]
+    Audit --> Use[Used in last 30 days?]
+    Use -->|Yes| Worth[Worth the cost?]
+    Use -->|No| Cancel[Cancel Today]
+    Worth -->|Yes| Keep[Keep]
+    Worth -->|No| Cancel
+    Cancel --> Redirect[Redirect to Investments]
+```
+
+### The Subscription Reality Check {.unnumbered}
+
+The average household spends **$200–$300/month** on subscriptions—often without realizing it. At $250/month invested at a 7% real return over 30 years, that's roughly **$300,000 in lost wealth**.
+
+**Action steps:**
+
+1. Pull your last 3 months of bank/card statements
+2. List every recurring charge
+3. Cancel anything you haven't actively used in 30 days
+4. Set a calendar reminder every 90 days to repeat this
+5. Use one card exclusively for subscriptions to track them easily
+
+This isn't deprivation—it's the Sethi principle in action: **cut mercilessly on what you don't love** so you can spend freely on what you do.
+
+### The Subscription Audit Math {.unnumbered}
+
+A simple but powerful calculation.
+
+**Formula:** Monthly Subscription × 12 × (1.07)^n = Opportunity cost in *n* years
+
+Example: A $20/month subscription you don't really use, over 30 years:
+
+- Annual cost: $240
+- Invested at 7% real return for 30 years: **~$24,000**
+
+That "small" $20/month is a $24,000 decision. **Audit accordingly.**

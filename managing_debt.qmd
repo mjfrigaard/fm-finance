@@ -1,5 +1,18 @@
 # Managing Debt
 
+```{r}
+#| label: setup-r
+#| message: false
+#| warning: false
+#| include: false
+source("_common.R")
+```
+
+```{python}
+#| label: setup-py
+#| include: false
+```
+
 <br>
 
 Not all debt is equal. A 3% mortgage and a 24% credit card balance call for very different strategies.
@@ -67,39 +80,6 @@ Credit card debt is the single most destructive financial product most people wi
 ### Use Credit Cards as a Tool, Not a Trap {.unnumbered}
 
 Once you're paying off your balance **in full every month**, credit cards become powerful: cashback, travel rewards, fraud protection, and credit-building. The key is using them as a payment method, not a financing tool.
-
-## Online Subscriptions: The Silent Drain
-
-This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries—they're individually small but collectively enormous.
-
-```{mermaid}
-%%| fig-cap: ' Human Capital'
-%%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
-
-flowchart TD
-    Subscriptions[Monthly Subscriptions] --> Audit[Quarterly Audit]
-    Audit --> Use[Used in last 30 days?]
-    Use -->|Yes| Worth[Worth the cost?]
-    Use -->|No| Cancel[Cancel Today]
-    Worth -->|Yes| Keep[Keep]
-    Worth -->|No| Cancel
-    Cancel --> Redirect[Redirect to Investments]
-```
-
-### The Subscription Reality Check {.unnumbered}
-
-The average household spends **$200–$300/month** on subscriptions—often without realizing it. At $250/month invested at a 7% real return over 30 years, that's roughly **$300,000 in lost wealth**.
-
-**Action steps:**
-
-1. Pull your last 3 months of bank/card statements    
-2. List every recurring charge    
-3. Cancel anything you haven't actively used in 30 days   
-4. Set a calendar reminder every 90 days to repeat this   
-5. Use one card exclusively for subscriptions to track them easily    
-
-This isn't deprivation—it's the Sethi principle in action: **cut mercilessly on what you don't love** so you can spend freely on what you do.
 
 ## Student Loans: A Nuanced Approach
 
@@ -170,61 +150,6 @@ Felix has been blunt: **cars are depreciating consumption assets, not investment
 
 **The status trap:** Housel's insight applies powerfully here. Nobody is impressed by your car—they're imagining themselves in it. You're paying a fortune for a status signal no one is sending back.
 
-## Owning vs. Renting: The Most Debated Question
-
-This is where Ben Felix's research is genuinely groundbreaking. The conventional wisdom—"renting is throwing money away"—is one of the most persistent myths in personal finance.
-
-### The Real Math {.unnumbered}
-
-Felix has produced extensive analysis showing that **renting and investing the difference often matches or beats homeownership**, once you account for the full cost of owning.
-
-```{mermaid}
-%%| fig-cap: 'Home Ownership'
-%%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
-
-flowchart TD
-    HomeCosts[True Cost<br>of Ownership] --> Mortgage[Mortgage<br>Interest]
-    HomeCosts --> PropTax[Property Taxes<br>1-2% annually]
-    HomeCosts --> Maintenance[Maintenance<br>~1% annually]
-    HomeCosts --> Insurance[Insurance]
-    HomeCosts --> Closing[Closing<br>Costs 3-5%]
-    HomeCosts --> Opportunity2[Down Payment<br>Opportunity Cost]
-    
-    Mortgage --> UnrecovCost[Unrecoverable Costs<br>~5% of home<br>value per year]
-    PropTax --> UnrecovCost
-    Maintenance --> UnrecovCost
-    Insurance --> UnrecovCost
-```
-
-### Felix's "5% Rule" {.unnumbered}
-
-A simplified version of Felix's framework: **the unrecoverable costs of owning are roughly 5% of the home's value per year** (property tax ~1%, maintenance ~1%, cost of capital ~3%).
-
-**Rule of thumb:** Multiply the home's value by 5% and divide by 12. If you can rent an equivalent property for less than that, **renting and investing the difference is likely the better financial choice.**
-
-Example: $500,000 home × 5% = $25,000/year = ~$2,080/month. If you can rent the same place for less, renting wins financially.
-
-### When Buying Makes Sense {.unnumbered}
-
-Buying isn't bad—but it should be a **lifestyle decision** more than a financial one. Buy when:
-
-- You're confident you'll stay 7+ years (closing costs need time to amortize)
-- You have a stable income and adequate emergency fund
-- You value the autonomy, stability, and control
-- The local rent-to-price ratio favors buying
-- You won't be "house poor" (housing costs should stay under 28-30% of gross income)
-
-### When Renting Makes Sense {.unnumbered}
-
-- You may move within 5-7 years
-- Your career requires geographic flexibility
-- Local home prices are stretched relative to rents
-- You'd rather invest the difference in a diversified portfolio
-- You value flexibility, lower maintenance burden, and predictable costs
-
-**The key insight from Felix:** renting is not "throwing money away" any more than buying groceries is throwing money away. **You're paying for shelter either way.** The question is which form of shelter delivers better financial and lifestyle outcomes for your situation.
-
 ## Putting It All Together
 
 ```{mermaid}
@@ -234,12 +159,10 @@ Buying isn't bad—but it should be a **lifestyle decision** more than a financi
 
 flowchart TD
     Start[Manage Your Debt] --> Step1["Eliminate Credit<br>Card Debt"]
-    Step1 --> Step2["Audit Subscriptions<br>Quarterly"]
-    Step2 --> Step3["Build Emergency Fund<br>3-6 Months Expenses"]
-    Step3 --> Step4["Address Student Loans<br>Based on Interest Rate"]
-    Step4 --> Step5["Drive Used,<br>Modest Cars"]
-    Step5 --> Step6["Make Housing a<br>Math Decision, Not<br>an Emotional One"]
-    Step6 --> Freedom["Financial Freedom"]
+    Step1 --> Step2["Build Emergency Fund<br>3-6 Months Expenses"]
+    Step2 --> Step3["Address Student Loans<br>Based on Interest Rate"]
+    Step3 --> Step4["Drive Used,<br>Modest Cars"]
+    Step4 --> Freedom["Financial Freedom"]
 ```
 
 ## The Bottom Line
@@ -247,18 +170,18 @@ flowchart TD
 Debt management isn't about avoiding all debt—it's about being **intentional** with it. The right framework:
 
 1. **Eliminate toxic debt ruthlessly.** Credit cards first, always.
-2. **Plug the leaks.** Subscriptions and small recurring charges add up to fortunes.
-3. **Think in human capital.** Student loans are an investment—evaluate the return.
-4. **Resist depreciating debt.** Cars financed at high rates are wealth-killers.
-5. **Run the housing math honestly.** Owning isn't automatically better than renting—it's a lifestyle choice with significant financial trade-offs.
+2. **Think in human capital.** Student loans are an investment—evaluate the return.
+3. **Resist depreciating debt.** Cars financed at high rates are wealth-killers.
 
 As Housel reminds us: **the goal isn't to be debt-free for its own sake. The goal is freedom.** And freedom comes from controlling your money before it controls you.
 
-## Math You Need to Master for Managing Debt
+## Math for Managing Debt
 
 Debt is fundamentally a math problem dressed up in emotional clothing. Lenders count on you not running the numbers—because if you did, many borrowing decisions would look very different. Here are the calculations every borrower should be fluent in.
 
-### 1. APR vs. APY: Know What You're Actually Paying {.unnumbered}
+Each calculation is also written as an R and Python function—same pattern introduced in the [Budgeting](budgeting.qmd) chapter, now applied to lending math.
+
+### APR vs. APY: Know What You're Actually Paying {.unnumbered}
 
 These two terms get used interchangeably, but they're different—and lenders often quote whichever number makes the loan look better.
 
@@ -275,7 +198,34 @@ APY = (1 + 0.24/365)^365 − 1 = **~27.1%**
 
 That 3.1% gap is real money. On a $10,000 balance, it's an extra $310/year you didn't realize you were paying.
 
-### 2. The True Cost of Minimum Payments {.unnumbered}
+::: {.panel-tabset}
+
+## R
+
+```{r}
+#| label: apr-apy-r
+apr_to_apy <- function(apr, periods_per_year = 365) {
+  (1 + apr / periods_per_year)^periods_per_year - 1
+}
+
+# 24% APR compounded daily
+apr_to_apy(apr = 0.24)
+```
+
+## Python
+
+```{python}
+#| label: apr-apy-py
+def apr_to_apy(apr, periods_per_year=365):
+    return (1 + apr / periods_per_year) ** periods_per_year - 1
+
+# 24% APR compounded daily
+apr_to_apy(apr=0.24)
+```
+
+:::
+
+### The True Cost of Minimum Payments {.unnumbered}
 
 This is the single most important debt calculation you can master. Credit card companies set minimum payments low because **the longer you pay, the more they earn.**
 
@@ -292,7 +242,38 @@ Example: $5,000 balance at 22% APR, paying $100/month minimum:
 
 That's not a typo. Minimum payments are designed to keep you in debt for life.
 
-### 3. Total Interest Paid Over a Loan's Life {.unnumbered}
+::: {.panel-tabset}
+
+## R
+
+```{r}
+#| label: min-payoff-r
+months_to_payoff <- function(balance, monthly_payment, apr) {
+  monthly_interest    <- balance * (apr / 12)
+  principal_reduction <- monthly_payment - monthly_interest
+  balance / principal_reduction
+}
+
+# $5,000 balance, $100/month, 22% APR
+months_to_payoff(balance = 5000, monthly_payment = 100, apr = 0.22)
+```
+
+## Python
+
+```{python}
+#| label: min-payoff-py
+def months_to_payoff(balance, monthly_payment, apr):
+    monthly_interest    = balance * (apr / 12)
+    principal_reduction = monthly_payment - monthly_interest
+    return balance / principal_reduction
+
+# $5,000 balance, $100/month, 22% APR
+months_to_payoff(balance=5000, monthly_payment=100, apr=0.22)
+```
+
+:::
+
+### Total Interest Paid Over a Loan's Life {.unnumbered}
 
 For any installment loan (car, mortgage, student loan), this is the number that should drive your decisions.
 
@@ -309,7 +290,36 @@ Now run the same loan at 4 years instead of 6:
 
 You save **$2,352** by shortening the term—the math behind the 20/4/10 car rule.
 
-### 4. Debt-to-Income Ratio (DTI) {.unnumbered}
+::: {.panel-tabset}
+
+## R
+
+```{r}
+#| label: total-interest-r
+total_interest <- function(monthly_payment, n_months, principal) {
+  (monthly_payment * n_months) - principal
+}
+
+# 6-year car loan vs. 4-year, $30,000 principal
+total_interest(monthly_payment = 512, n_months = 72, principal = 30000)
+total_interest(monthly_payment = 719, n_months = 48, principal = 30000)
+```
+
+## Python
+
+```{python}
+#| label: total-interest-py
+def total_interest(monthly_payment, n_months, principal):
+    return (monthly_payment * n_months) - principal
+
+# 6-year car loan vs. 4-year, $30,000 principal
+print(total_interest(monthly_payment=512, n_months=72, principal=30000))
+print(total_interest(monthly_payment=719, n_months=48, principal=30000))
+```
+
+:::
+
+### Debt-to-Income Ratio (DTI) {.unnumbered}
 
 This is what lenders calculate about you. You should calculate it about yourself.
 
@@ -323,7 +333,34 @@ Benchmarks:
 - **36-43%:** Stretched—lenders get cautious
 - **Above 43%:** Danger zone—most mortgage lenders won't approve you
 
-### 5. The Pay-Off vs. Invest Comparison {.unnumbered}
+::: {.panel-tabset}
+
+## R
+
+```{r}
+#| label: dti-r
+dti_ratio <- function(monthly_debt_payments, gross_monthly_income) {
+  (monthly_debt_payments / gross_monthly_income) * 100
+}
+
+# $2,500 in debt payments on $7,000 gross income
+dti_ratio(monthly_debt_payments = 2500, gross_monthly_income = 7000)
+```
+
+## Python
+
+```{python}
+#| label: dti-py
+def dti_ratio(monthly_debt_payments, gross_monthly_income):
+    return (monthly_debt_payments / gross_monthly_income) * 100
+
+# $2,500 in debt payments on $7,000 gross income
+dti_ratio(monthly_debt_payments=2500, gross_monthly_income=7000)
+```
+
+:::
+
+### The Pay-Off vs. Invest Comparison {.unnumbered}
 
 This is the math behind every "should I pay extra on my mortgage or invest?" debate.
 
@@ -338,7 +375,45 @@ Example: 5% mortgage vs. expected 7% stock market return (real):
 
 This is where Housel's wisdom matters: **a guaranteed 5% beats a probable 7% for many people psychologically.** Run the math, then add your peace-of-mind premium.
 
-### 6. The Avalanche vs. Snowball Math {.unnumbered}
+::: {.panel-tabset}
+
+## R
+
+```{r}
+#| label: payoff-vs-invest-r
+payoff_vs_invest <- function(loan_rate, expected_return) {
+  if (loan_rate > expected_return) {
+    "Pay off the debt"
+  } else if (loan_rate < expected_return) {
+    "Invest the difference"
+  } else {
+    "Roughly a wash — do both"
+  }
+}
+
+# 5% mortgage vs. expected 7% return
+payoff_vs_invest(loan_rate = 0.05, expected_return = 0.07)
+```
+
+## Python
+
+```{python}
+#| label: payoff-vs-invest-py
+def payoff_vs_invest(loan_rate, expected_return):
+    if loan_rate > expected_return:
+        return "Pay off the debt"
+    elif loan_rate < expected_return:
+        return "Invest the difference"
+    else:
+        return "Roughly a wash - do both"
+
+# 5% mortgage vs. expected 7% return
+payoff_vs_invest(loan_rate=0.05, expected_return=0.07)
+```
+
+:::
+
+### The Avalanche vs. Snowball Math {.unnumbered}
 
 For multiple debts, the choice between methods has a calculable cost.
 
@@ -351,57 +426,61 @@ To calculate, find total interest paid under each method using a debt payoff cal
 
 For most people with moderate debt, the snowball costs $200-$1,000 extra in interest. **If that's the price of actually finishing the journey, it's often worth it.** If you're disciplined enough for avalanche, take the savings.
 
-### 7. The Rent vs. Buy Calculation (Felix's 5% Rule) {.unnumbered}
+These two functions take a list of your debts and return them in the order each method says to attack them.
 
-This deserves its own line because it's the most consequential housing decision most people make.
+::: {.panel-tabset}
 
-**The 5% Rule (Ben Felix's framework):**
+## R
 
-> Annual unrecoverable cost of owning ≈ Home Value × 5%
+```{r}
+#| label: avalanche-snowball-r
+# avalanche: highest APR first
+order_avalanche <- function(debts) {
+  debts[order(-debts$apr), ]
+}
 
-Broken down:
-- Property tax: ~1%
-- Maintenance: ~1%
-- Cost of capital (opportunity cost of down payment + mortgage interest): ~3%
+# snowball: smallest balance first
+order_snowball <- function(debts) {
+  debts[order(debts$balance), ]
+}
 
-**Decision math:**
+# your debts, as a small table
+debts <- data.frame(
+  name    = c("Card A", "Card B", "Card C"),
+  balance = c(1000, 5000, 2000),
+  apr     = c(0.18, 0.24, 0.15)
+)
 
-Monthly equivalent rent threshold = (Home Value × 0.05) ÷ 12
+order_avalanche(debts)
+order_snowball(debts)
+```
 
-Example: $600,000 home → (600,000 × 0.05) ÷ 12 = **$2,500/month**
+## Python
 
-If you can rent the equivalent home for less than $2,500/month, renting is financially favorable (when you invest the difference). If rent exceeds that, buying tips ahead.
+```{python}
+#| label: avalanche-snowball-py
+# avalanche: highest APR first
+def order_avalanche(debts):
+    return sorted(debts, key=lambda d: d["apr"], reverse=True)
 
-### 8. Mortgage Amortization: The Front-Loaded Interest Reality {.unnumbered}
+# snowball: smallest balance first
+def order_snowball(debts):
+    return sorted(debts, key=lambda d: d["balance"])
 
-Mortgages are structured so you pay **mostly interest in early years.** Understanding this changes how you think about moving and refinancing.
+# your debts, as a list of small records
+debts = [
+    {"name": "Card A", "balance": 1000, "apr": 0.18},
+    {"name": "Card B", "balance": 5000, "apr": 0.24},
+    {"name": "Card C", "balance": 2000, "apr": 0.15},
+]
 
-**Key insight:** On a 30-year mortgage at 6%, roughly **75% of your first year's payments go to interest**, not principal.
+order_avalanche(debts)
+order_snowball(debts)
+```
 
-**Rough breakdown of where payments go:**
+:::
 
-| Years | Approx. % to Interest | Approx. % to Principal |
-|-------|----------------------|------------------------|
-| 1-5 | 70-80% | 20-30% |
-| 6-15 | 50-70% | 30-50% |
-| 16-25 | 25-50% | 50-75% |
-| 26-30 | 5-25% | 75-95% |
-
-This is why moving every 5 years is so financially destructive—you're essentially renting from the bank while paying ownership costs on top.
-
-### 9. The Subscription Audit Math {.unnumbered}
-
-A simple but powerful calculation.
-
-**Formula:** Monthly Subscription × 12 × (1.07)^n = Opportunity cost in *n* years
-
-Example: A $20/month subscription you don't really use, over 30 years:
-- Annual cost: $240
-- Invested at 7% real return for 30 years: **~$24,000**
-
-That "small" $20/month is a $24,000 decision. **Audit accordingly.**
-
-### 10. The Credit Utilization Ratio {.unnumbered}
+### The Credit Utilization Ratio {.unnumbered}
 
 For credit score health, this calculation matters month to month.
 
@@ -410,6 +489,33 @@ For credit score health, this calculation matters month to month.
 Keep this under **30%** on any individual card and across all cards in total. Under **10%** is ideal for maximum score impact.
 
 Example: $3,000 balance on $10,000 limit = **30% utilization**—right at the threshold.
+
+::: {.panel-tabset}
+
+## R
+
+```{r}
+#| label: utilization-r
+credit_utilization <- function(balance, credit_limit) {
+  (balance / credit_limit) * 100
+}
+
+# $3,000 balance on a $10,000 limit
+credit_utilization(balance = 3000, credit_limit = 10000)
+```
+
+## Python
+
+```{python}
+#| label: utilization-py
+def credit_utilization(balance, credit_limit):
+    return (balance / credit_limit) * 100
+
+# $3,000 balance on a $10,000 limit
+credit_utilization(balance=3000, credit_limit=10000)
+```
+
+:::
 
 ## Putting the Math to Work
 
@@ -421,14 +527,12 @@ Example: $3,000 balance on $10,000 limit = **30% utilization**—right at the th
 flowchart TD
     DebtMath[Debt Math Mastery] --> Decision1[Before Borrowing:<br/>Calculate Total Interest]
     DebtMath --> Decision2[While Paying Off:<br/>Compare APR to Returns]
-    DebtMath --> Decision3[Choosing Housing:<br/>Apply the 5% Rule]
-    DebtMath --> Decision4[Managing Credit:<br/>Monitor DTI & Utilization]
-    
+    DebtMath --> Decision3[Managing Credit:<br/>Monitor DTI & Utilization]
+
     Decision1 --> Outcome[Intentional<br/>Borrowing Decisions]
     Decision2 --> Outcome
     Decision3 --> Outcome
-    Decision4 --> Outcome
-    
+
     Outcome --> Freedom[Financial Freedom]
 ```
 

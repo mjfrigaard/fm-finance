@@ -58,9 +58,11 @@ The five sections of the book map onto the **four levers**:
 
 Each chapter is short and self-contained so you can jump in where you need to.
 
-## Code
+## Math
 
-If you'd like to follow along or perform any of the math yourself, the examples use both **R** (with the `tidyverse`) and **Python** (with `pandas` / `NumPy`). Pick whichever you prefer -- the underlying ideas are the same.
+Whatever math is covered in this book can be done with a calculator, spreadsheet, or some basic programming skills. If you're interested in following along or performing any of the calculations yourself, the examples use both **R** and **Python**. 
+
+Pick whichever you prefer -- the underlying ideas are the same.
 
 ```{r}
 #| label: ex-r

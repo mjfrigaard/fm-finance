@@ -3,7 +3,7 @@
 <br>
 
 **Savings** are the bridge between earning and investing -- the third of
-the four levers introduced in the [Introduction](intro.qmd). This part
+the four levers introduced in the [Foundation](foundations.qmd). This part
 covers how much to save, where to keep it, and how to make the whole
 process **automatic** so willpower isn't part of the equation.
 
