@@ -9,3 +9,18 @@ matches your goals.
   - Pay-yourself-first
   - Sinking funds for known future expenses
   - The savings rate as the single most important number
+
+## Savings Rate (Your Most Important Metric)
+
+Felix and Bogle both stress this above all else.
+
+**Formula:** (Savings + Investments) ÷ Gross Income
+
+Example: You save $500 and invest $700 from a $5,000 gross income. → 1,200 ÷ 5,000 = **24% savings rate.**
+
+Benchmarks to know:
+
+- **<10%:** Danger zone—build aggressively    
+- **10-20%:** Average—you'll retire eventually    
+- **20-30%:** Strong—you're building real wealth    
+- **30%+:** Path to early financial independence  

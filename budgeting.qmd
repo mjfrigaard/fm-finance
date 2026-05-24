@@ -1,5 +1,18 @@
 # Budgeting
 
+```{r}
+#| label: setup-r
+#| message: false
+#| warning: false
+#| include: false
+source("_common.R")
+```
+
+```{python}
+#| label: setup-py
+#| include: false
+```
+
 <br>
 
 Let's get one thing straight upfront: **most people hate budgeting because they're doing it wrong.** Traditional budgets fail because they treat humans like robots—tracking every penny, restricting every joy, and demanding perfection. The frameworks below, drawn from Sethi, Housel, Bogle, and Felix, are designed for how humans actually behave.
@@ -202,11 +215,24 @@ Features that matter:
 
 Features that don't matter as much: fancy graphs, AI insights, social features. Substance over style.
 
-## The Math You Need to Master
+## Budgeting Math
 
-Here's the secret most personal finance content avoids: **budgeting requires only middle-school math.** But you need to be *fluent* in a few specific calculations.
+Here's the secret most personal finance content avoids: *budgeting requires only middle-school math.* However, you need to be fluent in a few specific calculations.
 
-### 1. Percentages (Your Most-Used Skill)
+Each calculation below is also written in R and Python. Because you'll re-use these formulas constantly, we'll wrap each one in a **function**—a named, reusable formula you define once and call with whatever numbers you have. In R, the pattern is `name <- function(inputs) { ... }`; in Python, it's `def name(inputs):`. Anything after a `#` is a comment the computer ignores. The R code uses the [tidyverse](https://www.tidyverse.org/) (loaded once below) and the Python code uses [`numpy`](https://numpy.org/) where vectors help.
+
+```{r}
+#| label: math-libs-r
+#| message: false
+library(tidyverse)
+```
+
+```{python}
+#| label: math-libs-py
+import numpy as np
+```
+
+### Percentages (Your Most-Used Skill)
 
 You need to instantly answer: "What percentage of my income is X?"
 
@@ -216,22 +242,34 @@ Example: Rent is $1,500, income is $5,000. → 1,500 ÷ 5,000 = 0.30 → **30% o
 
 Practice until you can do this in your head for the big categories.
 
-### 2. Savings Rate (Your Most Important Metric)
+::: {.panel-tabset}
 
-Felix and Bogle both stress this above all else.
+## R
 
-**Formula:** (Savings + Investments) ÷ Gross Income
+```{r}
+#| label: percent-r
+percent_of_income <- function(expense, income) {
+  (expense / income) * 100
+}
 
-Example: You save $500 and invest $700 from a $5,000 gross income. → 1,200 ÷ 5,000 = **24% savings rate.**
+# rent of $1,500 against $5,000 take-home pay
+percent_of_income(expense = 1500, income = 5000)
+```
 
-Benchmarks to know:
+## Python
 
-- **<10%:** Danger zone—build aggressively    
-- **10-20%:** Average—you'll retire eventually    
-- **20-30%:** Strong—you're building real wealth    
-- **30%+:** Path to early financial independence    
+```{python}
+#| label: percent-py
+def percent_of_income(expense, income):
+    return (expense / income) * 100
 
-### 3. Annualizing and Monthly-izing
+# rent of $1,500 against $5,000 take-home pay
+percent_of_income(expense=1500, income=5000)
+```
+
+:::
+
+### Annualizing and Monthly-izing
 
 The skill of converting between time periods. Budgets fail because people don't see annual costs in monthly terms (or vice versa).
 
@@ -245,7 +283,47 @@ The skill of converting between time periods. Budgets fail because people don't 
 
 Example: A $5 daily coffee → $5 × 365 = **$1,825/year.** Suddenly it's a real number you can evaluate.
 
-### 4. Compound Interest (The Wealth Equation)
+::: {.panel-tabset}
+
+## R
+
+```{r}
+#| label: annualize-r
+to_annual <- function(amount, period = c("daily", "weekly", "monthly")) {
+  period  <- match.arg(period)
+  factors <- c(daily = 365, weekly = 52, monthly = 12)
+  amount * factors[[period]]
+}
+
+to_monthly <- function(amount, period = c("daily", "weekly", "annual")) {
+  period  <- match.arg(period)
+  factors <- c(daily = 30.44, weekly = 4.33, annual = 1 / 12)
+  amount * factors[[period]]
+}
+
+to_annual(amount = 5,    period = "daily")    # $5/day coffee → annual
+to_monthly(amount = 150, period = "weekly")   # $150/week groceries → monthly
+```
+
+## Python
+
+```{python}
+#| label: annualize-py
+def to_annual(amount, period="daily"):
+    factors = {"daily": 365, "weekly": 52, "monthly": 12}
+    return amount * factors[period]
+
+def to_monthly(amount, period="daily"):
+    factors = {"daily": 30.44, "weekly": 4.33, "annual": 1 / 12}
+    return amount * factors[period]
+
+print(to_annual(amount=5,    period="daily"))    # $5/day coffee → annual
+print(to_monthly(amount=150, period="weekly"))   # $150/week groceries → monthly
+```
+
+:::
+
+### Compound Interest (The Wealth Equation)
 
 You don't need to calculate this by hand, but you need to *understand* it.
 
@@ -259,7 +337,57 @@ Where: FV = future value, PV = present value, r = annual return, n = years
 
 At 7% return, money doubles every ~10 years. At 10%, every ~7 years. This single insight reframes every spending decision.
 
-### 5. Opportunity Cost Math
+In code, the `^` symbol (R) and `**` symbol (Python) both mean "raise to the power of." So `(1 + 0.07)^10` means "1.07 multiplied by itself 10 times."
+
+::: {.panel-tabset}
+
+## R
+
+```{r}
+#| label: compound-r
+future_value <- function(present_value, rate, years) {
+  present_value * (1 + rate)^years
+}
+
+rule_of_72 <- function(annual_return_pct) {
+  72 / annual_return_pct
+}
+
+# scalar: $10,000 at 7% for 10 years
+future_value(present_value = 10000, rate = 0.07, years = 10)
+
+# how long until your money doubles at 7%?
+rule_of_72(annual_return_pct = 7)
+
+# vectorized: same $10,000 at 7% across multiple horizons
+tibble(years = c(5, 10, 20, 30)) |>
+  mutate(value = future_value(present_value = 10000, rate = 0.07, years = years))
+```
+
+## Python
+
+```{python}
+#| label: compound-py
+def future_value(present_value, rate, years):
+    return present_value * (1 + rate) ** years
+
+def rule_of_72(annual_return_pct):
+    return 72 / annual_return_pct
+
+# scalar: $10,000 at 7% for 10 years
+print(future_value(present_value=10000, rate=0.07, years=10))
+
+# how long until your money doubles at 7%?
+print(rule_of_72(annual_return_pct=7))
+
+# vectorized: numpy lets us pass an array of horizons in one call
+horizons = np.array([5, 10, 20, 30])
+future_value(present_value=10000, rate=0.07, years=horizons)
+```
+
+:::
+
+### Opportunity Cost Math
 
 This is Felix's signature framework. **Every dollar spent isn't just that dollar—it's what that dollar could have become.**
 
@@ -271,13 +399,69 @@ $25,000 × (1.07)^30 = **~$190,000**
 
 That's not a car payment difference—that's a retirement chapter.
 
-### 6. Break-Even and Payback Calculations
+::: {.panel-tabset}
+
+## R
+
+```{r}
+#| label: opp-cost-r
+# opportunity cost is just future value applied to the dollars you didn't invest
+opportunity_cost <- function(amount, rate, years) {
+  future_value(present_value = amount, rate = rate, years = years)
+}
+
+# $25,000 gap between two car choices, invested at 7% for 30 years
+opportunity_cost(amount = 25000, rate = 0.07, years = 30)
+```
+
+## Python
+
+```{python}
+#| label: opp-cost-py
+# opportunity cost is just future value applied to the dollars you didn't invest
+def opportunity_cost(amount, rate, years):
+    return future_value(present_value=amount, rate=rate, years=years)
+
+# $25,000 gap between two car choices, invested at 7% for 30 years
+opportunity_cost(amount=25000, rate=0.07, years=30)
+```
+
+:::
+
+### Break-Even and Payback Calculations
 
 Useful for evaluating subscriptions, refinances, and big purchases.
 
 **Formula:** Upfront cost ÷ monthly savings = months to break even
 
 Example: A $500 annual membership saves you $60/month → 500 ÷ 60 = **8.3 months to break even.** Worth it if you'll use it longer than that.
+
+::: {.panel-tabset}
+
+## R
+
+```{r}
+#| label: break-even-r
+months_to_break_even <- function(upfront_cost, monthly_savings) {
+  upfront_cost / monthly_savings
+}
+
+# a $500 membership that saves $60/month
+months_to_break_even(upfront_cost = 500, monthly_savings = 60)
+```
+
+## Python
+
+```{python}
+#| label: break-even-py
+def months_to_break_even(upfront_cost, monthly_savings):
+    return upfront_cost / monthly_savings
+
+# a $500 membership that saves $60/month
+months_to_break_even(upfront_cost=500, monthly_savings=60)
+```
+
+:::
 
 ## Putting It All Together: A Budget That Actually Works
 
@@ -310,3 +494,4 @@ A budget is just a **plan for your money in advance.** The best one:
 The math isn't hard. The categories aren't complicated. The tools are abundant. What's actually required is **the decision to be intentional**—and the patience to let small, consistent allocations compound into a life of financial freedom.
 
 As Bogle reminded us about investing, the same applies to budgeting: **don't do something, just stand there.** Set up the system, then let it work.
+

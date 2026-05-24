@@ -10,3 +10,111 @@ of saving. The mechanics aren't complicated -- the discipline is.
   - Total cost of ownership (the sticker price is the smallest piece)
   - Financing vs. paying cash
   - Avoiding lifestyle creep after a raise
+
+## Owning vs. Renting: The Most Debated Question
+
+This is where Ben Felix's research is genuinely groundbreaking. The conventional wisdom—"renting is throwing money away"—is one of the most persistent myths in personal finance.
+
+### The Real Math {.unnumbered}
+
+Felix has produced extensive analysis showing that **renting and investing the difference often matches or beats homeownership**, once you account for the full cost of owning.
+
+```{=html}
+<style>
+
+.codeStyle span:not(.nodeLabel) {
+  font-family: monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #9753b8 !important;
+  background-color: #f6f6f6;
+  padding: 0.2em;
+}
+</style>
+```
+
+```{mermaid}
+%%| fig-cap: 'Home Ownership'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    HomeCosts[True Cost<br>of Ownership] --> Mortgage[Mortgage<br>Interest]
+    HomeCosts --> PropTax[Property Taxes<br>1-2% annually]
+    HomeCosts --> Maintenance[Maintenance<br>~1% annually]
+    HomeCosts --> Insurance[Insurance]
+    HomeCosts --> Closing[Closing<br>Costs 3-5%]
+    HomeCosts --> Opportunity2[Down Payment<br>Opportunity Cost]
+
+    Mortgage --> UnrecovCost[Unrecoverable Costs<br>~5% of home<br>value per year]
+    PropTax --> UnrecovCost
+    Maintenance --> UnrecovCost
+    Insurance --> UnrecovCost
+```
+
+### Felix's "5% Rule" {.unnumbered}
+
+A simplified version of Felix's framework: **the unrecoverable costs of owning are roughly 5% of the home's value per year** (property tax ~1%, maintenance ~1%, cost of capital ~3%).
+
+**Rule of thumb:** Multiply the home's value by 5% and divide by 12. If you can rent an equivalent property for less than that, **renting and investing the difference is likely the better financial choice.**
+
+Example: $500,000 home × 5% = $25,000/year = ~$2,080/month. If you can rent the same place for less, renting wins financially.
+
+### When Buying Makes Sense {.unnumbered}
+
+Buying isn't bad—but it should be a **lifestyle decision** more than a financial one. Buy when:
+
+- You're confident you'll stay 7+ years (closing costs need time to amortize)
+- You have a stable income and adequate emergency fund
+- You value the autonomy, stability, and control
+- The local rent-to-price ratio favors buying
+- You won't be "house poor" (housing costs should stay under 28-30% of gross income)
+
+### When Renting Makes Sense {.unnumbered}
+
+- You may move within 5-7 years
+- Your career requires geographic flexibility
+- Local home prices are stretched relative to rents
+- You'd rather invest the difference in a diversified portfolio
+- You value flexibility, lower maintenance burden, and predictable costs
+
+**The key insight from Felix:** renting is not "throwing money away" any more than buying groceries is throwing money away. **You're paying for shelter either way.** The question is which form of shelter delivers better financial and lifestyle outcomes for your situation.
+
+### The Rent vs. Buy Calculation (Felix's 5% Rule) {.unnumbered}
+
+This deserves its own line because it's the most consequential housing decision most people make.
+
+**The 5% Rule (Ben Felix's framework):**
+
+> Annual unrecoverable cost of owning ≈ Home Value × 5%
+
+Broken down:
+
+- Property tax: ~1%
+- Maintenance: ~1%
+- Cost of capital (opportunity cost of down payment + mortgage interest): ~3%
+
+**Decision math:**
+
+Monthly equivalent rent threshold = (Home Value × 0.05) ÷ 12
+
+Example: $600,000 home → (600,000 × 0.05) ÷ 12 = **$2,500/month**
+
+If you can rent the equivalent home for less than $2,500/month, renting is financially favorable (when you invest the difference). If rent exceeds that, buying tips ahead.
+
+### Mortgage Amortization: The Front-Loaded Interest Reality {.unnumbered}
+
+Mortgages are structured so you pay **mostly interest in early years.** Understanding this changes how you think about moving and refinancing.
+
+**Key insight:** On a 30-year mortgage at 6%, roughly **75% of your first year's payments go to interest**, not principal.
+
+**Rough breakdown of where payments go:**
+
+| Years | Approx. % to Interest | Approx. % to Principal |
+|-------|----------------------|------------------------|
+| 1-5 | 70-80% | 20-30% |
+| 6-15 | 50-70% | 30-50% |
+| 16-25 | 25-50% | 50-75% |
+| 26-30 | 5-25% | 75-95% |
+
+This is why moving every 5 years is so financially destructive—you're essentially renting from the bank while paying ownership costs on top.

@@ -82,18 +82,37 @@ quarto render budgeting.qmd
 
 ```
 fm-finance/
-├── _quarto.yml          # book config
-├── _common.R            # shared knitr/options + co_box helper
-├── custom.scss          # theme overrides
-├── references.bib       # bibliography
-├── index.qmd            # welcome / preface
-├── intro.qmd            # introduction (the four levers)
-├── foundations.qmd      # part 1 cover + chapters
-├── savings.qmd          # part 2 cover + chapters
-├── investing.qmd        # part 3 cover + chapters
-├── taxes_insurance.qmd  # part 4 cover + chapters
-├── planning.qmd         # part 5 cover + chapters
-└── resources.qmd        # appendix
+├── asset_allocation.qmd
+├── automating_savings.qmd
+├── budgeting.qmd
+├── custom.scss
+├── emergency_fund.qmd
+├── estate_planning.qmd
+├── financial_goals.qmd
+├── fm-finance.Rproj
+├── foundations.qmd
+├── high_yield_accounts.qmd
+├── income.qmd
+├── index_funds.qmd
+├── index.qmd
+├── insurance.qmd
+├── investing_basics.qmd
+├── investing.qmd
+├── major_purchases.qmd
+├── managing_debt.qmd
+├── planning.qmd
+├── README.md
+├── references.bib
+├── renv/
+├── resources.qmd
+├── retirement_accounts.qmd
+├── savings.qmd
+├── savings_strategies.qmd
+├── taxes_insurance.qmd
+├── taxes.qmd
+└── tracking_spending.qmd
+
+12 directories, 60 files
 ```
 
 ## Author
