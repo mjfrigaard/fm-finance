@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>3&nbsp; Tracking Spending – Personal Finance: a field manual</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -34,15 +37,14 @@ ul.task-list li input[type="checkbox"] {
 <link href="./budgeting.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-b6a8276bf55561bdbc268162d41bd1f7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f5280667a2c3855c453120d3100d533d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9db5bf83f40130dec57236cccb65fb39.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -70,6 +72,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -301,8 +306,18 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#online-subscriptions-the-silent-drain" id="toc-online-subscriptions-the-silent-drain" class="nav-link active" data-scroll-target="#online-subscriptions-the-silent-drain"><span class="header-section-number">3.1</span> Online Subscriptions: The Silent Drain</a>
+  <ul>
+  <li><a href="#the-subscription-reality-check" id="toc-the-subscription-reality-check" class="nav-link" data-scroll-target="#the-subscription-reality-check">The Subscription Reality Check</a></li>
+  <li><a href="#the-subscription-audit-math" id="toc-the-subscription-audit-math" class="nav-link" data-scroll-target="#the-subscription-audit-math">The Subscription Audit Math</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/tracking_spending.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -333,8 +348,68 @@ ul.task-list li input[type="checkbox"] {
 <li>Reviewing on a monthly cadence</li>
 <li>Spotting “leak” categories (subscriptions, delivery fees, impulse buys)</li>
 </ul>
+<section id="online-subscriptions-the-silent-drain" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="online-subscriptions-the-silent-drain"><span class="header-section-number">3.1</span> Online Subscriptions: The Silent Drain</h2>
+<p>This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries—they’re individually small but collectively enormous.</p>
+<style>
+
+.codeStyle span:not(.nodeLabel) {
+  font-family: monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #9753b8 !important;
+  background-color: #f6f6f6;
+  padding: 0.2em;
+}
+</style>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Subscriptions[Monthly Subscriptions] --&gt; Audit[Quarterly Audit]
+    Audit --&gt; Use[Used in last 30 days?]
+    Use --&gt;|Yes| Worth[Worth the cost?]
+    Use --&gt;|No| Cancel[Cancel Today]
+    Worth --&gt;|Yes| Keep[Keep]
+    Worth --&gt;|No| Cancel
+    Cancel --&gt; Redirect[Redirect to Investments]
+</pre>
+</div>
+<p></p><figcaption> Subscription Audit</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<section id="the-subscription-reality-check" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-subscription-reality-check">The Subscription Reality Check</h3>
+<p>The average household spends <strong>$200–$300/month</strong> on subscriptions—often without realizing it. At $250/month invested at a 7% real return over 30 years, that’s roughly <strong>$300,000 in lost wealth</strong>.</p>
+<p><strong>Action steps:</strong></p>
+<ol type="1">
+<li>Pull your last 3 months of bank/card statements</li>
+<li>List every recurring charge</li>
+<li>Cancel anything you haven’t actively used in 30 days</li>
+<li>Set a calendar reminder every 90 days to repeat this</li>
+<li>Use one card exclusively for subscriptions to track them easily</li>
+</ol>
+<p>This isn’t deprivation—it’s the Sethi principle in action: <strong>cut mercilessly on what you don’t love</strong> so you can spend freely on what you do.</p>
+</section>
+<section id="the-subscription-audit-math" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-subscription-audit-math">The Subscription Audit Math</h3>
+<p>A simple but powerful calculation.</p>
+<p><strong>Formula:</strong> Monthly Subscription × 12 × (1.07)^n = Opportunity cost in <em>n</em> years</p>
+<p>Example: A $20/month subscription you don’t really use, over 30 years:</p>
+<ul>
+<li>Annual cost: $240</li>
+<li>Invested at 7% real return for 30 years: <strong>~$24,000</strong></li>
+</ul>
+<p>That “small” $20/month is a $24,000 decision. <strong>Audit accordingly.</strong></p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -796,7 +871,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/tracking_spending.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/tracking_spending.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
