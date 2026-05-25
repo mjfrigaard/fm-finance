@@ -15,13 +15,13 @@ source("_common.R")
 
 <br>
 
-Let's get one thing straight upfront: **most people hate budgeting because they're doing it wrong.** Traditional budgets fail because they treat humans like robots—tracking every penny, restricting every joy, and demanding perfection. The frameworks below, drawn from Sethi, Housel, Bogle, and Felix, are designed for how humans actually behave.
+Most people hate budgeting because they're approaching it with some bad assumptions.  Traditional budgets fail because they assume human behavior is robotic: tracking every penny, restricting every joy, and demanding perfection. The frameworks (drawn from Sethi, Housel, Bogle, and Felix) are designed for how we actually behave.
 
-> "A budget tells your money where to go instead of wondering where it went." — A principle Ramit Sethi often echoes
+> "A budget tells your money where to go instead of wondering where it went." — Ramit Sethi
 
 ## The Budget Mindset Shift
 
-Before tactics, the mindset: a budget isn't about restriction—it's about **conscious allocation**. Morgan Housel's insight applies powerfully here: **room for error is the most underrated financial concept.** A good budget builds in flexibility, not rigidity.
+Budgets aren't about restriction; they're about *conscious allocation*.  A good budget builds in flexibility, not rigidity. Morgan Housel's insight is powerful here: "*room for error is the most underrated financial concept.*"
 
 ```{=html}
 <style>
@@ -43,11 +43,11 @@ Before tactics, the mindset: a budget isn't about restriction—it's about **con
 %%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
-    OldBudget[Old Budget Mindset] --> Restrict[Restrict Everything]
-    Restrict --> Fail[Fails Within Weeks]
+    OldBudget([Old Budget Mindset]) --> Restrict[Restrict Everything]
+    Restrict --> Fail(Fails Within Weeks)
     
-    NewBudget[Conscious Spending Plan] --> Prioritize[Prioritize What Matters]
-    Prioritize --> Sustain[Sustains for Years]
+    NewBudget([Conscious Spending Plan]) --> Prioritize[Prioritize What Matters]
+    Prioritize --> Sustain(Sustains for Years)
 ```
 
 ## Fixed vs. Variable Expenses: Know the Difference
