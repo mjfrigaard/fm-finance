@@ -6,11 +6,11 @@ Retirement accounts are tax-advantaged wrappers that hold your
 investments. Choosing the right one is often worth more than picking the
 right fund.
 
-  - **401(k) / 403(b) / TSP** -- employer plans, often with a match
-  - **Traditional IRA** -- tax-deferred contributions
-  - **Roth IRA** -- tax-free growth
-  - **HSA** -- the most tax-advantaged account available if you qualify
-  - **Taxable brokerage** -- for everything above the limits
+  - **401(k) / 403(b) / TSP**: employer plans, often with a match
+  - **Traditional IRA**: tax-deferred contributions
+  - **Roth IRA**: tax-free growth
+  - **HSA**: the most tax-advantaged account available if you qualify
+  - **Taxable brokerage**: for everything above the limits
 
 A good default order: capture the **employer match**, max the **HSA** (if
 eligible), max **IRA**, then back to the **401(k)** up to the limit.

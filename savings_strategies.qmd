@@ -20,7 +20,7 @@ Example: You save $500 and invest $700 from a $5,000 gross income. → 1,200 ÷ 
 
 Benchmarks to know:
 
-- **<10%:** Danger zone—build aggressively    
-- **10-20%:** Average—you'll retire eventually    
-- **20-30%:** Strong—you're building real wealth    
+- **<10%:** Danger zone; build aggressively
+- **10-20%:** Average; you'll retire eventually
+- **20-30%:** Strong; you're building real wealth
 - **30%+:** Path to early financial independence  

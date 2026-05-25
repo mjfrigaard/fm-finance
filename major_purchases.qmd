@@ -4,7 +4,7 @@
 
 
 Houses, cars, and weddings are where most people accidentally undo years
-of saving. The mechanics aren't complicated -- the discipline is.
+of saving. The mechanics aren't complicated; the discipline is.
 
   - Down payment math
   - Total cost of ownership (the sticker price is the smallest piece)
@@ -13,7 +13,7 @@ of saving. The mechanics aren't complicated -- the discipline is.
 
 ## Owning vs. Renting: The Most Debated Question
 
-This is where Ben Felix's research is genuinely groundbreaking. The conventional wisdom—"renting is throwing money away"—is one of the most persistent myths in personal finance.
+This is where Ben Felix's research is genuinely groundbreaking. The conventional wisdom ("renting is throwing money away") is one of the most persistent myths in personal finance.
 
 ### The Real Math {.unnumbered}
 
@@ -62,7 +62,7 @@ Example: $500,000 home × 5% = $25,000/year = ~$2,080/month. If you can rent the
 
 ### When Buying Makes Sense {.unnumbered}
 
-Buying isn't bad—but it should be a **lifestyle decision** more than a financial one. Buy when:
+Buying isn't bad, but it should be a **lifestyle decision** more than a financial one. Buy when:
 
 - You're confident you'll stay 7+ years (closing costs need time to amortize)
 - You have a stable income and adequate emergency fund
@@ -117,4 +117,4 @@ Mortgages are structured so you pay **mostly interest in early years.** Understa
 | 16-25 | 25-50% | 50-75% |
 | 26-30 | 5-25% | 75-95% |
 
-This is why moving every 5 years is so financially destructive—you're essentially renting from the bank while paying ownership costs on top.
+This is why moving every 5 years is so financially destructive: you're essentially renting from the bank while paying ownership costs on top.

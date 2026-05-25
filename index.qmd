@@ -43,11 +43,11 @@ This book aims to answer questions like:
 
 The book is divided into five parts:
 
-1. [**Foundations**](foundations.qmd) -- budgeting, tracking spending, emergency funds, and debt.
-2. [**Savings**](savings.qmd) -- savings strategies, high-yield accounts, and automation.
-3. [**Investing**](investing.qmd)  -- the basics, retirement accounts, index funds, and asset allocation.
-4. [**Taxes & insurance**](taxes_insurance.qmd) -- the protective layer around your finances.
-5. [**Planning**](planning.qmd) -- goals, major purchases, and estate planning.
+1. [**Foundations**](foundations.qmd): budgeting, tracking spending, emergency funds, and debt.
+2. [**Savings**](savings.qmd): savings strategies, high-yield accounts, and automation.
+3. [**Investing**](investing.qmd): the basics, retirement accounts, index funds, and asset allocation.
+4. [**Taxes & insurance**](taxes_insurance.qmd): the protective layer around your finances.
+5. [**Planning**](planning.qmd): goals, major purchases, and estate planning.
 
 The five sections of the book map onto the **four levers**: 
 
@@ -62,7 +62,7 @@ Each chapter is short and self-contained so you can jump in where you need to.
 
 Whatever math is covered in this book can be done with a calculator, spreadsheet, or some basic programming skills. If you're interested in following along or performing any of the calculations yourself, the examples use both **R** and **Python**. 
 
-Pick whichever you prefer -- the underlying ideas are the same.
+Pick whichever you prefer; the underlying ideas are the same.
 
 ```{r}
 #| label: ex-r
@@ -76,4 +76,4 @@ Pick whichever you prefer -- the underlying ideas are the same.
 
 ## About the author
 
-Martin Frigaard writes about R, data, and -- now -- personal finance.
+Martin Frigaard writes about R, data, and, now, personal finance.

@@ -2,7 +2,7 @@
 
 <br>
 
-Personal finance is mostly behavior and a small amount of math. The math matters -- compounding, interest rates, tax-advantaged accounts -- but most of your personal finances depends on your habits. These three questions will determine how much money you'll have at any point in your life: 
+Personal finance is mostly behavior and a small amount of math. The math matters (compounding, interest rates, tax-advantaged accounts), but most of your personal finances depends on your habits. These three questions will determine how much money you'll have at any point in your life: 
 
 1. Are you spending less than you earn?   
 2. How much are you saving?   
@@ -15,7 +15,7 @@ This chapter sets the stage for the rest of the book:
   - The **four** core levers: **income**, **spending**, **savings**, and **investing**.     
   - Why **automation** beats willpower.       
   - How to think about **risk** and **time horizon**.     
-  - A short note on **tracking** -- you only manage what you measure.     
+  - A short note on **tracking**: you only manage what you measure.     
 
 ## The four levers
 
@@ -34,7 +34,7 @@ data.frame(
 Each lever has its own part in this book:
 
   - [Foundations](foundations.qmd): **Income**, **budgeting**, and **spending** are the behaviors that will have the biggest impact on your financial health. You'll also want to plan for emergencies, and manage the money your borrow. 
-  - [Savings](savings.qmd) covers different ways to put money aside, different kinds of savings accounts, and -- the most important behavior for disciplined savings -- **automation**.   
+  - [Savings](savings.qmd) covers different ways to put money aside, different kinds of savings accounts, and the most important behavior for disciplined savings: **automation**.   
   - [Investing](investing.qmd) is what happens to the money you save **over the long term**. 
 
 ## Time horizons

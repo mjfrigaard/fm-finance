@@ -3,7 +3,7 @@
 <br>
 
 [**Savings**](savings.qmd) keep your purchasing power intact; investing
-**grows** it. This part covers the core ideas -- compounding,
+**grows** it. This part covers the core ideas: compounding,
 diversification, low-cost index funds, and the right account types to hold
 them in.
 

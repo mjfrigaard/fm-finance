@@ -6,19 +6,19 @@ A short, opinionated list of further reading and tools.
 
 ## Books
 
-  - *The Simple Path to Wealth* -- J. L. Collins [@collins2016simple]
-  - *The Little Book of Common Sense Investing* -- John C. Bogle [@bogle2017little]
+  - *The Simple Path to Wealth*, by J. L. Collins [@collins2016simple]
+  - *The Little Book of Common Sense Investing*, by John C. Bogle [@bogle2017little]
 
 ## Communities
 
-  - [r/personalfinance](https://www.reddit.com/r/personalfinance/) -- the
+  - [r/personalfinance](https://www.reddit.com/r/personalfinance/): the
     wiki is unusually good
-  - [Bogleheads](https://www.bogleheads.org/) -- forum and wiki around
+  - [Bogleheads](https://www.bogleheads.org/): forum and wiki around
     low-cost index investing
 
 ## Tools
 
-  - Spreadsheets (Google Sheets / Excel) -- still the most flexible option
+  - Spreadsheets (Google Sheets / Excel): still the most flexible option
   - Account aggregators (Monarch, Copilot, YNAB)
 
 ## References
