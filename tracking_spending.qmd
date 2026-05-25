@@ -11,7 +11,7 @@ dollar that leaves your accounts and turn that data into insight.
 
 ## Online Subscriptions: The Silent Drain
 
-This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries—they're individually small but collectively enormous.
+This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries; they're individually small but collectively enormous.
 
 ```{=html}
 <style>
@@ -44,7 +44,7 @@ flowchart TD
 
 ### The Subscription Reality Check {.unnumbered}
 
-The average household spends **$200–$300/month** on subscriptions—often without realizing it. At $250/month invested at a 7% real return over 30 years, that's roughly **$300,000 in lost wealth**.
+The average household spends **$200–$300/month** on subscriptions, often without realizing it. At $250/month invested at a 7% real return over 30 years, that's roughly **$300,000 in lost wealth**.
 
 **Action steps:**
 
@@ -54,7 +54,7 @@ The average household spends **$200–$300/month** on subscriptions—often with
 4. Set a calendar reminder every 90 days to repeat this
 5. Use one card exclusively for subscriptions to track them easily
 
-This isn't deprivation—it's the Sethi principle in action: **cut mercilessly on what you don't love** so you can spend freely on what you do.
+This isn't deprivation; it's the Sethi principle in action: **cut mercilessly on what you don't love** so you can spend freely on what you do.
 
 ### The Subscription Audit Math {.unnumbered}
 

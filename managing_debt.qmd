@@ -22,7 +22,7 @@ Not all debt is equal. A 3% mortgage and a 24% credit card balance call for very
   - Refinancing and consolidation   
   - When to prioritize debt payoff over investing   
   
-Debt isn't inherently good or bad—it's a tool. Used wisely, it can accelerate wealth-building (think low-rate mortgages or strategic education). Used poorly, it can quietly destroy decades of financial progress. Let's break down each type with evidence-based advice from Housel, Sethi, Bogle, and Ben Felix.
+Debt isn't inherently good or bad; it's a tool. Used wisely, it can accelerate wealth-building (think low-rate mortgages or strategic education). Used poorly, it can quietly destroy decades of financial progress. Let's break down each type with evidence-based advice from Housel, Sethi, Bogle, and Ben Felix.
 
 ## The Debt Hierarchy: Know Your Enemy
 
@@ -65,7 +65,7 @@ flowchart TD
 
 Credit card debt is the single most destructive financial product most people will ever encounter. At 20%+ APR, it grows faster than any reasonable investment can compound.
 
-**Ramit Sethi's approach is uncompromising here:** credit card debt must be eliminated before any other financial goal beyond a starter emergency fund. The math is brutal—you cannot out-invest 24% interest.
+**Ramit Sethi's approach is uncompromising here:** credit card debt must be eliminated before any other financial goal beyond a starter emergency fund. The math is brutal: you cannot out-invest 24% interest.
 
 ### The Playbook {.unnumbered}
 
@@ -73,9 +73,9 @@ Credit card debt is the single most destructive financial product most people wi
 |------|--------|
 | **1. Stop the bleeding** | Stop using cards. Pay cash or debit until balances are zero. |
 | **2. Call and negotiate** | Call each issuer. Ask for a lower APR. It works more often than you'd think. |
-| **3. Choose a method** | **Avalanche** (highest APR first—saves most money) or **Snowball** (smallest balance first—builds momentum). |
+| **3. Choose a method** | **Avalanche** (highest APR first; saves most money) or **Snowball** (smallest balance first; builds momentum). |
 | **4. Consider consolidation** | A 0% balance transfer card or personal loan at 8-10% beats 24% every time. |
-| **5. Automate minimums** | Never miss a payment—it triggers penalty APRs and credit damage. |
+| **5. Automate minimums** | Never miss a payment; it triggers penalty APRs and credit damage. |
 
 ### Use Credit Cards as a Tool, Not a Trap {.unnumbered}
 
@@ -83,7 +83,7 @@ Once you're paying off your balance **in full every month**, credit cards become
 
 ## Student Loans: A Nuanced Approach
 
-Student loans sit in a complicated middle ground. Ben Felix's human capital framework applies powerfully here: education is an investment in your future earning potential—but only when the math works.
+Student loans sit in a complicated middle ground. Ben Felix's human capital framework applies powerfully here: education is an investment in your future earning potential, but only when the math works.
 
 ### Before Taking Loans {.unnumbered}
 
@@ -114,7 +114,7 @@ flowchart TD
 A key insight from Felix's research-driven approach: **compare your loan interest rate to your expected investment return after tax.**
 
 - **Interest rate above ~6%:** Prioritize paying off    
-- **Interest rate 4-6%:** Roughly a wash—do both    
+- **Interest rate 4-6%:** Roughly a wash; do both
 - **Interest rate below 4%:** Pay the minimum, invest the difference    
 
 Don't forget the **psychological factor** Housel emphasizes: some people sleep better debt-free, even if the math slightly favors investing. That peace of mind has real value.
@@ -138,7 +138,7 @@ flowchart TD
 
 ### Ben Felix's Perspective {.unnumbered}
 
-Felix has been blunt: **cars are depreciating consumption assets, not investments.** Financing a depreciating asset at 7-9% interest while it loses value is one of the worst financial moves available—yet it's culturally normalized.
+Felix has been blunt: **cars are depreciating consumption assets, not investments.** Financing a depreciating asset at 7-9% interest while it loses value is one of the worst financial moves available, yet it's culturally normalized.
 
 ### The Rules of Smart Car Ownership {.unnumbered}
 
@@ -148,7 +148,7 @@ Felix has been blunt: **cars are depreciating consumption assets, not investment
 4. **The 20/4/10 rule:** 20% down, financed no longer than 4 years, total transportation costs under 10% of gross income.
 5. **Drive it until the wheels fall off.** The cheapest car you'll ever own is the reliable one you already have.
 
-**The status trap:** Housel's insight applies powerfully here. Nobody is impressed by your car—they're imagining themselves in it. You're paying a fortune for a status signal no one is sending back.
+**The status trap:** Housel's insight applies powerfully here. Nobody is impressed by your car; they're imagining themselves in it. You're paying a fortune for a status signal no one is sending back.
 
 ## Putting It All Together
 
@@ -167,23 +167,23 @@ flowchart TD
 
 ## The Bottom Line
 
-Debt management isn't about avoiding all debt—it's about being **intentional** with it. The right framework:
+Debt management isn't about avoiding all debt; it's about being **intentional** with it. The right framework:
 
 1. **Eliminate toxic debt ruthlessly.** Credit cards first, always.
-2. **Think in human capital.** Student loans are an investment—evaluate the return.
+2. **Think in human capital.** Student loans are an investment; evaluate the return.
 3. **Resist depreciating debt.** Cars financed at high rates are wealth-killers.
 
 As Housel reminds us: **the goal isn't to be debt-free for its own sake. The goal is freedom.** And freedom comes from controlling your money before it controls you.
 
 ## Math for Managing Debt
 
-Debt is fundamentally a math problem dressed up in emotional clothing. Lenders count on you not running the numbers—because if you did, many borrowing decisions would look very different. Here are the calculations every borrower should be fluent in.
+Debt is fundamentally a math problem dressed up in emotional clothing. Lenders count on you not running the numbers, because if you did, many borrowing decisions would look very different. Here are the calculations every borrower should be fluent in.
 
-Each calculation is also written as an R and Python function—same pattern introduced in the [Budgeting](budgeting.qmd) chapter, now applied to lending math.
+Each calculation is also written as an R and Python function, following the same pattern introduced in the [Budgeting](budgeting.qmd) chapter, now applied to lending math.
 
 ### APR vs. APY: Know What You're Actually Paying {.unnumbered}
 
-These two terms get used interchangeably, but they're different—and lenders often quote whichever number makes the loan look better.
+These two terms get used interchangeably, but they're different, and lenders often quote whichever number makes the loan look better.
 
 **APR (Annual Percentage Rate):** The stated annual interest rate, not accounting for compounding.
 
@@ -288,7 +288,7 @@ Now run the same loan at 4 years instead of 6:
 - Total paid: $719 × 48 = $34,512
 - Total interest: **$4,512**
 
-You save **$2,352** by shortening the term—the math behind the 20/4/10 car rule.
+You save **$2,352** by shortening the term: the math behind the 20/4/10 car rule.
 
 ::: {.panel-tabset}
 
@@ -330,8 +330,8 @@ Example: $2,500 in monthly debt payments on $7,000 gross income → 2,500 ÷ 7,0
 Benchmarks:
 - **Below 20%:** Healthy
 - **20-35%:** Manageable but watch carefully
-- **36-43%:** Stretched—lenders get cautious
-- **Above 43%:** Danger zone—most mortgage lenders won't approve you
+- **36-43%:** Stretched; lenders get cautious
+- **Above 43%:** Danger zone; most mortgage lenders won't approve you
 
 ::: {.panel-tabset}
 
@@ -387,7 +387,7 @@ payoff_vs_invest <- function(loan_rate, expected_return) {
   } else if (loan_rate < expected_return) {
     "Invest the difference"
   } else {
-    "Roughly a wash — do both"
+    "Roughly a wash; do both"
   }
 }
 
@@ -488,7 +488,7 @@ For credit score health, this calculation matters month to month.
 
 Keep this under **30%** on any individual card and across all cards in total. Under **10%** is ideal for maximum score impact.
 
-Example: $3,000 balance on $10,000 limit = **30% utilization**—right at the threshold.
+Example: $3,000 balance on $10,000 limit = **30% utilization**, right at the threshold.
 
 ::: {.panel-tabset}
 
@@ -538,8 +538,8 @@ flowchart TD
 
 ## The Bottom Line
 
-You don't need to be a math genius to manage debt well—but you do need to be **numerically fluent** in these specific calculations. Why? Because lenders absolutely are.
+You don't need to be a math genius to manage debt well, but you do need to be **numerically fluent** in these specific calculations. Why? Because lenders absolutely are.
 
 The math always tells the truth. Marketing tells you what's possible. Emotions tell you what feels right. **The math tells you what's actually happening to your money.**
 
-As Bogle reminded investors: "The miracle of compounding returns is overwhelmed by the tyranny of compounding costs." The same principle applies in reverse to debt—**compounding interest is wealth-destroying when it's working against you.** Master the math, and you take that weapon out of the lender's hands.
+As Bogle reminded investors: "The miracle of compounding returns is overwhelmed by the tyranny of compounding costs." The same principle applies in reverse to debt: **compounding interest is wealth-destroying when it's working against you.** Master the math, and you take that weapon out of the lender's hands.

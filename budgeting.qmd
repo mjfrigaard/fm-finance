@@ -17,7 +17,7 @@ source("_common.R")
 
 Most people hate budgeting because they're approaching it with some bad assumptions.  Traditional budgets fail because they assume human behavior is robotic: tracking every penny, restricting every joy, and demanding perfection. The frameworks (drawn from Sethi, Housel, Bogle, and Felix) are designed for how we actually behave.
 
-> "A budget tells your money where to go instead of wondering where it went." — Ramit Sethi
+> "A budget tells your money where to go instead of wondering where it went." (Ramit Sethi)
 
 ## The Budget Mindset Shift
 
@@ -86,7 +86,7 @@ flowchart LR
 |----------|----------|
 | **Fixed Expenses** | Lock these in and forget them. The goal is to **minimize them once**, then automate. Biggest leverage point: housing. |
 | **Variable Expenses** | Where most "budgeting" effort fails. Use **categories with limits**, not line-by-line tracking. |
-| **Periodic Expenses** | The silent budget-killer. Use a **sinking fund**—set aside 1/12 of the annual cost each month. |
+| **Periodic Expenses** | The silent budget-killer. Use a **sinking fund**: set aside 1/12 of the annual cost each month. |
 
 ### The Sinking Fund: Your Secret Weapon
 
@@ -100,7 +100,7 @@ This single technique eliminates 80% of "budget emergencies."
 
 ## Zero-Based vs. Percentage Budgets
 
-Two dominant frameworks exist. Both work—pick the one that matches your personality.
+Two dominant frameworks exist. Both work; pick the one that matches your personality.
 
 ### Zero-Based Budgeting
 
@@ -165,17 +165,6 @@ flowchart TD
 
 ## Common Budgeting Tools and Spreadsheets
 
-### Apps
-
-| Tool | Best For | Cost |
-|------|----------|------|
-| **YNAB (You Need A Budget)** | Zero-based devotees, debt payoff | ~$15/month |
-| **Monarch Money** | Couples, net worth tracking | ~$15/month |
-| **Empower (formerly Personal Capital)** | Investment + budget overview | Free |
-| **Copilot** | iOS users, beautiful design | ~$13/month |
-| **Rocket Money** | Subscription cancellation, simple tracking | Free/Premium |
-| **PocketGuard** | Simple "what can I spend?" view | Free/Premium |
-
 ### The Spreadsheet Approach
 
 Bogle would approve: **simplicity wins.** A well-built spreadsheet beats most apps because it forces you to engage with your numbers. Here's a basic structure:
@@ -199,7 +188,7 @@ flowchart LR
 **Free options to get started:**
 
 - Google Sheets templates (search "budget template")    
-- Tiller Money (~$79/year—automates bank imports into Sheets)   
+- Tiller Money (~$79/year; automates bank imports into Sheets)
 - The classic envelope spreadsheet from any personal finance blog   
 
 ### What Actually Matters in a Tool
@@ -219,7 +208,7 @@ Features that don't matter as much: fancy graphs, AI insights, social features. 
 
 Here's the secret most personal finance content avoids: *budgeting requires only middle-school math.* However, you need to be fluent in a few specific calculations.
 
-Each calculation below is also written in R and Python. Because you'll re-use these formulas constantly, we'll wrap each one in a **function**—a named, reusable formula you define once and call with whatever numbers you have. In R, the pattern is `name <- function(inputs) { ... }`; in Python, it's `def name(inputs):`. Anything after a `#` is a comment the computer ignores. The R code uses the [tidyverse](https://www.tidyverse.org/) (loaded once below) and the Python code uses [`numpy`](https://numpy.org/) where vectors help.
+Each calculation below is also written in R and Python. Because you'll re-use these formulas constantly, we'll wrap each one in a **function**: a named, reusable formula you define once and call with whatever numbers you have. In R, the pattern is `name <- function(inputs) { ... }`; in Python, it's `def name(inputs):`. Anything after a `#` is a comment the computer ignores. The R code uses the [tidyverse](https://www.tidyverse.org/) (loaded once below) and the Python code uses [`numpy`](https://numpy.org/) where vectors help.
 
 ```{r}
 #| label: math-libs-r
@@ -331,7 +320,7 @@ You don't need to calculate this by hand, but you need to *understand* it.
 
 Where: FV = future value, PV = present value, r = annual return, n = years
 
-**The shortcut you should memorize—the Rule of 72:**
+**The shortcut you should memorize is the Rule of 72:**
 
 > Years to double your money = 72 ÷ annual return %
 
@@ -389,7 +378,7 @@ future_value(present_value=10000, rate=0.07, years=horizons)
 
 ### Opportunity Cost Math
 
-This is Felix's signature framework. **Every dollar spent isn't just that dollar—it's what that dollar could have become.**
+This is Felix's signature framework. **Every dollar spent isn't just that dollar; it's what that dollar could have become.**
 
 **Formula:** Cost × (1 + r)^n = Opportunity cost in future dollars
 
@@ -397,7 +386,7 @@ Example: A $40,000 new car vs. a $15,000 used car. The $25,000 difference, inves
 
 $25,000 × (1.07)^30 = **~$190,000**
 
-That's not a car payment difference—that's a retirement chapter.
+That's not a car payment difference; that's a retirement chapter.
 
 ::: {.panel-tabset}
 
@@ -485,13 +474,13 @@ flowchart TD
 
 A budget is just a **plan for your money in advance.** The best one:
 
-1. **Matches your personality.** Don't fight your nature—work with it.
-2. **Automates the boring stuff.** Investments, bills, sinking funds—set and forget.
+1. **Matches your personality.** Don't fight your nature; work with it.
+2. **Automates the boring stuff.** Investments, bills, sinking funds: set and forget.
 3. **Leaves room for joy.** Sethi's guilt-free spending isn't optional; it's what makes budgets sustainable.
 4. **Tracks one number above all: your savings rate.** Everything else is detail.
-5. **Builds in margin for error.** Housel's principle—reality is messier than spreadsheets.
+5. **Builds in margin for error.** Housel's principle: reality is messier than spreadsheets.
 
-The math isn't hard. The categories aren't complicated. The tools are abundant. What's actually required is **the decision to be intentional**—and the patience to let small, consistent allocations compound into a life of financial freedom.
+The math isn't hard. The categories aren't complicated. The tools are abundant. What's actually required is **the decision to be intentional**, and the patience to let small, consistent allocations compound into a life of financial freedom.
 
 As Bogle reminded us about investing, the same applies to budgeting: **don't do something, just stand there.** Set up the system, then let it work.
 

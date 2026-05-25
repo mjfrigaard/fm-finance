@@ -15,7 +15,7 @@ source("_common.R")
 
 <br>
 
-Building wealth doesn't start with picking the right stock or finding a hot investment—it starts with how you manage the money flowing in and out of your life. Let's break down the foundational principles.
+Building wealth doesn't start with picking the right stock or finding a hot investment; it starts with how you manage the money flowing in and out of your life. Let's break down the foundational principles.
 
 ## Some Core Truths
 
@@ -25,7 +25,7 @@ Here's a counterintuitive insight from [Morgan Housel](https://www.morganhousel.
 
 [^wealth]: From [The Psychology of Money](https://www.goodreads.com/quotes/11756295-wealth-is-the-nice-cars-not-purchased-the-diamonds-not)
 
-The person driving the flashy car isn't necessarily wealthy—they just spent their money on a car. True wealth is the income you *didn't* spend, quietly compounding in the background.
+The person driving the flashy car isn't necessarily wealthy; they just spent their money on a car. True wealth is the income you *didn't* spend, quietly compounding in the background.
 
 [Ben Felix](https://rationalreminder.ca/) reinforces this with hard data: research consistently shows that *conspicuous consumption (signaling wealth through purchases) is negatively correlated with actual wealth.*[^consp-consump] People who look rich usually aren’t. People who are rich typically live below their income level.
 
@@ -64,7 +64,7 @@ flowchart TD
 
 ```
 
-During this time, investing in skills, education, and career mobility will have a higher return than any portfolio decision. Income growth — especially early in your career — is one of the most powerful wealth-building levers available. Time and energy spent developing valuable skills can pay off in later years (when these resources are less readily available). 
+During this time, investing in skills, education, and career mobility will have a higher return than any portfolio decision. Income growth, especially early in your career, is one of the most powerful wealth-building levers available. Time and energy spent developing valuable skills can pay off in later years (when these resources are less readily available). 
 
 ## Spending and Happiness
 
@@ -78,11 +78,11 @@ The academic research on money and well-being tends to show some practical concl
 
 [^buy-time]: Whillans, A. V., Dunn, E. W., Smeets, P., Bekkers, R., & Norton, M. I. (2017). "Buying time promotes happiness." *Proceedings of the National Academy of Sciences*, 114(32), 8523–8527. <https://doi.org/10.1073/pnas.1706541114>
 
-- **Lifestyle inflation is the silent killer.** Hedonic adaptation means each lifestyle upgrade quickly becomes the new baseline, but the financial commitment remains permanent.[^hedonic] This is the classic “keeping up with the Jonses” trap — avoid external comparisons of material wealth. Instead, focus on where you were last year (and where you’d like to be in the next year). 
+- **Lifestyle inflation is the silent killer.** Hedonic adaptation means each lifestyle upgrade quickly becomes the new baseline, but the financial commitment remains permanent.[^hedonic] This is the classic “keeping up with the Jonses” trap: avoid external comparisons of material wealth. Instead, focus on where you were last year (and where you’d like to be in the next year). 
 
 [^hedonic]: Dunn, E. W., Gilbert, D. T., & Wilson, T. D. (2011). "If money doesn't make you happy, then you probably aren't spending it right." *Journal of Consumer Psychology*, 21(2), 115–125. <https://doi.org/10.1016/j.jcps.2011.02.002>
 
-- **Housing is the biggest lever.** Housing is usually your biggest expense, so choosing how much to spend on it greatly affects your wealth. Renting can be as good—or better—than buying when you crunch the numbers.[^housing]
+- **Housing is the biggest lever.** Housing is usually your biggest expense, so choosing how much to spend on it greatly affects your wealth. Renting can be as good as (or better than) buying when you crunch the numbers.[^housing]
 
 [^housing]: Beracha, E., & Johnson, K. H. (2012). "Lessons from over 30 years of buy versus rent decisions: Is the American dream always wise?" *Real Estate Economics*, 40(2), 217–247. <https://doi.org/10.1111/j.1540-6229.2011.00321.x>. See also Ben Felix's analysis at [PWL Capital](https://pwlcapital.com/services/financial-wellness-coaching/) and the [Rational Reminder](https://rationalreminder.ca/) podcast.
 
@@ -90,9 +90,9 @@ The academic research on money and well-being tends to show some practical concl
 
 ### 1. Spend on What You Love, Cut on What You Don't (Sethi) {.unnumbered}
 
-Love coffee? Buy the $6 latte. But maybe drive a reliable used car instead of a luxury lease. The goal isn't deprivation—it's intentionality.[^sethi-dials]
+Love coffee? Buy the $6 latte. But maybe drive a reliable used car instead of a luxury lease. The goal isn't deprivation; it's intentionality.[^sethi-dials]
 
-[^sethi-dials]: Sethi, R. (2019). *I Will Teach You to Be Rich* (2nd ed.). Workman Publishing. The phrase "spend extravagantly on the things you love, and cut costs mercilessly on the things you don't" is the core of Sethi's "Conscious Spending Plan" — see Chapter 4, *Conscious Spending*. More at <https://www.iwillteachyoutoberich.com/>.
+[^sethi-dials]: Sethi, R. (2019). *I Will Teach You to Be Rich* (2nd ed.). Workman Publishing. The phrase "spend extravagantly on the things you love, and cut costs mercilessly on the things you don't" is the core of Sethi's "Conscious Spending Plan" (see Chapter 4, *Conscious Spending*). More at <https://www.iwillteachyoutoberich.com/>.
 
 ### 2. Build a Gap Between Ego and Income (Housel) {.unnumbered}
 
@@ -104,7 +104,7 @@ The wider the gap between what you earn and what your ego demands you spend, the
 
 Bogle's philosophy applies to spending, too: complexity is the enemy. The more complicated your financial life, the easier it is to lose track. Automate, simplify, repeat.[^bogle-simple]
 
-[^bogle-simple]: Bogle, J. C. (2017). *The Little Book of Common Sense Investing: The Only Way to Guarantee Your Fair Share of Stock Market Returns* (10th Anniversary ed.). Wiley. Bogle's recurring mantra — "Simplicity is the master key to financial success" — runs throughout the book and his earlier *Common Sense on Mutual Funds*. The investor community he inspired distills these ideas at <https://www.bogleheads.org/wiki/Bogleheads%C2%AE_investment_philosophy>.
+[^bogle-simple]: Bogle, J. C. (2017). *The Little Book of Common Sense Investing: The Only Way to Guarantee Your Fair Share of Stock Market Returns* (10th Anniversary ed.). Wiley. Bogle's recurring mantra ("Simplicity is the master key to financial success") runs throughout the book and his earlier *Common Sense on Mutual Funds*. The investor community he inspired distills these ideas at <https://www.bogleheads.org/wiki/Bogleheads%C2%AE_investment_philosophy>.
 
 ## As Your Income Grows
 
@@ -123,7 +123,7 @@ flowchart TD
     HalfLifestyle --> EnjoyNow(["Enjoy the Win"])
 ```
 
-This way you reward yourself *and* accelerate freedom—without falling into the trap of inflating your lifestyle to match every dollar.
+This way you reward yourself *and* accelerate freedom, without falling into the trap of inflating your lifestyle to match every dollar.
 
 ## The Bottom Line
 
@@ -132,5 +132,5 @@ Living within your means isn't about restriction, it's about **control and inten
 Key points from this chapter:  
 1. **Invest in your human capital**: your career is your biggest asset early on  
 2. **Track your fixed costs**: aim to keep them under 60% of take-home   
-3. **Spend the rest without guilt** on what genuinely brings you joy—prioritizing experiences and time over possessions 
+3. **Spend the rest without guilt** on what genuinely brings you joy: prioritize experiences and time over possessions
 
