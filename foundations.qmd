@@ -33,7 +33,7 @@ data.frame(
 
 Each lever has its own part in this book:
 
-  - [Foundations](foundations.qmd): **Income**, **budgeting**, and **spending** are the behaviors that will have the biggest impact on your financial health. You'll also want to plan for emergencies, and manage the money your borrow. 
+  - [Foundations](foundations.qmd): **Income**, **budgeting**, and **spending** are the behaviors that will have the biggest impact on your financial health. You'll also want to plan for emergencies, and manage the money you borrow. 
   - [Savings](savings.qmd) covers different ways to put money aside, different kinds of savings accounts, and the most important behavior for disciplined savings: **automation**.   
   - [Investing](investing.qmd) is what happens to the money you save **over the long term**. 
 
