@@ -159,9 +159,15 @@ flowchart TD
     ZeroBased --> Eventually[Graduate to Percentage<br/>Once Stable]
 ```
 
-#### *My recommendation* {.unnumbered}
-
-Start with zero-based for 2-3 months to truly understand your spending. Then transition to a percentage-based system with automation. You get the awareness without the long-term burden.
+```{r}
+#| label: my-rec-budget
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(color = "g", 
+  header = "My recommendation", 
+  contents = "Start with zero-based for 2-3 months to truly understand your spending. Then transition to a percentage-based system with automation. You get the awareness without the long-term burden.")
+```
 
 ## Build a Budgeting Tools
 
