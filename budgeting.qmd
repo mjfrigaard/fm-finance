@@ -50,9 +50,9 @@ flowchart TD
     Prioritize --> Sustain(Sustains for Years)
 ```
 
-## Fixed vs. Variable Expenses: Know the Difference
+## Fixed vs. Variable Expenses
 
-The first skill in budgeting is correctly categorizing your money. Most people lump everything together and get overwhelmed.
+The first skill in budgeting is correctly categorizing your money. Most people lump everything together, then get overwhelmed by how to allocate or account for the money they are spending.
 
 ```{mermaid}
 %%| fig-cap: 'Fixed vs. Variable Expenses'
@@ -60,27 +60,29 @@ The first skill in budgeting is correctly categorizing your money. Most people l
 %%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart LR
-    Expenses[Monthly Expenses] --> Fixed[FIXED EXPENSES<br/>Predictable & Recurring]
-    Expenses --> Variable[VARIABLE EXPENSES<br/>Fluctuate Month to Month]
-    Expenses --> Periodic[PERIODIC EXPENSES<br/>Annual or Irregular]
+    Expenses(["Monthly<br>Expenses"]) --> Fixed["FIXED EXPENSES:<br/>Predictable & Recurring"]
+    Expenses --> Variable["VARIABLE EXPENSES:<br/>Fluctuate Month to Month"]
+    Expenses --> Periodic["PERIODIC EXPENSES:<br/>Annual or Irregular"]
     
-    Fixed --> Rent[Rent/Mortgage]
-    Fixed --> Insurance[Insurance Premiums]
-    Fixed --> Subs[Subscriptions]
-    Fixed --> Loans[Loan Payments]
+    Fixed --> Rent("Rent/Mortgage")
+    Fixed --> Insurance("Insurance<br>Premiums")
+    Fixed --> Subs("Subscriptions")
+    Fixed --> Loans("Loan<br>Payments")
     
-    Variable --> Groceries[Groceries]
-    Variable --> Utilities[Utilities]
-    Variable --> Gas[Gas/Transport]
-    Variable --> Dining[Dining Out]
+    Variable --> Groceries("Groceries")
+    Variable --> Utilities("Utilities")
+    Variable --> Gas("Gas/Transport")
+    Variable --> Dining("Dining<br>Out")
     
-    Periodic --> Taxes[Property Taxes]
-    Periodic --> CarMaint[Car Maintenance]
-    Periodic --> Gifts[Gifts/Holidays]
-    Periodic --> Medical[Medical Costs]
+    Periodic --> Taxes("Property<br>Taxes")
+    Periodic --> CarMaint("Car<br>Maintenance")
+    Periodic --> Gifts("Gifts/Holidays")
+    Periodic --> Medical("Medical Costs")
 ```
 
-### Why This Matters
+### Why Categorizing Expenses Matters {.unnumbered}
+
+Fixed and variable expenses should employ different strategies. Periodic expenses are trickier because they are specific to the item/person. 
 
 | Category | Strategy |
 |----------|----------|
@@ -88,23 +90,23 @@ flowchart LR
 | **Variable Expenses** | Where most "budgeting" effort fails. Use **categories with limits**, not line-by-line tracking. |
 | **Periodic Expenses** | The silent budget-killer. Use a **sinking fund**: set aside 1/12 of the annual cost each month. |
 
-### The Sinking Fund: Your Secret Weapon
+### Sinking Fund: Periodic Expenses {.unnumbered}
 
-If your car insurance is $1,200/year, don't get blindsided every six months. Save $100/month into a "Car Insurance" sub-account. When the bill arrives, the money is already there. Repeat for every periodic expense:
+If your car insurance is \$1,200/year, don't get blindsided every six months. Save \$100/month into a "Car Insurance" sub-account. When the bill arrives, the money is already there. Repeat for every periodic expense:
 
-- Christmas/gifts: $600/year → $50/month
-- Car maintenance: $1,200/year → $100/month
-- Annual vacation: $2,400/year → $200/month
+- Christmas/gifts: \$600/year → \$50/month
+- Car maintenance: \$1,200/year → \$100/month
+- Annual vacation: \$2,400/year → \$200/month
 
 This single technique eliminates 80% of "budget emergencies."
 
 ## Zero-Based vs. Percentage Budgets
 
-Two dominant frameworks exist. Both work; pick the one that matches your personality.
+Two dominant frameworks exist. Both work; pick the one that matches your personality. Zero-based budgets offer tight control and are  detail-oriented, making them ideal for anyone rebuilding from debt, or for irregular incomes. Percentage budgets are for big-picture thinkers, stable income earners, and people who hate detailed tracking.
 
-### Zero-Based Budgeting
+### Zero-Based Budgeting {.unnumbered}
 
-Every dollar gets a job. Income minus all allocations equals zero. Popularized by tools like YNAB (You Need A Budget).
+Every dollar gets a job. Income minus all allocations equals zero. 
 
 ```{mermaid}
 %%| fig-cap: 'Zero-Based Budgeting'
@@ -112,23 +114,21 @@ Every dollar gets a job. Income minus all allocations equals zero. Popularized b
 %%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart LR
-    Income[$5,000 Income] --> Rent2[$1,500 Rent]
+    Income["$5,000 Income"] --> Rent2["$1,500 Rent"]
     Income --> Food[$500 Groceries]
     Income --> Transport[$300 Transport]
     Income --> Invest[$1,000 Investments]
     Income --> Save[$500 Savings]
     Income --> Fun[$700 Fun Money]
     Income --> Misc[$500 Other]
-    Misc --> Zero[Total = $5,000<br/>Remaining = $0]
+    Misc --> Zero["Total = $5,000<br/>Remaining = $0"]
 ```
 
-**Best for:** Detail-oriented people, those rebuilding from debt, irregular income earners, anyone needing tight control.
+* **Pros:** Maximum awareness, every dollar intentional, exposes leaks immediately.
 
-**Pros:** Maximum awareness, every dollar intentional, exposes leaks immediately.
+* **Cons:** High maintenance, can feel restrictive, requires re-budgeting monthly.
 
-**Cons:** High maintenance, can feel restrictive, requires re-budgeting monthly.
-
-### Percentage-Based Budgeting
+### Percentage-Based Budgeting {.unnumbered}
 
 Allocate by percentages, not dollars. This is the foundation of Sethi's Conscious Spending Plan and similar frameworks (50/30/20, etc.).
 
@@ -139,13 +139,11 @@ Allocate by percentages, not dollars. This is the foundation of Sethi's Consciou
 | Savings Goals | 5–10% | (combined above) |
 | Guilt-Free Spending | 20–35% | 30% Wants |
 
-**Best for:** Big-picture thinkers, stable income earners, those who hate detailed tracking.
+* **Pros:** Simple, sustainable, scales with income, low maintenance.
 
-**Pros:** Simple, sustainable, scales with income, low maintenance.
+* **Cons:** Less granular, can mask category overspending, requires honesty about category boundaries.
 
-**Cons:** Less granular, can mask category overspending, requires honesty about category boundaries.
-
-### Which Should You Choose?
+### Which Should You Choose? {.unnumbered}
 
 ```{mermaid}
 %%| fig-cap: 'Which Budget To Choose?'
@@ -161,11 +159,15 @@ flowchart TD
     ZeroBased --> Eventually[Graduate to Percentage<br/>Once Stable]
 ```
 
-**My honest recommendation:** Start with zero-based for 2-3 months to truly understand your spending. Then transition to a percentage-based system with automation. You get the awareness without the long-term burden.
+#### *My recommendation* {.unnumbered}
 
-## Common Budgeting Tools and Spreadsheets
+Start with zero-based for 2-3 months to truly understand your spending. Then transition to a percentage-based system with automation. You get the awareness without the long-term burden.
 
-### The Spreadsheet Approach
+## Build a Budgeting Tools
+
+You can build your own budget using a spreadsheet or code (like the examples below). Applications like Microsoft Excel or Google Sheets have tools and templates for customizing each sheet/tab to fit your needs (search "budget template"). Most personal finance blogs also provide a classic envelope spreadsheet free to download.  
+
+### The Spreadsheet Approach {.unnumbered}
 
 Bogle would approve: **simplicity wins.** A well-built spreadsheet beats most apps because it forces you to engage with your numbers. Here's a basic structure:
 
@@ -175,23 +177,17 @@ Bogle would approve: **simplicity wins.** A well-built spreadsheet beats most ap
 %%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart LR
-    Spreadsheet[Budget Spreadsheet] --> Tab1[Tab 1: Income]
+    Spreadsheet(["Budget<br>Spreadsheet"]) --> Tab1[Tab 1: Income]
     Spreadsheet --> Tab2[Tab 2: Fixed Expenses]
     Spreadsheet --> Tab3[Tab 3: Variable Expenses]
     Spreadsheet --> Tab4[Tab 4: Sinking Funds]
     Spreadsheet --> Tab5[Tab 5: Net Worth Tracker]
     Spreadsheet --> Tab6[Tab 6: Summary Dashboard]
     
-    Tab6 --> Metrics[Key Metrics:<br/>Savings Rate<br/>Fixed Cost %<br/>Monthly Cash Flow]
+    Tab6 --> Metrics("Key Metrics:<br/>Savings Rate<br/>Fixed Cost %<br/>Monthly Cash Flow")
 ```
 
-**Free options to get started:**
-
-- Google Sheets templates (search "budget template")    
-- Tiller Money (~$79/year; automates bank imports into Sheets)
-- The classic envelope spreadsheet from any personal finance blog   
-
-### What Actually Matters in a Tool
+### What Actually Matters {.unnumbered}
 
 Don't overthink this. The best budgeting tool is **the one you'll actually use.** 
 
@@ -221,7 +217,7 @@ library(tidyverse)
 import numpy as np
 ```
 
-### Percentages (Your Most-Used Skill)
+### Percentages (Your Most-Used Skill) {.unnumbered}
 
 You need to instantly answer: "What percentage of my income is X?"
 
@@ -258,7 +254,7 @@ percent_of_income(expense=1500, income=5000)
 
 :::
 
-### Annualizing and Monthly-izing
+### Annualizing and Monthly-izing {.unnumbered}
 
 The skill of converting between time periods. Budgets fail because people don't see annual costs in monthly terms (or vice versa).
 
@@ -312,7 +308,7 @@ print(to_monthly(amount=150, period="weekly"))   # $150/week groceries → month
 
 :::
 
-### Compound Interest (The Wealth Equation)
+### Compound Interest (The Wealth Equation) {.unnumbered}
 
 You don't need to calculate this by hand, but you need to *understand* it.
 
@@ -376,7 +372,7 @@ future_value(present_value=10000, rate=0.07, years=horizons)
 
 :::
 
-### Opportunity Cost Math
+### Opportunity Cost Math {.unnumbered}
 
 This is Felix's signature framework. **Every dollar spent isn't just that dollar; it's what that dollar could have become.**
 
@@ -417,7 +413,7 @@ opportunity_cost(amount=25000, rate=0.07, years=30)
 
 :::
 
-### Break-Even and Payback Calculations
+### Break-Even and Payback Calculations {.unnumbered}
 
 Useful for evaluating subscriptions, refinances, and big purchases.
 
