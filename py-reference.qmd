@@ -1,0 +1,116 @@
+# Python Reference {.unnumbered}
+
+```{r}
+#| label: setup-r
+#| message: false
+#| warning: false
+#| include: false
+source("_common.R")
+```
+
+```{python}
+#| label: setup-py
+#| include: false
+import numpy as np
+import pandas as pd
+```
+
+A quick reference to the Python concepts used throughout this book, aligned with the [R Reference](r-reference.qmd) so you can map ideas between the two languages.
+
+## Functions in Python
+
+Functions perform operations (calculate, transform, model, graph) on various objects that contain information (blood pressure measurements, monthly sales, political party affiliation, etc.)
+
+```{python}
+#| label: py-function
+def percent_of_income(expense, income):
+    return (expense / income) * 100
+
+percent_of_income(expense=1500, income=5000)
+```
+
+The pattern is `def name(inputs):` followed by an indented body. Values are returned explicitly with `return`.
+
+## Types of objects in Python
+
+Python's data containers come from two places: **built-in types** (scalars, `list`, `dict`) and **library types** from `numpy` (arrays) and `pandas` (Series, DataFrame, Categorical, datetime). The library types are what fill R's "typed vector" role.
+
+### Vectors
+
+The closest equivalent to R's typed one-dimensional vector is a `numpy` array (a single `dtype`).
+
+#### Atomic vectors {.unnumbered}
+
+The four atomic types: **logical** (`bool`), **integer**, **double** (`float`), and **character** (`str`).
+
+```{python}
+#| label: py-atomic
+np.array([True, False, True])              # logical (bool)
+np.array([1, 2, 3], dtype="int64")         # integer
+np.array([1.5, 2.0, 3.14])                 # double (float64)
+np.array(["apple", "banana", "cherry"])    # character (string)
+```
+
+#### Typed objects {.unnumbered}
+
+`pandas` provides the analogues of R's S3 vectors (**factors**, **dates**, **date-times**, **durations**):
+
+```{python}
+#| label: py-typed
+pd.Categorical(["low", "med", "high"],
+               categories=["low", "med", "high"],
+               ordered=True)                  # factor
+pd.Timestamp("2026-01-15")                    # date
+pd.to_datetime("2026-01-15 09:30:00")         # date-time
+pd.Timedelta(hours=2)                         # duration
+```
+
+### Matrices
+
+Two dimensional `numpy` arrays.
+
+```{python}
+#| label: py-matrix
+np.arange(1, 7).reshape(2, 3)
+```
+
+### Arrays
+
+Multidimensional `numpy` arrays (`ndarray`).
+
+```{python}
+#| label: py-array
+np.arange(1, 13).reshape(2, 3, 2)
+```
+
+### Data frames
+
+Rectangular objects: `pandas.DataFrame` is the equivalent of R's data frame / tibble.
+
+```{python}
+#| label: py-dataframe
+pd.DataFrame({
+    "name": ["Alice", "Bob", "Carol"],
+    "age":  [34, 28, 41],
+    "paid": [True, False, True],
+})
+```
+
+### Lists & dicts
+
+Recursive objects: Python's `list` is the closest match to R's `list` but unkeyed; `dict` is the closer fit when elements have names.
+
+```{python}
+#| label: py-list
+[1, 2, 3, "Alice", [True, False]]
+```
+
+```{python}
+#| label: py-dict
+{
+    "numbers": [1, 2, 3],
+    "name":    "Alice",
+    "flags":   [True, False],
+    "nested":  {"a": 1, "b": "two"},
+}
+```
