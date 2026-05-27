@@ -1,5 +1,8 @@
 set.seed(1014)
 
+# Python dependencies (reticulate uv-managed env) ----
+reticulate::py_require(c("numpy", "pandas"))
+
 # knitr settings ----
 knitr::opts_chunk$set(
   comment = "#>",
@@ -14,6 +17,8 @@ knitr::opts_chunk$set(
 options(
   dplyr.print_min = 6,
   dplyr.print_max = 6,
+  pillar.print_max = Inf,
+  pillar.print_min = 20,
   pillar.bold = TRUE,
   width = 60,
   scipen = 9999

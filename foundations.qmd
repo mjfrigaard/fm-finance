@@ -10,12 +10,13 @@ Personal finance is mostly behavior and a small amount of math. The math matters
 
 Before you optimize investments or chase tax savings, the foundations need to be in place: a working **budget**, **awareness** of where money goes, a **buffer** against bad surprises, and a **plan** for any high-interest debt.
 
-This chapter sets the stage for the rest of the book:
+This part walks through those foundations in order:
 
-  - The **four** core levers: **income**, **spending**, **savings**, and **investing**.     
-  - Why **automation** beats willpower.       
-  - How to think about **risk** and **time horizon**.     
-  - A short note on **tracking**: you only manage what you measure.     
+  1. [**Income**](income.qmd): how to think about what comes in, your "human capital," and the gap between earning and spending.
+  2. [**Budgeting**](budgeting.qmd): a working framework for allocating money on purpose rather than restricting your way to misery.
+  3. [**Tracking Spending**](tracking_spending.qmd): you only manage what you measure; the leak categories most people miss.
+  4. [**Emergency Fund**](emergency_fund.qmd): a 3–6 month buffer so one bad surprise doesn't undo years of progress.
+  5. [**Managing Debt**](managing_debt.qmd): which debts to clear first, and why high-interest debt is wealth-destroying compounding in reverse.
 
 ## The four levers
 

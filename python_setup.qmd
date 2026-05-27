@@ -1,0 +1,59 @@
+# Python Environment Setup {.unnumbered}
+
+The R code in this book runs out of the box if you have the packages in `renv.lock`. The Python code runs through [`reticulate`](https://rstudio.github.io/reticulate/), which uses [`uv`](https://docs.astral.sh/uv/) to manage an isolated Python environment.
+
+## Declared Python dependencies
+
+Python requirements are declared in `_common.R` (sourced from the top of every chapter that runs Python):
+
+```r
+reticulate::py_require(c("numpy", "pandas"))
+```
+
+On first render, `reticulate`'s `uv` backend resolves the requirements and builds the `env` under:
+
+```
+~/.cache/R/reticulate/uv/cache/archive-v0/<HASH>/
+```
+
+The `<HASH>` is content-addressed on the requirement set, so changing `py_require()` produces a new hash and a new env.
+
+## Troubleshooting
+
+### `ModuleNotFoundError`
+
+**Error**: **`ModuleNotFoundError: No module named 'pandas'`**
+
+`reticulate` picked up a cached `env` that pre-dates the requirement. The warning above the error will name the stale hash. Remove that specific env so `reticulate` re-resolves on the next render:
+
+```bash
+rm -rf ~/.cache/R/reticulate/uv/cache/archive-v0/<HASH>
+```
+
+Then re-render. `reticulate` will rebuild at a new hash that includes the missing package.
+
+### `RETICULATE_PYTHON_FALLBACK`
+
+**Error: **`Python specified in RETICULATE_PYTHON_FALLBACK ... does not exist`**
+
+After deleting a cached `env`, this error appears when the R session is still being handed a stale `RETICULATE_PYTHON_FALLBACK` path by the IDE.
+
+RStudio and Positron persist session environment variables in their saved console state (under `~/.local/share/rstudio/projects/.../console*.env`), so newly opened terminals can still carry the old path even after a fresh R session.
+
+Unset the variable for the current shell and re-render:
+
+```bash
+unset RETICULATE_PYTHON_FALLBACK && quarto render budgeting.qmd
+```
+
+Opening an OS-level terminal outside the IDE also avoids the inherited state.
+
+### Adding a new Python package
+
+Add the package name to the `py_require()` call in `_common.R`:
+
+```r
+reticulate::py_require(c("numpy", "pandas", "matplotlib"))
+```
+
+On the next render, `reticulate` will resolve to a new `env` hash and build the updated environment automatically.

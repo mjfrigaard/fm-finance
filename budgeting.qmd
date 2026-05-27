@@ -10,7 +10,10 @@ source("_common.R")
 
 ```{python}
 #| label: setup-py
-#| include: false
+#| echo: false
+#| output: asis
+#| eval: true
+from _common import co_box
 ```
 
 <br>
@@ -114,14 +117,14 @@ Every dollar gets a job. Income minus all allocations equals zero.
 %%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart LR
-    Income["$5,000 Income"] --> Rent2["$1,500 Rent"]
-    Income --> Food[$500 Groceries]
-    Income --> Transport[$300 Transport]
-    Income --> Invest[$1,000 Investments]
-    Income --> Save[$500 Savings]
-    Income --> Fun[$700 Fun Money]
-    Income --> Misc[$500 Other]
-    Misc --> Zero["Total = $5,000<br/>Remaining = $0"]
+    Income(["$5,000<br>Income"]) --> Rent2["$1,500<br>Rent"]
+    Income --> Food[$500<br>Groceries]
+    Income --> Transport[$300<br>Transport]
+    Income --> Invest[$1,000<br>Investments]
+    Income --> Save[$500<br>Savings]
+    Income --> Fun[$700<br>Fun Money]
+    Income --> Misc[$500<br>Other]
+    Misc --> Zero("Total = $5,000<br>Remaining = $0")
 ```
 
 * **Pros:** Maximum awareness, every dollar intentional, exposes leaks immediately.
@@ -165,17 +168,151 @@ flowchart TD
 #| results: asis
 #| eval: true
 co_box(color = "g", 
+  hsize = "1.15", 
+  fold = FALSE,
+  size = "1.10",
   header = "My recommendation", 
   contents = "Start with zero-based for 2-3 months to truly understand your spending. Then transition to a percentage-based system with automation. You get the awareness without the long-term burden.")
 ```
 
-## Build a Budgeting Tools
+## Build a Budgeting Tool
 
 You can build your own budget using a spreadsheet or code (like the examples below). Applications like Microsoft Excel or Google Sheets have tools and templates for customizing each sheet/tab to fit your needs (search "budget template"). Most personal finance blogs also provide a classic envelope spreadsheet free to download.  
 
-### The Spreadsheet Approach {.unnumbered}
+### Using Spreadsheets {.unnumbered}
 
-Bogle would approve: **simplicity wins.** A well-built spreadsheet beats most apps because it forces you to engage with your numbers. Here's a basic structure:
+Personal budget spreadsheets are a great way to start learning about math, programming, and data management. We won't dive too deep into these topics here, but if you're reading this book, it's likely you already have enough data (i.e., income, bills and expenses) to justify putting it in a spreadsheet. 
+
+Consider the example bank statement below with two weeks of purchases. A real export from your bank would look much the same: a **date**, a **description**, a **category**, and an **amount** (negative for money going out, positive for money coming in).
+
+::: {.panel-tabset}
+
+## R
+
+Create the `bank_statement` data in R:
+
+```{r}
+#| label: bank-statement-r
+#| code-fold: true 
+#| code-summary: 'show/hide R bank_statement'
+bank_statement <- tibble::tibble(
+  Date = as.Date(c(
+    "2026-01-02", "2026-01-02", "2026-01-03", "2026-01-03",
+    "2026-01-04", "2026-01-04", "2026-01-05", "2026-01-06",
+    "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-10",
+    "2026-01-11", "2026-01-12", "2026-01-13", "2026-01-14",
+    "2026-01-15"
+  )),
+  Description = c(
+    "Employer Payroll",       "Rent",
+    "Comcast Internet",       "Trader Joe's",
+    "Shell Gas",              "Netflix",
+    "Starbucks",              "PG&E Electric",
+    "AT&T Wireless",          "Spotify",
+    "Whole Foods",            "Chipotle",
+    "Geico Auto Insurance",   "NYTimes Digital",
+    "Shell Gas",              "Costco",
+    "24 Hour Fitness"
+  ),
+  Category = c(
+    "Income",         "Housing",
+    "Utilities",      "Groceries",
+    "Transportation", "Subscription",
+    "Dining",         "Utilities",
+    "Utilities",      "Subscription",
+    "Groceries",      "Dining",
+    "Insurance",      "Subscription",
+    "Transportation", "Groceries",
+    "Subscription"
+  ),
+  Amount = c(
+     2400.00, -1500.00,
+      -75.00,   -82.45,
+      -45.20,   -15.99,
+       -6.75,  -142.30,
+      -85.00,   -10.99,
+      -64.12,   -14.50,
+     -125.00,   -17.00,
+      -42.80,  -156.78,
+      -39.99
+  )
+)
+```
+
+```{r}
+#| label: print-bank-statement-r
+#| df_print: tibble
+bank_statement
+```
+
+## Python
+
+Create the `bank_statement` data in Python (with `pandas`:
+
+```{python}
+#| label: bank-statement-py
+#| code-fold: true 
+#| code-summary: 'show/hide Python bank_statement'
+import pandas as pd
+
+bank_statement = pd.DataFrame({
+    "Date": pd.to_datetime([
+        "2026-01-02", "2026-01-02", "2026-01-03", "2026-01-03",
+        "2026-01-04", "2026-01-04", "2026-01-05", "2026-01-06",
+        "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-10",
+        "2026-01-11", "2026-01-12", "2026-01-13", "2026-01-14",
+        "2026-01-15"
+    ]),
+    "Description": [
+        "Employer Payroll",     "Rent",
+        "Comcast Internet",     "Trader Joe's",
+        "Shell Gas",            "Netflix",
+        "Starbucks",            "PG&E Electric",
+        "AT&T Wireless",        "Spotify",
+        "Whole Foods",          "Chipotle",
+        "Geico Auto Insurance", "NYTimes Digital",
+        "Shell Gas",            "Costco",
+        "24 Hour Fitness"
+    ],
+    "Category": [
+        "Income",         "Housing",
+        "Utilities",      "Groceries",
+        "Transportation", "Subscription",
+        "Dining",         "Utilities",
+        "Utilities",      "Subscription",
+        "Groceries",      "Dining",
+        "Insurance",      "Subscription",
+        "Transportation", "Groceries",
+        "Subscription"
+    ],
+    "Amount": [
+         2400.00, -1500.00,
+          -75.00,   -82.45,
+          -45.20,   -15.99,
+           -6.75,  -142.30,
+          -85.00,   -10.99,
+          -64.12,   -14.50,
+         -125.00,   -17.00,
+          -42.80,  -156.78,
+          -39.99
+    ]
+})
+```
+
+```{python}
+#| label: print-bank-statement-py
+bank_statement
+```
+
+:::
+
+Once your transactions sit in columns and rows, it's much easier to answer budgeting questions like: 
+
+1. What is the total spent on subscriptions?    
+2. What percentage of my income is going to fixed costs?    
+3. What was my biggest variable category last month?
+
+Bogle would approve: **simplicity wins.** A well-built spreadsheet beats most apps because it forces you to engage with your numbers. Below is a basic structure we could use for the `bank_statement` data above:
 
 ```{mermaid}
 %%| fig-cap: 'Spreadsheet'
@@ -192,6 +329,8 @@ flowchart LR
     
     Tab6 --> Metrics("Key Metrics:<br/>Savings Rate<br/>Fixed Cost %<br/>Monthly Cash Flow")
 ```
+
+We'll use exactly this dataset in the [Tracking Spending](tracking_spending.qmd) chapter to compute those numbers.
 
 ### What Actually Matters {.unnumbered}
 
@@ -210,16 +349,52 @@ Features that don't matter as much: fancy graphs, AI insights, social features. 
 
 Here's the secret most personal finance content avoids: *budgeting requires only middle-school math.* However, you need to be fluent in a few specific calculations.
 
-Each calculation below is also written in R and Python. Because you'll re-use these formulas constantly, we'll wrap each one in a **function**: a named, reusable formula you define once and call with whatever numbers you have. In R, the pattern is `name <- function(inputs) { ... }`; in Python, it's `def name(inputs):`. Anything after a `#` is a comment the computer ignores. The R code uses the [tidyverse](https://www.tidyverse.org/) (loaded once below) and the Python code uses [`numpy`](https://numpy.org/) where vectors help.
+
+
+```{r}
+#| label: r-py-functions
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(color = "b", 
+  hsize = "1.15", 
+  fold = TRUE,
+  size = "1.10",
+  header = "Functions in R and Python", 
+  contents = "
+Each calculation below is also written in R and Python. Because you'll re-use these formulas constantly, we'll wrap each one in a **function**: a named, reusable formula you define once and call with whatever numbers you have. 
+
+In R, the pattern is: 
+
+\`\`\`r
+name <- function(inputs) { ... 
+  # function code
+}
+\`\`\` 
+
+In Python, it's 
+
+\`\`\`python
+def name(inputs):
+  # function code
+\`\`\`
+
+
+Anything after a `#` is a comment the computer ignores.")
+```
+
+The R code below uses the [`tidyverse` package](https://www.tidyverse.org/) (loaded once below) and the Python code uses [`numpy` library](https://numpy.org/) where vectors help.
 
 ```{r}
 #| label: math-libs-r
 #| message: false
+#| code-fold: false
 library(tidyverse)
 ```
 
 ```{python}
 #| label: math-libs-py
+#| code-fold: false
 import numpy as np
 ```
 
@@ -384,9 +559,9 @@ This is Felix's signature framework. **Every dollar spent isn't just that dollar
 
 **Formula:** Cost × (1 + r)^n = Opportunity cost in future dollars
 
-Example: A $40,000 new car vs. a $15,000 used car. The $25,000 difference, invested at 7% real return over 30 years:
+Example: A \$40,000 new car vs. a \$15,000 used car. The \$25,000 difference, invested at 7% real return over 30 years:
 
-$25,000 × (1.07)^30 = **~$190,000**
+\$25,000 × (1.07)^30 = **~\$190,000**
 
 That's not a car payment difference; that's a retirement chapter.
 
@@ -462,14 +637,14 @@ months_to_break_even(upfront_cost=500, monthly_savings=60)
 %%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
-    Start[Build Your Budget] --> Step1[1. Track Spending<br/>for 30 Days]
-    Step1 --> Step2[2. Categorize Fixed vs.<br/>Variable vs. Periodic]
-    Step2 --> Step3[3. Calculate Current<br/>Savings Rate]
-    Step3 --> Step4[4. Choose Framework<br/>Zero-Based or Percentage]
-    Step4 --> Step5[5. Set Up Sinking Funds<br/>for Periodic Expenses]
-    Step5 --> Step6[6. Automate Everything<br/>Investments First]
-    Step6 --> Step7[7. Review Weekly,<br/>Adjust Monthly]
-    Step7 --> Step8[8. Recalibrate Quarterly]
+    Start(["Build Your Budget"]) --> Step1("Step 1. Track<br>Spending for<br>30 Days")
+    Step1 --> Step2("Step 2. Categorize Fixed vs. Variable vs. Periodic")
+    Step2 --> Step3("Step 3. Calculate<br>Current Savings Rate")
+    Step3 --> Step4("Step 4. Choose Framework (Zero-Based or Percentage)")
+    Step4 --> Step5("Step 5. Set Up<br>Sinking Funds for<br>Periodic Expenses")
+    Step5 --> Step6("Step 6. Automate Everything<br>Investments First")
+    Step6 --> Step7("Step 7. Review<br>Weekly, Adjust Monthly")
+    Step7 --> Step8(["Step 8. Recalibrate<br>Quarterly"])
 ```
 
 ## The Bottom Line

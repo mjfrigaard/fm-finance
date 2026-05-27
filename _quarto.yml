@@ -47,6 +47,7 @@ book:
         - estate_planning.qmd
   appendices:
     - resources.qmd
+    - python_setup.qmd
 
 bibliography: references.bib
 
@@ -67,7 +68,6 @@ format:
     callout-appearance: simple
     code-fold: show
     code-summary: 'show/hide'
-    df-print: paged
     dpi: 320
     fig-format: retina
     fig-asp: 0.618
