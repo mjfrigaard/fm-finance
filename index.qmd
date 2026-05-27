@@ -13,18 +13,7 @@ source("_common.R")
 #| include: false
 ```
 
-Welcome to the **Personal Finance field manual**, a working reference for the day-to-day decisions that shape your financial life: budgeting, savings, borrowing, investing, taxes, insurance, and planning.
-
-
-```{r}
-#| label: intro-disclaimer
-#| echo: false
-#| results: asis
-#| eval: true
-co_box(color = "r", 
-  header = "NOTE", 
-  contents = "This primary audience for this book is my children. It contains some of the basic principles I was taught (and others I've learned painfully) about managing personal finances.")
-```
+Welcome to my **Personal Finance field manual**, a working reference for the day-to-day decisions that shape your financial life: budgeting, savings, borrowing, investing, taxes, insurance, and planning.
 
 
 This book aims to answer questions like:
@@ -38,6 +27,17 @@ This book aims to answer questions like:
   - "*Which retirement account makes sense for me?*"
 
   - "*How do I pick an index fund?*"
+  
+  
+```{r}
+#| label: intro-disclaimer
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(color = "r", 
+  header = "NOTE", 
+  contents = "This primary audience for this book is my children. It contains some of the basic principles I was taught (and others I've learned painfully) about managing personal finances.")
+```
 
 ## How this book is organized
 
@@ -76,4 +76,4 @@ Pick whichever you prefer; the underlying ideas are the same.
 
 ## About the author
 
-Martin Frigaard writes about R, data, and, now, personal finance.
+Martin Frigaard writes about R packages, Shiny app development, and, now, personal finance.

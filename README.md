@@ -17,6 +17,7 @@ the tidyverse) and **Python** (with pandas / NumPy).
 
 ### Part 1 -- Foundations
 
+- Income
 - Budgeting
 - Tracking Spending
 - Emergency Fund
