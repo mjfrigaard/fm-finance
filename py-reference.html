@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Tracking Spending – Personal Finance: a field manual</title>
+<title>Python Reference – Personal Finance: a field manual</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,8 +68,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./emergency_fund.html" rel="next">
-<link href="./budgeting.html" rel="prev">
+<link href="./python_setup.html" rel="next">
+<link href="./r-reference.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -72,9 +107,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -88,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./foundations.html">Foundations</a></li><li class="breadcrumb-item"><a href="./tracking_spending.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tracking Spending</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./resources.html">Appendices</a></li><li class="breadcrumb-item"><a href="./py-reference.html">Python Reference</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -150,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tracking_spending.html" class="sidebar-item-text sidebar-link active">
+  <a href="./tracking_spending.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tracking Spending</span></span></a>
   </div>
 </li>
@@ -307,7 +339,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./py-reference.html" class="sidebar-item-text sidebar-link">
+  <a href="./py-reference.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Python Reference</span></a>
   </div>
 </li>
@@ -329,20 +361,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#online-subscriptions-the-silent-drain" id="toc-online-subscriptions-the-silent-drain" class="nav-link active" data-scroll-target="#online-subscriptions-the-silent-drain"><span class="header-section-number">3.1</span> Online Subscriptions: The Silent Drain</a>
+  <li><a href="#functions-in-python" id="toc-functions-in-python" class="nav-link active" data-scroll-target="#functions-in-python">Functions in Python</a></li>
+  <li><a href="#types-of-objects-in-python" id="toc-types-of-objects-in-python" class="nav-link" data-scroll-target="#types-of-objects-in-python">Types of objects in Python</a>
   <ul>
-  <li><a href="#the-subscription-reality-check" id="toc-the-subscription-reality-check" class="nav-link" data-scroll-target="#the-subscription-reality-check">The Subscription Reality Check</a></li>
-  <li><a href="#the-subscription-audit-math" id="toc-the-subscription-audit-math" class="nav-link" data-scroll-target="#the-subscription-audit-math">The Subscription Audit Math</a></li>
+  <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a>
+  <ul>
+  <li><a href="#atomic-vectors" id="toc-atomic-vectors" class="nav-link" data-scroll-target="#atomic-vectors">Atomic vectors</a></li>
+  <li><a href="#typed-objects" id="toc-typed-objects" class="nav-link" data-scroll-target="#typed-objects">Typed objects</a></li>
+  </ul></li>
+  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices">Matrices</a></li>
+  <li><a href="#arrays" id="toc-arrays" class="nav-link" data-scroll-target="#arrays">Arrays</a></li>
+  <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames">Data frames</a></li>
+  <li><a href="#lists-dicts" id="toc-lists-dicts" class="nav-link" data-scroll-target="#lists-dicts">Lists &amp; dicts</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/tracking_spending.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/py-reference.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./foundations.html">Foundations</a></li><li class="breadcrumb-item"><a href="./tracking_spending.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tracking Spending</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./resources.html">Appendices</a></li><li class="breadcrumb-item"><a href="./py-reference.html">Python Reference</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tracking Spending</span></h1>
+<h1 class="title">Python Reference</h1>
 </div>
 
 
@@ -359,71 +399,135 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><br></p>
-<p>You only manage what you measure. This chapter covers how to capture every dollar that leaves your accounts and turn that data into insight.</p>
-<ul>
-<li>Categorizing transactions</li>
-<li>Reviewing on a monthly cadence</li>
-<li>Spotting “leak” categories (subscriptions, delivery fees, impulse buys)</li>
-</ul>
-<section id="online-subscriptions-the-silent-drain" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="online-subscriptions-the-silent-drain"><span class="header-section-number">3.1</span> Online Subscriptions: The Silent Drain</h2>
-<p>This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries; they’re individually small but collectively enormous.</p>
-<style>
-
-.codeStyle span:not(.nodeLabel) {
-  font-family: monospace;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #9753b8 !important;
-  background-color: #f6f6f6;
-  padding: 0.2em;
-}
-</style>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
-
-flowchart TD
-    Subscriptions[Monthly Subscriptions] --&gt; Audit[Quarterly Audit]
-    Audit --&gt; Use[Used in last 30 days?]
-    Use --&gt;|Yes| Worth[Worth the cost?]
-    Use --&gt;|No| Cancel[Cancel Today]
-    Worth --&gt;|Yes| Keep[Keep]
-    Worth --&gt;|No| Cancel
-    Cancel --&gt; Redirect[Redirect to Investments]
-</pre>
+<p>A quick reference to the Python concepts used throughout this book, aligned with the <a href="./r-reference.html">R Reference</a> so you can map ideas between the two languages.</p>
+<section id="functions-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="functions-in-python">Functions in Python</h2>
+<p>Functions perform operations (calculate, transform, model, graph) on various objects that contain information (blood pressure measurements, monthly sales, political party affiliation, etc.)</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> percent_of_income(expense, income):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (expense <span class="op">/</span> income) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>percent_of_income(expense<span class="op">=</span><span class="dv">1500</span>, income<span class="op">=</span><span class="dv">5000</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 30.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
-<p></p><figcaption> Subscription Audit</figcaption> </figure><p></p>
-</div>
-</div>
-</div>
-<section id="the-subscription-reality-check" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="the-subscription-reality-check">The Subscription Reality Check</h3>
-<p>The average household spends <strong>$200–$300/month</strong> on subscriptions, often without realizing it. At $250/month invested at a 7% real return over 30 years, that’s roughly <strong>$300,000 in lost wealth</strong>.</p>
-<p><strong>Action steps:</strong></p>
-<ol type="1">
-<li>Pull your last 3 months of bank/card statements</li>
-<li>List every recurring charge</li>
-<li>Cancel anything you haven’t actively used in 30 days</li>
-<li>Set a calendar reminder every 90 days to repeat this</li>
-<li>Use one card exclusively for subscriptions to track them easily</li>
-</ol>
-<p>This isn’t deprivation; it’s the Sethi principle in action: <strong>cut mercilessly on what you don’t love</strong> so you can spend freely on what you do.</p>
+<p>The pattern is <code>def name(inputs):</code> followed by an indented body. Values are returned explicitly with <code>return</code>.</p>
 </section>
-<section id="the-subscription-audit-math" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="the-subscription-audit-math">The Subscription Audit Math</h3>
-<p>A simple but powerful calculation.</p>
-<p><strong>Formula:</strong> Monthly Subscription × 12 × (1.07)^n = Opportunity cost in <em>n</em> years</p>
-<p>Example: A $20/month subscription you don’t really use, over 30 years:</p>
-<ul>
-<li>Annual cost: $240</li>
-<li>Invested at 7% real return for 30 years: <strong>~$24,000</strong></li>
-</ul>
-<p>That “small” $20/month is a $24,000 decision. <strong>Audit accordingly.</strong></p>
+<section id="types-of-objects-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-objects-in-python">Types of objects in Python</h2>
+<p>Python’s data containers come from two places: <strong>built-in types</strong> (scalars, <code>list</code>, <code>dict</code>) and <strong>library types</strong> from <code>numpy</code> (arrays) and <code>pandas</code> (Series, DataFrame, Categorical, datetime). The library types are what fill R’s “typed vector” role.</p>
+<section id="vectors" class="level3">
+<h3 class="anchored" data-anchor-id="vectors">Vectors</h3>
+<p>The closest equivalent to R’s typed one-dimensional vector is a <code>numpy</code> array (a single <code>dtype</code>).</p>
+<section id="atomic-vectors" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="atomic-vectors">Atomic vectors</h4>
+<p>The four atomic types: <strong>logical</strong> (<code>bool</code>), <strong>integer</strong>, <strong>double</strong> (<code>float</code>), and <strong>character</strong> (<code>str</code>).</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>np.array([<span class="va">True</span>, <span class="va">False</span>, <span class="va">True</span>])              <span class="co"># logical (bool)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; array([ True, False,  True])</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], dtype<span class="op">=</span><span class="st">"int64"</span>)         <span class="co"># integer</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; array([1, 2, 3])</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>np.array([<span class="fl">1.5</span>, <span class="fl">2.0</span>, <span class="fl">3.14</span>])                 <span class="co"># double (float64)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; array([1.5 , 2.  , 3.14])</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>np.array([<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>])    <span class="co"># character (string)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; array(['apple', 'banana', 'cherry'], dtype='&lt;U6')</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="typed-objects" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="typed-objects">Typed objects</h4>
+<p><code>pandas</code> provides the analogues of R’s S3 vectors (<strong>factors</strong>, <strong>dates</strong>, <strong>date-times</strong>, <strong>durations</strong>):</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pd.Categorical([<span class="st">"low"</span>, <span class="st">"med"</span>, <span class="st">"high"</span>],</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>               categories<span class="op">=</span>[<span class="st">"low"</span>, <span class="st">"med"</span>, <span class="st">"high"</span>],</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>               ordered<span class="op">=</span><span class="va">True</span>)                  <span class="co"># factor</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ['low', 'med', 'high']</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Categories (3, str): ['low' &lt; 'med' &lt; 'high']</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>pd.Timestamp(<span class="st">"2026-01-15"</span>)                    <span class="co"># date</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Timestamp('2026-01-15 00:00:00')</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>pd.to_datetime(<span class="st">"2026-01-15 09:30:00"</span>)         <span class="co"># date-time</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Timestamp('2026-01-15 09:30:00')</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>pd.Timedelta(hours<span class="op">=</span><span class="dv">2</span>)                         <span class="co"># duration</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Timedelta('0 days 02:00:00')</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+</section>
+<section id="matrices" class="level3">
+<h3 class="anchored" data-anchor-id="matrices">Matrices</h3>
+<p>Two dimensional <code>numpy</code> arrays.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">1</span>, <span class="dv">7</span>).reshape(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; array([[1, 2, 3],</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        [4, 5, 6]])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="arrays" class="level3">
+<h3 class="anchored" data-anchor-id="arrays">Arrays</h3>
+<p>Multidimensional <code>numpy</code> arrays (<code>ndarray</code>).</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">1</span>, <span class="dv">13</span>).reshape(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; array([[[ 1,  2],</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         [ 3,  4],</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         [ 5,  6]],</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        [[ 7,  8],</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         [ 9, 10],</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         [11, 12]]])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="data-frames" class="level3">
+<h3 class="anchored" data-anchor-id="data-frames">Data frames</h3>
+<p>Rectangular objects: <code>pandas.DataFrame</code> is the equivalent of R’s data frame / tibble.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame({</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Carol"</span>],</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"age"</span>:  [<span class="dv">34</span>, <span class="dv">28</span>, <span class="dv">41</span>],</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"paid"</span>: [<span class="va">True</span>, <span class="va">False</span>, <span class="va">True</span>],</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     name  age   paid</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0  Alice   34   True</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    Bob   28  False</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  Carol   41   True</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="lists-dicts" class="level3">
+<h3 class="anchored" data-anchor-id="lists-dicts">Lists &amp; dicts</h3>
+<p>Recursive objects: Python’s <code>list</code> is the closest match to R’s <code>list</code> but unkeyed; <code>dict</code> is the closer fit when elements have names.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">"Alice"</span>, [<span class="va">True</span>, <span class="va">False</span>]]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1, 2, 3, 'Alice', [True, False]]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"numbers"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>:    <span class="st">"Alice"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"flags"</span>:   [<span class="va">True</span>, <span class="va">False</span>],</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"nested"</span>:  {<span class="st">"a"</span>: <span class="dv">1</span>, <span class="st">"b"</span>: <span class="st">"two"</span>},</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; {'numbers': [1, 2, 3], 'name': 'Alice', 'flags': [True, False], 'nested': {'a': 1, 'b': 'two'}}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 
 
 </section>
@@ -871,13 +975,13 @@ flowchart TD
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./budgeting.html" class="pagination-link" aria-label="Budgeting">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Budgeting</span></span>
+      <a href="./r-reference.html" class="pagination-link" aria-label="R Reference">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R Reference</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./emergency_fund.html" class="pagination-link" aria-label="Emergency Fund">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Emergency Fund</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./python_setup.html" class="pagination-link" aria-label="Python Environment Setup">
+        <span class="nav-page-text">Python Environment Setup</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -889,7 +993,7 @@ flowchart TD
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/tracking_spending.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/py-reference.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
