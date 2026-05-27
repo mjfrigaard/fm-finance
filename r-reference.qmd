@@ -1,0 +1,102 @@
+# R Reference {.unnumbered}
+
+```{r}
+#| label: setup-r
+#| message: false
+#| warning: false
+#| include: false
+source("_common.R")
+```
+
+A quick reference to the R concepts used throughout this book.
+
+## Functions in R
+
+Functions perform operations (calculate, transform, model, graph) on various objects that contain information (blood pressure measurements, monthly sales, political party affiliation, etc.)
+
+```{r}
+#| label: r-function
+percent_of_income <- function(expense, income) {
+  (expense / income) * 100
+}
+
+percent_of_income(expense = 1500, income = 5000)
+```
+
+The pattern is `name <- function(inputs) { body }`. The last expression in the body is returned automatically; `return()` is optional.
+
+## Types of objects in R
+
+### Vectors
+
+Vectors are one-dimensional containers where every value has the same type.
+
+#### Atomic vectors {.unnumbered}
+
+The four atomic types: **logical**, **integer**, **double**, and **character**.
+
+```{r}
+#| label: r-atomic
+c(TRUE, FALSE, TRUE)              # logical
+c(1L, 2L, 3L)                     # integer
+c(1.5, 2.0, 3.14)                 # double
+c("apple", "banana", "cherry")    # character
+```
+
+#### S3 vectors {.unnumbered}
+
+S3 vectors (**factors**, **dates**, **date-times**, **durations**) are atomic vectors with extra class metadata that gives them specialized behavior.
+
+```{r}
+#| label: r-s3
+factor(c("low", "med", "high"),
+       levels = c("low", "med", "high"))   # factor
+as.Date("2026-01-15")                      # date
+as.POSIXct("2026-01-15 09:30:00")          # date-time
+as.difftime(2, units = "hours")            # duration
+```
+
+### Matrices
+
+Two dimensional objects. All values must share the same atomic type.
+
+```{r}
+#| label: r-matrix
+matrix(1:6, nrow = 2, ncol = 3)
+```
+
+### Arrays
+
+Multidimensional objects. Same-type values; dimensions defined by `dim()`.
+
+```{r}
+#| label: r-array
+array(1:12, dim = c(2, 3, 2))
+```
+
+### Data frames & tibbles
+
+Rectangular objects: each column is a vector, and columns can be different types. Tibbles are tidyverse-style data frames with nicer printing and stricter behavior.
+
+```{r}
+#| label: r-tibble
+tibble::tibble(
+  name = c("Alice", "Bob", "Carol"),
+  age  = c(34L, 28L, 41L),
+  paid = c(TRUE, FALSE, TRUE)
+)
+```
+
+### Lists
+
+Recursive objects: each element can be any object, including another list. The most flexible container in R, and the building block underneath data frames, model objects, and JSON-like data.
+
+```{r}
+#| label: r-list
+list(
+  numbers = c(1, 2, 3),
+  name    = "Alice",
+  flags   = c(TRUE, FALSE),
+  nested  = list(a = 1, b = "two")
+)
+```

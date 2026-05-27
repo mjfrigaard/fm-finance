@@ -47,6 +47,8 @@ book:
         - estate_planning.qmd
   appendices:
     - resources.qmd
+    - r-reference.qmd
+    - py-reference.qmd
     - python_setup.qmd
 
 bibliography: references.bib
