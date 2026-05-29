@@ -495,8 +495,8 @@ flowchart LR
 <p>Fixed and variable expenses should employ different strategies. Periodic expenses are trickier because they are specific to the item/person.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 20%">
+<col style="width: 79%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -507,15 +507,18 @@ flowchart LR
 <tbody>
 <tr class="odd">
 <td><strong>Fixed Expenses</strong></td>
-<td>Lock these in and forget them. The goal is to <strong>minimize them once</strong>, then automate. Biggest leverage point: housing.</td>
+<td><p>Lock these in and forget them (minimize them once, then automate).</p>
+<p>Biggest leverage point: housing.</p></td>
 </tr>
 <tr class="even">
 <td><strong>Variable Expenses</strong></td>
-<td>Where most “budgeting” effort fails. Use <strong>categories with limits</strong>, not line-by-line tracking.</td>
+<td><p>This category is where most budgeting efforts fail.</p>
+<p>Use <strong>categories with limits</strong>, not line-by-line tracking.</p></td>
 </tr>
 <tr class="odd">
 <td><strong>Periodic Expenses</strong></td>
-<td>The silent budget-killer. Use a <strong>sinking fund</strong>: set aside 1/12 of the annual cost each month.</td>
+<td><p>These expenses are silent budget-killers.</p>
+<p>Combat this with a <strong>sinking fund</strong>: set aside 1/12 of the annual cost for these each month.</p></td>
 </tr>
 </tbody>
 </table>
@@ -533,7 +536,7 @@ flowchart LR
 </section>
 <section id="zero-based-vs.-percentage-budgets" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="zero-based-vs.-percentage-budgets"><span class="header-section-number">2.3</span> Zero-Based vs.&nbsp;Percentage Budgets</h2>
-<p>Two dominant frameworks exist. Both work; pick the one that matches your personality. Zero-based budgets offer tight control and are detail-oriented, making them ideal for anyone rebuilding from debt, or for irregular incomes. Percentage budgets are for big-picture thinkers, stable income earners, and people who hate detailed tracking.</p>
+<p>Two dominant frameworks exist. Both work; pick the one that matches your personality. Zero-based budgets offer tight control and are detail-oriented, making them ideal for anyone rebuilding from debt or with irregular income. Percentage budgets are for big-picture thinkers, stable income earners, and people who hate detailed tracking.</p>
 <section id="zero-based-budgeting" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="zero-based-budgeting">Zero-Based Budgeting</h3>
 <p>Every dollar gets a job. Income minus all allocations equals zero.</p>
@@ -559,15 +562,17 @@ flowchart LR
 </div>
 </div>
 </div>
-<ul>
-<li><p><strong>Pros:</strong> Maximum awareness, every dollar intentional, exposes leaks immediately.</p></li>
-<li><p><strong>Cons:</strong> High maintenance, can feel restrictive, requires re-budgeting monthly.</p></li>
-</ul>
+<p>These types of budgets provide maximum awareness, make every dollar spent/saved/invested intentional, and immediately expose leaks. However, these are high-maintenance, can feel a little restrictive, and require monthly re-budgeting.</p>
 </section>
 <section id="percentage-based-budgeting" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="percentage-based-budgeting">Percentage-Based Budgeting</h3>
-<p>Allocate by percentages, not dollars. This is the foundation of Sethi’s Conscious Spending Plan and similar frameworks (50/30/20, etc.).</p>
+<p>Allocate by percentages, not dollars. This is the foundation of Sethi’s Conscious Spending Plan<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and similar frameworks (50/30/20, etc.).</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 44%">
+<col style="width: 25%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Bucket</th>
@@ -598,10 +603,7 @@ flowchart LR
 </tr>
 </tbody>
 </table>
-<ul>
-<li><p><strong>Pros:</strong> Simple, sustainable, scales with income, low maintenance.</p></li>
-<li><p><strong>Cons:</strong> Less granular, can mask category overspending, requires honesty about category boundaries.</p></li>
-</ul>
+<p>Percentages are great because they’re the proportion of your earnings assigned to each category, which means they scale to any income and, after you’ve categorized your expenses, they are low maintenance. However, they are also less granular, can mask overspending in certain categories, and require you to be brutally honest about the category boundaries.</p>
 </section>
 <section id="which-should-you-choose" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="which-should-you-choose">Which Should You Choose?</h3>
@@ -647,11 +649,11 @@ flowchart TD
 </section>
 <section id="build-a-budgeting-tool" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="build-a-budgeting-tool"><span class="header-section-number">2.4</span> Build a Budgeting Tool</h2>
-<p>You can build your own budget using a spreadsheet or code (like the examples below). Applications like Microsoft Excel or Google Sheets have tools and templates for customizing each sheet/tab to fit your needs (search “budget template”). Most personal finance blogs also provide a classic envelope spreadsheet free to download.</p>
+<p>YYou can build your own budget using a spreadsheet or code (like the examples below). Applications like Microsoft Excel or Google Sheets offer tools and templates to customize each sheet/tab to fit your needs (search for “budget template”). Most personal finance blogs also offer a free downloadable classic envelope spreadsheet.</p>
 <section id="using-spreadsheets" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="using-spreadsheets">Using Spreadsheets</h3>
 <p>Personal budget spreadsheets are a great way to start learning about math, programming, and data management. We won’t dive too deep into these topics here, but if you’re reading this book, it’s likely you already have enough data (i.e., income, bills and expenses) to justify putting it in a spreadsheet.</p>
-<p>Consider the example bank statement below with two weeks of purchases. A real export from your bank would look much the same: a <strong>date</strong>, a <strong>description</strong>, a <strong>category</strong>, and an <strong>amount</strong> (negative for money going out, positive for money coming in).</p>
+<p>Consider the example bank statement below, which shows two weeks of purchases. A real export from your bank would look much the same: a <strong>date</strong>, a <strong>description</strong>, a <strong>category</strong>, and an <strong>amount</strong> (negative for outgoing money, positive for incoming money).</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
@@ -1181,6 +1183,12 @@ flowchart TD
 <p>As Bogle reminded us about investing, the same applies to budgeting: <strong>don’t do something, just stand there.</strong> Set up the system, then let it work.</p>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>This plan is covered on his <a href="https://www.iwillteachyoutoberich.com/conscious-spending-basics/">website</a> and in <a href="https://www.reddit.com/r/singaporefi/comments/1oohihc/do_you_have_your_own_version_of_conscious/">this Reddit post</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
