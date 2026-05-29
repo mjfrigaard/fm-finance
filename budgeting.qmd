@@ -18,13 +18,13 @@ from _common import co_box
 
 <br>
 
-Most people hate budgeting because they're approaching it with some bad assumptions.  Traditional budgets fail because they assume human behavior is robotic: tracking every penny, restricting every joy, and demanding perfection. The frameworks (drawn from Sethi, Housel, Bogle, and Felix) are designed for how we actually behave.
+Most people hate budgeting because they're approaching it with some bad assumptions. Traditional budgets fail because they assume human behavior is robotic: tracking every penny, restricting every joy, and demanding perfection. The frameworks (drawn from Sethi, Housel, Bogle, and Felix) are designed for how we actually behave.
 
 > "A budget tells your money where to go instead of wondering where it went." (Ramit Sethi)
 
 ## The Budget Mindset Shift
 
-Budgets aren't about restriction; they're about *conscious allocation*.  A good budget builds in flexibility, not rigidity. Morgan Housel's insight is powerful here: "*room for error is the most underrated financial concept.*"
+Budgets aren't about restriction; they're about *conscious allocation*. A good budget builds in flexibility, not rigidity. Morgan Housel's insight is powerful here: "*room for error is the most underrated financial concept.*"
 
 ```{=html}
 <style>
@@ -85,13 +85,23 @@ flowchart LR
 
 ### Why Categorizing Expenses Matters {.unnumbered}
 
-Fixed and variable expenses should employ different strategies. Periodic expenses are trickier because they are specific to the item/person. 
+Fixed and variable expenses should employ different strategies. Periodic expenses are trickier because they are specific to the item/person.
 
-| Category | Strategy |
-|----------|----------|
-| **Fixed Expenses** | Lock these in and forget them. The goal is to **minimize them once**, then automate. Biggest leverage point: housing. |
-| **Variable Expenses** | Where most "budgeting" effort fails. Use **categories with limits**, not line-by-line tracking. |
-| **Periodic Expenses** | The silent budget-killer. Use a **sinking fund**: set aside 1/12 of the annual cost each month. |
++-----------------------+----------------------------------------------------------------------------------------------+
+| Category              | Strategy                                                                                     |
++=======================+==============================================================================================+
+| **Fixed Expenses**    | Lock these in and forget them (minimize them once, then automate).                           |
+|                       |                                                                                              |
+|                       | Biggest leverage point: housing.                                                             |
++-----------------------+----------------------------------------------------------------------------------------------+
+| **Variable Expenses** | This category is where most budgeting efforts fail.                                          |
+|                       |                                                                                              |
+|                       | Use **categories with limits**, not line-by-line tracking.                                   |
++-----------------------+----------------------------------------------------------------------------------------------+
+| **Periodic Expenses** | These expenses are silent budget-killers.                                                    |
+|                       |                                                                                              |
+|                       | Combat this with a **sinking fund**: set aside 1/12 of the annual cost for these each month. |
++-----------------------+----------------------------------------------------------------------------------------------+
 
 ### Sinking Fund: Periodic Expenses {.unnumbered}
 
@@ -105,11 +115,11 @@ This single technique eliminates 80% of "budget emergencies."
 
 ## Zero-Based vs. Percentage Budgets
 
-Two dominant frameworks exist. Both work; pick the one that matches your personality. Zero-based budgets offer tight control and are  detail-oriented, making them ideal for anyone rebuilding from debt, or for irregular incomes. Percentage budgets are for big-picture thinkers, stable income earners, and people who hate detailed tracking.
+Two dominant frameworks exist. Both work; pick the one that matches your personality. Zero-based budgets offer tight control and are detail-oriented, making them ideal for anyone rebuilding from debt or with irregular income. Percentage budgets are for big-picture thinkers, stable income earners, and people who hate detailed tracking.
 
 ### Zero-Based Budgeting {.unnumbered}
 
-Every dollar gets a job. Income minus all allocations equals zero. 
+Every dollar gets a job. Income minus all allocations equals zero.
 
 ```{mermaid}
 %%| fig-cap: 'Zero-Based Budgeting'
@@ -127,24 +137,27 @@ flowchart LR
     Misc --> Zero("Total = $5,000<br>Remaining = $0")
 ```
 
-* **Pros:** Maximum awareness, every dollar intentional, exposes leaks immediately.
-
-* **Cons:** High maintenance, can feel restrictive, requires re-budgeting monthly.
+These types of budgets provide maximum awareness, make every dollar spent/saved/invested intentional, and immediately expose leaks. However, these are high-maintenance, can feel a little restrictive, and require monthly re-budgeting.
 
 ### Percentage-Based Budgeting {.unnumbered}
 
-Allocate by percentages, not dollars. This is the foundation of Sethi's Conscious Spending Plan and similar frameworks (50/30/20, etc.).
+Allocate by percentages, not dollars. This is the foundation of Sethi's Conscious Spending Plan[^budgeting-1] and similar frameworks (50/30/20, etc.).
 
-| Bucket | Conscious Spending Plan (Sethi) | 50/30/20 Rule |
-|--------|--------------------------------|---------------|
-| Fixed Costs | 50–60% | 50% Needs |
-| Investments | 10%+ | 20% Savings/Debt |
-| Savings Goals | 5–10% | (combined above) |
-| Guilt-Free Spending | 20–35% | 30% Wants |
+[^budgeting-1]: This plan is covered on his [website](https://www.iwillteachyoutoberich.com/conscious-spending-basics/) and in [this Reddit post](https://www.reddit.com/r/singaporefi/comments/1oohihc/do_you_have_your_own_version_of_conscious/)
 
-* **Pros:** Simple, sustainable, scales with income, low maintenance.
++---------------------+---------------------------------+------------------+
+| Bucket              | Conscious Spending Plan (Sethi) | 50/30/20 Rule    |
++=====================+=================================+==================+
+| Fixed Costs         | 50–60%                          | 50% Needs        |
++---------------------+---------------------------------+------------------+
+| Investments         | 10%+                            | 20% Savings/Debt |
++---------------------+---------------------------------+------------------+
+| Savings Goals       | 5–10%                           | (combined above) |
++---------------------+---------------------------------+------------------+
+| Guilt-Free Spending | 20–35%                          | 30% Wants        |
++---------------------+---------------------------------+------------------+
 
-* **Cons:** Less granular, can mask category overspending, requires honesty about category boundaries.
+Percentages are great because they’re the proportion of your earnings assigned to each category, which means they scale to any income and, after you’ve categorized your expenses, they are low maintenance. However, they are also less granular, can mask overspending in certain categories, and require you to be brutally honest about the category boundaries.
 
 ### Which Should You Choose? {.unnumbered}
 
@@ -177,16 +190,15 @@ co_box(color = "g",
 
 ## Build a Budgeting Tool
 
-You can build your own budget using a spreadsheet or code (like the examples below). Applications like Microsoft Excel or Google Sheets have tools and templates for customizing each sheet/tab to fit your needs (search "budget template"). Most personal finance blogs also provide a classic envelope spreadsheet free to download.  
+YYou can build your own budget using a spreadsheet or code (like the examples below). Applications like Microsoft Excel or Google Sheets offer tools and templates to customize each sheet/tab to fit your needs (search for “budget template”). Most personal finance blogs also offer a free downloadable classic envelope spreadsheet.
 
 ### Using Spreadsheets {.unnumbered}
 
-Personal budget spreadsheets are a great way to start learning about math, programming, and data management. We won't dive too deep into these topics here, but if you're reading this book, it's likely you already have enough data (i.e., income, bills and expenses) to justify putting it in a spreadsheet. 
+Personal budget spreadsheets are a great way to start learning about math, programming, and data management. We won't dive too deep into these topics here, but if you're reading this book, it's likely you already have enough data (i.e., income, bills and expenses) to justify putting it in a spreadsheet.
 
-Consider the example bank statement below with two weeks of purchases. A real export from your bank would look much the same: a **date**, a **description**, a **category**, and an **amount** (negative for money going out, positive for money coming in).
+Consider the example bank statement below, which shows two weeks of purchases. A real export from your bank would look much the same: a **date**, a **description**, a **category**, and an **amount** (negative for outgoing money, positive for incoming money).
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## R
 
 Create the `bank_statement` data in R:
@@ -303,14 +315,13 @@ bank_statement = pd.DataFrame({
 #| label: print-bank-statement-py
 bank_statement
 ```
-
 :::
 
-Once your transactions sit in columns and rows, it's much easier to answer budgeting questions like: 
+Once your transactions sit in columns and rows, it's much easier to answer budgeting questions like:
 
-1. What is the total spent on subscriptions?    
-2. What percentage of my income is going to fixed costs?    
-3. What was my biggest variable category last month?
+1.  What is the total spent on subscriptions?\
+2.  What percentage of my income is going to fixed costs?\
+3.  What was my biggest variable category last month?
 
 Bogle would approve: **simplicity wins.** A well-built spreadsheet beats most apps because it forces you to engage with your numbers. Below is a basic structure we could use for the `bank_statement` data above:
 
@@ -334,22 +345,20 @@ We'll use exactly this dataset in the [Tracking Spending](tracking_spending.qmd)
 
 ### What Actually Matters {.unnumbered}
 
-Don't overthink this. The best budgeting tool is **the one you'll actually use.** 
+Don't overthink this. The best budgeting tool is **the one you'll actually use.**
 
 Features that matter:
 
-1. **Automatic transaction imports** (saves hours per month)
-2. **Easy categorization** (you'll do this weekly)
-3. **A clear summary view** (your dashboard)
-4. **Goal tracking** (motivation matters)
+1.  **Automatic transaction imports** (saves hours per month)
+2.  **Easy categorization** (you'll do this weekly)
+3.  **A clear summary view** (your dashboard)
+4.  **Goal tracking** (motivation matters)
 
 Features that don't matter as much: fancy graphs, AI insights, social features. Substance over style.
 
 ## Budgeting Math
 
 Here's the secret most personal finance content avoids: *budgeting requires only middle-school math.* However, you need to be fluent in a few specific calculations.
-
-
 
 ```{r}
 #| label: r-py-functions
@@ -404,12 +413,11 @@ You need to instantly answer: "What percentage of my income is X?"
 
 **Formula:** (Expense ÷ Income) × 100
 
-Example: Rent is $1,500, income is $5,000. → 1,500 ÷ 5,000 = 0.30 → **30% of income on rent.**
+Example: Rent is \$1,500, income is \$5,000. → 1,500 ÷ 5,000 = 0.30 → **30% of income on rent.**
 
 Practice until you can do this in your head for the big categories.
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## R
 
 ```{r}
@@ -432,7 +440,6 @@ def percent_of_income(expense, income):
 # rent of $1,500 against $5,000 take-home pay
 percent_of_income(expense=1500, income=5000)
 ```
-
 :::
 
 ### Annualizing and Monthly-izing {.unnumbered}
@@ -447,10 +454,9 @@ The skill of converting between time periods. Budgets fail because people don't 
 
 **Daily habit → Annual:** Multiply by 365
 
-Example: A $5 daily coffee → $5 × 365 = **$1,825/year.** Suddenly it's a real number you can evaluate.
+Example: A \$5 daily coffee → \$5 × 365 = **\$1,825/year.** Suddenly it's a real number you can evaluate.
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## R
 
 ```{r}
@@ -486,14 +492,13 @@ def to_monthly(amount, period="daily"):
 print(to_annual(amount=5,    period="daily"))    # $5/day coffee → annual
 print(to_monthly(amount=150, period="weekly"))   # $150/week groceries → monthly
 ```
-
 :::
 
 ### Compound Interest (The Wealth Equation) {.unnumbered}
 
 You don't need to calculate this by hand, but you need to *understand* it.
 
-**Formula:** FV = PV × (1 + r)^n
+**Formula:** FV = PV × (1 + r)\^n
 
 Where: FV = future value, PV = present value, r = annual return, n = years
 
@@ -501,12 +506,11 @@ Where: FV = future value, PV = present value, r = annual return, n = years
 
 > Years to double your money = 72 ÷ annual return %
 
-At 7% return, money doubles every ~10 years. At 10%, every ~7 years. This single insight reframes every spending decision.
+At 7% return, money doubles every \~10 years. At 10%, every \~7 years. This single insight reframes every spending decision.
 
 In code, the `^` symbol (R) and `**` symbol (Python) both mean "raise to the power of." So `(1 + 0.07)^10` means "1.07 multiplied by itself 10 times."
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## R
 
 ```{r}
@@ -550,23 +554,21 @@ print(rule_of_72(annual_return_pct=7))
 horizons = np.array([5, 10, 20, 30])
 future_value(present_value=10000, rate=0.07, years=horizons)
 ```
-
 :::
 
 ### Opportunity Cost Math {.unnumbered}
 
 This is Felix's signature framework. **Every dollar spent isn't just that dollar; it's what that dollar could have become.**
 
-**Formula:** Cost × (1 + r)^n = Opportunity cost in future dollars
+**Formula:** Cost × (1 + r)\^n = Opportunity cost in future dollars
 
 Example: A \$40,000 new car vs. a \$15,000 used car. The \$25,000 difference, invested at 7% real return over 30 years:
 
-\$25,000 × (1.07)^30 = **~\$190,000**
+\$25,000 × (1.07)\^30 = **\~\$190,000**
 
 That's not a car payment difference; that's a retirement chapter.
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## R
 
 ```{r}
@@ -591,7 +593,6 @@ def opportunity_cost(amount, rate, years):
 # $25,000 gap between two car choices, invested at 7% for 30 years
 opportunity_cost(amount=25000, rate=0.07, years=30)
 ```
-
 :::
 
 ### Break-Even and Payback Calculations {.unnumbered}
@@ -600,10 +601,9 @@ Useful for evaluating subscriptions, refinances, and big purchases.
 
 **Formula:** Upfront cost ÷ monthly savings = months to break even
 
-Example: A $500 annual membership saves you $60/month → 500 ÷ 60 = **8.3 months to break even.** Worth it if you'll use it longer than that.
+Example: A \$500 annual membership saves you \$60/month → 500 ÷ 60 = **8.3 months to break even.** Worth it if you'll use it longer than that.
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## R
 
 ```{r}
@@ -626,7 +626,6 @@ def months_to_break_even(upfront_cost, monthly_savings):
 # a $500 membership that saves $60/month
 months_to_break_even(upfront_cost=500, monthly_savings=60)
 ```
-
 :::
 
 ## Putting It All Together: A Budget That Actually Works
@@ -651,13 +650,12 @@ flowchart TD
 
 A budget is just a **plan for your money in advance.** The best one:
 
-1. **Matches your personality.** Don't fight your nature; work with it.
-2. **Automates the boring stuff.** Investments, bills, sinking funds: set and forget.
-3. **Leaves room for joy.** Sethi's guilt-free spending isn't optional; it's what makes budgets sustainable.
-4. **Tracks one number above all: your savings rate.** Everything else is detail.
-5. **Builds in margin for error.** Housel's principle: reality is messier than spreadsheets.
+1.  **Matches your personality.** Don't fight your nature; work with it.
+2.  **Automates the boring stuff.** Investments, bills, sinking funds: set and forget.
+3.  **Leaves room for joy.** Sethi's guilt-free spending isn't optional; it's what makes budgets sustainable.
+4.  **Tracks one number above all: your savings rate.** Everything else is detail.
+5.  **Builds in margin for error.** Housel's principle: reality is messier than spreadsheets.
 
 The math isn't hard. The categories aren't complicated. The tools are abundant. What's actually required is **the decision to be intentional**, and the patience to let small, consistent allocations compound into a life of financial freedom.
 
 As Bogle reminded us about investing, the same applies to budgeting: **don't do something, just stand there.** Set up the system, then let it work.
-

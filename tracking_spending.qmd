@@ -2,12 +2,73 @@
 
 <br>
 
-You only manage what you measure. This chapter covers how to capture every
-dollar that leaves your accounts and turn that data into insight.
+You only manage what you measure. This chapter covers how to capture every dollar that leaves your accounts and turn that data into insight.
 
-  - Categorizing transactions
+  - Capturing every transaction
+  - Categorizing what you've captured
   - Reviewing on a monthly cadence
   - Spotting "leak" categories (subscriptions, delivery fees, impulse buys)
+
+Tracking is the *recording* side of personal finance. [Budgeting](budgeting.qmd) covers the *allocation* side — where money is supposed to go. Without tracking, a budget is a guess; with it, the budget becomes a feedback loop.
+
+## Capturing Transactions
+
+below are a few time-tested ways to capture your spending. If you're reading this, you'll also know there's a sea of apps and digital tools for tracking your spending. It's important to know people were tracking their spending before the internet, personal computers, and calculators. Regardless of the method you choose, the important thing is to pick one, run it for a full month, then decide whether if it works for you. 
+
+### A spending journal {.unnumbered}
+
+A small notebook, kept in a pocket or bag. Every time money leaves your hands you write one line: amount, place, category. At week's end, you tally.
+
+This is the oldest method on the list — Benjamin Franklin kept one. Its strength is the moment of awareness it forces. Writing "$6 — Starbucks — coffee" by hand is a small pause that an automatically-recorded card swipe will never give you.
+
+### Checkbook registers {.unnumbered}
+
+Every paper checkbook used to come with a register: each transaction logged on its own line, with a running balance. It works for any account where you can list debits and credits. One page per month is plenty. The discipline isn't the form — it's that writing each entry keeps you honest about the balance.
+
+### Cash envelope system {.unnumbered}
+
+For variable categories (groceries, dining, gas, fun money), withdraw the monthly amount in cash and split it into physical envelopes labeled by category. When an envelope is empty, that category is done for the month. No swiping, no spreadsheet to update.
+
+Depression-era families used envelopes because they had to. The system has stuck around because the physical, finite nature of cash slows spending more reliably than any reminder ever will.
+
+### Bank statements {.unnumbered}
+
+If you live almost entirely on debit and credit cards, every transaction is already captured for you. The work shifts from capture to **review**: once a month, pull the bank and card statements, go through them line by line, and assign each transaction to a category. This is the modern equivalent of the ledger, except the bank has done the writing.
+
+## Categorizing Transactions
+
+Most people overcomplicate categories. Six to ten buckets is plenty, and a small, stable list will outlast any rotating set of "smart" categorizations. A working starter set:
+
+- **Housing** (rent/mortgage, utilities, insurance)
+- **Transportation** (car payment, fuel, maintenance, transit)
+- **Food — groceries**
+- **Food — dining out**
+- **Subscriptions** (everything recurring and digital)
+- **Personal** (clothes, haircuts, gym)
+- **Health & insurance**
+- **Gifts & giving**
+- **Fun money** (don't break this down further — protect it from over-tracking)
+- **Other / one-offs**
+
+Two rules that save hours of bookkeeping:
+
+1. **When in doubt, "Other".** Don't invent a new category for a single transaction. Review the "Other" bucket at month-end and only promote a new category once you've seen the same kind of transaction three months in a row.
+2. **Keep the categories stable.** Changing categories every month destroys the comparisons that make tracking useful in the first place.
+
+The bank_statement dataset from [Budgeting → Using Spreadsheets](budgeting.qmd#using-spreadsheets) is already organized this way: each row carries a `Category` alongside its `Amount`, so totalling by category becomes a single grouping operation.
+
+## The Monthly Review
+
+Tracking is only valuable if you actually look at the totals. A monthly review is a thirty-minute habit, scheduled on the same day each month — the day after your statements close is a natural anchor.
+
+The ritual has four steps:
+
+1. **Pull** the bank and credit-card statements for the month.
+2. **Categorize** every line into your buckets, using whichever capture method you've chosen.
+3. **Compare** category totals to your budget. Where did you go over? Where did you come in under?
+4. **Pick one change** for next month. *One.* The point is sustainable adjustment, not perfection.
+
+Over a year, twelve small adjustments compound into a budget that actually fits your life. That's the real return on tracking: the calibration loop, not the spreadsheet itself.
 
 ## Online Subscriptions: The Silent Drain
 
