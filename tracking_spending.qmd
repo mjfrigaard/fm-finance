@@ -1,5 +1,21 @@
 # Tracking Spending
 
+```{r}
+#| label: setup-r
+#| message: false
+#| warning: false
+#| include: false
+source("_common.R")
+```
+
+```{python}
+#| label: setup-py
+#| echo: false
+#| output: asis
+#| eval: true
+from _common import co_box
+```
+
 <br>
 
 You only manage what you measure. This chapter covers how to capture every dollar that leaves your accounts and turn that data into insight.
@@ -10,6 +26,38 @@ You only manage what you measure. This chapter covers how to capture every dolla
   - Spotting "leak" categories (subscriptions, delivery fees, impulse buys)
 
 Tracking is the *recording* side of personal finance. [Budgeting](budgeting.qmd) covers the *allocation* side — where money is supposed to go. Without tracking, a budget is a guess; with it, the budget becomes a feedback loop.
+
+```{=html}
+<style>
+
+.codeStyle span:not(.nodeLabel) {
+  font-family: monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #9753b8 !important;
+  background-color: #f6f6f6;
+  padding: 0.2em;
+}
+</style>
+```
+
+```{mermaid}
+%%| fig-cap: 'Budget Mindset'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Budgeting(["<strong>BUDGETING</strong><br/>Where Money<br>Should Go"]) --> Plan("<em>Plan</em>")
+    Tracking(["<strong>TRACKING</strong><br/>Where Money<br>Actually Went"]) --> Reality("<em>Reality</em>")
+    
+    Plan --> Compare{"<strong>COMPARE</strong>:<br/>Plan vs. Reality"}
+    Reality --> Compare
+    
+    Compare --> Insights("Insights &<br>Adjustments")
+    Insights --> FeedbackLoop(["<em>Feedback</em>"])
+    FeedbackLoop --> Budgeting
+```
+
 
 ## Capturing Transactions
 
@@ -73,20 +121,6 @@ Over a year, twelve small adjustments compound into a budget that actually fits 
 ## Online Subscriptions: The Silent Drain
 
 This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries; they're individually small but collectively enormous.
-
-```{=html}
-<style>
-
-.codeStyle span:not(.nodeLabel) {
-  font-family: monospace;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #9753b8 !important;
-  background-color: #f6f6f6;
-  padding: 0.2em;
-}
-</style>
-```
 
 ```{mermaid}
 %%| fig-cap: 'Subscription Audit'
