@@ -24,7 +24,7 @@
     "href": "index.html#math",
     "title": "Personal Finance: a field manual",
     "section": "Math",
-    "text": "Math\nWhatever math is covered in this book can be done with a calculator, spreadsheet, or some basic programming skills. If you’re interested in following along or performing any of the calculations yourself, the examples use both R and Python.\nPick whichever you prefer; the underlying ideas are the same.\n\n\nshow/hide\n1000 * (1 + 0.05)^10  # future value of $1,000 at 5% for 10 years\n#&gt; [1] 1628.895\n\n\n\n\nshow/hide\n1000 * (1 + 0.05) ** 10\n#&gt; 1628.894626777442",
+    "text": "Math\nWhatever math is covered in this book can be done with a calculator, spreadsheet, or some basic programming skills. If you’re interested in following along or performing any of the calculations yourself, the examples use both R and Python.\nPick whichever you prefer; the underlying ideas are the same.\n\n\nshow/hide\n1000 * (1 + 0.05)^10  # future value of $1,000 at 5% for 10 years\n#&gt; [1] 1628.895\n\n\n\n\nshow/hide\n1000 * (1 + 0.05) ** 10\n#&gt; 1628.894626777442\n\n\n\n\n\n\n\n\nTipNOTE\n\n\n\n\n\n\nThis primary audience for this book is my children. It contains some of the basic principles I was taught (and others I’ve learned painfully) about managing personal finances.",
     "crumbs": [
       "Welcome!"
     ]
