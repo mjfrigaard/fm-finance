@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.30">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>3&nbsp; Tracking Spending – Personal Finance: a field manual</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -37,14 +34,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="./budgeting.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b6a8276bf55561bdbc268162d41bd1f7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9db5bf83f40130dec57236cccb65fb39.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f5280667a2c3855c453120d3100d533d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -75,6 +73,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 </head>
@@ -377,6 +377,40 @@ ul.task-list li input[type="checkbox"] {
 <li>Spotting “leak” categories (subscriptions, delivery fees, impulse buys)</li>
 </ul>
 <p>Tracking is the <em>recording</em> side of personal finance. <a href="./budgeting.html">Budgeting</a> covers the <em>allocation</em> side — where money is supposed to go. Without tracking, a budget is a guess; with it, the budget becomes a feedback loop.</p>
+<style>
+
+.codeStyle span:not(.nodeLabel) {
+  font-family: monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #9753b8 !important;
+  background-color: #f6f6f6;
+  padding: 0.2em;
+}
+</style>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Budgeting(["&lt;strong&gt;BUDGETING&lt;/strong&gt;&lt;br/&gt;Where Money&lt;br&gt;Should Go"]) --&gt; Plan("&lt;em&gt;Plan&lt;/em&gt;")
+    Tracking(["&lt;strong&gt;TRACKING&lt;/strong&gt;&lt;br/&gt;Where Money&lt;br&gt;Actually Went"]) --&gt; Reality("&lt;em&gt;Reality&lt;/em&gt;")
+    
+    Plan --&gt; Compare{"&lt;strong&gt;COMPARE&lt;/strong&gt;:&lt;br/&gt;Plan vs. Reality"}
+    Reality --&gt; Compare
+    
+    Compare --&gt; Insights("Insights &amp;&lt;br&gt;Adjustments")
+    Insights --&gt; FeedbackLoop(["&lt;em&gt;Feedback&lt;/em&gt;"])
+    FeedbackLoop --&gt; Budgeting
+</pre>
+</div>
+<p></p><figcaption> Budget Mindset</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
 <section id="capturing-transactions" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="capturing-transactions"><span class="header-section-number">3.1</span> Capturing Transactions</h2>
 <p>below are a few time-tested ways to capture your spending. If you’re reading this, you’ll also know there’s a sea of apps and digital tools for tracking your spending. It’s important to know people were tracking their spending before the internet, personal computers, and calculators. Regardless of the method you choose, the important thing is to pick one, run it for a full month, then decide whether if it works for you.</p>
@@ -436,17 +470,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="online-subscriptions-the-silent-drain" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="online-subscriptions-the-silent-drain"><span class="header-section-number">3.4</span> Online Subscriptions: The Silent Drain</h2>
 <p>This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries; they’re individually small but collectively enormous.</p>
-<style>
-
-.codeStyle span:not(.nodeLabel) {
-  font-family: monospace;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #9753b8 !important;
-  background-color: #f6f6f6;
-  padding: 0.2em;
-}
-</style>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div>
