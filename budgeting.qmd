@@ -190,13 +190,13 @@ co_box(color = "g",
 
 ## Build a Budgeting Tool
 
-YYou can build your own budget using a spreadsheet or code (like the examples below). Applications like Microsoft Excel or Google Sheets offer tools and templates to customize each sheet/tab to fit your needs (search for “budget template”). Most personal finance blogs also offer a free downloadable classic envelope spreadsheet.
+You can build your own budget using a spreadsheet or code (like the examples below). Applications like Microsoft Excel or Google Sheets offer tools and templates to customize each sheet/tab to fit your needs (search for “budget template”). Most personal finance blogs also offer a free downloadable classic envelope spreadsheet.
 
 ### Using Spreadsheets {.unnumbered}
 
 Personal budget spreadsheets are a great way to start learning about math, programming, and data management. We won't dive too deep into these topics here, but if you're reading this book, it's likely you already have enough data (i.e., income, bills and expenses) to justify putting it in a spreadsheet.
 
-Consider the example bank statement below, which shows two weeks of purchases. A real export from your bank would look much the same: a **date**, a **description**, a **category**, and an **amount** (negative for outgoing money, positive for incoming money).
+Consider the code examples below: they create a bank statement table, which shows two weeks of purchases. A real export from your bank would look much the same: a **date**, a **description**, a **category**, and an **amount** (negative for outgoing money, positive for incoming money).
 
 ::: panel-tabset
 ## R
@@ -392,21 +392,6 @@ def name(inputs):
 Anything after a `#` is a comment the computer ignores.")
 ```
 
-The R code below uses the [`tidyverse` package](https://www.tidyverse.org/) (loaded once below) and the Python code uses [`numpy` library](https://numpy.org/) where vectors help.
-
-```{r}
-#| label: math-libs-r
-#| message: false
-#| code-fold: false
-library(tidyverse)
-```
-
-```{python}
-#| label: math-libs-py
-#| code-fold: false
-import numpy as np
-```
-
 ### Percentages (Your Most-Used Skill) {.unnumbered}
 
 You need to instantly answer: "What percentage of my income is X?"
@@ -494,68 +479,6 @@ print(to_monthly(amount=150, period="weekly"))   # $150/week groceries → month
 ```
 :::
 
-### Compound Interest (The Wealth Equation) {.unnumbered}
-
-You don't need to calculate this by hand, but you need to *understand* it.
-
-**Formula:** FV = PV × (1 + r)\^n
-
-Where: FV = future value, PV = present value, r = annual return, n = years
-
-**The shortcut you should memorize is the Rule of 72:**
-
-> Years to double your money = 72 ÷ annual return %
-
-At 7% return, money doubles every \~10 years. At 10%, every \~7 years. This single insight reframes every spending decision.
-
-In code, the `^` symbol (R) and `**` symbol (Python) both mean "raise to the power of." So `(1 + 0.07)^10` means "1.07 multiplied by itself 10 times."
-
-::: panel-tabset
-## R
-
-```{r}
-#| label: compound-r
-future_value <- function(present_value, rate, years) {
-  present_value * (1 + rate)^years
-}
-
-rule_of_72 <- function(annual_return_pct) {
-  72 / annual_return_pct
-}
-
-# scalar: $10,000 at 7% for 10 years
-future_value(present_value = 10000, rate = 0.07, years = 10)
-
-# how long until your money doubles at 7%?
-rule_of_72(annual_return_pct = 7)
-
-# vectorized: same $10,000 at 7% across multiple horizons
-tibble(years = c(5, 10, 20, 30)) |>
-  mutate(value = future_value(present_value = 10000, rate = 0.07, years = years))
-```
-
-## Python
-
-```{python}
-#| label: compound-py
-def future_value(present_value, rate, years):
-    return present_value * (1 + rate) ** years
-
-def rule_of_72(annual_return_pct):
-    return 72 / annual_return_pct
-
-# scalar: $10,000 at 7% for 10 years
-print(future_value(present_value=10000, rate=0.07, years=10))
-
-# how long until your money doubles at 7%?
-print(rule_of_72(annual_return_pct=7))
-
-# vectorized: numpy lets us pass an array of horizons in one call
-horizons = np.array([5, 10, 20, 30])
-future_value(present_value=10000, rate=0.07, years=horizons)
-```
-:::
-
 ### Opportunity Cost Math {.unnumbered}
 
 This is Felix's signature framework. **Every dollar spent isn't just that dollar; it's what that dollar could have become.**
@@ -573,9 +496,8 @@ That's not a car payment difference; that's a retirement chapter.
 
 ```{r}
 #| label: opp-cost-r
-# opportunity cost is just future value applied to the dollars you didn't invest
 opportunity_cost <- function(amount, rate, years) {
-  future_value(present_value = amount, rate = rate, years = years)
+  amount * (1 + rate)^years
 }
 
 # $25,000 gap between two car choices, invested at 7% for 30 years
@@ -586,9 +508,8 @@ opportunity_cost(amount = 25000, rate = 0.07, years = 30)
 
 ```{python}
 #| label: opp-cost-py
-# opportunity cost is just future value applied to the dollars you didn't invest
 def opportunity_cost(amount, rate, years):
-    return future_value(present_value=amount, rate=rate, years=years)
+    return amount * (1 + rate) ** years
 
 # $25,000 gap between two car choices, invested at 7% for 30 years
 opportunity_cost(amount=25000, rate=0.07, years=30)
@@ -646,16 +567,16 @@ flowchart TD
     Step7 --> Step8(["Step 8. Recalibrate<br>Quarterly"])
 ```
 
-## The Bottom Line
+## Key takeaways
 
-A budget is just a **plan for your money in advance.** The best one:
+A budget is just a plan for your money in advance. Good budgets: 
 
-1.  **Matches your personality.** Don't fight your nature; work with it.
-2.  **Automates the boring stuff.** Investments, bills, sinking funds: set and forget.
-3.  **Leaves room for joy.** Sethi's guilt-free spending isn't optional; it's what makes budgets sustainable.
-4.  **Tracks one number above all: your savings rate.** Everything else is detail.
-5.  **Builds in margin for error.** Housel's principle: reality is messier than spreadsheets.
+1.  **Match your personality.** Don't fight your nature; work with it.
+2.  **Automate the boring stuff.** Investments, bills, sinking funds: set and forget.
+3.  **Leave room for joy.** Sethi's guilt-free spending isn't optional; it's what makes budgets sustainable.
+4.  **Track one number above all**: the important number is your savings rate (which we will cover in [Savings](savings.qmd)). Everything else is detail.
+5.  **Builds in margin for error.** Housel's principle, "*reality is messier than spreadsheets.*"
 
-The math isn't hard. The categories aren't complicated. The tools are abundant. What's actually required is **the decision to be intentional**, and the patience to let small, consistent allocations compound into a life of financial freedom.
+Budgeting math isn't hard. The categories aren't complicated. The tools are abundant. What's actually required is **the decision to be intentional**, and the patience to let small, consistent allocations compound into a life of financial freedom.
 
 As Bogle reminded us about investing, the same applies to budgeting: **don't do something, just stand there.** Set up the system, then let it work.

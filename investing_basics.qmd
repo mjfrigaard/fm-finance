@@ -1,5 +1,18 @@
 # Investing Basics
 
+```{r}
+#| label: setup-r
+#| message: false
+#| warning: false
+#| include: false
+source("_common.R")
+```
+
+```{python}
+#| label: setup-py
+#| include: false
+```
+
 <br>
 
 A short tour of the concepts behind every investment decision.
@@ -24,6 +37,68 @@ years = list(range(0, 41))
 balance = [10000 * (1.07) ** y for y in years]
 balance[-1]  # ending balance after 40 years
 ```
+
+**Formula:** FV = PV × (1 + r)\^n
+
+Where: FV = future value, PV = present value, r = annual return, n = years
+
+**The shortcut you should memorize is the Rule of 72:**
+
+> Years to double your money = 72 ÷ annual return %
+
+At 7% return, money doubles every \~10 years. At 10%, every \~7 years. This single insight reframes every spending decision.
+
+In code, the `^` symbol (R) and `**` symbol (Python) both mean "raise to the power of." So `(1 + 0.07)^10` means "1.07 multiplied by itself 10 times."
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: compound-r
+future_value <- function(present_value, rate, years) {
+  present_value * (1 + rate)^years
+}
+
+rule_of_72 <- function(annual_return_pct) {
+  72 / annual_return_pct
+}
+
+# scalar: $10,000 at 7% for 10 years
+future_value(present_value = 10000, rate = 0.07, years = 10)
+
+# how long until your money doubles at 7%?
+rule_of_72(annual_return_pct = 7)
+
+# vectorized: same $10,000 at 7% across multiple horizons
+data.frame(
+  years = c(5, 10, 20, 30),
+  value = future_value(present_value = 10000, rate = 0.07, years = c(5, 10, 20, 30))
+)
+```
+
+## Python
+
+```{python}
+#| label: compound-py
+import numpy as np
+
+def future_value(present_value, rate, years):
+    return present_value * (1 + rate) ** years
+
+def rule_of_72(annual_return_pct):
+    return 72 / annual_return_pct
+
+# scalar: $10,000 at 7% for 10 years
+print(future_value(present_value=10000, rate=0.07, years=10))
+
+# how long until your money doubles at 7%?
+print(rule_of_72(annual_return_pct=7))
+
+# vectorized: numpy lets us pass an array of horizons in one call
+horizons = np.array([5, 10, 20, 30])
+future_value(present_value=10000, rate=0.07, years=horizons)
+```
+:::
 
 ## Risk vs. return
 

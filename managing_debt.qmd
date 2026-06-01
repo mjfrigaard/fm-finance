@@ -165,7 +165,7 @@ flowchart TD
     Step4 --> Freedom["Financial Freedom"]
 ```
 
-## The Bottom Line
+## Key takeaways
 
 Debt management isn't about avoiding all debt; it's about being **intentional** with it. The right framework:
 
@@ -536,7 +536,7 @@ flowchart TD
     Outcome --> Freedom[Financial Freedom]
 ```
 
-## The Bottom Line
+## Key takeaways
 
 You don't need to be a math genius to manage debt well, but you do need to be **numerically fluent** in these specific calculations. Why? Because lenders absolutely are.
 
