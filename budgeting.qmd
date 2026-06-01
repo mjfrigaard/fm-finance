@@ -87,21 +87,21 @@ flowchart LR
 
 Fixed and variable expenses should employ different strategies. Periodic expenses are trickier because they are specific to the item/person.
 
-+-----------------------+----------------------------------------------------------------------------------------------+
-| Category              | Strategy                                                                                     |
-+=======================+==============================================================================================+
-| **Fixed Expenses**    | Lock these in and forget them (minimize them once, then automate).                           |
-|                       |                                                                                              |
-|                       | Biggest leverage point: housing.                                                             |
-+-----------------------+----------------------------------------------------------------------------------------------+
-| **Variable Expenses** | This category is where most budgeting efforts fail.                                          |
-|                       |                                                                                              |
-|                       | Use **categories with limits**, not line-by-line tracking.                                   |
-+-----------------------+----------------------------------------------------------------------------------------------+
-| **Periodic Expenses** | These expenses are silent budget-killers.                                                    |
-|                       |                                                                                              |
-|                       | Combat this with a **sinking fund**: set aside 1/12 of the annual cost for these each month. |
-+-----------------------+----------------------------------------------------------------------------------------------+
++-----------------------+--------------------------------------------------------------------+
+| Category              | Strategy                                                           |
++=======================+====================================================================+
+| **Fixed Expenses**    | Lock these in and forget them (minimize them once, then automate). |
+|                       |                                                                    |
+|                       | Biggest leverage point: housing.                                   |
++-----------------------+--------------------------------------------------------------------+
+| **Variable Expenses** | This category is where most budgeting efforts fail.                |
+|                       |                                                                    |
+|                       | Use **categories with limits**, not line-by-line tracking.         |
++-----------------------+--------------------------------------------------------------------+
+| **Periodic Expenses** | These expenses are silent budget-killers.                          |
+|                       |                                                                    |
+|                       | Set aside 1/12 of the annual cost for these each month.            |
++-----------------------+--------------------------------------------------------------------+
 
 ### Sinking Fund: Periodic Expenses {.unnumbered}
 
