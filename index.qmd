@@ -27,16 +27,21 @@ This book aims to answer questions like:
   - "*Which retirement account makes sense for me?*"
 
   - "*How do I pick an index fund?*"
-  
-  
+
 ```{r}
-#| label: intro-disclaimer
-#| echo: false
+#| label: llm-disclaiamer
+#| echo: false 
 #| results: asis
 #| eval: true
-co_box(color = "r", 
-  header = "NOTE", 
-  contents = "This primary audience for this book is my children. It contains some of the basic principles I was taught (and others I've learned painfully) about managing personal finances.")
+co_box(
+  color = "r",
+  header = "Who wrote this?",
+  contents = "Given the current landscape of online resources and the impressive capabilities of AI/large language models (LLMs), I feel it’s important to clarify the authorship of this book. It seems strange to have to include this in anything I write, but it’s something that, if I were reading a book, I’d like to know. 
+  
+**I wrote all of the narrative, commentary, and explanations.** I used LLMs (mostly Claude) to research specific topics (like FDIC/NCUA coverage), but the thoughts in the book are my own. Hopefully, the typos and/or grammatical errors serve as a signature of authenticity. 
+
+**The code in this book was created with the assistance of Claude, and this applies only to the specific chapters explicitly noted.** Generally, I’d write a ‘first draft’ of a code example, then ask Claude how to improve it. Sometimes I agreed with its suggestions (and included them), other times I revised the code myself."
+)
 ```
 
 ## How this book is organized
@@ -72,6 +77,16 @@ Pick whichever you prefer; the underlying ideas are the same.
 ```{python}
 #| label: ex-py
 1000 * (1 + 0.05) ** 10
+```
+
+```{r}
+#| label: intro-disclaimer
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(color = "g", 
+  header = "NOTE", 
+  contents = "This primary audience for this book is my children. It contains some of the basic principles I was taught (and others I've learned painfully) about managing personal finances.")
 ```
 
 ## About the author
