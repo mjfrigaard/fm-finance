@@ -18,7 +18,7 @@ from _common import co_box
 
 <br>
 
-Most people hate budgeting because they're approaching it with some bad assumptions. Traditional budgets fail because they assume human behavior is robotic: tracking every penny, restricting every joy, and demanding perfection. The frameworks (drawn from Sethi, Housel, Bogle, and Felix) are designed for how we actually behave.
+Most people hate budgeting because they're approaching it with some bad assumptions. Traditional budgets typically fail because they assume humans will robotically track every penny and restrict every joy, all with a kind of mindless automation. I've included frameworks from [Sethi](https://www.iwillteachyoutoberich.com/), [Housel](https://www.morganhousel.com/), [Bogle](https://www.bogleheads.org/wiki/Main_Page), and [Felix](https://www.linkedin.com/in/benjaminwfelix/) because they are designed for how humans actually behave.
 
 > "A budget tells your money where to go instead of wondering where it went." (Ramit Sethi)
 
