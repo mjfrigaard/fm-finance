@@ -44,18 +44,25 @@ Tracking is the *recording* side of personal finance. [Budgeting](budgeting.qmd)
 ```{mermaid}
 %%| fig-cap: 'Budget Mindset'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     Budgeting(["<strong>BUDGETING</strong><br/>Where Money<br>Should Go"]) --> Plan("<em>Plan</em>")
     Tracking(["<strong>TRACKING</strong><br/>Where Money<br>Actually Went"]) --> Reality("<em>Reality</em>")
-    
+
     Plan --> Compare{"<strong>COMPARE</strong>:<br/>Plan vs. Reality"}
     Reality --> Compare
-    
+
     Compare --> Insights("Insights &<br>Adjustments")
     Insights --> FeedbackLoop(["<em>Feedback</em>"])
     FeedbackLoop --> Budgeting
+    style Budgeting fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Tracking fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Plan fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Reality fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Compare fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Insights fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style FeedbackLoop fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
 
@@ -118,14 +125,14 @@ The ritual has four steps:
 
 Over a year, twelve small adjustments compound into a budget that actually fits your life. That's the real return on tracking: the calibration loop, not the spreadsheet itself.
 
-## Online Subscriptions: The Silent Drain
+## Online Subscriptions
 
-This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries; they're individually small but collectively enormous.
+This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries; they're individually small but collectively enormous and can silently drain your accounts. 
 
 ```{mermaid}
 %%| fig-cap: 'Subscription Audit'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     Subscriptions[Monthly Subscriptions] --> Audit[Quarterly Audit]
@@ -135,6 +142,13 @@ flowchart TD
     Worth -->|Yes| Keep[Keep]
     Worth -->|No| Cancel
     Cancel --> Redirect[Redirect to Investments]
+    style Subscriptions fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Audit fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Use fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Worth fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Cancel fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Keep fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Redirect fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
 ### The Subscription Reality Check {.unnumbered}

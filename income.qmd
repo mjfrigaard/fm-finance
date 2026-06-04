@@ -52,7 +52,7 @@ One of Felix's most powerful contributions is reframing how we think about incom
 ```{mermaid}
 %%| fig-cap: ' Human Capital'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     TotalWealth(["Your Total<br>Economic Wealth"]) --> HumanCapital("Human Capital:<br/>Future Earning Potential")
@@ -61,6 +61,13 @@ flowchart TD
     FinancialCapital --> EarlyCareer2("Early Career:<br/>Financial Capital is small")
     EarlyCareer --> Implication["Implication:<br>Invest in Skills,<br/>Education &<br>Career Growth"]
     EarlyCareer2 --> Implication2[Implication:<br>Take More Equity<br>Risk When Young]
+    style TotalWealth fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style HumanCapital fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style FinancialCapital fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style EarlyCareer fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style EarlyCareer2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Implication fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Implication2 fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 
 ```
 
@@ -121,6 +128,12 @@ flowchart TD
     Split --> HalfLifestyle["50% to<br>Lifestyle"]
     HalfInvest --> WealthGrows(["Wealth Compounds"])
     HalfLifestyle --> EnjoyNow(["Enjoy the Win"])
+    style Raise fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Split fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style HalfInvest fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style HalfLifestyle fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style WealthGrows fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style EnjoyNow fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
 This way you reward yourself *and* accelerate freedom, without falling into the trap of inflating your lifestyle to match every dollar.

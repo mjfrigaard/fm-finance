@@ -38,20 +38,30 @@ Not all debt is created equal. Attack it in order of damage potential.
 ```{mermaid}
 %%| fig-cap: 'Know Your Enemy'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     AllDebt[Your Debts] --> Toxic[TOXIC DEBT<br>15-29% APR]
     AllDebt --> Moderate[MODERATE DEBT<br>5-10% APR]
     AllDebt --> Strategic[STRATEGIC DEBT<br>3-7% APR]
-    
+
     Toxic --> CreditCards[Credit Cards<br>Payday Loans]
     Moderate --> CarLoans[Car Loans<br>Private Student Loans]
     Strategic --> Mortgages[Mortgages<br>Federal Student Loans]
-    
+
     CreditCards --> Attack1[Attack Aggressively<br>Pay Off First]
     CarLoans --> Attack2[Pay Down Steadily<br>Avoid New Ones]
     Mortgages --> Attack3[Pay on Schedule<br>Invest the Difference]
+    style AllDebt fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Toxic fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Moderate fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Strategic fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style CreditCards fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style CarLoans fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Mortgages fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Attack1 fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Attack2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Attack3 fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
 ## Credit Cards: The Wealth Destroyer
@@ -116,7 +126,7 @@ Felix's human capital lens turns the major decision into a measurable one: which
 ```{mermaid}
 %%| fig-cap: 'Major vs. Salary vs. Debt'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     MajorChoice([Choose a Major]) --> ResearchSal[Research Expected<br>Starting Salary]
@@ -127,6 +137,15 @@ flowchart TD
     RatioCheck -->|"Above 1.5"| HighRisk[High Risk:<br>Reconsider]
     HighRisk --> Alternatives["Alternatives:<br>Community College<br>In-State Tuition<br>Scholarships<br>Change Major"]
     IDRPath --> IDRSection([See: IDR Plans below])
+    style MajorChoice fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style ResearchSal fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style EstDebt fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style RatioCheck fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Viable fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style IDRPath fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style HighRisk fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Alternatives fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style IDRSection fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
 ```
 
 **Why 1× works:** a loan equal to first-year salary on a standard 10-year plan at \~6.5% interest produces monthly payments of roughly 1% of gross income — a level most budgets absorb without crowding out investing. At 2× salary, that doubles and competes directly with building wealth.
@@ -180,19 +199,28 @@ print(monthly_standard_payment(principal=45000))
 ```{mermaid}
 %%| fig-cap: ' Student Loans'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     StudentLoans[Student<br>Loan<br>Balance] --> Type{Federal<br>or Private?}
     Type -->|Federal| FedOptions[Federal<br>Options]
     Type -->|Private| PrivOptions[Private<br>Options]
-    
+
     FedOptions --> IDR[Income-Driven<br>Repayment]
     FedOptions --> PSLF[Public<br>Service<br>Forgiveness]
     FedOptions --> Standard[Standard<br>10-Year]
-    
+
     PrivOptions --> Refi[Refinance<br>for<br>Lower Rate]
     PrivOptions --> PayDown[Aggressive<br>Paydown]
+    style StudentLoans fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Type fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style FedOptions fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style PrivOptions fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style IDR fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style PSLF fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Standard fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Refi fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style PayDown fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
 ### Federal IDR Plans: SAVE vs. RAP {.unnumbered}
@@ -254,7 +282,7 @@ co_box(color = "o",
 ```{mermaid}
 %%| fig-cap: 'Choosing an IDR Plan'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     FedLoans([Federal Loans]) --> LICheck{Loan-to-Income<br>Ratio?}
@@ -265,6 +293,15 @@ flowchart TD
     PlanAvail -->|SAVE active| SAVEOpt[SAVE<br>5–10% / 10–25 yrs]
     PlanAvail -->|RAP finalized| RAPOpt[RAP<br>1–10% / 30 yrs]
     PlanAvail -->|Neither| IBROpt[IBR<br>10% / 20 yrs]
+    style FedLoans fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style LICheck fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style StdPlan fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style PubSvc fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style PSLFTrack fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style PlanAvail fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style SAVEOpt fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style RAPOpt fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style IBROpt fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
 ```
 
 ::: {.panel-tabset}
@@ -323,7 +360,7 @@ Cars are where middle-class wealth quietly dies. Here's why:
 ```{mermaid}
 %%| fig-cap: 'Car Payments'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     NewCar[New Car<br>Purchase] --> Depreciation[Loses 20-30%<br>in Year 1]
@@ -331,6 +368,12 @@ flowchart TD
     NewCar --> Insurance[Higher<br>Insurance]
     NewCar --> Opportunity[Opportunity<br>Cost]
     Opportunity --> LostWealth[$600/mo<br>invested over<br>30 years<br>= ~$700,000]
+    style NewCar fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Depreciation fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Payment fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Insurance fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Opportunity fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style LostWealth fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
 ```
 
 ### Ben Felix's Perspective {.unnumbered}
@@ -352,7 +395,7 @@ Felix has been blunt: **cars are depreciating consumption assets, not investment
 ```{mermaid}
 %%| fig-cap: 'Put It All Together'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     Start[Manage Your Debt] --> Step1["Eliminate Credit<br>Card Debt"]
@@ -360,6 +403,12 @@ flowchart TD
     Step2 --> Step3["Address Student Loans<br>Based on Interest Rate"]
     Step3 --> Step4["Drive Used,<br>Modest Cars"]
     Step4 --> Freedom["Financial Freedom"]
+    style Start fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step4 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Freedom fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
 ## Key takeaways
@@ -719,7 +768,7 @@ credit_utilization(balance=3000, credit_limit=10000)
 ```{mermaid}
 %%| fig-cap: 'Putting the Math to Work'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     DebtMath[Debt Math Mastery] --> Decision1[Before Borrowing:<br/>Calculate Total Interest]
@@ -731,6 +780,12 @@ flowchart TD
     Decision3 --> Outcome
 
     Outcome --> Freedom[Financial Freedom]
+    style DebtMath fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Decision1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Decision2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Decision3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Outcome fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Freedom fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
 ## Key takeaways

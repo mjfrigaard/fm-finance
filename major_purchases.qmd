@@ -36,7 +36,7 @@ Felix has produced extensive analysis showing that **renting and investing the d
 ```{mermaid}
 %%| fig-cap: 'Home Ownership'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     HomeCosts[True Cost<br>of Ownership] --> Mortgage[Mortgage<br>Interest]
@@ -50,6 +50,14 @@ flowchart TD
     PropTax --> UnrecovCost
     Maintenance --> UnrecovCost
     Insurance --> UnrecovCost
+    style HomeCosts fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Mortgage fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style PropTax fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Maintenance fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Insurance fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Closing fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Opportunity2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style UnrecovCost fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
 ```
 
 ### Felix's "5% Rule" {.unnumbered}

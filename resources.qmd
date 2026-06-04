@@ -25,3 +25,17 @@ A short, opinionated list of further reading and tools.
 
 ::: {#refs}
 :::
+
+## Color Palette
+
+The mermaid diagrams throughout this book use a consistent **Atomic Age / Mid-Century Modern** palette. Each color is assigned to a semantic role:
+
+| Role | Color Name | Hex | Text | Usage |
+|------|-----------|-----|------|-------|
+| green | Forest Green | `#48a56a` | `#F5F2E8` | Root / start / end nodes |
+| primary | Ocean Teal | `#0e9aa7` | `#F5F2E8` | Process and action nodes |
+| decision | Blush Pink | `#f0cfcf` | `#1C1C1E` | Decision / branching nodes |
+| outcome | Mint | `#86ddcd` | `#1C1C1E` | Positive result nodes |
+| warn | Atomic Red | `#f44242` | `#F5F2E8` | Warning / negative nodes |
+| — | Space Black | `#1C1C1E` | — | Borders, arrows, body text |
+| — | Cream | `#F5F2E8` | — | Light text on dark fills |
