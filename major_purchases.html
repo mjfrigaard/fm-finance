@@ -391,7 +391,7 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     HomeCosts[True Cost&lt;br&gt;of Ownership] --&gt; Mortgage[Mortgage&lt;br&gt;Interest]
@@ -405,6 +405,14 @@ flowchart TD
     PropTax --&gt; UnrecovCost
     Maintenance --&gt; UnrecovCost
     Insurance --&gt; UnrecovCost
+    style HomeCosts fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Mortgage fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style PropTax fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Maintenance fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Insurance fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Closing fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Opportunity2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style UnrecovCost fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
 </pre>
 </div>
 <p></p><figcaption> Home Ownership</figcaption> </figure><p></p>

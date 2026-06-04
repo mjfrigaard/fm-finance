@@ -393,7 +393,7 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     TotalWealth(["Your Total&lt;br&gt;Economic Wealth"]) --&gt; HumanCapital("Human Capital:&lt;br/&gt;Future Earning Potential")
@@ -402,6 +402,13 @@ flowchart TD
     FinancialCapital --&gt; EarlyCareer2("Early Career:&lt;br/&gt;Financial Capital is small")
     EarlyCareer --&gt; Implication["Implication:&lt;br&gt;Invest in Skills,&lt;br/&gt;Education &amp;&lt;br&gt;Career Growth"]
     EarlyCareer2 --&gt; Implication2[Implication:&lt;br&gt;Take More Equity&lt;br&gt;Risk When Young]
+    style TotalWealth fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style HumanCapital fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style FinancialCapital fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style EarlyCareer fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style EarlyCareer2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Implication fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Implication2 fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 
 </pre>
 </div>
@@ -458,6 +465,12 @@ flowchart TD
     Split --&gt; HalfLifestyle["50% to&lt;br&gt;Lifestyle"]
     HalfInvest --&gt; WealthGrows(["Wealth Compounds"])
     HalfLifestyle --&gt; EnjoyNow(["Enjoy the Win"])
+    style Raise fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Split fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style HalfInvest fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style HalfLifestyle fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style WealthGrows fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style EnjoyNow fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 </pre>
 </div>
 <p></p><figcaption> Interactive debugger with <code>browser()</code> or breakpoint</figcaption> </figure><p></p>

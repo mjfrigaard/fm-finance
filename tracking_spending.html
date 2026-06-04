@@ -73,8 +73,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
-<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 </head>
@@ -338,7 +336,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#categorizing-transactions" id="toc-categorizing-transactions" class="nav-link" data-scroll-target="#categorizing-transactions"><span class="header-section-number">3.2</span> Categorizing Transactions</a></li>
   <li><a href="#the-monthly-review" id="toc-the-monthly-review" class="nav-link" data-scroll-target="#the-monthly-review"><span class="header-section-number">3.3</span> The Monthly Review</a></li>
-  <li><a href="#online-subscriptions-the-silent-drain" id="toc-online-subscriptions-the-silent-drain" class="nav-link" data-scroll-target="#online-subscriptions-the-silent-drain"><span class="header-section-number">3.4</span> Online Subscriptions: The Silent Drain</a>
+  <li><a href="#online-subscriptions" id="toc-online-subscriptions" class="nav-link" data-scroll-target="#online-subscriptions"><span class="header-section-number">3.4</span> Online Subscriptions</a>
   <ul>
   <li><a href="#the-subscription-reality-check" id="toc-the-subscription-reality-check" class="nav-link" data-scroll-target="#the-subscription-reality-check">The Subscription Reality Check</a></li>
   <li><a href="#the-subscription-audit-math" id="toc-the-subscription-audit-math" class="nav-link" data-scroll-target="#the-subscription-audit-math">The Subscription Audit Math</a></li>
@@ -393,18 +391,25 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     Budgeting(["&lt;strong&gt;BUDGETING&lt;/strong&gt;&lt;br/&gt;Where Money&lt;br&gt;Should Go"]) --&gt; Plan("&lt;em&gt;Plan&lt;/em&gt;")
     Tracking(["&lt;strong&gt;TRACKING&lt;/strong&gt;&lt;br/&gt;Where Money&lt;br&gt;Actually Went"]) --&gt; Reality("&lt;em&gt;Reality&lt;/em&gt;")
-    
+
     Plan --&gt; Compare{"&lt;strong&gt;COMPARE&lt;/strong&gt;:&lt;br/&gt;Plan vs. Reality"}
     Reality --&gt; Compare
-    
+
     Compare --&gt; Insights("Insights &amp;&lt;br&gt;Adjustments")
     Insights --&gt; FeedbackLoop(["&lt;em&gt;Feedback&lt;/em&gt;"])
     FeedbackLoop --&gt; Budgeting
+    style Budgeting fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Tracking fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Plan fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Reality fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Compare fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Insights fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style FeedbackLoop fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 </pre>
 </div>
 <p></p><figcaption> Budget Mindset</figcaption> </figure><p></p>
@@ -467,15 +472,15 @@ flowchart TD
 </ol>
 <p>Over a year, twelve small adjustments compound into a budget that actually fits your life. That’s the real return on tracking: the calibration loop, not the spreadsheet itself.</p>
 </section>
-<section id="online-subscriptions-the-silent-drain" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="online-subscriptions-the-silent-drain"><span class="header-section-number">3.4</span> Online Subscriptions: The Silent Drain</h2>
-<p>This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries; they’re individually small but collectively enormous.</p>
+<section id="online-subscriptions" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="online-subscriptions"><span class="header-section-number">3.4</span> Online Subscriptions</h2>
+<p>This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries; they’re individually small but collectively enormous and can silently drain your accounts.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     Subscriptions[Monthly Subscriptions] --&gt; Audit[Quarterly Audit]
@@ -485,6 +490,13 @@ flowchart TD
     Worth --&gt;|Yes| Keep[Keep]
     Worth --&gt;|No| Cancel
     Cancel --&gt; Redirect[Redirect to Investments]
+    style Subscriptions fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Audit fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Use fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Worth fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Cancel fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Keep fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Redirect fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 </pre>
 </div>
 <p></p><figcaption> Subscription Audit</figcaption> </figure><p></p>

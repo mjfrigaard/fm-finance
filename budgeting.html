@@ -365,8 +365,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#the-budget-mindset-shift" id="toc-the-budget-mindset-shift" class="nav-link active" data-scroll-target="#the-budget-mindset-shift"><span class="header-section-number">2.1</span> The Budget Mindset Shift</a></li>
   <li><a href="#fixed-vs.-variable-expenses" id="toc-fixed-vs.-variable-expenses" class="nav-link" data-scroll-target="#fixed-vs.-variable-expenses"><span class="header-section-number">2.2</span> Fixed vs.&nbsp;Variable Expenses</a>
   <ul>
-  <li><a href="#why-categorizing-expenses-matters" id="toc-why-categorizing-expenses-matters" class="nav-link" data-scroll-target="#why-categorizing-expenses-matters">Why Categorizing Expenses Matters</a></li>
-  <li><a href="#sinking-fund-periodic-expenses" id="toc-sinking-fund-periodic-expenses" class="nav-link" data-scroll-target="#sinking-fund-periodic-expenses">Sinking Fund: Periodic Expenses</a></li>
+  <li><a href="#why-categories-matter" id="toc-why-categories-matter" class="nav-link" data-scroll-target="#why-categories-matter">Why Categories Matter</a></li>
+  <li><a href="#sinking-fund-for-periodic-expenses" id="toc-sinking-fund-for-periodic-expenses" class="nav-link" data-scroll-target="#sinking-fund-for-periodic-expenses">Sinking fund for periodic expenses</a></li>
   </ul></li>
   <li><a href="#zero-based-vs.-percentage-budgets" id="toc-zero-based-vs.-percentage-budgets" class="nav-link" data-scroll-target="#zero-based-vs.-percentage-budgets"><span class="header-section-number">2.3</span> Zero-Based vs.&nbsp;Percentage Budgets</a>
   <ul>
@@ -414,7 +414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><br></p>
-<p>Most people hate budgeting because they’re approaching it with some bad assumptions. Traditional budgets fail because they assume human behavior is robotic: tracking every penny, restricting every joy, and demanding perfection. The frameworks (drawn from Sethi, Housel, Bogle, and Felix) are designed for how we actually behave.</p>
+<p>Most people hate budgeting because they’re approaching it with some bad assumptions. Traditional budgets typically fail because they assume humans will robotically track every penny and restrict every joy, all with a kind of mindless automation. I’ve included frameworks from <a href="https://www.iwillteachyoutoberich.com/">Sethi</a>, <a href="https://www.morganhousel.com/">Housel</a>, <a href="https://www.bogleheads.org/wiki/Main_Page">Bogle</a>, and <a href="https://www.linkedin.com/in/benjaminwfelix/">Felix</a> because they are designed for how humans actually behave.</p>
 <blockquote class="blockquote">
 <p>“A budget tells your money where to go instead of wondering where it went.” (Ramit Sethi)</p>
 </blockquote>
@@ -437,14 +437,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     OldBudget([Old Budget Mindset]) --&gt; Restrict[Restrict Everything]
     Restrict --&gt; Fail(Fails Within Weeks)
-    
+
     NewBudget([Conscious Spending Plan]) --&gt; Prioritize[Prioritize What Matters]
     Prioritize --&gt; Sustain(Sustains for Years)
+    style OldBudget fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Restrict fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Fail fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style NewBudget fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Prioritize fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Sustain fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+
 </pre>
 </div>
 <p></p><figcaption> Budget Mindset</figcaption> </figure><p></p>
@@ -454,41 +461,57 @@ flowchart TD
 </section>
 <section id="fixed-vs.-variable-expenses" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="fixed-vs.-variable-expenses"><span class="header-section-number">2.2</span> Fixed vs.&nbsp;Variable Expenses</h2>
-<p>The first skill in budgeting is correctly categorizing your money. Most people lump everything together, then get overwhelmed by how to allocate or account for the money they are spending.</p>
+<p>The first skill in budgeting is correctly categorizing your money. Most people lump everything together and then get overwhelmed by how to allocate or account for the money they spend.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart LR
     Expenses(["Monthly&lt;br&gt;Expenses"]) --&gt; Fixed["FIXED EXPENSES:&lt;br/&gt;Predictable &amp; Recurring"]
     Expenses --&gt; Variable["VARIABLE EXPENSES:&lt;br/&gt;Fluctuate Month to Month"]
     Expenses --&gt; Periodic["PERIODIC EXPENSES:&lt;br/&gt;Annual or Irregular"]
-    
+
     Fixed --&gt; Rent("Rent/Mortgage")
     Fixed --&gt; Insurance("Insurance&lt;br&gt;Premiums")
     Fixed --&gt; Subs("Subscriptions")
     Fixed --&gt; Loans("Loan&lt;br&gt;Payments")
-    
+
     Variable --&gt; Groceries("Groceries")
     Variable --&gt; Utilities("Utilities")
     Variable --&gt; Gas("Gas/Transport")
     Variable --&gt; Dining("Dining&lt;br&gt;Out")
-    
+
     Periodic --&gt; Taxes("Property&lt;br&gt;Taxes")
     Periodic --&gt; CarMaint("Car&lt;br&gt;Maintenance")
     Periodic --&gt; Gifts("Gifts/Holidays")
     Periodic --&gt; Medical("Medical Costs")
+    style Expenses fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Fixed fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Variable fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Periodic fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Rent fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Insurance fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Subs fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Loans fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Groceries fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Utilities fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Gas fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Dining fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Taxes fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style CarMaint fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Gifts fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Medical fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 </pre>
 </div>
 <p></p><figcaption> Fixed vs.&nbsp;Variable Expenses</figcaption> </figure><p></p>
 </div>
 </div>
 </div>
-<section id="why-categorizing-expenses-matters" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="why-categorizing-expenses-matters">Why Categorizing Expenses Matters</h3>
+<section id="why-categories-matter" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="why-categories-matter">Why Categories Matter</h3>
 <p>Fixed and variable expenses should employ different strategies. Periodic expenses are trickier because they are specific to the item/person.</p>
 <table class="caption-top table">
 <colgroup>
@@ -509,19 +532,19 @@ flowchart LR
 </tr>
 <tr class="even">
 <td><strong>Variable Expenses</strong></td>
-<td><p>This category is where most budgeting efforts fail.</p>
+<td><p>This is the category where most budgeting efforts fail.</p>
 <p>Use <strong>categories with limits</strong>, not line-by-line tracking.</p></td>
 </tr>
 <tr class="odd">
 <td><strong>Periodic Expenses</strong></td>
-<td><p>These expenses are silent budget-killers.</p>
+<td><p>These are silent budget killers.</p>
 <p>Set aside 1/12 of the annual cost for these each month.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="sinking-fund-periodic-expenses" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="sinking-fund-periodic-expenses">Sinking Fund: Periodic Expenses</h3>
+<section id="sinking-fund-for-periodic-expenses" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sinking-fund-for-periodic-expenses">Sinking fund for periodic expenses</h3>
 <p>If your car insurance is $1,200/year, don’t get blindsided every six months. Save $100/month into a “Car Insurance” sub-account. When the bill arrives, the money is already there. Repeat for every periodic expense:</p>
 <ul>
 <li>Christmas/gifts: $600/year → $50/month</li>
@@ -542,7 +565,7 @@ flowchart LR
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart LR
     Income(["$5,000&lt;br&gt;Income"]) --&gt; Rent2["$1,500&lt;br&gt;Rent"]
@@ -553,6 +576,16 @@ flowchart LR
     Income --&gt; Fun[$700&lt;br&gt;Fun Money]
     Income --&gt; Misc[$500&lt;br&gt;Other]
     Misc --&gt; Zero("Total = $5,000&lt;br&gt;Remaining = $0")
+    style Income fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Rent2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Food fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Transport fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Invest fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Save fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Fun fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Misc fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Zero fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+
 </pre>
 </div>
 <p></p><figcaption> Zero-Based Budgeting</figcaption> </figure><p></p>
@@ -566,8 +599,8 @@ flowchart LR
 <p>Allocate by percentages, not dollars. This is the foundation of Sethi’s Conscious Spending Plan<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and similar frameworks (50/30/20, etc.).</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 28%">
-<col style="width: 44%">
+<col style="width: 29%">
+<col style="width: 45%">
 <col style="width: 25%">
 </colgroup>
 <thead>
@@ -609,7 +642,7 @@ flowchart LR
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     Choose[Which Budget Style?] --&gt; Question1{In Debt or&lt;br/&gt;Just Starting?}
@@ -618,6 +651,13 @@ flowchart TD
     Question2 --&gt;|Yes| Hybrid[Hybrid Approach]
     Question2 --&gt;|No| Percentage[Percentage-Based&lt;br/&gt;Conscious Spending]
     ZeroBased --&gt; Eventually[Graduate to Percentage&lt;br/&gt;Once Stable]
+    style Choose fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Question1 fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Question2 fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style ZeroBased fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Hybrid fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Percentage fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Eventually fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 </pre>
 </div>
 <p></p><figcaption> Which Budget To Choose?</figcaption> </figure><p></p>
@@ -822,7 +862,7 @@ flowchart TD
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart LR
     Spreadsheet(["Budget&lt;br&gt;Spreadsheet"]) --&gt; Tab1[Tab 1: Income]
@@ -831,8 +871,16 @@ flowchart LR
     Spreadsheet --&gt; Tab4[Tab 4: Sinking Funds]
     Spreadsheet --&gt; Tab5[Tab 5: Net Worth Tracker]
     Spreadsheet --&gt; Tab6[Tab 6: Summary Dashboard]
-    
+
     Tab6 --&gt; Metrics("Key Metrics:&lt;br/&gt;Savings Rate&lt;br/&gt;Fixed Cost %&lt;br/&gt;Monthly Cash Flow")
+    style Spreadsheet fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Tab1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Tab2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Tab3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Tab4 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Tab5 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Tab6 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Metrics fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 </pre>
 </div>
 <p></p><figcaption> Spreadsheet</figcaption> </figure><p></p>
@@ -1064,7 +1112,7 @@ flowchart LR
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     Start(["Build Your Budget"]) --&gt; Step1("Step 1. Track&lt;br&gt;Spending for&lt;br&gt;30 Days")
@@ -1075,6 +1123,15 @@ flowchart TD
     Step5 --&gt; Step6("Step 6. Automate Everything&lt;br&gt;Investments First")
     Step6 --&gt; Step7("Step 7. Review&lt;br&gt;Weekly, Adjust Monthly")
     Step7 --&gt; Step8(["Step 8. Recalibrate&lt;br&gt;Quarterly"])
+    style Start fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step4 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step5 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step6 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step7 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step8 fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 </pre>
 </div>
 <p></p><figcaption> Put It All Together</figcaption> </figure><p></p>
