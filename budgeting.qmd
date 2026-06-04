@@ -43,47 +43,70 @@ Budgets aren't about restriction; they're about *conscious allocation*. A good b
 ```{mermaid}
 %%| fig-cap: 'Budget Mindset'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     OldBudget([Old Budget Mindset]) --> Restrict[Restrict Everything]
     Restrict --> Fail(Fails Within Weeks)
-    
+
     NewBudget([Conscious Spending Plan]) --> Prioritize[Prioritize What Matters]
     Prioritize --> Sustain(Sustains for Years)
+    style OldBudget fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Restrict fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Fail fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style NewBudget fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Prioritize fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Sustain fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+
 ```
 
 ## Fixed vs. Variable Expenses
 
-The first skill in budgeting is correctly categorizing your money. Most people lump everything together, then get overwhelmed by how to allocate or account for the money they are spending.
+The first skill in budgeting is correctly categorizing your money. Most people lump everything together and then get overwhelmed by how to allocate or account for the money they spend.
 
 ```{mermaid}
 %%| fig-cap: 'Fixed vs. Variable Expenses'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart LR
     Expenses(["Monthly<br>Expenses"]) --> Fixed["FIXED EXPENSES:<br/>Predictable & Recurring"]
     Expenses --> Variable["VARIABLE EXPENSES:<br/>Fluctuate Month to Month"]
     Expenses --> Periodic["PERIODIC EXPENSES:<br/>Annual or Irregular"]
-    
+
     Fixed --> Rent("Rent/Mortgage")
     Fixed --> Insurance("Insurance<br>Premiums")
     Fixed --> Subs("Subscriptions")
     Fixed --> Loans("Loan<br>Payments")
-    
+
     Variable --> Groceries("Groceries")
     Variable --> Utilities("Utilities")
     Variable --> Gas("Gas/Transport")
     Variable --> Dining("Dining<br>Out")
-    
+
     Periodic --> Taxes("Property<br>Taxes")
     Periodic --> CarMaint("Car<br>Maintenance")
     Periodic --> Gifts("Gifts/Holidays")
     Periodic --> Medical("Medical Costs")
+    style Expenses fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Fixed fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Variable fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Periodic fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Rent fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Insurance fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Subs fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Loans fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Groceries fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Utilities fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Gas fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Dining fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Taxes fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style CarMaint fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Gifts fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Medical fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
-### Why Categorizing Expenses Matters {.unnumbered}
+### Why Categories Matter {.unnumbered}
 
 Fixed and variable expenses should employ different strategies. Periodic expenses are trickier because they are specific to the item/person.
 
@@ -94,16 +117,16 @@ Fixed and variable expenses should employ different strategies. Periodic expense
 |                       |                                                                    |
 |                       | Biggest leverage point: housing.                                   |
 +-----------------------+--------------------------------------------------------------------+
-| **Variable Expenses** | This category is where most budgeting efforts fail.                |
+| **Variable Expenses** | This is the category where most budgeting efforts fail.            |
 |                       |                                                                    |
 |                       | Use **categories with limits**, not line-by-line tracking.         |
 +-----------------------+--------------------------------------------------------------------+
-| **Periodic Expenses** | These expenses are silent budget-killers.                          |
+| **Periodic Expenses** | These are silent budget killers.                                   |
 |                       |                                                                    |
 |                       | Set aside 1/12 of the annual cost for these each month.            |
 +-----------------------+--------------------------------------------------------------------+
 
-### Sinking Fund: Periodic Expenses {.unnumbered}
+### Sinking fund for periodic expenses {.unnumbered}
 
 If your car insurance is \$1,200/year, don't get blindsided every six months. Save \$100/month into a "Car Insurance" sub-account. When the bill arrives, the money is already there. Repeat for every periodic expense:
 
@@ -124,7 +147,7 @@ Every dollar gets a job. Income minus all allocations equals zero.
 ```{mermaid}
 %%| fig-cap: 'Zero-Based Budgeting'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart LR
     Income(["$5,000<br>Income"]) --> Rent2["$1,500<br>Rent"]
@@ -135,6 +158,16 @@ flowchart LR
     Income --> Fun[$700<br>Fun Money]
     Income --> Misc[$500<br>Other]
     Misc --> Zero("Total = $5,000<br>Remaining = $0")
+    style Income fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Rent2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Food fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Transport fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Invest fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Save fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Fun fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Misc fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Zero fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+
 ```
 
 These types of budgets provide maximum awareness, make every dollar spent/saved/invested intentional, and immediately expose leaks. However, these are high-maintenance, can feel a little restrictive, and require monthly re-budgeting.
@@ -145,17 +178,12 @@ Allocate by percentages, not dollars. This is the foundation of Sethi's Consciou
 
 [^budgeting-1]: This plan is covered on his [website](https://www.iwillteachyoutoberich.com/conscious-spending-basics/) and in [this Reddit post](https://www.reddit.com/r/singaporefi/comments/1oohihc/do_you_have_your_own_version_of_conscious/)
 
-+---------------------+---------------------------------+------------------+
 | Bucket              | Conscious Spending Plan (Sethi) | 50/30/20 Rule    |
-+=====================+=================================+==================+
+|---------------------|---------------------------------|------------------|
 | Fixed Costs         | 50–60%                          | 50% Needs        |
-+---------------------+---------------------------------+------------------+
 | Investments         | 10%+                            | 20% Savings/Debt |
-+---------------------+---------------------------------+------------------+
 | Savings Goals       | 5–10%                           | (combined above) |
-+---------------------+---------------------------------+------------------+
 | Guilt-Free Spending | 20–35%                          | 30% Wants        |
-+---------------------+---------------------------------+------------------+
 
 Percentages are great because they’re the proportion of your earnings assigned to each category, which means they scale to any income and, after you’ve categorized your expenses, they are low maintenance. However, they are also less granular, can mask overspending in certain categories, and require you to be brutally honest about the category boundaries.
 
@@ -164,7 +192,7 @@ Percentages are great because they’re the proportion of your earnings assigned
 ```{mermaid}
 %%| fig-cap: 'Which Budget To Choose?'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     Choose[Which Budget Style?] --> Question1{In Debt or<br/>Just Starting?}
@@ -173,6 +201,13 @@ flowchart TD
     Question2 -->|Yes| Hybrid[Hybrid Approach]
     Question2 -->|No| Percentage[Percentage-Based<br/>Conscious Spending]
     ZeroBased --> Eventually[Graduate to Percentage<br/>Once Stable]
+    style Choose fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Question1 fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Question2 fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style ZeroBased fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Hybrid fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Percentage fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Eventually fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
 ```{r}
@@ -328,7 +363,7 @@ Bogle would approve: **simplicity wins.** A well-built spreadsheet beats most ap
 ```{mermaid}
 %%| fig-cap: 'Spreadsheet'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart LR
     Spreadsheet(["Budget<br>Spreadsheet"]) --> Tab1[Tab 1: Income]
@@ -337,8 +372,16 @@ flowchart LR
     Spreadsheet --> Tab4[Tab 4: Sinking Funds]
     Spreadsheet --> Tab5[Tab 5: Net Worth Tracker]
     Spreadsheet --> Tab6[Tab 6: Summary Dashboard]
-    
+
     Tab6 --> Metrics("Key Metrics:<br/>Savings Rate<br/>Fixed Cost %<br/>Monthly Cash Flow")
+    style Spreadsheet fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Tab1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Tab2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Tab3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Tab4 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Tab5 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Tab6 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Metrics fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
 We'll use exactly this dataset in the [Tracking Spending](tracking_spending.qmd) chapter to compute those numbers.
@@ -554,7 +597,7 @@ months_to_break_even(upfront_cost=500, monthly_savings=60)
 ```{mermaid}
 %%| fig-cap: 'Put It All Together'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
     Start(["Build Your Budget"]) --> Step1("Step 1. Track<br>Spending for<br>30 Days")
@@ -565,11 +608,20 @@ flowchart TD
     Step5 --> Step6("Step 6. Automate Everything<br>Investments First")
     Step6 --> Step7("Step 7. Review<br>Weekly, Adjust Monthly")
     Step7 --> Step8(["Step 8. Recalibrate<br>Quarterly"])
+    style Start fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step4 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step5 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step6 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step7 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step8 fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
 ## Key takeaways
 
-A budget is just a plan for your money in advance. Good budgets: 
+A budget is just a plan for your money in advance. Good budgets:
 
 1.  **Match your personality.** Don't fight your nature; work with it.
 2.  **Automate the boring stuff.** Investments, bills, sinking funds: set and forget.
