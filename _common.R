@@ -1,8 +1,5 @@
 set.seed(1014)
 
-# Python dependencies (reticulate uv-managed env) ----
-reticulate::py_require(c("numpy", "pandas"))
-
 # knitr settings ----
 knitr::opts_chunk$set(
   comment = "#>",
