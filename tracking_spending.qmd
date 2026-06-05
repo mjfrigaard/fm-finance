@@ -18,6 +18,7 @@ source("_common.R")
 You only manage what you measure. This chapter covers how to capture every dollar that leaves your accounts and turn that data into insight.
 
   - Capturing every transaction
+  - Working with digital bank exports
   - Categorizing what you've captured
   - Reviewing on a monthly cadence
   - Spotting "leak" categories (subscriptions, delivery fees, impulse buys)
@@ -87,6 +88,137 @@ Depression-era families used envelopes because they had to. The system has stuck
 
 If you live almost entirely on debit and credit cards, every transaction is already captured for you. The work shifts from capture to **review**: once a month, pull the bank and card statements, go through them line by line, and assign each transaction to a category. This is the modern equivalent of the ledger, except the bank has done the writing.
 
+## Using Spreadsheets
+
+Digital tracking is the bank-statement method with the math done for you. A real export from your bank includes the same four columns as the example below: a **date**, a **description**, a **category**, and an **amount** (negative for outgoing money, positive for incoming).
+
+::: panel-tabset
+## R
+
+Create the `bank_statement` data in R:
+
+```{r}
+#| label: bank-statement-r
+#| code-fold: true
+#| code-summary: 'show/hide R bank_statement'
+bank_statement <- tibble::tibble(
+  Date = as.Date(c(
+    "2026-01-02", "2026-01-02", "2026-01-03", "2026-01-03",
+    "2026-01-04", "2026-01-04", "2026-01-05", "2026-01-06",
+    "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-10",
+    "2026-01-11", "2026-01-12", "2026-01-13", "2026-01-14",
+    "2026-01-15"
+  )),
+  Description = c(
+    "Employer Payroll",       "Rent",
+    "Comcast Internet",       "Trader Joe's",
+    "Shell Gas",              "Netflix",
+    "Starbucks",              "PG&E Electric",
+    "AT&T Wireless",          "Spotify",
+    "Whole Foods",            "Chipotle",
+    "Geico Auto Insurance",   "NYTimes Digital",
+    "Shell Gas",              "Costco",
+    "24 Hour Fitness"
+  ),
+  Category = c(
+    "Income",         "Housing",
+    "Utilities",      "Groceries",
+    "Transportation", "Subscription",
+    "Dining",         "Utilities",
+    "Utilities",      "Subscription",
+    "Groceries",      "Dining",
+    "Insurance",      "Subscription",
+    "Transportation", "Groceries",
+    "Subscription"
+  ),
+  Amount = c(
+     2400.00, -1500.00,
+      -75.00,   -82.45,
+      -45.20,   -15.99,
+       -6.75,  -142.30,
+      -85.00,   -10.99,
+      -64.12,   -14.50,
+     -125.00,   -17.00,
+      -42.80,  -156.78,
+      -39.99
+  )
+)
+```
+
+```{r}
+#| label: print-bank-statement-r
+#| df_print: tibble
+bank_statement
+```
+
+## Python
+
+Create the `bank_statement` data in Python (with `pandas`):
+
+```{python}
+#| label: bank-statement-py
+#| code-fold: true
+#| code-summary: 'show/hide Python bank_statement'
+import pandas as pd
+
+bank_statement = pd.DataFrame({
+    "Date": pd.to_datetime([
+        "2026-01-02", "2026-01-02", "2026-01-03", "2026-01-03",
+        "2026-01-04", "2026-01-04", "2026-01-05", "2026-01-06",
+        "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-10",
+        "2026-01-11", "2026-01-12", "2026-01-13", "2026-01-14",
+        "2026-01-15"
+    ]),
+    "Description": [
+        "Employer Payroll",     "Rent",
+        "Comcast Internet",     "Trader Joe's",
+        "Shell Gas",            "Netflix",
+        "Starbucks",            "PG&E Electric",
+        "AT&T Wireless",        "Spotify",
+        "Whole Foods",          "Chipotle",
+        "Geico Auto Insurance", "NYTimes Digital",
+        "Shell Gas",            "Costco",
+        "24 Hour Fitness"
+    ],
+    "Category": [
+        "Income",         "Housing",
+        "Utilities",      "Groceries",
+        "Transportation", "Subscription",
+        "Dining",         "Utilities",
+        "Utilities",      "Subscription",
+        "Groceries",      "Dining",
+        "Insurance",      "Subscription",
+        "Transportation", "Groceries",
+        "Subscription"
+    ],
+    "Amount": [
+         2400.00, -1500.00,
+          -75.00,   -82.45,
+          -45.20,   -15.99,
+           -6.75,  -142.30,
+          -85.00,   -10.99,
+          -64.12,   -14.50,
+         -125.00,   -17.00,
+          -42.80,  -156.78,
+          -39.99
+    ]
+})
+```
+
+```{python}
+#| label: print-bank-statement-py
+bank_statement
+```
+:::
+
+Once your transactions sit in columns and rows, it's much easier to answer tracking questions like:
+
+1. What is the total spent on subscriptions?
+2. What percentage of my income is going to fixed costs?
+3. What was my biggest variable category last month?
+
+Bogle would approve: **simplicity wins.** A well-built spreadsheet beats most apps because it forces you to engage with your numbers.
+
 ## Categorizing Transactions
 
 Most people overcomplicate categories. Six to ten buckets is plenty, and a small, stable list will outlast any rotating set of "smart" categorizations. A working starter set:
@@ -107,7 +239,7 @@ Two rules that save hours of bookkeeping:
 1. **When in doubt, "Other".** Don't invent a new category for a single transaction. Review the "Other" bucket at month-end and only promote a new category once you've seen the same kind of transaction three months in a row.
 2. **Keep the categories stable.** Changing categories every month destroys the comparisons that make tracking useful in the first place.
 
-The `bank_statement` dataset from [Budgeting → Using Spreadsheets](budgeting.qmd#using-spreadsheets) is already organized this way: each row carries a `Category` alongside its `Amount`, so totalling by category becomes a single grouping operation.
+The `bank_statement` dataset defined above is already organized this way: each row carries a `Category` alongside its `Amount`, so totalling by category becomes a single grouping operation.
 
 ## The Monthly Review
 
