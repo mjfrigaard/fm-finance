@@ -227,140 +227,11 @@ co_box(color = "g",
 
 ## Build a Budgeting Tool
 
-You can build your own budget using a spreadsheet or code (like the examples below). Applications like Microsoft Excel or Google Sheets offer tools and templates to customize each sheet/tab to fit your needs (search for “budget template”). Most personal finance blogs also offer a free downloadable classic envelope spreadsheet.
+Applications like Microsoft Excel or Google Sheets offer tools and templates to customize each sheet/tab to fit your needs (search for “budget template”). Most personal finance blogs also offer a free downloadable classic envelope spreadsheet. For hands-on work with a real bank export, see [Tracking Spending](tracking_spending.qmd).
 
 ### Using Spreadsheets {.unnumbered}
 
-Personal budget spreadsheets are a great way to start learning about math, programming, and data management. We won't dive too deep into these topics here, but if you're reading this book, it's likely you already have enough data (i.e., income, bills and expenses) to justify putting it in a spreadsheet.
-
-Consider the code examples below: they create a bank statement table, which shows two weeks of purchases. A real export from your bank would look much the same: a **date**, a **description**, a **category**, and an **amount** (negative for outgoing money, positive for incoming money).
-
-::: panel-tabset
-## R
-
-Create the `bank_statement` data in R:
-
-```{r}
-#| label: bank-statement-r
-#| code-fold: true 
-#| code-summary: 'show/hide R bank_statement'
-bank_statement <- tibble::tibble(
-  Date = as.Date(c(
-    "2026-01-02", "2026-01-02", "2026-01-03", "2026-01-03",
-    "2026-01-04", "2026-01-04", "2026-01-05", "2026-01-06",
-    "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-10",
-    "2026-01-11", "2026-01-12", "2026-01-13", "2026-01-14",
-    "2026-01-15"
-  )),
-  Description = c(
-    "Employer Payroll",       "Rent",
-    "Comcast Internet",       "Trader Joe's",
-    "Shell Gas",              "Netflix",
-    "Starbucks",              "PG&E Electric",
-    "AT&T Wireless",          "Spotify",
-    "Whole Foods",            "Chipotle",
-    "Geico Auto Insurance",   "NYTimes Digital",
-    "Shell Gas",              "Costco",
-    "24 Hour Fitness"
-  ),
-  Category = c(
-    "Income",         "Housing",
-    "Utilities",      "Groceries",
-    "Transportation", "Subscription",
-    "Dining",         "Utilities",
-    "Utilities",      "Subscription",
-    "Groceries",      "Dining",
-    "Insurance",      "Subscription",
-    "Transportation", "Groceries",
-    "Subscription"
-  ),
-  Amount = c(
-     2400.00, -1500.00,
-      -75.00,   -82.45,
-      -45.20,   -15.99,
-       -6.75,  -142.30,
-      -85.00,   -10.99,
-      -64.12,   -14.50,
-     -125.00,   -17.00,
-      -42.80,  -156.78,
-      -39.99
-  )
-)
-```
-
-```{r}
-#| label: print-bank-statement-r
-#| df_print: tibble
-bank_statement
-```
-
-## Python
-
-Create the `bank_statement` data in Python (with `pandas`:
-
-```{python}
-#| label: bank-statement-py
-#| code-fold: true 
-#| code-summary: 'show/hide Python bank_statement'
-import pandas as pd
-
-bank_statement = pd.DataFrame({
-    "Date": pd.to_datetime([
-        "2026-01-02", "2026-01-02", "2026-01-03", "2026-01-03",
-        "2026-01-04", "2026-01-04", "2026-01-05", "2026-01-06",
-        "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-10",
-        "2026-01-11", "2026-01-12", "2026-01-13", "2026-01-14",
-        "2026-01-15"
-    ]),
-    "Description": [
-        "Employer Payroll",     "Rent",
-        "Comcast Internet",     "Trader Joe's",
-        "Shell Gas",            "Netflix",
-        "Starbucks",            "PG&E Electric",
-        "AT&T Wireless",        "Spotify",
-        "Whole Foods",          "Chipotle",
-        "Geico Auto Insurance", "NYTimes Digital",
-        "Shell Gas",            "Costco",
-        "24 Hour Fitness"
-    ],
-    "Category": [
-        "Income",         "Housing",
-        "Utilities",      "Groceries",
-        "Transportation", "Subscription",
-        "Dining",         "Utilities",
-        "Utilities",      "Subscription",
-        "Groceries",      "Dining",
-        "Insurance",      "Subscription",
-        "Transportation", "Groceries",
-        "Subscription"
-    ],
-    "Amount": [
-         2400.00, -1500.00,
-          -75.00,   -82.45,
-          -45.20,   -15.99,
-           -6.75,  -142.30,
-          -85.00,   -10.99,
-          -64.12,   -14.50,
-         -125.00,   -17.00,
-          -42.80,  -156.78,
-          -39.99
-    ]
-})
-```
-
-```{python}
-#| label: print-bank-statement-py
-bank_statement
-```
-:::
-
-Once your transactions sit in columns and rows, it's much easier to answer budgeting questions like:
-
-1.  What is the total spent on subscriptions?\
-2.  What percentage of my income is going to fixed costs?\
-3.  What was my biggest variable category last month?
-
-Bogle would approve: **simplicity wins.** A well-built spreadsheet beats most apps because it forces you to engage with your numbers. Below is a basic structure we could use for the `bank_statement` data above:
+The `bank_statement` dataset introduced in [Tracking Spending](tracking_spending.qmd) is the foundation for the examples that follow. A well-structured spreadsheet maps those transactions into tabs that mirror your budget categories:
 
 ```{mermaid}
 %%| fig-cap: 'Spreadsheet'
@@ -385,8 +256,6 @@ flowchart LR
     style Tab6 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Metrics fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
-
-We'll use exactly this dataset in the [Tracking Spending](tracking_spending.qmd) chapter to compute those numbers.
 
 ### What Actually Matters {.unnumbered}
 
