@@ -1,5 +1,18 @@
 # Major Purchases
 
+```{r}
+#| label: setup-r
+#| message: false
+#| warning: false
+#| include: false
+source("_common.R")
+```
+
+```{python}
+#| label: setup-py
+#| include: false
+```
+
 <br>
 
 

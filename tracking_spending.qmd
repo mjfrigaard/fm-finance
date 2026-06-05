@@ -10,10 +10,7 @@ source("_common.R")
 
 ```{python}
 #| label: setup-py
-#| echo: false
-#| output: asis
-#| eval: true
-from _common import co_box
+#| include: false
 ```
 
 <br>
@@ -110,7 +107,7 @@ Two rules that save hours of bookkeeping:
 1. **When in doubt, "Other".** Don't invent a new category for a single transaction. Review the "Other" bucket at month-end and only promote a new category once you've seen the same kind of transaction three months in a row.
 2. **Keep the categories stable.** Changing categories every month destroys the comparisons that make tracking useful in the first place.
 
-The bank_statement dataset from [Budgeting → Using Spreadsheets](budgeting.qmd#using-spreadsheets) is already organized this way: each row carries a `Category` alongside its `Amount`, so totalling by category becomes a single grouping operation.
+The `bank_statement` dataset from [Budgeting → Using Spreadsheets](budgeting.qmd#using-spreadsheets) is already organized this way: each row carries a `Category` alongside its `Amount`, so totalling by category becomes a single grouping operation.
 
 ## The Monthly Review
 
@@ -164,6 +161,10 @@ The average household spends **$200–$300/month** on subscriptions, often witho
 5. Use one card exclusively for subscriptions to track them easily
 
 This isn't deprivation; it's the Sethi principle in action: **cut mercilessly on what you don't love** so you can spend freely on what you do.
+
+## Math for tracking spending
+
+Below are some tips and tools for tracking spending. Some can be used to easily categorize purchases, others can be used to check the amount you're spending on subscriptions. 
 
 ### The Subscription Audit Math {.unnumbered}
 

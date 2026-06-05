@@ -10,10 +10,7 @@ source("_common.R")
 
 ```{python}
 #| label: setup-py
-#| echo: false
-#| output: asis
-#| eval: true
-from _common import co_box
+#| include: false
 ```
 
 <br>
@@ -178,12 +175,17 @@ Allocate by percentages, not dollars. This is the foundation of Sethi's Consciou
 
 [^budgeting-1]: This plan is covered on his [website](https://www.iwillteachyoutoberich.com/conscious-spending-basics/) and in [this Reddit post](https://www.reddit.com/r/singaporefi/comments/1oohihc/do_you_have_your_own_version_of_conscious/)
 
++---------------------+---------------------------------+------------------+
 | Bucket              | Conscious Spending Plan (Sethi) | 50/30/20 Rule    |
-|---------------------|---------------------------------|------------------|
++=====================+=================================+==================+
 | Fixed Costs         | 50–60%                          | 50% Needs        |
++---------------------+---------------------------------+------------------+
 | Investments         | 10%+                            | 20% Savings/Debt |
++---------------------+---------------------------------+------------------+
 | Savings Goals       | 5–10%                           | (combined above) |
++---------------------+---------------------------------+------------------+
 | Guilt-Free Spending | 20–35%                          | 30% Wants        |
++---------------------+---------------------------------+------------------+
 
 Percentages are great because they’re the proportion of your earnings assigned to each category, which means they scale to any income and, after you’ve categorized your expenses, they are low maintenance. However, they are also less granular, can mask overspending in certain categories, and require you to be brutally honest about the category boundaries.
 
