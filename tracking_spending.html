@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Tracking Spending – Personal Finance: a field manual</title>
+<title>2&nbsp; Tracking Spending – Personal Finance: a field manual</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./emergency_fund.html" rel="next">
-<link href="./budgeting.html" rel="prev">
+<link href="./budgeting.html" rel="next">
+<link href="./income.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -86,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./foundations.html">Foundations</a></li><li class="breadcrumb-item"><a href="./tracking_spending.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tracking Spending</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./foundations.html">Foundations</a></li><li class="breadcrumb-item"><a href="./tracking_spending.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tracking Spending</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -142,14 +177,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./budgeting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Budgeting</span></span></a>
+  <a href="./tracking_spending.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tracking Spending</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tracking_spending.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tracking Spending</span></span></a>
+  <a href="./budgeting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Budgeting</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -327,20 +362,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#capturing-transactions" id="toc-capturing-transactions" class="nav-link active" data-scroll-target="#capturing-transactions"><span class="header-section-number">3.1</span> Capturing Transactions</a>
+  <li><a href="#capturing-transactions" id="toc-capturing-transactions" class="nav-link active" data-scroll-target="#capturing-transactions"><span class="header-section-number">2.1</span> Capturing Transactions</a>
   <ul>
   <li><a href="#a-spending-journal" id="toc-a-spending-journal" class="nav-link" data-scroll-target="#a-spending-journal">A spending journal</a></li>
   <li><a href="#checkbook-registers" id="toc-checkbook-registers" class="nav-link" data-scroll-target="#checkbook-registers">Checkbook registers</a></li>
   <li><a href="#cash-envelope-system" id="toc-cash-envelope-system" class="nav-link" data-scroll-target="#cash-envelope-system">Cash envelope system</a></li>
   <li><a href="#bank-statements" id="toc-bank-statements" class="nav-link" data-scroll-target="#bank-statements">Bank statements</a></li>
   </ul></li>
-  <li><a href="#categorizing-transactions" id="toc-categorizing-transactions" class="nav-link" data-scroll-target="#categorizing-transactions"><span class="header-section-number">3.2</span> Categorizing Transactions</a></li>
-  <li><a href="#the-monthly-review" id="toc-the-monthly-review" class="nav-link" data-scroll-target="#the-monthly-review"><span class="header-section-number">3.3</span> The Monthly Review</a></li>
-  <li><a href="#online-subscriptions" id="toc-online-subscriptions" class="nav-link" data-scroll-target="#online-subscriptions"><span class="header-section-number">3.4</span> Online Subscriptions</a>
+  <li><a href="#using-spreadsheets" id="toc-using-spreadsheets" class="nav-link" data-scroll-target="#using-spreadsheets"><span class="header-section-number">2.2</span> Using Spreadsheets</a></li>
+  <li><a href="#categorizing-transactions" id="toc-categorizing-transactions" class="nav-link" data-scroll-target="#categorizing-transactions"><span class="header-section-number">2.3</span> Categorizing Transactions</a></li>
+  <li><a href="#the-monthly-review" id="toc-the-monthly-review" class="nav-link" data-scroll-target="#the-monthly-review"><span class="header-section-number">2.4</span> The Monthly Review</a></li>
+  <li><a href="#online-subscriptions" id="toc-online-subscriptions" class="nav-link" data-scroll-target="#online-subscriptions"><span class="header-section-number">2.5</span> Online Subscriptions</a>
   <ul>
   <li><a href="#the-subscription-reality-check" id="toc-the-subscription-reality-check" class="nav-link" data-scroll-target="#the-subscription-reality-check">The Subscription Reality Check</a></li>
   </ul></li>
-  <li><a href="#math-for-tracking-spending" id="toc-math-for-tracking-spending" class="nav-link" data-scroll-target="#math-for-tracking-spending"><span class="header-section-number">3.5</span> Math for tracking spending</a>
+  <li><a href="#math-for-tracking-spending" id="toc-math-for-tracking-spending" class="nav-link" data-scroll-target="#math-for-tracking-spending"><span class="header-section-number">2.6</span> Math for tracking spending</a>
   <ul>
   <li><a href="#the-subscription-audit-math" id="toc-the-subscription-audit-math" class="nav-link" data-scroll-target="#the-subscription-audit-math">The Subscription Audit Math</a></li>
   </ul></li>
@@ -350,9 +386,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./foundations.html">Foundations</a></li><li class="breadcrumb-item"><a href="./tracking_spending.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tracking Spending</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./foundations.html">Foundations</a></li><li class="breadcrumb-item"><a href="./tracking_spending.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tracking Spending</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tracking Spending</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tracking Spending</span></h1>
 </div>
 
 
@@ -373,6 +409,7 @@ ul.task-list li input[type="checkbox"] {
 <p>You only manage what you measure. This chapter covers how to capture every dollar that leaves your accounts and turn that data into insight.</p>
 <ul>
 <li>Capturing every transaction</li>
+<li>Working with digital bank exports</li>
 <li>Categorizing what you’ve captured</li>
 <li>Reviewing on a monthly cadence</li>
 <li>Spotting “leak” categories (subscriptions, delivery fees, impulse buys)</li>
@@ -419,8 +456,8 @@ flowchart TD
 </div>
 </div>
 </div>
-<section id="capturing-transactions" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="capturing-transactions"><span class="header-section-number">3.1</span> Capturing Transactions</h2>
+<section id="capturing-transactions" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="capturing-transactions"><span class="header-section-number">2.1</span> Capturing Transactions</h2>
 <p>below are a few time-tested ways to capture your spending. If you’re reading this, you’ll also know there’s a sea of apps and digital tools for tracking your spending. It’s important to know people were tracking their spending before the internet, personal computers, and calculators. Regardless of the method you choose, the important thing is to pick one, run it for a full month, then decide whether if it works for you.</p>
 <section id="a-spending-journal" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="a-spending-journal">A spending journal</h3>
@@ -441,8 +478,176 @@ flowchart TD
 <p>If you live almost entirely on debit and credit cards, every transaction is already captured for you. The work shifts from capture to <strong>review</strong>: once a month, pull the bank and card statements, go through them line by line, and assign each transaction to a category. This is the modern equivalent of the ledger, except the bank has done the writing.</p>
 </section>
 </section>
-<section id="categorizing-transactions" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="categorizing-transactions"><span class="header-section-number">3.2</span> Categorizing Transactions</h2>
+<section id="using-spreadsheets" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="using-spreadsheets"><span class="header-section-number">2.2</span> Using Spreadsheets</h2>
+<p>Digital tracking is the bank-statement method with the math done for you. A real export from your bank includes the same four columns as the example below: a <strong>date</strong>, a <strong>description</strong>, a <strong>category</strong>, and an <strong>amount</strong> (negative for outgoing money, positive for incoming).</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Create the <code>bank_statement</code> data in R:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>show/hide R bank_statement</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>bank_statement <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Date =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"2026-01-02"</span>, <span class="st">"2026-01-02"</span>, <span class="st">"2026-01-03"</span>, <span class="st">"2026-01-03"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"2026-01-04"</span>, <span class="st">"2026-01-04"</span>, <span class="st">"2026-01-05"</span>, <span class="st">"2026-01-06"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"2026-01-07"</span>, <span class="st">"2026-01-08"</span>, <span class="st">"2026-01-09"</span>, <span class="st">"2026-01-10"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"2026-01-11"</span>, <span class="st">"2026-01-12"</span>, <span class="st">"2026-01-13"</span>, <span class="st">"2026-01-14"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"2026-01-15"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  )),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Description =</span> <span class="fu">c</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Employer Payroll"</span>,       <span class="st">"Rent"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Comcast Internet"</span>,       <span class="st">"Trader Joe's"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Shell Gas"</span>,              <span class="st">"Netflix"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Starbucks"</span>,              <span class="st">"PG&amp;E Electric"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"AT&amp;T Wireless"</span>,          <span class="st">"Spotify"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Whole Foods"</span>,            <span class="st">"Chipotle"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Geico Auto Insurance"</span>,   <span class="st">"NYTimes Digital"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Shell Gas"</span>,              <span class="st">"Costco"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"24 Hour Fitness"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">Category =</span> <span class="fu">c</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Income"</span>,         <span class="st">"Housing"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Utilities"</span>,      <span class="st">"Groceries"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Transportation"</span>, <span class="st">"Subscription"</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dining"</span>,         <span class="st">"Utilities"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Utilities"</span>,      <span class="st">"Subscription"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Groceries"</span>,      <span class="st">"Dining"</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Insurance"</span>,      <span class="st">"Subscription"</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Transportation"</span>, <span class="st">"Groceries"</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Subscription"</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">Amount =</span> <span class="fu">c</span>(</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>     <span class="fl">2400.00</span>, <span class="sc">-</span><span class="fl">1500.00</span>,</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span><span class="fl">75.00</span>,   <span class="sc">-</span><span class="fl">82.45</span>,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span><span class="fl">45.20</span>,   <span class="sc">-</span><span class="fl">15.99</span>,</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>       <span class="sc">-</span><span class="fl">6.75</span>,  <span class="sc">-</span><span class="fl">142.30</span>,</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span><span class="fl">85.00</span>,   <span class="sc">-</span><span class="fl">10.99</span>,</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span><span class="fl">64.12</span>,   <span class="sc">-</span><span class="fl">14.50</span>,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>     <span class="sc">-</span><span class="fl">125.00</span>,   <span class="sc">-</span><span class="fl">17.00</span>,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span><span class="fl">42.80</span>,  <span class="sc">-</span><span class="fl">156.78</span>,</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span><span class="fl">39.99</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell" data-df_print="tibble">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>bank_statement</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 17 × 4</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Date       Description          Category         Amount</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;date&gt;     &lt;chr&gt;                &lt;chr&gt;             &lt;dbl&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 2026-01-02 Employer Payroll     Income          2400   </span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 2026-01-02 Rent                 Housing        -1500   </span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 2026-01-03 Comcast Internet     Utilities        -75   </span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 2026-01-03 Trader Joe's         Groceries        -82.4 </span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 2026-01-04 Shell Gas            Transportation   -45.2 </span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 2026-01-04 Netflix              Subscription     -16.0 </span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 2026-01-05 Starbucks            Dining            -6.75</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 2026-01-06 PG&amp;E Electric        Utilities       -142.  </span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 2026-01-07 AT&amp;T Wireless        Utilities        -85   </span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 2026-01-08 Spotify              Subscription     -11.0 </span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 2026-01-09 Whole Foods          Groceries        -64.1 </span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12 2026-01-10 Chipotle             Dining           -14.5 </span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13 2026-01-11 Geico Auto Insurance Insurance       -125   </span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14 2026-01-12 NYTimes Digital      Subscription     -17   </span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15 2026-01-13 Shell Gas            Transportation   -42.8 </span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16 2026-01-14 Costco               Groceries       -157.  </span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 17 2026-01-15 24 Hour Fitness      Subscription     -40.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Create the <code>bank_statement</code> data in Python (with <code>pandas</code>):</p>
+<div class="cell">
+<details class="code-fold">
+<summary>show/hide Python bank_statement</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>bank_statement <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Date"</span>: pd.to_datetime([</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2026-01-02"</span>, <span class="st">"2026-01-02"</span>, <span class="st">"2026-01-03"</span>, <span class="st">"2026-01-03"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2026-01-04"</span>, <span class="st">"2026-01-04"</span>, <span class="st">"2026-01-05"</span>, <span class="st">"2026-01-06"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2026-01-07"</span>, <span class="st">"2026-01-08"</span>, <span class="st">"2026-01-09"</span>, <span class="st">"2026-01-10"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2026-01-11"</span>, <span class="st">"2026-01-12"</span>, <span class="st">"2026-01-13"</span>, <span class="st">"2026-01-14"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"2026-01-15"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    ]),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Description"</span>: [</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Employer Payroll"</span>,     <span class="st">"Rent"</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Comcast Internet"</span>,     <span class="st">"Trader Joe's"</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Shell Gas"</span>,            <span class="st">"Netflix"</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Starbucks"</span>,            <span class="st">"PG&amp;E Electric"</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"AT&amp;T Wireless"</span>,        <span class="st">"Spotify"</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Whole Foods"</span>,          <span class="st">"Chipotle"</span>,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Geico Auto Insurance"</span>, <span class="st">"NYTimes Digital"</span>,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Shell Gas"</span>,            <span class="st">"Costco"</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"24 Hour Fitness"</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Category"</span>: [</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Income"</span>,         <span class="st">"Housing"</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Utilities"</span>,      <span class="st">"Groceries"</span>,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Transportation"</span>, <span class="st">"Subscription"</span>,</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Dining"</span>,         <span class="st">"Utilities"</span>,</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Utilities"</span>,      <span class="st">"Subscription"</span>,</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Groceries"</span>,      <span class="st">"Dining"</span>,</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Insurance"</span>,      <span class="st">"Subscription"</span>,</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Transportation"</span>, <span class="st">"Groceries"</span>,</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Subscription"</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Amount"</span>: [</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>         <span class="fl">2400.00</span>, <span class="op">-</span><span class="fl">1500.00</span>,</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>          <span class="op">-</span><span class="fl">75.00</span>,   <span class="op">-</span><span class="fl">82.45</span>,</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>          <span class="op">-</span><span class="fl">45.20</span>,   <span class="op">-</span><span class="fl">15.99</span>,</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>           <span class="op">-</span><span class="fl">6.75</span>,  <span class="op">-</span><span class="fl">142.30</span>,</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>          <span class="op">-</span><span class="fl">85.00</span>,   <span class="op">-</span><span class="fl">10.99</span>,</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>          <span class="op">-</span><span class="fl">64.12</span>,   <span class="op">-</span><span class="fl">14.50</span>,</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>         <span class="op">-</span><span class="fl">125.00</span>,   <span class="op">-</span><span class="fl">17.00</span>,</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>          <span class="op">-</span><span class="fl">42.80</span>,  <span class="op">-</span><span class="fl">156.78</span>,</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>          <span class="op">-</span><span class="fl">39.99</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bank_statement</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          Date           Description        Category   Amount</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0  2026-01-02      Employer Payroll          Income  2400.00</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  2026-01-02                  Rent         Housing -1500.00</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  2026-01-03      Comcast Internet       Utilities   -75.00</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  2026-01-03          Trader Joe's       Groceries   -82.45</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  2026-01-04             Shell Gas  Transportation   -45.20</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5  2026-01-04               Netflix    Subscription   -15.99</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  2026-01-05             Starbucks          Dining    -6.75</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7  2026-01-06         PG&amp;E Electric       Utilities  -142.30</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8  2026-01-07         AT&amp;T Wireless       Utilities   -85.00</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9  2026-01-08               Spotify    Subscription   -10.99</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 2026-01-09           Whole Foods       Groceries   -64.12</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 2026-01-10              Chipotle          Dining   -14.50</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12 2026-01-11  Geico Auto Insurance       Insurance  -125.00</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13 2026-01-12       NYTimes Digital    Subscription   -17.00</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14 2026-01-13             Shell Gas  Transportation   -42.80</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15 2026-01-14                Costco       Groceries  -156.78</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16 2026-01-15       24 Hour Fitness    Subscription   -39.99</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<p>Once your transactions sit in columns and rows, it’s much easier to answer tracking questions like:</p>
+<ol type="1">
+<li>What is the total spent on subscriptions?</li>
+<li>What percentage of my income is going to fixed costs?</li>
+<li>What was my biggest variable category last month?</li>
+</ol>
+<p>Bogle would approve: <strong>simplicity wins.</strong> A well-built spreadsheet beats most apps because it forces you to engage with your numbers.</p>
+</section>
+<section id="categorizing-transactions" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="categorizing-transactions"><span class="header-section-number">2.3</span> Categorizing Transactions</h2>
 <p>Most people overcomplicate categories. Six to ten buckets is plenty, and a small, stable list will outlast any rotating set of “smart” categorizations. A working starter set:</p>
 <ul>
 <li><strong>Housing</strong> (rent/mortgage, utilities, insurance)</li>
@@ -461,10 +666,10 @@ flowchart TD
 <li><strong>When in doubt, “Other”.</strong> Don’t invent a new category for a single transaction. Review the “Other” bucket at month-end and only promote a new category once you’ve seen the same kind of transaction three months in a row.</li>
 <li><strong>Keep the categories stable.</strong> Changing categories every month destroys the comparisons that make tracking useful in the first place.</li>
 </ol>
-<p>The <code>bank_statement</code> dataset from <a href="./budgeting.html#using-spreadsheets">Budgeting → Using Spreadsheets</a> is already organized this way: each row carries a <code>Category</code> alongside its <code>Amount</code>, so totalling by category becomes a single grouping operation.</p>
+<p>The <code>bank_statement</code> dataset defined above is already organized this way: each row carries a <code>Category</code> alongside its <code>Amount</code>, so totalling by category becomes a single grouping operation.</p>
 </section>
-<section id="the-monthly-review" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="the-monthly-review"><span class="header-section-number">3.3</span> The Monthly Review</h2>
+<section id="the-monthly-review" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="the-monthly-review"><span class="header-section-number">2.4</span> The Monthly Review</h2>
 <p>Tracking is only valuable if you actually look at the totals. A monthly review is a thirty-minute habit, scheduled on the same day each month — the day after your statements close is a natural anchor.</p>
 <p>The ritual has four steps:</p>
 <ol type="1">
@@ -475,8 +680,8 @@ flowchart TD
 </ol>
 <p>Over a year, twelve small adjustments compound into a budget that actually fits your life. That’s the real return on tracking: the calibration loop, not the spreadsheet itself.</p>
 </section>
-<section id="online-subscriptions" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="online-subscriptions"><span class="header-section-number">3.4</span> Online Subscriptions</h2>
+<section id="online-subscriptions" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="online-subscriptions"><span class="header-section-number">2.5</span> Online Subscriptions</h2>
 <p>This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries; they’re individually small but collectively enormous and can silently drain your accounts.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -520,8 +725,8 @@ flowchart TD
 <p>This isn’t deprivation; it’s the Sethi principle in action: <strong>cut mercilessly on what you don’t love</strong> so you can spend freely on what you do.</p>
 </section>
 </section>
-<section id="math-for-tracking-spending" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="math-for-tracking-spending"><span class="header-section-number">3.5</span> Math for tracking spending</h2>
+<section id="math-for-tracking-spending" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="math-for-tracking-spending"><span class="header-section-number">2.6</span> Math for tracking spending</h2>
 <p>Below are some tips and tools for tracking spending. Some can be used to easily categorize purchases, others can be used to check the amount you’re spending on subscriptions.</p>
 <section id="the-subscription-audit-math" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="the-subscription-audit-math">The Subscription Audit Math</h3>
@@ -980,13 +1185,13 @@ flowchart TD
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./budgeting.html" class="pagination-link" aria-label="Budgeting">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Budgeting</span></span>
+      <a href="./income.html" class="pagination-link" aria-label="Income">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Income</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./emergency_fund.html" class="pagination-link" aria-label="Emergency Fund">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Emergency Fund</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./budgeting.html" class="pagination-link" aria-label="Budgeting">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Budgeting</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
