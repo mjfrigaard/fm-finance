@@ -23,7 +23,9 @@ matches your goals.
   - Sinking funds for known future expenses
   - The savings rate as the single most important number
 
-## Savings Rate (Your Most Important Metric)
+## Math for Saving {#math-for-saving}
+
+### Your Savings Rate (Your Most Important Metric) {.unnumbered} 
 
 [Ben Felix](https://rationalreminder.ca/) and [John Bogle](https://www.bogleheads.org/) both stress this above all else.
 
@@ -37,3 +39,34 @@ Benchmarks to know:
 - **10-20%:** Average; you'll retire eventually
 - **20-30%:** Strong; you're building real wealth
 - **30%+:** Path to early financial independence  
+
+Your savings rate, the share of take-home pay you *don't* spend, is the single number that best predicts how quickly you build wealth. It's Housel's "gap between ego and income," expressed as a percentage.
+
+**Formula:** Savings Rate = (Income − Spending) ÷ Income × 100
+
+Example: you take home \$5,000 and spend \$3,500. → (5,000 − 3,500) ÷ 5,000 = **30%**.
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: savings-rate-r
+savings_rate <- function(income, spending) {
+  ((income - spending) / income) * 100
+}
+
+# $5,000 take-home, $3,500 spent
+savings_rate(income = 5000, spending = 3500)
+```
+
+## Python
+
+```{python}
+#| label: savings-rate-py
+def savings_rate(income, spending):
+    return ((income - spending) / income) * 100
+
+# $5,000 take-home, $3,500 spent
+savings_rate(income=5000, spending=3500)
+```
+:::

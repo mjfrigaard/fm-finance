@@ -73,7 +73,7 @@ Credit card debt is the single most destructive financial product most people wi
 ### The Playbook {.unnumbered}
 
 | Step | Action |
-|-------------------------------|-----------------------------------------|
+|----|----|
 | **1. Stop the bleeding** | Stop using cards. Pay cash or debit until balances are zero. |
 | **2. Call and negotiate** | Call each issuer. Ask for a lower APR. It works more often than you'd think. |
 | **3. Choose a method** | **Avalanche** (highest APR first; saves most money) or **Snowball** (smallest balance first; builds momentum). |
@@ -101,7 +101,7 @@ Felix's human capital lens turns the major decision into a measurable one: which
 The 1× ceiling itself isn't very illuminating (it's just the salary number again). What matters is the *monthly bill* that ceiling produces. Under a standard 10-year federal repayment at \~6.5%, every dollar borrowed costs roughly \$0.0114/month. Applied to each major:
 
 | Major Category | Typical Starting Salary | Monthly Payment at 1× Ceiling |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | Engineering / Computer Science | \$70,000–\$95,000 | \$795–\$1,080 |
 | Nursing / Health Sciences | \$60,000–\$80,000 | \$680–\$910 |
 | Business / Finance | \$50,000–\$70,000 | \$570–\$795 |
@@ -200,7 +200,7 @@ When the 1× rule is out of reach, income-driven repayment (IDR) caps monthly pa
 The threshold and payment rate differ by plan. Using the 2025 federal poverty guideline of \~\$15,650 for a single person in the contiguous U.S.:
 
 | Plan | Income Threshold | Payment Rate | Forgiveness |
-|----------------|-----------------------|------------------|----------------|
+|----|----|----|----|
 | **IBR** (loans after 2014) | 150% FPG | 10% | 20 years |
 | **PAYE** | 150% FPG | 10% | 20 years |
 | **SAVE** *(blocked, 2025)* | 225% FPG | 5% undergrad / 10% grad | 10–25 years |
