@@ -15,7 +15,7 @@ source("_common.R")
 
 <br>
   
-Debt isn't inherently good or bad; it's a tool. Used wisely, it can accelerate wealth-building (think low-rate mortgages or strategic education). Used poorly, it can quietly destroy decades of financial progress. Let's break down each type with evidence-based advice from Housel, Sethi, Bogle, and Ben Felix.
+Debt isn't inherently good or bad; it's a tool. Used wisely, it can accelerate wealth-building (think low-rate mortgages or strategic education). Used poorly, it can quietly destroy decades of financial progress. Let's break down each type with evidence-based advice from [Housel](https://www.morganhousel.com/), [Sethi](https://www.iwillteachyoutoberich.com/), [Bogle](https://www.bogleheads.org/), and [Ben Felix](https://rationalreminder.ca/).
 
 ## The Debt Hierarchy: Know Your Enemy
 

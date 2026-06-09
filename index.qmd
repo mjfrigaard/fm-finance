@@ -13,7 +13,7 @@ source("_common.R")
 #| include: false
 ```
 
-Welcome to my **Personal Finance field manual**, a working reference for the day-to-day decisions that shape your financial life: budgeting, savings, borrowing, investing, taxes, insurance, and planning.
+This is a **Personal Finance field manual**: a working reference for the day-to-day decisions that shape your financial life. It covers budgeting, saving, borrowing, investing, taxes, insurance, and planning.
 
 
 This book aims to answer questions like:
@@ -54,12 +54,23 @@ The book is divided into five parts:
 4. [**Taxes & insurance**](taxes_insurance.qmd): the protective layer around your finances.
 5. [**Planning**](planning.qmd): goals, major purchases, and estate planning.
 
-The five sections of the book map onto the **four levers**: 
+The five sections of the book map into **four levers**: 
 
-1. *Foundations* sets up income and spending  
-2. *Savings* turns the gap between them into a buffer  
-3. *Investing* puts that buffer to work   
-4. *Taxes & insurance* and *Planning* sit around the outside  
+## The four levers
+
+| Lever     | Question                  |
+|-----------|---------------------------|
+| Income    | How much comes in?        |
+| Spending  | How much goes out?        |
+| Savings   | How much is set aside?    |
+| Investing | What happens to the rest? |
+
+Each lever has its own part in this book:
+
+- [Foundations](foundations.qmd): **Income**, **budgeting**, and **spending** are the behaviors that will have the biggest impact on your financial health. You'll also want to manage the money you borrow, and plan for emergencies.     
+- [Savings](savings.qmd) covers different ways to put money aside, different kinds of savings accounts, and the most important behavior for disciplined savings: **automation**.\
+- [Investing](investing.qmd) is what happens to the money you save **over the long term**.     
+- [Taxes & insurance](taxes_insurance.qmd) & [Planning](planning.qmd) sit around the outside.      
 
 Each chapter is short and self-contained so you can jump in where you need to.
 

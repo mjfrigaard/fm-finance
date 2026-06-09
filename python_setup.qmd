@@ -7,7 +7,7 @@ The R code in this book runs out of the box if you have the packages in `renv.lo
 Python requirements are declared in `_common.R` (sourced from the top of every chapter that runs Python):
 
 ```r
-reticulate::py_require(c("numpy", "pandas"))
+reticulate::py_require(c("numpy", "polars"))
 ```
 
 On first render, `reticulate`'s `uv` backend resolves the requirements and builds the `env` under:
@@ -22,7 +22,7 @@ The `<HASH>` is content-addressed on the requirement set, so changing `py_requir
 
 ### `ModuleNotFoundError`
 
-**Error**: **`ModuleNotFoundError: No module named 'pandas'`**
+**Error**: **`ModuleNotFoundError: No module named 'polars'`**
 
 `reticulate` picked up a cached `env` that pre-dates the requirement. The warning above the error will name the stale hash. Remove that specific env so `reticulate` re-resolves on the next render:
 
@@ -53,7 +53,7 @@ Opening an OS-level terminal outside the IDE also avoids the inherited state.
 Add the package name to the `py_require()` call in `_common.R`:
 
 ```r
-reticulate::py_require(c("numpy", "pandas", "matplotlib"))
+reticulate::py_require(c("numpy", "polars", "matplotlib"))
 ```
 
 On the next render, `reticulate` will resolve to a new `env` hash and build the updated environment automatically.

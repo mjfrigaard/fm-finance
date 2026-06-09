@@ -6,7 +6,7 @@ decisions that shape your financial life: budgeting, savings, borrowing,
 investing, taxes, insurance, and planning.
 
 Built with [Quarto](https://quarto.org/). Code examples use both **R** (with
-the tidyverse) and **Python** (with pandas / NumPy).
+the tidyverse) and **Python** (with polars / NumPy).
 
 ## Contents
 
@@ -18,10 +18,10 @@ the tidyverse) and **Python** (with pandas / NumPy).
 ### Part 1 -- Foundations
 
 - Income
-- Budgeting
 - Tracking Spending
-- Emergency Fund
+- Budgeting
 - Managing Debt
+- Emergency Fund
 
 ### Part 2 -- Savings
 
@@ -76,7 +76,7 @@ quarto render budgeting.qmd
 - [Quarto](https://quarto.org/) 1.4 or newer
 - **R** with `knitr`, `rmarkdown`, and the tidyverse packages used in
   `_common.R`
-- **Python** 3 with `pandas` and `numpy` (only required for chapters with
+- **Python** 3 with `polars` and `numpy` (only required for chapters with
   Python chunks)
 
 ## Project layout

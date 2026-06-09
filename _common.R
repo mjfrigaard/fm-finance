@@ -1,5 +1,8 @@
 set.seed(1014)
 
+# Python dependencies (reticulate uv-managed env) ----
+reticulate::py_require(c("numpy", "polars"))
+
 # knitr settings ----
 knitr::opts_chunk$set(
   comment = "#>",

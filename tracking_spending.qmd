@@ -11,6 +11,8 @@ source("_common.R")
 ```{python}
 #| label: setup-py
 #| include: false
+import polars as pl
+pl.Config.set_tbl_rows(20)
 ```
 
 <br>
@@ -23,7 +25,7 @@ You only manage what you measure. This chapter covers how to capture every dolla
   - Reviewing on a monthly cadence
   - Spotting "leak" categories (subscriptions, delivery fees, impulse buys)
 
-Tracking is the *recording* side of personal finance. [Budgeting](budgeting.qmd) covers the *allocation* side — where money is supposed to go. Without tracking, a budget is a guess; with it, the budget becomes a feedback loop.
+Tracking is the *recording* side of personal finance. [Budgeting](budgeting.qmd) covers the *allocation* side — where money is supposed to go. Without tracking, a budget is a guess; with tracking, it becomes a feedback loop.
 
 ```{=html}
 <style>
@@ -66,33 +68,34 @@ flowchart TD
 
 ## Capturing Transactions
 
-below are a few time-tested ways to capture your spending. If you're reading this, you'll also know there's a sea of apps and digital tools for tracking your spending. It's important to know people were tracking their spending before the internet, personal computers, and calculators. Regardless of the method you choose, the important thing is to pick one, run it for a full month, then decide whether if it works for you. 
+Below are a few time-tested ways to capture your spending. If you’re reading this, you’ll also know there’s a sea of apps and digital tools for tracking your spending. It’s important to know people were tracking their spending before the internet, personal computers, and calculators. Regardless of the method you choose, the important thing is to pick one, run it for a full month, then decide whether it works for you.
 
 ### A spending journal {.unnumbered}
 
-A small notebook, kept in a pocket or bag. Every time money leaves your hands you write one line: amount, place, category. At week's end, you tally.
-
-This is the oldest method on the list — Benjamin Franklin kept one. Its strength is the moment of awareness it forces. Writing "$6 — Starbucks — coffee" by hand is a small pause that an automatically-recorded card swipe will never give you.
+A small notebook, kept in a pocket or bag. Every time money leaves your hands, you write one line: amount, place, category. At week’s end, you tally. This is the oldest method on the list (Benjamin Franklin [kept one](https://founders.archives.gov/documents/Franklin/01-11-02-0149)). Its strength is the moment of awareness it forces. Writing "$6 / Starbucks / coffee" by hand is a small pause that an automatically-recorded card swipe will never give you.
 
 ### Checkbook registers {.unnumbered}
 
-Every paper checkbook used to come with a register: each transaction logged on its own line, with a running balance. It works for any account where you can list debits and credits. One page per month is plenty. The discipline isn't the form — it's that writing each entry keeps you honest about the balance.
+Every paper checkbook used to come with a register: each transaction logged on its own line, with a running balance. It works for any account where you can list debits and credits. One page per month is plenty. The discipline isn’t the form — it’s that writing each entry keeps you honest about the balance.
 
 ### Cash envelope system {.unnumbered}
 
-For variable categories (groceries, dining, gas, fun money), withdraw the monthly amount in cash and split it into physical envelopes labeled by category. When an envelope is empty, that category is done for the month. No swiping, no spreadsheet to update.
+For variable categories (groceries, dining, gas, fun money), withdraw the monthly amount in cash and split it into physical envelopes labeled by category. When an envelope is empty, that category is done for the month. No swiping, no spreadsheet to update. Depression-era families used envelopes because they had to.[^env-dep] The system has stuck around because the physical, finite nature of cash slows spending more reliably than any reminder ever will.
 
-Depression-era families used envelopes because they had to. The system has stuck around because the physical, finite nature of cash slows spending more reliably than any reminder ever will.
+[^env-dep]: Stashing cash around the house was actually quite common for people who lived through the depression. Read more [here](https://www.chicagotribune.com/2005/04/17/inheritance-hide-and-seek/).
 
 ### Bank statements {.unnumbered}
 
-If you live almost entirely on debit and credit cards, every transaction is already captured for you. The work shifts from capture to **review**: once a month, pull the bank and card statements, go through them line by line, and assign each transaction to a category. This is the modern equivalent of the ledger, except the bank has done the writing.
+Today, we make purchases digitally (via debit and credit cards), so every transaction is already captured for you. The work shifts from capture to review: once a month, pull the bank and card statements, go through them line by line, and assign each transaction to a category. This is the modern equivalent of the ledger, except the bank has done the writing.
 
 ## Using Spreadsheets
 
-Digital tracking is the bank-statement method with the math done for you. A real export from your bank includes the same four columns as the example below: a **date**, a **description**, a **category**, and an **amount** (negative for outgoing money, positive for incoming).
+Digital tracking is the bank-statement method above, but with the math done for you. Most banks allow you to export your monthly statement, which includes three columns: **date**, **description**, and **amount** (negative for money going out, positive for money coming in).
+
+The exported statement almost never includes a category — that part you add yourself, and we'll do it in [Categorizing Transactions](#categorizing-transactions) below.
 
 ::: panel-tabset
+
 ## R
 
 Create the `bank_statement` data in R:
@@ -101,7 +104,7 @@ Create the `bank_statement` data in R:
 #| label: bank-statement-r
 #| code-fold: true
 #| code-summary: 'show/hide R bank_statement'
-bank_statement <- tibble::tibble(
+r_bank_statement <- tibble::tibble(
   Date = as.Date(c(
     "2026-01-02", "2026-01-02", "2026-01-03", "2026-01-03",
     "2026-01-04", "2026-01-04", "2026-01-05", "2026-01-06",
@@ -120,17 +123,6 @@ bank_statement <- tibble::tibble(
     "Shell Gas",              "Costco",
     "24 Hour Fitness"
   ),
-  Category = c(
-    "Income",         "Housing",
-    "Utilities",      "Groceries",
-    "Transportation", "Subscription",
-    "Dining",         "Utilities",
-    "Utilities",      "Subscription",
-    "Groceries",      "Dining",
-    "Insurance",      "Subscription",
-    "Transportation", "Groceries",
-    "Subscription"
-  ),
   Amount = c(
      2400.00, -1500.00,
       -75.00,   -82.45,
@@ -145,30 +137,32 @@ bank_statement <- tibble::tibble(
 )
 ```
 
+We'll use `knitr::kable()` to make the output pretty:
+
 ```{r}
 #| label: print-bank-statement-r
-#| df_print: tibble
-bank_statement
+#| df_print: kable
+r_bank_statement |> knitr::kable()
 ```
 
 ## Python
 
-Create the `bank_statement` data in Python (with `pandas`):
+Create the `bank_statement` data in Python (with `polars`):
 
 ```{python}
 #| label: bank-statement-py
 #| code-fold: true
 #| code-summary: 'show/hide Python bank_statement'
-import pandas as pd
+import polars as pl
 
-bank_statement = pd.DataFrame({
-    "Date": pd.to_datetime([
+py_bank_statement = pl.DataFrame({
+    "Date": [
         "2026-01-02", "2026-01-02", "2026-01-03", "2026-01-03",
         "2026-01-04", "2026-01-04", "2026-01-05", "2026-01-06",
         "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-10",
         "2026-01-11", "2026-01-12", "2026-01-13", "2026-01-14",
         "2026-01-15"
-    ]),
+    ],
     "Description": [
         "Employer Payroll",     "Rent",
         "Comcast Internet",     "Trader Joe's",
@@ -179,17 +173,6 @@ bank_statement = pd.DataFrame({
         "Geico Auto Insurance", "NYTimes Digital",
         "Shell Gas",            "Costco",
         "24 Hour Fitness"
-    ],
-    "Category": [
-        "Income",         "Housing",
-        "Utilities",      "Groceries",
-        "Transportation", "Subscription",
-        "Dining",         "Utilities",
-        "Utilities",      "Subscription",
-        "Groceries",      "Dining",
-        "Insurance",      "Subscription",
-        "Transportation", "Groceries",
-        "Subscription"
     ],
     "Amount": [
          2400.00, -1500.00,
@@ -202,22 +185,22 @@ bank_statement = pd.DataFrame({
           -42.80,  -156.78,
           -39.99
     ]
-})
+}).with_columns(pl.col("Date").str.to_date())
 ```
 
 ```{python}
 #| label: print-bank-statement-py
-bank_statement
+py_bank_statement
 ```
 :::
 
 Once your transactions sit in columns and rows, it's much easier to answer tracking questions like:
 
-1. What is the total spent on subscriptions?
-2. What percentage of my income is going to fixed costs?
-3. What was my biggest variable category last month?
+1. What is the total spent on subscriptions?    
+2. What percentage of my income is going to fixed costs?  
+3. What was my biggest variable category last month?    
 
-Bogle would approve: **simplicity wins.** A well-built spreadsheet beats most apps because it forces you to engage with your numbers.
+[Bogle](https://www.bogleheads.org/) would approve of building a custom spreadsheet because simplicity wins. A well-built spreadsheet beats most apps because it forces you to engage with your numbers.
 
 ## Categorizing Transactions
 
@@ -239,7 +222,83 @@ Two rules that save hours of bookkeeping:
 1. **When in doubt, "Other".** Don't invent a new category for a single transaction. Review the "Other" bucket at month-end and only promote a new category once you've seen the same kind of transaction three months in a row.
 2. **Keep the categories stable.** Changing categories every month destroys the comparisons that make tracking useful in the first place.
 
-The `bank_statement` dataset defined above is already organized this way: each row carries a `Category` alongside its `Amount`, so totalling by category becomes a single grouping operation.
+The `bank_statement` dataset above only carries what a real bank export gives you — `Date`, `Description`, and `Amount`. To get to a `Category` column, you have to map descriptions to your buckets yourself. A small lookup of keyword patterns does the job in one pass.
+
+::: panel-tabset
+
+## R
+
+`dplyr::case_when()` evaluates each pattern in order and assigns the matching category. `grepl()` does the keyword test against `Description`. The final `TRUE` arm catches everything that didn't match and labels it `"Other"`.
+
+```{r}
+#| label: categorize-r
+r_bank_statement <- r_bank_statement |>
+  dplyr::mutate(
+    Category = dplyr::case_when(
+      grepl("Payroll",                                   Description) ~ "Income",
+      grepl("Rent",                                      Description) ~ "Housing",
+      grepl("Comcast|PG&E|AT&T",                         Description) ~ "Utilities",
+      grepl("Trader Joe|Whole Foods|Costco",             Description) ~ "Groceries",
+      grepl("Shell",                                     Description) ~ "Transportation",
+      grepl("Starbucks|Chipotle",                        Description) ~ "Dining",
+      grepl("Netflix|Spotify|NYTimes|24 Hour Fitness",   Description) ~ "Subscriptions",
+      grepl("Geico",                                     Description) ~ "Insurance",
+      TRUE                                                            ~ "Other"
+    )
+  )
+
+r_bank_statement |> knitr::kable()
+```
+
+## Python
+
+`polars` mirrors `dplyr` closely: `with_columns()` is the `mutate()` analog, and a chain of `pl.when().then()` calls is the `case_when()` analog. `pl.col("Description").str.contains(...)` does the keyword test (regex by default — the `|` between merchants is alternation).
+
+```{python}
+#| label: categorize-py
+py_bank_statement = py_bank_statement.with_columns(
+    Category = pl.when(pl.col("Description").str.contains("Payroll")).then(pl.lit("Income"))
+        .when(pl.col("Description").str.contains("Rent")).then(pl.lit("Housing"))
+        .when(pl.col("Description").str.contains("Comcast|PG&E|AT&T")).then(pl.lit("Utilities"))
+        .when(pl.col("Description").str.contains("Trader Joe|Whole Foods|Costco")).then(pl.lit("Groceries"))
+        .when(pl.col("Description").str.contains("Shell")).then(pl.lit("Transportation"))
+        .when(pl.col("Description").str.contains("Starbucks|Chipotle")).then(pl.lit("Dining"))
+        .when(pl.col("Description").str.contains("Netflix|Spotify|NYTimes|24 Hour Fitness")).then(pl.lit("Subscriptions"))
+        .when(pl.col("Description").str.contains("Geico")).then(pl.lit("Insurance"))
+        .otherwise(pl.lit("Other"))
+)
+
+py_bank_statement
+```
+
+## Excel
+
+In Excel, the `IFS()` function is the direct analog of `case_when()`/`when().then()`: a list of conditions and corresponding values, evaluated top to bottom, with the first match winning. `SEARCH()` returns the position of a keyword in a cell (or `#VALUE!` if not found), and wrapping it in `ISNUMBER()` turns that into a true/false test. For categories with several merchants, wrap the tests in `OR()`.
+
+Assume your statement is laid out with `Date` in column **A**, `Description` in column **B**, and `Amount` in column **C**. Type `Category` in cell **D1**, then paste this formula into **D2**:
+
+```excel
+=IFS(
+  ISNUMBER(SEARCH("Payroll", B2)),                                                                            "Income",
+  ISNUMBER(SEARCH("Rent", B2)),                                                                               "Housing",
+  OR(ISNUMBER(SEARCH("Comcast",B2)), ISNUMBER(SEARCH("PG&E",B2)), ISNUMBER(SEARCH("AT&T",B2))),               "Utilities",
+  OR(ISNUMBER(SEARCH("Trader Joe",B2)), ISNUMBER(SEARCH("Whole Foods",B2)), ISNUMBER(SEARCH("Costco",B2))),   "Groceries",
+  ISNUMBER(SEARCH("Shell", B2)),                                                                              "Transportation",
+  OR(ISNUMBER(SEARCH("Starbucks",B2)), ISNUMBER(SEARCH("Chipotle",B2))),                                      "Dining",
+  OR(ISNUMBER(SEARCH("Netflix",B2)), ISNUMBER(SEARCH("Spotify",B2)),
+     ISNUMBER(SEARCH("NYTimes",B2)), ISNUMBER(SEARCH("24 Hour Fitness",B2))),                                 "Subscriptions",
+  ISNUMBER(SEARCH("Geico", B2)),                                                                              "Insurance",
+  TRUE,                                                                                                       "Other"
+)
+```
+
+Then copy **D2** down through every transaction row (select **D2**, double-click the small square in the bottom-right corner, or use **Ctrl+D** after selecting `D2:D{last_row}`). The final `TRUE, "Other"` arm is the equivalent of `dplyr`'s `TRUE ~ "Other"` and polars's `.otherwise(...)` — it catches anything that didn't match an earlier pattern.
+
+To add a new merchant when one shows up: edit the formula in **D2**, then re-fill down. Keep the new merchant near the bottom of its category group so the existing patterns still resolve first.
+
+:::
+
+Each month, add a new pattern when you see a real transaction that didn't match. The goal isn't to classify every edge case up front — it's a lookup that handles 90%+ of your monthly transactions automatically, leaving only the unusual ones to triage by hand.
 
 ## The Monthly Review
 
@@ -292,7 +351,7 @@ The average household spends **$200–$300/month** on subscriptions, often witho
 4. Set a calendar reminder every 90 days to repeat this
 5. Use one card exclusively for subscriptions to track them easily
 
-This isn't deprivation; it's the Sethi principle in action: **cut mercilessly on what you don't love** so you can spend freely on what you do.
+This isn't deprivation; it's the [Sethi](https://www.iwillteachyoutoberich.com/) principle in action: **cut mercilessly on what you don't love** so you can spend freely on what you do.
 
 ## Math for tracking spending
 
