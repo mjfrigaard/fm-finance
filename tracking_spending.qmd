@@ -25,7 +25,7 @@ You only manage what you measure. This chapter covers how to capture every dolla
   - Reviewing on a monthly cadence
   - Spotting "leak" categories (subscriptions, delivery fees, impulse buys)
 
-Tracking is the *recording* side of personal finance. [Budgeting](budgeting.qmd) covers the *allocation* side — where money is supposed to go. Without tracking, a budget is a guess; with tracking, it becomes a feedback loop.
+Tracking is the *recording* side of personal finance. [Budgeting](budgeting.qmd) covers the *allocation* side (where money is supposed to go). Without tracking, a budget is a guess; with tracking, it becomes a feedback loop.
 
 ```{=html}
 <style>
@@ -76,7 +76,7 @@ A small notebook, kept in a pocket or bag. Every time money leaves your hands, y
 
 ### Checkbook registers {.unnumbered}
 
-Every paper checkbook used to come with a register: each transaction logged on its own line, with a running balance. It works for any account where you can list debits and credits. One page per month is plenty. The discipline isn’t the form — it’s that writing each entry keeps you honest about the balance.
+Every paper checkbook used to come with a register: each transaction logged on its own line, with a running balance. It works for any account where you can list debits and credits. One page per month is plenty. The discipline isn’t the form; it’s that writing each entry keeps you honest about the balance.
 
 ### Cash envelope system {.unnumbered}
 
@@ -92,7 +92,7 @@ Today, we make purchases digitally (via debit and credit cards), so every transa
 
 Digital tracking is the bank-statement method above, but with the math done for you. Most banks allow you to export your monthly statement, which includes three columns: **date**, **description**, and **amount** (negative for money going out, positive for money coming in).
 
-The exported statement almost never includes a category — that part you add yourself, and we'll do it in [Categorizing Transactions](#categorizing-transactions) below.
+The exported statement almost never includes a category, but you can add it yourself, and we'll do it in [Categorizing Transactions](#categorizing-transactions) below.
 
 ::: panel-tabset
 
@@ -214,7 +214,7 @@ Most people overcomplicate categories. Six to ten buckets is plenty, and a small
 - **Personal** (clothes, haircuts, gym)
 - **Health & insurance**
 - **Gifts & giving**
-- **Fun money** (don't break this down further — protect it from over-tracking)
+- **Fun money** (don't break this down further and protect it from over-tracking)
 - **Other / one-offs**
 
 Two rules that save hours of bookkeeping:
@@ -222,7 +222,7 @@ Two rules that save hours of bookkeeping:
 1. **When in doubt, "Other".** Don't invent a new category for a single transaction. Review the "Other" bucket at month-end and only promote a new category once you've seen the same kind of transaction three months in a row.
 2. **Keep the categories stable.** Changing categories every month destroys the comparisons that make tracking useful in the first place.
 
-The `bank_statement` dataset above only carries what a real bank export gives you — `Date`, `Description`, and `Amount`. To get to a `Category` column, you have to map descriptions to your buckets yourself. A small lookup of keyword patterns does the job in one pass.
+The `bank_statement` dataset above only carries what a real bank export gives you(`Date`, `Description`, and `Amount`). To get to a `Category` column, you have to map descriptions to your buckets yourself. A small lookup of keyword patterns does the job in one pass.
 
 ::: panel-tabset
 
@@ -252,7 +252,7 @@ r_bank_statement |> knitr::kable()
 
 ## Python
 
-`polars` mirrors `dplyr` closely: `with_columns()` is the `mutate()` analog, and a chain of `pl.when().then()` calls is the `case_when()` analog. `pl.col("Description").str.contains(...)` does the keyword test (regex by default — the `|` between merchants is alternation).
+`polars` mirrors `dplyr` closely: `with_columns()` is the `mutate()` analog, and a chain of `pl.when().then()` calls is the `case_when()` analog. `pl.col("Description").str.contains(...)` does the keyword test (regex by default and the `|` between merchants is alternation).
 
 ```{python}
 #| label: categorize-py
@@ -292,17 +292,17 @@ Assume your statement is laid out with `Date` in column **A**, `Description` in 
 )
 ```
 
-Then copy **D2** down through every transaction row (select **D2**, double-click the small square in the bottom-right corner, or use **Ctrl+D** after selecting `D2:D{last_row}`). The final `TRUE, "Other"` arm is the equivalent of `dplyr`'s `TRUE ~ "Other"` and polars's `.otherwise(...)` — it catches anything that didn't match an earlier pattern.
+Then copy **D2** down through every transaction row (select **D2**, double-click the small square in the bottom-right corner, or use **Ctrl+D** after selecting `D2:D{last_row}`). The final `TRUE, "Other"` arm is the equivalent of `dplyr`'s `TRUE ~ "Other"` and polars's `.otherwise(...)`; it catches anything that didn't match an earlier pattern.
 
 To add a new merchant when one shows up: edit the formula in **D2**, then re-fill down. Keep the new merchant near the bottom of its category group so the existing patterns still resolve first.
 
 :::
 
-Each month, add a new pattern when you see a real transaction that didn't match. The goal isn't to classify every edge case up front — it's a lookup that handles 90%+ of your monthly transactions automatically, leaving only the unusual ones to triage by hand.
+Each month, add a new pattern when you see a real transaction that didn't match. The goal isn't to classify every edge case up front; the lookup handles 90%+ of your monthly transactions automatically, leaving only the unusual ones to triage by hand.
 
 ## The Monthly Review
 
-Tracking is only valuable if you actually look at the totals. A monthly review is a thirty-minute habit, scheduled on the same day each month — the day after your statements close is a natural anchor.
+Tracking is only valuable if you actually look at the totals. A monthly review is a thirty-minute habit, scheduled on the same day each month (i.e., the day after your statements close is a natural anchor). 
 
 The ritual has four steps:
 

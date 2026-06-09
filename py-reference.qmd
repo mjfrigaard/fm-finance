@@ -34,7 +34,7 @@ The pattern is `def name(inputs):` followed by an indented body. Values are retu
 
 ## Types of objects in Python
 
-Python's data containers come from two places: **built-in types** (scalars, `list`, `dict`, `datetime`) and **library types** from `numpy` (arrays) and `polars` (Series, DataFrame, Categorical, Enum). The library types — together with Python's `datetime` module — fill R's "typed vector" role.
+Python's data containers come from two places: **built-in types** (scalars, `list`, `dict`, `datetime`) and **library types** from `numpy` (arrays) and `polars` (Series, DataFrame, Categorical, Enum). The library types (together with Python's `datetime` module) fill R's "typed vector" role.
 
 ### Vectors
 
