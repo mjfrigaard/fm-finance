@@ -234,7 +234,7 @@ This way you reward yourself *and* accelerate freedom, without falling into the 
 
 ## Math for Income {#math-for-income}
 
-The income chapter is mostly about behavior, but three numbers turn that behavior into something you can track. Each calculation below is also written as an R and Python function, following the same pattern introduced in the [Budgeting](budgeting.qmd) chapter.
+The income chapter is mostly about behavior, but the numbers below can turn that behavior into something you can track. Each calculation below is also written as an R and Python function, following the same pattern introduced in the [Budgeting](budgeting.qmd) chapter.
 
 ### The Fixed-Cost Ratio {.unnumbered}
 
