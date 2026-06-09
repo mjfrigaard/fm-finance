@@ -6,15 +6,32 @@ A short, opinionated list of further reading and tools.
 
 ## Books
 
-  - *The Simple Path to Wealth*, by J. L. Collins [@collins2016simple]
+  - *The Psychology of Money*, by [Morgan Housel](https://www.morganhousel.com/) [@housel2020psychology]
+  - *I Will Teach You to Be Rich* (2nd ed.), by [Ramit Sethi](https://www.iwillteachyoutoberich.com/) [@sethi2019will]
+  - *The Algebra of Wealth*, by [Scott Galloway](https://www.profgalloway.com/) [@galloway2024algebra]
   - *The Little Book of Common Sense Investing*, by John C. Bogle [@bogle2017little]
+  - *The Simple Path to Wealth*, by J. L. Collins [@collins2016simple]
+
+## Podcasts & channels
+
+  - [Rational Reminder](https://rationalreminder.ca/): Ben Felix and Cameron Passmore's evidence-based investing podcast (also on [YouTube](https://www.youtube.com/@rationalreminder))
+  - [Common Sense Investing](https://www.youtube.com/@BenFelixCSI): Ben Felix's short-form video series at PWL Capital
+  - [The Prof G Pod](https://www.profgalloway.com/podcasts/) and *Prof G Markets*: Scott Galloway's podcasts on business, markets, and personal finance
+
+## Blogs & sites
+
+  - [morganhousel.com](https://www.morganhousel.com/): Morgan Housel's writing
+  - [Collaborative Fund blog](https://collabfund.com/blog/): where many *Psychology of Money* essays first appeared
+  - [iwillteachyoutoberich.com](https://www.iwillteachyoutoberich.com/): Ramit Sethi's site, including the [Conscious Spending Plan](https://www.iwillteachyoutoberich.com/conscious-spending-basics/)
+  - [PWL Capital research](https://www.pwlcapital.com/category/research/): Ben Felix's firm publishes white papers on housing, factor investing, and human capital
+  - [profgalloway.com](https://www.profgalloway.com/): Scott Galloway's weekly *No Mercy / No Malice* newsletter and writing
 
 ## Communities
 
   - [r/personalfinance](https://www.reddit.com/r/personalfinance/): the
     wiki is unusually good
   - [Bogleheads](https://www.bogleheads.org/): forum and wiki around
-    low-cost index investing
+    low-cost index investing, the community John Bogle inspired
 
 ## Tools
 

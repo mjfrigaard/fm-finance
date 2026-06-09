@@ -113,6 +113,99 @@ Bogle's philosophy applies to spending, too: complexity is the enemy. The more c
 
 [^bogle-simple]: Bogle, J. C. (2017). *The Little Book of Common Sense Investing: The Only Way to Guarantee Your Fair Share of Stock Market Returns* (10th Anniversary ed.). Wiley. Bogle's recurring mantra ("Simplicity is the master key to financial success") runs throughout the book and his earlier *Common Sense on Mutual Funds*. The investor community he inspired distills these ideas at <https://www.bogleheads.org/wiki/Bogleheads%C2%AE_investment_philosophy>.
 
+## Wealth vs Income
+
+[Scott Galloway](https://www.profgalloway.com/), an NYU Stern professor and host of the *Prof G* podcasts, distills the whole problem into a single equation in his 2024 book *The Algebra of Wealth*:[^algebra-of-wealth]
+
+[^algebra-of-wealth]: Galloway, S. (2024). *The Algebra of Wealth: A Simple Formula for Financial Security*. Portfolio (Penguin Random House). See [profgalloway.com](https://www.profgalloway.com/) for his writing, podcasts, and the weekly *No Mercy / No Malice* newsletter.
+
+The **Wealth Formula**:
+
+*Wealth = Focus + (Stoicism × Time × Diversification)*
+
+The four variables are the four levers *you* actually control:
+
+1. Focus: pick something economically valuable and become great at it. Career, geography, and skill choice compound harder than any single financial decision early on. This is Galloway's version of Felix's human capital; your earning engine is the asset you **build first.**
+
+2. Stoicism: your willingness to live below your means without needing to signal otherwise will keep you from spending money you don't have on things you don't really need. Galloway, Housel, and Sethi all agree here; spending discipline is a character trait before it's a budget.
+
+3. Time: The most powerful financial variable is how many compounding years you still have. The earlier you start, the more time you have.
+
+4. Diversification: Don't bet on a single stock, sector, or career outcome. Spread risk across asset classes, geographies, and time.
+
+```{mermaid}
+%%| fig-cap: 'Wealth Formula'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Wealth(["<strong>Wealth</strong>"]) --> Focus("Focus is <br><em>ADDITIVE</em>")
+    Wealth --> SecondTerm("Second term is<br/><em>MULTIPLICATIVE</em><br>")
+    
+    SecondTerm --> Stoicism("<strong>STOICISM</strong><br>Living Below Means")
+    SecondTerm --> Time("<strong>TIME</strong><br>Years Compounding")
+    SecondTerm --> Diversification("<strong>DIVERSIFICATION</strong><br>Smart Allocation")
+    
+    Focus -.Standalone Contribution.-> SomeWealth(["<strong>FOCUS</strong><br>builds some wealth<br>even if others<br>fail"])
+    
+    Stoicism --> Multiply{"Multiply<br>Together"}
+    Time --> Multiply
+    Diversification --> Multiply
+    Multiply --> Compounding(["<strong>Compounding<br>Wealth Engine</strong>"])
+    
+    style Wealth fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style SecondTerm fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Stoicism fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Time fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Diversification fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Focus fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    
+    style Compounding fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style SomeWealth fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Multiply fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+
+```
+
+
+The arithmetic does a lot of the teaching on its own. Focus is [additive](https://en.wikipedia.org/wiki/Additive_function), which means even with poor execution on the other three, a strong income engine still builds some wealth. 
+
+```{mermaid}
+%%| fig-cap: 'Wealth Collapse'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Scenario(["Second Term:<br>(Stoicism × Time ×<br>Diversification)"]) --> Zero1["<strong>STOICISM</strong> = <code>0</code><br/><em>spending above means</em>"]
+    Scenario --> Zero2("<strong>TIME</strong> = <code>0</code><br/><em>starting too late</em>")
+    Scenario --> Zero3("<strong>DIVERSIFICATION</strong> = <code>0</code><br/><em>all eggs, one basket</em>")
+    
+    Zero1 --> Result1("Savings<br>= <code>0</code>")
+    Zero2 --> Result2("Years of<br>Good Habits<br>= <code>0</code>")
+    Zero3 --> Result3("Return From<br>One Big Bet<br> = <code>0</code>")
+    
+    Result1 --> Collapse(["Collapses to<br><code>0</code>"])
+    Result2 --> Collapse
+    Result3 --> Collapse
+    
+    Collapse --> OnlyFocus(["Only <strong>FOCUS</strong>:<br/>Wealth = Income Alone"])
+
+    style Scenario fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Zero1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Zero2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Zero3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Result1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Result2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Result3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    
+    style Collapse fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style OnlyFocus fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    
+
+```
+
+
+However, stoicism, time, and diversification are [multiplicative](https://en.wikipedia.org/wiki/Multiplicative_function), so a zero on any one of these collapses the whole second term (i.e., spending above your means and forty years of saving compounds to nothing). 
+
 ## As Your Income Grows
 
 This is where most people fail. A raise feels like permission to upgrade everything. Instead, focus on Felix's research-backed advice: *the marginal happiness gained from lifestyle upgrades is much smaller than people expect, while the marginal financial security from saving raises is enormous.*
@@ -128,6 +221,7 @@ flowchart TD
     Split --> HalfLifestyle["50% to<br>Lifestyle"]
     HalfInvest --> WealthGrows(["Wealth Compounds"])
     HalfLifestyle --> EnjoyNow(["Enjoy the Win"])
+    
     style Raise fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Split fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style HalfInvest fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
@@ -140,10 +234,14 @@ This way you reward yourself *and* accelerate freedom, without falling into the 
 
 ## Key takeaways
 
-Living within your means isn't about restriction, it's about **control and intention**. As Housel puts it, the highest form of wealth is the ability to wake up and say, "*I can do whatever I want today.*" Felix would add that this control comes from a combination of growing your income, protecting your savings rate, and being evidence-based about what actually makes you happy.
+1. **Invest in your human capital**: your career is your biggest asset early on and it's the **focus** part of the wealth equation.     
 
-Key points from this chapter:  
-1. **Invest in your human capital**: your career is your biggest asset early on  
-2. **Track your fixed costs**: aim to keep them under 60% of take-home   
-3. **Spend the rest without guilt** on what genuinely brings you joy: prioritize experiences and time over possessions
+2. **Track your fixed costs**: 1. aim to keep them under 60% of your take-home pay. Stoicism aligns with Housel’s “*gap between ego and income*.” Living within your means isn’t about restriction; it’s about control and intention.
+
+3. **Spend the rest without guilt** on what genuinely brings you joy: prioritize experiences and time over possessions. As Housel puts it, the highest form of wealth is the ability to wake up and say, "*I can do whatever I want today.*" 
+
+4. **Keep it simple**: Bogle’s philosophy is diversification at the portfolio level, and time is on the side of the compounding effect (which we will return to in [Investing](investing.qmd)).
+
+Wealth is a combination of growing your income, protecting your savings, and making sure you're spending money on what actually makes you happy.
+
 

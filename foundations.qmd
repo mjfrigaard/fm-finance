@@ -2,45 +2,26 @@
 
 <br>
 
-Personal finance is mostly behavior and a small amount of math. The math matters (compounding, interest rates, tax-advantaged accounts), but most of your personal finances depends on your habits. These three questions will determine how much money you'll have at any point in your life: 
+Personal finance is mostly behavior and a small amount of math. The math matters (compounding, interest rates, tax-advantaged accounts), but most of your personal finances depend on your habits. These three questions will determine how much money you'll have at any point in your life:
 
-1. Are you spending less than you earn?   
-2. How much are you saving?   
-3. How much are you investing (and are you leaving it alone through economic downturns)?  
+1.  Are you spending less than you earn?\
+2.  How much are you saving?\
+3.  How much are you investing (and are you leaving it alone through economic downturns)?
 
-Before you optimize investments or chase tax savings, the foundations need to be in place: a working **budget**, **awareness** of where money goes, a **buffer** against bad surprises, and a **plan** for any high-interest debt.
+Before you optimize investments or chase tax savings, the foundations need to be in place: **awareness** of where money goes, a working **budget**, a **plan** for any high-interest debt, and a **buffer** against bad surprises.
 
 This part walks through those foundations in order:
 
-  1. [**Income**](income.qmd): how to think about what comes in, your "human capital," and the gap between earning and spending.
-  2. [**Budgeting**](budgeting.qmd): a working framework for allocating money on purpose rather than restricting your way to misery.
-  3. [**Tracking Spending**](tracking_spending.qmd): you only manage what you measure; the leak categories most people miss.
-  4. [**Emergency Fund**](emergency_fund.qmd): a 3–6 month buffer so one bad surprise doesn't undo years of progress.
-  5. [**Managing Debt**](managing_debt.qmd): which debts to clear first, and why high-interest debt is wealth-destroying compounding in reverse.
+1.  [**Income**](income.qmd): how to think about what comes in, your "human capital," and the gap between earning and spending.
+2.  [**Tracking Spending**](tracking_spending.qmd): you only manage what you measure — capturing every dollar before you try to direct it.
+3.  [**Budgeting**](budgeting.qmd): a working framework for allocating what you've captured, rather than restricting your way to misery.
+4.  [**Managing Debt**](managing_debt.qmd): which debts to clear first, and why high-interest debt is wealth-destroying compounding in reverse.
+5.  [**Emergency Fund**](emergency_fund.qmd): a 3–6 month buffer so one bad surprise doesn't undo your progress.
 
-## The four levers
-
-```{r}
-#| label: levers
-#| echo: false
-data.frame(
-  Lever     = c("Income", "Spending", "Savings", "Investing"),
-  Question  = c("How much comes in?",
-                "How much goes out?",
-                "How much is set aside?",
-                "What happens to the rest?")
-)
-```
-
-Each lever has its own part in this book:
-
-  - [Foundations](foundations.qmd): **Income**, **budgeting**, and **spending** are the behaviors that will have the biggest impact on your financial health. You'll also want to plan for emergencies, and manage the money you borrow. 
-  - [Savings](savings.qmd) covers different ways to put money aside, different kinds of savings accounts, and the most important behavior for disciplined savings: **automation**.   
-  - [Investing](investing.qmd) is what happens to the money you save **over the long term**. 
+***
 
 ## Time horizons
 
 Money you need in 12 months should not look like money you won't touch for 30 years. The rest of the book builds on that distinction.
-
 
 Once the foundations are in place, the next lever is [**Savings**](savings.qmd): turning the gap between income and spending into a deliberate, recurring habit.

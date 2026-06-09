@@ -12,7 +12,8 @@ source("_common.R")
 #| label: setup-py
 #| include: false
 import numpy as np
-import pandas as pd
+import polars as pl
+from datetime import date, datetime, timedelta
 ```
 
 A quick reference to the Python concepts used throughout this book, aligned with the [R Reference](r-reference.qmd) so you can map ideas between the two languages.
@@ -33,7 +34,7 @@ The pattern is `def name(inputs):` followed by an indented body. Values are retu
 
 ## Types of objects in Python
 
-Python's data containers come from two places: **built-in types** (scalars, `list`, `dict`) and **library types** from `numpy` (arrays) and `pandas` (Series, DataFrame, Categorical, datetime). The library types are what fill R's "typed vector" role.
+Python's data containers come from two places: **built-in types** (scalars, `list`, `dict`, `datetime`) and **library types** from `numpy` (arrays) and `polars` (Series, DataFrame, Categorical, Enum). The library types — together with Python's `datetime` module — fill R's "typed vector" role.
 
 ### Vectors
 
@@ -53,16 +54,16 @@ np.array(["apple", "banana", "cherry"])    # character (string)
 
 #### Typed objects {.unnumbered}
 
-`pandas` provides the analogues of R's S3 vectors (**factors**, **dates**, **date-times**, **durations**):
+Python's built-in `datetime` module supplies the scalar analogues of R's date types (**dates**, **date-times**, **durations**), and `polars` provides the categorical/enum types for R's **factor**:
 
 ```{python}
 #| label: py-typed
-pd.Categorical(["low", "med", "high"],
-               categories=["low", "med", "high"],
-               ordered=True)                  # factor
-pd.Timestamp("2026-01-15")                    # date
-pd.to_datetime("2026-01-15 09:30:00")         # date-time
-pd.Timedelta(hours=2)                         # duration
+date(2026, 1, 15)                                              # date
+datetime(2026, 1, 15, 9, 30, 0)                                # date-time
+timedelta(hours=2)                                             # duration
+
+pl.Series(["low", "med", "high"],
+          dtype=pl.Enum(["low", "med", "high"]))               # factor
 ```
 
 ### Matrices
@@ -85,11 +86,11 @@ np.arange(1, 13).reshape(2, 3, 2)
 
 ### Data frames
 
-Rectangular objects: `pandas.DataFrame` is the equivalent of R's data frame / tibble.
+Rectangular objects: `polars.DataFrame` is the equivalent of R's data frame / tibble. Its expression API (`filter`, `select`, `with_columns`, `group_by().agg()`) mirrors `dplyr` closely.
 
 ```{python}
 #| label: py-dataframe
-pd.DataFrame({
+pl.DataFrame({
     "name": ["Alice", "Bob", "Carol"],
     "age":  [34, 28, 41],
     "paid": [True, False, True],

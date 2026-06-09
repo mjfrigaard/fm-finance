@@ -23,8 +23,8 @@ book:
         - income.qmd
         - tracking_spending.qmd
         - budgeting.qmd
-        - emergency_fund.qmd
         - managing_debt.qmd
+        - emergency_fund.qmd
     - part: savings.qmd
       chapters:
         - savings_strategies.qmd
