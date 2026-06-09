@@ -483,8 +483,8 @@ flowchart TD
 <h3 class="unnumbered anchored" data-anchor-id="the-playbook">The Playbook</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 42%">
-<col style="width: 57%">
+<col style="width: 43%">
+<col style="width: 56%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -676,10 +676,10 @@ flowchart TD
 <p>The threshold and payment rate differ by plan. Using the 2025 federal poverty guideline of ~$15,650 for a single person in the contiguous U.S.:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 35%">
-<col style="width: 27%">
-<col style="width: 25%">
+<col style="width: 21%">
+<col style="width: 31%">
+<col style="width: 24%">
+<col style="width: 21%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -878,11 +878,14 @@ flowchart TD
 <section id="apr-vs.-apy-know-what-youre-actually-paying" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="apr-vs.-apy-know-what-youre-actually-paying">APR vs.&nbsp;APY: Know What You’re Actually Paying</h3>
 <p>These two terms get used interchangeably, but they’re different, and lenders often quote whichever number makes the loan look better.</p>
-<p><strong>APR (Annual Percentage Rate):</strong> The stated annual interest rate, not accounting for compounding.</p>
-<p><strong>APY (Annual Percentage Yield):</strong> The effective annual rate, including the impact of compounding.</p>
+<ul>
+<li><p><strong>APR (Annual Percentage Rate):</strong> The stated annual interest rate, not accounting for compounding.</p></li>
+<li><p><strong>APY (Annual Percentage Yield):</strong> The effective annual rate, including the impact of compounding.</p></li>
+</ul>
 <p><strong>Formula:</strong> APY = (1 + APR/n)^n − 1</p>
 <p>Where <em>n</em> = number of compounding periods per year.</p>
-<p>Example: A credit card with a 24% APR compounded daily: APY = (1 + 0.24/365)^365 − 1 = <strong>~27.1%</strong></p>
+<p><strong>Example</strong>: A credit card with a 24% APR compounded daily</p>
+<p>APY = (1 + 0.24/365)^365 − 1 = <strong>~27.1%</strong></p>
 <p>That 3.1% gap is real money. On a $10,000 balance, it’s an extra $310/year you didn’t realize you were paying.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li></ul>
@@ -925,7 +928,12 @@ flowchart TD
 <p>Months to pay off ≈ Balance ÷ (Monthly Payment − Monthly Interest)</p>
 </blockquote>
 <p>Where: Monthly Interest = Balance × (APR ÷ 12)</p>
-<p>Example: $5,000 balance at 22% APR, paying $100/month minimum: - Monthly interest: $5,000 × (0.22/12) = ~$92 - Effective principal reduction: $100 − $92 = <strong>$8/month</strong> - Payoff time: $5,000 ÷ $8 = <strong>~625 months (52 years)</strong></p>
+<p>Example: $5,000 balance at 22% APR, paying $100/month minimum</p>
+<ul>
+<li><p>Monthly interest: $5,000 × (0.22/12) = ~$92</p></li>
+<li><p>Effective principal reduction: $100 − $92 = <strong>$8/month</strong></p></li>
+<li><p>Payoff time: $5,000 ÷ $8 = <strong>~625 months (52 years)</strong></p></li>
+</ul>
 <p>That’s not a typo. Minimum payments are designed to keep you in debt for life.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Python</a></li></ul>
@@ -968,8 +976,17 @@ flowchart TD
 <h3 class="unnumbered anchored" data-anchor-id="total-interest-paid-over-a-loans-life">Total Interest Paid Over a Loan’s Life</h3>
 <p>For any installment loan (car, mortgage, student loan), this is the number that should drive your decisions.</p>
 <p><strong>Formula:</strong> Total Interest = (Monthly Payment × Number of Payments) − Loan Principal</p>
-<p>Example: $30,000 car loan at 7% for 6 years (~$512/month): - Total paid: $512 × 72 = $36,864 - Total interest: $36,864 − $30,000 = <strong>$6,864 in interest</strong></p>
-<p>Now run the same loan at 4 years instead of 6: - Monthly payment: ~$719 - Total paid: $719 × 48 = $34,512 - Total interest: <strong>$4,512</strong></p>
+<p>Example: $30,000 car loan at 7% for 6 years (~$512/month):</p>
+<ul>
+<li><p>Total paid: $512 × 72 = $36,864</p></li>
+<li><p>Total interest: $36,864 − $30,000 = <strong>$6,864 in interest</strong></p></li>
+</ul>
+<p>Now run the same loan at 4 years instead of 6:</p>
+<ul>
+<li><p>Monthly payment: ~$719</p></li>
+<li><p>Total paid: $719 × 48 = $34,512</p></li>
+<li><p>Total interest: <strong>$4,512</strong></p></li>
+</ul>
 <p>You save <strong>$2,352</strong> by shortening the term: the math behind the 20/4/10 car rule.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Python</a></li></ul>
@@ -1121,8 +1138,15 @@ flowchart TD
 <h3 class="unnumbered anchored" data-anchor-id="debt-to-income-ratio-dti">Debt-to-Income Ratio (DTI)</h3>
 <p>This is what lenders calculate about you. You should calculate it about yourself.</p>
 <p><strong>Formula:</strong> DTI = (Total Monthly Debt Payments ÷ Gross Monthly Income) × 100</p>
-<p>Example: $2,500 in monthly debt payments on $7,000 gross income → 2,500 ÷ 7,000 = <strong>~36% DTI</strong></p>
-<p>Benchmarks: - <strong>Below 20%:</strong> Healthy - <strong>20-35%:</strong> Manageable but watch carefully - <strong>36-43%:</strong> Stretched; lenders get cautious - <strong>Above 43%:</strong> Danger zone; most mortgage lenders won’t approve you</p>
+<p>Example:</p>
+<p>$2,500 in monthly debt payments on $7,000 gross income → 2,500 ÷ 7,000 = <strong>~36% DTI</strong></p>
+<p>Benchmarks:</p>
+<ul>
+<li><p><strong>Below 20%:</strong> Healthy</p></li>
+<li><p><strong>20-35%:</strong> Manageable but watch carefully</p></li>
+<li><p><strong>36-43%:</strong> Stretched; lenders get cautious</p></li>
+<li><p><strong>Above 43%:</strong> Danger zone; most mortgage lenders won’t approve you</p></li>
+</ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
@@ -1163,7 +1187,11 @@ flowchart TD
 <blockquote class="blockquote">
 <p>If after-tax loan interest rate &gt; expected after-tax investment return → Pay off the debt If after-tax loan interest rate &lt; expected after-tax investment return → Invest the difference</p>
 </blockquote>
-<p>Example: 5% mortgage vs.&nbsp;expected 7% stock market return (real): - The math favors investing by ~2% per year - <strong>But:</strong> the loan return is <strong>guaranteed</strong>, the investment return is not</p>
+<p>Example: 5% mortgage vs.&nbsp;expected 7% stock market return (real)</p>
+<ul>
+<li><p>The math favors investing by ~2% per year</p></li>
+<li><p><strong>But:</strong> the loan return is <strong>guaranteed</strong>, the investment return is not</p></li>
+</ul>
 <p>This is where Housel’s wisdom matters: <strong>a guaranteed 5% beats a probable 7% for many people psychologically.</strong> Run the math, then add your peace-of-mind premium.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false" href="">Python</a></li></ul>
@@ -1212,9 +1240,13 @@ flowchart TD
 <section id="the-avalanche-vs.-snowball-math" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="the-avalanche-vs.-snowball-math">The Avalanche vs.&nbsp;Snowball Math</h3>
 <p>For multiple debts, the choice between methods has a calculable cost.</p>
-<p><strong>Avalanche method:</strong> Highest APR first. Mathematically optimal. <strong>Snowball method:</strong> Smallest balance first. Psychologically motivating.</p>
-<p><strong>The hidden cost of snowball:</strong></p>
-<p>To calculate, find total interest paid under each method using a debt payoff calculator. The difference is what you’re “paying” for the psychological win of quick early payoffs.</p>
+<ul>
+<li><p><strong>Avalanche method:</strong> Highest APR first. Mathematically optimal.</p></li>
+<li><p><strong>Snowball method:</strong> Smallest balance first. Psychologically motivating.</p>
+<ul>
+<li><strong>The hidden cost of snowball:</strong> To calculate, find total interest paid under each method using a debt payoff calculator. The difference is what you’re “paying” for the psychological win of quick early payoffs.</li>
+</ul></li>
+</ul>
 <p>For most people with moderate debt, the snowball costs $200-$1,000 extra in interest. <strong>If that’s the price of actually finishing the journey, it’s often worth it.</strong> If you’re disciplined enough for avalanche, take the savings.</p>
 <p>These two functions take a list of your debts and return them in the order each method says to attack them.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -1367,8 +1399,8 @@ flowchart TD
 <li><strong>Think in human capital.</strong> Student loans are an investment; evaluate the return.</li>
 <li><strong>Resist depreciating debt.</strong> Cars financed at high rates are wealth-killers.</li>
 </ol>
-<p>You don’t need to be a math genius to do this well, but you do need to be <strong>numerically fluent</strong> in the calculations above — because lenders absolutely are. The math always tells the truth. Marketing tells you what’s possible. Emotions tell you what feels right. <strong>The math tells you what’s actually happening to your money.</strong></p>
-<p>As Housel reminds us: <strong>the goal isn’t to be debt-free for its own sake. The goal is freedom.</strong> And freedom comes from controlling your money before it controls you. As Bogle reminded investors: “The miracle of compounding returns is overwhelmed by the tyranny of compounding costs.” The same principle applies in reverse to debt: <strong>compounding interest is wealth-destroying when it’s working against you.</strong> Master the math, and you take that weapon out of the lender’s hands.</p>
+<p>You don’t need to be a math genius to do this well, but you do need to be numericallyfluent in the calculations above — because lenders absolutely are. The math always tells the truth. Marketing tells you what’s possible. Emotions tell you what feels right. <strong>The math tells you what’s actually happening to your money.</strong></p>
+<p>As Housel reminds us: the goal isn’t to be debt-free for its own sake. The goal is freedom. And freedom comes from controlling your money before it controls you. As Bogle reminded investors: “The miracle of compounding returns is overwhelmed by the tyranny of compounding costs.” The same principle applies in reverse to debt: compounding interest is wealth-destroying when it’s working against you. Master the math, and you take that weapon out of the lender’s hands.</p>
 
 
 </section>
