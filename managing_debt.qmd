@@ -160,49 +160,7 @@ flowchart TD
 
 **Why 1× works:** a loan equal to first-year salary on a standard 10-year plan at \~6.5% interest produces monthly payments of roughly 1% of gross income. This is a level most budgets absorb without crowding out investing. At 2× salary, that doubles and competes directly with building wealth.
 
-::: {.panel-tabset}
-
-## R
-
-```{r}
-#| label: loan-income-r
-loan_income_ratio <- function(loan_total, expected_salary) {
-  loan_total / expected_salary
-}
-
-monthly_standard_payment <- function(principal, annual_rate = 0.065, years = 10) {
-  r <- annual_rate / 12
-  n <- years * 12
-  principal * (r * (1 + r)^n) / ((1 + r)^n - 1)
-}
-
-# $45,000 in loans, $42,000 expected starting salary
-loan_income_ratio(loan_total = 45000, expected_salary = 42000)
-
-# standard 10-year monthly payment on that $45,000
-monthly_standard_payment(principal = 45000)
-```
-
-## Python
-
-```{python}
-#| label: loan-income-py
-def loan_income_ratio(loan_total, expected_salary):
-    return loan_total / expected_salary
-
-def monthly_standard_payment(principal, annual_rate=0.065, years=10):
-    r = annual_rate / 12
-    n = years * 12
-    return principal * (r * (1 + r)**n) / ((1 + r)**n - 1)
-
-# $45,000 in loans, $42,000 expected starting salary
-print(loan_income_ratio(loan_total=45000, expected_salary=42000))
-
-# standard 10-year monthly payment on that $45,000
-print(monthly_standard_payment(principal=45000))
-```
-
-:::
+*See [Math for Managing Debt](#math-for-managing-debt) below for the `loan_income_ratio()` and `monthly_standard_payment()` functions in R and Python.*
 
 ### After Taking Loans {.unnumbered}
 
@@ -314,44 +272,7 @@ flowchart TD
     style IBROpt fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
 ```
 
-::: {.panel-tabset}
-
-## R
-
-```{r}
-#| label: idr-payment-r
-idr_monthly_payment <- function(agi,
-                                poverty_guideline = 15650,
-                                threshold_pct     = 1.5,
-                                payment_rate      = 0.10) {
-  discretionary <- max(0, agi - poverty_guideline * threshold_pct)
-  round((discretionary * payment_rate) / 12, 2)
-}
-
-# IBR: $50,000 AGI, 150% FPG threshold, 10% rate
-idr_monthly_payment(agi = 50000)
-
-# SAVE parameters: 225% FPG threshold, 5% rate (undergraduate loans)
-idr_monthly_payment(agi = 50000, threshold_pct = 2.25, payment_rate = 0.05)
-```
-
-## Python
-
-```{python}
-#| label: idr-payment-py
-def idr_monthly_payment(agi, poverty_guideline=15650,
-                        threshold_pct=1.5, payment_rate=0.10):
-    discretionary = max(0, agi - poverty_guideline * threshold_pct)
-    return round((discretionary * payment_rate) / 12, 2)
-
-# IBR: $50,000 AGI, 150% FPG threshold, 10% rate
-print(idr_monthly_payment(agi=50000))
-
-# SAVE parameters: 225% FPG threshold, 5% rate (undergraduate loans)
-print(idr_monthly_payment(agi=50000, threshold_pct=2.25, payment_rate=0.05))
-```
-
-:::
+*See [Math for Managing Debt](#math-for-managing-debt) below for the `idr_monthly_payment()` function in R and Python (with examples for IBR, SAVE, and other plans).*
 
 ### The Pay-Off vs. Invest Decision {.unnumbered}
 
@@ -420,16 +341,6 @@ flowchart TD
     style Step4 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Freedom fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
-
-## Key takeaways
-
-Debt management isn't about avoiding all debt; it's about being **intentional** with it. The right framework:
-
-1. **Eliminate toxic debt ruthlessly.** Credit cards first, always.
-2. **Think in human capital.** Student loans are an investment; evaluate the return.
-3. **Resist depreciating debt.** Cars financed at high rates are wealth-killers.
-
-As Housel reminds us: **the goal isn't to be debt-free for its own sake. The goal is freedom.** And freedom comes from controlling your money before it controls you.
 
 ## Math for Managing Debt
 
@@ -571,6 +482,101 @@ def total_interest(monthly_payment, n_months, principal):
 # 6-year car loan vs. 4-year, $30,000 principal
 print(total_interest(monthly_payment=512, n_months=72, principal=30000))
 print(total_interest(monthly_payment=719, n_months=48, principal=30000))
+```
+
+:::
+
+### Student Loan-to-Income & Standard Payment {.unnumbered}
+
+The 1× rule from [Choosing a Major](#choosing-a-major-the-salary-to-debt-framework) needs two calculations: the ratio of total debt to expected first-year salary, and the standard 10-year monthly payment that ratio produces.
+
+::: {.panel-tabset}
+
+## R
+
+```{r}
+#| label: loan-income-r
+loan_income_ratio <- function(loan_total, expected_salary) {
+  loan_total / expected_salary
+}
+
+monthly_standard_payment <- function(principal, annual_rate = 0.065, years = 10) {
+  r <- annual_rate / 12
+  n <- years * 12
+  principal * (r * (1 + r)^n) / ((1 + r)^n - 1)
+}
+
+# $45,000 in loans, $42,000 expected starting salary
+loan_income_ratio(loan_total = 45000, expected_salary = 42000)
+
+# standard 10-year monthly payment on that $45,000
+monthly_standard_payment(principal = 45000)
+```
+
+## Python
+
+```{python}
+#| label: loan-income-py
+def loan_income_ratio(loan_total, expected_salary):
+    return loan_total / expected_salary
+
+def monthly_standard_payment(principal, annual_rate=0.065, years=10):
+    r = annual_rate / 12
+    n = years * 12
+    return principal * (r * (1 + r)**n) / ((1 + r)**n - 1)
+
+# $45,000 in loans, $42,000 expected starting salary
+print(loan_income_ratio(loan_total=45000, expected_salary=42000))
+
+# standard 10-year monthly payment on that $45,000
+print(monthly_standard_payment(principal=45000))
+```
+
+:::
+
+### Income-Driven Repayment Monthly Payment {.unnumbered}
+
+When the 1× rule is out of reach, federal IDR plans cap monthly payments as a percentage of *discretionary income*, where:
+
+> Discretionary income = AGI − (threshold × Federal Poverty Guideline)
+
+The function below takes the AGI, the FPG threshold multiplier (`1.5` for IBR/PAYE, `2.25` for SAVE), and the payment rate (`0.10` for most plans, `0.05` for SAVE undergraduate loans), and returns the monthly payment.
+
+::: {.panel-tabset}
+
+## R
+
+```{r}
+#| label: idr-payment-r
+idr_monthly_payment <- function(agi,
+                                poverty_guideline = 15650,
+                                threshold_pct     = 1.5,
+                                payment_rate      = 0.10) {
+  discretionary <- max(0, agi - poverty_guideline * threshold_pct)
+  round((discretionary * payment_rate) / 12, 2)
+}
+
+# IBR: $50,000 AGI, 150% FPG threshold, 10% rate
+idr_monthly_payment(agi = 50000)
+
+# SAVE parameters: 225% FPG threshold, 5% rate (undergraduate loans)
+idr_monthly_payment(agi = 50000, threshold_pct = 2.25, payment_rate = 0.05)
+```
+
+## Python
+
+```{python}
+#| label: idr-payment-py
+def idr_monthly_payment(agi, poverty_guideline=15650,
+                        threshold_pct=1.5, payment_rate=0.10):
+    discretionary = max(0, agi - poverty_guideline * threshold_pct)
+    return round((discretionary * payment_rate) / 12, 2)
+
+# IBR: $50,000 AGI, 150% FPG threshold, 10% rate
+print(idr_monthly_payment(agi=50000))
+
+# SAVE parameters: 225% FPG threshold, 5% rate (undergraduate loans)
+print(idr_monthly_payment(agi=50000, threshold_pct=2.25, payment_rate=0.05))
 ```
 
 :::
@@ -800,8 +806,12 @@ flowchart TD
 
 ## Key takeaways
 
-You don't need to be a math genius to manage debt well, but you do need to be **numerically fluent** in these specific calculations. Why? Because lenders absolutely are.
+Debt management isn't about avoiding all debt; it's about being **intentional** with it. The right framework:
 
-The math always tells the truth. Marketing tells you what's possible. Emotions tell you what feels right. **The math tells you what's actually happening to your money.**
+1. **Eliminate toxic debt ruthlessly.** Credit cards first, always.
+2. **Think in human capital.** Student loans are an investment; evaluate the return.
+3. **Resist depreciating debt.** Cars financed at high rates are wealth-killers.
 
-As Bogle reminded investors: "The miracle of compounding returns is overwhelmed by the tyranny of compounding costs." The same principle applies in reverse to debt: **compounding interest is wealth-destroying when it's working against you.** Master the math, and you take that weapon out of the lender's hands.
+You don't need to be a math genius to do this well, but you do need to be **numerically fluent** in the calculations above — because lenders absolutely are. The math always tells the truth. Marketing tells you what's possible. Emotions tell you what feels right. **The math tells you what's actually happening to your money.**
+
+As Housel reminds us: **the goal isn't to be debt-free for its own sake. The goal is freedom.** And freedom comes from controlling your money before it controls you. As Bogle reminded investors: "The miracle of compounding returns is overwhelmed by the tyranny of compounding costs." The same principle applies in reverse to debt: **compounding interest is wealth-destroying when it's working against you.** Master the math, and you take that weapon out of the lender's hands.
