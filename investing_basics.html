@@ -364,6 +364,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#compounding" id="toc-compounding" class="nav-link active" data-scroll-target="#compounding"><span class="header-section-number">9.1</span> Compounding</a></li>
   <li><a href="#risk-vs.-return" id="toc-risk-vs.-return" class="nav-link" data-scroll-target="#risk-vs.-return"><span class="header-section-number">9.2</span> Risk vs.&nbsp;return</a></li>
   <li><a href="#diversification" id="toc-diversification" class="nav-link" data-scroll-target="#diversification"><span class="header-section-number">9.3</span> Diversification</a></li>
+  <li><a href="#math-for-investing-basics" id="toc-math-for-investing-basics" class="nav-link" data-scroll-target="#math-for-investing-basics"><span class="header-section-number">9.4</span> Math for Investing Basics</a>
+  <ul>
+  <li><a href="#future-value-and-the-rule-of-72" id="toc-future-value-and-the-rule-of-72" class="nav-link" data-scroll-target="#future-value-and-the-rule-of-72">Future Value and the Rule of 72</a></li>
+  <li><a href="#future-value-of-regular-contributions" id="toc-future-value-of-regular-contributions" class="nav-link" data-scroll-target="#future-value-of-regular-contributions">Future Value of Regular Contributions</a></li>
+  <li><a href="#real-inflation-adjusted-return" id="toc-real-inflation-adjusted-return" class="nav-link" data-scroll-target="#real-inflation-adjusted-return">Real (Inflation-Adjusted) Return</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/investing_basics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -427,7 +433,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Years to double your money = 72 ÷ annual return %</p>
 </blockquote>
 <p>At 7% return, money doubles every ~10 years. At 10%, every ~7 years. This single insight reframes every spending decision.</p>
+<p><em>See <a href="#math-for-investing-basics">Math for Investing Basics</a> below for the <code>future_value()</code> and <code>rule_of_72()</code> functions in R and Python, plus the math for regular contributions and inflation-adjusted returns.</em></p>
+</section>
+<section id="risk-vs.-return" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="risk-vs.-return"><span class="header-section-number">9.2</span> Risk vs.&nbsp;return</h2>
+<p>Higher expected return = higher expected volatility. Choose a level you can <strong>stick with</strong> through downturns, not just one that looks attractive on a spreadsheet.</p>
+</section>
+<section id="diversification" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="diversification"><span class="header-section-number">9.3</span> Diversification</h2>
+<p>Don’t bet on one company, one sector, or one country. Broad index funds make this nearly free.</p>
+</section>
+<section id="math-for-investing-basics" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="math-for-investing-basics"><span class="header-section-number">9.4</span> Math for Investing Basics</h2>
+<p>Investing math is mostly one idea, compounding, applied in a few different ways. Each calculation below is written as an R and Python function, following the same pattern introduced in the <a href="./budgeting.html">Budgeting</a> chapter.</p>
 <p>In code, the <code>^</code> symbol (R) and <code>**</code> symbol (Python) both mean “raise to the power of.” So <code>(1 + 0.07)^10</code> means “1.07 multiplied by itself 10 times.”</p>
+<section id="future-value-and-the-rule-of-72" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="future-value-and-the-rule-of-72">Future Value and the Rule of 72</h3>
+<p><strong>Formula:</strong> FV = PV × (1 + r)^n</p>
+<p>Where: FV = future value, PV = present value (today’s amount), <em>r</em> = annual return, <em>n</em> = years.</p>
+<p>The companion shortcut is the <strong>Rule of 72</strong>: divide 72 by the return percentage to estimate how many years it takes your money to double.</p>
+<blockquote class="blockquote">
+<p>Years to double ≈ 72 ÷ annual return %</p>
+</blockquote>
+<p>Example: $10,000 at 7% for 10 years grows to ~$19,672, and at 7% money doubles roughly every 10 years.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
@@ -496,15 +524,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="risk-vs.-return" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="risk-vs.-return"><span class="header-section-number">9.2</span> Risk vs.&nbsp;return</h2>
-<p>Higher expected return = higher expected volatility. Choose a level you can <strong>stick with</strong> through downturns, not just one that looks attractive on a spreadsheet.</p>
+<section id="future-value-of-regular-contributions" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="future-value-of-regular-contributions">Future Value of Regular Contributions</h3>
+<p>Most people don’t invest a lump sum once; they add money every month. The future value of a stream of equal contributions is:</p>
+<p><strong>Formula:</strong> FV = PMT × [((1 + r)^n − 1) ÷ r]</p>
+<p>Where: PMT = the amount contributed each period, <em>r</em> = the return per period, <em>n</em> = the number of periods.</p>
+<p>Example: $500/month for 30 years (360 months) at a 7% annual return (~0.583% per month) grows to ~$610,000, of which only $180,000 is money you actually put in.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>future_value_series <span class="ot">&lt;-</span> <span class="cf">function</span>(contribution, rate, periods) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  contribution <span class="sc">*</span> (((<span class="dv">1</span> <span class="sc">+</span> rate)<span class="sc">^</span>periods <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> rate)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># $500/month for 30 years at a 7% annual return (monthly rate = 0.07 / 12)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">future_value_series</span>(<span class="at">contribution =</span> <span class="dv">500</span>, <span class="at">rate =</span> <span class="fl">0.07</span> <span class="sc">/</span> <span class="dv">12</span>, <span class="at">periods =</span> <span class="dv">30</span> <span class="sc">*</span> <span class="dv">12</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 609985.5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> future_value_series(contribution, rate, periods):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> contribution <span class="op">*</span> (((<span class="dv">1</span> <span class="op">+</span> rate) <span class="op">**</span> periods <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> rate)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># $500/month for 30 years at a 7% annual return (monthly rate = 0.07 / 12)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>future_value_series(contribution<span class="op">=</span><span class="dv">500</span>, rate<span class="op">=</span><span class="fl">0.07</span> <span class="op">/</span> <span class="dv">12</span>, periods<span class="op">=</span><span class="dv">30</span> <span class="op">*</span> <span class="dv">12</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 609985.4978879723</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="diversification" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="diversification"><span class="header-section-number">9.3</span> Diversification</h2>
-<p>Don’t bet on one company, one sector, or one country. Broad index funds make this nearly free.</p>
+<section id="real-inflation-adjusted-return" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="real-inflation-adjusted-return">Real (Inflation-Adjusted) Return</h3>
+<p>A 7% return with 3% inflation does <em>not</em> leave you 4% richer in spending power; the relationship is multiplicative, not subtractive.</p>
+<p><strong>Formula:</strong> Real Return = (1 + nominal) ÷ (1 + inflation) − 1</p>
+<p>Example: (1.07 ÷ 1.03) − 1 = ~3.88%, slightly less than the 4% you’d get by simple subtraction.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>real_return <span class="ot">&lt;-</span> <span class="cf">function</span>(nominal, inflation) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">1</span> <span class="sc">+</span> nominal) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> inflation) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 7% nominal return against 3% inflation</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">real_return</span>(<span class="at">nominal =</span> <span class="fl">0.07</span>, <span class="at">inflation =</span> <span class="fl">0.03</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.03883495</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> real_return(nominal, inflation):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="dv">1</span> <span class="op">+</span> nominal) <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> inflation) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 7% nominal return against 3% inflation</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>real_return(nominal<span class="op">=</span><span class="fl">0.07</span>, inflation<span class="op">=</span><span class="fl">0.03</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.03883495145631066</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
