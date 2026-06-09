@@ -416,7 +416,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Reviewing on a monthly cadence</li>
 <li>Spotting “leak” categories (subscriptions, delivery fees, impulse buys)</li>
 </ul>
-<p>Tracking is the <em>recording</em> side of personal finance. <a href="./budgeting.html">Budgeting</a> covers the <em>allocation</em> side — where money is supposed to go. Without tracking, a budget is a guess; with tracking, it becomes a feedback loop.</p>
+<p>Tracking is the <em>recording</em> side of personal finance. <a href="./budgeting.html">Budgeting</a> covers the <em>allocation</em> side (where money is supposed to go). Without tracking, a budget is a guess; with tracking, it becomes a feedback loop.</p>
 <style>
 
 .codeStyle span:not(.nodeLabel) {
@@ -467,7 +467,7 @@ flowchart TD
 </section>
 <section id="checkbook-registers" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="checkbook-registers">Checkbook registers</h3>
-<p>Every paper checkbook used to come with a register: each transaction logged on its own line, with a running balance. It works for any account where you can list debits and credits. One page per month is plenty. The discipline isn’t the form — it’s that writing each entry keeps you honest about the balance.</p>
+<p>Every paper checkbook used to come with a register: each transaction logged on its own line, with a running balance. It works for any account where you can list debits and credits. One page per month is plenty. The discipline isn’t the form; it’s that writing each entry keeps you honest about the balance.</p>
 </section>
 <section id="cash-envelope-system" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="cash-envelope-system">Cash envelope system</h3>
@@ -481,7 +481,7 @@ flowchart TD
 <section id="using-spreadsheets" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="using-spreadsheets"><span class="header-section-number">2.2</span> Using Spreadsheets</h2>
 <p>Digital tracking is the bank-statement method above, but with the math done for you. Most banks allow you to export your monthly statement, which includes three columns: <strong>date</strong>, <strong>description</strong>, and <strong>amount</strong> (negative for money going out, positive for money coming in).</p>
-<p>The exported statement almost never includes a category — that part you add yourself, and we’ll do it in <a href="#categorizing-transactions">Categorizing Transactions</a> below.</p>
+<p>The exported statement almost never includes a category, but you can add it yourself, and we’ll do it in <a href="#categorizing-transactions">Categorizing Transactions</a> below.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
@@ -812,7 +812,7 @@ flowchart TD
 <li><strong>Personal</strong> (clothes, haircuts, gym)</li>
 <li><strong>Health &amp; insurance</strong></li>
 <li><strong>Gifts &amp; giving</strong></li>
-<li><strong>Fun money</strong> (don’t break this down further — protect it from over-tracking)</li>
+<li><strong>Fun money</strong> (don’t break this down further and protect it from over-tracking)</li>
 <li><strong>Other / one-offs</strong></li>
 </ul>
 <p>Two rules that save hours of bookkeeping:</p>
@@ -820,7 +820,7 @@ flowchart TD
 <li><strong>When in doubt, “Other”.</strong> Don’t invent a new category for a single transaction. Review the “Other” bucket at month-end and only promote a new category once you’ve seen the same kind of transaction three months in a row.</li>
 <li><strong>Keep the categories stable.</strong> Changing categories every month destroys the comparisons that make tracking useful in the first place.</li>
 </ol>
-<p>The <code>bank_statement</code> dataset above only carries what a real bank export gives you — <code>Date</code>, <code>Description</code>, and <code>Amount</code>. To get to a <code>Category</code> column, you have to map descriptions to your buckets yourself. A small lookup of keyword patterns does the job in one pass.</p>
+<p>The <code>bank_statement</code> dataset above only carries what a real bank export gives you(<code>Date</code>, <code>Description</code>, and <code>Amount</code>). To get to a <code>Category</code> column, you have to map descriptions to your buckets yourself. A small lookup of keyword patterns does the job in one pass.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Excel</a></li></ul>
 <div class="tab-content">
@@ -965,7 +965,7 @@ flowchart TD
 </div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p><code>polars</code> mirrors <code>dplyr</code> closely: <code>with_columns()</code> is the <code>mutate()</code> analog, and a chain of <code>pl.when().then()</code> calls is the <code>case_when()</code> analog. <code>pl.col("Description").str.contains(...)</code> does the keyword test (regex by default — the <code>|</code> between merchants is alternation).</p>
+<p><code>polars</code> mirrors <code>dplyr</code> closely: <code>with_columns()</code> is the <code>mutate()</code> analog, and a chain of <code>pl.when().then()</code> calls is the <code>case_when()</code> analog. <code>pl.col("Description").str.contains(...)</code> does the keyword test (regex by default and the <code>|</code> between merchants is alternation).</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
@@ -1131,16 +1131,16 @@ flowchart TD
   ISNUMBER(SEARCH("Geico", B2)),                                                                              "Insurance",
   TRUE,                                                                                                       "Other"
 )</code></pre>
-<p>Then copy <strong>D2</strong> down through every transaction row (select <strong>D2</strong>, double-click the small square in the bottom-right corner, or use <strong>Ctrl+D</strong> after selecting <code>D2:D{last_row}</code>). The final <code>TRUE, "Other"</code> arm is the equivalent of <code>dplyr</code>’s <code>TRUE ~ "Other"</code> and polars’s <code>.otherwise(...)</code> — it catches anything that didn’t match an earlier pattern.</p>
+<p>Then copy <strong>D2</strong> down through every transaction row (select <strong>D2</strong>, double-click the small square in the bottom-right corner, or use <strong>Ctrl+D</strong> after selecting <code>D2:D{last_row}</code>). The final <code>TRUE, "Other"</code> arm is the equivalent of <code>dplyr</code>’s <code>TRUE ~ "Other"</code> and polars’s <code>.otherwise(...)</code>; it catches anything that didn’t match an earlier pattern.</p>
 <p>To add a new merchant when one shows up: edit the formula in <strong>D2</strong>, then re-fill down. Keep the new merchant near the bottom of its category group so the existing patterns still resolve first.</p>
 </div>
 </div>
 </div>
-<p>Each month, add a new pattern when you see a real transaction that didn’t match. The goal isn’t to classify every edge case up front — it’s a lookup that handles 90%+ of your monthly transactions automatically, leaving only the unusual ones to triage by hand.</p>
+<p>Each month, add a new pattern when you see a real transaction that didn’t match. The goal isn’t to classify every edge case up front; the lookup handles 90%+ of your monthly transactions automatically, leaving only the unusual ones to triage by hand.</p>
 </section>
 <section id="the-monthly-review" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="the-monthly-review"><span class="header-section-number">2.4</span> The Monthly Review</h2>
-<p>Tracking is only valuable if you actually look at the totals. A monthly review is a thirty-minute habit, scheduled on the same day each month — the day after your statements close is a natural anchor.</p>
+<p>Tracking is only valuable if you actually look at the totals. A monthly review is a thirty-minute habit, scheduled on the same day each month (i.e., the day after your statements close is a natural anchor).</p>
 <p>The ritual has four steps:</p>
 <ol type="1">
 <li><strong>Pull</strong> the bank and credit-card statements for the month.</li>
