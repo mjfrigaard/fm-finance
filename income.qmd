@@ -127,7 +127,9 @@ The four variables are the four levers *you* actually control:
 
 1. Focus: pick something economically valuable and become great at it. Career, geography, and skill choice compound harder than any single financial decision early on. This is Galloway's version of Felix's human capital; your earning engine is the asset you **build first.**
 
-2. Stoicism: your willingness to live below your means without needing to signal otherwise will keep you from spending money you don't have on things you don't really need. Galloway, Housel, and Sethi all agree here; spending discipline is a character trait before it's a budget.
+2. Stoicism: your willingness to live below your means without needing to signal otherwise will keep you from spending money you don't have on things you don't really need. Galloway, Housel, and Sethi all agree here; spending discipline is a character trait before it's a budget.[^stoicism]
+
+[^stoicism]: [What is Stoicism?](https://plato.stanford.edu/entries/stoicism/)
 
 3. Time: The most powerful financial variable is how many compounding years you still have. The earlier you start, the more time you have.
 
@@ -234,10 +236,11 @@ This way you reward yourself *and* accelerate freedom, without falling into the 
 
 ## Math for Income {#math-for-income}
 
-The income chapter is mostly about behavior, but the numbers below can turn that behavior into something you can track. Each calculation below is also written as an R and Python function, which are covered in the callout box below.
+This chapter is mostly about behavior, but I'll cover some numbers below that can turn the behaviors into something you can track. Each calculation below is also written as an R and Python function, which are covered in the callout box below.
 
 
 ::::::: {.callout-note collapse="true"}
+
 ## R vs Python: assignment and functions
 
 The first two differences you'll see between R and Python in this book are how each language *names* things and how each language *defines functions*.
@@ -328,6 +331,31 @@ def fixed_cost_ratio(fixed_costs, take_home):
 fixed_cost_ratio(fixed_costs=2700, take_home=5000)
 ```
 
+## Excel
+
+In Excel there's no function to define: you put the numbers in cells and write the formula once. Enter the fixed costs in cell **A2** and take-home pay in **B2**, then in **C2**:
+
+```swift
+=A2/B2
+```
+
+That gives `0.54`. 
+
+![Entering a formula in Excel](img/income-fixed-cost-ratio.png){width='75%' fig-align='center'}
+
+Format **C2** as a percentage (**Home → %**, or **Ctrl+Shift+5**) and it displays **54%**.
+
+![Convert to percent](img/income-fixed-cost-ratio-perc.png){width='75%' fig-align='center'}
+
+To produce the percent *string* directly (the analog of R's `paste0(..., "%")` and Python's f-string), use `TEXT()` instead:
+
+```swift
+=TEXT(A2/B2, "0.00%")
+```
+
+![Convert to percent with `TEXT`](img/income-fixed-cost-ratio-text-perc.png){width='75%' fig-align='center'}
+
+
 :::
 
 This results in a 54% fixed-cost ratio -- just under the ceiling!
@@ -340,7 +368,7 @@ This results in a 54% fixed-cost ratio -- just under the ceiling!
 
 PMT is the amount invested each month, *r* is the monthly return, and *n* is the number of months. We will revisit this future-value-of-contributions formula in the [Investing Basics](investing_basics.qmd) chapter.
 
-Example: a \$400/month raise, half of it invested (\$200/month) for 25 years at a 7% annual return:
+Example: a \$400/month raise, half of it invested (\$200/month) for 25 years at a 7% annual return.
 
 ::: panel-tabset
 
@@ -388,13 +416,30 @@ Half of a \$400/month raise, invested for 25 years at 7%
 #| label: raise-value-py-apply
 raise_invested_value(monthly_raise=400, invest_share=0.5, rate=0.07, years=25)
 ```
+
+## Excel
+
+Excel actually has a built-in [**`FV()`** (future value) function](https://support.microsoft.com/en-US/Excel/fv-function), so we don't have to write the formula ourselves. The arguments are `FV(rate, nper, pmt)`:
+
+- `rate` is the return *per period* (monthly here): `7%/12`     
+- `nper` is the number of periods: `25*12`      
+- `pmt` is the amount invested each period, entered as a *negative* number because it's cash leaving your pocket: `-200`      
+
+```swift
+=FV(7%/12, 25*12, -200)
+```
+
+![Future value in Excel](img/income-future-value.png){width='75%' fig-align='center'}
+
+This returns **\$162,014.34**, the same result as the R and Python functions above. (Excel reports a positive number because the contributions were entered as negative cash flows.)
+
 :::
 
 We can see this results in over \$160K! 
 
 ## Key takeaways
 
-1. **Invest in your human capital**: your career is your biggest asset early on and it's the **focus** part of the wealth equation.     
+1. **Invest in your human capital**: your career is your biggest asset early on and it's the focus part of the wealth equation.     
 
 2. **Track your fixed costs**: 1. aim to keep them under 60% of your take-home pay. Stoicism aligns with Housel’s “*gap between ego and income*.” Living within your means isn’t about restriction; it’s about control and intention.
 

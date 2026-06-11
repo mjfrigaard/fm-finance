@@ -74,6 +74,7 @@ format:
     dpi: 320
     fig-format: retina
     fig-asp: 0.618
+    lightbox: true
     fontsize: 1.025em
     linestretch: 1.30
 
