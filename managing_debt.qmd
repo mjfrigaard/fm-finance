@@ -68,7 +68,7 @@ flowchart TD
 
 Credit card debt is the single most destructive financial product most people will ever encounter. At 20%+ APR, it grows faster than any reasonable investment can compound.
 
-**Ramit Sethi's approach is uncompromising here:** credit card debt must be eliminated before any other financial goal beyond a starter emergency fund. The math is brutal: you cannot out-invest 24% interest.
+[Ramit Sethi's approach is uncompromising here:]{style="color:#48a56a; font-weight: bold;"} credit card debt must be eliminated before any other financial goal beyond a starter emergency fund. The math is brutal: you cannot out-invest 24% interest.
 
 ### The Playbook {.unnumbered}
 
@@ -82,7 +82,7 @@ Credit card debt is the single most destructive financial product most people wi
 
 ### Use Credit Cards as a Tool, Not a Trap {.unnumbered}
 
-Once you're paying off your balance **in full every month**, credit cards become powerful: cashback, travel rewards, fraud protection, and credit-building. The key is using them as a payment method, not a financing tool.
+Once you're paying off your balance [in full every month]{style="color:#48a56a; font-weight: bold;"}, credit cards become powerful: cashback, travel rewards, fraud protection, and credit-building. The key is using them as a payment method, not a financing tool.
 
 ## Student Loans: A Nuanced Approach
 
@@ -90,7 +90,7 @@ Student loans sit in a complicated middle ground. Ben Felix's human capital fram
 
 ### Before Taking Loans {.unnumbered}
 
-Felix would frame it this way: **the return on educational debt depends on the income premium that degree generates.** A \$40,000 loan for a degree that boosts lifetime earnings by \$1M+ is a great trade. The same \$40,000 for a degree with no clear earnings path is not.
+Felix would frame it this way: [the return on educational debt depends on the income premium that degree generates.]{style="color:#48a56a; font-weight: bold;"} A \$40,000 loan for a degree that boosts lifetime earnings by \$1M+ is a great trade. The same \$40,000 for a degree with no clear earnings path is not.
 
 ### Choosing a Major: The Salary-to-Debt Framework {#choosing-a-major-the-salary-to-debt-framework .unnumbered}
 
@@ -111,7 +111,7 @@ The 1× ceiling itself isn't very illuminating (it's just the salary number agai
 
 *Salaries: BLS Occupational Outlook Handbook median entry-level estimates. Payments: 10-year standard repayment at 6.5%, the federal direct unsubsidized rate as of 2024.*
 
-At the 1× ceiling, every borrower pays roughly the same share of gross income (about 14%) to student loans. What changes dramatically is **what's left over.**
+At the 1× ceiling, every borrower pays roughly the same share of gross income (about 14%) to student loans. What changes dramatically is [what's left over.]{style="color:#48a56a; font-weight: bold;"}
 
 - A Fine Arts grad with a \$545 payment has roughly \$2,500–\$2,600 after taxes to cover rent, food, transportation, and everything else.
 
@@ -276,7 +276,7 @@ flowchart TD
 
 ### The Pay-Off vs. Invest Decision {.unnumbered}
 
-A key insight from Felix's research-driven approach: **compare your loan interest rate to your expected investment return after tax.**
+A key insight from Felix's research-driven approach: [compare your loan interest rate to your expected investment return after tax.]{style="color:#48a56a; font-weight: bold;"}
 
 - **Interest rate above \~6%:** Prioritize paying off\
 - **Interest rate 4-6%:** Roughly a wash; do both
@@ -309,15 +309,15 @@ flowchart TD
 
 ### Ben Felix's Perspective {.unnumbered}
 
-Felix has been blunt: **cars are depreciating consumption assets, not investments.** Financing a depreciating asset at 7-9% interest while it loses value is one of the worst financial moves available, yet it's culturally normalized.
+Felix has been blunt: [cars are depreciating consumption assets, not investments.]{style="color:#f44242; font-weight: bold;"} Financing a depreciating asset at 7-9% interest while it loses value is one of the worst financial moves available, yet it's culturally normalized.
 
 ### The Rules of Smart Car Ownership {.unnumbered}
 
-1.  **Buy used, 2-4 years old.** Let someone else absorb the steep first-year depreciation.
-2.  **Pay cash when possible.** If you can't pay cash, you can't really afford it.
-3.  **If financing, keep it under 36 months** at the lowest rate available.
-4.  **The 20/4/10 rule:** 20% down, financed no longer than 4 years, total transportation costs under 10% of gross income.
-5.  **Drive it until the wheels fall off.** The cheapest car you'll ever own is the reliable one you already have.
+1.  [Buy used, 2-4 years old.]{style="color:#48a56a; font-weight: bold;"} Let someone else absorb the steep first-year depreciation.
+2.  [Pay cash when possible.]{style="color:#48a56a; font-weight: bold;"} If you can't pay cash, you can't really afford it.
+3.  [If financing, keep it under 36 months]{style="color:#48a56a; font-weight: bold;"} at the lowest rate available.
+4.  [The 20/4/10 rule:]{style="color:#48a56a; font-weight: bold;"} 20% down, financed no longer than 4 years, total transportation costs under 10% of gross income.
+5.  [Drive it until the wheels fall off.]{style="color:#48a56a; font-weight: bold;"} The cheapest car you'll ever own is the reliable one you already have.
 
 **The status trap:** Housel's insight applies powerfully here. Nobody is impressed by your car; they're imagining themselves in it. You're paying a fortune for a status signal no one is sending back.
 
@@ -362,7 +362,7 @@ Where *n* = number of compounding periods per year.
 
 **Example**: A credit card with a 24% APR compounded daily
 
-APY = (1 + 0.24/365)\^365 − 1 = **\~27.1%**
+APY = (1 + 0.24/365)\^365 − 1 = [\~27.1%]{style="color:#f44242; font-weight: bold;"}
 
 That 3.1% gap is real money. On a \$10,000 balance, it's an extra \$310/year you didn't realize you were paying.
 
@@ -393,7 +393,7 @@ apr_to_apy(apr=0.24)
 
 ### The True Cost of Minimum Payments {.unnumbered}
 
-This is the single most important debt calculation you can master. Credit card companies set minimum payments low because **the longer you pay, the more they earn.**
+This is the single most important debt calculation you can master. Credit card companies set minimum payments low because [the longer you pay, the more they earn.]{style="color:#f44242; font-weight: bold;"}
 
 **Quick approximation for credit card payoff time:**
 
@@ -405,9 +405,9 @@ Example: \$5,000 balance at 22% APR, paying \$100/month minimum
 
 - Monthly interest: \$5,000 × (0.22/12) = \~\$92
 
-- Effective principal reduction: \$100 − \$92 = **\$8/month**
+- Effective principal reduction: \$100 − \$92 = [\$8/month]{style="color:#f44242; font-weight: bold;"}
 
-- Payoff time: \$5,000 ÷ \$8 = **\~625 months (52 years)**
+- Payoff time: \$5,000 ÷ \$8 = [\~625 months (52 years)]{style="color:#f44242; font-weight: bold;"}
 
 That's not a typo. Minimum payments are designed to keep you in debt for life.
 
@@ -450,7 +450,7 @@ Example: \$30,000 car loan at 7% for 6 years (\~\$512/month):
 
 - Total paid: \$512 × 72 = \$36,864
 
-- Total interest: \$36,864 − \$30,000 = **\$6,864 in interest**
+- Total interest: \$36,864 − \$30,000 = [\$6,864 in interest]{style="color:#f44242; font-weight: bold;"}
 
 Now run the same loan at 4 years instead of 6:
 
@@ -458,9 +458,9 @@ Now run the same loan at 4 years instead of 6:
 
 - Total paid: \$719 × 48 = \$34,512
 
-- Total interest: **\$4,512**
+- Total interest: [\$4,512]{style="color:#f44242; font-weight: bold;"}
 
-You save **\$2,352** by shortening the term: the math behind the 20/4/10 car rule.
+You save [\$2,352]{style="color:#48a56a; font-weight: bold;"} by shortening the term: the math behind the 20/4/10 car rule.
 
 ::: panel-tabset
 ## R
@@ -588,7 +588,7 @@ This is what lenders calculate about you. You should calculate it about yourself
 
 Example:
 
-\$2,500 in monthly debt payments on \$7,000 gross income → 2,500 ÷ 7,000 = **\~36% DTI**
+\$2,500 in monthly debt payments on \$7,000 gross income → 2,500 ÷ 7,000 = [\~36% DTI]{style="color:#f44242; font-weight: bold;"}
 
 Benchmarks:
 
@@ -637,9 +637,9 @@ Example: 5% mortgage vs. expected 7% stock market return (real)
 
 - The math favors investing by \~2% per year
 
-- **But:** the loan return is **guaranteed**, the investment return is not
+- **But:** the loan return is [guaranteed]{style="color:#48a56a; font-weight: bold;"}, the investment return is not
 
-This is where Housel's wisdom matters: **a guaranteed 5% beats a probable 7% for many people psychologically.** Run the math, then add your peace-of-mind premium.
+This is where Housel's wisdom matters: [a guaranteed 5% beats a probable 7% for many people psychologically.]{style="color:#48a56a; font-weight: bold;"} Run the math, then add your peace-of-mind premium.
 
 ::: panel-tabset
 ## R
@@ -687,7 +687,7 @@ For multiple debts, the choice between methods has a calculable cost.
 
   - **The hidden cost of snowball:** To calculate, find total interest paid under each method using a debt payoff calculator. The difference is what you're "paying" for the psychological win of quick early payoffs.
 
-For most people with moderate debt, the snowball costs \$200-\$1,000 extra in interest. **If that's the price of actually finishing the journey, it's often worth it.** If you're disciplined enough for avalanche, take the savings.
+For most people with moderate debt, the snowball costs \$200-\$1,000 extra in interest. [If that's the price of actually finishing the journey, it's often worth it.]{style="color:#48a56a; font-weight: bold;"} If you're disciplined enough for avalanche, take the savings.
 
 These two functions take a list of your debts and return them in the order each method says to attack them.
 
@@ -803,12 +803,12 @@ flowchart TD
 
 ## Key takeaways
 
-Debt management isn't about avoiding all debt; it's about being **intentional** with it. The right framework:
+Debt management isn't about avoiding all debt; it's about being [intentional]{style="color:#48a56a; font-weight: bold;"} with it. The right framework:
 
-1.  **Eliminate toxic debt ruthlessly.** Credit cards first, always.
-2.  **Think in human capital.** Student loans are an investment; evaluate the return.
-3.  **Resist depreciating debt.** Cars financed at high rates are wealth-killers.
+1.  [Eliminate toxic debt ruthlessly.]{style="color:#48a56a; font-weight: bold;"} Credit cards first, always.
+2.  [Think in human capital.]{style="color:#48a56a; font-weight: bold;"} Student loans are an investment; evaluate the return.
+3.  [Resist depreciating debt.]{style="color:#48a56a; font-weight: bold;"} Cars financed at high rates are wealth-killers.
 
-You don't need to be a math genius to do this well, but you do need to be numericallyfluent in the calculations above — because lenders absolutely are. The math always tells the truth. Marketing tells you what's possible. Emotions tell you what feels right. **The math tells you what's actually happening to your money.**
+You don't need to be a math genius to do this well, but you do need to be numerically fluent in the calculations above — because lenders absolutely are. The math always tells the truth. Marketing tells you what's possible. Emotions tell you what feels right. [The math tells you what's actually happening to your money.]{style="color:#48a56a; font-weight: bold;"}
 
 As Housel reminds us: the goal isn't to be debt-free for its own sake. The goal is freedom. And freedom comes from controlling your money before it controls you. As Bogle reminded investors: "The miracle of compounding returns is overwhelmed by the tyranny of compounding costs." The same principle applies in reverse to debt: compounding interest is wealth-destroying when it's working against you. Master the math, and you take that weapon out of the lender's hands.

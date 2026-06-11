@@ -116,7 +116,7 @@ Fixed and variable expenses should employ different strategies. Periodic expense
 +-----------------------+--------------------------------------------------------------------+
 | **Variable Expenses** | This is the category where most budgeting efforts fail.            |
 |                       |                                                                    |
-|                       | Use **categories with limits**, not line-by-line tracking.         |
+|                       | Use [categories with limits]{style="color:#48a56a; font-weight: bold;"}, not line-by-line tracking. |
 +-----------------------+--------------------------------------------------------------------+
 | **Periodic Expenses** | These are silent budget killers.                                   |
 |                       |                                                                    |
@@ -259,14 +259,14 @@ flowchart LR
 
 ### What Actually Matters {.unnumbered}
 
-Don't overthink this. The best budgeting tool is **the one you'll actually use.**
+Don't overthink this. The best budgeting tool is [the one you'll actually use.]{style="color:#48a56a; font-weight: bold;"}
 
 Features that matter:
 
-1.  **Automatic transaction imports** (saves hours per month)
-2.  **Easy categorization** (you'll do this weekly)
-3.  **A clear summary view** (your dashboard)
-4.  **Goal tracking** (motivation matters)
+1.  [Automatic transaction imports]{style="color:#48a56a; font-weight: bold;"} (saves hours per month)
+2.  [Easy categorization]{style="color:#48a56a; font-weight: bold;"} (you'll do this weekly)
+3.  [A clear summary view]{style="color:#48a56a; font-weight: bold;"} (your dashboard)
+4.  [Goal tracking]{style="color:#48a56a; font-weight: bold;"} (motivation matters)
 
 Features that don't matter as much: fancy graphs, AI insights, social features. Substance over style.
 
@@ -367,7 +367,7 @@ The skill of converting between time periods. Budgets fail because people don't 
 
 **Daily habit → Annual:** Multiply by 365
 
-Example: A \$5 daily coffee → \$5 × 365 = **\$1,825/year.** Suddenly it's a real number you can evaluate.
+Example: A \$5 daily coffee → \$5 × 365 = [\$1,825/year.]{style="color:#f44242; font-weight: bold;"} Suddenly it's a real number you can evaluate.
 
 ::: panel-tabset
 ## R
@@ -409,13 +409,13 @@ print(to_monthly(amount=150, period="weekly"))   # $150/week groceries → month
 
 ### Opportunity Cost Math {.unnumbered}
 
-This is Felix's signature framework. **Every dollar spent isn't just that dollar; it's what that dollar could have become.**
+This is Felix's signature framework. [Every dollar spent isn't just that dollar; it's what that dollar could have become.]{style="color:#48a56a; font-weight: bold;"}
 
 **Formula:** Cost × (1 + r)\^n = Opportunity cost in future dollars
 
 Example: A \$40,000 new car vs. a \$15,000 used car. The \$25,000 difference, invested at 7% real return over 30 years:
 
-\$25,000 × (1.07)\^30 = **\~\$190,000**
+\$25,000 × (1.07)\^30 = [\~\$190,000]{style="color:#f44242; font-weight: bold;"}
 
 That's not a car payment difference; that's a retirement chapter.
 
@@ -508,12 +508,12 @@ flowchart TD
 
 A budget is just a plan for your money in advance. Good budgets:
 
-1.  **Match your personality.** Don't fight your nature; work with it.
-2.  **Automate the boring stuff.** Investments, bills, sinking funds: set and forget.
-3.  **Leave room for joy.** Sethi's guilt-free spending isn't optional; it's what makes budgets sustainable.
-4.  **Track one number above all**: the important number is your savings rate (which we will cover in [Savings](savings.qmd)). Everything else is detail.
-5.  **Builds in margin for error.** Housel's principle, "*reality is messier than spreadsheets.*"
+1.  [Match your personality.]{style="color:#48a56a; font-weight: bold;"} Don't fight your nature; work with it.
+2.  [Automate the boring stuff.]{style="color:#48a56a; font-weight: bold;"} Investments, bills, sinking funds: set and forget.
+3.  [Leave room for joy.]{style="color:#48a56a; font-weight: bold;"} Sethi's guilt-free spending isn't optional; it's what makes budgets sustainable.
+4.  [Track one number above all]{style="color:#48a56a; font-weight: bold;"}: the important number is your savings rate (which we will cover in [Savings](savings.qmd)). Everything else is detail.
+5.  [Builds in margin for error.]{style="color:#48a56a; font-weight: bold;"} Housel's principle, "*reality is messier than spreadsheets.*"
 
-Budgeting math isn't hard. The categories aren't complicated. The tools are abundant. What's actually required is **the decision to be intentional**, and the patience to let small, consistent allocations compound into a life of financial freedom.
+Budgeting math isn't hard. The categories aren't complicated. The tools are abundant. What's actually required is [the decision to be intentional]{style="color:#48a56a; font-weight: bold;"}, and the patience to let small, consistent allocations compound into a life of financial freedom.
 
-As Bogle reminded us about investing, the same applies to budgeting: **don't do something, just stand there.** Set up the system, then let it work.
+As Bogle reminded us about investing, the same applies to budgeting: [don't do something, just stand there.]{style="color:#48a56a; font-weight: bold;"} Set up the system, then let it work.

@@ -8,7 +8,7 @@ Personal finance is mostly behavior and a small amount of math. The math matters
 2.  How much are you saving?\
 3.  How much are you investing (and are you leaving it alone through economic downturns)?
 
-Before you optimize investments or chase tax savings, the foundations need to be in place: **awareness** of where money goes, a working **budget**, a **plan** for any high-interest debt, and a **buffer** against bad surprises.
+Before you optimize investments or chase tax savings, the foundations need to be in place: [awareness]{style="color:#48a56a; font-weight: bold;"} of where money goes, a working [budget]{style="color:#48a56a; font-weight: bold;"}, a [plan]{style="color:#48a56a; font-weight: bold;"} for any high-interest debt, and a [buffer]{style="color:#48a56a; font-weight: bold;"} against bad surprises.
 
 This part walks through those foundations in order:
 

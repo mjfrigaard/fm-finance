@@ -16,7 +16,7 @@ source("_common.R")
 <br>
 
 
-Insurance is for losses you **can't absorb** on your own. Buy enough to
+Insurance is for losses you [can't absorb]{style="color:#48a56a; font-weight: bold;"} on your own. Buy enough to
 cover the catastrophic; skip the small policies that turn premiums into a
 slow leak.
 
