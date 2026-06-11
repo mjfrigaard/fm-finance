@@ -56,3 +56,192 @@ The mermaid diagrams throughout this book use a consistent **Atomic Age / Mid-Ce
 | warn | Atomic Red | `#f44242` | `#F5F2E8` | Warning / negative nodes |
 | — | Space Black | `#1C1C1E` | — | Borders, arrows, body text |
 | — | Cream | `#F5F2E8` | — | Light text on dark fills |
+
+## Notable Differences Between R and Python {#sec-r-vs-python}
+
+The differences below haven't yet been placed in a chapter callout — either because the chapter that would naturally introduce the concept hasn't been written yet, or because the existing chapters don't use the concept in code. As each chapter is completed, the relevant entry will be moved into that chapter's Math section.
+
+### String Formatting {#sec-string-formatting}
+
+:::{layout="[50,50]" layout-valign="top"}
+
+R uses `paste()`, `paste0()`, `sprintf()`, or `glue::glue()` for string construction.
+
+Python uses [f-strings](https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals), the `.format()` method, or `%` formatting.
+
+:::
+
+:::{layout="[50,50]" layout-valign="top"}
+
+```r
+name <- "John"
+paste0("Hello, ", name)
+glue::glue("Hello, {name}")
+```
+
+```python
+name = "John"
+f"Hello, {name}"
+```
+
+:::
+
+### Whitespace Rules {#sec-whitespace-rules}
+
+:::{layout="[50,50]" layout-valign="top"}
+
+Spaces, line breaks, and indentation are flexible and stylistic in R.
+
+In Python, indentation is **syntactic** (inconsistent indentation raises an `IndentationError`). Blank lines are ignored but can be used to separate code blocks for readability.
+
+:::
+
+:::{layout="[50,50]" layout-valign="top"}
+
+```r
+# R — all of this is valid
+# and produces the same result
+
+# Clean, conventional style
+if (x > 0) {
+  result <- x * 2
+  print(result)
+}
+
+# Messy but still valid
+if(x>0){result<-x*2
+    print(result)}
+
+# Extreme and ugly but works
+if   (  x > 0  )    {
+result        <-x*2
+   print(   result   )
+              }
+```
+
+```python
+# Python — indentation matters
+# Correct: consistent 4-space
+# indentation
+if x > 0:
+    result = x * 2
+    print(result)
+
+# Blank lines are fine —
+# they improve readability
+def process(x):
+
+    if x > 0:
+        result = x * 2
+
+        print(result)
+
+    return result
+
+# Raises IndentationError
+if x > 0:
+    result = x * 2
+        print(result) # ❌ bad indent
+```
+
+:::
+
+### Indexing {#sec-indexing}
+
+:::{layout="[50,50]" layout-valign="top"}
+
+R uses **1-based** indexing.
+
+Python uses **0-based** indexing.
+
+:::
+
+:::{layout="[50,50]" layout-valign="top"}
+
+```r
+vec <- c("a", "b", "c")
+vec[1]   # returns "a"
+```
+
+```python
+lst = ["a", "b", "c"]
+lst[0]   # returns "a"
+```
+
+:::
+
+### Missing Values {#sec-missing-values}
+
+:::{layout="[50,50]" layout-valign="top"}
+
+R uses `NA` (with variants like `NA_integer_`, `NA_character_`), plus `NULL` and `NaN`.
+
+Python uses `None` natively; `polars` represents missing values as `null` in its columnar data structures.
+
+:::
+
+:::{layout="[50,50]" layout-valign="top"}
+
+```r
+x <- c(1, NA, 3)
+is.na(x)
+```
+
+```python
+import polars as pl
+s = pl.Series([1, None, 3])
+s.is_null()
+```
+
+:::
+
+### Package Management {#sec-package-management}
+
+:::{layout="[50,50]" layout-valign="top"}
+
+In R, packages are installed with `install.packages()` and loaded with `library()`.
+
+In Python, packages are installed via `pip` or `conda` from the terminal and loaded with `import`.
+
+:::
+
+:::{layout="[50,50]" layout-valign="top"}
+
+```r
+install.packages("dplyr")
+library(dplyr)
+```
+
+```python
+# terminal: pip install polars
+import polars as pl
+```
+
+:::
+
+### Comments {#sec-comments}
+
+:::{layout="[50,50]" layout-valign="top"}
+
+In R, comments are single-line only, using `#`. No multi-line comment syntax.
+
+In Python, single-line comments use `#`. Triple-quoted strings (`"""..."""`) are commonly used as block comments or docstrings.
+
+:::
+
+:::{layout="[50,50]" layout-valign="top"}
+
+```r
+# This is a comment
+```
+
+```python
+# This is a comment
+
+"""
+This is a multi-line
+comment or docstring.
+"""
+```
+
+:::

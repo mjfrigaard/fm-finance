@@ -234,7 +234,53 @@ This way you reward yourself *and* accelerate freedom, without falling into the 
 
 ## Math for Income {#math-for-income}
 
-The income chapter is mostly about behavior, but the numbers below can turn that behavior into something you can track. Each calculation below is also written as an R and Python function, following the same pattern introduced in the [Budgeting](budgeting.qmd) chapter.
+The income chapter is mostly about behavior, but the numbers below can turn that behavior into something you can track. Each calculation below is also written as an R and Python function, which are covered in the callout box below.
+
+
+::::::: {.callout-note collapse="true"}
+## R vs Python: assignment and functions
+
+The first two differences you'll see between R and Python in this book are how each language *names* things and how each language *defines functions*.
+
+**Assignment**
+
+::: {layout="[50,50]" layout-valign="top"}
+R uses `<-` by convention (`=` also works).
+
+Python uses `=`.
+:::
+
+::: {layout="[50,50]" layout-valign="top"}
+``` r
+x <- 10
+```
+
+``` python
+x = 10
+```
+:::
+
+**Function definition**
+
+::: {layout="[50,50]" layout-valign="top"}
+R uses `function()` and assigns the result to a name. The body is wrapped in curly braces `{}`.
+
+Python uses the `def` keyword, followed by a colon and an indented body.
+:::
+
+::: {layout="[50,50]" layout-valign="top"}
+``` r
+add_fun <- function(a, b) {
+  a + b
+}
+```
+
+``` python
+def add_fun(a, b):
+    return a + b
+```
+:::
+:::::::
 
 ### The Fixed-Cost Ratio {.unnumbered}
 
@@ -242,32 +288,49 @@ Fixed costs (rent, loan payments, insurance, utilities) are the commitments you 
 
 **Formula:** Fixed-Cost Ratio = Fixed Costs ÷ Take-Home Pay × 100
 
-Example: \$2,700 of fixed costs on \$5,000 take-home → 54%, just under the ceiling.
+Example: \$2,700 of fixed costs on \$5,000 take-home
 
 ::: panel-tabset
+
 ## R
+
+Below is an implementation of this function in R:
 
 ```{r}
 #| label: fixed-cost-r
 fixed_cost_ratio <- function(fixed_costs, take_home) {
   (fixed_costs / take_home) * 100
 }
+```
 
-# $2,700 of fixed costs on $5,000 take-home pay
+\$2,700 of fixed costs on \$5,000 take-home pay
+
+```{r}
+#| label: fixed-cost-r-apply
 fixed_cost_ratio(fixed_costs = 2700, take_home = 5000)
 ```
 
 ## Python
+
+The same formula in Python:
 
 ```{python}
 #| label: fixed-cost-py
 def fixed_cost_ratio(fixed_costs, take_home):
     return (fixed_costs / take_home) * 100
 
-# $2,700 of fixed costs on $5,000 take-home pay
+```
+
+\$2,700 of fixed costs on $5,000 take-home pay
+
+```{r}
+#| label: fixed-cost-py-apply
 fixed_cost_ratio(fixed_costs=2700, take_home=5000)
 ```
+
 :::
+
+This results in a 54% fixed-cost ratio -- just under the ceiling!
 
 ### What a Raise Is Really Worth {.unnumbered}
 
@@ -275,12 +338,15 @@ fixed_cost_ratio(fixed_costs=2700, take_home=5000)
 
 **Formula:** FV = PMT × [((1 + r)\^n − 1) ÷ r]
 
-This is the future-value-of-contributions formula from [Investing Basics](investing_basics.qmd), where PMT is the amount invested each month, *r* is the monthly return, and *n* is the number of months.
+PMT is the amount invested each month, *r* is the monthly return, and *n* is the number of months. We will revisit this future-value-of-contributions formula in the [Investing Basics](investing_basics.qmd) chapter.
 
-Example: a \$400/month raise, half of it invested (\$200/month) for 25 years at a 7% annual return → **\~\$162,000**.
+Example: a \$400/month raise, half of it invested (\$200/month) for 25 years at a 7% annual return:
 
 ::: panel-tabset
+
 ## R
+
+Here is an example of this function in R:
 
 ```{r}
 #| label: raise-value-r
@@ -290,12 +356,22 @@ raise_invested_value <- function(monthly_raise, invest_share, rate, years) {
   periods      <- years * 12
   contribution * (((1 + monthly_rate)^periods - 1) / monthly_rate)
 }
+```
 
-# half of a $400/month raise, invested for 25 years at 7%
-raise_invested_value(monthly_raise = 400, invest_share = 0.5, rate = 0.07, years = 25)
+Half of a \$400/month raise, invested for 25 years at 7%
+
+```{r}
+#| label: raise-value-r-apply
+raise_invested_value(
+  monthly_raise = 400, 
+  invest_share = 0.5, 
+  rate = 0.07, 
+  years = 25)
 ```
 
 ## Python
+
+Below is the same function in Python:
 
 ```{python}
 #| label: raise-value-py
@@ -304,11 +380,17 @@ def raise_invested_value(monthly_raise, invest_share, rate, years):
     monthly_rate = rate / 12
     periods = years * 12
     return contribution * (((1 + monthly_rate) ** periods - 1) / monthly_rate)
+```
 
-# half of a $400/month raise, invested for 25 years at 7%
+Half of a \$400/month raise, invested for 25 years at 7%
+
+```{python}
+#| label: raise-value-py-apply
 raise_invested_value(monthly_raise=400, invest_share=0.5, rate=0.07, years=25)
 ```
 :::
+
+We can see this results in over \$160K! 
 
 ## Key takeaways
 

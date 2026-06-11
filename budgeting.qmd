@@ -274,38 +274,6 @@ Features that don't matter as much: fancy graphs, AI insights, social features. 
 
 Here's the secret most personal finance content avoids: *budgeting requires only middle-school math.* However, you need to be fluent in a few specific calculations.
 
-```{r}
-#| label: r-py-functions
-#| echo: false
-#| results: asis
-#| eval: true
-co_box(color = "b", 
-  hsize = "1.15", 
-  fold = TRUE,
-  size = "1.10",
-  header = "Functions in R and Python", 
-  contents = "
-Each calculation below is also written in R and Python. Because you'll re-use these formulas constantly, we'll wrap each one in a **function**: a named, reusable formula you define once and call with whatever numbers you have. 
-
-In R, the pattern is: 
-
-\`\`\`r
-name <- function(inputs) { ... 
-  # function code
-}
-\`\`\` 
-
-In Python, it's 
-
-\`\`\`python
-def name(inputs):
-  # function code
-\`\`\`
-
-
-Anything after a `#` is a comment the computer ignores.")
-```
-
 ### Percentages (Your Most-Used Skill) {.unnumbered}
 
 You need to instantly answer: "What percentage of my income is X?"
@@ -315,6 +283,52 @@ You need to instantly answer: "What percentage of my income is X?"
 Example: Rent is \$1,500, income is \$5,000. → 1,500 ÷ 5,000 = 0.30 → **30% of income on rent.**
 
 Practice until you can do this in your head for the big categories.
+
+::::::: {.callout-note collapse="true"}
+## R vs Python: function bodies and return values
+
+Two more syntax differences become visible the moment you write a function with a body.
+
+**Code block structure**
+
+::: {layout="[50,50]" layout-valign="top"}
+R wraps the body in curly braces `{}`. Indentation is purely stylistic.
+
+Python uses a colon and an indented body. Indentation is part of the syntax (inconsistent indentation raises `IndentationError`).
+:::
+
+::: {layout="[50,50]" layout-valign="top"}
+``` r
+percent_of_income <- function(expense, income) {
+  (expense / income) * 100
+}
+```
+
+``` python
+def percent_of_income(expense, income):
+    return (expense / income) * 100
+```
+:::
+
+**Return values**
+
+::: {layout="[50,50]" layout-valign="top"}
+R automatically returns the last evaluated expression. The `return()` function is optional.
+
+Python requires an explicit `return` statement; otherwise the function returns `None`.
+:::
+
+::: {layout="[50,50]" layout-valign="top"}
+``` r
+double_fun <- function(x) x * 2
+```
+
+``` python
+def double_fun(x):
+    return x * 2
+```
+:::
+:::::::
 
 ::: panel-tabset
 ## R

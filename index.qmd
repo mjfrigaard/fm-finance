@@ -76,17 +76,21 @@ Each chapter is short and self-contained so you can jump in where you need to.
 
 ## Math
 
-Whatever math is covered in this book can be done with a calculator, spreadsheet, or some basic programming skills. If you're interested in following along or performing any of the calculations yourself, the examples use both **R** and **Python**. 
+Whatever math is covered in this book can be done with a calculator, spreadsheet, or some basic programming skills. If you're interested in following along or performing any of the calculations yourself, I've provided examples in Microsoft Excel and both **R** and **Python**. 
 
-Pick whichever you prefer; the underlying ideas are the same.
+Example R code:
 
 ```{r}
 #| label: ex-r
+#| code-fold: false
 1000 * (1 + 0.05)^10  # future value of $1,000 at 5% for 10 years
 ```
 
+Example Python code:
+
 ```{python}
 #| label: ex-py
+#| code-fold: false
 1000 * (1 + 0.05) ** 10
 ```
 
@@ -96,7 +100,7 @@ Pick whichever you prefer; the underlying ideas are the same.
 #| results: asis
 #| eval: true
 co_box(color = "g", 
-  header = "NOTE", 
+  header = "Who this book is for", 
   contents = "This primary audience for this book is my children. It contains some of the basic principles I was taught (and others I've learned painfully) about managing personal finances.")
 ```
 
