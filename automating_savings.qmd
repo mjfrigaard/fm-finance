@@ -17,7 +17,7 @@ source("_common.R")
 
 
 The single most effective trick in personal finance: make saving the
-**default**, not a decision. If money leaves your checking account
+[default]{style="color:#48a56a; font-weight: bold;"}, not a decision. If money leaves your checking account
 automatically on payday, you'll adapt your spending to what's left.
 
   - Direct deposit splits

@@ -53,7 +53,7 @@ At 7% return, money doubles every \~10 years. At 10%, every \~7 years. This sing
 ## Risk vs. return
 
 Higher expected return = higher expected volatility. Choose a level you can
-**stick with** through downturns, not just one that looks attractive on a
+[stick with]{style="color:#48a56a; font-weight: bold;"} through downturns, not just one that looks attractive on a
 spreadsheet.
 
 ## Diversification

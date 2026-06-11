@@ -30,7 +30,7 @@ This is where [Ben Felix](https://rationalreminder.ca/)'s research is genuinely 
 
 ### The Real Math {.unnumbered}
 
-Felix has produced extensive analysis showing that **renting and investing the difference often matches or beats homeownership**, once you account for the full cost of owning.
+Felix has produced extensive analysis showing that [renting and investing the difference often matches or beats homeownership]{style="color:#48a56a; font-weight: bold;"}, once you account for the full cost of owning.
 
 ```{=html}
 <style>
@@ -75,15 +75,15 @@ flowchart TD
 
 ### Felix's "5% Rule" {.unnumbered}
 
-A simplified version of Felix's framework: **the unrecoverable costs of owning are roughly 5% of the home's value per year** (property tax ~1%, maintenance ~1%, cost of capital ~3%).
+A simplified version of Felix's framework: [the unrecoverable costs of owning are roughly 5% of the home's value per year]{style="color:#f44242; font-weight: bold;"} (property tax ~1%, maintenance ~1%, cost of capital ~3%).
 
-**Rule of thumb:** Multiply the home's value by 5% and divide by 12. If you can rent an equivalent property for less than that, **renting and investing the difference is likely the better financial choice.**
+**Rule of thumb:** Multiply the home's value by 5% and divide by 12. If you can rent an equivalent property for less than that, [renting and investing the difference is likely the better financial choice.]{style="color:#48a56a; font-weight: bold;"}
 
 Example: $500,000 home × 5% = $25,000/year = ~$2,080/month. If you can rent the same place for less, renting wins financially.
 
 ### When Buying Makes Sense {.unnumbered}
 
-Buying isn't bad, but it should be a **lifestyle decision** more than a financial one. Buy when:
+Buying isn't bad, but it should be a [lifestyle decision]{style="color:#48a56a; font-weight: bold;"} more than a financial one. Buy when:
 
 - You're confident you'll stay 7+ years (closing costs need time to amortize)
 - You have a stable income and adequate emergency fund
@@ -99,7 +99,7 @@ Buying isn't bad, but it should be a **lifestyle decision** more than a financia
 - You'd rather invest the difference in a diversified portfolio
 - You value flexibility, lower maintenance burden, and predictable costs
 
-**The key insight from Felix:** renting is not "throwing money away" any more than buying groceries is throwing money away. **You're paying for shelter either way.** The question is which form of shelter delivers better financial and lifestyle outcomes for your situation.
+**The key insight from Felix:** renting is not "throwing money away" any more than buying groceries is throwing money away. [You're paying for shelter either way.]{style="color:#48a56a; font-weight: bold;"} The question is which form of shelter delivers better financial and lifestyle outcomes for your situation.
 
 ### The Rent vs. Buy Calculation (Felix's 5% Rule) {.unnumbered}
 
@@ -125,9 +125,9 @@ If you can rent the equivalent home for less than $2,500/month, renting is finan
 
 ### Mortgage Amortization: The Front-Loaded Interest Reality {.unnumbered}
 
-Mortgages are structured so you pay **mostly interest in early years.** Understanding this changes how you think about moving and refinancing.
+Mortgages are structured so you pay [mostly interest in early years.]{style="color:#f44242; font-weight: bold;"} Understanding this changes how you think about moving and refinancing.
 
-**Key insight:** On a 30-year mortgage at 6%, roughly **75% of your first year's payments go to interest**, not principal.
+**Key insight:** On a 30-year mortgage at 6%, roughly [75% of your first year's payments go to interest]{style="color:#f44242; font-weight: bold;"}, not principal.
 
 **Rough breakdown of where payments go:**
 
@@ -225,7 +225,7 @@ The front-loaded-interest reality, in numbers: in month one your interest is sim
 - First-month interest = Principal × (annual rate ÷ 12)
 - First-month principal = Monthly Payment − First-month interest
 
-Example: on that \$480,000 loan, month-one interest is \$2,400 of the \~\$2,878 payment, about **83% interest**, leaving only \~\$478 toward principal.
+Example: on that \$480,000 loan, month-one interest is \$2,400 of the \~\$2,878 payment, about [83% interest]{style="color:#f44242; font-weight: bold;"}, leaving only \~\$478 toward principal.
 
 ::: panel-tabset
 ## R

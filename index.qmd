@@ -38,9 +38,9 @@ co_box(
   header = "Who wrote this?",
   contents = "Given the current landscape of online resources and the impressive capabilities of AI/large language models (LLMs), I feel it’s important to clarify the authorship of this book. It seems strange to have to include this in anything I write, but it’s something that, if I were reading a book, I’d like to know. 
   
-**I wrote all of the narrative, commentary, and explanations.** I used LLMs (mostly Claude) to research specific topics (like FDIC/NCUA coverage), but the thoughts in the book are my own. Hopefully, the typos and/or grammatical errors serve as a signature of authenticity. 
+[I wrote all of the narrative, commentary, and explanations.]{style='color:#48a56a; font-weight: bold;'} I used LLMs (mostly Claude) to research specific topics (like FDIC/NCUA coverage), but the thoughts in the book are my own. Hopefully, the typos and/or grammatical errors serve as a signature of authenticity.
 
-**The code in this book was created with the assistance of Claude, and this applies only to the specific chapters explicitly noted.** Generally, I’d write a ‘first draft’ of a code example, then ask Claude how to improve it. Sometimes I agreed with its suggestions (and included them), other times I revised the code myself."
+[The code in this book was created with the assistance of Claude, and this applies only to the specific chapters explicitly noted.]{style='color:#48a56a; font-weight: bold;'} Generally, I’d write a ‘first draft’ of a code example, then ask Claude how to improve it. Sometimes I agreed with its suggestions (and included them), other times I revised the code myself."
 )
 ```
 
@@ -54,7 +54,7 @@ The book is divided into five parts:
 4. [**Taxes & insurance**](taxes_insurance.qmd): the protective layer around your finances.
 5. [**Planning**](planning.qmd): goals, major purchases, and estate planning.
 
-The five sections of the book map into **four levers**: 
+The five sections of the book map into [four levers]{style="color:#48a56a; font-weight: bold;"}:
 
 ## The four levers
 
@@ -67,9 +67,9 @@ The five sections of the book map into **four levers**:
 
 Each lever has its own part in this book:
 
-- [Foundations](foundations.qmd): **Income**, **budgeting**, and **spending** are the behaviors that will have the biggest impact on your financial health. You'll also want to manage the money you borrow, and plan for emergencies.     
-- [Savings](savings.qmd) covers different ways to put money aside, different kinds of savings accounts, and the most important behavior for disciplined savings: **automation**.\
-- [Investing](investing.qmd) is what happens to the money you save **over the long term**.     
+- [Foundations](foundations.qmd): [Income]{style="color:#48a56a; font-weight: bold;"}, [budgeting]{style="color:#48a56a; font-weight: bold;"}, and [spending]{style="color:#48a56a; font-weight: bold;"} are the behaviors that will have the biggest impact on your financial health. You'll also want to manage the money you borrow, and plan for emergencies.
+- [Savings](savings.qmd) covers different ways to put money aside, different kinds of savings accounts, and the most important behavior for disciplined savings: [automation]{style="color:#48a56a; font-weight: bold;"}.\
+- [Investing](investing.qmd) is what happens to the money you save [over the long term]{style="color:#48a56a; font-weight: bold;"}.
 - [Taxes & insurance](taxes_insurance.qmd) & [Planning](planning.qmd) sit around the outside.      
 
 Each chapter is short and self-contained so you can jump in where you need to.

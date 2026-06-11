@@ -77,19 +77,19 @@ During this time, investing in skills, education, and career mobility will have 
 
 The academic research on money and well-being tends to show some practical conclusions:
 
-- **Experiences beat possessions.** Research shows experiential purchases generate more lasting happiness than material ones.[^exp-poss] Choose a vacation or night out over new clothes or toys. 
+- [Experiences beat possessions.]{style="color:#48a56a; font-weight: bold;"} Research shows experiential purchases generate more lasting happiness than material ones.[^exp-poss] Choose a vacation or night out over new clothes or toys.
 
 [^exp-poss]: Van Boven, L., & Gilovich, T. (2003). "To do or to have? That is the question." *Journal of Personality and Social Psychology*, 85(6), 1193–1202. <https://doi.org/10.1037/0022-3514.85.6.1193>
 
-- **Buying time is one of the highest-return uses of money.** Outsourcing tasks you dislike (cleaning, lawn care, commuting time) correlates strongly with life satisfaction.[^buy-time] Real wealth should be measured in not doing things you don’t like to do (and more time spent doing things you like to do). 
+- [Buying time is one of the highest-return uses of money.]{style="color:#48a56a; font-weight: bold;"} Outsourcing tasks you dislike (cleaning, lawn care, commuting time) correlates strongly with life satisfaction.[^buy-time] Real wealth should be measured in not doing things you don’t like to do (and more time spent doing things you like to do).
 
 [^buy-time]: Whillans, A. V., Dunn, E. W., Smeets, P., Bekkers, R., & Norton, M. I. (2017). "Buying time promotes happiness." *Proceedings of the National Academy of Sciences*, 114(32), 8523–8527. <https://doi.org/10.1073/pnas.1706541114>
 
-- **Lifestyle inflation is the silent killer.** Hedonic adaptation means each lifestyle upgrade quickly becomes the new baseline, but the financial commitment remains permanent.[^hedonic] This is the classic “keeping up with the Jonses” trap: avoid external comparisons of material wealth. Instead, focus on where you were last year (and where you’d like to be in the next year). 
+- [Lifestyle inflation is the silent killer.]{style="color:#f44242; font-weight: bold;"} Hedonic adaptation means each lifestyle upgrade quickly becomes the new baseline, but the financial commitment remains permanent.[^hedonic] This is the classic “keeping up with the Jonses” trap: avoid external comparisons of material wealth. Instead, focus on where you were last year (and where you’d like to be in the next year).
 
 [^hedonic]: Dunn, E. W., Gilbert, D. T., & Wilson, T. D. (2011). "If money doesn't make you happy, then you probably aren't spending it right." *Journal of Consumer Psychology*, 21(2), 115–125. <https://doi.org/10.1016/j.jcps.2011.02.002>
 
-- **Housing is the biggest lever.** Housing is usually your biggest expense, so choosing how much to spend on it greatly affects your wealth. Renting can be as good as (or better than) buying when you crunch the numbers.[^housing]
+- [Housing is the biggest lever.]{style="color:#48a56a; font-weight: bold;"} Housing is usually your biggest expense, so choosing how much to spend on it greatly affects your wealth. Renting can be as good as (or better than) buying when you crunch the numbers.[^housing]
 
 [^housing]: Beracha, E., & Johnson, K. H. (2012). "Lessons from over 30 years of buy versus rent decisions: Is the American dream always wise?" *Real Estate Economics*, 40(2), 217–247. <https://doi.org/10.1111/j.1540-6229.2011.00321.x>. See also Ben Felix's analysis at [PWL Capital](https://pwlcapital.com/services/financial-wellness-coaching/) and the [Rational Reminder](https://rationalreminder.ca/) podcast.
 
@@ -125,7 +125,7 @@ The **Wealth Formula**:
 
 The four variables are the four levers *you* actually control:
 
-1. Focus: pick something economically valuable and become great at it. Career, geography, and skill choice compound harder than any single financial decision early on. This is Galloway's version of Felix's human capital; your earning engine is the asset you **build first.**
+1. Focus: pick something economically valuable and become great at it. Career, geography, and skill choice compound harder than any single financial decision early on. This is Galloway's version of Felix's human capital; your earning engine is the asset you [build first.]{style="color:#48a56a; font-weight: bold;"}
 
 2. Stoicism: your willingness to live below your means without needing to signal otherwise will keep you from spending money you don't have on things you don't really need. Galloway, Housel, and Sethi all agree here; spending discipline is a character trait before it's a budget.[^stoicism]
 
@@ -333,7 +333,7 @@ fixed_cost_ratio(fixed_costs=2700, take_home=5000)
 
 ## Excel
 
-In Excel there's no function to define: you put the numbers in cells and write the formula once. Enter the fixed costs in cell **A2** and take-home pay in **B2**, then in **C2**:
+In Excel there's no function to define: you put the numbers in cells and write the formula once. Enter the fixed costs in cell `A2` and take-home pay in `B2`, then in `C2`:
 
 ```swift
 =A2/B2
@@ -343,7 +343,7 @@ That gives `0.54`.
 
 ![Entering a formula in Excel](img/income-fixed-cost-ratio.png){width='75%' fig-align='center'}
 
-Format **C2** as a percentage (**Home → %**, or **Ctrl+Shift+5**) and it displays **54%**.
+Format `C2` as a percentage (`Home → %`, or `Ctrl+Shift+5`) and it displays [54%]{style="color:#48a56a; font-weight: bold;"}.
 
 ![Convert to percent](img/income-fixed-cost-ratio-perc.png){width='75%' fig-align='center'}
 
@@ -419,7 +419,7 @@ raise_invested_value(monthly_raise=400, invest_share=0.5, rate=0.07, years=25)
 
 ## Excel
 
-Excel actually has a built-in [**`FV()`** (future value) function](https://support.microsoft.com/en-US/Excel/fv-function), so we don't have to write the formula ourselves. The arguments are `FV(rate, nper, pmt)`:
+Excel actually has a built-in [`FV()` (future value) function](https://support.microsoft.com/en-US/Excel/fv-function), so we don't have to write the formula ourselves. The arguments are `FV(rate, nper, pmt)`:
 
 - `rate` is the return *per period* (monthly here): `7%/12`     
 - `nper` is the number of periods: `25*12`      
@@ -431,7 +431,7 @@ Excel actually has a built-in [**`FV()`** (future value) function](https://suppo
 
 ![Future value in Excel](img/income-future-value.png){width='75%' fig-align='center'}
 
-This returns **\$162,014.34**, the same result as the R and Python functions above. (Excel reports a positive number because the contributions were entered as negative cash flows.)
+This returns [\$162,014.34]{style="color:#48a56a; font-weight: bold;"}, the same result as the R and Python functions above. (Excel reports a positive number because the contributions were entered as negative cash flows.)
 
 :::
 
@@ -439,13 +439,13 @@ We can see this results in over \$160K!
 
 ## Key takeaways
 
-1. **Invest in your human capital**: your career is your biggest asset early on and it's the focus part of the wealth equation.     
+1. [Invest in your human capital]{style="color:#48a56a; font-weight: bold;"}: your career is your biggest asset early on and it's the focus part of the wealth equation.
 
-2. **Track your fixed costs**: 1. aim to keep them under 60% of your take-home pay. Stoicism aligns with Housel’s “*gap between ego and income*.” Living within your means isn’t about restriction; it’s about control and intention.
+2. [Track your fixed costs]{style="color:#48a56a; font-weight: bold;"}: aim to keep them under 60% of your take-home pay. Stoicism aligns with Housel’s “*gap between ego and income*.” Living within your means isn’t about restriction; it’s about control and intention.
 
-3. **Spend the rest without guilt** on what genuinely brings you joy: prioritize experiences and time over possessions. As Housel puts it, the highest form of wealth is the ability to wake up and say, "*I can do whatever I want today.*" 
+3. [Spend the rest without guilt]{style="color:#48a56a; font-weight: bold;"} on what genuinely brings you joy: prioritize experiences and time over possessions. As Housel puts it, the highest form of wealth is the ability to wake up and say, "*I can do whatever I want today.*"
 
-4. **Keep it simple**: Bogle’s philosophy is diversification at the portfolio level, and time is on the side of the compounding effect (which we will return to in [Investing](investing.qmd)).
+4. [Keep it simple]{style="color:#48a56a; font-weight: bold;"}: Bogle’s philosophy is diversification at the portfolio level, and time is on the side of the compounding effect (which we will return to in [Investing](investing.qmd)).
 
 Wealth is a combination of growing your income, protecting your savings, and making sure you're spending money on what actually makes you happy.
 

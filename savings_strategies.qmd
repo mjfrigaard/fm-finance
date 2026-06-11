@@ -31,7 +31,7 @@ matches your goals.
 
 **Formula:** (Savings + Investments) ÷ Gross Income
 
-Example: You save $500 and invest $700 from a $5,000 gross income. → 1,200 ÷ 5,000 = **24% savings rate.**
+Example: You save $500 and invest $700 from a $5,000 gross income. → 1,200 ÷ 5,000 = [24% savings rate.]{style="color:#48a56a; font-weight: bold;"}
 
 Benchmarks to know:
 
@@ -44,7 +44,7 @@ Your savings rate, the share of take-home pay you *don't* spend, is the single n
 
 **Formula:** Savings Rate = (Income − Spending) ÷ Income × 100
 
-Example: you take home \$5,000 and spend \$3,500. → (5,000 − 3,500) ÷ 5,000 = **30%**.
+Example: you take home \$5,000 and spend \$3,500. → (5,000 − 3,500) ÷ 5,000 = [30%]{style="color:#48a56a; font-weight: bold;"}.
 
 ::: panel-tabset
 ## R
