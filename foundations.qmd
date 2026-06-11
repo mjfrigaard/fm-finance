@@ -18,7 +18,14 @@ This part walks through those foundations in order:
 4.  [**Managing Debt**](managing_debt.qmd): which debts to clear first, and why high-interest debt is wealth-destroying compounding in reverse.
 5.  [**Emergency Fund**](emergency_fund.qmd): a 3–6 month buffer so one bad surprise doesn't undo your progress.
 
-***
+
+## Tech stack 
+
+As I write this book, we’re in the midst of an “AI revolution.” It’s impossible to predict which technologies will be most useful or relevant for you as a reader. I’ve chosen Excel because spreadsheets remain a near-universal tool in business, and they’re invaluable for managing information. The programming languages I reference are open-source and free, making them accessible and durable choices.
+
+
+If AI systems are handling most technical tasks by the time you read this, consider the next pages a snapshot of how people once approached numbers and information—an artifact from before automation took over.
+
 
 ## Time horizons
 

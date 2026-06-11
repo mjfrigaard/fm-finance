@@ -19,11 +19,11 @@ pl.Config.set_tbl_rows(20)
 
 You only manage what you measure. This chapter covers how to capture every dollar that leaves your accounts and turn that data into insight.
 
-  - Capturing every transaction
-  - Working with digital bank exports
-  - Categorizing what you've captured
-  - Reviewing on a monthly cadence
-  - Spotting "leak" categories (subscriptions, delivery fees, impulse buys)
+- Capturing every transaction
+- Working with digital bank exports
+- Categorizing what you've captured
+- Reviewing on a monthly cadence
+- Spotting "leak" categories (subscriptions, delivery fees, impulse buys)
 
 Tracking is the *recording* side of personal finance. [Budgeting](budgeting.qmd) covers the *allocation* side (where money is supposed to go). Without tracking, a budget is a guess; with tracking, it becomes a feedback loop.
 
@@ -65,14 +65,13 @@ flowchart TD
     style FeedbackLoop fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
-
 ## Capturing Transactions
 
 Below are a few time-tested ways to capture your spending. If you’re reading this, you’ll also know there’s a sea of apps and digital tools for tracking your spending. It’s important to know people were tracking their spending before the internet, personal computers, and calculators. Regardless of the method you choose, the important thing is to pick one, run it for a full month, then decide whether it works for you.
 
 ### A spending journal {.unnumbered}
 
-A small notebook, kept in a pocket or bag. Every time money leaves your hands, you write one line: amount, place, category. At week’s end, you tally. This is the oldest method on the list (Benjamin Franklin [kept one](https://founders.archives.gov/documents/Franklin/01-11-02-0149)). Its strength is the moment of awareness it forces. Writing "$6 / Starbucks / coffee" by hand is a small pause that an automatically-recorded card swipe will never give you.
+A small notebook, kept in a pocket or bag. Every time money leaves your hands, you write one line: amount, place, category. At week’s end, you tally. This is the oldest method on the list (Benjamin Franklin [kept one](https://founders.archives.gov/documents/Franklin/01-11-02-0149)). Its strength is the moment of awareness it forces. Writing "\$6 / Starbucks / coffee" by hand is a small pause that an automatically-recorded card swipe will never give you.
 
 ### Checkbook registers {.unnumbered}
 
@@ -80,9 +79,9 @@ Every paper checkbook used to come with a register: each transaction logged on i
 
 ### Cash envelope system {.unnumbered}
 
-For variable categories (groceries, dining, gas, fun money), withdraw the monthly amount in cash and split it into physical envelopes labeled by category. When an envelope is empty, that category is done for the month. No swiping, no spreadsheet to update. Depression-era families used envelopes because they had to.[^env-dep] The system has stuck around because the physical, finite nature of cash slows spending more reliably than any reminder ever will.
+For variable categories (groceries, dining, gas, fun money), withdraw the monthly amount in cash and split it into physical envelopes labeled by category. When an envelope is empty, that category is done for the month. No swiping, no spreadsheet to update. Depression-era families used envelopes because they had to.[^tracking_spending-1] The system has stuck around because the physical, finite nature of cash slows spending more reliably than any reminder ever will.
 
-[^env-dep]: Stashing cash around the house was actually quite common for people who lived through the depression. Read more [here](https://www.chicagotribune.com/2005/04/17/inheritance-hide-and-seek/).
+[^tracking_spending-1]: Stashing cash around the house was actually quite common for people who lived through the depression. Read more [here](https://www.chicagotribune.com/2005/04/17/inheritance-hide-and-seek/).
 
 ### Bank statements {.unnumbered}
 
@@ -95,7 +94,6 @@ Digital tracking is the bank-statement method above, but with the math done for 
 The exported statement almost never includes a category, but you can add it yourself, and we'll do it in [Categorizing Transactions](#categorizing-transactions) below.
 
 ::: panel-tabset
-
 ## R
 
 Create the `bank_statement` data in R:
@@ -196,13 +194,13 @@ py_bank_statement
 
 Once your transactions sit in columns and rows, it's much easier to answer tracking questions like:
 
-1. What is the total spent on subscriptions?    
-2. What percentage of my income is going to fixed costs?  
-3. What was my biggest variable category last month?    
+1.  What is the total spent on subscriptions?\
+2.  What percentage of my income is going to fixed costs?\
+3.  What was my biggest variable category last month?
 
 [Bogle](https://www.bogleheads.org/) would approve of building a custom spreadsheet because simplicity wins. A well-built spreadsheet beats most apps because it forces you to engage with your numbers.
 
-## Categorizing Transactions
+## Categorizing Transactions {#categorizing-transactions}
 
 Most people overcomplicate categories. Six to ten buckets is plenty, and a small, stable list will outlast any rotating set of "smart" categorizations. A working starter set:
 
@@ -219,16 +217,21 @@ Most people overcomplicate categories. Six to ten buckets is plenty, and a small
 
 Two rules that save hours of bookkeeping:
 
-1. **When in doubt, "Other".** Don't invent a new category for a single transaction. Review the "Other" bucket at month-end and only promote a new category once you've seen the same kind of transaction three months in a row.
-2. **Keep the categories stable.** Changing categories every month destroys the comparisons that make tracking useful in the first place.
+1.  **When in doubt, "Other".** Don't invent a new category for a single transaction. Review the "Other" bucket at month-end and only promote a new category once you've seen the same kind of transaction three months in a row.
+2.  **Keep the categories stable.** Changing categories every month destroys the comparisons that make tracking useful in the first place.
 
 The `bank_statement` dataset above only carries what a real bank export gives you(`Date`, `Description`, and `Amount`). To get to a `Category` column, you have to map descriptions to your buckets yourself. A small lookup of keyword patterns does the job in one pass.
 
 ::: panel-tabset
-
 ## R
 
-`dplyr::case_when()` evaluates each pattern in order and assigns the matching category. `grepl()` does the keyword test against `Description`. The final `TRUE` arm catches everything that didn't match and labels it `"Other"`.
+In R, a lookup table can be created using the following
+
+- `dplyr::case_when()` evaluates each pattern in order and assigns the matching category
+
+  - `grepl()` does the keyword test against `Description`
+
+- The final `TRUE` arm catches everything that didn't match and labels it `"Other"`
 
 ```{r}
 #| label: categorize-r
@@ -252,7 +255,15 @@ r_bank_statement |> knitr::kable()
 
 ## Python
 
-`polars` mirrors `dplyr` closely: `with_columns()` is the `mutate()` analog, and a chain of `pl.when().then()` calls is the `case_when()` analog. `pl.col("Description").str.contains(...)` does the keyword test (regex by default and the `|` between merchants is alternation).
+`polars` closely mirrors the `dplyr` code:
+
+- `with_columns()` is the `mutate()` analog
+
+  - a chain of `pl.when().then()` calls is the `case_when()` analog
+
+- `pl.col("Description").str.contains(...)` does the keyword test
+
+  - regex by default and the `|` between merchants is alternation
 
 ```{python}
 #| label: categorize-py
@@ -273,11 +284,19 @@ py_bank_statement
 
 ## Excel
 
-In Excel, the `IFS()` function is the direct analog of `case_when()`/`when().then()`: a list of conditions and corresponding values, evaluated top to bottom, with the first match winning. `SEARCH()` returns the position of a keyword in a cell (or `#VALUE!` if not found), and wrapping it in `ISNUMBER()` turns that into a true/false test. For categories with several merchants, wrap the tests in `OR()`.
+In Excel, the `IFS()` function is the direct analog of `case_when()`/`when().then()`:
+
+- A list of conditions and corresponding values, evaluated top to bottom, with the first match winning
+
+- `SEARCH()` returns the position of a keyword in a cell (or `#VALUE!` if not found)
+
+- Wrapping it in `ISNUMBER()` turns that into a true/false test
+
+  - For categories with several merchants, wrap the tests in `OR()`
 
 Assume your statement is laid out with `Date` in column **A**, `Description` in column **B**, and `Amount` in column **C**. Type `Category` in cell **D1**, then paste this formula into **D2**:
 
-```excel
+``` excel
 =IFS(
   ISNUMBER(SEARCH("Payroll", B2)),                                                                            "Income",
   ISNUMBER(SEARCH("Rent", B2)),                                                                               "Housing",
@@ -292,30 +311,74 @@ Assume your statement is laid out with `Date` in column **A**, `Description` in 
 )
 ```
 
-Then copy **D2** down through every transaction row (select **D2**, double-click the small square in the bottom-right corner, or use **Ctrl+D** after selecting `D2:D{last_row}`). The final `TRUE, "Other"` arm is the equivalent of `dplyr`'s `TRUE ~ "Other"` and polars's `.otherwise(...)`; it catches anything that didn't match an earlier pattern.
+Then copy **D2** down through every transaction row (select **D2**, double-click the small square in the bottom-right corner, or use **Ctrl+D** after selecting `D2:D{last_row}`).
+
+The final `TRUE, "Other"` arm is the equivalent of `dplyr`'s `TRUE ~ "Other"` and `polars`'s `.otherwise(...)`; it catches anything that didn't match an earlier pattern.
 
 To add a new merchant when one shows up: edit the formula in **D2**, then re-fill down. Keep the new merchant near the bottom of its category group so the existing patterns still resolve first.
-
 :::
+
+::::::: {.callout-note collapse="true"}
+## R vs Python: data frames and pipes
+
+Two ideas the categorization code above relies on:
+
+**Data frames**
+
+::: {layout="[50,50]" layout-valign="top"}
+R's `data.frame` is built into the base language; the `tibble` is the modern replacement (used throughout this book).
+
+Python has no built-in data frame — you need a library; we use `polars` (`pl.DataFrame`).
+:::
+
+::: {layout="[50,50]" layout-valign="top"}
+``` r
+df <- tibble::tibble(x = 1:5)
+```
+
+``` python
+import polars as pl
+df = pl.DataFrame({"x": [1, 2, 3, 4, 5]})
+```
+:::
+
+**Pipes / chaining**
+
+::: {layout="[50,50]" layout-valign="top"}
+R has a native pipe `|>` (also `%>%` from `magrittr`/`dplyr`) for left-to-right reading: data flows from one function into the next.
+
+Python has no native pipe; the same effect comes from chaining method calls, which `polars` is designed for.
+:::
+
+::: {layout="[50,50]" layout-valign="top"}
+``` r
+df |> dplyr::filter(x > 2)
+```
+
+``` python
+df.filter(pl.col("x") > 2)
+```
+:::
+:::::::
 
 Each month, add a new pattern when you see a real transaction that didn't match. The goal isn't to classify every edge case up front; the lookup handles 90%+ of your monthly transactions automatically, leaving only the unusual ones to triage by hand.
 
 ## The Monthly Review
 
-Tracking is only valuable if you actually look at the totals. A monthly review is a thirty-minute habit, scheduled on the same day each month (i.e., the day after your statements close is a natural anchor). 
+Tracking is only valuable if you actually look at the totals. A monthly review is a thirty-minute habit, scheduled on the same day each month (i.e., the day after your statements close is a natural anchor).
 
 The ritual has four steps:
 
-1. **Pull** the bank and credit-card statements for the month.
-2. **Categorize** every line into your buckets, using whichever capture method you've chosen.
-3. **Compare** category totals to your budget. Where did you go over? Where did you come in under?
-4. **Pick one change** for next month. *One.* The point is sustainable adjustment, not perfection.
+1.  **Pull** the bank and credit-card statements for the month.
+2.  **Categorize** every line into your buckets, using whichever capture method you've chosen.
+3.  **Compare** category totals to your budget. Where did you go over? Where did you come in under?
+4.  **Pick one change** for next month. *One.* The point is sustainable adjustment, not perfection.
 
 Over a year, twelve small adjustments compound into a budget that actually fits your life. That's the real return on tracking: the calibration loop, not the spreadsheet itself.
 
 ## Online Subscriptions
 
-This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries; they're individually small but collectively enormous and can silently drain your accounts. 
+This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries; they're individually small but collectively enormous and can silently drain your accounts.
 
 ```{mermaid}
 %%| fig-cap: 'Subscription Audit'
@@ -341,31 +404,118 @@ flowchart TD
 
 ### The Subscription Reality Check {.unnumbered}
 
-The average household spends **$200–$300/month** on subscriptions, often without realizing it. At $250/month invested at a 7% real return over 30 years, that's roughly **$300,000 in lost wealth**.
+The average household spends **\$200–\$300/month** on subscriptions, often without realizing it. At \$250/month invested at a 7% real return over 30 years, that's roughly **\$300,000 in lost wealth**.
 
 **Action steps:**
 
-1. Pull your last 3 months of bank/card statements
-2. List every recurring charge
-3. Cancel anything you haven't actively used in 30 days
-4. Set a calendar reminder every 90 days to repeat this
-5. Use one card exclusively for subscriptions to track them easily
+1.  Pull your last 3 months of bank/card statements
+2.  List every recurring charge
+3.  Cancel anything you haven't actively used in 30 days
+4.  Set a calendar reminder every 90 days to repeat this
+5.  Use one card exclusively for subscriptions to track them easily
 
 This isn't deprivation; it's the [Sethi](https://www.iwillteachyoutoberich.com/) principle in action: **cut mercilessly on what you don't love** so you can spend freely on what you do.
 
 ## Math for tracking spending
 
-Below are some tips and tools for tracking spending. Some can be used to easily categorize purchases, others can be used to check the amount you're spending on subscriptions. 
+Below are some tips and tools for tracking spending. Some can be used to easily categorize purchases, others can be used to check the amount you're spending on subscriptions.
+
+::::::: {.callout-note collapse="true"}
+## R vs Python: booleans, logicals, and vectorization
+
+The categorization code above uses all three of these ideas at once to create the keyword test:
+
+1.  We use `grepl()` / `str.contains()`) to return a true/false result for every row at once
+
+2.  Then logical-OR alternation chooses between merchants
+
+3.  The final fall-through catches anything that didn't match
+
+Below is a quick summary of these topics in R and Python.
+
+**Boolean values**
+
+::: {layout="[50,50]" layout-valign="top"}
+R writes them `TRUE` / `FALSE` (sometimes abbreviated `T`/`F`).
+
+Python writes them `True` / `False`, capitalized, no abbreviation.
+:::
+
+::: {layout="[50,50]" layout-valign="top"}
+``` r
+flag <- TRUE
+```
+
+``` python
+flag = True
+```
+:::
+
+**Logical operators**
+
+R uses `&`, `|`, `!` for *vectorized* element-wise logic (and `&&`, `||` for scalar logic).
+
+``` r
+c(TRUE, FALSE) & c(TRUE, TRUE) # vectorized
+TRUE && FALSE  # scalar
+```
+
+Python uses `and`, `or`, `not` for *scalar* logic, and `&`, `|`, `~` for *vectorized* logic in `numpy`/`polars` expressions.
+
+``` python
+True and False # scalar
+
+# vectorized:
+df.filter((pl.col("a") > 0) & (pl.col("b") < 10))
+```
+
+**Vectorization**
+
+::: {layout="[50,50]" layout-valign="top"}
+In R, vectors are first-class, so most operations apply element-wise by default.
+
+In Python, native `list` is *not* vectorized; for that you reach for `numpy` arrays or `polars` Series / expressions.
+:::
+
+::: {layout="[50,50]" layout-valign="top"}
+``` r
+c(1, 2, 3) * 2
+# returns c(2, 4, 6)
+```
+
+``` python
+import polars as pl
+pl.Series([1, 2, 3]) * 2
+# returns Series [2, 4, 6]
+```
+:::
+:::::::
 
 ### The Subscription Audit Math {.unnumbered}
 
 A simple but powerful calculation.
 
-**Formula:** Monthly Subscription × 12 × (1.07)^n = Opportunity cost in *n* years
+**Formula:** Monthly Subscription × 12 × (1.07)\^n = Opportunity cost in *n* years
 
-Example: A $20/month subscription you don't really use, over 30 years:
+Example: A \$20/month subscription you don't really use, over 30 years:
 
-- Annual cost: $240
-- Invested at 7% real return for 30 years: **~$24,000**
+- Annual cost: \$240
+- Invested at 7% real return for 30 years: **\~\$24,000**
 
-That "small" $20/month is a $24,000 decision. **Audit accordingly.**
+That "small" \$20/month is a \$24,000 decision. **Audit accordingly.**
+
+## Key takeaways
+
+Tracking is the *recording* side of personal finance; without it, your budget is just a guess. Five rules keep it sustainable:
+
+1.  **Pick one capture method and run it for a month.** Spending journal, checkbook register, cash envelopes, or pulling bank statements — any of them work. Switching every week works for nobody.
+
+2.  **Keep your categories small and stable.** Six to ten buckets is plenty. Stability is what makes month-to-month comparisons meaningful; rotating "smart" categories destroys the very signal you're trying to build.
+
+3.  **Schedule a monthly review and limit yourself to *one* change.** Pull the statements, categorize, compare against your budget, and pick the single biggest leak to plug. Twelve small adjustments per year compound into a budget that actually fits your life.
+
+4.  **Audit subscriptions every quarter.** They're individually small, collectively enormous, and trivially canceled. A \$20/month service you don't really use is roughly a \$24,000 decision over thirty years (see the audit math above), so [Sethi's](https://www.iwillteachyoutoberich.com/) "cut mercilessly on what you don't love" lands hardest here.
+
+5.  **Simplicity wins.** As Bogle would have it for investing, the same applies to tracking: a spreadsheet you'll actually open beats any app you won't.
+
+The point of tracking isn't a perfect ledger; it's the feedback loop. When you can see where your money actually went, next month's allocation in [Budgeting](budgeting.qmd) becomes a decision rather than a guess.
