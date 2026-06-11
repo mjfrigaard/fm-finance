@@ -619,89 +619,176 @@ flowchart TD
 </section>
 <section id="math-for-income" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="math-for-income"><span class="header-section-number">1.7</span> Math for Income</h2>
-<p>The income chapter is mostly about behavior, but the numbers below can turn that behavior into something you can track. Each calculation below is also written as an R and Python function, following the same pattern introduced in the <a href="./budgeting.html">Budgeting</a> chapter.</p>
+<p>The income chapter is mostly about behavior, but the numbers below can turn that behavior into something you can track. Each calculation below is also written as an R and Python function, which are covered in the callout box below.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>R vs Python: assignment and functions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The first two differences you’ll see between R and Python in this book are how each language <em>names</em> things and how each language <em>defines functions</em>.</p>
+<p><strong>Assignment</strong></p>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>R uses <code>&lt;-</code> by convention (<code>=</code> also works).</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Python uses <code>=</code>.</p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p><strong>Function definition</strong></p>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>R uses <code>function()</code> and assigns the result to a name. The body is wrapped in curly braces <code>{}</code>.</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Python uses the <code>def</code> keyword, followed by a colon and an indented body.</p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>add_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  a <span class="sc">+</span> b</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_fun(a, b):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <section id="the-fixed-cost-ratio" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="the-fixed-cost-ratio">The Fixed-Cost Ratio</h3>
 <p>Fixed costs (rent, loan payments, insurance, utilities) are the commitments you can’t easily change month to month. Keeping them under ~60% of take-home pay leaves room to save <em>and</em> to spend on what you love without guilt.</p>
 <p><strong>Formula:</strong> Fixed-Cost Ratio = Fixed Costs ÷ Take-Home Pay × 100</p>
-<p>Example: $2,700 of fixed costs on $5,000 take-home → 54%, just under the ceiling.</p>
+<p>Example: $2,700 of fixed costs on $5,000 take-home</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Below is an implementation of this function in R:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>fixed_cost_ratio <span class="ot">&lt;-</span> <span class="cf">function</span>(fixed_costs, take_home) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  (fixed_costs <span class="sc">/</span> take_home) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># $2,700 of fixed costs on $5,000 take-home pay</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">fixed_cost_ratio</span>(<span class="at">fixed_costs =</span> <span class="dv">2700</span>, <span class="at">take_home =</span> <span class="dv">5000</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 54</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fixed_cost_ratio <span class="ot">&lt;-</span> <span class="cf">function</span>(fixed_costs, take_home) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  (fixed_costs <span class="sc">/</span> take_home) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>$2,700 of fixed costs on $5,000 take-home pay</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixed_cost_ratio</span>(<span class="at">fixed_costs =</span> <span class="dv">2700</span>, <span class="at">take_home =</span> <span class="dv">5000</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 54</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>The same formula in Python:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fixed_cost_ratio(fixed_costs, take_home):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (fixed_costs <span class="op">/</span> take_home) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># $2,700 of fixed costs on $5,000 take-home pay</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>fixed_cost_ratio(fixed_costs<span class="op">=</span><span class="dv">2700</span>, take_home<span class="op">=</span><span class="dv">5000</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 54.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fixed_cost_ratio(fixed_costs, take_home):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (fixed_costs <span class="op">/</span> take_home) <span class="op">*</span> <span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>$2,700 of fixed costs on $5,000 take-home pay</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixed_cost_ratio</span>(<span class="at">fixed_costs=</span><span class="dv">2700</span>, <span class="at">take_home=</span><span class="dv">5000</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 54</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
 </div>
 </div>
+<p>This results in a 54% fixed-cost ratio – just under the ceiling!</p>
 </section>
 <section id="what-a-raise-is-really-worth" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="what-a-raise-is-really-worth">What a Raise Is Really Worth</h3>
 <p>“Split the raise” only pays off if the saved half is actually invested. Putting half of a monthly raise into the market for a few decades shows why the <em>habit</em> matters more than the dollar amount.</p>
 <p><strong>Formula:</strong> FV = PMT × [((1 + r)^n − 1) ÷ r]</p>
-<p>This is the future-value-of-contributions formula from <a href="./investing_basics.html">Investing Basics</a>, where PMT is the amount invested each month, <em>r</em> is the monthly return, and <em>n</em> is the number of months.</p>
-<p>Example: a $400/month raise, half of it invested ($200/month) for 25 years at a 7% annual return → <strong>~$162,000</strong>.</p>
+<p>PMT is the amount invested each month, <em>r</em> is the monthly return, and <em>n</em> is the number of months. We will revisit this future-value-of-contributions formula in the <a href="./investing_basics.html">Investing Basics</a> chapter.</p>
+<p>Example: a $400/month raise, half of it invested ($200/month) for 25 years at a 7% annual return:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Here is an example of this function in R:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>raise_invested_value <span class="ot">&lt;-</span> <span class="cf">function</span>(monthly_raise, invest_share, rate, years) {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  contribution <span class="ot">&lt;-</span> monthly_raise <span class="sc">*</span> invest_share</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  monthly_rate <span class="ot">&lt;-</span> rate <span class="sc">/</span> <span class="dv">12</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  periods      <span class="ot">&lt;-</span> years <span class="sc">*</span> <span class="dv">12</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  contribution <span class="sc">*</span> (((<span class="dv">1</span> <span class="sc">+</span> monthly_rate)<span class="sc">^</span>periods <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> monthly_rate)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># half of a $400/month raise, invested for 25 years at 7%</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">raise_invested_value</span>(<span class="at">monthly_raise =</span> <span class="dv">400</span>, <span class="at">invest_share =</span> <span class="fl">0.5</span>, <span class="at">rate =</span> <span class="fl">0.07</span>, <span class="at">years =</span> <span class="dv">25</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 162014.3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>raise_invested_value <span class="ot">&lt;-</span> <span class="cf">function</span>(monthly_raise, invest_share, rate, years) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  contribution <span class="ot">&lt;-</span> monthly_raise <span class="sc">*</span> invest_share</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  monthly_rate <span class="ot">&lt;-</span> rate <span class="sc">/</span> <span class="dv">12</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  periods      <span class="ot">&lt;-</span> years <span class="sc">*</span> <span class="dv">12</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  contribution <span class="sc">*</span> (((<span class="dv">1</span> <span class="sc">+</span> monthly_rate)<span class="sc">^</span>periods <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> monthly_rate)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Half of a $400/month raise, invested for 25 years at 7%</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">raise_invested_value</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">monthly_raise =</span> <span class="dv">400</span>, </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">invest_share =</span> <span class="fl">0.5</span>, </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">rate =</span> <span class="fl">0.07</span>, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">years =</span> <span class="dv">25</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 162014.3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Below is the same function in Python:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> raise_invested_value(monthly_raise, invest_share, rate, years):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    contribution <span class="op">=</span> monthly_raise <span class="op">*</span> invest_share</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    monthly_rate <span class="op">=</span> rate <span class="op">/</span> <span class="dv">12</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    periods <span class="op">=</span> years <span class="op">*</span> <span class="dv">12</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> contribution <span class="op">*</span> (((<span class="dv">1</span> <span class="op">+</span> monthly_rate) <span class="op">**</span> periods <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> monthly_rate)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># half of a $400/month raise, invested for 25 years at 7%</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>raise_invested_value(monthly_raise<span class="op">=</span><span class="dv">400</span>, invest_share<span class="op">=</span><span class="fl">0.5</span>, rate<span class="op">=</span><span class="fl">0.07</span>, years<span class="op">=</span><span class="dv">25</span>)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 162014.33860462217</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> raise_invested_value(monthly_raise, invest_share, rate, years):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    contribution <span class="op">=</span> monthly_raise <span class="op">*</span> invest_share</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    monthly_rate <span class="op">=</span> rate <span class="op">/</span> <span class="dv">12</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    periods <span class="op">=</span> years <span class="op">*</span> <span class="dv">12</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> contribution <span class="op">*</span> (((<span class="dv">1</span> <span class="op">+</span> monthly_rate) <span class="op">**</span> periods <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> monthly_rate)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Half of a $400/month raise, invested for 25 years at 7%</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>raise_invested_value(monthly_raise<span class="op">=</span><span class="dv">400</span>, invest_share<span class="op">=</span><span class="fl">0.5</span>, rate<span class="op">=</span><span class="fl">0.07</span>, years<span class="op">=</span><span class="dv">25</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 162014.33860462217</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
 </div>
 </div>
+<p>We can see this results in over $160K!</p>
 </section>
 </section>
 <section id="key-takeaways" class="level2" data-number="1.8">

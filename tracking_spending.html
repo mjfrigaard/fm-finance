@@ -382,6 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#the-subscription-audit-math" id="toc-the-subscription-audit-math" class="nav-link" data-scroll-target="#the-subscription-audit-math">The Subscription Audit Math</a></li>
   </ul></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways"><span class="header-section-number">2.7</span> Key takeaways</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/tracking_spending.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -825,7 +826,14 @@ flowchart TD
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Excel</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p><code>dplyr::case_when()</code> evaluates each pattern in order and assigns the matching category. <code>grepl()</code> does the keyword test against <code>Description</code>. The final <code>TRUE</code> arm catches everything that didn’t match and labels it <code>"Other"</code>.</p>
+<p>In R, a lookup table can be created using the following</p>
+<ul>
+<li><p><code>dplyr::case_when()</code> evaluates each pattern in order and assigns the matching category</p>
+<ul>
+<li><code>grepl()</code> does the keyword test against <code>Description</code></li>
+</ul></li>
+<li><p>The final <code>TRUE</code> arm catches everything that didn’t match and labels it <code>"Other"</code></p></li>
+</ul>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
@@ -965,7 +973,17 @@ flowchart TD
 </div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p><code>polars</code> mirrors <code>dplyr</code> closely: <code>with_columns()</code> is the <code>mutate()</code> analog, and a chain of <code>pl.when().then()</code> calls is the <code>case_when()</code> analog. <code>pl.col("Description").str.contains(...)</code> does the keyword test (regex by default and the <code>|</code> between merchants is alternation).</p>
+<p><code>polars</code> closely mirrors the <code>dplyr</code> code:</p>
+<ul>
+<li><p><code>with_columns()</code> is the <code>mutate()</code> analog</p>
+<ul>
+<li>a chain of <code>pl.when().then()</code> calls is the <code>case_when()</code> analog</li>
+</ul></li>
+<li><p><code>pl.col("Description").str.contains(...)</code> does the keyword test</p>
+<ul>
+<li>regex by default and the <code>|</code> between merchants is alternation</li>
+</ul></li>
+</ul>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
@@ -1117,7 +1135,15 @@ flowchart TD
 </div>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<p>In Excel, the <code>IFS()</code> function is the direct analog of <code>case_when()</code>/<code>when().then()</code>: a list of conditions and corresponding values, evaluated top to bottom, with the first match winning. <code>SEARCH()</code> returns the position of a keyword in a cell (or <code>#VALUE!</code> if not found), and wrapping it in <code>ISNUMBER()</code> turns that into a true/false test. For categories with several merchants, wrap the tests in <code>OR()</code>.</p>
+<p>In Excel, the <code>IFS()</code> function is the direct analog of <code>case_when()</code>/<code>when().then()</code>:</p>
+<ul>
+<li><p>A list of conditions and corresponding values, evaluated top to bottom, with the first match winning</p></li>
+<li><p><code>SEARCH()</code> returns the position of a keyword in a cell (or <code>#VALUE!</code> if not found)</p></li>
+<li><p>Wrapping it in <code>ISNUMBER()</code> turns that into a true/false test</p>
+<ul>
+<li>For categories with several merchants, wrap the tests in <code>OR()</code></li>
+</ul></li>
+</ul>
 <p>Assume your statement is laid out with <code>Date</code> in column <strong>A</strong>, <code>Description</code> in column <strong>B</strong>, and <code>Amount</code> in column <strong>C</strong>. Type <code>Category</code> in cell <strong>D1</strong>, then paste this formula into <strong>D2</strong>:</p>
 <pre class="excel"><code>=IFS(
   ISNUMBER(SEARCH("Payroll", B2)),                                                                            "Income",
@@ -1131,8 +1157,68 @@ flowchart TD
   ISNUMBER(SEARCH("Geico", B2)),                                                                              "Insurance",
   TRUE,                                                                                                       "Other"
 )</code></pre>
-<p>Then copy <strong>D2</strong> down through every transaction row (select <strong>D2</strong>, double-click the small square in the bottom-right corner, or use <strong>Ctrl+D</strong> after selecting <code>D2:D{last_row}</code>). The final <code>TRUE, "Other"</code> arm is the equivalent of <code>dplyr</code>’s <code>TRUE ~ "Other"</code> and polars’s <code>.otherwise(...)</code>; it catches anything that didn’t match an earlier pattern.</p>
+<p>Then copy <strong>D2</strong> down through every transaction row (select <strong>D2</strong>, double-click the small square in the bottom-right corner, or use <strong>Ctrl+D</strong> after selecting <code>D2:D{last_row}</code>).</p>
+<p>The final <code>TRUE, "Other"</code> arm is the equivalent of <code>dplyr</code>’s <code>TRUE ~ "Other"</code> and <code>polars</code>’s <code>.otherwise(...)</code>; it catches anything that didn’t match an earlier pattern.</p>
 <p>To add a new merchant when one shows up: edit the formula in <strong>D2</strong>, then re-fill down. Keep the new merchant near the bottom of its category group so the existing patterns still resolve first.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>R vs Python: data frames and pipes
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Two ideas the categorization code above relies on:</p>
+<p><strong>Data frames</strong></p>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>R’s <code>data.frame</code> is built into the base language; the <code>tibble</code> is the modern replacement (used throughout this book).</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Python has no built-in data frame — you need a library; we use <code>polars</code> (<code>pl.DataFrame</code>).</p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({<span class="st">"x"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p><strong>Pipes / chaining</strong></p>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>R has a native pipe <code>|&gt;</code> (also <code>%&gt;%</code> from <code>magrittr</code>/<code>dplyr</code>) for left-to-right reading: data flows from one function into the next.</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Python has no native pipe; the same effect comes from chaining method calls, which <code>polars</code> is designed for.</p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(x <span class="sc">&gt;</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">filter</span>(pl.col(<span class="st">"x"</span>) <span class="op">&gt;</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1198,6 +1284,82 @@ flowchart TD
 <section id="math-for-tracking-spending" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="math-for-tracking-spending"><span class="header-section-number">2.6</span> Math for tracking spending</h2>
 <p>Below are some tips and tools for tracking spending. Some can be used to easily categorize purchases, others can be used to check the amount you’re spending on subscriptions.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>R vs Python: booleans, logicals, and vectorization
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The categorization code above uses all three of these ideas at once to create the keyword test:</p>
+<ol type="1">
+<li><p>We use <code>grepl()</code> / <code>str.contains()</code>) to return a true/false result for every row at once</p></li>
+<li><p>Then logical-OR alternation chooses between merchants</p></li>
+<li><p>The final fall-through catches anything that didn’t match</p></li>
+</ol>
+<p>Below is a quick summary of these topics in R and Python.</p>
+<p><strong>Boolean values</strong></p>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>R writes them <code>TRUE</code> / <code>FALSE</code> (sometimes abbreviated <code>T</code>/<code>F</code>).</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Python writes them <code>True</code> / <code>False</code>, capitalized, no abbreviation.</p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>flag <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>flag <span class="op">=</span> <span class="va">True</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p><strong>Logical operators</strong></p>
+<p>R uses <code>&amp;</code>, <code>|</code>, <code>!</code> for <em>vectorized</em> element-wise logic (and <code>&amp;&amp;</code>, <code>||</code> for scalar logic).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>) <span class="sc">&amp;</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>) <span class="co"># vectorized</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">&amp;&amp;</span> <span class="cn">FALSE</span>  <span class="co"># scalar</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Python uses <code>and</code>, <code>or</code>, <code>not</code> for <em>scalar</em> logic, and <code>&amp;</code>, <code>|</code>, <code>~</code> for <em>vectorized</em> logic in <code>numpy</code>/<code>polars</code> expressions.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="kw">and</span> <span class="va">False</span> <span class="co"># scalar</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># vectorized:</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">filter</span>((pl.col(<span class="st">"a"</span>) <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">&amp;</span> (pl.col(<span class="st">"b"</span>) <span class="op">&lt;</span> <span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vectorization</strong></p>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>In R, vectors are first-class, so most operations apply element-wise by default.</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>In Python, native <code>list</code> is <em>not</em> vectorized; for that you reach for <code>numpy</code> arrays or <code>polars</code> Series / expressions.</p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># returns c(2, 4, 6)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>pl.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]) <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># returns Series [2, 4, 6]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <section id="the-subscription-audit-math" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="the-subscription-audit-math">The Subscription Audit Math</h3>
 <p>A simple but powerful calculation.</p>
@@ -1208,9 +1370,21 @@ flowchart TD
 <li>Invested at 7% real return for 30 years: <strong>~$24,000</strong></li>
 </ul>
 <p>That “small” $20/month is a $24,000 decision. <strong>Audit accordingly.</strong></p>
-
-
 </section>
+</section>
+<section id="key-takeaways" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="key-takeaways"><span class="header-section-number">2.7</span> Key takeaways</h2>
+<p>Tracking is the <em>recording</em> side of personal finance; without it, your budget is just a guess. Five rules keep it sustainable:</p>
+<ol type="1">
+<li><p><strong>Pick one capture method and run it for a month.</strong> Spending journal, checkbook register, cash envelopes, or pulling bank statements — any of them work. Switching every week works for nobody.</p></li>
+<li><p><strong>Keep your categories small and stable.</strong> Six to ten buckets is plenty. Stability is what makes month-to-month comparisons meaningful; rotating “smart” categories destroys the very signal you’re trying to build.</p></li>
+<li><p><strong>Schedule a monthly review and limit yourself to <em>one</em> change.</strong> Pull the statements, categorize, compare against your budget, and pick the single biggest leak to plug. Twelve small adjustments per year compound into a budget that actually fits your life.</p></li>
+<li><p><strong>Audit subscriptions every quarter.</strong> They’re individually small, collectively enormous, and trivially canceled. A $20/month service you don’t really use is roughly a $24,000 decision over thirty years (see the audit math above), so <a href="https://www.iwillteachyoutoberich.com/">Sethi’s</a> “cut mercilessly on what you don’t love” lands hardest here.</p></li>
+<li><p><strong>Simplicity wins.</strong> As Bogle would have it for investing, the same applies to tracking: a spreadsheet you’ll actually open beats any app you won’t.</p></li>
+</ol>
+<p>The point of tracking isn’t a perfect ledger; it’s the feedback loop. When you can see where your money actually went, next month’s allocation in <a href="./budgeting.html">Budgeting</a> becomes a decision rather than a guess.</p>
+
+
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
