@@ -80,6 +80,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-9db5bf83f40130dec57236cccb65fb39.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -417,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Reviewing on a monthly cadence</li>
 <li>Spotting “leak” categories (subscriptions, delivery fees, impulse buys)</li>
 </ul>
-<p>Tracking is the <em>recording</em> side of personal finance. <a href="./budgeting.html">Budgeting</a> covers the <em>allocation</em> side (where money is supposed to go). Without tracking, a budget is a guess; with tracking, it becomes a feedback loop.</p>
+<p>Tracking is the <em>tracking</em> side of personal finance. <a href="./budgeting.html">Budgeting</a> covers the <em>allocation</em> side (where money is supposed to go). Without tracking, a budget is a guess; with tracking, it becomes a feedback loop.</p>
 <style>
 
 .codeStyle span:not(.nodeLabel) {
@@ -481,15 +484,15 @@ flowchart TD
 </section>
 <section id="using-spreadsheets" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="using-spreadsheets"><span class="header-section-number">2.2</span> Using Spreadsheets</h2>
-<p>Digital tracking is the bank-statement method above, but with the math done for you. Most banks allow you to export your monthly statement, which includes three columns: <strong>date</strong>, <strong>description</strong>, and <strong>amount</strong> (negative for money going out, positive for money coming in).</p>
+<p>Digital tracking is the bank-statement method above, but with the math done for you. Most banks allow you to export your monthly statement, which includes three columns: <code>Date</code>, <code>Description</code>, and <code>Amount</code> (negative for money going out, positive for money coming in).</p>
 <p>The exported statement almost never includes a category, but you can add it yourself, and we’ll do it in <a href="#categorizing-transactions">Categorizing Transactions</a> below.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Excel</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>Create the <code>bank_statement</code> data in R:</p>
 <div class="cell">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>show/hide R bank_statement</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>r_bank_statement <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Date =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(</span>
@@ -633,7 +636,7 @@ flowchart TD
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>Create the <code>bank_statement</code> data in Python (with <code>polars</code>):</p>
 <div class="cell">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>show/hide Python bank_statement</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -789,6 +792,19 @@ flowchart TD
 </div>
 </div>
 </div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>The <code>bank_statement</code> can also be copied + pasted into Excel:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/tracking_spending-bank-statement.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="bank_statement in Excel"><img src="img/tracking_spending-bank-statement.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="bank_statement in Excel"></a></p>
+</figure>
+</div>
+<figcaption><code>bank_statement</code> in Excel</figcaption>
+</figure>
+</div>
+</div>
 </div>
 </div>
 <p>Once your transactions sit in columns and rows, it’s much easier to answer tracking questions like:</p>
@@ -800,6 +816,65 @@ flowchart TD
 <li>What was my biggest variable category last month?</li>
 </ol>
 <p><a href="https://www.bogleheads.org/">Bogle</a> would approve of building a custom spreadsheet because simplicity wins. A well-built spreadsheet beats most apps because it forces you to engage with your numbers.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>R vs Python: data frames and pipes
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Two ideas the categorization code above relies on:</p>
+<p><strong>Data frames</strong></p>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>R’s <code>data.frame</code> is built into the base language; the <code>tibble</code> is the modern replacement (used throughout this book).</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Python has no built-in data frame — you need a library; we use <code>polars</code> (<code>pl.DataFrame</code>).</p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({<span class="st">"x"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p><strong>Pipes / chaining</strong></p>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>R has a native pipe <code>|&gt;</code> (also <code>%&gt;%</code> from <code>magrittr</code>/<code>dplyr</code>) for left-to-right reading: data flows from one function into the next.</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Python has no native pipe; the same effect comes from chaining method calls, which <code>polars</code> is designed for.</p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(x <span class="sc">&gt;</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">filter</span>(pl.col(<span class="st">"x"</span>) <span class="op">&gt;</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="categorizing-transactions" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="categorizing-transactions"><span class="header-section-number">2.3</span> Categorizing Transactions</h2>
@@ -818,8 +893,8 @@ flowchart TD
 </ul>
 <p>Two rules that save hours of bookkeeping:</p>
 <ol type="1">
-<li><strong>When in doubt, “Other”.</strong> Don’t invent a new category for a single transaction. Review the “Other” bucket at month-end and only promote a new category once you’ve seen the same kind of transaction three months in a row.</li>
-<li><strong>Keep the categories stable.</strong> Changing categories every month destroys the comparisons that make tracking useful in the first place.</li>
+<li><span style="color:#48a56a; font-weight: bold;">When in doubt, “Other”.</span> Don’t invent a new category for a single transaction. Review the “Other” bucket at month-end and only promote a new category once you’ve seen the same kind of transaction three months in a row.</li>
+<li><span style="color:#48a56a; font-weight: bold;">Keep the categories stable.</span> Changing categories every month destroys the comparisons that make tracking useful in the first place.</li>
 </ol>
 <p>The <code>bank_statement</code> dataset above only carries what a real bank export gives you(<code>Date</code>, <code>Description</code>, and <code>Amount</code>). To get to a <code>Category</code> column, you have to map descriptions to your buckets yourself. A small lookup of keyword patterns does the job in one pass.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -837,22 +912,22 @@ flowchart TD
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>r_bank_statement <span class="ot">&lt;-</span> r_bank_statement <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Category =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Payroll"</span>,                                   Description) <span class="sc">~</span> <span class="st">"Income"</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Rent"</span>,                                      Description) <span class="sc">~</span> <span class="st">"Housing"</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Comcast|PG&amp;E|AT&amp;T"</span>,                         Description) <span class="sc">~</span> <span class="st">"Utilities"</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Trader Joe|Whole Foods|Costco"</span>,             Description) <span class="sc">~</span> <span class="st">"Groceries"</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Shell"</span>,                                     Description) <span class="sc">~</span> <span class="st">"Transportation"</span>,</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Starbucks|Chipotle"</span>,                        Description) <span class="sc">~</span> <span class="st">"Dining"</span>,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Netflix|Spotify|NYTimes|24 Hour Fitness"</span>,   Description) <span class="sc">~</span> <span class="st">"Subscriptions"</span>,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Geico"</span>,                                     Description) <span class="sc">~</span> <span class="st">"Insurance"</span>,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>                                                            <span class="sc">~</span> <span class="st">"Other"</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>r_bank_statement <span class="sc">|&gt;</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>r_bank_statement <span class="ot">&lt;-</span> r_bank_statement <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Category =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Payroll"</span>,                                   Description) <span class="sc">~</span> <span class="st">"Income"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Rent"</span>,                                      Description) <span class="sc">~</span> <span class="st">"Housing"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Comcast|PG&amp;E|AT&amp;T"</span>,                         Description) <span class="sc">~</span> <span class="st">"Utilities"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Trader Joe|Whole Foods|Costco"</span>,             Description) <span class="sc">~</span> <span class="st">"Groceries"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Shell"</span>,                                     Description) <span class="sc">~</span> <span class="st">"Transportation"</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Starbucks|Chipotle"</span>,                        Description) <span class="sc">~</span> <span class="st">"Dining"</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Netflix|Spotify|NYTimes|24 Hour Fitness"</span>,   Description) <span class="sc">~</span> <span class="st">"Subscriptions"</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Geico"</span>,                                     Description) <span class="sc">~</span> <span class="st">"Insurance"</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>                                                            <span class="sc">~</span> <span class="st">"Other"</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>r_bank_statement <span class="sc">|&gt;</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -987,19 +1062,19 @@ flowchart TD
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>py_bank_statement <span class="op">=</span> py_bank_statement.with_columns(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    Category <span class="op">=</span> pl.when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Payroll"</span>)).then(pl.lit(<span class="st">"Income"</span>))</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Rent"</span>)).then(pl.lit(<span class="st">"Housing"</span>))</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Comcast|PG&amp;E|AT&amp;T"</span>)).then(pl.lit(<span class="st">"Utilities"</span>))</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Trader Joe|Whole Foods|Costco"</span>)).then(pl.lit(<span class="st">"Groceries"</span>))</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Shell"</span>)).then(pl.lit(<span class="st">"Transportation"</span>))</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Starbucks|Chipotle"</span>)).then(pl.lit(<span class="st">"Dining"</span>))</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Netflix|Spotify|NYTimes|24 Hour Fitness"</span>)).then(pl.lit(<span class="st">"Subscriptions"</span>))</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Geico"</span>)).then(pl.lit(<span class="st">"Insurance"</span>))</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        .otherwise(pl.lit(<span class="st">"Other"</span>))</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>py_bank_statement</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>py_bank_statement <span class="op">=</span> py_bank_statement.with_columns(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    Category <span class="op">=</span> pl.when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Payroll"</span>)).then(pl.lit(<span class="st">"Income"</span>))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Rent"</span>)).then(pl.lit(<span class="st">"Housing"</span>))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Comcast|PG&amp;E|AT&amp;T"</span>)).then(pl.lit(<span class="st">"Utilities"</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Trader Joe|Whole Foods|Costco"</span>)).then(pl.lit(<span class="st">"Groceries"</span>))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Shell"</span>)).then(pl.lit(<span class="st">"Transportation"</span>))</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Starbucks|Chipotle"</span>)).then(pl.lit(<span class="st">"Dining"</span>))</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Netflix|Spotify|NYTimes|24 Hour Fitness"</span>)).then(pl.lit(<span class="st">"Subscriptions"</span>))</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Geico"</span>)).then(pl.lit(<span class="st">"Insurance"</span>))</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        .otherwise(pl.lit(<span class="st">"Other"</span>))</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>py_bank_statement</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div><style>
@@ -1135,162 +1210,52 @@ flowchart TD
 </div>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<p>In Excel, the <code>IFS()</code> function is the direct analog of <code>case_when()</code>/<code>when().then()</code>:</p>
+<p>In Excel, the <a href="https://support.microsoft.com/en-US/Excel/IFS-function"><code>IFS()</code> function</a> is the direct analog of <code>case_when()</code>/<code>when().then()</code>:</p>
 <ul>
 <li><p>A list of conditions and corresponding values, evaluated top to bottom, with the first match winning</p></li>
 <li><p><code>SEARCH()</code> returns the position of a keyword in a cell (or <code>#VALUE!</code> if not found)</p></li>
 <li><p>Wrapping it in <code>ISNUMBER()</code> turns that into a true/false test</p>
 <ul>
-<li>For categories with several merchants, wrap the tests in <code>OR()</code></li>
+<li>For categories with several rows/transactions, wrap the tests in <code>OR()</code></li>
 </ul></li>
 </ul>
-<p>Assume your statement is laid out with <code>Date</code> in column <strong>A</strong>, <code>Description</code> in column <strong>B</strong>, and <code>Amount</code> in column <strong>C</strong>. Type <code>Category</code> in cell <strong>D1</strong>, then paste this formula into <strong>D2</strong>:</p>
-<pre class="excel"><code>=IFS(
-  ISNUMBER(SEARCH("Payroll", B2)),                                                                            "Income",
-  ISNUMBER(SEARCH("Rent", B2)),                                                                               "Housing",
-  OR(ISNUMBER(SEARCH("Comcast",B2)), ISNUMBER(SEARCH("PG&amp;E",B2)), ISNUMBER(SEARCH("AT&amp;T",B2))),               "Utilities",
-  OR(ISNUMBER(SEARCH("Trader Joe",B2)), ISNUMBER(SEARCH("Whole Foods",B2)), ISNUMBER(SEARCH("Costco",B2))),   "Groceries",
-  ISNUMBER(SEARCH("Shell", B2)),                                                                              "Transportation",
-  OR(ISNUMBER(SEARCH("Starbucks",B2)), ISNUMBER(SEARCH("Chipotle",B2))),                                      "Dining",
-  OR(ISNUMBER(SEARCH("Netflix",B2)), ISNUMBER(SEARCH("Spotify",B2)),
-     ISNUMBER(SEARCH("NYTimes",B2)), ISNUMBER(SEARCH("24 Hour Fitness",B2))),                                 "Subscriptions",
-  ISNUMBER(SEARCH("Geico", B2)),                                                                              "Insurance",
-  TRUE,                                                                                                       "Other"
-)</code></pre>
-<p>Then copy <strong>D2</strong> down through every transaction row (select <strong>D2</strong>, double-click the small square in the bottom-right corner, or use <strong>Ctrl+D</strong> after selecting <code>D2:D{last_row}</code>).</p>
+<p>Assume your statement is laid out with <code>Date</code> in column <code>A</code>, <code>Description</code> in column <code>B</code>, and <code>Amount</code> in column <code>C</code>. Type <code>Category</code> in cell <code>D1</code>, then paste this formula into <code>D2</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>IFS<span class="op">(</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Payroll"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Income"</span><span class="op">,</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Rent"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Housing"</span><span class="op">,</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  OR<span class="op">(</span>ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Comcast"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"PG&amp;E"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"AT&amp;T"</span><span class="op">,</span>B2<span class="op">))),</span> <span class="st">"Utilities"</span><span class="op">,</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  OR<span class="op">(</span>ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Trader Joe"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Whole Foods"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Costco"</span><span class="op">,</span>B2<span class="op">))),</span> <span class="st">"Groceries"</span><span class="op">,</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Shell"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Transportation"</span><span class="op">,</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  OR<span class="op">(</span>ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Starbucks"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Chipotle"</span><span class="op">,</span>B2<span class="op">))),</span> <span class="st">"Dining"</span><span class="op">,</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  OR<span class="op">(</span>ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Netflix"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Spotify"</span><span class="op">,</span>B2<span class="op">)),</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>     ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"NYTimes"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"24 Hour Fitness"</span><span class="op">,</span>B2<span class="op">))),</span> <span class="st">"Subscriptions"</span><span class="op">,</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Geico"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Insurance"</span><span class="op">,</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  TRUE<span class="op">,</span> <span class="st">"Other"</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then copy <code>D2</code> down through every transaction row (select <code>D2</code>, double-click the small square in the bottom-right corner, or use <code>Ctrl+D</code> after selecting <code>D2:D{last_row}</code>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/tracking_spending-ifs.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="IFS() in Excel"><img src="img/tracking_spending-ifs.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="IFS() in Excel"></a></p>
+</figure>
+</div>
+<figcaption><code>IFS()</code> in Excel</figcaption>
+</figure>
+</div>
 <p>The final <code>TRUE, "Other"</code> arm is the equivalent of <code>dplyr</code>’s <code>TRUE ~ "Other"</code> and <code>polars</code>’s <code>.otherwise(...)</code>; it catches anything that didn’t match an earlier pattern.</p>
-<p>To add a new merchant when one shows up: edit the formula in <strong>D2</strong>, then re-fill down. Keep the new merchant near the bottom of its category group so the existing patterns still resolve first.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>R vs Python: data frames and pipes
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Two ideas the categorization code above relies on:</p>
-<p><strong>Data frames</strong></p>
-<div class="quarto-layout-panel" data-layout="[50,50]">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>R’s <code>data.frame</code> is built into the base language; the <code>tibble</code> is the modern replacement (used throughout this book).</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>Python has no built-in data frame — you need a library; we use <code>polars</code> (<code>pl.DataFrame</code>).</p>
-</div>
-</div>
-</div>
-<div class="quarto-layout-panel" data-layout="[50,50]">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.DataFrame({<span class="st">"x"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<p><strong>Pipes / chaining</strong></p>
-<div class="quarto-layout-panel" data-layout="[50,50]">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>R has a native pipe <code>|&gt;</code> (also <code>%&gt;%</code> from <code>magrittr</code>/<code>dplyr</code>) for left-to-right reading: data flows from one function into the next.</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>Python has no native pipe; the same effect comes from chaining method calls, which <code>polars</code> is designed for.</p>
-</div>
-</div>
-</div>
-<div class="quarto-layout-panel" data-layout="[50,50]">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(x <span class="sc">&gt;</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">filter</span>(pl.col(<span class="st">"x"</span>) <span class="op">&gt;</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
+<p>To add a new merchant when one shows up: edit the formula in <code>D2</code>, then re-fill down. Keep the new merchant near the bottom of its category group so the existing patterns still resolve first.</p>
 </div>
 </div>
 </div>
 <p>Each month, add a new pattern when you see a real transaction that didn’t match. The goal isn’t to classify every edge case up front; the lookup handles 90%+ of your monthly transactions automatically, leaving only the unusual ones to triage by hand.</p>
-</section>
-<section id="the-monthly-review" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="the-monthly-review"><span class="header-section-number">2.4</span> The Monthly Review</h2>
-<p>Tracking is only valuable if you actually look at the totals. A monthly review is a thirty-minute habit, scheduled on the same day each month (i.e., the day after your statements close is a natural anchor).</p>
-<p>The ritual has four steps:</p>
-<ol type="1">
-<li><strong>Pull</strong> the bank and credit-card statements for the month.</li>
-<li><strong>Categorize</strong> every line into your buckets, using whichever capture method you’ve chosen.</li>
-<li><strong>Compare</strong> category totals to your budget. Where did you go over? Where did you come in under?</li>
-<li><strong>Pick one change</strong> for next month. <em>One.</em> The point is sustainable adjustment, not perfection.</li>
-</ol>
-<p>Over a year, twelve small adjustments compound into a budget that actually fits your life. That’s the real return on tracking: the calibration loop, not the spreadsheet itself.</p>
-</section>
-<section id="online-subscriptions" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="online-subscriptions"><span class="header-section-number">2.5</span> Online Subscriptions</h2>
-<p>This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries; they’re individually small but collectively enormous and can silently drain your accounts.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
-
-flowchart TD
-    Subscriptions[Monthly Subscriptions] --&gt; Audit[Quarterly Audit]
-    Audit --&gt; Use[Used in last 30 days?]
-    Use --&gt;|Yes| Worth[Worth the cost?]
-    Use --&gt;|No| Cancel[Cancel Today]
-    Worth --&gt;|Yes| Keep[Keep]
-    Worth --&gt;|No| Cancel
-    Cancel --&gt; Redirect[Redirect to Investments]
-    style Subscriptions fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Audit fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Use fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style Worth fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style Cancel fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Keep fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style Redirect fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-</pre>
-</div>
-<p></p><figcaption> Subscription Audit</figcaption> </figure><p></p>
-</div>
-</div>
-</div>
-<section id="the-subscription-reality-check" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="the-subscription-reality-check">The Subscription Reality Check</h3>
-<p>The average household spends <strong>$200–$300/month</strong> on subscriptions, often without realizing it. At $250/month invested at a 7% real return over 30 years, that’s roughly <strong>$300,000 in lost wealth</strong>.</p>
-<p><strong>Action steps:</strong></p>
-<ol type="1">
-<li>Pull your last 3 months of bank/card statements</li>
-<li>List every recurring charge</li>
-<li>Cancel anything you haven’t actively used in 30 days</li>
-<li>Set a calendar reminder every 90 days to repeat this</li>
-<li>Use one card exclusively for subscriptions to track them easily</li>
-</ol>
-<p>This isn’t deprivation; it’s the <a href="https://www.iwillteachyoutoberich.com/">Sethi</a> principle in action: <strong>cut mercilessly on what you don’t love</strong> so you can spend freely on what you do.</p>
-</section>
-</section>
-<section id="math-for-tracking-spending" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="math-for-tracking-spending"><span class="header-section-number">2.6</span> Math for tracking spending</h2>
-<p>Below are some tips and tools for tracking spending. Some can be used to easily categorize purchases, others can be used to check the amount you’re spending on subscriptions.</p>
-<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>R vs Python: booleans, logicals, and vectorization
+<span class="screen-reader-only">Tip</span>R vs Python: booleans, logicals, and vectorization
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1360,6 +1325,68 @@ flowchart TD
 </div>
 </div>
 </div>
+</section>
+<section id="the-monthly-review" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="the-monthly-review"><span class="header-section-number">2.4</span> The Monthly Review</h2>
+<p>Tracking is only valuable if you actually look at the totals. A monthly review is a thirty-minute habit, scheduled on the same day each month (i.e., the day after your statements close is a natural anchor).</p>
+<p>The ritual has four steps:</p>
+<ol type="1">
+<li><span style="color:#48a56a; font-weight: bold;">Pull</span> the bank and credit-card statements for the month.</li>
+<li><span style="color:#48a56a; font-weight: bold;">Categorize</span> every line into your buckets, using whichever capture method you’ve chosen.</li>
+<li><span style="color:#48a56a; font-weight: bold;">Compare</span> category totals to your budget. Where did you go over? Where did you come in under?</li>
+<li><span style="color:#48a56a; font-weight: bold;">Pick one change</span> for next month. <em>One.</em> The point is sustainable adjustment, not perfection.</li>
+</ol>
+<p>Over a year, twelve small adjustments compound into a budget that actually fits your life. That’s the real return on tracking: the calibration loop, not the spreadsheet itself.</p>
+</section>
+<section id="online-subscriptions" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="online-subscriptions"><span class="header-section-number">2.5</span> Online Subscriptions</h2>
+<p>This is the most overlooked category in personal finance. Streaming, apps, software, memberships, deliveries; they’re individually small but collectively enormous and can silently drain your accounts.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Subscriptions(["Monthly Subscriptions"]) --&gt; Audit("Quarterly Audit")
+    Audit --&gt; Use["Used in last 30 days?"]
+    Use --&gt;|Yes| Worth["Worth the cost?"]
+    Use --&gt;|No| Cancel(["Cancel Today"])
+    Worth --&gt;|Yes| Keep("Keep")
+    Worth --&gt;|No| Cancel
+    Cancel --&gt; Redirect("Redirect to Investments")
+    
+    style Subscriptions fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Audit fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Use fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Worth fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Cancel fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Keep fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Redirect fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+</pre>
+</div>
+<p></p><figcaption> Subscription Audit</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<section id="the-subscription-reality-check" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-subscription-reality-check">The Subscription Reality Check</h3>
+<p>The average household spends <span style="color:#f44242; font-weight: bold;">$200–$300/month</span> on subscriptions, often without realizing it.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> At $250/month invested at a 7% real return over 30 years, that’s roughly <span style="color:#f44242; font-weight: bold;">$300,000 in lost wealth</span>.</p>
+<p><strong>Action steps:</strong></p>
+<ol type="1">
+<li>Pull your last 3 months of bank/card statements</li>
+<li>List every recurring charge</li>
+<li>Cancel anything you haven’t actively used in 30 days</li>
+<li>Set a calendar reminder every 90 days to repeat this</li>
+<li>Use one card exclusively for subscriptions to track them easily</li>
+</ol>
+<p>This isn’t deprivation; it’s the <a href="https://www.iwillteachyoutoberich.com/">Sethi</a> principle in action: <span style="color:#48a56a;font-weight: bold;font-style: italic;">cut mercilessly on what you don’t love</span> so you can spend freely on what you do.</p>
+</section>
+</section>
+<section id="math-for-tracking-spending" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="math-for-tracking-spending"><span class="header-section-number">2.6</span> Math for tracking spending</h2>
+<p>Below are some tips and tools for tracking spending. Some can be used to easily categorize purchases, others can be used to check the amount you’re spending on subscriptions.</p>
 <section id="the-subscription-audit-math" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="the-subscription-audit-math">The Subscription Audit Math</h3>
 <p>A simple but powerful calculation.</p>
@@ -1367,20 +1394,20 @@ flowchart TD
 <p>Example: A $20/month subscription you don’t really use, over 30 years:</p>
 <ul>
 <li>Annual cost: $240</li>
-<li>Invested at 7% real return for 30 years: <strong>~$24,000</strong></li>
+<li>Invested at 7% real return for 30 years: <span style="color:#f44242; font-weight: bold;">~$24,000</span></li>
 </ul>
-<p>That “small” $20/month is a $24,000 decision. <strong>Audit accordingly.</strong></p>
+<p>That “small” $20/month is a $24,000 decision. <span style="color:#48a56a; font-weight: bold;">Audit accordingly.</span></p>
 </section>
 </section>
 <section id="key-takeaways" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="key-takeaways"><span class="header-section-number">2.7</span> Key takeaways</h2>
 <p>Tracking is the <em>recording</em> side of personal finance; without it, your budget is just a guess. Five rules keep it sustainable:</p>
 <ol type="1">
-<li><p><strong>Pick one capture method and run it for a month.</strong> Spending journal, checkbook register, cash envelopes, or pulling bank statements — any of them work. Switching every week works for nobody.</p></li>
-<li><p><strong>Keep your categories small and stable.</strong> Six to ten buckets is plenty. Stability is what makes month-to-month comparisons meaningful; rotating “smart” categories destroys the very signal you’re trying to build.</p></li>
-<li><p><strong>Schedule a monthly review and limit yourself to <em>one</em> change.</strong> Pull the statements, categorize, compare against your budget, and pick the single biggest leak to plug. Twelve small adjustments per year compound into a budget that actually fits your life.</p></li>
-<li><p><strong>Audit subscriptions every quarter.</strong> They’re individually small, collectively enormous, and trivially canceled. A $20/month service you don’t really use is roughly a $24,000 decision over thirty years (see the audit math above), so <a href="https://www.iwillteachyoutoberich.com/">Sethi’s</a> “cut mercilessly on what you don’t love” lands hardest here.</p></li>
-<li><p><strong>Simplicity wins.</strong> As Bogle would have it for investing, the same applies to tracking: a spreadsheet you’ll actually open beats any app you won’t.</p></li>
+<li><p><span style="color:#48a56a; font-weight: bold;">Pick one capture method and run it for a month.</span> Spending journal, checkbook register, cash envelopes, or pulling bank statements — any of them work. Switching every week works for nobody.</p></li>
+<li><p><span style="color:#48a56a; font-weight: bold;">Keep your categories small and stable.</span> Six to ten buckets is plenty. Stability is what makes month-to-month comparisons meaningful; rotating “smart” categories destroys the very signal you’re trying to build.</p></li>
+<li><p><span style="color:#48a56a; font-weight: bold;">Schedule a monthly review and limit yourself to <em>one</em> change.</span> Pull the statements, categorize, compare against your budget, and pick the single biggest leak to plug. Twelve small adjustments per year compound into a budget that actually fits your life.</p></li>
+<li><p><span style="color:#48a56a; font-weight: bold;">Audit subscriptions every quarter.</span> They’re individually small, collectively enormous, and trivially canceled. A $20/month service you don’t really use is roughly a $24,000 decision over thirty years (see the audit math above), so <a href="https://www.iwillteachyoutoberich.com/">Sethi’s</a> “cut mercilessly on what you don’t love” lands hardest here.</p></li>
+<li><p><span style="color:#48a56a; font-weight: bold;">Simplicity wins.</span> As Bogle would have it for investing, the same applies to tracking: a spreadsheet you’ll actually open beats any app you won’t.</p></li>
 </ol>
 <p>The point of tracking isn’t a perfect ledger; it’s the feedback loop. When you can see where your money actually went, next month’s allocation in <a href="./budgeting.html">Budgeting</a> becomes a decision rather than a guess.</p>
 
@@ -1390,6 +1417,7 @@ flowchart TD
 <hr>
 <ol>
 <li id="fn1"><p>Stashing cash around the house was actually quite common for people who lived through the depression. Read more <a href="https://www.chicagotribune.com/2005/04/17/inheritance-hide-and-seek/">here</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>These numbers are reported on <a href="https://www.ngpf.org/blog/question-of-the-day/question-of-the-day-how-much-does-the-average-consumer-spend-per-month-on-subscription-services/">Next Gen Personal Finance</a> and <a href="https://www.cbsnews.com/newyork/news/experts-suggest-taking-stock-of-how-much-your-monthly-subscriptions-really-cost-before-the-end-of-the-year/">CBS News</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1859,6 +1887,38 @@ flowchart TD
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
