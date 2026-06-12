@@ -116,7 +116,7 @@ Fixed and variable expenses should employ different strategies. Periodic expense
 +-----------------------+--------------------------------------------------------------------+
 | **Variable Expenses** | This is the category where most budgeting efforts fail.            |
 |                       |                                                                    |
-|                       | Use [categories with limits]{style="color:#48a56a; font-weight: bold;"}, not line-by-line tracking. |
+|                       | Use categories with limits, not line-by-line tracking.             |
 +-----------------------+--------------------------------------------------------------------+
 | **Periodic Expenses** | These are silent budget killers.                                   |
 |                       |                                                                    |
@@ -171,7 +171,7 @@ These types of budgets provide maximum awareness, make every dollar spent/saved/
 
 ### Percentage-Based Budgeting {.unnumbered}
 
-Allocate by percentages, not dollars. This is the foundation of Sethi's Conscious Spending Plan[^budgeting-1] and similar frameworks (50/30/20, etc.).
+Allocate by percentages, not dollars. This is the foundation of Sethi's Conscious Spending Plan[^budgeting-1] and another popular framework (50/30/20).
 
 [^budgeting-1]: This plan is covered on his [website](https://www.iwillteachyoutoberich.com/conscious-spending-basics/) and in [this Reddit post](https://www.reddit.com/r/singaporefi/comments/1oohihc/do_you_have_your_own_version_of_conscious/)
 
