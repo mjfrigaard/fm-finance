@@ -1,7 +1,18 @@
 set.seed(1014)
 
-# Python dependencies (reticulate uv-managed env) ----
-reticulate::py_require(c("numpy", "polars"))
+# Python environment ----
+# Pin to the project virtualenv before any py_* call so that both
+# py_module_available() and the Python chunks use the same interpreter.
+# required = FALSE lets it fall back gracefully on a fresh machine.
+reticulate::use_virtualenv("r-reticulate", required = FALSE)
+
+# Install any missing packages into whichever Python was just pinned.
+for (.pkg in c("numpy", "polars")) {
+  if (!reticulate::py_module_available(.pkg)) {
+    reticulate::py_install(.pkg, pip = TRUE)
+  }
+}
+rm(.pkg)
 
 # knitr settings ----
 knitr::opts_chunk$set(
