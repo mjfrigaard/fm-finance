@@ -686,9 +686,20 @@ flowchart TD
 </div>
 <section id="the-fixed-cost-ratio" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="the-fixed-cost-ratio">The Fixed-Cost Ratio</h3>
-<p>Fixed costs (rent, loan payments, insurance, utilities) are the commitments you can’t easily change month to month. Keeping them under ~60% of take-home pay leaves room to save <em>and</em> to spend on what you love without guilt.</p>
+<p>Fixed costs (rent, loan payments, insurance, utilities) are the commitments you can’t easily change month to month. The chart below divides an $8,000 take-home into its two parts — fixed and flexible — and marks the 60% ceiling that keeps the rest of the budget healthy.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="income_files/figure-html/fixed-cost-bar-model-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Take-home pay divided into fixed costs and flexible spending ($8,000 total)"><img src="income_files/figure-html/fixed-cost-bar-model-1.png" class="img-fluid figure-img" width="576" alt="Take-home pay divided into fixed costs and flexible spending ($8,000 total)"></a></p>
+<figcaption>Take-home pay divided into fixed costs and flexible spending ($8,000 total)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The formula names the fixed slice as a fraction of the whole bar, converted to a percentage.</p>
 <p><strong>Formula:</strong> Fixed-Cost Ratio = Fixed Costs ÷ Take-Home Pay × 100</p>
-<p>Example: $2,700 of fixed costs on $5,000 take-home</p>
+<p>Example: $4,400 of fixed costs on $8,000 take-home</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Excel</a></li></ul>
 <div class="tab-content">
@@ -702,12 +713,12 @@ flowchart TD
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>$2,700 of fixed costs on $5,000 take-home pay</p>
+<p>$4,400 of fixed costs on $8,000 take-home pay</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixed_cost_ratio</span>(<span class="at">fixed_costs =</span> <span class="dv">2700</span>, <span class="at">take_home =</span> <span class="dv">5000</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 54</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixed_cost_ratio</span>(<span class="at">fixed_costs =</span> <span class="dv">4400</span>, <span class="at">take_home =</span> <span class="dv">8000</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 55</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -720,12 +731,12 @@ flowchart TD
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (fixed_costs <span class="op">/</span> take_home) <span class="op">*</span> <span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>$2,700 of fixed costs on $5,000 take-home pay</p>
+<p>$4,400 of fixed costs on $8,000 take-home pay</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixed_cost_ratio</span>(<span class="at">fixed_costs=</span><span class="dv">2700</span>, <span class="at">take_home=</span><span class="dv">5000</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 54</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixed_cost_ratio</span>(<span class="at">fixed_costs=</span><span class="dv">4400</span>, <span class="at">take_home=</span><span class="dv">8000</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 55</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -737,7 +748,7 @@ flowchart TD
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/income-fixed-cost-ratio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Entering a formula in Excel"><img src="img/income-fixed-cost-ratio.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Entering a formula in Excel"></a></p>
+<p><a href="img/income-fixed-cost-ratio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Entering a formula in Excel"><img src="img/income-fixed-cost-ratio.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Entering a formula in Excel"></a></p>
 </figure>
 </div>
 <figcaption>Entering a formula in Excel</figcaption>
@@ -748,19 +759,19 @@ flowchart TD
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/income-fixed-cost-ratio-perc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Convert to percent"><img src="img/income-fixed-cost-ratio-perc.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Convert to percent"></a></p>
+<p><a href="img/income-fixed-cost-ratio-perc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Convert to percent"><img src="img/income-fixed-cost-ratio-perc.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Convert to percent"></a></p>
 </figure>
 </div>
 <figcaption>Convert to percent</figcaption>
 </figure>
 </div>
 <p>To produce the percent <em>string</em> directly (the analog of R’s <code>paste0(..., "%")</code> and Python’s f-string), use <code>TEXT()</code> instead:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>TEXT<span class="op">(</span>A2<span class="op">/</span>B2<span class="op">,</span> <span class="st">"0.00%"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>TEXT<span class="op">(</span>A2<span class="op">/</span>B2<span class="op">,</span> <span class="st">"0.0%"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/income-fixed-cost-ratio-text-perc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Convert to percent with TEXT"><img src="img/income-fixed-cost-ratio-text-perc.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Convert to percent with TEXT"></a></p>
+<p><a href="img/income-fixed-cost-ratio-text-perc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Convert to percent with TEXT"><img src="img/income-fixed-cost-ratio-text-perc.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Convert to percent with TEXT"></a></p>
 </figure>
 </div>
 <figcaption>Convert to percent with <code>TEXT</code></figcaption>
@@ -769,11 +780,22 @@ flowchart TD
 </div>
 </div>
 </div>
-<p>This results in a 54% fixed-cost ratio – just under the ceiling!</p>
+<p>This results in a 55% fixed-cost ratio – just under the ceiling!</p>
 </section>
 <section id="what-a-raise-is-really-worth" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="what-a-raise-is-really-worth">What a Raise Is Really Worth</h3>
-<p>“Split the raise” only pays off if the saved half is actually invested. Putting half of a monthly raise into the market for a few decades shows why the <em>habit</em> matters more than the dollar amount.</p>
+<p>$200/month doesn’t sound like much. The chart below shows what that single habit produces when invested at 7% over 25 years.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="income_files/figure-html/raise-value-bar-model-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="$200/month invested at 7% — value at each 5-year checkpoint"><img src="income_files/figure-html/raise-value-bar-model-1.png" class="img-fluid figure-img" width="576" alt="$200/month invested at 7% — value at each 5-year checkpoint"></a></p>
+<figcaption>$200/month invested at 7% — value at each 5-year checkpoint</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Each bar is the previous total plus another year of $200/month contributions and their growth — the annuity formula sums all those monthly additions into one calculation.</p>
 <p><strong>Formula:</strong> FV = PMT × [((1 + r)^n − 1) ÷ r]</p>
 <p>PMT is the amount invested each month, <em>r</em> is the monthly return, and <em>n</em> is the number of months. We will revisit this future-value-of-contributions formula in the <a href="./investing_basics.html">Investing Basics</a> chapter.</p>
 <p>Example: a $400/month raise, half of it invested ($200/month) for 25 years at a 7% annual return.</p>
@@ -841,7 +863,7 @@ flowchart TD
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/income-future-value.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Future value in Excel"><img src="img/income-future-value.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Future value in Excel"></a></p>
+<p><a href="img/income-future-value.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Future value in Excel"><img src="img/income-future-value.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Future value in Excel"></a></p>
 </figure>
 </div>
 <figcaption>Future value in Excel</figcaption>
@@ -869,8 +891,8 @@ flowchart TD
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>From <a href="https://www.goodreads.com/quotes/11756295-wealth-is-the-nice-cars-not-purchased-the-diamonds-not">The Psychology of Money</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Read more <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7905187/#sec6">here</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Read more in <a href="https://www.goodreads.com/quotes/11756295-wealth-is-the-nice-cars-not-purchased-the-diamonds-not">Morgan Housel’s The Psychology of Money</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Read more in <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7905187/#sec6">Social class, social self-esteem, and conspicuous consumption.</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>Van Boven, L., &amp; Gilovich, T. (2003). “To do or to have? That is the question.” <em>Journal of Personality and Social Psychology</em>, 85(6), 1193–1202. <a href="https://doi.org/10.1037/0022-3514.85.6.1193" class="uri">https://doi.org/10.1037/0022-3514.85.6.1193</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>Whillans, A. V., Dunn, E. W., Smeets, P., Bekkers, R., &amp; Norton, M. I. (2017). “Buying time promotes happiness.” <em>Proceedings of the National Academy of Sciences</em>, 114(32), 8523–8527. <a href="https://doi.org/10.1073/pnas.1706541114" class="uri">https://doi.org/10.1073/pnas.1706541114</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>Dunn, E. W., Gilbert, D. T., &amp; Wilson, T. D. (2011). “If money doesn’t make you happy, then you probably aren’t spending it right.” <em>Journal of Consumer Psychology</em>, 21(2), 115–125. <a href="https://doi.org/10.1016/j.jcps.2011.02.002" class="uri">https://doi.org/10.1016/j.jcps.2011.02.002</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
