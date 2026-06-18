@@ -40,7 +40,50 @@ Benchmarks to know:
 - **20-30%:** Strong; you're building real wealth
 - **30%+:** Path to early financial independence  
 
-Your savings rate, the share of take-home pay you *don't* spend, is the single number that best predicts how quickly you build wealth. It's Housel's "gap between ego and income," expressed as a percentage.
+Your savings rate is the single lever that determines how fast wealth accumulates. The chart below shows how dramatically the annual savings amount changes as the rate moves from the danger zone to the financial independence path — all on the same $60,000 income.
+
+```{r}
+#| label: savings-rate-bar-model
+#| echo: false
+#| fig-cap: "Annual dollars saved at four savings-rate tiers on a $60,000 income"
+#| fig-asp: 0.50
+library(ggplot2)
+income <- 60000
+tiers <- data.frame(
+  label   = c("8% (danger zone)", "15% (average)", "25% (strong)", "35% (FI path)"),
+  rate    = c(0.08, 0.15, 0.25, 0.35),
+  fill    = c("#f44242", "#0e9aa7", "#48a56a", "#86ddcd"),
+  stringsAsFactors = FALSE
+)
+tiers$saved   <- income * tiers$rate
+tiers$bar_lbl <- paste0("saves $", format(tiers$saved, big.mark = ",", scientific = FALSE), "/yr")
+tiers$label   <- factor(tiers$label, levels = rev(tiers$label))
+
+ggplot(tiers, aes(x = label, y = saved, fill = label)) +
+  geom_col(width = 0.6, colour = "#1C1C1E", linewidth = 0.3) +
+  geom_text(
+    aes(label = bar_lbl),
+    hjust = -0.08,
+    fontface = "bold",
+    size = 3.5,
+    colour = "#1C1C1E"
+  ) +
+  coord_flip() +
+  scale_fill_manual(values = setNames(tiers$fill, tiers$label)) +
+  scale_y_continuous(
+    labels = function(x) paste0("$", format(x, big.mark = ",")),
+    limits = c(0, income * 0.45)
+  ) +
+  labs(x = NULL, y = "Annual savings (on $60,000 income)") +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position = "none",
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank()
+  )
+```
+
+The formula just names the savings slice as a fraction of the whole income bar.
 
 **Formula:** Savings Rate = (Income − Spending) ÷ Income × 100
 

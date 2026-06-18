@@ -69,6 +69,43 @@ In code, the `^` symbol (R) and `**` symbol (Python) both mean "raise to the pow
 
 ### Future Value and the Rule of 72 {.unnumbered}
 
+Each bar below is the previous one multiplied by the same growth factor. The result is not a straight line — it curves upward because each year's growth is applied to a larger base.
+
+```{r}
+#| label: compound-bar-model
+#| echo: false
+#| fig-cap: "$10,000 growing at 7% — value at each checkpoint"
+#| fig-asp: 0.50
+library(ggplot2)
+yrs  <- c(0, 5, 10, 20, 30)
+vals <- round(10000 * (1.07)^yrs)
+bar_colors <- c("#86ddcd", "#5ec8be", "#0e9aa7", "#e07070", "#f44242")
+df_fv <- data.frame(
+  year  = factor(paste0("Year ", yrs), levels = paste0("Year ", yrs)),
+  value = vals,
+  fill  = bar_colors
+)
+ggplot(df_fv, aes(x = year, y = value, fill = fill)) +
+  geom_col(width = 0.6, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_text(
+    aes(label = paste0("$", formatC(value, format = "d", big.mark = ","))),
+    vjust = -0.4, fontface = "bold", size = 3.5
+  ) +
+  scale_fill_identity() +
+  scale_y_continuous(
+    limits = c(0, max(vals) * 1.18),
+    labels = function(x) paste0("$", round(x / 1000), "k")
+  ) +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+Multiplying by (1 + r) once gives next year's value; multiplying by it n times gives the value after n years — that's the formula.
+
 **Formula:** FV = PV × (1 + r)\^n
 
 Where: FV = future value, PV = present value (today's amount), *r* = annual return, *n* = years.
@@ -131,7 +168,62 @@ future_value(present_value=10000, rate=0.07, years=horizons)
 
 ### Future Value of Regular Contributions {.unnumbered}
 
-Most people don't invest a lump sum once; they add money every month. The future value of a stream of equal contributions is:
+Investing a fixed amount every month builds wealth in two ways: the money you put in, and the growth earned on all previous contributions. The chart below separates these two layers so you can see when growth overtakes contributions.
+
+```{r}
+#| label: fv-series-bar-model
+#| echo: false
+#| fig-cap: "$500/month contributions at 7% — contributed vs. gains"
+#| fig-asp: 0.50
+library(ggplot2)
+yrs_vec    <- c(10, 20, 30)
+annual_pmt <- 500 * 12
+contributed <- annual_pmt * yrs_vec
+total       <- annual_pmt * ((1.07^yrs_vec - 1) / 0.07)
+gains       <- total - contributed
+df_series <- data.frame(
+  year        = factor(paste0("Year ", yrs_vec),
+                       levels = paste0("Year ", yrs_vec)),
+  contributed = contributed,
+  gains       = gains
+)
+df_long <- data.frame(
+  year    = rep(df_series$year, 2),
+  amount  = c(df_series$contributed, df_series$gains),
+  layer   = factor(rep(c("Money contributed", "Investment gains"),
+                       each = nrow(df_series)),
+                   levels = c("Investment gains", "Money contributed"))
+)
+totals_lab <- data.frame(
+  year  = df_series$year,
+  total = contributed + gains
+)
+ggplot(df_long, aes(x = year, y = amount, fill = layer)) +
+  geom_col(width = 0.6, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_text(
+    data = totals_lab,
+    aes(x = year, y = total,
+        label = paste0("$", formatC(round(total), format = "d", big.mark = ","))),
+    inherit.aes = FALSE,
+    vjust = -0.4, fontface = "bold", size = 3.5
+  ) +
+  scale_fill_manual(
+    values = c("Money contributed" = "#0e9aa7", "Investment gains" = "#86ddcd")
+  ) +
+  scale_y_continuous(
+    limits = c(0, max(contributed + gains) * 1.15),
+    labels = function(x) paste0("$", round(x / 1000), "k")
+  ) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank(),
+    legend.position    = "top"
+  )
+```
+
+The formula sums all those contribution bars growing at different rates — the annuity formula collapses that sum into a single calculation.
 
 **Formula:** FV = PMT × [((1 + r)\^n − 1) ÷ r]
 
@@ -166,7 +258,42 @@ future_value_series(contribution=500, rate=0.07 / 12, periods=30 * 12)
 
 ### Real (Inflation-Adjusted) Return {.unnumbered}
 
-A 7% return with 3% inflation does *not* leave you 4% richer in spending power; the relationship is multiplicative, not subtractive.
+A 7% nominal return sounds good, but inflation is quietly shrinking the purchasing power of every dollar. The chart below shows the three quantities: the stated return, the inflation cost, and what actually remains.
+
+```{r}
+#| label: real-return-bar-model
+#| echo: false
+#| fig-cap: "Nominal return, inflation, and real return"
+#| fig-asp: 0.50
+library(ggplot2)
+df_rr <- data.frame(
+  label  = factor(
+    c("Nominal return (7%)", "Inflation (3%)", "Real return (~3.9%)"),
+    levels = c("Nominal return (7%)", "Inflation (3%)", "Real return (~3.9%)")
+  ),
+  value  = c(7, 3, (1.07 / 1.03 - 1) * 100),
+  fill   = c("#0e9aa7", "#f44242", "#48a56a")
+)
+ggplot(df_rr, aes(x = label, y = value, fill = fill)) +
+  geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_text(
+    aes(label = paste0(round(value, 1), "%")),
+    vjust = -0.4, fontface = "bold", size = 4
+  ) +
+  scale_fill_identity() +
+  scale_y_continuous(
+    limits = c(0, 9),
+    labels = function(x) paste0(x, "%")
+  ) +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+The real return is what's left after inflation takes its slice — not a simple subtraction, but a ratio, because the percentages compound.
 
 **Formula:** Real Return = (1 + nominal) ÷ (1 + inflation) − 1
 

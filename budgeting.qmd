@@ -272,15 +272,50 @@ Features that don't matter as much: fancy graphs, AI insights, social features. 
 
 ## Budgeting Math
 
-Here's the secret most personal finance content avoids: *budgeting requires only middle-school math.* However, you need to be fluent in a few specific calculations.
+Here's the secret most personal finance content avoids: *budgeting requires only middle-school math.* Each calculation below pairs a visual with a formula and code so the idea, the rule, and the implementation are always together.
 
 ### Percentages (Your Most-Used Skill) {.unnumbered}
 
-You need to instantly answer: "What percentage of my income is X?"
+Think of your monthly income as a single horizontal bar. Every category of spending is a labeled slice of that bar. Asking "what percentage is rent?" is just asking: *how wide is the rent slice compared to the whole bar?*
+
+```{r}
+#| label: pct-bar-model
+#| echo: false
+#| fig-cap: "Rent ($1,500) as a share of a $5,000 paycheck"
+#| fig-asp: 0.25
+library(ggplot2)
+df_pct <- data.frame(
+  label  = c("Rent\n$1,500", "Remaining\n$3,500"),
+  amount = c(1500, 3500)
+)
+ggplot(df_pct, aes(x = "", y = amount, fill = label)) +
+  geom_col(width = 0.5) +
+  geom_text(
+    aes(label = label),
+    position = position_stack(vjust = 0.5),
+    colour = "white", fontface = "bold", size = 4
+  ) +
+  coord_flip() +
+  scale_fill_manual(values = c(
+    "Rent\n$1,500"      = "#f44242",
+    "Remaining\n$3,500" = "#0e9aa7"
+  )) +
+  scale_y_continuous(labels = function(x) paste0("$", format(x, big.mark = ","))) +
+  labs(x = NULL, y = "Monthly income ($5,000)") +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position = "none",
+    axis.text.y     = element_blank(),
+    axis.ticks.y    = element_blank(),
+    panel.grid      = element_blank()
+  )
+```
+
+The formula follows directly from the bar: divide the slice width by the total bar width, then multiply by 100 to express it as a percentage.
 
 **Formula:** (Expense ÷ Income) × 100
 
-Example: Rent is \$1,500, income is \$5,000. → 1,500 ÷ 5,000 = 0.30 → **30% of income on rent.**
+Example: Rent is \$1,500, income is \$5,000. → (1,500 ÷ 5,000) × 100 = **30% of income on rent.**
 
 Practice until you can do this in your head for the big categories.
 
@@ -357,7 +392,41 @@ percent_of_income(expense=1500, income=5000)
 
 ### Annualizing and Monthly-izing {.unnumbered}
 
-The skill of converting between time periods. Budgets fail because people don't see annual costs in monthly terms (or vice versa).
+A \$5 daily coffee doesn't feel expensive. The chart below makes the annual version visible — the same habit at four different time scales.
+
+```{r}
+#| label: annual-bar-model
+#| echo: false
+#| fig-cap: "The same $5/day habit across four time periods"
+#| fig-asp: 0.50
+library(ggplot2)
+df_annual <- data.frame(
+  period = factor(
+    c("Daily\n($5)", "Weekly\n($35)", "Monthly\n($152)", "Annual\n($1,825)"),
+    levels = c("Daily\n($5)", "Weekly\n($35)", "Monthly\n($152)", "Annual\n($1,825)")
+  ),
+  cost = c(5, 35, 152, 1825),
+  fill = c("#86ddcd", "#0e9aa7", "#48a56a", "#f44242")
+)
+ggplot(df_annual, aes(x = period, y = cost, fill = period)) +
+  geom_col(width = 0.6) +
+  geom_text(aes(label = paste0("$", cost)),
+            vjust = -0.4, fontface = "bold", size = 4) +
+  scale_fill_manual(
+    values = setNames(df_annual$fill, as.character(df_annual$period))
+  ) +
+  scale_y_continuous(limits = c(0, 2100),
+                     labels = function(x) paste0("$", x)) +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "none",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+Each bar is the previous bar scaled by the number of periods it contains. The annual bar is 365× the daily bar; the monthly bar is ≈ 4.33× the weekly bar. Those multipliers are the formula.
 
 **Annual → Monthly:** Divide by 12
 
@@ -411,13 +480,43 @@ print(to_monthly(amount=150, period="weekly"))   # $150/week groceries → month
 
 This is Felix's signature framework. [Every dollar spent isn't just that dollar; it's what that dollar could have become.]{style="color:#48a56a; font-weight: bold;"}
 
-**Formula:** Cost × (1 + r)\^n = Opportunity cost in future dollars
+The chart below shows what happens when you choose the used car (\$15,000) over the new one (\$40,000) and invest the \$25,000 difference at 7% per year. Each bar is the previous one grown by one year's return.
 
-Example: A \$40,000 new car vs. a \$15,000 used car. The \$25,000 difference, invested at 7% real return over 30 years:
+```{r}
+#| label: opp-cost-bar-model
+#| echo: false
+#| fig-cap: "$25,000 invested at 7% — value at each checkpoint"
+#| fig-asp: 0.50
+library(ggplot2)
+yrs  <- c(0, 5, 10, 20, 30)
+vals <- round(25000 * (1.07)^yrs)
+df_opp <- data.frame(
+  year  = factor(paste0("Year ", yrs), levels = paste0("Year ", yrs)),
+  value = vals
+)
+ggplot(df_opp, aes(x = year, y = value)) +
+  geom_col(fill = "#0e9aa7", width = 0.6) +
+  geom_text(
+    aes(label = paste0("$", formatC(value, format = "d", big.mark = ","))),
+    vjust = -0.4, fontface = "bold", size = 3.5
+  ) +
+  scale_y_continuous(
+    limits = c(0, max(vals) * 1.18),
+    labels = function(x) paste0("$", round(x / 1000), "k")
+  ) +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
 
-\$25,000 × (1.07)\^30 = [\~\$190,000]{style="color:#f44242; font-weight: bold;"}
+Each bar is the previous one multiplied by (1 + 0.07). After *n* multiplications, the pattern becomes the formula.
 
-That's not a car payment difference; that's a retirement chapter.
+**Formula:** amount × (1 + r)\^n
+
+Example: \$25,000 × (1.07)\^30 = [\~\$190,000.]{style="color:#f44242; font-weight: bold;"} That's not a car payment difference; that's a retirement chapter.
 
 ::: panel-tabset
 ## R
@@ -448,9 +547,43 @@ opportunity_cost(amount=25000, rate=0.07, years=30)
 
 Useful for evaluating subscriptions, refinances, and big purchases.
 
-**Formula:** Upfront cost ÷ monthly savings = months to break even
+Each month, the cumulative savings bar grows by the monthly savings amount. Break-even is the first month that bar meets the upfront cost line.
 
-Example: A \$500 annual membership saves you \$60/month → 500 ÷ 60 = **8.3 months to break even.** Worth it if you'll use it longer than that.
+```{r}
+#| label: break-even-bar-model
+#| echo: false
+#| fig-cap: "$60/month savings accumulating toward a $500 upfront cost"
+#| fig-asp: 0.50
+library(ggplot2)
+months <- 1:10
+df_be  <- data.frame(
+  month   = factor(paste0("Mo ", months), levels = paste0("Mo ", months)),
+  saved   = months * 60
+)
+df_be$reached <- df_be$saved >= 500
+ggplot(df_be, aes(x = month, y = saved, fill = reached)) +
+  geom_col(width = 0.65) +
+  geom_hline(yintercept = 500, colour = "#f44242",
+             linewidth = 1, linetype = "dashed") +
+  annotate("text", x = 5.5, y = 520,
+           label = "Upfront cost: $500",
+           colour = "#f44242", fontface = "bold", size = 3.5) +
+  scale_fill_manual(values = c("FALSE" = "#0e9aa7", "TRUE" = "#48a56a")) +
+  scale_y_continuous(labels = function(x) paste0("$", x)) +
+  labs(x = NULL, y = "Cumulative savings") +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "none",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+The formula names the crossover point: the month when cumulative savings first equals the upfront cost.
+
+**Formula:** Upfront cost ÷ Monthly savings = months to break even
+
+Example: \$500 ÷ \$60 = **8.3 months to break even.** Worth it if you'll use it longer than that.
 
 ::: panel-tabset
 ## R
@@ -477,7 +610,7 @@ months_to_break_even(upfront_cost=500, monthly_savings=60)
 ```
 :::
 
-## Putting It All Together: A Budget That Actually Works
+## Putting It All Together
 
 ```{mermaid}
 %%| fig-cap: 'Put It All Together'

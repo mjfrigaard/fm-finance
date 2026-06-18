@@ -94,6 +94,7 @@ Digital tracking is the bank-statement method above, but with the math done for 
 The exported statement almost never includes a category, but you can add it yourself, and we'll do it in [Categorizing Transactions](#categorizing-transactions) below.
 
 ::: panel-tabset
+
 ## R
 
 Create the `bank_statement` data in R:
@@ -198,8 +199,8 @@ The `bank_statement` can also be copied + pasted into Excel:
 
 ![`bank_statement` in Excel](img/tracking_spending-bank-statement.png){width='75%' fig-align='center'}
 
-
 :::
+
 
 Once your transactions sit in columns and rows, it's much easier to answer tracking questions like:
 
@@ -238,12 +239,15 @@ df = pl.DataFrame({"x": [1, 2, 3, 4, 5]})
 **Pipes / chaining**
 
 ::: {layout="[50,50]" layout-valign="top"}
+
 R has a native pipe `|>` (also `%>%` from `magrittr`/`dplyr`) for left-to-right reading: data flows from one function into the next.
 
 Python has no native pipe; the same effect comes from chaining method calls, which `polars` is designed for.
+
 :::
 
 ::: {layout="[50,50]" layout-valign="top"}
+
 ``` r
 df |> dplyr::filter(x > 2)
 ```
@@ -251,6 +255,7 @@ df |> dplyr::filter(x > 2)
 ``` python
 df.filter(pl.col("x") > 2)
 ```
+
 :::
 
 :::::::
@@ -512,7 +517,47 @@ Below are some tips and tools for tracking spending. Some can be used to easily 
 
 ### The Subscription Audit Math {.unnumbered}
 
-A simple but powerful calculation.
+A \$20/month subscription feels trivial. The chart below shows what that \$240/year could have become if invested instead — each bar is a year when you could have stopped and kept the difference.
+
+```{r}
+#| label: subscription-bar-model
+#| echo: false
+#| fig-cap: "Future value of a $20/month subscription's annual cost if invested at 7%"
+#| fig-asp: 0.50
+library(ggplot2)
+years <- c(0, 5, 10, 20, 30)
+values <- c(
+  240,
+  240 * ((1.07^5  - 1) / 0.07),
+  240 * ((1.07^10 - 1) / 0.07),
+  240 * ((1.07^20 - 1) / 0.07),
+  240 * ((1.07^30 - 1) / 0.07)
+)
+df_sub <- data.frame(
+  year  = factor(paste0("Year ", years), levels = paste0("Year ", years)),
+  value = values,
+  fill  = c(rep("#0e9aa7", 4), "#f44242")
+)
+ggplot(df_sub, aes(x = year, y = value, fill = fill)) +
+  geom_col(width = 0.6, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_text(
+    aes(label = paste0("$", formatC(round(value), format = "d", big.mark = ","))),
+    vjust = -0.4, fontface = "bold", size = 3.5, colour = "#1C1C1E"
+  ) +
+  scale_fill_identity() +
+  scale_y_continuous(
+    labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ",")),
+    expand = expansion(mult = c(0, 0.12))
+  ) +
+  labs(x = "Checkpoint", y = "Accumulated value (7% annual return)") +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+The formula is just compound growth applied to the annual cost: multiply each year's \$240 by the accumulated growth factor.
 
 **Formula:** Monthly Subscription × 12 × (1.07)\^n = Opportunity cost in *n* years
 
@@ -522,6 +567,33 @@ Example: A \$20/month subscription you don't really use, over 30 years:
 - Invested at 7% real return for 30 years: [\~\$24,000]{style="color:#f44242; font-weight: bold;"}
 
 That "small" \$20/month is a \$24,000 decision. [Audit accordingly.]{style="color:#48a56a; font-weight: bold;"}
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: subscription-opp-cost-r
+subscription_opportunity_cost <- function(monthly_cost, years, rate = 0.07) {
+  annual_cost <- monthly_cost * 12
+  annual_cost * ((1 + rate)^years - 1) / rate
+}
+# $20/month subscription, 30 years at 7%
+subscription_opportunity_cost(monthly_cost = 20, years = 30)
+```
+
+## Python
+
+```{python}
+#| label: subscription-opp-cost-py
+def subscription_opportunity_cost(monthly_cost, years, rate=0.07):
+    annual_cost = monthly_cost * 12
+    return annual_cost * ((1 + rate) ** years - 1) / rate
+
+# $20/month subscription, 30 years at 7%
+subscription_opportunity_cost(monthly_cost=20, years=30)
+```
+
+:::
 
 ## Key takeaways
 
