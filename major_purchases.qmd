@@ -146,7 +146,55 @@ Big purchases are where small percentage differences turn into tens of thousands
 
 ### The Rent-vs-Buy 5% Rule {.unnumbered}
 
-Felix's rule estimates the annual *unrecoverable* cost of owning as about 5% of the home's value, then compares the monthly equivalent to your rent.
+Felix's rule estimates the annual *unrecoverable* cost of owning as about 5% of the home's value, then compares the monthly equivalent to your rent. The 5% rule isn't magic — it's the sum of three real costs that every homeowner pays whether they realize it or not.
+
+```{r}
+#| label: rent-buy-bar-model
+#| echo: false
+#| fig-cap: "The three components of the 5% rule on a $500,000 home"
+#| fig-asp: 0.50
+library(ggplot2)
+df_5pct <- data.frame(
+  component = factor(
+    c("Property Tax (~1%)\n~$5,000/yr",
+      "Maintenance (~1%)\n~$5,000/yr",
+      "Cost of Capital (~3%)\n~$15,000/yr"),
+    levels = c(
+      "Cost of Capital (~3%)\n~$15,000/yr",
+      "Maintenance (~1%)\n~$5,000/yr",
+      "Property Tax (~1%)\n~$5,000/yr"
+    )
+  ),
+  amount = c(5000, 5000, 15000)
+)
+ggplot(df_5pct, aes(x = "", y = amount, fill = component)) +
+  geom_col(width = 0.5) +
+  geom_text(
+    aes(label = component),
+    position = position_stack(vjust = 0.5),
+    colour = "#F5F2E8", fontface = "bold", size = 3.5
+  ) +
+  coord_flip() +
+  scale_fill_manual(values = c(
+    "Property Tax (~1%)\n~$5,000/yr"    = "#f44242",
+    "Maintenance (~1%)\n~$5,000/yr"     = "#0e9aa7",
+    "Cost of Capital (~3%)\n~$15,000/yr" = "#8b1a1a"
+  )) +
+  scale_y_continuous(
+    breaks = c(0, 5000, 10000, 15000, 20000, 25000),
+    labels = function(x) paste0("$", format(x, big.mark = ","))
+  ) +
+  labs(x = NULL, y = "Annual unrecoverable cost (Total = $25,000/yr = $2,083/mo)") +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position  = "none",
+    axis.text.y      = element_blank(),
+    axis.ticks.y     = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+```
+
+Add the three percentage slices together and you get 5% of home value per year; divide by 12 to get the monthly ownership cost threshold.
 
 **Formula:** Monthly cost of owning ≈ (Home Value × 0.05) ÷ 12
 
@@ -179,7 +227,48 @@ rent_buy_threshold(home_value=600000)
 
 ### The Monthly Mortgage Payment {.unnumbered}
 
-This is the standard amortization formula behind every mortgage calculator.
+This is the standard amortization formula behind every mortgage calculator. The same loan produces very different monthly payments depending on how many months you spread it over.
+
+```{r}
+#| label: mortgage-payment-bar-model
+#| echo: false
+#| fig-cap: "Monthly payment on a $400,000 loan at 6.5% across three terms"
+#| fig-asp: 0.50
+library(ggplot2)
+P <- 400000
+r <- 0.065 / 12
+terms <- c(15, 20, 30)
+n_vals <- terms * 12
+payments <- round(P * (r * (1 + r)^n_vals) / ((1 + r)^n_vals - 1))
+df_mort <- data.frame(
+  term    = factor(paste0(terms, "-Year"), levels = paste0(terms, "-Year")),
+  payment = payments
+)
+ggplot(df_mort, aes(x = term, y = payment, fill = term)) +
+  geom_col(width = 0.55) +
+  geom_text(
+    aes(label = paste0("$", format(payment, big.mark = ","))),
+    vjust = -0.4, fontface = "bold", size = 4
+  ) +
+  scale_fill_manual(values = c(
+    "15-Year" = "#f44242",
+    "20-Year" = "#0e9aa7",
+    "30-Year" = "#48a56a"
+  )) +
+  scale_y_continuous(
+    limits = c(0, max(payments) * 1.18),
+    labels = function(x) paste0("$", format(x, big.mark = ","))
+  ) +
+  labs(x = NULL, y = "Monthly payment ($400,000 loan at 6.5%)") +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "none",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+The formula allocates the principal plus all future interest into equal monthly installments — shorter terms mean higher bars because more principal must be retired each month.
 
 **Formula:** M = P × [ r(1 + r)\^n ] ÷ [ (1 + r)\^n − 1 ]
 
@@ -218,7 +307,50 @@ mortgage_payment(principal=480000, annual_rate=0.06, years=30)
 
 ### Where the First Year's Payments Go {.unnumbered}
 
-The front-loaded-interest reality, in numbers: in month one your interest is simply the balance times the monthly rate, and only the rest reduces the principal.
+The front-loaded-interest reality, in numbers: in month one your interest is simply the balance times the monthly rate, and only the rest reduces the principal. Early mortgage payments are mostly interest — which is why moving after a few years means you've barely touched the principal.
+
+```{r}
+#| label: first-payment-bar-model
+#| echo: false
+#| fig-cap: "Interest vs. principal split at three points on a $400,000 / 6.5% / 30-yr mortgage"
+#| fig-asp: 0.50
+library(ggplot2)
+df_amort <- data.frame(
+  month    = factor(
+    c("Month 1\n(Year 1)", "Month 180\n(Year 15)", "Month 348\n(Year 29)"),
+    levels = c("Month 1\n(Year 1)", "Month 180\n(Year 15)", "Month 348\n(Year 29)")
+  ),
+  type     = rep(c("Interest", "Principal"), times = 3),
+  amount   = c(2167, 361, 1380, 1148, 82, 2446),
+  label    = c("$2,167\n(86%)", "$361\n(14%)",
+               "$1,380\n(55%)", "$1,148\n(45%)",
+               "$82\n(3%)", "$2,446\n(97%)")
+)
+ggplot(df_amort, aes(x = month, y = amount, fill = type)) +
+  geom_col(width = 0.55, position = "stack") +
+  geom_text(
+    aes(label = label),
+    position = position_stack(vjust = 0.5),
+    colour = "#F5F2E8", fontface = "bold", size = 3.5
+  ) +
+  scale_fill_manual(values = c(
+    "Interest"  = "#f44242",
+    "Principal" = "#48a56a"
+  )) +
+  scale_y_continuous(
+    limits = c(0, 2900),
+    labels = function(x) paste0("$", format(x, big.mark = ","))
+  ) +
+  labs(x = NULL, y = "Monthly payment (~$2,528)", fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "bottom",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+Each month's interest is just the outstanding balance times the monthly rate — the principal is what's left over after interest is paid.
 
 **Formula:**
 
