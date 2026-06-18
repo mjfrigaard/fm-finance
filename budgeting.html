@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.30">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>3&nbsp; Budgeting – Personal Finance: a field manual</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -72,14 +69,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./tracking_spending.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b6a8276bf55561bdbc268162d41bd1f7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9db5bf83f40130dec57236cccb65fb39.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f5280667a2c3855c453120d3100d533d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -388,7 +389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#opportunity-cost-math" id="toc-opportunity-cost-math" class="nav-link" data-scroll-target="#opportunity-cost-math">Opportunity Cost Math</a></li>
   <li><a href="#break-even-and-payback-calculations" id="toc-break-even-and-payback-calculations" class="nav-link" data-scroll-target="#break-even-and-payback-calculations">Break-Even and Payback Calculations</a></li>
   </ul></li>
-  <li><a href="#putting-it-all-together-a-budget-that-actually-works" id="toc-putting-it-all-together-a-budget-that-actually-works" class="nav-link" data-scroll-target="#putting-it-all-together-a-budget-that-actually-works"><span class="header-section-number">3.6</span> Putting It All Together: A Budget That Actually Works</a></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together"><span class="header-section-number">3.6</span> Putting It All Together</a></li>
   <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways"><span class="header-section-number">3.7</span> Key takeaways</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/budgeting.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -738,12 +739,23 @@ flowchart LR
 </section>
 <section id="budgeting-math" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="budgeting-math"><span class="header-section-number">3.5</span> Budgeting Math</h2>
-<p>Here’s the secret most personal finance content avoids: <em>budgeting requires only middle-school math.</em> However, you need to be fluent in a few specific calculations.</p>
+<p>Here’s the secret most personal finance content avoids: <em>budgeting requires only middle-school math.</em> Each calculation below pairs a visual with a formula and code so the idea, the rule, and the implementation are always together.</p>
 <section id="percentages-your-most-used-skill" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="percentages-your-most-used-skill">Percentages (Your Most-Used Skill)</h3>
-<p>You need to instantly answer: “What percentage of my income is X?”</p>
+<p>Think of your monthly income as a single horizontal bar. Every category of spending is a labeled slice of that bar. Asking “what percentage is rent?” is just asking: <em>how wide is the rent slice compared to the whole bar?</em></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="budgeting_files/figure-html/pct-bar-model-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Rent ($1,500) as a share of a $5,000 paycheck"><img src="budgeting_files/figure-html/pct-bar-model-1.png" class="img-fluid figure-img" width="576" alt="Rent ($1,500) as a share of a $5,000 paycheck"></a></p>
+<figcaption>Rent ($1,500) as a share of a $5,000 paycheck</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The formula follows directly from the bar: divide the slice width by the total bar width, then multiply by 100 to express it as a percentage.</p>
 <p><strong>Formula:</strong> (Expense ÷ Income) × 100</p>
-<p>Example: Rent is $1,500, income is $5,000. → 1,500 ÷ 5,000 = 0.30 → <strong>30% of income on rent.</strong></p>
+<p>Example: Rent is $1,500, income is $5,000. → (1,500 ÷ 5,000) × 100 = <strong>30% of income on rent.</strong></p>
 <p>Practice until you can do this in your head for the big categories.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -842,7 +854,18 @@ flowchart LR
 </section>
 <section id="annualizing-and-monthly-izing" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="annualizing-and-monthly-izing">Annualizing and Monthly-izing</h3>
-<p>The skill of converting between time periods. Budgets fail because people don’t see annual costs in monthly terms (or vice versa).</p>
+<p>A $5 daily coffee doesn’t feel expensive. The chart below makes the annual version visible — the same habit at four different time scales.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="budgeting_files/figure-html/annual-bar-model-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="The same $5/day habit across four time periods"><img src="budgeting_files/figure-html/annual-bar-model-1.png" class="img-fluid figure-img" width="576" alt="The same $5/day habit across four time periods"></a></p>
+<figcaption>The same $5/day habit across four time periods</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Each bar is the previous bar scaled by the number of periods it contains. The annual bar is 365× the daily bar; the monthly bar is ≈ 4.33× the weekly bar. Those multipliers are the formula.</p>
 <p><strong>Annual → Monthly:</strong> Divide by 12</p>
 <p><strong>Monthly → Annual:</strong> Multiply by 12</p>
 <p><strong>Weekly → Monthly:</strong> Multiply by 4.33 (not 4)</p>
@@ -899,10 +922,20 @@ flowchart LR
 <section id="opportunity-cost-math" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="opportunity-cost-math">Opportunity Cost Math</h3>
 <p>This is Felix’s signature framework. <span style="color:#48a56a; font-weight: bold;">Every dollar spent isn’t just that dollar; it’s what that dollar could have become.</span></p>
-<p><strong>Formula:</strong> Cost × (1 + r)^n = Opportunity cost in future dollars</p>
-<p>Example: A $40,000 new car vs.&nbsp;a $15,000 used car. The $25,000 difference, invested at 7% real return over 30 years:</p>
-<p>$25,000 × (1.07)^30 = <span style="color:#f44242; font-weight: bold;">~$190,000</span></p>
-<p>That’s not a car payment difference; that’s a retirement chapter.</p>
+<p>The chart below shows what happens when you choose the used car ($15,000) over the new one ($40,000) and invest the $25,000 difference at 7% per year. Each bar is the previous one grown by one year’s return.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="budgeting_files/figure-html/opp-cost-bar-model-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="$25,000 invested at 7% — value at each checkpoint"><img src="budgeting_files/figure-html/opp-cost-bar-model-1.png" class="img-fluid figure-img" width="576" alt="$25,000 invested at 7% — value at each checkpoint"></a></p>
+<figcaption>$25,000 invested at 7% — value at each checkpoint</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Each bar is the previous one multiplied by (1 + 0.07). After <em>n</em> multiplications, the pattern becomes the formula.</p>
+<p><strong>Formula:</strong> amount × (1 + r)^n</p>
+<p>Example: $25,000 × (1.07)^30 = <span style="color:#f44242; font-weight: bold;">~$190,000.</span> That’s not a car payment difference; that’s a retirement chapter.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
@@ -939,8 +972,20 @@ flowchart LR
 <section id="break-even-and-payback-calculations" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="break-even-and-payback-calculations">Break-Even and Payback Calculations</h3>
 <p>Useful for evaluating subscriptions, refinances, and big purchases.</p>
-<p><strong>Formula:</strong> Upfront cost ÷ monthly savings = months to break even</p>
-<p>Example: A $500 annual membership saves you $60/month → 500 ÷ 60 = <strong>8.3 months to break even.</strong> Worth it if you’ll use it longer than that.</p>
+<p>Each month, the cumulative savings bar grows by the monthly savings amount. Break-even is the first month that bar meets the upfront cost line.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="budgeting_files/figure-html/break-even-bar-model-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="$60/month savings accumulating toward a $500 upfront cost"><img src="budgeting_files/figure-html/break-even-bar-model-1.png" class="img-fluid figure-img" width="576" alt="$60/month savings accumulating toward a $500 upfront cost"></a></p>
+<figcaption>$60/month savings accumulating toward a $500 upfront cost</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The formula names the crossover point: the month when cumulative savings first equals the upfront cost.</p>
+<p><strong>Formula:</strong> Upfront cost ÷ Monthly savings = months to break even</p>
+<p>Example: $500 ÷ $60 = <strong>8.3 months to break even.</strong> Worth it if you’ll use it longer than that.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
@@ -975,8 +1020,8 @@ flowchart LR
 </div>
 </section>
 </section>
-<section id="putting-it-all-together-a-budget-that-actually-works" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="putting-it-all-together-a-budget-that-actually-works"><span class="header-section-number">3.6</span> Putting It All Together: A Budget That Actually Works</h2>
+<section id="putting-it-all-together" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="putting-it-all-together"><span class="header-section-number">3.6</span> Putting It All Together</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div>
@@ -1497,6 +1542,38 @@ flowchart TD
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

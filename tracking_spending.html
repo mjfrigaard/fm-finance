@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.30">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>2&nbsp; Tracking Spending – Personal Finance: a field manual</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -72,14 +69,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./income.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b6a8276bf55561bdbc268162d41bd1f7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9db5bf83f40130dec57236cccb65fb39.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f5280667a2c3855c453120d3100d533d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -1389,7 +1387,18 @@ flowchart TD
 <p>Below are some tips and tools for tracking spending. Some can be used to easily categorize purchases, others can be used to check the amount you’re spending on subscriptions.</p>
 <section id="the-subscription-audit-math" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="the-subscription-audit-math">The Subscription Audit Math</h3>
-<p>A simple but powerful calculation.</p>
+<p>A $20/month subscription feels trivial. The chart below shows what that $240/year could have become if invested instead — each bar is a year when you could have stopped and kept the difference.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="tracking_spending_files/figure-html/subscription-bar-model-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Future value of a $20/month subscription’s annual cost if invested at 7%"><img src="tracking_spending_files/figure-html/subscription-bar-model-1.png" class="img-fluid figure-img" width="576" alt="Future value of a $20/month subscription’s annual cost if invested at 7%"></a></p>
+<figcaption>Future value of a $20/month subscription’s annual cost if invested at 7%</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The formula is just compound growth applied to the annual cost: multiply each year’s $240 by the accumulated growth factor.</p>
 <p><strong>Formula:</strong> Monthly Subscription × 12 × (1.07)^n = Opportunity cost in <em>n</em> years</p>
 <p>Example: A $20/month subscription you don’t really use, over 30 years:</p>
 <ul>
@@ -1397,6 +1406,39 @@ flowchart TD
 <li>Invested at 7% real return for 30 years: <span style="color:#f44242; font-weight: bold;">~$24,000</span></li>
 </ul>
 <p>That “small” $20/month is a $24,000 decision. <span style="color:#48a56a; font-weight: bold;">Audit accordingly.</span></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>subscription_opportunity_cost <span class="ot">&lt;-</span> <span class="cf">function</span>(monthly_cost, years, <span class="at">rate =</span> <span class="fl">0.07</span>) {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  annual_cost <span class="ot">&lt;-</span> monthly_cost <span class="sc">*</span> <span class="dv">12</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  annual_cost <span class="sc">*</span> ((<span class="dv">1</span> <span class="sc">+</span> rate)<span class="sc">^</span>years <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> rate</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># $20/month subscription, 30 years at 7%</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">subscription_opportunity_cost</span>(<span class="at">monthly_cost =</span> <span class="dv">20</span>, <span class="at">years =</span> <span class="dv">30</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 22670.59</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> subscription_opportunity_cost(monthly_cost, years, rate<span class="op">=</span><span class="fl">0.07</span>):</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    annual_cost <span class="op">=</span> monthly_cost <span class="op">*</span> <span class="dv">12</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> annual_cost <span class="op">*</span> ((<span class="dv">1</span> <span class="op">+</span> rate) <span class="op">**</span> years <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> rate</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># $20/month subscription, 30 years at 7%</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>subscription_opportunity_cost(monthly_cost<span class="op">=</span><span class="dv">20</span>, years<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 22670.58871769843</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="key-takeaways" class="level2" data-number="2.7">
