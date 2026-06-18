@@ -23,13 +23,13 @@ Here's a counterintuitive insight from [Morgan Housel](https://www.morganhousel.
 
 > *Wealth is the nice cars not purchased. The diamonds not bought. The watches not worn, the clothes forgone and the first-class upgrade declined. Wealth is financial assets that haven’t yet been converted into the stuff you see.*[^wealth]
 
-[^wealth]: From [The Psychology of Money](https://www.goodreads.com/quotes/11756295-wealth-is-the-nice-cars-not-purchased-the-diamonds-not)
+[^wealth]: Read more in [Morgan Housel's The Psychology of Money](https://www.goodreads.com/quotes/11756295-wealth-is-the-nice-cars-not-purchased-the-diamonds-not)
 
 The person driving the flashy car isn't necessarily wealthy; they just spent their money on a car. True wealth is the income you *didn't* spend, quietly compounding in the background.
 
 [Ben Felix](https://rationalreminder.ca/) reinforces this with hard data: research consistently shows that *conspicuous consumption (signaling wealth through purchases) is negatively correlated with actual wealth.*[^consp-consump] People who look rich usually aren’t. People who are rich typically live below their income level.
 
-[^consp-consump]:Read more [here](https://pmc.ncbi.nlm.nih.gov/articles/PMC7905187/#sec6)
+[^consp-consump]:Read more in [Social class, social self-esteem, and conspicuous consumption.](https://pmc.ncbi.nlm.nih.gov/articles/PMC7905187/#sec6)
 
 ## Your Human Capital
 
@@ -287,11 +287,53 @@ def add_fun(a, b):
 
 ### The Fixed-Cost Ratio {.unnumbered}
 
-Fixed costs (rent, loan payments, insurance, utilities) are the commitments you can't easily change month to month. Keeping them under \~60% of take-home pay leaves room to save *and* to spend on what you love without guilt.
+Fixed costs (rent, loan payments, insurance, utilities) are the commitments you can't easily change month to month. The chart below divides an \$8,000 take-home into its two parts — fixed and flexible — and marks the 60% ceiling that keeps the rest of the budget healthy.
+
+```{r}
+#| label: fixed-cost-bar-model
+#| echo: false
+#| fig-cap: "Take-home pay divided into fixed costs and flexible spending ($8,000 total)"
+#| fig-asp: 0.50
+library(ggplot2)
+df_fc <- data.frame(
+  label  = factor(c("Fixed costs", "Flexible spending"),
+                  levels = c("Fixed costs", "Flexible spending")),
+  amount = c(4400, 3600),
+  fill   = c("#f44242", "#86ddcd")
+)
+ggplot(df_fc, aes(x = "", y = amount, fill = fill)) +
+  geom_col(width = 0.4) +
+  geom_text(
+    aes(label = paste0(label, "\n$", format(amount, big.mark = ","))),
+    position = position_stack(vjust = 0.5),
+    colour = "white", fontface = "bold", size = 3.8
+  ) +
+  geom_hline(yintercept = 4800, colour = "#1C1C1E",
+             linetype = "dashed", linewidth = 1) +
+  annotate("text", x = 1.24, y = 5400,
+           label = "60% ceiling: $4,800",
+           colour = "#1C1C1E", fontface = "bold", size = 3.5, hjust = 0) +
+  scale_fill_identity() +
+  scale_y_continuous(
+    limits = c(0, 9000),
+    labels = function(x) paste0("$", format(x, big.mark = ","))
+  ) +
+  labs(x = NULL, y = "Take-home pay ($8,000)") +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "none",
+    axis.text.x        = element_blank(),
+    axis.ticks.x       = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+The formula names the fixed slice as a fraction of the whole bar, converted to a percentage.
 
 **Formula:** Fixed-Cost Ratio = Fixed Costs ÷ Take-Home Pay × 100
 
-Example: \$2,700 of fixed costs on \$5,000 take-home
+Example: \$4,400 of fixed costs on \$8,000 take-home
 
 ::: panel-tabset
 
@@ -306,11 +348,11 @@ fixed_cost_ratio <- function(fixed_costs, take_home) {
 }
 ```
 
-\$2,700 of fixed costs on \$5,000 take-home pay
+\$4,400 of fixed costs on \$8,000 take-home pay
 
 ```{r}
 #| label: fixed-cost-r-apply
-fixed_cost_ratio(fixed_costs = 2700, take_home = 5000)
+fixed_cost_ratio(fixed_costs = 4400, take_home = 8000)
 ```
 
 ## Python
@@ -324,11 +366,11 @@ def fixed_cost_ratio(fixed_costs, take_home):
 
 ```
 
-\$2,700 of fixed costs on $5,000 take-home pay
+\$4,400 of fixed costs on \$8,000 take-home pay
 
 ```{r}
 #| label: fixed-cost-py-apply
-fixed_cost_ratio(fixed_costs=2700, take_home=5000)
+fixed_cost_ratio(fixed_costs=4400, take_home=8000)
 ```
 
 ## Excel
@@ -350,7 +392,7 @@ Format `C2` as a percentage (`Home → %`, or `Ctrl+Shift+5`) and it displays [5
 To produce the percent *string* directly (the analog of R's `paste0(..., "%")` and Python's f-string), use `TEXT()` instead:
 
 ```swift
-=TEXT(A2/B2, "0.00%")
+=TEXT(A2/B2, "0.0%")
 ```
 
 ![Convert to percent with `TEXT`](img/income-fixed-cost-ratio-text-perc.png){width='75%' fig-align='center'}
@@ -358,11 +400,45 @@ To produce the percent *string* directly (the analog of R's `paste0(..., "%")` a
 
 :::
 
-This results in a 54% fixed-cost ratio -- just under the ceiling!
+This results in a 55% fixed-cost ratio -- just under the ceiling!
 
 ### What a Raise Is Really Worth {.unnumbered}
 
-"Split the raise" only pays off if the saved half is actually invested. Putting half of a monthly raise into the market for a few decades shows why the *habit* matters more than the dollar amount.
+\$200/month doesn't sound like much. The chart below shows what that single habit produces when invested at 7% over 25 years.
+
+```{r}
+#| label: raise-value-bar-model
+#| echo: false
+#| fig-cap: "$200/month invested at 7% — value at each 5-year checkpoint"
+#| fig-asp: 0.50
+library(ggplot2)
+yrs  <- c(5, 10, 15, 20, 25)
+vals <- round(200 * (((1 + 0.07 / 12)^(yrs * 12) - 1) / (0.07 / 12)))
+df_raise <- data.frame(
+  year  = factor(paste0("Year ", yrs), levels = paste0("Year ", yrs)),
+  value = vals
+)
+ggplot(df_raise, aes(x = year, y = value)) +
+  geom_col(fill = "#0e9aa7", width = 0.6) +
+  geom_text(
+    aes(label = paste0("$", formatC(round(value / 1000), format = "d",
+                                    big.mark = ","), "k")),
+    vjust = -0.4, fontface = "bold", size = 3.5
+  ) +
+  scale_y_continuous(
+    limits = c(0, max(vals) * 1.2),
+    labels = function(x) paste0("$", round(x / 1000), "k")
+  ) +
+  labs(x = NULL, y = NULL,
+       subtitle = "$200/month invested at 7% annual return") +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+Each bar is the previous total plus another year of \$200/month contributions and their growth — the annuity formula sums all those monthly additions into one calculation.
 
 **Formula:** FV = PMT × [((1 + r)\^n − 1) ÷ r]
 
