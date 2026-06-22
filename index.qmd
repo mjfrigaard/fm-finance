@@ -106,4 +106,4 @@ co_box(color = "g",
 
 ## About the author
 
-Martin Frigaard writes about R packages, Shiny app development, and, now, personal finance.
+Martin Frigaard writes about R packages, Shiny applications, and, now, personal finance.

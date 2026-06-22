@@ -19,15 +19,15 @@ Building wealth doesn't start with picking the right stock or finding a hot inve
 
 ## Some Core Truths
 
-Here's a counterintuitive insight from [Morgan Housel](https://www.morganhousel.com/):
+Here's a counterintuitive insight from Morgan Housel[^wealth]:
 
-> *Wealth is the nice cars not purchased. The diamonds not bought. The watches not worn, the clothes forgone and the first-class upgrade declined. Wealth is financial assets that haven’t yet been converted into the stuff you see.*[^wealth]
+> "*Wealth is the nice cars not purchased. The diamonds not bought. The watches not worn, the clothes forgone and the first-class upgrade declined. Wealth is financial assets that haven’t yet been converted into the stuff you see.*" - [Morgan Housel](https://www.morganhousel.com/)
 
 [^wealth]: Read more in [Morgan Housel's The Psychology of Money](https://www.goodreads.com/quotes/11756295-wealth-is-the-nice-cars-not-purchased-the-diamonds-not)
 
 The person driving the flashy car isn't necessarily wealthy; they just spent their money on a car. True wealth is the income you *didn't* spend, quietly compounding in the background.
 
-[Ben Felix](https://rationalreminder.ca/) reinforces this with hard data: research consistently shows that *conspicuous consumption (signaling wealth through purchases) is negatively correlated with actual wealth.*[^consp-consump] People who look rich usually aren’t. People who are rich typically live below their income level.
+[Ben Felix](https://rationalreminder.ca/) reinforces this with hard data. Research consistently shows that *conspicuous consumption (signaling wealth through purchases) is negatively correlated with actual wealth.*[^consp-consump] People who *look* rich usually aren’t, while the people who *are* rich typically live below their income level.
 
 [^consp-consump]:Read more in [Social class, social self-esteem, and conspicuous consumption.](https://pmc.ncbi.nlm.nih.gov/articles/PMC7905187/#sec6)
 
@@ -95,19 +95,19 @@ The academic research on money and well-being tends to show some practical concl
 
 ## Three Anchoring Rules 
 
-### 1. Spend on What You Love, Cut on What You Don't (Sethi) {.unnumbered}
+### 1. Sethi: "*Spend on What You Love, Cut on What You Don't*" {.unnumbered}
 
 Love coffee? Buy the $6 latte. But maybe drive a reliable used car instead of a luxury lease. The goal isn't deprivation; it's intentionality.[^sethi-dials]
 
 [^sethi-dials]: Sethi, R. (2019). *I Will Teach You to Be Rich* (2nd ed.). Workman Publishing. The phrase "spend extravagantly on the things you love, and cut costs mercilessly on the things you don't" is the core of Sethi's "Conscious Spending Plan" (see Chapter 4, *Conscious Spending*). More at <https://www.iwillteachyoutoberich.com/>.
 
-### 2. Build a Gap Between Ego and Income (Housel) {.unnumbered}
+### 2. Housel: "*Build a Gap Between Ego and Income*" {.unnumbered}
 
 The wider the gap between what you earn and what your ego demands you spend, the wealthier you become. Lifestyle creep is the silent killer of financial freedom.[^housel-gap]
 
 [^housel-gap]: Housel, M. (2020). *The Psychology of Money: Timeless lessons on wealth, greed, and happiness*. Harriman House. The "gap between your ego and your income" framing appears in Chapter 10, *Save Money*. The chapter draws on Housel's earlier essay of the same name at [Collaborative Fund](https://collabfund.com/blog/the-psychology-of-money/).
 
-### 3. Keep It Simple (Bogle) {.unnumbered}
+### 3. Bogle: "*Keep It Simple*" {.unnumbered}
 
 Bogle's philosophy applies to spending, too: complexity is the enemy. The more complicated your financial life, the easier it is to lose track. Automate, simplify, repeat.[^bogle-simple]
 
@@ -125,7 +125,7 @@ The **Wealth Formula**:
 
 The four variables are the four levers *you* actually control:
 
-1. Focus: pick something economically valuable and become great at it. Career, geography, and skill choice compound harder than any single financial decision early on. This is Galloway's version of Felix's human capital; your earning engine is the asset you [build first.]{style="color:#48a56a; font-weight: bold;"}
+1. Focus: pick something economically valuable and become great at it. Career, geography, and skill choice compound harder than any single financial decision early on. This is Galloway's version of Felix's human capital; [your earning engine is the asset you build first.]{style="color:#48a56a; font-weight: bold;"}
 
 2. Stoicism: your willingness to live below your means without needing to signal otherwise will keep you from spending money you don't have on things you don't really need. Galloway, Housel, and Sethi all agree here; spending discipline is a character trait before it's a budget.[^stoicism]
 
