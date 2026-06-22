@@ -44,7 +44,7 @@
     "href": "index.html#about-the-author",
     "title": "Personal Finance: a field manual",
     "section": "About the author",
-    "text": "About the author\nMartin Frigaard writes about R packages, Shiny app development, and, now, personal finance.",
+    "text": "About the author\nMartin Frigaard writes about R packages, Shiny applications, and, now, personal finance.",
     "crumbs": [
       "Welcome!"
     ]
@@ -74,7 +74,7 @@
     "href": "income.html",
     "title": "1  Income",
     "section": "",
-    "text": "1.1 Some Core Truths\nBuilding wealth doesn’t start with picking the right stock or finding a hot investment; it starts with how you manage the money flowing in and out of your life. Let’s break down the foundational principles.\nHere’s a counterintuitive insight from Morgan Housel:\nThe person driving the flashy car isn’t necessarily wealthy; they just spent their money on a car. True wealth is the income you didn’t spend, quietly compounding in the background.\nBen Felix reinforces this with hard data: research consistently shows that conspicuous consumption (signaling wealth through purchases) is negatively correlated with actual wealth.2 People who look rich usually aren’t. People who are rich typically live below their income level.",
+    "text": "1.1 Some Core Truths\nBuilding wealth doesn’t start with picking the right stock or finding a hot investment; it starts with how you manage the money flowing in and out of your life. Let’s break down the foundational principles.\nHere’s a counterintuitive insight from Morgan Housel1:\nThe person driving the flashy car isn’t necessarily wealthy; they just spent their money on a car. True wealth is the income you didn’t spend, quietly compounding in the background.\nBen Felix reinforces this with hard data. Research consistently shows that conspicuous consumption (signaling wealth through purchases) is negatively correlated with actual wealth.2 People who look rich usually aren’t, while the people who are rich typically live below their income level.",
     "crumbs": [
       "Foundations",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Income</span>"
@@ -85,7 +85,7 @@
     "href": "income.html#some-core-truths",
     "title": "1  Income",
     "section": "",
-    "text": "Wealth is the nice cars not purchased. The diamonds not bought. The watches not worn, the clothes forgone and the first-class upgrade declined. Wealth is financial assets that haven’t yet been converted into the stuff you see.1",
+    "text": "“Wealth is the nice cars not purchased. The diamonds not bought. The watches not worn, the clothes forgone and the first-class upgrade declined. Wealth is financial assets that haven’t yet been converted into the stuff you see.” - Morgan Housel",
     "crumbs": [
       "Foundations",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Income</span>"
@@ -118,7 +118,7 @@
     "href": "income.html#three-anchoring-rules",
     "title": "1  Income",
     "section": "1.4 Three Anchoring Rules",
-    "text": "1.4 Three Anchoring Rules\n\n1. Spend on What You Love, Cut on What You Don’t (Sethi)\nLove coffee? Buy the $6 latte. But maybe drive a reliable used car instead of a luxury lease. The goal isn’t deprivation; it’s intentionality.7\n\n\n2. Build a Gap Between Ego and Income (Housel)\nThe wider the gap between what you earn and what your ego demands you spend, the wealthier you become. Lifestyle creep is the silent killer of financial freedom.8\n\n\n3. Keep It Simple (Bogle)\nBogle’s philosophy applies to spending, too: complexity is the enemy. The more complicated your financial life, the easier it is to lose track. Automate, simplify, repeat.9",
+    "text": "1.4 Three Anchoring Rules\n\n1. Sethi: “Spend on What You Love, Cut on What You Don’t”\nLove coffee? Buy the $6 latte. But maybe drive a reliable used car instead of a luxury lease. The goal isn’t deprivation; it’s intentionality.7\n\n\n2. Housel: “Build a Gap Between Ego and Income”\nThe wider the gap between what you earn and what your ego demands you spend, the wealthier you become. Lifestyle creep is the silent killer of financial freedom.8\n\n\n3. Bogle: “Keep It Simple”\nBogle’s philosophy applies to spending, too: complexity is the enemy. The more complicated your financial life, the easier it is to lose track. Automate, simplify, repeat.9",
     "crumbs": [
       "Foundations",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Income</span>"
