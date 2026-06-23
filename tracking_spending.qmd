@@ -285,13 +285,7 @@ The `bank_statement` dataset above only carries what a real bank export gives yo
 ::: panel-tabset
 ## R
 
-In R, a lookup table can be created using the following
-
-- `dplyr::case_when()` evaluates each pattern in order and assigns the matching category
-
-  - `grepl()` does the keyword test against `Description`
-
-- The final `TRUE` arm catches everything that didn't match and labels it `"Other"`
+In R, a lookup table can be created using `dplyr`:
 
 ```{r}
 #| label: categorize-r
@@ -316,14 +310,6 @@ r_bank_statement |> knitr::kable()
 ## Python
 
 `polars` closely mirrors the `dplyr` code:
-
-- `with_columns()` is the `mutate()` analog
-
-  - a chain of `pl.when().then()` calls is the `case_when()` analog
-
-- `pl.col("Description").str.contains(...)` does the keyword test
-
-  - regex by default and the `|` between merchants is alternation
 
 ```{python}
 #| label: categorize-py
@@ -572,7 +558,7 @@ That "small" \$20/month is a \$24,000 decision. [Audit accordingly.]{style="colo
 
 ## R
 
-In R, this is a simple function definition with the formula. Note the rate is given as a decimal and the order of operations. 
+In R, this is a simple function definition with the formula. 
 
 ```{r}
 #| label: subscription-opp-cost-r
@@ -590,7 +576,7 @@ subscription_opportunity_cost(monthly_cost = 20, years = 30)
 
 ## Python
 
-Python is similar, but the exponential is indicated with `**` (not `^`).
+Python is similar:
 
 ```{python}
 #| label: subscription-opp-cost-py
