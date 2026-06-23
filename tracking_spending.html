@@ -899,14 +899,7 @@ flowchart TD
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Excel</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>In R, a lookup table can be created using the following</p>
-<ul>
-<li><p><code>dplyr::case_when()</code> evaluates each pattern in order and assigns the matching category</p>
-<ul>
-<li><code>grepl()</code> does the keyword test against <code>Description</code></li>
-</ul></li>
-<li><p>The final <code>TRUE</code> arm catches everything that didn’t match and labels it <code>"Other"</code></p></li>
-</ul>
+<p>In R, a lookup table can be created using <code>dplyr</code>:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
@@ -1047,16 +1040,6 @@ flowchart TD
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p><code>polars</code> closely mirrors the <code>dplyr</code> code:</p>
-<ul>
-<li><p><code>with_columns()</code> is the <code>mutate()</code> analog</p>
-<ul>
-<li>a chain of <code>pl.when().then()</code> calls is the <code>case_when()</code> analog</li>
-</ul></li>
-<li><p><code>pl.col("Description").str.contains(...)</code> does the keyword test</p>
-<ul>
-<li>regex by default and the <code>|</code> between merchants is alternation</li>
-</ul></li>
-</ul>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
@@ -1410,7 +1393,7 @@ flowchart TD
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false" href="">Excel</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<p>In R, this is a simple function definition with the formula. Note the rate is given as a decimal and the order of operations.</p>
+<p>In R, this is a simple function definition with the formula.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
@@ -1430,7 +1413,7 @@ flowchart TD
 </div>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>Python is similar, but the exponential is indicated with <code>**</code> (not <code>^</code>).</p>
+<p>Python is similar:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
