@@ -25,7 +25,7 @@ You only manage what you measure. This chapter covers how to capture every dolla
 - Reviewing on a monthly cadence
 - Spotting "leak" categories (subscriptions, delivery fees, impulse buys)
 
-Tracking is the *tracking* side of personal finance. [Budgeting](budgeting.qmd) covers the *allocation* side (where money is supposed to go). Without tracking, a budget is a guess; with tracking, it becomes a feedback loop.
+Tracking is the *recording* side of personal finance. [Budgeting](budgeting.qmd) covers the *allocation* side (where money is supposed to go). Without tracking, a budget is a guess; with tracking, it becomes a feedback loop.
 
 ```{=html}
 <style>
@@ -577,7 +577,11 @@ subscription_opportunity_cost <- function(monthly_cost, years, rate = 0.07) {
   annual_cost <- monthly_cost * 12
   annual_cost * ((1 + rate)^years - 1) / rate
 }
-# $20/month subscription, 30 years at 7%
+```
+
+Now lets consider a \$20/month subscription for 30 years at 7%:
+
+```{r}
 subscription_opportunity_cost(monthly_cost = 20, years = 30)
 ```
 
@@ -585,12 +589,26 @@ subscription_opportunity_cost(monthly_cost = 20, years = 30)
 
 ```{python}
 #| label: subscription-opp-cost-py
+#| eval: true
 def subscription_opportunity_cost(monthly_cost, years, rate=0.07):
     annual_cost = monthly_cost * 12
     return annual_cost * ((1 + rate) ** years - 1) / rate
+```
 
-# $20/month subscription, 30 years at 7%
+The same \$20/month subscription for 30 years at 7%:
+
+```{python}
+#| label: subscription-opp-cost-py-use
+#| eval: true
 subscription_opportunity_cost(monthly_cost=20, years=30)
+```
+
+## Excel
+
+In Excel, we can use formulas to create an opportunity cost calculation: 
+
+```swift
+=(A2*12)*((1+C2)^B2-1)/C2
 ```
 
 :::
