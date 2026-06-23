@@ -25,7 +25,7 @@ You only manage what you measure. This chapter covers how to capture every dolla
 - Reviewing on a monthly cadence
 - Spotting "leak" categories (subscriptions, delivery fees, impulse buys)
 
-Tracking is the *recording* side of personal finance. [Budgeting](budgeting.qmd) covers the *allocation* side (where money is supposed to go). Without tracking, a budget is a guess; with tracking, it becomes a feedback loop.
+Tracking is the *recording* side of personal finance. [Budgeting](budgeting.qmd) covers the *allocation* side (where money is supposed to go). Without tracking, a budget is a guess; with tracking, a budget becomes a feedback loop.
 
 ```{=html}
 <style>
@@ -569,7 +569,10 @@ Example: A \$20/month subscription you don't really use, over 30 years:
 That "small" \$20/month is a \$24,000 decision. [Audit accordingly.]{style="color:#48a56a; font-weight: bold;"}
 
 ::: panel-tabset
+
 ## R
+
+In R, this is a simple function definition with the formula. Note the rate is given as a decimal and the order of operations. 
 
 ```{r}
 #| label: subscription-opp-cost-r
@@ -586,6 +589,8 @@ subscription_opportunity_cost(monthly_cost = 20, years = 30)
 ```
 
 ## Python
+
+Python is similar, but the exponential is indicated with `**` (not `^`).
 
 ```{python}
 #| label: subscription-opp-cost-py
@@ -605,11 +610,22 @@ subscription_opportunity_cost(monthly_cost=20, years=30)
 
 ## Excel
 
-In Excel, we can use formulas to create an opportunity cost calculation: 
+In Excel, create a small table with these inputs, then enter the formula in `D2`:
+
+| Cell | Label | Example value |
+|------|-------|---------------|
+| A2 | Monthly cost | `20` |
+| B2 | Years | `30` |
+| C2 | Annual return | `0.07` |
+| D2 | Opportunity cost | *Formula* |
+
+`A2*12` converts the monthly cost to annual; the rest is the future-value-of-an-annuity formula using the rate in `C2` and the horizon in `B2`. The formula (given this setup) is below:
 
 ```swift
 =(A2*12)*((1+C2)^B2-1)/C2
 ```
+
+![Opportunity Cost in Excel](img/tracking_spending-opportunity_cost.png){width='100%' fig-align='center'}
 
 :::
 
