@@ -232,7 +232,7 @@ flowchart TD
     style EnjoyNow fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
-This way you reward yourself *and* accelerate freedom, without falling into the trap of inflating your lifestyle to match every dollar.
+This way, you reward yourself *and* accelerate freedom, without falling into the trap of inflating your lifestyle to match every dollar.
 
 ## Math for Income {#math-for-income}
 

@@ -388,6 +388,16 @@ def percent_of_income(expense, income):
 # rent of $1,500 against $5,000 take-home pay
 percent_of_income(expense=1500, income=5000)
 ```
+
+## Excel
+
+Assuming `Expense` is in cell `B2` and `Income` is in cell `C2`:
+
+```excel
+=(B2 / C2) * 100
+```
+
+Or, more simply, enter `=B2 / C2` and format the cell as a **Percentage** using the button in the toolbar.
 :::
 
 ### Annualizing and Monthly-izing {.unnumbered}
@@ -474,6 +484,18 @@ def to_monthly(amount, period="daily"):
 print(to_annual(amount=5,    period="daily"))    # $5/day coffee → annual
 print(to_monthly(amount=150, period="weekly"))   # $150/week groceries → monthly
 ```
+
+## Excel
+
+To convert a daily value in cell `A1` to an annual value:
+```excel
+=A1 * 365
+```
+
+To convert a weekly value in cell `A1` to a monthly value:
+```excel
+=A1 * 4.33
+```
 :::
 
 ### Opportunity Cost Math {.unnumbered}
@@ -541,6 +563,14 @@ def opportunity_cost(amount, rate, years):
 # $25,000 gap between two car choices, invested at 7% for 30 years
 opportunity_cost(amount=25000, rate=0.07, years=30)
 ```
+
+## Excel
+
+Assuming the initial amount is in cell `A1`, the annual rate (as a decimal, e.g., 0.07) is in `B1`, and the number of years is in `C1`:
+
+```excel
+=A1 * (1 + B1)^C1
+```
 :::
 
 ### Break-Even and Payback Calculations {.unnumbered}
@@ -607,6 +637,14 @@ def months_to_break_even(upfront_cost, monthly_savings):
 
 # a $500 membership that saves $60/month
 months_to_break_even(upfront_cost=500, monthly_savings=60)
+```
+
+## Excel
+
+Assuming the upfront cost is in cell `A1` and the monthly savings amount is in cell `B1`:
+
+```excel
+=A1 / B1
 ```
 :::
 
