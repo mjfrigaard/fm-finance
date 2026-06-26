@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -43,6 +78,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-f5280667a2c3855c453120d3100d533d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -70,6 +108,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -319,8 +360,40 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#why-it-matters" id="toc-why-it-matters" class="nav-link active" data-scroll-target="#why-it-matters"><span class="header-section-number">5.1</span> Why It Matters</a></li>
+  <li><a href="#how-much-do-you-actually-need" id="toc-how-much-do-you-actually-need" class="nav-link" data-scroll-target="#how-much-do-you-actually-need"><span class="header-section-number">5.2</span> How Much Do You Actually Need?</a>
+  <ul>
+  <li><a href="#the-essential-expenses-baseline" id="toc-the-essential-expenses-baseline" class="nav-link" data-scroll-target="#the-essential-expenses-baseline">The Essential Expenses Baseline</a></li>
+  <li><a href="#adjusting-for-your-situation" id="toc-adjusting-for-your-situation" class="nav-link" data-scroll-target="#adjusting-for-your-situation">Adjusting for Your Situation</a></li>
+  <li><a href="#the-starter-fund-first" id="toc-the-starter-fund-first" class="nav-link" data-scroll-target="#the-starter-fund-first">The Starter Fund First</a></li>
+  </ul></li>
+  <li><a href="#where-to-keep-it-and-where-not-to" id="toc-where-to-keep-it-and-where-not-to" class="nav-link" data-scroll-target="#where-to-keep-it-and-where-not-to"><span class="header-section-number">5.3</span> Where to Keep It (and Where Not To)</a>
+  <ul>
+  <li><a href="#the-right-account" id="toc-the-right-account" class="nav-link" data-scroll-target="#the-right-account">The Right Account</a></li>
+  <li><a href="#why-not-the-stock-market" id="toc-why-not-the-stock-market" class="nav-link" data-scroll-target="#why-not-the-stock-market">Why Not the Stock Market?</a></li>
+  </ul></li>
+  <li><a href="#building-your-emergency-fund" id="toc-building-your-emergency-fund" class="nav-link" data-scroll-target="#building-your-emergency-fund"><span class="header-section-number">5.4</span> Building Your Emergency Fund</a>
+  <ul>
+  <li><a href="#automate-it" id="toc-automate-it" class="nav-link" data-scroll-target="#automate-it">Automate It</a></li>
+  <li><a href="#where-to-find-the-money" id="toc-where-to-find-the-money" class="nav-link" data-scroll-target="#where-to-find-the-money">Where to Find the Money</a></li>
+  </ul></li>
+  <li><a href="#how-to-rebuild-after-a-withdrawal" id="toc-how-to-rebuild-after-a-withdrawal" class="nav-link" data-scroll-target="#how-to-rebuild-after-a-withdrawal"><span class="header-section-number">5.5</span> How to Rebuild After a Withdrawal</a></li>
+  <li><a href="#math-for-emergency-funds" id="toc-math-for-emergency-funds" class="nav-link" data-scroll-target="#math-for-emergency-funds"><span class="header-section-number">5.6</span> Math for Emergency Funds</a>
+  <ul>
+  <li><a href="#your-target-amount" id="toc-your-target-amount" class="nav-link" data-scroll-target="#your-target-amount">Your Target Amount</a></li>
+  <li><a href="#months-to-reach-your-target" id="toc-months-to-reach-your-target" class="nav-link" data-scroll-target="#months-to-reach-your-target">Months to Reach Your Target</a></li>
+  <li><a href="#contribution-needed-by-a-deadline" id="toc-contribution-needed-by-a-deadline" class="nav-link" data-scroll-target="#contribution-needed-by-a-deadline">Contribution Needed by a Deadline</a></li>
+  <li><a href="#what-the-fund-earns-while-you-build-it" id="toc-what-the-fund-earns-while-you-build-it" class="nav-link" data-scroll-target="#what-the-fund-earns-while-you-build-it">What the Fund Earns While You Build It</a></li>
+  </ul></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together"><span class="header-section-number">5.7</span> Putting It All Together</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways"><span class="header-section-number">5.8</span> Key takeaways</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/emergency_fund.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -345,14 +418,527 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><br></p>
-<p>An emergency fund is cash set aside to handle the unexpected without reaching for credit. The standard target is <strong>3 to 6 months of essential expenses</strong>, parked somewhere safe and liquid.</p>
+<p>An emergency fund is cash set aside to handle the unexpected without reaching for credit. It’s the financial equivalent of a spare tire: you don’t need it most of the time, but when you do, nothing else will do the job.</p>
+<p>The standard target is <strong>3 to 6 months of essential expenses</strong>, parked somewhere safe and liquid. This chapter covers:</p>
 <ul>
 <li>How much you actually need</li>
 <li>Where to keep it (and where not to)</li>
+<li>How to build it from scratch</li>
 <li>How to rebuild it after a withdrawal</li>
 </ul>
+<section id="why-it-matters" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="why-it-matters"><span class="header-section-number">5.1</span> Why It Matters</h2>
+<p>Most financial derailments don’t start with bad investing. They start with a single unexpected expense — a car repair, a medical bill, a job loss — that gets charged to a credit card because there’s no cash available.</p>
+<style>
+
+.codeStyle span:not(.nodeLabel) {
+  font-family: monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #9753b8 !important;
+  background-color: #f6f6f6;
+  padding: 0.2em;
+}
+</style>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Crisis([Unexpected Expense]) --&gt; NoFund{Emergency Fund?}
+    NoFund --&gt;|No| CreditCard[Charge It to&lt;br&gt;Credit Card]
+    NoFund --&gt;|Yes| EFund[Draw from&lt;br&gt;Emergency Fund]
+    CreditCard --&gt; Interest[Pay 20-24% Interest&lt;br&gt;for Months/Years]
+    CreditCard --&gt; Stress[Financial Stress&lt;br&gt;&amp; Anxiety]
+    EFund --&gt; Solved[Problem Solved&lt;br&gt;No Debt Added]
+    EFund --&gt; Rebuild[Rebuild the Fund&lt;br&gt;Over Next Few Months]
+    style Crisis fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style NoFund fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style CreditCard fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Interest fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Stress fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style EFund fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Solved fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Rebuild fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+</pre>
+</div>
+<p></p><figcaption> Without an Emergency Fund</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>Housel’s framing is useful here: an emergency fund isn’t about the return on the money. It’s about buying <em>options</em> — the ability to not be forced into a bad financial decision at a bad time. That optionality is worth more than any interest rate .</p>
+</section>
+<section id="how-much-do-you-actually-need" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="how-much-do-you-actually-need"><span class="header-section-number">5.2</span> How Much Do You Actually Need?</h2>
+<p>“3 to 6 months of expenses” is the standard answer, and it’s a reasonable starting range. But it isn’t a single number, because emergencies don’t affect everyone equally.</p>
+<section id="the-essential-expenses-baseline" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-essential-expenses-baseline">The Essential Expenses Baseline</h3>
+<p>Start by calculating your <em>essential expenses</em> — what it actually costs to keep the lights on. This is not your total spending; it’s the floor.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Housing</strong></td>
+<td>Rent or mortgage, renter’s/homeowner’s insurance</td>
+</tr>
+<tr class="even">
+<td><strong>Food</strong></td>
+<td>Groceries (not dining out)</td>
+</tr>
+<tr class="odd">
+<td><strong>Utilities</strong></td>
+<td>Electricity, water, gas, internet</td>
+</tr>
+<tr class="even">
+<td><strong>Transportation</strong></td>
+<td>Car payment, insurance, fuel, transit pass</td>
+</tr>
+<tr class="odd">
+<td><strong>Health</strong></td>
+<td>Insurance premiums, critical medications</td>
+</tr>
+<tr class="even">
+<td><strong>Minimum debt payments</strong></td>
+<td>Credit card minimums, loan payments</td>
+</tr>
+</tbody>
+</table>
+<p>Entertainment, subscriptions, gym memberships, and dining out are <em>not</em> essential expenses for this calculation. In a true emergency, you can cut them. Your emergency fund is sized to cover the life you <em>need</em>, not the one you currently live.</p>
+</section>
+<section id="adjusting-for-your-situation" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="adjusting-for-your-situation">Adjusting for Your Situation</h3>
+<p>The right target depends on how much income risk you carry. More risk = more months.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Start([How many months?]) --&gt; Job{Job Stability?}
+    Job --&gt;|Stable&lt;br&gt;single income| Dep{Dependents?}
+    Job --&gt;|Variable / Self-Employed| More[Lean toward&lt;br&gt;6–9 months]
+    Dep --&gt;|No| Insure{Good health &amp;&lt;br&gt;disability coverage?}
+    Dep --&gt;|Yes: kids, aging parents| SixPlus[6 months minimum]
+    Insure --&gt;|Yes| ThreeToSix[3–4 months&lt;br&gt;is sufficient]
+    Insure --&gt;|No| SixMonths[Closer to&lt;br&gt;6 months]
+    style Start fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Job fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style More fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Dep fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style SixPlus fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Insure fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style ThreeToSix fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style SixMonths fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+</pre>
+</div>
+<p></p><figcaption> How Many Months Do You Need?</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>A two-income household where both partners work stable salaried jobs has a lower emergency risk than a self-employed single parent. The fund should reflect that difference.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span><span style="font-weight: bold; font-size: 1.15em;">If you’re just starting out</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div style="font-size: 1.10em; color: #282b2d;">
+<p>Don’t let the 3-to-6 month target paralyze you. A $1,000 starter fund is meaningfully better than zero — it handles most routine emergencies (car repair, small medical bills, appliance replacement) and gives you a buffer while you pay down high-interest debt. Once toxic debt is cleared, build toward your full target.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-starter-fund-first" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-starter-fund-first">The Starter Fund First</h3>
+<p>Sethi’s approach is practical: build a $1,000 starter emergency fund immediately, even while paying down debt. Once high-interest debt is gone, shift the same monthly dollars you were paying toward debt into filling the emergency fund to its full target.</p>
+<p>The sequence matters:</p>
+<ol type="1">
+<li>Build $1,000 starter fund</li>
+<li>Eliminate credit card and high-interest debt (see <a href="./managing_debt.html">Managing Debt</a>)</li>
+<li>Build full 3–6 month fund</li>
+</ol>
+</section>
+</section>
+<section id="where-to-keep-it-and-where-not-to" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="where-to-keep-it-and-where-not-to"><span class="header-section-number">5.3</span> Where to Keep It (and Where Not To)</h2>
+<p>An emergency fund has two jobs: stay safe and be available. This rules out most places you might initially consider.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart LR
+    Cash([Your Emergency&lt;br&gt;Fund]) --&gt; Good["GOOD OPTIONS"]
+    Cash --&gt; Bad["BAD OPTIONS"]
+
+    Good --&gt; HYSA["High-Yield Savings Account&lt;br&gt;(HYSA)"]
+    Good --&gt; MMF["Money Market Fund&lt;br&gt;(at a brokerage)"]
+    Good --&gt; CheckFed["Federally Insured&lt;br&gt;Credit Union"]
+
+    Bad --&gt; Checking["Regular Checking Account&lt;br&gt;(too easy to spend)"]
+    Bad --&gt; Market["Stock Market&lt;br&gt;(too volatile)"]
+    Bad --&gt; CD["Long-Term CDs&lt;br&gt;(penalties for early withdrawal)"]
+    Bad --&gt; Cash2["Physical Cash at Home&lt;br&gt;(no interest, risk of loss)"]
+
+    style Cash fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Good fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Bad fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style HYSA fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style MMF fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style CheckFed fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Checking fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Market fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style CD fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Cash2 fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+</pre>
+</div>
+<p></p><figcaption> Where to Park Your Emergency Fund</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<section id="the-right-account" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-right-account">The Right Account</h3>
+<p>A <strong>high-yield savings account (HYSA)</strong> at an FDIC-insured bank is the default recommendation. It earns meaningfully more than a standard checking account while keeping the money one business day away. Credit union equivalents covered by NCUA insurance work the same way.</p>
+<p>See <a href="./high_yield_accounts.html">High-Yield Accounts</a> for a full breakdown of how to find and open one.</p>
+</section>
+<section id="why-not-the-stock-market" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="why-not-the-stock-market">Why Not the Stock Market?</h3>
+<p>This is the most common mistake people make with emergency funds. The logic seems sound: “<em>my money would earn more in index funds.</em>” The problem is sequencing risk.</p>
+<p>If you lose your job in February and the stock market is down 25% at the same moment — which historically happens; recessions cause both — you’re forced to sell at the worst possible time. The emergency fund’s job isn’t to grow wealth; it’s to be there when you need it, at full value, on demand.</p>
+<p><span style="color:#48a56a; font-weight: bold;">Ben Felix approaches this through the lens of human capital.</span> For most, your ability to earn an income is your largest asset. An emergency fund is a hedge against the volatility of that human capital. If your income is highly variable (e.g., sales commissions, freelancing, or business ownership), you should lean toward a larger cash buffer to protect your ability to maintain your lifestyle during lean periods.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span><span style="font-weight: bold; font-size: 1.15em;">The temptation to invest it</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div style="font-size: 1.10em; color: #282b2d;">
+<p>Every bull market produces the same question: ‘Why am I sitting on cash earning 4% when the market is up 20%?’ The answer is that emergency funds serve a different function than investments. Conflating them exposes you to the exact sequence-of-returns risk you’re trying to insure against. Keep your emergency fund in cash. Period.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="building-your-emergency-fund" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="building-your-emergency-fund"><span class="header-section-number">5.4</span> Building Your Emergency Fund</h2>
+<p>For most people, building the fund from zero to 3–6 months takes 12–24 months of consistent contribution. The chart below shows the monthly balance for three different monthly contribution amounts toward a $15,000 target.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="emergency_fund_files/figure-html/ef-build-bar-model-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Months to reach a $15,000 emergency fund at three contribution levels"><img src="emergency_fund_files/figure-html/ef-build-bar-model-1.png" class="img-fluid figure-img" width="576" alt="Months to reach a $15,000 emergency fund at three contribution levels"></a></p>
+<figcaption>Months to reach a $15,000 emergency fund at three contribution levels</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The pattern is simple: doubling the monthly contribution roughly halves the time to goal.</p>
+<section id="automate-it" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="automate-it">Automate It</h3>
+<p>The most reliable way to build the fund is to treat it exactly like a bill. Set up an automatic transfer to your HYSA on payday, before you have a chance to spend the money. See <a href="./automating_savings.html">Automating Savings</a> for the full setup playbook.</p>
+</section>
+<section id="where-to-find-the-money" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="where-to-find-the-money">Where to Find the Money</h3>
+<p>If you’re reading this and thinking “<em>I don’t have anything extra to save,</em>” the answer is usually a combination of small cuts applied consistently:</p>
+<ul>
+<li>Pause one subscription</li>
+<li>Cook at home one extra night per week</li>
+<li>Redirect a tax refund directly to the fund</li>
+</ul>
+<p>None of these feel dramatic. That’s the point. The fund gets built one unexciting month at a time.</p>
+</section>
+</section>
+<section id="how-to-rebuild-after-a-withdrawal" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="how-to-rebuild-after-a-withdrawal"><span class="header-section-number">5.5</span> How to Rebuild After a Withdrawal</h2>
+<p>Using the emergency fund isn’t a failure — it’s the fund doing its job. The mistake is treating a withdrawal as a one-time event rather than a signal to rebuild immediately.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Use([Emergency: Fund Used]) --&gt; Assess[Assess: How much&lt;br&gt;was withdrawn?]
+    Assess --&gt; Resume[Resume automatic&lt;br&gt;contributions immediately]
+    Resume --&gt; Temp{Can you temporarily&lt;br&gt;increase contributions?}
+    Temp --&gt;|Yes| Boost[Increase monthly&lt;br&gt;contribution until rebuilt]
+    Temp --&gt;|No| Steady[Maintain existing&lt;br&gt;contribution; stay patient]
+    Boost --&gt; Target([Fund Restored])
+    Steady --&gt; Target
+    style Use fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Assess fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Resume fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Temp fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Boost fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Steady fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Target fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+</pre>
+</div>
+<p></p><figcaption> Rebuild Protocol</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>Two rules for the rebuild phase:</p>
+<ol type="1">
+<li><p><strong>Don’t stop other savings to rebuild faster.</strong> The automatic contributions will get you there. Don’t interrupt retirement account contributions, especially if you have an employer match.</p></li>
+<li><p><strong>Don’t restart debt payoff conversations during the rebuild.</strong> Your priority order right now is: minimum payments on everything, then rebuild the emergency fund, then return to accelerated debt payoff.</p></li>
+</ol>
+</section>
+<section id="math-for-emergency-funds" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="math-for-emergency-funds"><span class="header-section-number">5.6</span> Math for Emergency Funds</h2>
+<p>The calculations here are simple, but writing them down forces you to confront the actual numbers.</p>
+<section id="your-target-amount" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="your-target-amount">Your Target Amount</h3>
+<p>Your emergency fund target is just essential monthly expenses multiplied by the number of months you want to cover.</p>
+<p>The chart below shows how the target grows as you add months — each bar is the previous one plus one more month of expenses.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="emergency_fund_files/figure-html/ef-target-bar-model-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Emergency fund target at $3,500/month essential expenses"><img src="emergency_fund_files/figure-html/ef-target-bar-model-1.png" class="img-fluid figure-img" width="576" alt="Emergency fund target at $3,500/month essential expenses"></a></p>
+<figcaption>Emergency fund target at $3,500/month essential expenses</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Formula:</strong> Target = Monthly Essential Expenses × Months of Coverage</p>
+<p>Example: $3,500/month in essential expenses × 4 months = <span style="color:#48a56a; font-weight: bold;">$14,000 target.</span></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>emergency_fund_target <span class="ot">&lt;-</span> <span class="cf">function</span>(monthly_expenses, <span class="at">months =</span> <span class="dv">3</span>) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  monthly_expenses <span class="sc">*</span> months</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># $3,500/month in essential expenses, 3-month and 6-month targets</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">emergency_fund_target</span>(<span class="at">monthly_expenses =</span> <span class="dv">3500</span>, <span class="at">months =</span> <span class="dv">3</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 10500</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">emergency_fund_target</span>(<span class="at">monthly_expenses =</span> <span class="dv">3500</span>, <span class="at">months =</span> <span class="dv">6</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 21000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> emergency_fund_target(monthly_expenses, months<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> monthly_expenses <span class="op">*</span> months</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># $3,500/month in essential expenses, 3-month and 6-month targets</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(emergency_fund_target(monthly_expenses<span class="op">=</span><span class="dv">3500</span>, months<span class="op">=</span><span class="dv">3</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10500</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(emergency_fund_target(monthly_expenses<span class="op">=</span><span class="dv">3500</span>, months<span class="op">=</span><span class="dv">6</span>))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 21000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="months-to-reach-your-target" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="months-to-reach-your-target">Months to Reach Your Target</h3>
+<p>Given your current balance and a monthly contribution, how long until you reach the target?</p>
+<p><strong>Formula:</strong> Months to Goal = (Target − Current Balance) ÷ Monthly Contribution</p>
+<p>Example: $14,000 target, $2,000 already saved, contributing $500/month → (14,000 − 2,000) ÷ 500 = <span style="color:#48a56a; font-weight: bold;">24 months.</span></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>months_to_ef_goal <span class="ot">&lt;-</span> <span class="cf">function</span>(target, current_balance, monthly_contribution) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  remaining <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="dv">0</span>, target <span class="sc">-</span> current_balance)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ceiling</span>(remaining <span class="sc">/</span> monthly_contribution)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># $14,000 target, $2,000 saved, $500/month contribution</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">months_to_ef_goal</span>(<span class="at">target =</span> <span class="dv">14000</span>, <span class="at">current_balance =</span> <span class="dv">2000</span>, <span class="at">monthly_contribution =</span> <span class="dv">500</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 24</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> months_to_ef_goal(target, current_balance, monthly_contribution):</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    remaining <span class="op">=</span> <span class="bu">max</span>(<span class="dv">0</span>, target <span class="op">-</span> current_balance)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> math.ceil(remaining <span class="op">/</span> monthly_contribution)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># $14,000 target, $2,000 saved, $500/month contribution</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(months_to_ef_goal(target<span class="op">=</span><span class="dv">14000</span>, current_balance<span class="op">=</span><span class="dv">2000</span>, monthly_contribution<span class="op">=</span><span class="dv">500</span>))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 24</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="contribution-needed-by-a-deadline" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="contribution-needed-by-a-deadline">Contribution Needed by a Deadline</h3>
+<p>Working backwards: if you want to reach your target in a specific number of months, how much do you need to save each month?</p>
+<p><strong>Formula:</strong> Monthly Contribution = (Target − Current Balance) ÷ Months Remaining</p>
+<p>Example: You want a full $14,000 fund in 18 months and have $2,000 now → (14,000 − 2,000) ÷ 18 = <span style="color:#48a56a; font-weight: bold;">$667/month.</span></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>monthly_contribution_needed <span class="ot">&lt;-</span> <span class="cf">function</span>(target, current_balance, months) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  remaining <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="dv">0</span>, target <span class="sc">-</span> current_balance)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ceiling</span>(remaining <span class="sc">/</span> months)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># $14,000 target, $2,000 saved, want to finish in 18 months</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">monthly_contribution_needed</span>(<span class="at">target =</span> <span class="dv">14000</span>, <span class="at">current_balance =</span> <span class="dv">2000</span>, <span class="at">months =</span> <span class="dv">18</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 667</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> monthly_contribution_needed(target, current_balance, months):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    remaining <span class="op">=</span> <span class="bu">max</span>(<span class="dv">0</span>, target <span class="op">-</span> current_balance)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> math.ceil(remaining <span class="op">/</span> months)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># $14,000 target, $2,000 saved, want to finish in 18 months</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(monthly_contribution_needed(target<span class="op">=</span><span class="dv">14000</span>, current_balance<span class="op">=</span><span class="dv">2000</span>, months<span class="op">=</span><span class="dv">18</span>))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 667</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-the-fund-earns-while-you-build-it" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="what-the-fund-earns-while-you-build-it">What the Fund Earns While You Build It</h3>
+<p>Keeping the fund in a HYSA means it earns interest as it grows. This won’t dramatically change your timeline, but it’s real money.</p>
+<p><strong>Formula:</strong> Future Value = Balance × (1 + monthly rate)^months</p>
+<p>Where monthly rate = annual rate ÷ 12.</p>
+<p>Example: $14,000 in a HYSA at 4.5% APY, untouched for 12 months → <span style="color:#48a56a; font-weight: bold;">~$14,630.</span> The interest pays for a car repair without reducing your fund.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ef_growth <span class="ot">&lt;-</span> <span class="cf">function</span>(balance, annual_rate, months) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  monthly_rate <span class="ot">&lt;-</span> annual_rate <span class="sc">/</span> <span class="dv">12</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  balance <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> monthly_rate)<span class="sc">^</span>months</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># $14,000 at 4.5% APY for 12 months</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ef_growth</span>(<span class="at">balance =</span> <span class="dv">14000</span>, <span class="at">annual_rate =</span> <span class="fl">0.045</span>, <span class="at">months =</span> <span class="dv">12</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 14643.16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ef_growth(balance, annual_rate, months):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    monthly_rate <span class="op">=</span> annual_rate <span class="op">/</span> <span class="dv">12</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> balance <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> monthly_rate) <span class="op">**</span> months</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># $14,000 at 4.5% APY for 12 months</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ef_growth(balance<span class="op">=</span><span class="dv">14000</span>, annual_rate<span class="op">=</span><span class="fl">0.045</span>, months<span class="op">=</span><span class="dv">12</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14643.157550568254</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="putting-it-all-together" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="putting-it-all-together"><span class="header-section-number">5.7</span> Putting It All Together</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Start(["Build Your&lt;br&gt;Emergency Fund"]) --&gt; Step1("Step 1. Calculate monthly&lt;br&gt;essential expenses")
+    Step1 --&gt; Step2("Step 2. Choose your target:&lt;br&gt;3–6 months, based on risk")
+    Step2 --&gt; Step3("Step 3. Open a&lt;br&gt;dedicated HYSA")
+    Step3 --&gt; Step4("Step 4. Set up automatic&lt;br&gt;monthly transfer on payday")
+    Step4 --&gt; Step5("Step 5. Build $1,000 starter&lt;br&gt;fund first if in debt")
+    Step5 --&gt; Step6("Step 6. Pay off high-interest&lt;br&gt;debt, then fill full fund")
+    Step6 --&gt; Step7("Step 7. Once funded, leave it&lt;br&gt;alone — it's not savings")
+    Step7 --&gt; Step8(["Step 8. Rebuild immediately&lt;br&gt;after any withdrawal"])
+    style Start fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step4 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step5 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step6 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step7 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step8 fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+</pre>
+</div>
+<p></p><figcaption> Build Your Emergency Fund</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="key-takeaways" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="key-takeaways"><span class="header-section-number">5.8</span> Key takeaways</h2>
+<p>An emergency fund is not an investment. It’s insurance — and the cost of that insurance is the interest you <em>don’t</em> earn by keeping it in cash instead of equities. That’s a reasonable price for what it buys.</p>
+<ol type="1">
+<li><span style="color:#48a56a; font-weight: bold;">Size it to your actual risk.</span> Stable salaried job with good coverage? Three months is fine. Variable income or dependents? Six months or more.</li>
+<li><span style="color:#48a56a; font-weight: bold;">Keep it separate.</span> A dedicated HYSA with a slight friction to transfer prevents casual spending from eroding the fund.</li>
+<li><span style="color:#48a56a; font-weight: bold;">Build it in stages.</span> $1,000 starter fund first, then full fund after high-interest debt is cleared.</li>
+<li><span style="color:#48a56a; font-weight: bold;">Automate the contribution.</span> Set it on payday and treat it like a bill until the fund is full.</li>
+<li><span style="color:#48a56a; font-weight: bold;">Rebuild immediately after using it.</span> The fund only works if it’s there the <em>next</em> time you need it.</li>
+</ol>
+<p>As Housel writes, the point of financial margin isn’t to optimize — it’s to survive. An emergency fund doesn’t make you rich. It keeps a bad month from becoming a bad decade.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -814,12 +1400,44 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/emergency_fund.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/emergency_fund.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

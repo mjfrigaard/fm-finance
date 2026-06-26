@@ -802,6 +802,7 @@ flowchart TD
 <figcaption><code>bank_statement</code> in Excel</figcaption>
 </figure>
 </div>
+<p>Excel also has a handy table format, which give many tools for sorting and analyzing data.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> I’ll go into using tables more on the <a href="https://mjfrigaard.github.io/dev-fm-finance/">accompanying website</a> for the book.</p>
 </div>
 </div>
 </div>
@@ -902,7 +903,7 @@ flowchart TD
 <p>In R, a lookup table can be created using <code>dplyr</code>:</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>show/hide</summary>
+<summary>show/hide R categorize transactions</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>r_bank_statement <span class="ot">&lt;-</span> r_bank_statement <span class="sc">|&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Category =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
@@ -1042,7 +1043,7 @@ flowchart TD
 <p><code>polars</code> closely mirrors the <code>dplyr</code> code:</p>
 <div class="cell">
 <details open="" class="code-fold">
-<summary>show/hide</summary>
+<summary>show/hide py categorize transactions</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>py_bank_statement <span class="op">=</span> py_bank_statement.with_columns(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    Category <span class="op">=</span> pl.when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Payroll"</span>)).then(pl.lit(<span class="st">"Income"</span>))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Rent"</span>)).then(pl.lit(<span class="st">"Housing"</span>))</span>
@@ -1191,16 +1192,10 @@ flowchart TD
 </div>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<p>In Excel, the <a href="https://support.microsoft.com/en-US/Excel/IFS-function"><code>IFS()</code> function</a> is the direct analog of <code>case_when()</code>/<code>when().then()</code>:</p>
+<p>In Excel, the <a href="https://support.microsoft.com/en-US/Excel/IFS-function"><code>IFS()</code> function</a> is the direct analog of <code>case_when()</code>/<code>when().then()</code>.</p>
 <ul>
-<li><p>A list of conditions and corresponding values, evaluated top to bottom, with the first match winning</p></li>
-<li><p><code>SEARCH()</code> returns the position of a keyword in a cell (or <code>#VALUE!</code> if not found)</p></li>
-<li><p>Wrapping it in <code>ISNUMBER()</code> turns that into a true/false test</p>
-<ul>
-<li>For categories with several rows/transactions, wrap the tests in <code>OR()</code></li>
-</ul></li>
+<li>If the statement is laid out with <code>Date</code> in column <code>A</code>, <code>Description</code> in column <code>B</code>, and <code>Amount</code> in column <code>C</code>. Type <code>Category</code> in cell <code>D1</code>, then paste the formula below into <code>D2</code>:</li>
 </ul>
-<p>Assume your statement is laid out with <code>Date</code> in column <code>A</code>, <code>Description</code> in column <code>B</code>, and <code>Amount</code> in column <code>C</code>. Type <code>Category</code> in cell <code>D1</code>, then paste this formula into <code>D2</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>IFS<span class="op">(</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Payroll"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Income"</span><span class="op">,</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Rent"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Housing"</span><span class="op">,</span></span>
@@ -1213,7 +1208,9 @@ flowchart TD
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Geico"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Insurance"</span><span class="op">,</span></span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  TRUE<span class="op">,</span> <span class="st">"Other"</span></span>
 <span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then copy <code>D2</code> down through every transaction row (select <code>D2</code>, double-click the small square in the bottom-right corner, or use <code>Ctrl+D</code> after selecting <code>D2:D{last_row}</code>).</p>
+<ul>
+<li>Then copy <code>D2</code> down through every transaction row (select <code>D2</code>, double-click the small square in the bottom-right corner, or use <code>Ctrl+D</code> after selecting <code>D2:D{last_row}</code>).</li>
+</ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
@@ -1224,7 +1221,6 @@ flowchart TD
 <figcaption><code>IFS()</code> in Excel</figcaption>
 </figure>
 </div>
-<p>The final <code>TRUE, "Other"</code> arm is the equivalent of <code>dplyr</code>’s <code>TRUE ~ "Other"</code> and <code>polars</code>’s <code>.otherwise(...)</code>; it catches anything that didn’t match an earlier pattern.</p>
 <p>To add a new merchant when one shows up: edit the formula in <code>D2</code>, then re-fill down. Keep the new merchant near the bottom of its category group so the existing patterns still resolve first.</p>
 </div>
 </div>
@@ -1353,7 +1349,7 @@ flowchart TD
 </div>
 <section id="the-subscription-reality-check" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="the-subscription-reality-check">The Subscription Reality Check</h3>
-<p>The average household spends <span style="color:#f44242; font-weight: bold;">$200–$300/month</span> on subscriptions, often without realizing it.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> At $250/month invested at a 7% real return over 30 years, that’s roughly <span style="color:#f44242; font-weight: bold;">$300,000 in lost wealth</span>.</p>
+<p>The average household spends <span style="color:#f44242; font-weight: bold;">$200–$300/month</span> on subscriptions, often without realizing it.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> At $250/month invested at a 7% real return over 30 years, that’s roughly <span style="color:#f44242; font-weight: bold;">$300,000 in lost wealth</span>.</p>
 <p><strong>Action steps:</strong></p>
 <ol type="1">
 <li>Pull your last 3 months of bank/card statements</li>
@@ -1499,7 +1495,8 @@ flowchart TD
 <hr>
 <ol>
 <li id="fn1"><p>Stashing cash around the house was actually quite common for people who lived through the depression. Read more <a href="https://www.chicagotribune.com/2005/04/17/inheritance-hide-and-seek/">here</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>These numbers are reported on <a href="https://www.ngpf.org/blog/question-of-the-day/question-of-the-day-how-much-does-the-average-consumer-spend-per-month-on-subscription-services/">Next Gen Personal Finance</a> and <a href="https://www.cbsnews.com/newyork/news/experts-suggest-taking-stock-of-how-much-your-monthly-subscriptions-really-cost-before-the-end-of-the-year/">CBS News</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Read the <a href="https://support.microsoft.com/en-us/excel/overview-of-excel-tables">Overview of Excel tables</a> on the Microsoft documentation.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>These numbers are reported on <a href="https://www.ngpf.org/blog/question-of-the-day/question-of-the-day-how-much-does-the-average-consumer-spend-per-month-on-subscription-services/">Next Gen Personal Finance</a> and <a href="https://www.cbsnews.com/newyork/news/experts-suggest-taking-stock-of-how-much-your-monthly-subscriptions-really-cost-before-the-end-of-the-year/">CBS News</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
