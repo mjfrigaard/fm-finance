@@ -94,6 +94,8 @@ Example Python code:
 1000 * (1 + 0.05) ** 10
 ```
 
+If you're interested in programming, the book also has an [accompanying website](https://mjfrigaard.github.io/dev-fm-finance/) where I dive a little deeper into R/Python functions, package development, and how to create interactive web applications using the Shiny framework. 
+
 ```{r}
 #| label: intro-disclaimer
 #| echo: false

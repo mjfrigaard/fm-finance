@@ -199,6 +199,11 @@ The `bank_statement` can also be copied + pasted into Excel:
 
 ![`bank_statement` in Excel](img/tracking_spending-bank-statement.png){width='75%' fig-align='center'}
 
+Excel also has a handy table format, which give many tools for sorting and analyzing data.[^excel-tables] I'll go into using tables more on the [accompanying website](https://mjfrigaard.github.io/dev-fm-finance/) for the book. 
+
+
+[^excel-tables]: Read the [Overview of Excel tables](https://support.microsoft.com/en-us/excel/overview-of-excel-tables) on the Microsoft documentation. 
+
 :::
 
 
@@ -226,6 +231,7 @@ Python has no built-in data frame — you need a library; we use `polars` (`pl.D
 :::
 
 ::: {layout="[50,50]" layout-valign="top"}
+
 ``` r
 df <- tibble::tibble(x = 1:5)
 ```
@@ -289,6 +295,8 @@ In R, a lookup table can be created using `dplyr`:
 
 ```{r}
 #| label: categorize-r
+#| code-fold: show
+#| code-summary: 'show/hide R categorize transactions'
 r_bank_statement <- r_bank_statement |>
   dplyr::mutate(
     Category = dplyr::case_when(
@@ -313,6 +321,8 @@ r_bank_statement |> knitr::kable()
 
 ```{python}
 #| label: categorize-py
+#| code-fold: show
+#| code-summary: 'show/hide py categorize transactions'
 py_bank_statement = py_bank_statement.with_columns(
     Category = pl.when(pl.col("Description").str.contains("Payroll")).then(pl.lit("Income"))
         .when(pl.col("Description").str.contains("Rent")).then(pl.lit("Housing"))
@@ -330,17 +340,9 @@ py_bank_statement
 
 ## Excel
 
-In Excel, the [`IFS()` function](https://support.microsoft.com/en-US/Excel/IFS-function) is the direct analog of `case_when()`/`when().then()`:
+In Excel, the [`IFS()` function](https://support.microsoft.com/en-US/Excel/IFS-function) is the direct analog of `case_when()`/`when().then()`. 
 
-- A list of conditions and corresponding values, evaluated top to bottom, with the first match winning
-
-- `SEARCH()` returns the position of a keyword in a cell (or `#VALUE!` if not found)
-
-- Wrapping it in `ISNUMBER()` turns that into a true/false test
-
-  - For categories with several rows/transactions, wrap the tests in `OR()`
-
-Assume your statement is laid out with `Date` in column `A`, `Description` in column `B`, and `Amount` in column `C`. Type `Category` in cell `D1`, then paste this formula into `D2`:
+*  If the statement is laid out with `Date` in column `A`, `Description` in column `B`, and `Amount` in column `C`. Type `Category` in cell `D1`, then paste the formula below into `D2`:
 
 ```swift
 =IFS(
@@ -357,11 +359,9 @@ Assume your statement is laid out with `Date` in column `A`, `Description` in co
 )
 ```
 
-Then copy `D2` down through every transaction row (select `D2`, double-click the small square in the bottom-right corner, or use `Ctrl+D` after selecting `D2:D{last_row}`).
+* Then copy `D2` down through every transaction row (select `D2`, double-click the small square in the bottom-right corner, or use `Ctrl+D` after selecting `D2:D{last_row}`).
 
 ![`IFS()` in Excel](img/tracking_spending-ifs.png){width='100%' fig-align='center'}
-
-The final `TRUE, "Other"` arm is the equivalent of `dplyr`'s `TRUE ~ "Other"` and `polars`'s `.otherwise(...)`; it catches anything that didn't match an earlier pattern.
 
 To add a new merchant when one shows up: edit the formula in `D2`, then re-fill down. Keep the new merchant near the bottom of its category group so the existing patterns still resolve first.
 
@@ -612,6 +612,8 @@ In Excel, create a small table with these inputs, then enter the formula in `D2`
 ```
 
 ![Opportunity Cost in Excel](img/tracking_spending-opportunity_cost.png){width='100%' fig-align='center'}
+
+
 
 :::
 

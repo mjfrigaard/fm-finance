@@ -15,10 +15,503 @@ source("_common.R")
 
 <br>
 
-An emergency fund is cash set aside to handle the unexpected without
-reaching for credit. The standard target is **3 to 6 months of essential
-expenses**, parked somewhere safe and liquid.
+An emergency fund is cash set aside to handle the unexpected without reaching for credit. It's the financial equivalent of a spare tire: you don't need it most of the time, but when you do, nothing else will do the job.
 
-  - How much you actually need
-  - Where to keep it (and where not to)
-  - How to rebuild it after a withdrawal
+The standard target is **3 to 6 months of essential expenses**, parked somewhere safe and liquid. This chapter covers:
+
+- How much you actually need
+- Where to keep it (and where not to)
+- How to build it from scratch
+- How to rebuild it after a withdrawal
+
+## Why It Matters
+
+Most financial derailments don't start with bad investing. They start with a single unexpected expense — a car repair, a medical bill, a job loss — that gets charged to a credit card because there's no cash available.
+
+```{=html}
+<style>
+
+.codeStyle span:not(.nodeLabel) {
+  font-family: monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #9753b8 !important;
+  background-color: #f6f6f6;
+  padding: 0.2em;
+}
+</style>
+```
+
+```{mermaid}
+%%| fig-cap: 'Without an Emergency Fund'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Crisis([Unexpected Expense]) --> NoFund{Emergency Fund?}
+    NoFund -->|No| CreditCard[Charge It to<br>Credit Card]
+    NoFund -->|Yes| EFund[Draw from<br>Emergency Fund]
+    CreditCard --> Interest[Pay 20-24% Interest<br>for Months/Years]
+    CreditCard --> Stress[Financial Stress<br>& Anxiety]
+    EFund --> Solved[Problem Solved<br>No Debt Added]
+    EFund --> Rebuild[Rebuild the Fund<br>Over Next Few Months]
+    style Crisis fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style NoFund fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style CreditCard fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Interest fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Stress fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style EFund fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Solved fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Rebuild fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+```
+
+Housel's framing is useful here: an emergency fund isn't about the return on the money. It's about buying *options* — the ability to not be forced into a bad financial decision at a bad time. That optionality is worth more than any interest rate \cite{housel2020psychology}.
+
+## How Much Do You Actually Need?
+
+"3 to 6 months of expenses" is the standard answer, and it's a reasonable starting range. But it isn't a single number, because emergencies don't affect everyone equally.
+
+### The Essential Expenses Baseline {.unnumbered}
+
+Start by calculating your *essential expenses* — what it actually costs to keep the lights on. This is not your total spending; it's the floor.
+
+| Category | Examples |
+|---|---|
+| **Housing** | Rent or mortgage, renter's/homeowner's insurance |
+| **Food** | Groceries (not dining out) |
+| **Utilities** | Electricity, water, gas, internet |
+| **Transportation** | Car payment, insurance, fuel, transit pass |
+| **Health** | Insurance premiums, critical medications |
+| **Minimum debt payments** | Credit card minimums, loan payments |
+
+Entertainment, subscriptions, gym memberships, and dining out are *not* essential expenses for this calculation. In a true emergency, you can cut them. Your emergency fund is sized to cover the life you *need*, not the one you currently live.
+
+### Adjusting for Your Situation {.unnumbered}
+
+The right target depends on how much income risk you carry. More risk = more months.
+
+```{mermaid}
+%%| fig-cap: 'How Many Months Do You Need?'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Start([How many months?]) --> Job{Job Stability?}
+    Job -->|Stable<br>single income| Dep{Dependents?}
+    Job -->|Variable / Self-Employed| More[Lean toward<br>6–9 months]
+    Dep -->|No| Insure{Good health &<br>disability coverage?}
+    Dep -->|Yes: kids, aging parents| SixPlus[6 months minimum]
+    Insure -->|Yes| ThreeToSix[3–4 months<br>is sufficient]
+    Insure -->|No| SixMonths[Closer to<br>6 months]
+    style Start fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Job fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style More fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Dep fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style SixPlus fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Insure fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style ThreeToSix fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style SixMonths fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+```
+
+A two-income household where both partners work stable salaried jobs has a lower emergency risk than a self-employed single parent. The fund should reflect that difference.
+
+```{r}
+#| label: ef-size-rec
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(color = "g",
+  hsize = "1.15",
+  fold = FALSE,
+  size = "1.10",
+  header = "If you're just starting out",
+  contents = "Don't let the 3-to-6 month target paralyze you. A $1,000 starter fund is meaningfully better than zero — it handles most routine emergencies (car repair, small medical bills, appliance replacement) and gives you a buffer while you pay down high-interest debt. Once toxic debt is cleared, build toward your full target.")
+```
+
+### The Starter Fund First {.unnumbered}
+
+Sethi's approach is practical: build a $1,000 starter emergency fund immediately, even while paying down debt. Once high-interest debt is gone, shift the same monthly dollars you were paying toward debt into filling the emergency fund to its full target.
+
+The sequence matters:
+
+1. Build $1,000 starter fund
+2. Eliminate credit card and high-interest debt (see [Managing Debt](managing_debt.qmd))
+3. Build full 3–6 month fund
+
+## Where to Keep It (and Where Not To)
+
+An emergency fund has two jobs: stay safe and be available. This rules out most places you might initially consider.
+
+```{mermaid}
+%%| fig-cap: 'Where to Park Your Emergency Fund'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart LR
+    Cash([Your Emergency<br>Fund]) --> Good["GOOD OPTIONS"]
+    Cash --> Bad["BAD OPTIONS"]
+
+    Good --> HYSA["High-Yield Savings Account<br>(HYSA)"]
+    Good --> MMF["Money Market Fund<br>(at a brokerage)"]
+    Good --> CheckFed["Federally Insured<br>Credit Union"]
+
+    Bad --> Checking["Regular Checking Account<br>(too easy to spend)"]
+    Bad --> Market["Stock Market<br>(too volatile)"]
+    Bad --> CD["Long-Term CDs<br>(penalties for early withdrawal)"]
+    Bad --> Cash2["Physical Cash at Home<br>(no interest, risk of loss)"]
+
+    style Cash fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Good fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Bad fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style HYSA fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style MMF fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style CheckFed fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Checking fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Market fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style CD fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Cash2 fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+```
+
+### The Right Account {.unnumbered}
+
+A **high-yield savings account (HYSA)** at an FDIC-insured bank is the default recommendation. It earns meaningfully more than a standard checking account while keeping the money one business day away. Credit union equivalents covered by NCUA insurance work the same way.
+
+See [High-Yield Accounts](high_yield_accounts.qmd) for a full breakdown of how to find and open one.
+
+### Why Not the Stock Market? {.unnumbered}
+
+This is the most common mistake people make with emergency funds. The logic seems sound: "*my money would earn more in index funds.*" The problem is sequencing risk.
+
+If you lose your job in February and the stock market is down 25% at the same moment — which historically happens; recessions cause both — you're forced to sell at the worst possible time. The emergency fund's job isn't to grow wealth; it's to be there when you need it, at full value, on demand.
+
+[Ben Felix approaches this through the lens of human capital.]{style="color:#48a56a; font-weight: bold;"} For most, your ability to earn an income is your largest asset. An emergency fund is a hedge against the volatility of that human capital. If your income is highly variable (e.g., sales commissions, freelancing, or business ownership), you should lean toward a larger cash buffer to protect your ability to maintain your lifestyle during lean periods.
+
+```{r}
+#| label: ef-invest-warning
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(color = "o",
+  hsize = "1.15",
+  fold = FALSE,
+  size = "1.10",
+  header = "The temptation to invest it",
+  contents = "Every bull market produces the same question: 'Why am I sitting on cash earning 4% when the market is up 20%?' The answer is that emergency funds serve a different function than investments. Conflating them exposes you to the exact sequence-of-returns risk you're trying to insure against. Keep your emergency fund in cash. Period.")
+```
+
+## Building Your Emergency Fund
+
+For most people, building the fund from zero to 3–6 months takes 12–24 months of consistent contribution. The chart below shows the monthly balance for three different monthly contribution amounts toward a $15,000 target.
+
+```{r}
+#| label: ef-build-bar-model
+#| echo: false
+#| message: false 
+#| warning: false
+#| fig-cap: "Months to reach a $15,000 emergency fund at three contribution levels"
+#| fig-asp: 0.618
+library(ggplot2)
+library(dplyr)
+
+target <- 15000
+contribs <- c(300, 500, 750)
+colors <- c("#86ddcd", "#0e9aa7", "#48a56a")
+
+df_build <- purrr::map2_dfr(contribs, colors, function(c, col) {
+  months <- ceiling(target / c)
+  data.frame(
+    monthly   = paste0("$", c, "/mo"),
+    months    = months,
+    fill      = col
+  )
+})
+
+df_build$monthly <- factor(df_build$monthly, levels = df_build$monthly)
+
+ggplot(df_build, aes(x = monthly, y = months, fill = monthly)) +
+  geom_col(width = 0.55) +
+  geom_text(
+    aes(label = paste0(months, " months")),
+    vjust = -0.4, fontface = "bold", size = 4
+  ) +
+  scale_fill_manual(values = setNames(df_build$fill, df_build$monthly)) +
+  scale_y_continuous(limits = c(0, 55), labels = function(x) paste0(x, " mo")) +
+  labs(x = "Monthly contribution", y = NULL,
+       subtitle = "Target: $15,000 (approx. 3 months of $5,000/month expenses)") +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "none",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+The pattern is simple: doubling the monthly contribution roughly halves the time to goal.
+
+### Automate It {.unnumbered}
+
+The most reliable way to build the fund is to treat it exactly like a bill. Set up an automatic transfer to your HYSA on payday, before you have a chance to spend the money. See [Automating Savings](automating_savings.qmd) for the full setup playbook.
+
+### Where to Find the Money {.unnumbered}
+
+If you're reading this and thinking "*I don't have anything extra to save,*" the answer is usually a combination of small cuts applied consistently:
+
+- Pause one subscription
+- Cook at home one extra night per week
+- Redirect a tax refund directly to the fund
+
+None of these feel dramatic. That's the point. The fund gets built one unexciting month at a time.
+
+## How to Rebuild After a Withdrawal
+
+Using the emergency fund isn't a failure — it's the fund doing its job. The mistake is treating a withdrawal as a one-time event rather than a signal to rebuild immediately.
+
+```{mermaid}
+%%| fig-cap: 'Rebuild Protocol'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Use([Emergency: Fund Used]) --> Assess[Assess: How much<br>was withdrawn?]
+    Assess --> Resume[Resume automatic<br>contributions immediately]
+    Resume --> Temp{Can you temporarily<br>increase contributions?}
+    Temp -->|Yes| Boost[Increase monthly<br>contribution until rebuilt]
+    Temp -->|No| Steady[Maintain existing<br>contribution; stay patient]
+    Boost --> Target([Fund Restored])
+    Steady --> Target
+    style Use fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Assess fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Resume fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Temp fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Boost fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Steady fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Target fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+```
+
+Two rules for the rebuild phase:
+
+1. **Don't stop other savings to rebuild faster.** The automatic contributions will get you there. Don't interrupt retirement account contributions, especially if you have an employer match.
+
+2. **Don't restart debt payoff conversations during the rebuild.** Your priority order right now is: minimum payments on everything, then rebuild the emergency fund, then return to accelerated debt payoff.
+
+## Math for Emergency Funds {#math-for-emergency-funds}
+
+The calculations here are simple, but writing them down forces you to confront the actual numbers.
+
+### Your Target Amount {.unnumbered}
+
+Your emergency fund target is just essential monthly expenses multiplied by the number of months you want to cover.
+
+The chart below shows how the target grows as you add months — each bar is the previous one plus one more month of expenses.
+
+```{r}
+#| label: ef-target-bar-model
+#| echo: false
+#| fig-cap: "Emergency fund target at $3,500/month essential expenses"
+#| fig-asp: 0.50
+library(ggplot2)
+monthly_exp <- 3500
+months_vec  <- 1:6
+df_target   <- data.frame(
+  months = factor(paste0(months_vec, " mo"), levels = paste0(months_vec, " mo")),
+  target = monthly_exp * months_vec,
+  fill   = c("#86ddcd", "#86ddcd", "#0e9aa7", "#0e9aa7", "#48a56a", "#48a56a")
+)
+ggplot(df_target, aes(x = months, y = target, fill = months)) +
+  geom_col(width = 0.6) +
+  geom_text(
+    aes(label = paste0("$", format(target, big.mark = ","))),
+    vjust = -0.4, fontface = "bold", size = 3.8
+  ) +
+  scale_fill_manual(values = setNames(df_target$fill, df_target$months)) +
+  scale_y_continuous(
+    limits = c(0, monthly_exp * 7.5),
+    labels = function(x) paste0("$", format(x, big.mark = ","))
+  ) +
+  labs(x = "Months of expenses covered", y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "none",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+**Formula:** Target = Monthly Essential Expenses × Months of Coverage
+
+Example: \$3,500/month in essential expenses × 4 months = [\$14,000 target.]{style="color:#48a56a; font-weight: bold;"}
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: ef-target-r
+emergency_fund_target <- function(monthly_expenses, months = 3) {
+  monthly_expenses * months
+}
+
+# $3,500/month in essential expenses, 3-month and 6-month targets
+emergency_fund_target(monthly_expenses = 3500, months = 3)
+emergency_fund_target(monthly_expenses = 3500, months = 6)
+```
+
+## Python
+
+```{python}
+#| label: ef-target-py
+def emergency_fund_target(monthly_expenses, months=3):
+    return monthly_expenses * months
+
+# $3,500/month in essential expenses, 3-month and 6-month targets
+print(emergency_fund_target(monthly_expenses=3500, months=3))
+print(emergency_fund_target(monthly_expenses=3500, months=6))
+```
+:::
+
+### Months to Reach Your Target {.unnumbered}
+
+Given your current balance and a monthly contribution, how long until you reach the target?
+
+**Formula:** Months to Goal = (Target − Current Balance) ÷ Monthly Contribution
+
+Example: \$14,000 target, \$2,000 already saved, contributing \$500/month → (14,000 − 2,000) ÷ 500 = [24 months.]{style="color:#48a56a; font-weight: bold;"}
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: ef-months-r
+months_to_ef_goal <- function(target, current_balance, monthly_contribution) {
+  remaining <- max(0, target - current_balance)
+  ceiling(remaining / monthly_contribution)
+}
+
+# $14,000 target, $2,000 saved, $500/month contribution
+months_to_ef_goal(target = 14000, current_balance = 2000, monthly_contribution = 500)
+```
+
+## Python
+
+```{python}
+#| label: ef-months-py
+import math
+
+def months_to_ef_goal(target, current_balance, monthly_contribution):
+    remaining = max(0, target - current_balance)
+    return math.ceil(remaining / monthly_contribution)
+
+# $14,000 target, $2,000 saved, $500/month contribution
+print(months_to_ef_goal(target=14000, current_balance=2000, monthly_contribution=500))
+```
+:::
+
+### Contribution Needed by a Deadline {.unnumbered}
+
+Working backwards: if you want to reach your target in a specific number of months, how much do you need to save each month?
+
+**Formula:** Monthly Contribution = (Target − Current Balance) ÷ Months Remaining
+
+Example: You want a full \$14,000 fund in 18 months and have \$2,000 now → (14,000 − 2,000) ÷ 18 = [\$667/month.]{style="color:#48a56a; font-weight: bold;"}
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: ef-contrib-r
+monthly_contribution_needed <- function(target, current_balance, months) {
+  remaining <- max(0, target - current_balance)
+  ceiling(remaining / months)
+}
+
+# $14,000 target, $2,000 saved, want to finish in 18 months
+monthly_contribution_needed(target = 14000, current_balance = 2000, months = 18)
+```
+
+## Python
+
+```{python}
+#| label: ef-contrib-py
+def monthly_contribution_needed(target, current_balance, months):
+    remaining = max(0, target - current_balance)
+    return math.ceil(remaining / months)
+
+# $14,000 target, $2,000 saved, want to finish in 18 months
+print(monthly_contribution_needed(target=14000, current_balance=2000, months=18))
+```
+:::
+
+### What the Fund Earns While You Build It {.unnumbered}
+
+Keeping the fund in a HYSA means it earns interest as it grows. This won't dramatically change your timeline, but it's real money.
+
+**Formula:** Future Value = Balance × (1 + monthly rate)\^months
+
+Where monthly rate = annual rate ÷ 12.
+
+Example: \$14,000 in a HYSA at 4.5% APY, untouched for 12 months → [\~\$14,630.]{style="color:#48a56a; font-weight: bold;"} The interest pays for a car repair without reducing your fund.
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: ef-growth-r
+ef_growth <- function(balance, annual_rate, months) {
+  monthly_rate <- annual_rate / 12
+  balance * (1 + monthly_rate)^months
+}
+
+# $14,000 at 4.5% APY for 12 months
+ef_growth(balance = 14000, annual_rate = 0.045, months = 12)
+```
+
+## Python
+
+```{python}
+#| label: ef-growth-py
+def ef_growth(balance, annual_rate, months):
+    monthly_rate = annual_rate / 12
+    return balance * (1 + monthly_rate) ** months
+
+# $14,000 at 4.5% APY for 12 months
+print(ef_growth(balance=14000, annual_rate=0.045, months=12))
+```
+:::
+
+## Putting It All Together
+
+```{mermaid}
+%%| fig-cap: 'Build Your Emergency Fund'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+
+flowchart TD
+    Start(["Build Your<br>Emergency Fund"]) --> Step1("Step 1. Calculate monthly<br>essential expenses")
+    Step1 --> Step2("Step 2. Choose your target:<br>3–6 months, based on risk")
+    Step2 --> Step3("Step 3. Open a<br>dedicated HYSA")
+    Step3 --> Step4("Step 4. Set up automatic<br>monthly transfer on payday")
+    Step4 --> Step5("Step 5. Build $1,000 starter<br>fund first if in debt")
+    Step5 --> Step6("Step 6. Pay off high-interest<br>debt, then fill full fund")
+    Step6 --> Step7("Step 7. Once funded, leave it<br>alone — it's not savings")
+    Step7 --> Step8(["Step 8. Rebuild immediately<br>after any withdrawal"])
+    style Start fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step4 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step5 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step6 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step7 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Step8 fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+```
+
+## Key takeaways
+
+An emergency fund is not an investment. It's insurance — and the cost of that insurance is the interest you *don't* earn by keeping it in cash instead of equities. That's a reasonable price for what it buys.
+
+1.  [Size it to your actual risk.]{style="color:#48a56a; font-weight: bold;"} Stable salaried job with good coverage? Three months is fine. Variable income or dependents? Six months or more.
+2.  [Keep it separate.]{style="color:#48a56a; font-weight: bold;"} A dedicated HYSA with a slight friction to transfer prevents casual spending from eroding the fund.
+3.  [Build it in stages.]{style="color:#48a56a; font-weight: bold;"} $1,000 starter fund first, then full fund after high-interest debt is cleared.
+4.  [Automate the contribution.]{style="color:#48a56a; font-weight: bold;"} Set it on payday and treat it like a bill until the fund is full.
+5.  [Rebuild immediately after using it.]{style="color:#48a56a; font-weight: bold;"} The fund only works if it's there the *next* time you need it.
+
+As Housel writes, the point of financial margin isn't to optimize — it's to survive. An emergency fund doesn't make you rich. It keeps a bad month from becoming a bad decade.
