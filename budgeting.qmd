@@ -357,15 +357,22 @@ def double_fun(x):
 :::::::
 
 ::: panel-tabset
+
 ## R
 
 ```{r}
 #| label: percent-r
+#| code-fold: false 
 percent_of_income <- function(expense, income) {
   (expense / income) * 100
 }
+```
 
-# rent of $1,500 against $5,000 take-home pay
+Rent of \$1,500 against \$5,000 take-home pay
+
+```{r}
+#| label: percent-r-apply
+#| code-fold: false 
 percent_of_income(expense = 1500, income = 5000)
 ```
 
@@ -373,10 +380,16 @@ percent_of_income(expense = 1500, income = 5000)
 
 ```{python}
 #| label: percent-py
+#| code-fold: false 
 def percent_of_income(expense, income):
     return (expense / income) * 100
+```
 
-# rent of $1,500 against $5,000 take-home pay
+Rent of \$1,500 against \$5,000 take-home pay
+
+```{python}
+#| label: percent-py-apply
+#| code-fold: false 
 percent_of_income(expense=1500, income=5000)
 ```
 
@@ -384,12 +397,18 @@ percent_of_income(expense=1500, income=5000)
 
 Assuming `Expense` is in cell `B2` and `Income` is in cell `C2`:
 
-``` excel
+``` swift
 =(B2 / C2) * 100
 ```
 
+![](img/budget_percent_of_income.png){width='100%' fig-align='center'}
+
 Or, more simply, enter `=B2 / C2` and format the cell as a **Percentage** using the button in the toolbar.
+
+![](img/budget_percent_of_income_format.png){width='100%' fig-align='center'}
+
 :::
+
 
 ### Annualizing and Monthly-izing {.unnumbered}
 
@@ -429,66 +448,137 @@ ggplot(df_annual, aes(x = period, y = cost, fill = period)) +
 
 Each bar is the previous bar scaled by the number of periods it contains. The annual bar is 365× the daily bar; the monthly bar is ≈ 4.33× the weekly bar. Those multipliers are the formula.
 
-**Annual → Monthly:** Divide by 12
-
-**Monthly → Annual:** Multiply by 12
+**Daily habit → Weekly:** Multiply by 7
 
 **Weekly → Monthly:** Multiply by 4.33 (not 4)
 
+**Monthly → Annual:** Multiply by 12
+
+Or you can directly convert a daily habit into the total cost per year:
+
 **Daily habit → Annual:** Multiply by 365
+
+See how much an annual subscription is costing per month:
+
+**Annual → Monthly:** Divide by 12
 
 Example: A \$5 daily coffee → \$5 × 365 = [\$1,825/year.]{style="color:#f44242; font-weight: bold;"} Suddenly it's a real number you can evaluate.
 
 ::: panel-tabset
+
 ## R
 
 ```{r}
 #| label: annualize-r
+#| code-fold: false 
 to_annual <- function(amount, period = c("daily", "weekly", "monthly")) {
   period  <- match.arg(period)
   factors <- c(daily = 365, weekly = 52, monthly = 12)
   amount * factors[[period]]
 }
+```
 
+```{r}
+#| label: monthly-r
+#| code-fold: false 
 to_monthly <- function(amount, period = c("daily", "weekly", "annual")) {
   period  <- match.arg(period)
   factors <- c(daily = 30.44, weekly = 4.33, annual = 1 / 12)
   amount * factors[[period]]
 }
+```
 
-to_annual(amount = 5,    period = "daily")    # $5/day coffee → annual
-to_monthly(amount = 150, period = "weekly")   # $150/week groceries → monthly
+\$5/day coffee over the course of a year:
+
+```{r}
+#| label: annualize-r-apply
+#| code-fold: false 
+to_annual(amount = 5, period = "daily")    
+```
+
+\$150 per week on groceries over the course of a month.
+
+```{r}
+#| label: monthly-r-apply
+#| code-fold: false 
+to_monthly(amount = 150, period = "weekly")   
 ```
 
 ## Python
 
 ```{python}
 #| label: annualize-py
+#| code-fold: false 
 def to_annual(amount, period="daily"):
     factors = {"daily": 365, "weekly": 52, "monthly": 12}
     return amount * factors[period]
+```
 
+```{python}
+#| label: monthly-py
+#| code-fold: false 
 def to_monthly(amount, period="daily"):
     factors = {"daily": 30.44, "weekly": 4.33, "annual": 1 / 12}
     return amount * factors[period]
+```
 
-print(to_annual(amount=5,    period="daily"))    # $5/day coffee → annual
-print(to_monthly(amount=150, period="weekly"))   # $150/week groceries → monthly
+\$5/day coffee over the course of a year:
+
+```{python}
+#| label: annualize-py-apply
+#| code-fold: false 
+print(to_annual(amount=5,period="daily"))    
+```
+
+\$150 per week on groceries over the course of a month.
+
+```{python}
+#| label: monthly-py-apply
+#| code-fold: false 
+print(to_monthly(amount=150,period="weekly"))   
 ```
 
 ## Excel
 
-To convert a daily value in cell `A1` to an annual value:
+Let's start with the daily value in cell `A1`, then convert it to the cost per week in cell `A2`:
 
-``` excel
+``` swift
+=A1 * 7
+```
+
+Next we can convert the week to the monthly cost in cell `A3`:
+
+``` swift
+=A2 * 4.33
+```
+
+Finally, we get the annual cost in cell `A4`:
+
+``` swift
 =A1 * 365
 ```
 
-To convert a weekly value in cell `A1` to a monthly value:
+Format cells `A1` - `A4` as **Currency** or **Accounting**.
 
-``` excel
+![](img/budget_daily2yearly_formula.png){width='100%' fig-align='center'}
+
+To convert a weekly value in cell `A1` to a monthly value, place the following formula in cell `A2`:
+
+``` swift
 =A1 * 4.33
 ```
+
+To convert the monthly cost to an annual cost, enter the following in cell `A3`:
+
+``` swift
+=A2 * 12
+```
+
+Format cells `A1` - `A3` as **Currency** or **Accounting**.
+
+![](img/budget_weekly2yearly_formula.png){width='100%' fig-align='center'}
+
+
 :::
 
 ### Opportunity Cost Math {.unnumbered}
@@ -531,40 +621,63 @@ Each bar is the previous one multiplied by (1 + 0.07). After *n* multiplications
 
 **Formula:** amount × (1 + r)\^n
 
-Example: \$25,000 × (1.07)\^30 = [\~\$190,000.]{style="color:#f44242; font-weight: bold;"} That's not a car payment difference; that's a retirement chapter.
+Example: \$25,000 × (1.07)\^30 = [\~\$190,000.]{style="color:#f44242; font-weight: bold;"}
 
 ::: panel-tabset
+
 ## R
+
+Below is an opportunity cost function that takes the dollar `amount`, the `rate` of return, over a proposed number of `years` 
 
 ```{r}
 #| label: opp-cost-r
+#| code-fold: false 
 opportunity_cost <- function(amount, rate, years) {
   amount * (1 + rate)^years
 }
+```
 
-# $25,000 gap between two car choices, invested at 7% for 30 years
+\$25,000 gap between two car choices, invested at 7% for 30 years
+
+```{r}
+#| label: opp-cost-r-apply
+#| code-fold: false 
 opportunity_cost(amount = 25000, rate = 0.07, years = 30)
 ```
 
 ## Python
 
+Below is an opportunity cost function that takes the dollar `amount`, the `rate` of return, over a proposed number of `years` 
+
 ```{python}
 #| label: opp-cost-py
+#| code-fold: false 
 def opportunity_cost(amount, rate, years):
     return amount * (1 + rate) ** years
+```
 
-# $25,000 gap between two car choices, invested at 7% for 30 years
+\$25,000 gap between two car choices, invested at 7% for 30 years
+
+```{python}
+#| label: opp-cost-py-apply
+#| code-fold: false 
 opportunity_cost(amount=25000, rate=0.07, years=30)
 ```
 
 ## Excel
 
-Assuming the initial amount is in cell `A1`, the annual rate (as a decimal, e.g., 0.07) is in `B1`, and the number of years is in `C1`:
+Assuming the initial amount is in cell `A2`, the annual rate (as a decimal, e.g., 0.07) is in `B2`, and the number of years is in `C2`:
 
 ``` excel
-=A1 * (1 + B1)^C1
+=A2*(1+B2)^C2
 ```
+
+![](img/budget_opportunity_cost_formula.png){width='100%' fig-align='center'}
+
 :::
+
+
+That's not a car payment difference; that's a retirement chapter.
 
 ### Break-Even and Payback Calculations {.unnumbered}
 
@@ -606,18 +719,25 @@ The formula names the crossover point: the month when cumulative savings first e
 
 **Formula:** Upfront cost ÷ Monthly savings = months to break even
 
-Example: \$500 ÷ \$60 = **8.3 months to break even.** Worth it if you'll use it longer than that.
+Example: \$500 ÷ \$60 = **8.3 months to break even.** 
 
 ::: panel-tabset
+
 ## R
 
 ```{r}
 #| label: break-even-r
+#| code-fold: false
 months_to_break_even <- function(upfront_cost, monthly_savings) {
   upfront_cost / monthly_savings
 }
+```
 
-# a $500 membership that saves $60/month
+A \$500 membership that saves \$60/month
+
+```{r}
+#| label: break-even-r-apply
+#| code-fold: false
 months_to_break_even(upfront_cost = 500, monthly_savings = 60)
 ```
 
@@ -625,21 +745,31 @@ months_to_break_even(upfront_cost = 500, monthly_savings = 60)
 
 ```{python}
 #| label: break-even-py
+#| code-fold: false
 def months_to_break_even(upfront_cost, monthly_savings):
     return upfront_cost / monthly_savings
+```
 
-# a $500 membership that saves $60/month
+A \$500 membership that saves \$60/month
+
+```{python}
+#| label: break-even-py-apply
+#| code-fold: false
 months_to_break_even(upfront_cost=500, monthly_savings=60)
 ```
 
 ## Excel
 
-Assuming the upfront cost is in cell `A1` and the monthly savings amount is in cell `B1`:
+Assuming the upfront cost is in cell `A2` and the monthly savings amount is in cell `B2`:
 
-``` excel
-=A1 / B1
+``` swift
+=A2 / B2
 ```
+
+![](img/budget_break_even_formula.png){width='100%' fig-align='center'}
 :::
+
+That \$500 membership is worth it if you'll use it longer than 8.33 months.
 
 ## Putting It All Together
 
