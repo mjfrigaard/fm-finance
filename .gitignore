@@ -13,7 +13,7 @@ __pycache__/
 .venv/
 
 **/*.quarto_ipynb
-.positai
+.posit/assistant
 .claude/
 CLAUDE.md
 CLAUDE.local.md
