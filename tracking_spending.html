@@ -1038,25 +1038,408 @@ flowchart TD
 </table>
 </div>
 </div>
+<p>For use in a Shiny app, the <code>case_when()</code> pipeline above can be wrapped into a reusable function that accepts a lookup table, making it easy for users add or edit keyword patterns:</p>
+<ul>
+<li><code>df</code> = <code>data.frame</code> with a <code>Description</code> column<br>
+</li>
+<li><code>rules</code> = <code>data.frame</code> with <code>Pattern</code> and <code>Category</code> columns</li>
+</ul>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide R apply_rules() function</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply keyword rules to categorize transactions</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>apply_rules <span class="ot">&lt;-</span> <span class="cf">function</span>(df, rules) {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>Category <span class="ot">&lt;-</span> <span class="st">"Other"</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(rules))) {</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    unmatched <span class="ot">&lt;-</span> df<span class="sc">$</span>Category <span class="sc">==</span> <span class="st">"Other"</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    hits <span class="ot">&lt;-</span> <span class="fu">grepl</span>(rules<span class="sc">$</span>Pattern[i], df<span class="sc">$</span>Description, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">&amp;</span> unmatched</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    df<span class="sc">$</span>Category[hits] <span class="ot">&lt;-</span> rules<span class="sc">$</span>Category[i]</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  df</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Create a <code>data.frame</code> with <code>Pattern</code> and <code>Category</code>:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide R apply_rules() demo</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>r_rules <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Pattern  =</span> <span class="fu">c</span>(<span class="st">"Payroll"</span>, <span class="st">"Rent"</span>, <span class="st">"Comcast|PG&amp;E|AT&amp;T"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Trader Joe|Whole Foods|Costco"</span>, <span class="st">"Shell"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Starbucks|Chipotle"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Netflix|Spotify|NYTimes|24 Hour Fitness"</span>, <span class="st">"Geico"</span>),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Category =</span> <span class="fu">c</span>(<span class="st">"Income"</span>, <span class="st">"Housing"</span>, <span class="st">"Utilities"</span>, <span class="st">"Groceries"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Transportation"</span>, <span class="st">"Dining"</span>, <span class="st">"Subscriptions"</span>, <span class="st">"Insurance"</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>r_rules <span class="sc">|&gt;</span> </span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 78%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Pattern</th>
+<th style="text-align: left;">Category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Payroll</td>
+<td style="text-align: left;">Income</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rent</td>
+<td style="text-align: left;">Housing</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Comcast|PG&amp;E|AT&amp;T</td>
+<td style="text-align: left;">Utilities</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Trader Joe|Whole Foods|Costco</td>
+<td style="text-align: left;">Groceries</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Shell</td>
+<td style="text-align: left;">Transportation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Starbucks|Chipotle</td>
+<td style="text-align: left;">Dining</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Netflix|Spotify|NYTimes|24 Hour Fitness</td>
+<td style="text-align: left;">Subscriptions</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Geico</td>
+<td style="text-align: left;">Insurance</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Pass the same keyword lookup as <code>rules</code> and the function returns the data frame with a <code>Category</code> column appended:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide R apply_rules() demo</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply_rules</span>(r_bank_statement, r_rules) <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: right;">Amount</th>
+<th style="text-align: left;">Category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2026-01-02</td>
+<td style="text-align: left;">Employer Payroll</td>
+<td style="text-align: right;">2400.00</td>
+<td style="text-align: left;">Income</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2026-01-02</td>
+<td style="text-align: left;">Rent</td>
+<td style="text-align: right;">-1500.00</td>
+<td style="text-align: left;">Housing</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2026-01-03</td>
+<td style="text-align: left;">Comcast Internet</td>
+<td style="text-align: right;">-75.00</td>
+<td style="text-align: left;">Utilities</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2026-01-03</td>
+<td style="text-align: left;">Trader Joe’s</td>
+<td style="text-align: right;">-82.45</td>
+<td style="text-align: left;">Groceries</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2026-01-04</td>
+<td style="text-align: left;">Shell Gas</td>
+<td style="text-align: right;">-45.20</td>
+<td style="text-align: left;">Transportation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2026-01-04</td>
+<td style="text-align: left;">Netflix</td>
+<td style="text-align: right;">-15.99</td>
+<td style="text-align: left;">Subscriptions</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2026-01-05</td>
+<td style="text-align: left;">Starbucks</td>
+<td style="text-align: right;">-6.75</td>
+<td style="text-align: left;">Dining</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2026-01-06</td>
+<td style="text-align: left;">PG&amp;E Electric</td>
+<td style="text-align: right;">-142.30</td>
+<td style="text-align: left;">Utilities</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2026-01-07</td>
+<td style="text-align: left;">AT&amp;T Wireless</td>
+<td style="text-align: right;">-85.00</td>
+<td style="text-align: left;">Utilities</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2026-01-08</td>
+<td style="text-align: left;">Spotify</td>
+<td style="text-align: right;">-10.99</td>
+<td style="text-align: left;">Subscriptions</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2026-01-09</td>
+<td style="text-align: left;">Whole Foods</td>
+<td style="text-align: right;">-64.12</td>
+<td style="text-align: left;">Groceries</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2026-01-10</td>
+<td style="text-align: left;">Chipotle</td>
+<td style="text-align: right;">-14.50</td>
+<td style="text-align: left;">Dining</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2026-01-11</td>
+<td style="text-align: left;">Geico Auto Insurance</td>
+<td style="text-align: right;">-125.00</td>
+<td style="text-align: left;">Insurance</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2026-01-12</td>
+<td style="text-align: left;">NYTimes Digital</td>
+<td style="text-align: right;">-17.00</td>
+<td style="text-align: left;">Subscriptions</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2026-01-13</td>
+<td style="text-align: left;">Shell Gas</td>
+<td style="text-align: right;">-42.80</td>
+<td style="text-align: left;">Transportation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2026-01-14</td>
+<td style="text-align: left;">Costco</td>
+<td style="text-align: right;">-156.78</td>
+<td style="text-align: left;">Groceries</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2026-01-15</td>
+<td style="text-align: left;">24 Hour Fitness</td>
+<td style="text-align: right;">-39.99</td>
+<td style="text-align: left;">Subscriptions</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p><code>polars</code> closely mirrors the <code>dplyr</code> code:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide py categorize transactions</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>py_bank_statement <span class="op">=</span> py_bank_statement.with_columns(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    Category <span class="op">=</span> pl.when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Payroll"</span>)).then(pl.lit(<span class="st">"Income"</span>))</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Rent"</span>)).then(pl.lit(<span class="st">"Housing"</span>))</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Comcast|PG&amp;E|AT&amp;T"</span>)).then(pl.lit(<span class="st">"Utilities"</span>))</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Trader Joe|Whole Foods|Costco"</span>)).then(pl.lit(<span class="st">"Groceries"</span>))</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Shell"</span>)).then(pl.lit(<span class="st">"Transportation"</span>))</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Starbucks|Chipotle"</span>)).then(pl.lit(<span class="st">"Dining"</span>))</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Netflix|Spotify|NYTimes|24 Hour Fitness"</span>)).then(pl.lit(<span class="st">"Subscriptions"</span>))</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Geico"</span>)).then(pl.lit(<span class="st">"Insurance"</span>))</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        .otherwise(pl.lit(<span class="st">"Other"</span>))</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>py_bank_statement</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>py_bank_statement <span class="op">=</span> py_bank_statement.with_columns(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    Category <span class="op">=</span> pl.when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Payroll"</span>)).then(pl.lit(<span class="st">"Income"</span>))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Rent"</span>)).then(pl.lit(<span class="st">"Housing"</span>))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Comcast|PG&amp;E|AT&amp;T"</span>)).then(pl.lit(<span class="st">"Utilities"</span>))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Trader Joe|Whole Foods|Costco"</span>)).then(pl.lit(<span class="st">"Groceries"</span>))</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Shell"</span>)).then(pl.lit(<span class="st">"Transportation"</span>))</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Starbucks|Chipotle"</span>)).then(pl.lit(<span class="st">"Dining"</span>))</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Netflix|Spotify|NYTimes|24 Hour Fitness"</span>)).then(pl.lit(<span class="st">"Subscriptions"</span>))</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        .when(pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(<span class="st">"Geico"</span>)).then(pl.lit(<span class="st">"Insurance"</span>))</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        .otherwise(pl.lit(<span class="st">"Other"</span>))</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>py_bank_statement</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (17, 4)</small>
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Description</th>
+<th data-quarto-table-cell-role="th">Amount</th>
+<th data-quarto-table-cell-role="th">Category</th>
+</tr>
+<tr class="even">
+<td>date</td>
+<td>str</td>
+<td>f64</td>
+<td>str</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2026-01-02</td>
+<td>"Employer Payroll"</td>
+<td>2400.0</td>
+<td>"Income"</td>
+</tr>
+<tr class="even">
+<td>2026-01-02</td>
+<td>"Rent"</td>
+<td>-1500.0</td>
+<td>"Housing"</td>
+</tr>
+<tr class="odd">
+<td>2026-01-03</td>
+<td>"Comcast Internet"</td>
+<td>-75.0</td>
+<td>"Utilities"</td>
+</tr>
+<tr class="even">
+<td>2026-01-03</td>
+<td>"Trader Joe's"</td>
+<td>-82.45</td>
+<td>"Groceries"</td>
+</tr>
+<tr class="odd">
+<td>2026-01-04</td>
+<td>"Shell Gas"</td>
+<td>-45.2</td>
+<td>"Transportation"</td>
+</tr>
+<tr class="even">
+<td>2026-01-04</td>
+<td>"Netflix"</td>
+<td>-15.99</td>
+<td>"Subscriptions"</td>
+</tr>
+<tr class="odd">
+<td>2026-01-05</td>
+<td>"Starbucks"</td>
+<td>-6.75</td>
+<td>"Dining"</td>
+</tr>
+<tr class="even">
+<td>2026-01-06</td>
+<td>"PG&amp;E Electric"</td>
+<td>-142.3</td>
+<td>"Utilities"</td>
+</tr>
+<tr class="odd">
+<td>2026-01-07</td>
+<td>"AT&amp;T Wireless"</td>
+<td>-85.0</td>
+<td>"Utilities"</td>
+</tr>
+<tr class="even">
+<td>2026-01-08</td>
+<td>"Spotify"</td>
+<td>-10.99</td>
+<td>"Subscriptions"</td>
+</tr>
+<tr class="odd">
+<td>2026-01-09</td>
+<td>"Whole Foods"</td>
+<td>-64.12</td>
+<td>"Groceries"</td>
+</tr>
+<tr class="even">
+<td>2026-01-10</td>
+<td>"Chipotle"</td>
+<td>-14.5</td>
+<td>"Dining"</td>
+</tr>
+<tr class="odd">
+<td>2026-01-11</td>
+<td>"Geico Auto Insurance"</td>
+<td>-125.0</td>
+<td>"Insurance"</td>
+</tr>
+<tr class="even">
+<td>2026-01-12</td>
+<td>"NYTimes Digital"</td>
+<td>-17.0</td>
+<td>"Subscriptions"</td>
+</tr>
+<tr class="odd">
+<td>2026-01-13</td>
+<td>"Shell Gas"</td>
+<td>-42.8</td>
+<td>"Transportation"</td>
+</tr>
+<tr class="even">
+<td>2026-01-14</td>
+<td>"Costco"</td>
+<td>-156.78</td>
+<td>"Groceries"</td>
+</tr>
+<tr class="odd">
+<td>2026-01-15</td>
+<td>"24 Hour Fitness"</td>
+<td>-39.99</td>
+<td>"Subscriptions"</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>For use in a Shiny app, the <code>when().then()</code> chain above can be wrapped into a reusable function that accepts a rules table — making it easy to let users add or edit keyword patterns at runtime:</p>
+<ul>
+<li><code>df</code> = <code>data.frame</code> with a <code>Description</code> column<br>
+</li>
+<li><code>rules</code> = <code>data.frame</code> with <code>Pattern</code> and <code>Category</code> columns</li>
+</ul>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide Python apply_rules() function</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply keyword rules to categorize transactions.</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> apply_rules(df, rules):</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> df.with_columns(pl.lit(<span class="st">"Other"</span>).alias(<span class="st">"Category"</span>))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> rules.iter_rows(named<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        df <span class="op">=</span> df.with_columns(</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>            pl.when(</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                pl.col(<span class="st">"Description"</span>).<span class="bu">str</span>.contains(row[<span class="st">"Pattern"</span>])</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>                <span class="op">&amp;</span> (pl.col(<span class="st">"Category"</span>) <span class="op">==</span> <span class="st">"Other"</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>            .then(pl.lit(row[<span class="st">"Category"</span>]))</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>            .otherwise(pl.col(<span class="st">"Category"</span>))</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>            .alias(<span class="st">"Category"</span>)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Pass the same keyword lookup as <code>rules</code> and the function returns the data frame with a <code>Category</code> column appended:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide Python apply_rules() demo</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>py_rules <span class="op">=</span> pl.DataFrame({</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Pattern"</span>:  [<span class="st">"Payroll"</span>, <span class="st">"Rent"</span>, <span class="st">"Comcast|PG&amp;E|AT&amp;T"</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Trader Joe|Whole Foods|Costco"</span>, <span class="st">"Shell"</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Starbucks|Chipotle"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Netflix|Spotify|NYTimes|24 Hour Fitness"</span>, <span class="st">"Geico"</span>],</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Category"</span>: [<span class="st">"Income"</span>, <span class="st">"Housing"</span>, <span class="st">"Utilities"</span>, <span class="st">"Groceries"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Transportation"</span>, <span class="st">"Dining"</span>, <span class="st">"Subscriptions"</span>, <span class="st">"Insurance"</span>]</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>apply_rules(py_bank_statement, py_rules)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div><style>
@@ -1196,18 +1579,18 @@ flowchart TD
 <ul>
 <li>If the statement is laid out with <code>Date</code> in column <code>A</code>, <code>Description</code> in column <code>B</code>, and <code>Amount</code> in column <code>C</code>. Type <code>Category</code> in cell <code>D1</code>, then paste the formula below into <code>D2</code>:</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>IFS<span class="op">(</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Payroll"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Income"</span><span class="op">,</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Rent"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Housing"</span><span class="op">,</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  OR<span class="op">(</span>ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Comcast"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"PG&amp;E"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"AT&amp;T"</span><span class="op">,</span>B2<span class="op">))),</span> <span class="st">"Utilities"</span><span class="op">,</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  OR<span class="op">(</span>ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Trader Joe"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Whole Foods"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Costco"</span><span class="op">,</span>B2<span class="op">))),</span> <span class="st">"Groceries"</span><span class="op">,</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Shell"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Transportation"</span><span class="op">,</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  OR<span class="op">(</span>ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Starbucks"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Chipotle"</span><span class="op">,</span>B2<span class="op">))),</span> <span class="st">"Dining"</span><span class="op">,</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  OR<span class="op">(</span>ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Netflix"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Spotify"</span><span class="op">,</span>B2<span class="op">)),</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>     ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"NYTimes"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"24 Hour Fitness"</span><span class="op">,</span>B2<span class="op">))),</span> <span class="st">"Subscriptions"</span><span class="op">,</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Geico"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Insurance"</span><span class="op">,</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  TRUE<span class="op">,</span> <span class="st">"Other"</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>IFS<span class="op">(</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Payroll"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Income"</span><span class="op">,</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Rent"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Housing"</span><span class="op">,</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  OR<span class="op">(</span>ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Comcast"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"PG&amp;E"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"AT&amp;T"</span><span class="op">,</span>B2<span class="op">))),</span> <span class="st">"Utilities"</span><span class="op">,</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  OR<span class="op">(</span>ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Trader Joe"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Whole Foods"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Costco"</span><span class="op">,</span>B2<span class="op">))),</span> <span class="st">"Groceries"</span><span class="op">,</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Shell"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Transportation"</span><span class="op">,</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  OR<span class="op">(</span>ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Starbucks"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Chipotle"</span><span class="op">,</span>B2<span class="op">))),</span> <span class="st">"Dining"</span><span class="op">,</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  OR<span class="op">(</span>ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Netflix"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Spotify"</span><span class="op">,</span>B2<span class="op">)),</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>     ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"NYTimes"</span><span class="op">,</span>B2<span class="op">)),</span> ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"24 Hour Fitness"</span><span class="op">,</span>B2<span class="op">))),</span> <span class="st">"Subscriptions"</span><span class="op">,</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  ISNUMBER<span class="op">(</span>SEARCH<span class="op">(</span><span class="st">"Geico"</span><span class="op">,</span> B2<span class="op">)),</span> <span class="st">"Insurance"</span><span class="op">,</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  TRUE<span class="op">,</span> <span class="st">"Other"</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Then copy <code>D2</code> down through every transaction row (select <code>D2</code>, double-click the small square in the bottom-right corner, or use <code>Ctrl+D</code> after selecting <code>D2:D{last_row}</code>).</li>
 </ul>
@@ -1259,22 +1642,22 @@ flowchart TD
 <div class="quarto-layout-panel" data-layout="[50,50]">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>flag <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>flag <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>flag <span class="op">=</span> <span class="va">True</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>flag <span class="op">=</span> <span class="va">True</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 <p><strong>Logical operators</strong></p>
 <p>R uses <code>&amp;</code>, <code>|</code>, <code>!</code> for <em>vectorized</em> element-wise logic (and <code>&amp;&amp;</code>, <code>||</code> for scalar logic).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>) <span class="sc">&amp;</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>) <span class="co"># vectorized</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">&amp;&amp;</span> <span class="cn">FALSE</span>  <span class="co"># scalar</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>) <span class="sc">&amp;</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>) <span class="co"># vectorized</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">&amp;&amp;</span> <span class="cn">FALSE</span>  <span class="co"># scalar</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Python uses <code>and</code>, <code>or</code>, <code>not</code> for <em>scalar</em> logic, and <code>&amp;</code>, <code>|</code>, <code>~</code> for <em>vectorized</em> logic in <code>numpy</code>/<code>polars</code> expressions.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="kw">and</span> <span class="va">False</span> <span class="co"># scalar</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># vectorized:</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">filter</span>((pl.col(<span class="st">"a"</span>) <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">&amp;</span> (pl.col(<span class="st">"b"</span>) <span class="op">&lt;</span> <span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="kw">and</span> <span class="va">False</span> <span class="co"># scalar</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># vectorized:</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">filter</span>((pl.col(<span class="st">"a"</span>) <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">&amp;</span> (pl.col(<span class="st">"b"</span>) <span class="op">&lt;</span> <span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Vectorization</strong></p>
 <div class="quarto-layout-panel" data-layout="[50,50]">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -1289,13 +1672,13 @@ flowchart TD
 <div class="quarto-layout-panel" data-layout="[50,50]">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># returns c(2, 4, 6)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># returns c(2, 4, 6)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>pl.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]) <span class="op">*</span> <span class="dv">2</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># returns Series [2, 4, 6]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>pl.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]) <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># returns Series [2, 4, 6]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1393,18 +1776,18 @@ flowchart TD
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>subscription_opportunity_cost <span class="ot">&lt;-</span> <span class="cf">function</span>(monthly_cost, years, <span class="at">rate =</span> <span class="fl">0.07</span>) {</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  annual_cost <span class="ot">&lt;-</span> monthly_cost <span class="sc">*</span> <span class="dv">12</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  annual_cost <span class="sc">*</span> ((<span class="dv">1</span> <span class="sc">+</span> rate)<span class="sc">^</span>years <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> rate</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>subscription_opportunity_cost <span class="ot">&lt;-</span> <span class="cf">function</span>(monthly_cost, years, <span class="at">rate =</span> <span class="fl">0.07</span>) {</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  annual_cost <span class="ot">&lt;-</span> monthly_cost <span class="sc">*</span> <span class="dv">12</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  annual_cost <span class="sc">*</span> ((<span class="dv">1</span> <span class="sc">+</span> rate)<span class="sc">^</span>years <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> rate</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Now lets consider a $20/month subscription for 30 years at 7%:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subscription_opportunity_cost</span>(<span class="at">monthly_cost =</span> <span class="dv">20</span>, <span class="at">years =</span> <span class="dv">30</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 22670.59</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subscription_opportunity_cost</span>(<span class="at">monthly_cost =</span> <span class="dv">20</span>, <span class="at">years =</span> <span class="dv">30</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 22670.59</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -1413,55 +1796,49 @@ flowchart TD
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> subscription_opportunity_cost(monthly_cost, years, rate<span class="op">=</span><span class="fl">0.07</span>):</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    annual_cost <span class="op">=</span> monthly_cost <span class="op">*</span> <span class="dv">12</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> annual_cost <span class="op">*</span> ((<span class="dv">1</span> <span class="op">+</span> rate) <span class="op">**</span> years <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> rate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> subscription_opportunity_cost(monthly_cost, years, rate<span class="op">=</span><span class="fl">0.07</span>):</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    annual_cost <span class="op">=</span> monthly_cost <span class="op">*</span> <span class="dv">12</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> annual_cost <span class="op">*</span> ((<span class="dv">1</span> <span class="op">+</span> rate) <span class="op">**</span> years <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> rate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>The same $20/month subscription for 30 years at 7%:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>subscription_opportunity_cost(monthly_cost<span class="op">=</span><span class="dv">20</span>, years<span class="op">=</span><span class="dv">30</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 22670.58871769843</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>subscription_opportunity_cost(monthly_cost<span class="op">=</span><span class="dv">20</span>, years<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 22670.58871769843</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
 <div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
-<p>In Excel, create a small table with these inputs, then enter the formula in <code>D2</code>:</p>
+<p>In Excel, create a new sheet with the inputs:</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 21%">
+<col style="width: 37%">
+<col style="width: 23%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Cell</th>
-<th>Label</th>
-<th>Example value</th>
+<th>Monthly cost</th>
+<th>Number of Years</th>
+<th>Annual Return (as decimal)</th>
+<th>Opportunity Cost</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>A2</td>
-<td>Monthly cost</td>
-<td><code>20</code></td>
-</tr>
-<tr class="even">
-<td>B2</td>
-<td>Years</td>
-<td><code>30</code></td>
-</tr>
-<tr class="odd">
-<td>C2</td>
-<td>Annual return</td>
-<td><code>0.07</code></td>
-</tr>
-<tr class="even">
-<td>D2</td>
-<td>Opportunity cost</td>
-<td><em>Formula</em></td>
+<td>$20</td>
+<td>30</td>
+<td>0.07</td>
+<td><em>Formula below</em></td>
 </tr>
 </tbody>
 </table>
-<p><code>A2*12</code> converts the monthly cost to annual; the rest is the future-value-of-an-annuity formula using the rate in <code>C2</code> and the horizon in <code>B2</code>. The formula (given this setup) is below:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">=(</span>A2<span class="op">*</span><span class="dv">12</span><span class="op">)*((</span><span class="dv">1</span><span class="op">+</span>C2<span class="op">)^</span>B2<span class="op">-</span><span class="dv">1</span><span class="op">)/</span>C2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The formula (given this setup) is below:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="op">=(</span>A2<span class="op">*</span><span class="dv">12</span><span class="op">)*((</span><span class="dv">1</span><span class="op">+</span>C2<span class="op">)^</span>B2<span class="op">-</span><span class="dv">1</span><span class="op">)/</span>C2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>A2*12</code> converts the monthly cost to annual; the rest is the future-value-of-an-annuity formula using the rate in <code>C2</code> and the time horizon in <code>B2</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
