@@ -315,6 +315,56 @@ r_bank_statement <- r_bank_statement |>
 r_bank_statement |> knitr::kable()
 ```
 
+For use in a Shiny app, the `case_when()` pipeline above can be wrapped into a reusable function that accepts a lookup table, making it easy for users add or edit keyword patterns:
+
+* `df` = `data.frame` with a `Description` column   
+* `rules` = `data.frame` with `Pattern` and `Category` columns    
+
+```{r}
+#| label: apply-rules-r
+#| code-fold: show
+#| code-summary: 'show/hide R apply_rules() function'
+# Apply keyword rules to categorize transactions
+apply_rules <- function(df, rules) {
+  df$Category <- "Other"
+  for (i in seq_len(nrow(rules))) {
+    unmatched <- df$Category == "Other"
+    hits <- grepl(rules$Pattern[i], df$Description, ignore.case = TRUE) & unmatched
+    df$Category[hits] <- rules$Category[i]
+  }
+  df
+}
+```
+
+Create a `data.frame` with `Pattern` and `Category`:
+
+```{r}
+#| label: r_rules
+#| code-fold: show
+#| code-summary: 'show/hide R apply_rules() demo'
+r_rules <- data.frame(
+  Pattern  = c("Payroll", "Rent", "Comcast|PG&E|AT&T",
+               "Trader Joe|Whole Foods|Costco", "Shell",
+               "Starbucks|Chipotle",
+               "Netflix|Spotify|NYTimes|24 Hour Fitness", "Geico"),
+  Category = c("Income", "Housing", "Utilities", "Groceries",
+               "Transportation", "Dining", "Subscriptions", "Insurance")
+)
+
+r_rules |> 
+  knitr::kable()
+```
+
+Pass the same keyword lookup as `rules` and the function returns the data frame with a `Category` column appended:
+
+```{r}
+#| label: apply-rules-r-demo
+#| code-fold: show
+#| code-summary: 'show/hide R apply_rules() demo'
+apply_rules(r_bank_statement, r_rules) |> 
+  knitr::kable()
+```
+
 ## Python
 
 `polars` closely mirrors the `dplyr` code:
@@ -336,6 +386,50 @@ py_bank_statement = py_bank_statement.with_columns(
 )
 
 py_bank_statement
+```
+
+For use in a Shiny app, the `when().then()` chain above can be wrapped into a reusable function that accepts a rules table — making it easy to let users add or edit keyword patterns at runtime:
+
+* `df` = `data.frame` with a `Description` column   
+* `rules` = `data.frame` with `Pattern` and `Category` columns   
+
+```{python}
+#| label: apply-rules-py
+#| code-fold: show
+#| code-summary: 'show/hide Python apply_rules() function'
+# Apply keyword rules to categorize transactions.
+
+def apply_rules(df, rules):
+    df = df.with_columns(pl.lit("Other").alias("Category"))
+    for row in rules.iter_rows(named=True):
+        df = df.with_columns(
+            pl.when(
+                pl.col("Description").str.contains(row["Pattern"])
+                & (pl.col("Category") == "Other")
+            )
+            .then(pl.lit(row["Category"]))
+            .otherwise(pl.col("Category"))
+            .alias("Category")
+        )
+    return df
+```
+
+Pass the same keyword lookup as `rules` and the function returns the data frame with a `Category` column appended:
+
+```{python}
+#| label: apply-rules-py-demo
+#| code-fold: show
+#| code-summary: 'show/hide Python apply_rules() demo'
+py_rules = pl.DataFrame({
+    "Pattern":  ["Payroll", "Rent", "Comcast|PG&E|AT&T",
+                 "Trader Joe|Whole Foods|Costco", "Shell",
+                 "Starbucks|Chipotle",
+                 "Netflix|Spotify|NYTimes|24 Hour Fitness", "Geico"],
+    "Category": ["Income", "Housing", "Utilities", "Groceries",
+                 "Transportation", "Dining", "Subscriptions", "Insurance"]
+})
+
+apply_rules(py_bank_statement, py_rules)
 ```
 
 ## Excel
@@ -596,24 +690,21 @@ subscription_opportunity_cost(monthly_cost=20, years=30)
 
 ## Excel
 
-In Excel, create a small table with these inputs, then enter the formula in `D2`:
+In Excel, create a new sheet with the inputs: 
 
-| Cell | Label | Example value |
-|------|-------|---------------|
-| A2 | Monthly cost | `20` |
-| B2 | Years | `30` |
-| C2 | Annual return | `0.07` |
-| D2 | Opportunity cost | *Formula* |
+| Monthly cost | Number of Years | Annual Return (as decimal) | Opportunity Cost |
+| ------------ | --------------- | -------------------------- | ---------------- |
+| $20          | 30              | 0.07                       | *Formula below*  |
 
-`A2*12` converts the monthly cost to annual; the rest is the future-value-of-an-annuity formula using the rate in `C2` and the horizon in `B2`. The formula (given this setup) is below:
+The formula (given this setup) is below:
 
 ```swift
 =(A2*12)*((1+C2)^B2-1)/C2
 ```
 
+`A2*12` converts the monthly cost to annual; the rest is the future-value-of-an-annuity formula using the rate in `C2` and the time horizon in `B2`. 
+
 ![Opportunity Cost in Excel](img/tracking_spending-opportunity_cost.png){width='100%' fig-align='center'}
-
-
 
 :::
 
