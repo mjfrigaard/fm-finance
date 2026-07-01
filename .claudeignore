@@ -1,0 +1,54 @@
+# .claudeignore
+
+# Package managers
+node_modules/
+.venv/
+env/
+__pycache__/
+*.pyc
+renv/
+packrat/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+target/
+.gradle/
+
+# IDEs
+_book/
+_site/
+.posit/
+.quarto/
+
+# Data files - these are almost never useful as context
+*.csv
+*.parquet
+*.feather
+*.rds
+*.RData
+*.h5
+*.pkl
+*.pickle
+
+# Logs
+*.log
+logs/
+
+# Generated docs
+docs/_build/
+site/
+
+# Large configs
+*.lock
+package-lock.json
+yarn.lock
+poetry.lock
+
+# Notebooks (unless you specifically need them)
+*.ipynb
+
+# R session files
+.RData
+.Rhistory

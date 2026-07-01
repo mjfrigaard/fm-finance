@@ -1,0 +1,26 @@
+library(lobstr)
+
+ast(
+  launch_app(
+    app_ui(
+      mod_income_ui(
+        mod_fixed_cost_ratio_inputs_ui(),
+        mod_fixed_cost_ratio_outputs_ui(),
+        mod_raise_invested_value_inputs_ui(),
+        mod_raise_invested_value_outputs_ui()
+      )
+    ),
+    app_server(
+      mod_income_server(
+        mod_fixed_cost_ratio_inputs_server(),
+        mod_fixed_cost_ratio_outputs_server(
+          fixed_cost_ratio()
+        ),
+        mod_raise_invested_value_inputs_server(),
+        mod_raise_invested_value_outputs_server(
+          raise_invested_value()
+        )
+      )
+    )
+  )
+)

@@ -27,21 +27,12 @@ A good budget builds in flexibility, not rigidity. When you're just getting star
 
 Just to be clear: **building a budget (especially the first time) is time-consuming**. As with most time-consuming tasks, you might find yourself wondering if you really need a budget. Trust me—you do. Everyone does. Reframe the following thoughts that might interfere with your budgeting practice:
 
-Thought: [*I have to spend a \[relatively large amount\] on \[thing(s) I need\].*]{style="color:#f44242; font-weight: bold;"}
-
-- Reframe as: [*My needs cost \[amount\].*]{style="color:#48a56a; font-weight: bold;"}
-
-Thought: [*I can only spend \[relatively small amount\] on \[thing(s) I really want\].*]{style="color:#f44242; font-weight: bold;"}
-
-- Reframe as: [*My wants cost \[amount\].*]{style="color:#48a56a; font-weight: bold;"}
-
-Thought: [*I spent \[unexpectedly large amount\] on \[thing(s) I really want\].*]{style="color:#f44242; font-weight: bold;"}
-
-- Reframe as: [*I chose to spend more on my wants this month, so I need to adjust my other categories.*]{style="color:#48a56a; font-weight: bold;"}
-
-Thought: [*I spent \[unexpectedly large amount\] on \[thing(s) I don’t really need or want\]?!?*]{style="color:#f44242; font-weight: bold;"}
-
-- Reframe as: [*I need to adjust my other categories and figure out how to avoid this spending in the future.*]{style="color:#48a56a; font-weight: bold;"}
+| Thought | Reframe as |
+|----|----|
+| [***I have to spend a \[relatively large amount\] on \[thing(s) I need\].***]{style="color:#f44242; font-weight: bold;"} | [***My needs cost \[amount\].***]{style="color:#48a56a; font-weight: bold;"} |
+| [***I can only spend \[relatively small amount\] on \[thing(s) I really want\].***]{style="color:#f44242; font-weight: bold;"} | [***My wants cost \[amount\].***]{style="color:#48a56a; font-weight: bold;"} |
+| [***I spent \[unexpectedly large amount\] on \[thing(s) I really want\].***]{style="color:#f44242; font-weight: bold;"} | [***I chose to spend more on my wants this month, so I need to adjust my other categories.***]{style="color:#48a56a; font-weight: bold;"} |
+| [***I spent \[unexpectedly large amount\] on \[thing(s) I don’t really need or want\]?!?***]{style="color:#f44242; font-weight: bold;"} | [***I need to adjust my other categories and figure out how to avoid this spending in the future.***]{style="color:#48a56a; font-weight: bold;"} |
 
 Morgan Housel's insight is powerful here: "*room for error is the most underrated financial concept.*"
 
@@ -50,7 +41,7 @@ Morgan Housel's insight is powerful here: "*room for error is the most underrate
 The first skill in budgeting is correctly categorizing your money. Most people lump everything together and then get overwhelmed by how to allocate or account for their spending. Generally, expenses can all fit into one of three categories:
 
 | Category | Definition | Strategy |
-|---------------|-----------------------------|-----------------------------|
+|-----------------|---------------------------|---------------------------|
 | **Fixed** | Costs that remain the same each month, such as rent, mortgage payments, or subscription services. | Lock these in and forget them (minimize them once, then automate). Biggest leverage point: housing. |
 | **Variable** | Costs that change from month to month, such as groceries, utilities, and entertainment. | This is the category where most budgeting efforts fail. Use **categories with limits**, not line-by-line tracking. |
 | **Periodic** | Costs that occur less frequently than monthly, such as annual insurance premiums, holiday gifts, or car maintenance. | These are silent budget killers. Set aside 1/12 of the annual cost for these each month. |
@@ -137,7 +128,7 @@ If your car insurance is \$1,200/year, don't get blindsided every six months. Sa
 
 This single technique eliminates 80% of budget emergencies.
 
-## Types of Budgets 
+## Types of Budgets
 
 Two dominant frameworks exist: zero-based and percentage. Either one will work; just pick the one that matches your personality. Zero-based budgets offer tight control and are detail-oriented, making them ideal for anyone rebuilding from debt or with irregular income. Percentage budgets are for big-picture thinkers, stable income earners, and people who hate detailed tracking.
 
@@ -145,17 +136,17 @@ Two dominant frameworks exist: zero-based and percentage. Either one will work; 
 
 Every dollar gets a job. Income minus all allocations equals zero. Assume you have a monthly income of \$5000:
 
-| Category | Amount |
-|:---|:---|
-| Rent | \$1,500 |
-| Groceries | \$500 |
-| Transport | \$300 |
-| Investments | \$1,000 |
-| Savings | \$500 |
-| Fun Money | \$700 |
-| Other | \$500 |
-| **Total** | **\$5,000** |
-| **Remaining** | **\$0** |
+| Category      | Amount      |
+|:--------------|:------------|
+| Rent          | \$1,500     |
+| Groceries     | \$500       |
+| Transport     | \$300       |
+| Investments   | \$1,000     |
+| Savings       | \$500       |
+| Fun Money     | \$700       |
+| Other         | \$500       |
+| **Total**     | **\$5,000** |
+| **Remaining** | **\$0**     |
 
 : Zero-Based Budgeting
 
@@ -357,7 +348,6 @@ def double_fun(x):
 :::::::
 
 ::: panel-tabset
-
 ## R
 
 ```{r}
@@ -401,14 +391,12 @@ Assuming `Expense` is in cell `B2` and `Income` is in cell `C2`:
 =(B2 / C2) * 100
 ```
 
-![](img/budget_percent_of_income.png){width='100%' fig-align='center'}
+![](img/budget_percent_of_income.png){width="100%" fig-align="center"}
 
 Or, more simply, enter `=B2 / C2` and format the cell as a **Percentage** using the button in the toolbar.
 
-![](img/budget_percent_of_income_format.png){width='100%' fig-align='center'}
-
+![](img/budget_percent_of_income_format.png){width="100%" fig-align="center"}
 :::
-
 
 ### Annualizing and Monthly-izing {.unnumbered}
 
@@ -465,7 +453,6 @@ See how much an annual subscription is costing per month:
 Example: A \$5 daily coffee → \$5 × 365 = [\$1,825/year.]{style="color:#f44242; font-weight: bold;"} Suddenly it's a real number you can evaluate.
 
 ::: panel-tabset
-
 ## R
 
 ```{r}
@@ -560,7 +547,7 @@ Finally, we get the annual cost in cell `A4`:
 
 Format cells `A1` - `A4` as **Currency** or **Accounting**.
 
-![](img/budget_daily2yearly_formula.png){width='100%' fig-align='center'}
+![](img/budget_daily2yearly_formula.png){width="100%" fig-align="center"}
 
 To convert a weekly value in cell `A1` to a monthly value, place the following formula in cell `A2`:
 
@@ -576,9 +563,7 @@ To convert the monthly cost to an annual cost, enter the following in cell `A3`:
 
 Format cells `A1` - `A3` as **Currency** or **Accounting**.
 
-![](img/budget_weekly2yearly_formula.png){width='100%' fig-align='center'}
-
-
+![](img/budget_weekly2yearly_formula.png){width="100%" fig-align="center"}
 :::
 
 ### Opportunity Cost Math {.unnumbered}
@@ -624,10 +609,9 @@ Each bar is the previous one multiplied by (1 + 0.07). After *n* multiplications
 Example: \$25,000 × (1.07)\^30 = [\~\$190,000.]{style="color:#f44242; font-weight: bold;"}
 
 ::: panel-tabset
-
 ## R
 
-Below is an opportunity cost function that takes the dollar `amount`, the `rate` of return, over a proposed number of `years` 
+Below is an opportunity cost function that takes the dollar `amount`, the `rate` of return, over a proposed number of `years`
 
 ```{r}
 #| label: opp-cost-r
@@ -647,7 +631,7 @@ opportunity_cost(amount = 25000, rate = 0.07, years = 30)
 
 ## Python
 
-Below is an opportunity cost function that takes the dollar `amount`, the `rate` of return, over a proposed number of `years` 
+Below is an opportunity cost function that takes the dollar `amount`, the `rate` of return, over a proposed number of `years`
 
 ```{python}
 #| label: opp-cost-py
@@ -672,10 +656,8 @@ Assuming the initial amount is in cell `A2`, the annual rate (as a decimal, e.g.
 =A2*(1+B2)^C2
 ```
 
-![](img/budget_opportunity_cost_formula.png){width='100%' fig-align='center'}
-
+![](img/budget_opportunity_cost_formula.png){width="100%" fig-align="center"}
 :::
-
 
 That's not a car payment difference; that's a retirement chapter.
 
@@ -719,10 +701,9 @@ The formula names the crossover point: the month when cumulative savings first e
 
 **Formula:** Upfront cost ÷ Monthly savings = months to break even
 
-Example: \$500 ÷ \$60 = **8.3 months to break even.** 
+Example: \$500 ÷ \$60 = **8.3 months to break even.**
 
 ::: panel-tabset
-
 ## R
 
 ```{r}
@@ -766,7 +747,7 @@ Assuming the upfront cost is in cell `A2` and the monthly savings amount is in c
 =A2 / B2
 ```
 
-![](img/budget_break_even_formula.png){width='100%' fig-align='center'}
+![](img/budget_break_even_formula.png){width="100%" fig-align="center"}
 :::
 
 That \$500 membership is worth it if you'll use it longer than 8.33 months.
