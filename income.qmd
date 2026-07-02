@@ -171,42 +171,174 @@ flowchart TD
 
 The arithmetic does a lot of the teaching on its own. Focus is [additive](https://en.wikipedia.org/wiki/Additive_function), which means even with poor execution on the other three, a strong income engine still builds some wealth. 
 
-```{mermaid}
-%%| fig-cap: 'Wealth Collapse'
-%%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
-flowchart TD
-    Scenario(["Second Term:<br>(Stoicism × Time ×<br>Diversification)"]) --> Zero1["<strong>STOICISM</strong> = <code>0</code><br/><em>spending above means</em>"]
-    Scenario --> Zero2("<strong>TIME</strong> = <code>0</code><br/><em>starting too late</em>")
-    Scenario --> Zero3("<strong>DIVERSIFICATION</strong> = <code>0</code><br/><em>all eggs, one basket</em>")
-    
-    Zero1 --> Result1("Savings<br>= <code>0</code>")
-    Zero2 --> Result2("Years of<br>Good Habits<br>= <code>0</code>")
-    Zero3 --> Result3("Return From<br>One Big Bet<br> = <code>0</code>")
-    
-    Result1 --> Collapse(["Collapses to<br><code>0</code>"])
-    Result2 --> Collapse
-    Result3 --> Collapse
-    
-    Collapse --> OnlyFocus(["Only <strong>FOCUS</strong>:<br/>Wealth = Income Alone"])
+However, stoicism, time, and diversification are [multiplicative](https://en.wikipedia.org/wiki/Multiplicative_function), so a zero on any one of these collapses the whole second term. In plain language: [spending above your means (i.e., saving and investing nothing) for forty years compounds to nothing]{style="color:#f44242; font-weight: bold;"}.
 
-    style Scenario fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Zero1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Zero2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Zero3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Result1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Result2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Result3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    
-    style Collapse fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style OnlyFocus fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    
+The chart below illustrates this arithmetic. 
 
+```{r}
+#| label: wealth-formula-char-01
+#| echo: false
+#| fig-asp: 0.55 
+#| message: false 
+#| warning: false 
+# Wealth formula: W = Focus + (Stoicism × Time × Diversification)
+# For visualization, let's hold variables constant and vary time
+# Focus = 50k (annual income)
+# Stoicism = 0.6 (save 60% of income)
+# Diversification = 1.08 (8% annual return)
+# Time = years (0 to 40)
+
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+wealth_formula <- function(focus, stoicism, diversification, years) {
+  # Focus contributes linearly: focus * years
+  additive_term <- focus * years
+  
+  # Second term is multiplicative: stoicism × time × diversification
+  # This compounds: stoicism * diversification^years
+  multiplicative_term <- stoicism * (diversification ^ years)
+  
+  return(additive_term + multiplicative_term)
+}
+
+# Generate data
+years_seq <- seq(0, 40, by = 1)
+wealth_values <- sapply(years_seq, function(y) {
+  wealth_formula(focus = 50000, stoicism = 12000, diversification = 1.08, years = y)
+})
+
+# Parameters: median income, savings rate, annual return
+median_income <- 62400
+savings_rate <- 0.15
+annual_return <- 0.08
+
+# Create dataframe with breakdown
+df <- data.frame(
+  years = years_seq,
+  annual_savings = median_income * savings_rate,
+  focus_contribution = (median_income * savings_rate) * years_seq,
+  multiplicative_contribution = (median_income * savings_rate) * (((1 + annual_return)^years_seq - 1) / annual_return)
+)
+df$total_wealth <- df$focus_contribution + df$multiplicative_contribution
+
+# Plot total wealth
+ggplot(df, aes(x = years, y = total_wealth / 1e6)) +
+  geom_line(linewidth = 1.2, color = "#0e9aa7") +
+  geom_point(size = 2, color = "#0e9aa7") +
+  scale_y_continuous(labels = function(x) paste0("$", x, "M")) +
+  scale_x_continuous(breaks = seq(0, 40, by = 5)) +
+  labs(
+    title = "Wealth Growth: The Multiplicative Effect Dominates",
+    subtitle = "Median income $62,400/year, 20% savings rate, 8% annual return",
+    x = "Years",
+    y = "Total Wealth"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(face = "bold", size = 14)
+  )
 ```
 
 
-However, stoicism, time, and diversification are [multiplicative](https://en.wikipedia.org/wiki/Multiplicative_function), so a zero on any one of these collapses the whole second term (i.e., spending above your means and forty years of saving compounds to nothing). 
+Focus contributes in a straight line (additive), while stoicism, time, and diversification compound exponentially. 
+
+```{r}
+#| label: wealth-formula-chart-02
+#| echo: false
+#| fig-cap: "Side-by-side comparison of multiplicative vs. additive growth"
+#| fig-asp: 0.55
+#| message: false 
+#| warning: false 
+years_seq <- seq(0, 40, by = 1)
+
+df_decomposed <- data.frame(
+  years = years_seq,
+  focus = (median_income * savings_rate) * years_seq,
+  multiplicative = (median_income * savings_rate) * (((1 + annual_return)^years_seq - 1) / annual_return)
+)
+
+df_long <- df_decomposed |>
+  pivot_longer(cols = c(focus, multiplicative),
+               names_to = "term",
+               values_to = "wealth") |>
+  mutate(
+    term = factor(term, levels = c("focus", "multiplicative")),
+    term_label = ifelse(term == "focus", 
+                        "Additive: Focus",
+                        "Multiplicative")
+  )
+
+ggplot(df_long, aes(x = years, y = wealth / 1e6, color = term)) +
+  geom_line(linewidth = 1.2) +
+  geom_point(data = df_long |> filter(years %% 10 == 0), size = 2.5) +
+  facet_wrap(~term_label, scales = "free_y") +
+  scale_color_manual(values = c("focus" = "#f44242", "multiplicative" = "#48a56a")) +
+  scale_y_continuous(labels = function(x) paste0("$", x, "M")) +
+  scale_x_continuous(breaks = seq(0, 40, by = 10)) +
+  labs(
+    title = "Additive vs Multiplicative: How They Grow Differently",
+    x = "Years",
+    y = "Contribution to Wealth",
+    subtitle = "Median income $62,400/year, 15% savings rate, 8% annual return"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position = "none",
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(face = "bold", size = 14),
+    strip.text = element_text(face = "bold", size = 9)
+  )
+```
+
+After 40 years, the multiplicative term dominates the total.
+
+```{r}
+#| label: wealth-formula-chart-03
+#| echo: false
+#| fig-cap: "Wealth formula decomposed: additive (focus) vs multiplicative (stoicism × time × diversification)"
+#| fig-asp: 0.55
+#| message: false 
+#| warning: false 
+
+years_seq <- seq(0, 40, by = 1)
+
+df_combined <- data.frame(
+  years = years_seq,
+  focus = (median_income * savings_rate) * years_seq,
+  multiplicative = (median_income * savings_rate) * (((1 + annual_return)^years_seq - 1) / annual_return)
+) |>
+  dplyr::mutate(total = focus + multiplicative)
+
+ggplot(df_combined, aes(x = years)) +
+  geom_area(aes(y = focus / 1e6, fill = "Focus (Additive)"), alpha = 0.6) +
+  geom_area(aes(y = (focus + multiplicative) / 1e6, fill = "Stoicism × Time × Diversification"), alpha = 0.6) +
+  geom_line(aes(y = focus / 1e6), color = "#f44242", linewidth = 1.3, linetype = "solid") +
+  geom_line(aes(y = total / 1e6), color = "#1C1C1E", linewidth = 1.2) +
+  scale_fill_manual(
+    values = c("Focus (Additive)" = "#f44242", 
+               "Stoicism × Time × Diversification" = "#48a56a"),
+    guide = guide_legend(reverse = TRUE)
+  ) +
+  scale_y_continuous(labels = function(x) paste0("$", x, "M")) +
+  scale_x_continuous(breaks = seq(0, 40, by = 5)) +
+  labs(
+    x = "Years", 
+    y = "Total Wealth",
+    fill = NULL,
+    subtitle = "Median income $62,400/year, 15% savings rate, 8% annual return"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    legend.position = "bottom",
+    legend.text = element_text(size = 10)
+  )
+```
+
+The illustration uses concrete assumptions: median income of $62,400, saving 15% yearly ($9,360, stoicism), and earning 8% annually (diversification). The red area grows linearly. The green area curves upward, eventually dwarfing the red. This is the power of compound growth.
 
 ## As Your Income Grows
 
@@ -284,6 +416,106 @@ def add_fun(a, b):
 ```
 :::
 :::::::
+
+### The Wealth Formula {.unnumbered}
+
+Galloway's wealth formula captures the essence of wealth building:
+
+**Formula:** Wealth = Focus + (Stoicism × Time × Diversification)
+
+Example: median income \$62,400, saving 15% (\$9,360/year), earning 8% annually over 40 years.
+
+::: panel-tabset
+
+## R
+
+```{r}
+#| label: wealth-formula-r
+wealth_formula <- function(median_income, savings_rate, annual_return, years) {
+  # annual savings contribution over time (additive)
+  focus <- (median_income * savings_rate) * years
+  
+  # compound growth of savings (multiplicative)
+  annual_savings <- median_income * savings_rate
+  multiplicative <- annual_savings * (((1 + annual_return)^years - 1) / annual_return)
+  
+  # wealth
+  focus + multiplicative
+}
+```
+
+After 40 years with median income, 15% savings rate, 8% return:
+
+```{r}
+#| label: wealth-formula-r-apply
+wealth_formula(
+  median_income = 62400,
+  savings_rate = 0.15,
+  annual_return = 0.08,
+  years = 40
+)
+```
+
+## Python
+
+```{python}
+#| label: wealth-formula-py
+def wealth_formula(median_income, savings_rate, annual_return, years):
+    # annual savings contribution over time (additive)
+    focus = (median_income * savings_rate) * years
+    
+    # compound growth of savings (multiplicative)
+    annual_savings = median_income * savings_rate
+    multiplicative = annual_savings * (((1 + annual_return)**years - 1) / annual_return)
+    
+    # wealth
+    return focus + multiplicative
+```
+
+After 40 years with median income, 15% savings rate, 8% return:
+
+```{python}
+#| label: wealth-formula-py-apply
+wealth_formula(
+    median_income=62400,
+    savings_rate=0.15,
+    annual_return=0.08,
+    years=40
+)
+```
+
+## Excel
+
+In Excel, we can break this into two columns for clarity. Let's say we have:
+
+* `A2`: median income ($62,400)   
+* `B2`: savings rate (0.15)   
+* `C2`: annual return (0.08)    
+* `D2`: years (40)    
+
+For the focus (additive) component in cell `E2`:
+
+```swift
+=A2*B2*D2
+```
+
+For the multiplicative component in cell `F2`:
+
+```swift
+=(A2*B2)*(((1+C2)^D2-1)/C2)
+```
+
+For total wealth in `G2`:
+
+```swift
+=E2+F2
+```
+
+![Wealth formula in Excel](img/income-wealth-formula.png){width='75%' fig-align='center'}
+
+:::
+
+The result is approximately $2.8 million after 40 years—a powerful demonstration of how modest, consistent saving paired with compound growth transforms modest income into substantial wealth.
 
 ### The Fixed-Cost Ratio {.unnumbered}
 
