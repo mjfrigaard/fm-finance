@@ -41,7 +41,7 @@ Morgan Housel's insight is powerful here: "*room for error is the most underrate
 The first skill in budgeting is correctly categorizing your money. Most people lump everything together and then get overwhelmed by how to allocate or account for their spending. Generally, expenses can all fit into one of three categories:
 
 | Category | Definition | Strategy |
-|-----------------|---------------------------|---------------------------|
+|----|----|----|
 | **Fixed** | Costs that remain the same each month, such as rent, mortgage payments, or subscription services. | Lock these in and forget them (minimize them once, then automate). Biggest leverage point: housing. |
 | **Variable** | Costs that change from month to month, such as groceries, utilities, and entertainment. | This is the category where most budgeting efforts fail. Use **categories with limits**, not line-by-line tracking. |
 | **Periodic** | Costs that occur less frequently than monthly, such as annual insurance premiums, holiday gifts, or car maintenance. | These are silent budget killers. Set aside 1/12 of the annual cost for these each month. |
