@@ -378,6 +378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#as-your-income-grows" id="toc-as-your-income-grows" class="nav-link" data-scroll-target="#as-your-income-grows"><span class="header-section-number">1.6</span> As Your Income Grows</a></li>
   <li><a href="#math-for-income" id="toc-math-for-income" class="nav-link" data-scroll-target="#math-for-income"><span class="header-section-number">1.7</span> Math for Income</a>
   <ul>
+  <li><a href="#the-wealth-formula" id="toc-the-wealth-formula" class="nav-link" data-scroll-target="#the-wealth-formula">The Wealth Formula</a></li>
   <li><a href="#the-fixed-cost-ratio" id="toc-the-fixed-cost-ratio" class="nav-link" data-scroll-target="#the-fixed-cost-ratio">The Fixed-Cost Ratio</a></li>
   <li><a href="#what-a-raise-is-really-worth" id="toc-what-a-raise-is-really-worth" class="nav-link" data-scroll-target="#what-a-raise-is-really-worth">What a Raise Is Really Worth</a></li>
   </ul></li>
@@ -547,47 +548,40 @@ flowchart TD
 </div>
 </div>
 <p>The arithmetic does a lot of the teaching on its own. Focus is <a href="https://en.wikipedia.org/wiki/Additive_function">additive</a>, which means even with poor execution on the other three, a strong income engine still builds some wealth.</p>
-<div class="cell" data-layout-align="center">
+<p>However, stoicism, time, and diversification are <a href="https://en.wikipedia.org/wiki/Multiplicative_function">multiplicative</a>, so a zero on any one of these collapses the whole second term. In plain language: <span style="color:#f44242; font-weight: bold;">spending above your means (i.e., saving and investing nothing) for forty years compounds to nothing</span>.</p>
+<p>The chart below illustrates this arithmetic.</p>
+<div class="cell">
 <div class="cell-output-display">
 <div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
-
-flowchart TD
-    Scenario(["Second Term:&lt;br&gt;(Stoicism × Time ×&lt;br&gt;Diversification)"]) --&gt; Zero1["&lt;strong&gt;STOICISM&lt;/strong&gt; = &lt;code&gt;0&lt;/code&gt;&lt;br/&gt;&lt;em&gt;spending above means&lt;/em&gt;"]
-    Scenario --&gt; Zero2("&lt;strong&gt;TIME&lt;/strong&gt; = &lt;code&gt;0&lt;/code&gt;&lt;br/&gt;&lt;em&gt;starting too late&lt;/em&gt;")
-    Scenario --&gt; Zero3("&lt;strong&gt;DIVERSIFICATION&lt;/strong&gt; = &lt;code&gt;0&lt;/code&gt;&lt;br/&gt;&lt;em&gt;all eggs, one basket&lt;/em&gt;")
-    
-    Zero1 --&gt; Result1("Savings&lt;br&gt;= &lt;code&gt;0&lt;/code&gt;")
-    Zero2 --&gt; Result2("Years of&lt;br&gt;Good Habits&lt;br&gt;= &lt;code&gt;0&lt;/code&gt;")
-    Zero3 --&gt; Result3("Return From&lt;br&gt;One Big Bet&lt;br&gt; = &lt;code&gt;0&lt;/code&gt;")
-    
-    Result1 --&gt; Collapse(["Collapses to&lt;br&gt;&lt;code&gt;0&lt;/code&gt;"])
-    Result2 --&gt; Collapse
-    Result3 --&gt; Collapse
-    
-    Collapse --&gt; OnlyFocus(["Only &lt;strong&gt;FOCUS&lt;/strong&gt;:&lt;br/&gt;Wealth = Income Alone"])
-
-    style Scenario fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Zero1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Zero2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Zero3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Result1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Result2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Result3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    
-    style Collapse fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style OnlyFocus fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    
-
-</pre>
-</div>
-<p></p><figcaption> Wealth Collapse</figcaption> </figure><p></p>
+<figure class="figure">
+<p><a href="income_files/figure-html/wealth-formula-char-01-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="income_files/figure-html/wealth-formula-char-01-1.png" class="img-fluid figure-img" width="576"></a></p>
+</figure>
 </div>
 </div>
 </div>
-<p>However, stoicism, time, and diversification are <a href="https://en.wikipedia.org/wiki/Multiplicative_function">multiplicative</a>, so a zero on any one of these collapses the whole second term (i.e., spending above your means and forty years of saving compounds to nothing).</p>
+<p>Focus contributes in a straight line (additive), while stoicism, time, and diversification compound exponentially.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="income_files/figure-html/wealth-formula-chart-02-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Side-by-side comparison of multiplicative vs.&nbsp;additive growth"><img src="income_files/figure-html/wealth-formula-chart-02-1.png" class="img-fluid figure-img" width="576" alt="Side-by-side comparison of multiplicative vs.&nbsp;additive growth"></a></p>
+<figcaption>Side-by-side comparison of multiplicative vs.&nbsp;additive growth</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>After 40 years, the multiplicative term dominates the total.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="income_files/figure-html/wealth-formula-chart-03-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Wealth formula decomposed: additive (focus) vs multiplicative (stoicism × time × diversification)"><img src="income_files/figure-html/wealth-formula-chart-03-1.png" class="img-fluid figure-img" width="576" alt="Wealth formula decomposed: additive (focus) vs multiplicative (stoicism × time × diversification)"></a></p>
+<figcaption>Wealth formula decomposed: additive (focus) vs multiplicative (stoicism × time × diversification)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The illustration uses concrete assumptions: median income of $62,400, saving 15% yearly ($9,360, stoicism), and earning 8% annually (diversification). The red area grows linearly. The green area curves upward, eventually dwarfing the red. This is the power of compound growth.</p>
 </section>
 <section id="as-your-income-grows" class="level2" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="as-your-income-grows"><span class="header-section-number">1.6</span> As Your Income Grows</h2>
@@ -684,6 +678,107 @@ flowchart TD
 </div>
 </div>
 </div>
+<section id="the-wealth-formula" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-wealth-formula">The Wealth Formula</h3>
+<p>Galloway’s wealth formula captures the essence of wealth building:</p>
+<p><strong>Formula:</strong> Wealth = Focus + (Stoicism × Time × Diversification)</p>
+<p>Example: median income $62,400, saving 15% ($9,360/year), earning 8% annually over 40 years.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Excel</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>wealth_formula <span class="ot">&lt;-</span> <span class="cf">function</span>(median_income, savings_rate, annual_return, years) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># annual savings contribution over time (additive)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  focus <span class="ot">&lt;-</span> (median_income <span class="sc">*</span> savings_rate) <span class="sc">*</span> years</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># compound growth of savings (multiplicative)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  annual_savings <span class="ot">&lt;-</span> median_income <span class="sc">*</span> savings_rate</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  multiplicative <span class="ot">&lt;-</span> annual_savings <span class="sc">*</span> (((<span class="dv">1</span> <span class="sc">+</span> annual_return)<span class="sc">^</span>years <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> annual_return)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># wealth</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  focus <span class="sc">+</span> multiplicative</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>After 40 years with median income, 15% savings rate, 8% return:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wealth_formula</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">median_income =</span> <span class="dv">62400</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">savings_rate =</span> <span class="fl">0.15</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">annual_return =</span> <span class="fl">0.08</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">years =</span> <span class="dv">40</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2799169</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> wealth_formula(median_income, savings_rate, annual_return, years):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># annual savings contribution over time (additive)</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    focus <span class="op">=</span> (median_income <span class="op">*</span> savings_rate) <span class="op">*</span> years</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># compound growth of savings (multiplicative)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    annual_savings <span class="op">=</span> median_income <span class="op">*</span> savings_rate</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    multiplicative <span class="op">=</span> annual_savings <span class="op">*</span> (((<span class="dv">1</span> <span class="op">+</span> annual_return)<span class="op">**</span>years <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> annual_return)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># wealth</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> focus <span class="op">+</span> multiplicative</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>After 40 years with median income, 15% savings rate, 8% return:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>show/hide</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>wealth_formula(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    median_income<span class="op">=</span><span class="dv">62400</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    savings_rate<span class="op">=</span><span class="fl">0.15</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    annual_return<span class="op">=</span><span class="fl">0.08</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    years<span class="op">=</span><span class="dv">40</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2799169.0151255885</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>In Excel, we can break this into two columns for clarity. Let’s say we have:</p>
+<ul>
+<li><code>A2</code>: median income ($62,400)<br>
+</li>
+<li><code>B2</code>: savings rate (0.15)<br>
+</li>
+<li><code>C2</code>: annual return (0.08)<br>
+</li>
+<li><code>D2</code>: years (40)</li>
+</ul>
+<p>For the focus (additive) component in cell <code>E2</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>A2<span class="op">*</span>B2<span class="op">*</span>D2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For the multiplicative component in cell <code>F2</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">=(</span>A2<span class="op">*</span>B2<span class="op">)*(((</span><span class="dv">1</span><span class="op">+</span>C2<span class="op">)^</span>D2<span class="op">-</span><span class="dv">1</span><span class="op">)/</span>C2<span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For total wealth in <code>G2</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>E2<span class="op">+</span>F2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/income-wealth-formula.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Wealth formula in Excel"><img src="img/income-wealth-formula.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Wealth formula in Excel"></a></p>
+</figure>
+</div>
+<figcaption>Wealth formula in Excel</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>The result is approximately $2.8 million after 40 years—a powerful demonstration of how modest, consistent saving paired with compound growth transforms modest income into substantial wealth.</p>
+</section>
 <section id="the-fixed-cost-ratio" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="the-fixed-cost-ratio">The Fixed-Cost Ratio</h3>
 <p>Fixed costs (rent, loan payments, insurance, utilities) are the commitments you can’t easily change month to month. The chart below divides an $8,000 take-home into its two parts — fixed and flexible — and marks the 60% ceiling that keeps the rest of the budget healthy.</p>
@@ -691,7 +786,7 @@ flowchart TD
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="income_files/figure-html/fixed-cost-bar-model-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Take-home pay divided into fixed costs and flexible spending ($8,000 total)"><img src="income_files/figure-html/fixed-cost-bar-model-1.png" class="img-fluid figure-img" width="576" alt="Take-home pay divided into fixed costs and flexible spending ($8,000 total)"></a></p>
+<p><a href="income_files/figure-html/fixed-cost-bar-model-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Take-home pay divided into fixed costs and flexible spending ($8,000 total)"><img src="income_files/figure-html/fixed-cost-bar-model-1.png" class="img-fluid figure-img" width="576" alt="Take-home pay divided into fixed costs and flexible spending ($8,000 total)"></a></p>
 <figcaption>Take-home pay divided into fixed costs and flexible spending ($8,000 total)</figcaption>
 </figure>
 </div>
@@ -701,54 +796,54 @@ flowchart TD
 <p><strong>Formula:</strong> Fixed-Cost Ratio = Fixed Costs ÷ Take-Home Pay × 100</p>
 <p>Example: $4,400 of fixed costs on $8,000 take-home</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Excel</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Excel</a></li></ul>
 <div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>Below is an implementation of this function in R:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fixed_cost_ratio <span class="ot">&lt;-</span> <span class="cf">function</span>(fixed_costs, take_home) {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  (fixed_costs <span class="sc">/</span> take_home) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fixed_cost_ratio <span class="ot">&lt;-</span> <span class="cf">function</span>(fixed_costs, take_home) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  (fixed_costs <span class="sc">/</span> take_home) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>$4,400 of fixed costs on $8,000 take-home pay</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixed_cost_ratio</span>(<span class="at">fixed_costs =</span> <span class="dv">4400</span>, <span class="at">take_home =</span> <span class="dv">8000</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 55</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixed_cost_ratio</span>(<span class="at">fixed_costs =</span> <span class="dv">4400</span>, <span class="at">take_home =</span> <span class="dv">8000</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 55</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p>The same formula in Python:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fixed_cost_ratio(fixed_costs, take_home):</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (fixed_costs <span class="op">/</span> take_home) <span class="op">*</span> <span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fixed_cost_ratio(fixed_costs, take_home):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (fixed_costs <span class="op">/</span> take_home) <span class="op">*</span> <span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>$4,400 of fixed costs on $8,000 take-home pay</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixed_cost_ratio</span>(<span class="at">fixed_costs=</span><span class="dv">4400</span>, <span class="at">take_home=</span><span class="dv">8000</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 55</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixed_cost_ratio</span>(<span class="at">fixed_costs=</span><span class="dv">4400</span>, <span class="at">take_home=</span><span class="dv">8000</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 55</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <p>In Excel there’s no function to define: you put the numbers in cells and write the formula once. Enter the fixed costs in cell <code>A2</code> and take-home pay in <code>B2</code>, then in <code>C2</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>A2<span class="op">/</span>B2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>A2<span class="op">/</span>B2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>That gives <code>0.54</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/income-fixed-cost-ratio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Entering a formula in Excel"><img src="img/income-fixed-cost-ratio.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Entering a formula in Excel"></a></p>
+<p><a href="img/income-fixed-cost-ratio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Entering a formula in Excel"><img src="img/income-fixed-cost-ratio.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Entering a formula in Excel"></a></p>
 </figure>
 </div>
 <figcaption>Entering a formula in Excel</figcaption>
@@ -759,19 +854,19 @@ flowchart TD
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/income-fixed-cost-ratio-perc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Convert to percent"><img src="img/income-fixed-cost-ratio-perc.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Convert to percent"></a></p>
+<p><a href="img/income-fixed-cost-ratio-perc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Convert to percent"><img src="img/income-fixed-cost-ratio-perc.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Convert to percent"></a></p>
 </figure>
 </div>
 <figcaption>Convert to percent</figcaption>
 </figure>
 </div>
 <p>To produce the percent <em>string</em> directly (the analog of R’s <code>paste0(..., "%")</code> and Python’s f-string), use <code>TEXT()</code> instead:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>TEXT<span class="op">(</span>A2<span class="op">/</span>B2<span class="op">,</span> <span class="st">"0.0%"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>TEXT<span class="op">(</span>A2<span class="op">/</span>B2<span class="op">,</span> <span class="st">"0.0%"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/income-fixed-cost-ratio-text-perc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Convert to percent with TEXT"><img src="img/income-fixed-cost-ratio-text-perc.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Convert to percent with TEXT"></a></p>
+<p><a href="img/income-fixed-cost-ratio-text-perc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Convert to percent with TEXT"><img src="img/income-fixed-cost-ratio-text-perc.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Convert to percent with TEXT"></a></p>
 </figure>
 </div>
 <figcaption>Convert to percent with <code>TEXT</code></figcaption>
@@ -789,7 +884,7 @@ flowchart TD
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="income_files/figure-html/raise-value-bar-model-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="$200/month invested at 7% — value at each 5-year checkpoint"><img src="income_files/figure-html/raise-value-bar-model-1.png" class="img-fluid figure-img" width="576" alt="$200/month invested at 7% — value at each 5-year checkpoint"></a></p>
+<p><a href="income_files/figure-html/raise-value-bar-model-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="$200/month invested at 7% — value at each 5-year checkpoint"><img src="income_files/figure-html/raise-value-bar-model-1.png" class="img-fluid figure-img" width="576" alt="$200/month invested at 7% — value at each 5-year checkpoint"></a></p>
 <figcaption>$200/month invested at 7% — value at each 5-year checkpoint</figcaption>
 </figure>
 </div>
@@ -800,56 +895,56 @@ flowchart TD
 <p>PMT is the amount invested each month, <em>r</em> is the monthly return, and <em>n</em> is the number of months. We will revisit this future-value-of-contributions formula in the <a href="./investing_basics.html">Investing Basics</a> chapter.</p>
 <p>Example: a $400/month raise, half of it invested ($200/month) for 25 years at a 7% annual return.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Excel</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false" href="">Excel</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <p>Here is an example of this function in R:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>raise_invested_value <span class="ot">&lt;-</span> <span class="cf">function</span>(monthly_raise, invest_share, rate, years) {</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  contribution <span class="ot">&lt;-</span> monthly_raise <span class="sc">*</span> invest_share</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  monthly_rate <span class="ot">&lt;-</span> rate <span class="sc">/</span> <span class="dv">12</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  periods      <span class="ot">&lt;-</span> years <span class="sc">*</span> <span class="dv">12</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  contribution <span class="sc">*</span> (((<span class="dv">1</span> <span class="sc">+</span> monthly_rate)<span class="sc">^</span>periods <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> monthly_rate)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>raise_invested_value <span class="ot">&lt;-</span> <span class="cf">function</span>(monthly_raise, invest_share, rate, years) {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  contribution <span class="ot">&lt;-</span> monthly_raise <span class="sc">*</span> invest_share</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  monthly_rate <span class="ot">&lt;-</span> rate <span class="sc">/</span> <span class="dv">12</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  periods      <span class="ot">&lt;-</span> years <span class="sc">*</span> <span class="dv">12</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  contribution <span class="sc">*</span> (((<span class="dv">1</span> <span class="sc">+</span> monthly_rate)<span class="sc">^</span>periods <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> monthly_rate)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Half of a $400/month raise, invested for 25 years at 7%</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">raise_invested_value</span>(</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">monthly_raise =</span> <span class="dv">400</span>, </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">invest_share =</span> <span class="fl">0.5</span>, </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">rate =</span> <span class="fl">0.07</span>, </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">years =</span> <span class="dv">25</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 162014.3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">raise_invested_value</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">monthly_raise =</span> <span class="dv">400</span>, </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">invest_share =</span> <span class="fl">0.5</span>, </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">rate =</span> <span class="fl">0.07</span>, </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">years =</span> <span class="dv">25</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 162014.3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <p>Below is the same function in Python:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> raise_invested_value(monthly_raise, invest_share, rate, years):</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    contribution <span class="op">=</span> monthly_raise <span class="op">*</span> invest_share</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    monthly_rate <span class="op">=</span> rate <span class="op">/</span> <span class="dv">12</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    periods <span class="op">=</span> years <span class="op">*</span> <span class="dv">12</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> contribution <span class="op">*</span> (((<span class="dv">1</span> <span class="op">+</span> monthly_rate) <span class="op">**</span> periods <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> monthly_rate)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> raise_invested_value(monthly_raise, invest_share, rate, years):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    contribution <span class="op">=</span> monthly_raise <span class="op">*</span> invest_share</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    monthly_rate <span class="op">=</span> rate <span class="op">/</span> <span class="dv">12</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    periods <span class="op">=</span> years <span class="op">*</span> <span class="dv">12</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> contribution <span class="op">*</span> (((<span class="dv">1</span> <span class="op">+</span> monthly_rate) <span class="op">**</span> periods <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> monthly_rate)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Half of a $400/month raise, invested for 25 years at 7%</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>show/hide</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>raise_invested_value(monthly_raise<span class="op">=</span><span class="dv">400</span>, invest_share<span class="op">=</span><span class="fl">0.5</span>, rate<span class="op">=</span><span class="fl">0.07</span>, years<span class="op">=</span><span class="dv">25</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 162014.33860462217</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>raise_invested_value(monthly_raise<span class="op">=</span><span class="dv">400</span>, invest_share<span class="op">=</span><span class="fl">0.5</span>, rate<span class="op">=</span><span class="fl">0.07</span>, years<span class="op">=</span><span class="dv">25</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 162014.33860462217</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
 <p>Excel actually has a built-in <a href="https://support.microsoft.com/en-US/Excel/fv-function"><code>FV()</code> (future value) function</a>, so we don’t have to write the formula ourselves. The arguments are <code>FV(rate, nper, pmt)</code>:</p>
 <ul>
 <li><code>rate</code> is the return <em>per period</em> (monthly here): <code>7%/12</code><br>
@@ -858,12 +953,12 @@ flowchart TD
 </li>
 <li><code>pmt</code> is the amount invested each period, entered as a <em>negative</em> number because it’s cash leaving your pocket: <code>-200</code></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>FV<span class="op">(</span><span class="dv">7</span><span class="op">%/</span><span class="dv">12</span><span class="op">,</span> <span class="dv">25</span><span class="op">*</span><span class="dv">12</span><span class="op">,</span> <span class="op">-</span><span class="dv">200</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>FV<span class="op">(</span><span class="dv">7</span><span class="op">%/</span><span class="dv">12</span><span class="op">,</span> <span class="dv">25</span><span class="op">*</span><span class="dv">12</span><span class="op">,</span> <span class="op">-</span><span class="dv">200</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/income-future-value.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Future value in Excel"><img src="img/income-future-value.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Future value in Excel"></a></p>
+<p><a href="img/income-future-value.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Future value in Excel"><img src="img/income-future-value.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Future value in Excel"></a></p>
 </figure>
 </div>
 <figcaption>Future value in Excel</figcaption>
