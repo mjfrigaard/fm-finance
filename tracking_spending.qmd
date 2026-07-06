@@ -63,6 +63,7 @@ flowchart TD
     style Compare fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style Insights fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style FeedbackLoop fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    
 ```
 
 ## Capturing Transactions
