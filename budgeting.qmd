@@ -28,7 +28,7 @@ A good budget builds in flexibility, not rigidity. When you're just getting star
 Just to be clear: **building a budget (especially the first time) is time-consuming**. As with most time-consuming tasks, you might find yourself wondering if you really need a budget. Trust me—you do. Everyone does. Reframe the following thoughts that might interfere with your budgeting practice:
 
 | Thought | Reframe as |
-|----|----|
+|------------------------------------|------------------------------------|
 | [***I have to spend a \[relatively large amount\] on \[thing(s) I need\].***]{style="color:#f44242; font-weight: bold;"} | [***My needs cost \[amount\].***]{style="color:#48a56a; font-weight: bold;"} |
 | [***I can only spend \[relatively small amount\] on \[thing(s) I really want\].***]{style="color:#f44242; font-weight: bold;"} | [***My wants cost \[amount\].***]{style="color:#48a56a; font-weight: bold;"} |
 | [***I spent \[unexpectedly large amount\] on \[thing(s) I really want\].***]{style="color:#f44242; font-weight: bold;"} | [***I chose to spend more on my wants this month, so I need to adjust my other categories.***]{style="color:#48a56a; font-weight: bold;"} |
@@ -41,7 +41,7 @@ Morgan Housel's insight is powerful here: "*room for error is the most underrate
 The first skill in budgeting is correctly categorizing your money. Most people lump everything together and then get overwhelmed by how to allocate or account for their spending. Generally, expenses can all fit into one of three categories:
 
 | Category | Definition | Strategy |
-|----|----|----|
+|-------------|------------------------------|--------------------------|
 | **Fixed** | Costs that remain the same each month, such as rent, mortgage payments, or subscription services. | Lock these in and forget them (minimize them once, then automate). Biggest leverage point: housing. |
 | **Variable** | Costs that change from month to month, such as groceries, utilities, and entertainment. | This is the category where most budgeting efforts fail. Use **categories with limits**, not line-by-line tracking. |
 | **Periodic** | Costs that occur less frequently than monthly, such as annual insurance premiums, holiday gifts, or car maintenance. | These are silent budget killers. Set aside 1/12 of the annual cost for these each month. |
@@ -71,21 +71,21 @@ flowchart LR
 
     Expenses(["Monthly<br>Expenses"])
     
-    subgraph Fixed["FIXED EXPENSES"]
+    subgraph Fixed["<strong>FIXED EXPENSES</strong>"]
         Rent("Rent/Mortgage")
         Insurance("Insurance<br>Premiums")
         Subs("Subscriptions")
         Loans("Loan<br>Payments")
     end
     
-    subgraph Variable["VARIABLE EXPENSES"]
+    subgraph Variable["<strong>VARIABLE EXPENSES</strong>"]
         Groceries("Groceries")
         Utilities("Utilities")
         Gas("Gas/Transport")
         Dining("Dining<br>Out")
     end
 
-    subgraph Periodic["PERIODIC EXPENSES"]
+    subgraph Periodic["<strong>PERIODIC EXPENSES</strong>"]
         Taxes("Property<br>Taxes")
         CarMaint("Car<br>Maintenance")
         Gifts("Gifts/Holidays")
@@ -98,23 +98,24 @@ flowchart LR
     
     style Expenses fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     
-    style Fixed fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Rent fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Insurance fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Subs fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Loans fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Fixed fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Rent fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Insurance fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Subs fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Loans fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+                        
+    style Variable fill:#F5F2E8,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Groceries fill:#F5F2E8,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Utilities fill:#F5F2E8,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Gas fill:#F5F2E8,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Dining fill:#F5F2E8,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     
-    style Variable fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Groceries fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style Utilities fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style Gas fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style Dining fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Periodic fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Taxes fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style CarMaint fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Gifts fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Medical fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     
-    style Periodic fill:#F5F2E8,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style Taxes fill:#F5F2E8,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style CarMaint fill:#F5F2E8,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style Gifts fill:#F5F2E8,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style Medical fill:#F5F2E8,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     
 ```
 
