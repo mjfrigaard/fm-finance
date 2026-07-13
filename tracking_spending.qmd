@@ -17,7 +17,7 @@ pl.Config.set_tbl_rows(20)
 
 <br>
 
-You only manage what you measure. This chapter covers how to capture every dollar that leaves your accounts and turn that data into insight.
+You only manage what you measure. This chapter covers how to capture every dollar that leaves your accounts and turn those transactions into insights.
 
 - Capturing every transaction
 - Working with digital bank exports
@@ -25,7 +25,7 @@ You only manage what you measure. This chapter covers how to capture every dolla
 - Reviewing on a monthly cadence
 - Spotting "leak" categories (subscriptions, delivery fees, impulse buys)
 
-Tracking is the *recording* side of personal finance. [Budgeting](budgeting.qmd) covers the *allocation* side (where money is supposed to go). Without tracking, a budget is a guess; with tracking, a budget becomes a feedback loop.
+Tracking is the *recording* side of personal finance. In the next chapter, we'll cover [budgeting](budgeting.qmd), which is the *allocation* side (i.e., where money is supposed to go). Without tracking, a budget is a guess; with tracking, a budget becomes a feedback loop.
 
 ```{=html}
 <style>
@@ -46,24 +46,18 @@ Tracking is the *recording* side of personal finance. [Budgeting](budgeting.qmd)
 %%| fig-align: center
 %%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
-flowchart TD
-    Budgeting(["<strong>BUDGETING</strong><br/>Where Money<br>Should Go"]) --> Plan("<em>Plan</em>")
-    Tracking(["<strong>TRACKING</strong><br/>Where Money<br>Actually Went"]) --> Reality("<em>Reality</em>")
-
-    Plan --> Compare{"<strong>COMPARE</strong>:<br/>Plan vs. Reality"}
-    Reality --> Compare
+flowchart LR
+    Tracking(["<strong>TRACKING</strong>"]) --"<em>Where money<br>actually went</em>"--> Compare{"<strong>COMPARE</strong><br/><em>plan vs.<br>reality</em>"}
+    Budgeting(["<strong>BUDGETING</strong>"]) --"<em>Where money<br>should go</em>"--> Compare
+    
 
     Compare --> Insights("Insights &<br>Adjustments")
-    Insights --> FeedbackLoop(["<em>Feedback</em>"])
-    FeedbackLoop --> Budgeting
+    Insights --"<em>Feedback</em>"--> Budgeting 
+    
     style Budgeting fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Tracking fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Plan fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Reality fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Compare fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style Insights fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style FeedbackLoop fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    
 ```
 
 ## Capturing Transactions
@@ -292,7 +286,7 @@ df.filter(pl.col("x") > 2)
 
 ### Building Categories {#sec-building-categories}
 
-The `bank_statement` dataset above has the columns typically found in a real bank export (`Date`, `Description`, and `Amount` columns). To get to a `Category` column, you have to map descriptions to your buckets yourself. A small lookup of keyword patterns does the job in one pass.
+The `bank_statement` dataset above includes the columns typically found in a real bank export (`Date`, `Description`, and `Amount`).  To get to a `Category` column, we have to map descriptions to the buckets. A small lookup of keyword patterns does the job in one pass.
 
 ::: panel-tabset
 ## R
@@ -560,7 +554,7 @@ The ritual has four steps:
 
 1.  [Pull]{style="color:#48a56a; font-weight: bold;"} the bank and credit-card statements for the month.
 2.  [Categorize]{style="color:#48a56a; font-weight: bold;"} every line into your buckets, using whichever capture method you've chosen.
-3.  [Compare]{style="color:#48a56a; font-weight: bold;"} category totals to your budget. Where did you go over? Where did you come in under?
+3.  [Compare]{style="color:#48a56a; font-weight: bold;"} category totals to your budget. Where did you go over budget? Where did you come in under budget?
 4.  [Pick one change]{style="color:#48a56a; font-weight: bold;"} for next month. *One.* The point is sustainable adjustment, not perfection.
 
 Over a year, twelve small adjustments compound into a budget that actually fits your life. That's the real return on tracking: the calibration loop, not the spreadsheet itself.
@@ -575,21 +569,22 @@ This is the most overlooked category in personal finance. Streaming, apps, softw
 %%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
-    Subscriptions(["Monthly Subscriptions"]) --> Audit("Quarterly Audit")
-    Audit --> Use["Used in last 30 days?"]
-    Use -->|Yes| Worth["Worth the cost?"]
-    Use -->|No| Cancel(["Cancel Today"])
-    Worth -->|Yes| Keep("Keep")
+    Subscriptions(["<strong>Monthly<br>Subscriptions</strong>"]) --> Audit("Quarterly<br>Audit")
+    Audit --> Use{"Used in<br>the last 30<br>days?"}
+    Use -->|Yes| Worth{"Worth the<br>cost?"}
+    Use -->|No| Cancel(["Cancel<br>Today"])
+    Worth -->|Yes| Keep(["Keep"])
     Worth -->|No| Cancel
-    Cancel --> Redirect("Redirect to Investments")
+    Cancel --"<em>Redirect to</em>"--> Redirect("<strong>Investments</strong>")
     
     style Subscriptions fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Audit fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Use fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style Worth fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style Cancel fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Keep fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Keep fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Redirect fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    
 ```
 
 ### The Subscription Reality Check {.unnumbered}
@@ -610,7 +605,7 @@ This isn't deprivation; it's the [Sethi](https://www.iwillteachyoutoberich.com/)
 
 ## Math for tracking spending
 
-Below are some tips and tools for tracking spending. Some can be used to easily categorize purchases, others can be used to check the amount you're spending on subscriptions.
+Below are some tips and tools for tracking spending. Some can be used to easily categorize purchases; others can be used to check how much you’re spending on subscriptions.
 
 ### The Subscription Audit Math {.unnumbered}
 
@@ -729,9 +724,9 @@ Tracking is the *recording* side of personal finance; without it, your budget is
 
 1.  [Pick one capture method and run it for a month.]{style="color:#48a56a; font-weight: bold;"} Spending journal, checkbook register, cash envelopes, or pulling bank statements — any of them work. Switching every week works for nobody.
 
-2.  [Keep your categories small and stable.]{style="color:#48a56a; font-weight: bold;"} Six to ten buckets is plenty. Stability is what makes month-to-month comparisons meaningful; rotating "smart" categories destroys the very signal you're trying to build.
+2.  [Keep your categories small and stable.]{style="color:#48a56a; font-weight: bold;"} Six to ten buckets are plenty. Stability is what makes month-to-month comparisons meaningful; rotating "smart" categories destroys the very signal you're trying to build.
 
-3.  [Schedule a monthly review and limit yourself to *one* change.]{style="color:#48a56a; font-weight: bold;"} Pull the statements, categorize, compare against your budget, and pick the single biggest leak to plug. Twelve small adjustments per year compound into a budget that actually fits your life.
+3.  [Schedule a monthly review and limit yourself to *one* change.]{style="color:#48a56a; font-weight: bold;"} Pull the statements, categorize them, compare them against your budget, and pick the single biggest leak to plug. Twelve small adjustments per year compound into a budget that actually fits your life.
 
 4.  [Audit subscriptions every quarter.]{style="color:#48a56a; font-weight: bold;"} They're individually small, collectively enormous, and trivially canceled. A \$20/month service you don't really use is roughly a \$24,000 decision over thirty years (see the audit math above), so [Sethi's](https://www.iwillteachyoutoberich.com/) "cut mercilessly on what you don't love" lands hardest here.
 
