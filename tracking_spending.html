@@ -413,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><br></p>
-<p>You only manage what you measure. This chapter covers how to capture every dollar that leaves your accounts and turn that data into insight.</p>
+<p>You only manage what you measure. This chapter covers how to capture every dollar that leaves your accounts and turn those transactions into insights.</p>
 <ul>
 <li>Capturing every transaction</li>
 <li>Working with digital bank exports</li>
@@ -421,7 +421,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Reviewing on a monthly cadence</li>
 <li>Spotting “leak” categories (subscriptions, delivery fees, impulse buys)</li>
 </ul>
-<p>Tracking is the <em>recording</em> side of personal finance. <a href="./budgeting.html">Budgeting</a> covers the <em>allocation</em> side (where money is supposed to go). Without tracking, a budget is a guess; with tracking, a budget becomes a feedback loop.</p>
+<p>Tracking is the <em>recording</em> side of personal finance. In the next chapter, we’ll cover <a href="./budgeting.html">budgeting</a>, which is the <em>allocation</em> side (i.e., where money is supposed to go). Without tracking, a budget is a guess; with tracking, a budget becomes a feedback loop.</p>
 <style>
 
 .codeStyle span:not(.nodeLabel) {
@@ -440,24 +440,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
 <pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
-flowchart TD
-    Budgeting(["&lt;strong&gt;BUDGETING&lt;/strong&gt;&lt;br/&gt;Where Money&lt;br&gt;Should Go"]) --&gt; Plan("&lt;em&gt;Plan&lt;/em&gt;")
-    Tracking(["&lt;strong&gt;TRACKING&lt;/strong&gt;&lt;br/&gt;Where Money&lt;br&gt;Actually Went"]) --&gt; Reality("&lt;em&gt;Reality&lt;/em&gt;")
-
-    Plan --&gt; Compare{"&lt;strong&gt;COMPARE&lt;/strong&gt;:&lt;br/&gt;Plan vs. Reality"}
-    Reality --&gt; Compare
+flowchart LR
+    Tracking(["&lt;strong&gt;TRACKING&lt;/strong&gt;"]) --"&lt;em&gt;Where money&lt;br&gt;actually went&lt;/em&gt;"--&gt; Compare{"&lt;strong&gt;COMPARE&lt;/strong&gt;&lt;br/&gt;&lt;em&gt;plan vs.&lt;br&gt;reality&lt;/em&gt;"}
+    Budgeting(["&lt;strong&gt;BUDGETING&lt;/strong&gt;"]) --"&lt;em&gt;Where money&lt;br&gt;should go&lt;/em&gt;"--&gt; Compare
+    
 
     Compare --&gt; Insights("Insights &amp;&lt;br&gt;Adjustments")
-    Insights --&gt; FeedbackLoop(["&lt;em&gt;Feedback&lt;/em&gt;"])
-    FeedbackLoop --&gt; Budgeting
+    Insights --"&lt;em&gt;Feedback&lt;/em&gt;"--&gt; Budgeting 
+    
     style Budgeting fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Tracking fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Plan fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Reality fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Compare fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style Insights fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style FeedbackLoop fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    
 </pre>
 </div>
 <p></p><figcaption> Budget Mindset</figcaption> </figure><p></p>
@@ -902,7 +896,7 @@ flowchart TD
 </div>
 <section id="sec-building-categories" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="sec-building-categories"><span class="header-section-number">2.3.1</span> Building Categories</h3>
-<p>The <code>bank_statement</code> dataset above has the columns typically found in a real bank export (<code>Date</code>, <code>Description</code>, and <code>Amount</code> columns). To get to a <code>Category</code> column, you have to map descriptions to your buckets yourself. A small lookup of keyword patterns does the job in one pass.</p>
+<p>The <code>bank_statement</code> dataset above includes the columns typically found in a real bank export (<code>Date</code>, <code>Description</code>, and <code>Amount</code>). To get to a <code>Category</code> column, we have to map descriptions to the buckets. A small lookup of keyword patterns does the job in one pass.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Excel</a></li></ul>
 <div class="tab-content">
@@ -1731,7 +1725,7 @@ flowchart TD
 <ol type="1">
 <li><span style="color:#48a56a; font-weight: bold;">Pull</span> the bank and credit-card statements for the month.</li>
 <li><span style="color:#48a56a; font-weight: bold;">Categorize</span> every line into your buckets, using whichever capture method you’ve chosen.</li>
-<li><span style="color:#48a56a; font-weight: bold;">Compare</span> category totals to your budget. Where did you go over? Where did you come in under?</li>
+<li><span style="color:#48a56a; font-weight: bold;">Compare</span> category totals to your budget. Where did you go over budget? Where did you come in under budget?</li>
 <li><span style="color:#48a56a; font-weight: bold;">Pick one change</span> for next month. <em>One.</em> The point is sustainable adjustment, not perfection.</li>
 </ol>
 <p>Over a year, twelve small adjustments compound into a budget that actually fits your life. That’s the real return on tracking: the calibration loop, not the spreadsheet itself.</p>
@@ -1747,21 +1741,22 @@ flowchart TD
 <pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
 
 flowchart TD
-    Subscriptions(["Monthly Subscriptions"]) --&gt; Audit("Quarterly Audit")
-    Audit --&gt; Use["Used in last 30 days?"]
-    Use --&gt;|Yes| Worth["Worth the cost?"]
-    Use --&gt;|No| Cancel(["Cancel Today"])
-    Worth --&gt;|Yes| Keep("Keep")
+    Subscriptions(["&lt;strong&gt;Monthly&lt;br&gt;Subscriptions&lt;/strong&gt;"]) --&gt; Audit("Quarterly&lt;br&gt;Audit")
+    Audit --&gt; Use{"Used in&lt;br&gt;the last 30&lt;br&gt;days?"}
+    Use --&gt;|Yes| Worth{"Worth the&lt;br&gt;cost?"}
+    Use --&gt;|No| Cancel(["Cancel&lt;br&gt;Today"])
+    Worth --&gt;|Yes| Keep(["Keep"])
     Worth --&gt;|No| Cancel
-    Cancel --&gt; Redirect("Redirect to Investments")
+    Cancel --"&lt;em&gt;Redirect to&lt;/em&gt;"--&gt; Redirect("&lt;strong&gt;Investments&lt;/strong&gt;")
     
     style Subscriptions fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Audit fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Use fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style Worth fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style Cancel fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Keep fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Keep fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Redirect fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    
 </pre>
 </div>
 <p></p><figcaption> Subscription Audit</figcaption> </figure><p></p>
@@ -1784,7 +1779,7 @@ flowchart TD
 </section>
 <section id="math-for-tracking-spending" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="math-for-tracking-spending"><span class="header-section-number">2.6</span> Math for tracking spending</h2>
-<p>Below are some tips and tools for tracking spending. Some can be used to easily categorize purchases, others can be used to check the amount you’re spending on subscriptions.</p>
+<p>Below are some tips and tools for tracking spending. Some can be used to easily categorize purchases; others can be used to check how much you’re spending on subscriptions.</p>
 <section id="the-subscription-audit-math" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="the-subscription-audit-math">The Subscription Audit Math</h3>
 <p>A $20/month subscription feels trivial. The chart below shows what that $240/year could have become if invested instead — each bar is a year when you could have stopped and kept the difference.</p>
@@ -1897,8 +1892,8 @@ flowchart TD
 <p>Tracking is the <em>recording</em> side of personal finance; without it, your budget is just a guess. Five rules keep it sustainable:</p>
 <ol type="1">
 <li><p><span style="color:#48a56a; font-weight: bold;">Pick one capture method and run it for a month.</span> Spending journal, checkbook register, cash envelopes, or pulling bank statements — any of them work. Switching every week works for nobody.</p></li>
-<li><p><span style="color:#48a56a; font-weight: bold;">Keep your categories small and stable.</span> Six to ten buckets is plenty. Stability is what makes month-to-month comparisons meaningful; rotating “smart” categories destroys the very signal you’re trying to build.</p></li>
-<li><p><span style="color:#48a56a; font-weight: bold;">Schedule a monthly review and limit yourself to <em>one</em> change.</span> Pull the statements, categorize, compare against your budget, and pick the single biggest leak to plug. Twelve small adjustments per year compound into a budget that actually fits your life.</p></li>
+<li><p><span style="color:#48a56a; font-weight: bold;">Keep your categories small and stable.</span> Six to ten buckets are plenty. Stability is what makes month-to-month comparisons meaningful; rotating “smart” categories destroys the very signal you’re trying to build.</p></li>
+<li><p><span style="color:#48a56a; font-weight: bold;">Schedule a monthly review and limit yourself to <em>one</em> change.</span> Pull the statements, categorize them, compare them against your budget, and pick the single biggest leak to plug. Twelve small adjustments per year compound into a budget that actually fits your life.</p></li>
 <li><p><span style="color:#48a56a; font-weight: bold;">Audit subscriptions every quarter.</span> They’re individually small, collectively enormous, and trivially canceled. A $20/month service you don’t really use is roughly a $24,000 decision over thirty years (see the audit math above), so <a href="https://www.iwillteachyoutoberich.com/">Sethi’s</a> “cut mercilessly on what you don’t love” lands hardest here.</p></li>
 <li><p><span style="color:#48a56a; font-weight: bold;">Simplicity wins.</span> As Bogle would have it for investing, the same applies to tracking: a spreadsheet you’ll actually open beats any app you won’t.</p></li>
 </ol>
