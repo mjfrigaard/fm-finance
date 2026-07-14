@@ -1,0 +1,5 @@
+# <strong>Tracking Spending</strong>: Sub-Categories {.unnumbered}
+
+Platforms like Amazon, PayPal, and Instacart can make transactions confusing because they can map to multiple categories (the descriptions alone are ambiguous).
+
+One way to reconcile this is to create a `Sub-Category` column. `Sub-Category` can be formatted as free-text or with a controlled list scoped under the parent `Category` column.
