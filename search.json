@@ -904,78 +904,89 @@
   {
     "objectID": "r-reference.html",
     "href": "r-reference.html",
-    "title": "R Reference",
+    "title": "R: Reference",
     "section": "",
     "text": "Functions in R\nA quick reference to the R concepts used throughout this book.\nFunctions perform operations (calculate, transform, model, graph) on various objects that contain information (blood pressure measurements, monthly sales, political party affiliation, etc.)\nshow/hide\npercent_of_income &lt;- function(expense, income) {\n  (expense / income) * 100\n}\n\npercent_of_income(expense = 1500, income = 5000)\n#&gt; [1] 30\nThe pattern is name &lt;- function(inputs) { body }. The last expression in the body is returned automatically; return() is optional.",
     "crumbs": [
       "Appendices",
-      "R Reference"
+      "<strong>R:</strong> Reference"
     ]
   },
   {
     "objectID": "r-reference.html#types-of-objects-in-r",
     "href": "r-reference.html#types-of-objects-in-r",
-    "title": "R Reference",
+    "title": "R: Reference",
     "section": "Types of objects in R",
-    "text": "Types of objects in R\n\nVectors\nVectors are one-dimensional containers where every value has the same type.\n\nAtomic vectors\nThe four atomic types: logical, integer, double, and character.\n\n\nshow/hide\nc(TRUE, FALSE, TRUE)              # logical\n#&gt; [1]  TRUE FALSE  TRUE\nc(1L, 2L, 3L)                     # integer\n#&gt; [1] 1 2 3\nc(1.5, 2.0, 3.14)                 # double\n#&gt; [1] 1.50 2.00 3.14\nc(\"apple\", \"banana\", \"cherry\")    # character\n#&gt; [1] \"apple\"  \"banana\" \"cherry\"\n\n\n\n\nS3 vectors\nS3 vectors (factors, dates, date-times, durations) are atomic vectors with extra class metadata that gives them specialized behavior.\n\n\nshow/hide\nfactor(c(\"low\", \"med\", \"high\"),\n       levels = c(\"low\", \"med\", \"high\"))   # factor\n#&gt; [1] low  med  high\n#&gt; Levels: low med high\nas.Date(\"2026-01-15\")                      # date\n#&gt; [1] \"2026-01-15\"\nas.POSIXct(\"2026-01-15 09:30:00\")          # date-time\n#&gt; [1] \"2026-01-15 09:30:00 MST\"\nas.difftime(2, units = \"hours\")            # duration\n#&gt; Time difference of 2 hours\n\n\n\n\n\nMatrices\nTwo dimensional objects. All values must share the same atomic type.\n\n\nshow/hide\nmatrix(1:6, nrow = 2, ncol = 3)\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    3    5\n#&gt; [2,]    2    4    6\n\n\n\n\nArrays\nMultidimensional objects. Same-type values; dimensions defined by dim().\n\n\nshow/hide\narray(1:12, dim = c(2, 3, 2))\n#&gt; , , 1\n#&gt; \n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    3    5\n#&gt; [2,]    2    4    6\n#&gt; \n#&gt; , , 2\n#&gt; \n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    7    9   11\n#&gt; [2,]    8   10   12\n\n\n\n\nData frames & tibbles\nRectangular objects: each column is a vector, and columns can be different types. Tibbles are tidyverse-style data frames with nicer printing and stricter behavior.\n\n\nshow/hide\ntibble::tibble(\n  name = c(\"Alice\", \"Bob\", \"Carol\"),\n  age  = c(34L, 28L, 41L),\n  paid = c(TRUE, FALSE, TRUE)\n)\n\n\n\n  \n\n\n\n\n\nLists\nRecursive objects: each element can be any object, including another list. The most flexible container in R, and the building block underneath data frames, model objects, and JSON-like data.\n\n\nshow/hide\nlist(\n  numbers = c(1, 2, 3),\n  name    = \"Alice\",\n  flags   = c(TRUE, FALSE),\n  nested  = list(a = 1, b = \"two\")\n)\n#&gt; $numbers\n#&gt; [1] 1 2 3\n#&gt; \n#&gt; $name\n#&gt; [1] \"Alice\"\n#&gt; \n#&gt; $flags\n#&gt; [1]  TRUE FALSE\n#&gt; \n#&gt; $nested\n#&gt; $nested$a\n#&gt; [1] 1\n#&gt; \n#&gt; $nested$b\n#&gt; [1] \"two\"",
+    "text": "Types of objects in R\n\nVectors\nVectors are one-dimensional containers where every value has the same type.\n\nAtomic vectors\nThe four atomic types: logical, integer, double, and character.\n\n\nshow/hide\nc(TRUE, FALSE, TRUE)              # logical\n#&gt; [1]  TRUE FALSE  TRUE\nc(1L, 2L, 3L)                     # integer\n#&gt; [1] 1 2 3\nc(1.5, 2.0, 3.14)                 # double\n#&gt; [1] 1.50 2.00 3.14\nc(\"apple\", \"banana\", \"cherry\")    # character\n#&gt; [1] \"apple\"  \"banana\" \"cherry\"\n\n\n\n\nS3 vectors\nS3 vectors (factors, dates, date-times, durations) are atomic vectors with extra class metadata that gives them specialized behavior.\n\n\nshow/hide\nfactor(c(\"low\", \"med\", \"high\"),\n       levels = c(\"low\", \"med\", \"high\"))   # factor\n#&gt; [1] low  med  high\n#&gt; Levels: low med high\nas.Date(\"2026-01-15\")                      # date\n#&gt; [1] \"2026-01-15\"\nas.POSIXct(\"2026-01-15 09:30:00\")          # date-time\n#&gt; [1] \"2026-01-15 09:30:00 MST\"\nas.difftime(2, units = \"hours\")            # duration\n#&gt; Time difference of 2 hours\n\n\n\n\n\nMatrices\nTwo dimensional objects. All values must share the same atomic type.\n\n\nshow/hide\nmatrix(1:6, nrow = 2, ncol = 3)\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    3    5\n#&gt; [2,]    2    4    6\n\n\n\n\nArrays\nMultidimensional objects. Same-type values; dimensions defined by dim().\n\n\nshow/hide\narray(1:12, dim = c(2, 3, 2))\n#&gt; , , 1\n#&gt; \n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    3    5\n#&gt; [2,]    2    4    6\n#&gt; \n#&gt; , , 2\n#&gt; \n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    7    9   11\n#&gt; [2,]    8   10   12\n\n\n\n\nData frames & tibbles\nRectangular objects: each column is a vector, and columns can be different types. Tibbles are tidyverse-style data frames with nicer printing and stricter behavior.\n\n\nshow/hide\ntibble::tibble(\n  name = c(\"Alice\", \"Bob\", \"Carol\"),\n  age  = c(34L, 28L, 41L),\n  paid = c(TRUE, FALSE, TRUE)\n)\n#&gt; # A tibble: 3 × 3\n#&gt;   name    age paid \n#&gt;   &lt;chr&gt; &lt;int&gt; &lt;lgl&gt;\n#&gt; 1 Alice    34 TRUE \n#&gt; 2 Bob      28 FALSE\n#&gt; 3 Carol    41 TRUE\n\n\n\n\nLists\nRecursive objects: each element can be any object, including another list. The most flexible container in R, and the building block underneath data frames, model objects, and JSON-like data.\n\n\nshow/hide\nlist(\n  numbers = c(1, 2, 3),\n  name    = \"Alice\",\n  flags   = c(TRUE, FALSE),\n  nested  = list(a = 1, b = \"two\")\n)\n#&gt; $numbers\n#&gt; [1] 1 2 3\n#&gt; \n#&gt; $name\n#&gt; [1] \"Alice\"\n#&gt; \n#&gt; $flags\n#&gt; [1]  TRUE FALSE\n#&gt; \n#&gt; $nested\n#&gt; $nested$a\n#&gt; [1] 1\n#&gt; \n#&gt; $nested$b\n#&gt; [1] \"two\"",
     "crumbs": [
       "Appendices",
-      "R Reference"
+      "<strong>R:</strong> Reference"
     ]
   },
   {
     "objectID": "py-reference.html",
     "href": "py-reference.html",
-    "title": "Python Reference",
+    "title": "Python: Reference",
     "section": "",
     "text": "Functions in Python\nA quick reference to the Python concepts used throughout this book, aligned with the R Reference so you can map ideas between the two languages.\nFunctions perform operations (calculate, transform, model, graph) on various objects that contain information (blood pressure measurements, monthly sales, political party affiliation, etc.)\nshow/hide\ndef percent_of_income(expense, income):\n    return (expense / income) * 100\n\npercent_of_income(expense=1500, income=5000)\n#&gt; 30.0\nThe pattern is def name(inputs): followed by an indented body. Values are returned explicitly with return.",
     "crumbs": [
       "Appendices",
-      "Python Reference"
+      "<strong>Python:</strong> Reference"
     ]
   },
   {
     "objectID": "py-reference.html#types-of-objects-in-python",
     "href": "py-reference.html#types-of-objects-in-python",
-    "title": "Python Reference",
+    "title": "Python: Reference",
     "section": "Types of objects in Python",
     "text": "Types of objects in Python\nPython’s data containers come from two places: built-in types (scalars, list, dict, datetime) and library types from numpy (arrays) and polars (Series, DataFrame, Categorical, Enum). The library types (together with Python’s datetime module) fill R’s “typed vector” role.\n\nVectors\nThe closest equivalent to R’s typed one-dimensional vector is a numpy array (a single dtype).\n\nAtomic vectors\nThe four atomic types: logical (bool), integer, double (float), and character (str).\n\n\nshow/hide\nnp.array([True, False, True])              # logical (bool)\n#&gt; array([ True, False,  True])\nnp.array([1, 2, 3], dtype=\"int64\")         # integer\n#&gt; array([1, 2, 3])\nnp.array([1.5, 2.0, 3.14])                 # double (float64)\n#&gt; array([1.5 , 2.  , 3.14])\nnp.array([\"apple\", \"banana\", \"cherry\"])    # character (string)\n#&gt; array(['apple', 'banana', 'cherry'], dtype='&lt;U6')\n\n\n\n\nTyped objects\nPython’s built-in datetime module supplies the scalar analogues of R’s date types (dates, date-times, durations), and polars provides the categorical/enum types for R’s factor:\n\n\nshow/hide\ndate(2026, 1, 15)                                              # date\n#&gt; datetime.date(2026, 1, 15)\ndatetime(2026, 1, 15, 9, 30, 0)                                # date-time\n#&gt; datetime.datetime(2026, 1, 15, 9, 30)\ntimedelta(hours=2)                                             # duration\n#&gt; datetime.timedelta(seconds=7200)\n\npl.Series([\"low\", \"med\", \"high\"],\n          dtype=pl.Enum([\"low\", \"med\", \"high\"]))               # factor\n\n\n\nshape: (3,)\n\n\n\n\n\n\nenum\n\n\n\n\n\"low\"\n\n\n\"med\"\n\n\n\"high\"\n\n\n\n\n\n\n\n\n\nMatrices\nTwo dimensional numpy arrays.\n\n\nshow/hide\nnp.arange(1, 7).reshape(2, 3)\n#&gt; array([[1, 2, 3],\n#&gt;        [4, 5, 6]])\n\n\n\n\nArrays\nMultidimensional numpy arrays (ndarray).\n\n\nshow/hide\nnp.arange(1, 13).reshape(2, 3, 2)\n#&gt; array([[[ 1,  2],\n#&gt;         [ 3,  4],\n#&gt;         [ 5,  6]],\n#&gt; \n#&gt;        [[ 7,  8],\n#&gt;         [ 9, 10],\n#&gt;         [11, 12]]])\n\n\n\n\nData frames\nRectangular objects: polars.DataFrame is the equivalent of R’s data frame / tibble. Its expression API (filter, select, with_columns, group_by().agg()) mirrors dplyr closely.\n\n\nshow/hide\npl.DataFrame({\n    \"name\": [\"Alice\", \"Bob\", \"Carol\"],\n    \"age\":  [34, 28, 41],\n    \"paid\": [True, False, True],\n})\n\n\n\nshape: (3, 3)\n\n\n\nname\nage\npaid\n\n\nstr\ni64\nbool\n\n\n\n\n\"Alice\"\n34\ntrue\n\n\n\"Bob\"\n28\nfalse\n\n\n\"Carol\"\n41\ntrue\n\n\n\n\n\n\n\n\nLists & dicts\nRecursive objects: Python’s list is the closest match to R’s list but unkeyed; dict is the closer fit when elements have names.\n\n\nshow/hide\n[1, 2, 3, \"Alice\", [True, False]]\n#&gt; [1, 2, 3, 'Alice', [True, False]]\n\n\n\n\nshow/hide\n{\n    \"numbers\": [1, 2, 3],\n    \"name\":    \"Alice\",\n    \"flags\":   [True, False],\n    \"nested\":  {\"a\": 1, \"b\": \"two\"},\n}\n#&gt; {'numbers': [1, 2, 3], 'name': 'Alice', 'flags': [True, False], 'nested': {'a': 1, 'b': 'two'}}",
     "crumbs": [
       "Appendices",
-      "Python Reference"
+      "<strong>Python:</strong> Reference"
     ]
   },
   {
     "objectID": "python_setup.html",
     "href": "python_setup.html",
-    "title": "Python Environment Setup",
+    "title": "Python: Environment Setup",
     "section": "",
     "text": "Declared Python dependencies\nThe R code in this book runs out of the box if you have the packages in renv.lock. The Python code runs through reticulate, which uses uv to manage an isolated Python environment.\nPython requirements are declared in _common.R (sourced from the top of every chapter that runs Python):\nOn first render, reticulate’s uv backend resolves the requirements and builds the env under:\nThe &lt;HASH&gt; is content-addressed on the requirement set, so changing py_require() produces a new hash and a new env.",
     "crumbs": [
       "Appendices",
-      "Python Environment Setup"
+      "<strong>Python:</strong> Environment Setup"
     ]
   },
   {
     "objectID": "python_setup.html#declared-python-dependencies",
     "href": "python_setup.html#declared-python-dependencies",
-    "title": "Python Environment Setup",
+    "title": "Python: Environment Setup",
     "section": "",
     "text": "reticulate::py_require(c(\"numpy\", \"polars\"))\n\n~/.cache/R/reticulate/uv/cache/archive-v0/&lt;HASH&gt;/",
     "crumbs": [
       "Appendices",
-      "Python Environment Setup"
+      "<strong>Python:</strong> Environment Setup"
     ]
   },
   {
     "objectID": "python_setup.html#troubleshooting",
     "href": "python_setup.html#troubleshooting",
-    "title": "Python Environment Setup",
+    "title": "Python: Environment Setup",
     "section": "Troubleshooting",
     "text": "Troubleshooting\n\nModuleNotFoundError\nError: ModuleNotFoundError: No module named 'polars'\nreticulate picked up a cached env that pre-dates the requirement. The warning above the error will name the stale hash. Remove that specific env so reticulate re-resolves on the next render:\nrm -rf ~/.cache/R/reticulate/uv/cache/archive-v0/&lt;HASH&gt;\nThen re-render. reticulate will rebuild at a new hash that includes the missing package.\n\n\nRETICULATE_PYTHON_FALLBACK\nError: Python specified in RETICULATE_PYTHON_FALLBACK ... does not exist**\nAfter deleting a cached env, this error appears when the R session is still being handed a stale RETICULATE_PYTHON_FALLBACK path by the IDE.\nRStudio and Positron persist session environment variables in their saved console state (under ~/.local/share/rstudio/projects/.../console*.env), so newly opened terminals can still carry the old path even after a fresh R session.\nUnset the variable for the current shell and re-render:\nunset RETICULATE_PYTHON_FALLBACK && quarto render budgeting.qmd\nOpening an OS-level terminal outside the IDE also avoids the inherited state.\n\n\nAdding a new Python package\nAdd the package name to the py_require() call in _common.R:\nreticulate::py_require(c(\"numpy\", \"polars\", \"matplotlib\"))\nOn the next render, reticulate will resolve to a new env hash and build the updated environment automatically.",
     "crumbs": [
       "Appendices",
-      "Python Environment Setup"
+      "<strong>Python:</strong> Environment Setup"
+    ]
+  },
+  {
+    "objectID": "sub_categories.html",
+    "href": "sub_categories.html",
+    "title": "Tracking Spending: Sub-Categories",
+    "section": "",
+    "text": "Platforms like Amazon, PayPal, and Instacart can make transactions confusing because they can map to multiple categories (the descriptions alone are ambiguous).\nOne way to reconcile this is to create a Sub-Category column. Sub-Category can be formatted as free-text or with a controlled list scoped under the parent Category column.",
+    "crumbs": [
+      "Appendices",
+      "<strong>Tracking Spending</strong>: Sub-Categories"
     ]
   }
 ]
