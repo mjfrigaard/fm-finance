@@ -50,6 +50,7 @@ book:
     - r-reference.qmd
     - py-reference.qmd
     - python_setup.qmd
+    - sub_categories.qmd
 
 bibliography: references.bib
 

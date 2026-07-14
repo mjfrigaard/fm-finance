@@ -1,4 +1,4 @@
-# Python Environment Setup {.unnumbered}
+# <strong>Python:</strong> Environment Setup {.unnumbered}
 
 The R code in this book runs out of the box if you have the packages in `renv.lock`. The Python code runs through [`reticulate`](https://rstudio.github.io/reticulate/), which uses [`uv`](https://docs.astral.sh/uv/) to manage an isolated Python environment.
 

@@ -1,4 +1,4 @@
-# R Reference {.unnumbered}
+# <strong>R:</strong> Reference {.unnumbered}
 
 ```{r}
 #| label: setup-r
