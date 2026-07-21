@@ -17,6 +17,15 @@ source("_common.R")
 
 Debt isn't inherently good or bad; it's a tool. Used wisely, it can accelerate wealth-building (think low-rate mortgages or strategic education). Used poorly, it can quietly destroy decades of financial progress. Let's break down each type with evidence-based advice from [Housel](https://www.morganhousel.com/), [Sethi](https://www.iwillteachyoutoberich.com/), [Bogle](https://www.bogleheads.org/), and [Ben Felix](https://rationalreminder.ca/).
 
+## Where Debt Fits in the Financial Order of Operations
+
+Brian Preston's Financial Order of Operations (FOO), introduced in [Budgeting](budgeting.qmd#the-financial-order-of-operations), splits debt into two separate steps rather than treating it as one problem:
+
+- **Step 3 — High-interest debt.** Credit cards, payday loans, and anything else in the *toxic* tier (see [The Debt Hierarchy](#the-debt-hierarchy-know-your-enemy) below) get paid off before you build a full emergency fund or invest beyond an employer match. The rate is simply too punishing to justify waiting.
+- **Step 9 — Low-interest debt.** Mortgages and other *strategic*-tier debt sit at the very end of the sequence, after retirement accounts are maxed and future expenses are funded. There's no urgency to prepay a 4% mortgage while tax-advantaged growth is still on the table.
+
+Moderate-tier debt (car loans, private student loans) falls between these two steps in practice: attack it aggressively, but not ahead of the emergency reserves in step 4 (see [Emergency Fund](emergency_fund.qmd)).
+
 ## The Debt Hierarchy: Know Your Enemy
 
 Not all debt is created equal. Attack it in order of damage potential.

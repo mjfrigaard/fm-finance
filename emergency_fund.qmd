@@ -138,6 +138,12 @@ The sequence matters:
 2. Eliminate credit card and high-interest debt (see [Managing Debt](managing_debt.qmd))
 3. Build full 3–6 month fund
 
+## Emergency Reserves in the Financial Order of Operations
+
+This sequence mirrors step 4 of Brian Preston's Financial Order of Operations, introduced in [Budgeting](budgeting.qmd#the-financial-order-of-operations): emergency reserves are funded immediately after high-interest debt (step 3) and before Roth IRA/HSA contributions (step 5). See [Managing Debt](managing_debt.qmd#where-debt-fits-in-the-financial-order-of-operations) for how the two debt steps bracket this one.
+
+Skipping ahead to invest before this step is funded exposes you to the exact sequencing risk described in [Why Not the Stock Market?](#why-not-the-stock-market) below — a market downturn and a job loss tend to arrive together.
+
 ## Where to Keep It (and Where Not To)
 
 An emergency fund has two jobs: stay safe and be available. This rules out most places you might initially consider.
