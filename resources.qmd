@@ -17,6 +17,7 @@ A short, opinionated list of further reading and tools.
   - [Rational Reminder](https://rationalreminder.ca/): Ben Felix and Cameron Passmore's evidence-based investing podcast (also on [YouTube](https://www.youtube.com/@rationalreminder))
   - [Common Sense Investing](https://www.youtube.com/@BenFelixCSI): Ben Felix's short-form video series at PWL Capital
   - [The Prof G Pod](https://www.profgalloway.com/podcasts/) and *Prof G Markets*: Scott Galloway's podcasts on business, markets, and personal finance
+  - [The Money Guy Show](https://moneyguy.com/): Brian Preston and Bo Hanson's show, home of the [Financial Order of Operations](https://moneyguy.com/guide/foo/) referenced in Budgeting, Managing Debt, and Emergency Fund [@preston2024foo]
 
 ## Blogs & sites
 

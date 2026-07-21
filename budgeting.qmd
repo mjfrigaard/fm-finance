@@ -65,7 +65,7 @@ Fixed and variable expenses should employ different strategies. Periodic expense
 ```{mermaid}
 %%| fig-cap: 'Fixed vs. Variable Expenses'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"14px", 'ganttNumberSectionStyles': 4}}}%%
 
 flowchart LR
 
@@ -175,7 +175,7 @@ Percentages are great because they’re the proportion of your earnings assigned
 ```{mermaid}
 %%| fig-cap: 'Which Budget To Choose?'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"14px", 'ganttNumberSectionStyles': 4}}}%%
 
 flowchart TD
     Choose(["I Need<br>A Budget"]) --> Question1{"In Debt or<br/>Just Starting?"}
@@ -219,7 +219,7 @@ The `bank_statement` dataset introduced in [Tracking Spending](tracking_spending
 ```{mermaid}
 %%| fig-cap: 'Spreadsheet'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"14px", 'ganttNumberSectionStyles': 4}}}%%
 
 flowchart LR
     Spreadsheet(["Budget<br>Spreadsheet"]) --> Tab1[Tab 1: Income]
@@ -252,6 +252,28 @@ Features that matter:
 4.  [Goal tracking]{style="color:#48a56a; font-weight: bold;"} (motivation matters)
 
 Features that don't matter as much: fancy graphs, AI insights, social features. Substance over style.
+
+## The Financial Order of Operations
+
+Once you know your income, categorized your expenses, and picked a budgeting framework, the next question is: **where should the leftover money actually go?** Brian Preston (The Money Guy Show) answers this with the **Financial Order of Operations (FOO)** — a fixed sequence of nine steps, each one funded before moving to the next.[^budgeting-3]
+
+[^budgeting-3]: See the full guide at [moneyguy.com/guide/foo](https://moneyguy.com/guide/foo/) [@preston2024foo].
+
+| Step | Priority | Why it comes first |
+|----|----------------------|--------------------------------------|
+| 1 | Deductibles covered | Cash on hand for your insurance deductibles avoids new debt from a routine claim. |
+| 2 | Employer match | Free money from a 401(k)/403(b) match beats any other use of the next dollar. |
+| 3 | High-interest debt | Toxic-rate debt compounds faster than any investment; see [Managing Debt](managing_debt.qmd). |
+| 4 | Emergency reserves | 3–6 months of essential expenses in cash; see [Emergency Fund](emergency_fund.qmd). |
+| 5 | Roth IRA / HSA | Tax-free growth, funded while your income still qualifies. |
+| 6 | Max-out retirement | Push tax-advantaged retirement accounts to their annual limits. |
+| 7 | Hyperaccumulation | Taxable brokerage investing once retirement accounts are maxed. |
+| 8 | Prepaid future expenses | Kids' education, a down payment, or other planned large costs. |
+| 9 | Low-interest debt | Extra payments on mortgages, once everything above is funded. |
+
+: The Financial Order of Operations (Money Guy Show)
+
+The FOO doesn't replace your budget; it tells you [what to do with the money your budget frees up]{style="color:#48a56a; font-weight: bold;"}, one step at a time. Steps 3 and 4 — high-interest debt and emergency reserves — are covered in depth in the next two chapters, and always come before anything else on this list beyond the employer match.
 
 ## Budgeting Math
 
@@ -756,28 +778,24 @@ That \$500 membership is worth it if you'll use it longer than 8.33 months.
 ## Putting It All Together
 
 ```{mermaid}
-%%| fig-cap: 'Put It All Together'
+%%| fig-cap: 'Build Your Budget: Three Phases'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px", 'primaryColor':'#0e9aa7', 'primaryBorderColor':'#1C1C1E', 'secondBkgColor':'#f44242', 'tertiaryColor':'#48a56a'}}}%%
 
 flowchart TD
-    Start(["Build Your Budget"]) --> Step1("Step 1. Track<br>Spending for<br>30 Days")
-    Step1 --> Step2("Step 2. Categorize Fixed vs. Variable vs. Periodic")
-    Step2 --> Step3("Step 3. Calculate<br>Current Savings Rate")
-    Step3 --> Step4("Step 4. Choose Framework (Zero-Based or Percentage)")
-    Step4 --> Step5("Step 5. Set Up<br>Sinking Funds for<br>Periodic Expenses")
-    Step5 --> Step6("Step 6. Automate Everything<br>Investments First")
-    Step6 --> Step7("Step 7. Review<br>Weekly, Adjust Monthly")
-    Step7 --> Step8(["Step 8. Recalibrate<br>Quarterly"])
+    Start(["Start:<br>Build Your Budget"]) --> S1("<b>SETUP PHASE</b><br><br>1. Track Spending<br>2. Categorize Expenses<br>3. Calculate Savings Rate<br>4. Choose Framework")
+
+    S1 --> I1("<b>IMPLEMENTATION PHASE</b><br><br>5. Set Up Sinking Funds<br>6. Automate Everything")
+
+    I1 --> O1("<b>ONGOING PHASE</b><br><br>7. Weekly Review<br>Monthly Adjust<br>8. Quarterly Recalibrate")
+
+    O1 --> End(["Result:<br>Intentional Budget"])
+
     style Start fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Step1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Step2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Step3 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Step4 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Step5 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Step6 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Step7 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Step8 fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style S1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:3px
+    style I1 fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:3px
+    style O1 fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:3px
+    style End fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
 ```
 
 ## Key takeaways
