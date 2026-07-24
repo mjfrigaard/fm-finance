@@ -46,7 +46,19 @@ The first skill in budgeting is correctly categorizing your money. Most people l
 | **Variable** | Costs that change from month to month, such as groceries, utilities, and entertainment. | This is the category where most budgeting efforts fail. Use **categories with limits**, not line-by-line tracking. |
 | **Periodic** | Costs that occur less frequently than monthly, such as annual insurance premiums, holiday gifts, or car maintenance. | These are silent budget killers. Set aside 1/12 of the annual cost for these each month. |
 
-Fixed and variable expenses should employ different strategies. Periodic expenses are trickier because they are specific to the item/person.
+### How to approach expense categories {.unnumbered}
+
+The math is the same, but the psychology differs. Fixed expenses reward ruthlessness—John Bogle's principle of low-cost simplicity[^bogle] applies here. Lock in the lowest rate possible (usually your housing cost, which Brian Preston prioritizes early in @sec-foop below), then automate and stop thinking about it. This creates room for error elsewhere, as Morgan Housel emphasizes: the less mental energy you waste on fixed costs, the more cushion you have to recover from unexpected swings.
+
+Variable expenses demand a different discipline. Ramit Sethi's Conscious Spending Plan[^sethi-csp] teaches us that guilt-free spending on *categories* works better than line-by-line scrutiny. Instead of tracking every grocery receipt, set a monthly limit for groceries and let yourself spend freely within it. This is evidence-based: Ben Felix's research shows that behavioral compliance matters more than perfect optimization.[^felix-behavioral]
+
+Periodic expenses are the outliers. Because they're lumpy and personal (one person budgets for pet care, another for annual car maintenance) you can't borrow someone else's number. The 1/12 rule (setting aside one-twelfth of the annual cost each month) transforms an invisible crisis into visible planning.
+
+[^bogle]: Bogle advocated for keeping investment costs and financial friction as low as possible. This principle extends directly to fixed expenses: minimize them once through comparison shopping and negotiation, then automate to avoid repeated mental costs. See [Bogleheads](https://www.bogleheads.org/).
+
+[^sethi-csp]: Sethi's Conscious Spending Plan divides spending into fixed costs, savings, guilt-free spending (wants), and investments. The key insight is that tracking categories rather than individual transactions reduces decision fatigue and improves compliance. Learn more at the [Conscious Spending Basics](https://www.iwillteachyoutoberich.com/conscious-spending-basics/) guide.
+
+[^felix-behavioral]: Felix's evidence-based approach to investing and personal finance emphasizes that behavioral factors—consistency, habit, and guilt-free compliance—outweigh optimization. A budget you follow imperfectly beats one you abandon. See [PWL Capital research](https://pwlcapital.com/learn/).
 
 ```{=html}
 <style>
@@ -253,7 +265,7 @@ Features that matter:
 
 Features that don't matter as much: fancy graphs, AI insights, social features. Substance over style.
 
-## The Financial Order of Operations
+## The Financial Order of Operations {#sec-foop}
 
 Once you know your income, categorized your expenses, and picked a budgeting framework, the next question is: **where should the leftover money actually go?** Brian Preston (The Money Guy Show) answers this with the **Financial Order of Operations (FOO)** — a fixed sequence of nine steps, each one funded before moving to the next.[^budgeting-3]
 
