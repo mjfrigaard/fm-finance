@@ -15,12 +15,19 @@ source("_common.R")
 
 <br>
 
-A short tour of the concepts behind every investment decision.
+Saving preserves your purchasing power. Investing grows it. Once your budget is under control and your emergency fund is secure, your next job is to put accumulated savings to work in the market—not to get rich quick, but to let time and compounding build wealth at the pace most people never reach.[^investing-basics-1]
 
-## Compounding
+[^investing-basics-1]: Ben Felix and John Bogle both emphasize that investing is a decades-long endeavor. The goal is not to beat the market (nearly impossible after fees) but to capture market returns efficiently through low-cost, diversified index funds. Morgan Housel adds: the behavioral discipline to stay invested through downturns matters more than the specific holdings.
 
-Compounding is interest earning interest. Over long horizons, it does the
-heavy lifting.
+## Compounding: The Force Multiplier
+
+Compounding is interest earning interest. Over long horizons, it does the heavy lifting. A dollar invested today becomes several dollars after 30 years, not through luck but through the mathematical force of exponential growth.
+
+**The Rule of 72** is the shortcut worth memorizing:
+
+> Years to double your money = 72 ÷ annual return %
+
+At 7% return, money doubles every ~10 years. At 10%, every ~7 years. Over 30 years, compounding transforms modest regular contributions into wealth.
 
 ```{r}
 #| label: compounding-r
@@ -38,28 +45,65 @@ balance = [10000 * (1.07) ** y for y in years]
 balance[-1]  # ending balance after 40 years
 ```
 
-**Formula:** FV = PV × (1 + r)\^n
+## What to Invest In: The Core Portfolio
 
-Where: FV = future value, PV = present value, r = annual return, n = years
+The average person should own three things: stocks, bonds, and cash (which you've already saved). The specific split depends on your time horizon and risk tolerance.
 
-**The shortcut you should memorize is the Rule of 72:**
+- **Stocks** (via broad index funds): 70–90% of your portfolio if you have 20+ years
+- **Bonds** (via index funds): 10–30% for stability and downturns
+- **Cash** (your emergency fund): Separate, in savings accounts
 
-> Years to double your money = 72 ÷ annual return %
+The hardest part isn't picking the right stocks—it's resisting the urge to pick stocks at all. John Bogle's insight is powerful: trying to beat the market costs you money in fees and taxes. Instead, buy the entire market through low-cost index funds.
 
-At 7% return, money doubles every \~10 years. At 10%, every \~7 years. This single insight reframes every spending decision.
+**A simple portfolio for most people:**
+- 80% total stock market index fund (captures all US stocks)
+- 20% total bond market index fund (stability and downturns)
 
-*See [Math for Investing Basics](#math-for-investing-basics) below for the `future_value()` and `rule_of_72()` functions in R and Python, plus the math for regular contributions and inflation-adjusted returns.*
+That's it. Rebalance once a year. Cost: ~0.03% per year in fees.
 
-## Risk vs. return
+## Risk vs. Return: Choose What You Can Live With
 
-Higher expected return = higher expected volatility. Choose a level you can
-[stick with]{style="color:#48a56a; font-weight: bold;"} through downturns, not just one that looks attractive on a
-spreadsheet.
+Higher expected return = higher expected volatility. A 100% stock portfolio might return 10% per year on average, but it can drop 40% in a bad year. A 60/40 stock-bond portfolio returns ~7% on average but drops only 20% in a bad year.
 
-## Diversification
+The right allocation isn't the one with the highest expected return—it's the one you can stick with through downturns. Morgan Housel's principle applies: a portfolio you abandon in a bear market performs worse than a boring portfolio you maintain.
 
-Don't bet on one company, one sector, or one country. Broad index funds
-make this nearly free.
+## Diversification: Don't Bet on One Horse
+
+Don't bet on one company, one sector, or one country. Broad index funds make this nearly free. A $1 investment in a total stock market index fund gives you ownership in thousands of companies. If one fails, your return barely changes. If you own 10 tech stocks, one failure cuts your portfolio.
+
+## Tax-Advantaged Accounts: Where to Hold Your Investments
+
+Steps 5–7 of the Financial Order of Operations tell you what accounts to use:
+
+| Account | Contribution Limit (2024) | Tax Benefit | Best for |
+|---|---|---|---|
+| **401(k) / 403(b)** | $23,500/year | Tax deduction, employer match | Employees with matching |
+| **Roth IRA** | $7,000/year | Tax-free growth forever | Tax-free income in retirement |
+| **Traditional IRA** | $7,000/year | Tax deduction now | Reducing current income |
+| **HSA** (if eligible) | $4,150/year (self) | Triple tax advantage | Medical expenses + retirement |
+| **Taxable account** | Unlimited | None, but flexible | After maxing above |
+
+Ramit Sethi's guidance is simple: max the employer match first (step 2), then high-interest debt (step 3), then emergency fund (step 4), then Roth IRA (step 5), then 401(k) (step 6), then taxable accounts (step 7). Follow this order; it's designed to optimize.
+
+::: {.callout-note}
+## Why Account Type Matters
+
+A $10,000 investment earning 7% annually grows to $76,000 after 30 years. If held in a regular brokerage account, you pay taxes on the gains (~$46,000 × 20% = ~$9,200). In a Roth IRA, you pay $0. Same investment, account type makes a $9,200 difference over 30 years. Account optimization matters more than stock picking.
+:::
+
+## Common Investing Mistakes
+
+1. **Trying to time the market.** Even professionals can't predict short-term market moves. Time *in* the market beats timing the market.
+
+2. **Chasing past performance.** Last year's best fund is often this year's worst. Buy broadly; avoid chasing.
+
+3. **Paying high fees.** A 1% fee doesn't sound bad, but over 30 years it cuts your wealth by ~25%. Low-cost index funds cost 0.03–0.1%.
+
+4. **Keeping too much in cash.** After your emergency fund, cash earning 4% loses to inflation over decades. You need growth.
+
+5. **Selling in a panic.** The stock market drops ~10% every 1–2 years. If you sell every time, you lock in losses and miss recoveries. Stay invested.
+
+Morgan Housel's research shows: the investors who get rich aren't the smartest; they're the ones who stay invested the longest and avoid big mistakes.
 
 ## Math for Investing Basics {#math-for-investing-basics}
 
@@ -323,3 +367,21 @@ def real_return(nominal, inflation):
 real_return(nominal=0.07, inflation=0.03)
 ```
 :::
+
+## Key Takeaways
+
+1. **Compounding is the force multiplier.** Start early, even with small amounts. Time matters more than size.
+
+2. **The Rule of 72 reframes spending.** Money you don't spend today doubles every 7–10 years. Saving $50/month for 30 years becomes ~$150,000 after compounding.
+
+3. **Buy broadly through index funds.** Don't pick stocks. Own the entire market through low-cost index funds (0.03–0.1% in fees).
+
+4. **Asset allocation (stock/bond split) matters more than stock picking.** A boring 80/20 portfolio beats an exciting portfolio you abandon in a downturn.
+
+5. **Use tax-advantaged accounts first.** A $10,000 Roth IRA investment saves you $9,200+ in taxes over 30 years compared to a taxable account. Account type beats stock picking.
+
+6. **Stay invested through downturns.** Crashes are features, not bugs. They happen every 5–10 years; they recover. Selling and missing the recovery is fatal to returns.
+
+7. **Behavioral discipline beats optimization.** A portfolio you follow for 30 years beats a perfect portfolio you abandon after 18 months.
+
+You now have the foundation: budget control, savings discipline, and an investing framework. The next chapters show you how to apply these principles in real scenarios—managing debt, building an emergency fund, and making your money automatic.

@@ -15,12 +15,179 @@ source("_common.R")
 
 <br>
 
+In [Savings Strategies](savings_strategies.qmd), I identified high-yield savings accounts (HYSAs) as the foundation for your savings—the place where your emergency fund and sinking funds live. This chapter walks through how to pick one, open it, and use it effectively.[^hysa-1]
 
-If your cash is sitting in a 0.01% account at a big bank, you're leaving
-real money on the table. A high-yield savings account (HYSA) at an online
-bank or via a money-market fund can pay many multiples more.
+[^hysa-1]: The right account type matters more than most people realize. John Bogle's principle of simplicity applies: you don't need a complex strategy. You need safety, liquidity, and a rate that beats inflation. A high-yield savings account delivers all three.
 
-  - What to look for in an HYSA
-  - FDIC / NCUA coverage
-  - Money market funds as an alternative
-  - When CDs and T-bills make sense
+## Why a Separate Account Matters
+
+The reason to move your savings to a different bank isn't about the extra 4–5% interest (though that compounds). It's behavioral. Ramit Sethi's research shows that when your savings account is at a different institution, moving money back to spending takes 1–2 days and requires extra steps. That friction prevents midnight impulse purchases.
+
+If your savings live in the same checking account as your spending money, they don't survive. You see the balance, you spend it. Out of sight, out of mind works in your favor here.
+
+## Choosing the Right Account: A Decision Framework
+
+Different situations call for different account types. The diagram below shows how to navigate the choice.
+
+```{mermaid}
+%%{init: {'theme': 'base', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"13px"}}}%%
+
+flowchart TD
+    Start(["Do I need access<br>to this money<br>within 6 months?"])
+    Start -->|Yes| Q2{"Can I live with<br>money tied up<br>3–60 months?"}
+    Start -->|No| Invest["Invest it<br>(see Investing Basics)"]
+
+    Q2 -->|No| HYSA["High-Yield<br>Savings Account"]
+    Q2 -->|Yes| CD["Certificate<br>of Deposit"]
+
+    HYSA --> HYSA_Details["Ally, Marcus, Discover<br>4–5% APY<br>Access in 1–2 days"]
+    CD --> CD_Details["Online banks, credit unions<br>4–5.5% APY<br>Penalty if withdrawn early"]
+
+    style Start fill:#0e9aa7,color:#FFFFFF,stroke:#1C1C1E,stroke-width:2px
+    style Q2 fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style HYSA fill:#48a56a,color:#FFFFFF,stroke:#1C1C1E,stroke-width:2px
+    style CD fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Invest fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style HYSA_Details fill:#FFFFFF,color:#1C1C1E,stroke:#1C1C1E,stroke-width:1px
+    style CD_Details fill:#FFFFFF,color:#1C1C1E,stroke:#1C1C1E,stroke-width:1px
+```
+
+Most people should start with a high-yield savings account. It's the default for emergency funds and sinking funds because it balances three things: safety (FDIC-insured), liquidity (money available in 1–2 days), and return (4–5% APY, which beats inflation).
+
+## Comparing High-Yield Savings Accounts
+
+All HYSAs share the same structure: they're FDIC-insured and accessible, but they differ in rate, features, and bank reliability. The table below compares common options as of early 2024 (rates change frequently—always verify current rates before opening).
+
+| Bank | Current APY | Min Deposit | Features | Best For |
+|---|---|---|---|---|
+| **Ally Bank** | 4.2% | $0 | Clean interface, no fees, no minimums | Most people |
+| **Marcus by Goldman Sachs** | 4.3% | $0 | Simple, no fees, no minimums | Simplicity-focused |
+| **American Express HYSA** | 4.4% | $0 | Tied to Amex ecosystem, premium feel | Amex card holders |
+| **Discover Bank** | 4.35% | $0 | Paired with Discover checking, strong rates | Discover customers |
+| **Capital One 360** | 4.2% | $0 | Tied to Capital One ecosystem | Capital One users |
+| **Regular Bank (Chase, BoA)** | 0.01–0.5% | $0 | Local branch access (you don't need) | Avoid this |
+
+The differences are small—0.1–0.4% between the best and average online banks. At a $10,000 balance, that's $10–40/year. But they compound: over 30 years, that 0.3% difference on regular contributions adds up to thousands. More importantly, all of these beat the 0.01% rate at traditional banks by a factor of 400×.
+
+**You don't need a checking account at the same bank.** Most people open a HYSA at one online bank and keep checking at their current bank. Money transfers between them in 1–2 days (internal transfers are faster; external ACH transfers take 1–2 days).
+
+## How Rates Work: APY vs. APR
+
+The rate advertised as "4.35% APY" is Annual Percentage Yield—the total return if you leave money untouched for a year. Interest compounds daily in most HYSAs, meaning you earn interest on your interest.
+
+**Formula:** Ending Balance = Starting Balance × (1 + Daily Rate)^365
+
+Where Daily Rate = Annual APY ÷ 365
+
+Example: $10,000 in a 4.35% APY account after one year grows to:
+
+$10,000 × (1.0435) = $10,435.
+
+Interest earned: $435 (not $435.35 because compounding daily, but the difference is tiny).
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: hysa-balance-r
+#| code-fold: false
+hysa_balance <- function(principal, annual_apy, years = 1) {
+  principal * (1 + annual_apy)^years
+}
+
+# $10,000 at 4.35% APY after 1 year
+hysa_balance(principal = 10000, annual_apy = 0.0435, years = 1)
+
+# Same money after 5 years
+hysa_balance(principal = 10000, annual_apy = 0.0435, years = 5)
+```
+
+## Python
+
+```{python}
+#| label: hysa-balance-py
+#| code-fold: false
+def hysa_balance(principal, annual_apy, years=1):
+    return principal * (1 + annual_apy) ** years
+
+# $10,000 at 4.35% APY after 1 year
+print(hysa_balance(principal=10000, annual_apy=0.0435, years=1))
+
+# Same money after 5 years
+print(hysa_balance(principal=10000, annual_apy=0.0435, years=5))
+```
+
+## Excel
+
+Assuming `Principal` is in cell `B2`, `Annual_APY` is in cell `C2`, and `Years` is in cell `D2`:
+
+``` swift
+=B2 * (1 + C2) ^ D2
+```
+:::
+
+Notice: $10,000 at 4.35% becomes $10,435 after 1 year and $12,335 after 5 years. That's pure growth with zero risk.
+
+## FDIC Insurance: What's Covered
+
+FDIC (Federal Deposit Insurance Corporation) insurance protects your money if the bank fails. Most online banks are FDIC-insured up to $250,000 per account holder per bank.
+
+**This means:**
+- A $10,000 HYSA balance is fully protected.
+- A $500,000 balance? Only the first $250,000 is protected at that bank.
+
+If you have more than $250,000 to save, open accounts at different banks. Each account gets its own $250,000 of protection.
+
+::: {.callout-note}
+## Money Market Accounts vs. High-Yield Savings
+
+A Money Market Account is similar to a HYSA but typically offers slightly higher rates (4.5–5.5% vs. 4–5%). The trade-off: some money market accounts limit how many withdrawals you can make per month (usually 6 per account). For an emergency fund, you don't need frequent withdrawals, so a Money Market Account is fine. For a sinking fund you add to monthly, a HYSA is better.
+:::
+
+## How to Open a High-Yield Savings Account
+
+The process takes 10–15 minutes. Here's the path:
+
+1. Choose a bank from the table above (or verify current rates at [DepositAccounts.com](https://www.depositaccounts.com/))
+2. Visit their website and click "Open Account" or "Get Started"
+3. Provide basic information:
+   - Name, address, date of birth, Social Security number
+   - Employment information (usually)
+   - Initial deposit amount (optional; many banks allow $0 to start)
+4. Link your existing checking account for initial funding
+5. Confirm the account via email or text (usually instant)
+6. Fund the account via ACH transfer (takes 1–2 days to settle)
+
+You'll receive account and routing numbers via email. Use these to set up automatic transfers from your checking account to this HYSA.
+
+Most banks have mobile apps. Once the account is open, you can transfer money through the app (takes 1–2 days) or schedule automatic transfers (set it and forget it).
+
+::: {.callout-warning}
+## Withdrawals and Account Restrictions
+
+Your HYSA is not a checking account. Some banks limit you to a certain number of transfers per month (though this restriction has loosened since 2020). Never use it as your primary spending account. Keep it separate, transfer money in, and leave it alone.
+
+If you need to withdraw quickly (true emergency), most online banks let you transfer to your checking account in 1–2 days. That's fast enough for real emergencies; it just prevents casual spending.
+:::
+
+## Building Your Savings Hierarchy
+
+Once you have a HYSA open, your savings structure looks like this:
+
+1. **Emergency fund** (3–6 months essential expenses) → HYSA
+2. **Sinking funds** (car insurance, annual gifts, car maintenance) → HYSA
+3. **Short-term goals** (vacation in 6 months, down payment in 2 years) → HYSA or Money Market Account
+4. **Mid-term goals** (3–5 years) → CD or short-term bonds
+5. **Long-term goals** (5+ years) → Investing (see [Investing Basics](investing_basics.qmd))
+
+Your HYSA is the workhorse of savings. Once it's funded and growing automatically (covered in [Automating Savings](automating_savings.qmd)), your money is safe, liquid, and earning enough to stay ahead of inflation.
+
+## Key Takeaways
+
+1. **Open a high-yield savings account at an online bank.** 4–5% APY beats your regular bank by 400×.
+2. **The friction of a separate bank is a feature, not a bug.** It prevents impulse spending.
+3. **FDIC insurance protects up to $250,000 per bank.** Your emergency fund is safe.
+4. **All major online HYSAs are similar.** Pick one; the 0.1–0.4% difference between them is noise.
+5. **Automate deposits to your HYSA.** The next chapter covers how.
+
+Now that you know where to keep your savings, the next challenge is making sure money actually arrives there—automatically, without willpower, month after month. That's automating savings.
