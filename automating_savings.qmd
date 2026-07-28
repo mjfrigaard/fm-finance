@@ -19,7 +19,7 @@ You now have a savings goal (from [Savings Strategies](savings_strategies.qmd)) 
 
 [^automating-1]: Morgan Housel's research emphasizes this: the difference between people who build wealth and people who don't isn't income or intelligence. It's the ability to make good decisions automatic. Willpower is finite. Automation wins.
 
-## Why Automation Matters: The Behavioral Truth
+## Why Automation Matters (the behavioral truth)
 
 Most saving advice assumes you'll make the right choice every month: see your paycheck, decide to save, move money to your HYSA. That doesn't work. You'll skip it when you're tired. You'll convince yourself "next month." You'll see the balance in your checking account and spend it.
 
@@ -73,7 +73,7 @@ flowchart LR
 
 The key insight: money is allocated as soon as it arrives. It doesn't sit in your checking account waiting for you to decide. By the end of the first business day, your savings are already in a separate account, earning interest, and away from temptation.
 
-## Method 1: Payroll Direct Deposit Split
+## Method 1: Payroll Direct Deposit Split (cleanest approach)
 
 The cleanest automation happens before money hits your checking account. Most employers' payroll systems let you split your direct deposit across multiple accounts.
 
@@ -113,7 +113,7 @@ Make sure to copy it correctly—one digit wrong and the transfer fails.
 
 If your employer doesn't support multiple direct deposits, move to Method 2.
 
-## Method 2: Automatic Bank Transfers (The Fallback)
+## Method 2: Automatic Bank Transfers (fallback approach)
 
 If your employer only allows one direct deposit, set up an automatic transfer from your checking account to your HYSA. This is slightly less elegant (money sits in checking for 24 hours) but equally effective.
 

@@ -19,17 +19,11 @@ How much should you save? The honest answer is: **as much as you can sustain**. 
 
 [^savings-strategies-1]: Ramit Sethi's Conscious Spending Plan embeds this principle: pay yourself (savings and investments) first as a percentage of income, then allocate the remainder to fixed costs, flexible spending, and guilt-free wants. This removes savings from willpower and makes it automatic.
 
-## The Savings Rate: Your Most Important Metric
-
-## Math for Saving {#math-for-saving}
-
-### Your Savings Rate (Your Most Important Metric) {.unnumbered} 
+## Savings Rate (the most important metric)
 
 [Ben Felix](https://rationalreminder.ca/) and [John Bogle](https://www.bogleheads.org/) both stress this above all else.
 
-**Formula:** (Savings + Investments) ÷ Gross Income
-
-Example: You save $500 and invest $700 from a $5,000 gross income. → 1,200 ÷ 5,000 = [24% savings rate.]{style="color:#48a56a; font-weight: bold;"}
+Your savings rate is the single lever you fully control that determines how fast wealth accumulates. John Bogle and Ben Felix both emphasize this: income is not destiny. A $40,000/year earner with a 40% savings rate will reach financial independence faster than a $120,000/year earner with a 10% rate. The chart below shows how dramatically the annual savings amount changes as the rate moves from the danger zone to the financial independence path—all on the same $60,000 income.
 
 **Benchmarks to know:**
 
@@ -38,12 +32,178 @@ Example: You save $500 and invest $700 from a $5,000 gross income. → 1,200 ÷ 
 - **20-30%:** Strong; real wealth building begins
 - **30%+:** Path to financial independence within a decade or two
 
-Your savings rate is the single lever you fully control that determines how fast wealth accumulates. John Bogle and Ben Felix both emphasize this: income is not destiny. A $40,000/year earner with a 40% savings rate will reach financial independence faster than a $120,000/year earner with a 10% rate. The chart below shows how dramatically the annual savings amount changes as the rate moves from the danger zone to the financial independence path—all on the same $60,000 income.
+This difference is profound. The chart below compares two real scenarios: someone making $40,000/year saving 40% reaches financial independence faster than someone making $120,000/year saving only 10%. Despite earning $80,000 less annually, the higher savings rate compounds to wealth faster.
+
+```{r}
+#| label: savings-rate-beats-income
+#| echo: false
+#| fig-cap: "Cumulative wealth comparison: savings rate beats income (7% annual return)"
+#| fig-asp: 0.70
+#| message: false 
+#| warning: false
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+
+# Calculate cumulative wealth over 30 years
+calculate_wealth <- function(annual_payment, years, rate) {
+  wealth <- numeric(length(years))
+  for (i in seq_along(years)) {
+    if (years[i] == 0) {
+      wealth[i] <- 0
+    } else {
+      wealth[i] <- annual_payment * (((1 + rate)^years[i] - 1) / rate)
+    }
+  }
+  return(wealth)
+}
+
+years <- 0:30
+return_rate <- 0.07
+
+wealth_low_income <- calculate_wealth(16000, years, return_rate)
+wealth_high_income <- calculate_wealth(12000, years, return_rate)
+
+wealth_data <- data.frame(
+  year = years,
+  low_income_high_rate = wealth_low_income,
+  high_income_low_rate = wealth_high_income
+) |> 
+  pivot_longer(-year, names_to = "scenario", values_to = "wealth") |> 
+  mutate(scenario = factor(scenario,
+    levels = c("low_income_high_rate", "high_income_low_rate"),
+    labels = c("$40k/year\n(40% rate/$16k saved)",
+               "$120k/year\n(10% rate/$12k saved)")))
+
+ggplot(wealth_data, aes(x = year, y = wealth, color = scenario, linewidth = scenario)) +
+  geom_line() +
+  geom_point(size = 1.8, alpha = 0.6) +
+  geom_hline(yintercept = 500000, linetype = "dashed", color = "#1C1C1E", linewidth = 0.7, alpha = 0.5) +
+  annotate("text", x = 27.5, y = 540000, label = "$500k FI target",
+           size = 3, color = "#1C1C1E", fontface = "italic") +
+  scale_color_manual(values = c(
+    "$40k/year\n(40% rate/$16k saved)" = "#48a56a",
+    "$120k/year\n(10% rate/$12k saved)" = "#0e9aa7"
+  )) +
+  scale_linewidth_manual(values = c(
+    "$40k/year\n(40% rate/$16k saved)" = 1.1,
+    "$120k/year\n(10% rate/$12k saved)" = 1.1
+  )) +
+  scale_y_continuous(labels = function(x) paste0("$", format(x/1000, big.mark = ","), "k"),
+                     limits = c(0, 1700000)) +
+  scale_x_continuous(breaks = seq(0, 30, 5)) +
+  labs(x = "Years", y = "Total wealth", color = NULL, linewidth = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position = "bottom",
+    legend.key.width = unit(2, "cm"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank()
+  )
+```
+
+The low-income earner reaches $500k in 18 years. The high-income earner? 21 years. **Savings rate determines speed, not salary.**
+
+```{r}
+#| label: savings-rate-bar-model-intro
+#| echo: false
+#| fig-cap: "Annual dollars saved at four savings-rate tiers on an $80,000 income"
+#| fig-asp: 0.70
+library(ggplot2)
+income <- 80000
+tiers <- data.frame(
+  label   = c("8% (danger zone)", "15% (average)", "25% (strong)", "35% (FI path)"),
+  rate    = c(0.08, 0.15, 0.25, 0.35),
+  fill    = c("#f44242", "#0e9aa7", "#48a56a", "#86ddcd"),
+  stringsAsFactors = FALSE
+)
+tiers$saved   <- income * tiers$rate
+tiers$bar_lbl <- paste0("saves $", format(tiers$saved, big.mark = ",", scientific = FALSE), "/yr")
+tiers$label   <- factor(tiers$label, levels = rev(tiers$label))
+
+ggplot(tiers, aes(x = label, y = saved, fill = label)) +
+  geom_col(width = 0.6, colour = "#1C1C1E", linewidth = 0.3) +
+  geom_text(
+    aes(label = bar_lbl),
+    hjust = -0.08,
+    fontface = "bold",
+    size = 3.5,
+    colour = "#1C1C1E"
+  ) +
+  coord_flip() +
+  scale_fill_manual(values = setNames(tiers$fill, tiers$label)) +
+  scale_y_continuous(
+    labels = function(x) paste0("$", format(x, big.mark = ",")),
+    limits = c(0, income * 0.45)
+  ) +
+  labs(x = NULL, y = "Annual savings (on $80,000 income)") +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position = "none",
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank()
+  )
+```
+
+## Make Savings Automatic
+
+Morgan Housel's principle is powerful: saving consistently is harder than the math suggests because it requires fighting your psychology. Your brain wants to spend what's available.
+
+Three strategies improve compliance dramatically:
+
+1. **Automate it.** Set up automatic transfers from checking to savings the day after payday. You never see the money, so you don't miss it. Automation turns saving from willpower into habit—and willpower is finite.
+
+2. **Use a separate bank.** If your savings account is at a different institution, moving money requires extra steps. That friction prevents impulse withdrawals. Psychological barriers work.
+
+3. **Label the account by purpose.** "Emergency Fund" or "Car Repair Fund" is more protective than generic "Savings." The label triggers commitment—you've told yourself what the money is for.
+
+4. **Track your progress visually.** A chart showing balance rising toward your goal provides motivation. Sethi emphasizes behavioral compliance; seeing progress reinforces the habit.
+
+### Savings and the FOO {.unnumbered} 
+
+The Financial Order of Operations (@sec-foop) prioritizes savings at every step:
+
+1. **Steps 1–2:** Save for immediate protection (insurance deductibles, capture employer match)
+2. **Steps 3–4:** Save to eliminate high-interest debt and build emergency reserves
+3. **Steps 5–7:** Save through tax-advantaged investing (IRAs, 401k, taxable accounts)
+4. **Step 8:** Save for known future expenses (education, down payment, wedding)
+5. **Step 9:** Save extra toward low-interest debt payoff (optional)
+
+This sequence is deliberate. Morgan Housel's insight applies directly: before your savings can grow, it must be protected from being consumed by emergencies. Ben Felix's research shows that behavioral compliance—actually following through—matters more than optimization. The right savings rate is one you can maintain for decades, not one that looks impressive on a spreadsheet for six months.
+
+## Savings Account Types
+
+Not all savings accounts are equal. The right account depends on when you'll need the money and how much growth you need.
+
+| Account Type | Liquidity | Interest Rate | Best For |
+|---|---|---|---|
+| **High-Yield Savings** | Immediate (1–2 days) | 4–5% APY | Emergency fund, sinking funds |
+| **Money Market Account** | Quick (3–5 days) | 4.5–5.5% APY | Emergency fund, flexibility |
+| **Certificate of Deposit (CD)** | Fixed term (3–5 years) | 4–5.5% APY | Known future goal, discipline |
+| **Regular Savings** | Immediate | 0.01–0.5% APY | Avoid; losing to inflation |
+
+**High-yield savings accounts (HYSAs)** are the foundation. John Bogle's principle of simplicity applies here: a HYSA costs nothing, requires no stock-picking, and guarantees you won't lose your principal. You earn 4–5% APY while keeping money liquid for emergencies.
+
+Ramit Sethi recommends automating your savings into a separate high-yield account at a different bank—not your regular checking account. The friction (money takes 1–2 days to transfer back) prevents impulsive withdrawals. The account becomes a psychological barrier between you and your savings.
+
+::: {.callout-note}
+## FDIC Insurance and Account Limits
+
+FDIC insurance protects up to $250,000 per account holder per bank. If you save more than $250k, open accounts at different institutions. Most online banks (Ally, Marcus, American Express, Discover) offer competitive rates (4–5% APY).
+:::
+
+## Math for Saving {#math-for-saving}
+
+### Calculate the Savings Rate {.unnumbered}
+
+Your income is a single bar. Every dollar either goes to spending or savings. The savings rate simply measures: *what slice of that bar is savings?*
+
+The chart below shows how this slice changes across four savings-rate tiers—all from the same $60,000 income.
 
 ```{r}
 #| label: savings-rate-bar-model
 #| echo: false
-#| fig-cap: "Annual dollars saved at four savings-rate tiers on a $60,000 income"
+#| fig-cap: "Savings slice as a percentage of income (same $60k income, different rates)"
 #| fig-asp: 0.50
 library(ggplot2)
 income <- 60000
@@ -81,13 +241,14 @@ ggplot(tiers, aes(x = label, y = saved, fill = label)) +
   )
 ```
 
-The formula just names the savings slice as a fraction of the whole income bar.
+The formula translates this visual: divide the savings slice by the total bar, then multiply by 100 to express it as a percentage.
 
 **Formula:** Savings Rate = (Income − Spending) ÷ Income × 100
 
-Example: you take home \$5,000 and spend \$3,500. → (5,000 − 3,500) ÷ 5,000 = [30%]{style="color:#48a56a; font-weight: bold;"}.
+Example: You take home $5,000 and spend $3,500. → (5,000 − 3,500) ÷ 5,000 = [30% savings rate.]{style="color:#48a56a; font-weight: bold;"}
 
 ::: panel-tabset
+
 ## R
 
 ```{r}
@@ -120,122 +281,11 @@ Assuming `Income` is in cell `B2` and `Spending` is in cell `C2`:
 ```
 :::
 
-## Where Savings Fit in the Financial Order of Operations
-
-The Financial Order of Operations (@sec-foop) prioritizes savings at every step:
-
-1. **Steps 1–2:** Save for immediate protection (insurance deductibles, capture employer match)
-2. **Steps 3–4:** Save to eliminate high-interest debt and build emergency reserves
-3. **Steps 5–7:** Save through tax-advantaged investing (IRAs, 401k, taxable accounts)
-4. **Step 8:** Save for known future expenses (education, down payment, wedding)
-5. **Step 9:** Save extra toward low-interest debt payoff (optional)
-
-This sequence is deliberate. Morgan Housel's insight applies directly: before your savings can grow, it must be protected from being consumed by emergencies. Ben Felix's research shows that behavioral compliance—actually following through—matters more than optimization. The right savings rate is one you can maintain for decades, not one that looks impressive on a spreadsheet for six months.
-
-## Savings Account Types: Where to Keep Your Money
-
-Not all savings accounts are equal. The right account depends on when you'll need the money and how much growth you need.
-
-| Account Type | Liquidity | Interest Rate | Best For |
-|---|---|---|---|
-| **High-Yield Savings** | Immediate (1–2 days) | 4–5% APY | Emergency fund, sinking funds |
-| **Money Market Account** | Quick (3–5 days) | 4.5–5.5% APY | Emergency fund, flexibility |
-| **Certificate of Deposit (CD)** | Fixed term (3–5 years) | 4–5.5% APY | Known future goal, discipline |
-| **Regular Savings** | Immediate | 0.01–0.5% APY | Avoid; losing to inflation |
-
-**High-yield savings accounts (HYSAs)** are the foundation. John Bogle's principle of simplicity applies here: a HYSA costs nothing, requires no stock-picking, and guarantees you won't lose your principal. You earn 4–5% APY while keeping money liquid for emergencies.
-
-Ramit Sethi recommends automating your savings into a separate high-yield account at a different bank—not your regular checking account. The friction (money takes 1–2 days to transfer back) prevents impulsive withdrawals. The account becomes a psychological barrier between you and your savings.
-
-::: {.callout-note}
-## FDIC Insurance and Account Limits
-
-FDIC insurance protects up to $250,000 per account holder per bank. If you save more than $250k, open accounts at different institutions. Most online banks (Ally, Marcus, American Express, Discover) offer competitive rates (4–5% APY).
-:::
-
-## The Emergency Fund: Savings with a Purpose
-
-An emergency fund is not optional. Step 4 of the Financial Order of Operations requires 3–6 months of **essential** monthly expenses in cash. This is separate from your regular savings and separate from investments.
-
-Why 3–6 months? Most job transitions take 1–3 months. Major medical events span months of recovery. A major car repair costs $2,000–$5,000. An emergency fund absorbs these without forcing you into high-interest debt.
-
-**Calculating your emergency fund target:**
-
-First, determine your essential monthly expenses (rent, utilities, groceries, insurance, minimum debt payments—costs that don't disappear in an emergency).
-
-**Formula:** Essential monthly expenses × 3 (or 6) = emergency fund goal
-
-Example: Essential monthly expenses = $2,500. → $2,500 × 3 = **$7,500 minimum.**
-
-Self-employed or unstable income? Aim for 6 months ($15,000). Stable W-2 job? Start with 3 months and build to 6.
-
-::: panel-tabset
-## R
-
-```{r}
-#| label: emergency-fund-r
-#| code-fold: false
-emergency_fund_goal <- function(essential_monthly, months = 3) {
-  essential_monthly * months
-}
-
-# Essential monthly expenses: $2,500, build 3-month fund
-emergency_fund_goal(essential_monthly = 2500, months = 3)
-
-# Same, but aim for 6 months
-emergency_fund_goal(essential_monthly = 2500, months = 6)
-```
-
-## Python
-
-```{python}
-#| label: emergency-fund-py
-#| code-fold: false
-def emergency_fund_goal(essential_monthly, months=3):
-    return essential_monthly * months
-
-# Essential monthly expenses: $2,500, build 3-month fund
-print(emergency_fund_goal(essential_monthly=2500, months=3))
-
-# Same, but aim for 6 months
-print(emergency_fund_goal(essential_monthly=2500, months=6))
-```
-
-## Excel
-
-Assuming `Essential_Monthly` is in cell `B2` and `Months` is in cell `C2`:
-
-``` swift
-=B2 * C2
-```
-:::
-
-::: {.callout-warning}
-## Emergency Fund Discipline
-
-When your high-yield savings account earns 4–5% and investments earn 7–10%, the emergency fund will tempt you. Resist. The emergency fund is not an investment; it's insurance. The return is peace of mind and the ability to avoid debt.
-:::
-
-## Behavioral Strategies: Making Savings Automatic
-
-Morgan Housel's principle is powerful: saving consistently is harder than the math suggests because it requires fighting your psychology. Your brain wants to spend what's available.
-
-Three strategies improve compliance dramatically:
-
-1. **Automate it.** Set up automatic transfers from checking to savings the day after payday. You never see the money, so you don't miss it. Automation turns saving from willpower into habit—and willpower is finite.
-
-2. **Use a separate bank.** If your savings account is at a different institution, moving money requires extra steps. That friction prevents impulse withdrawals. Psychological barriers work.
-
-3. **Label the account by purpose.** "Emergency Fund" or "Car Repair Fund" is more protective than generic "Savings." The label triggers commitment—you've told yourself what the money is for.
-
-4. **Track your progress visually.** A chart showing balance rising toward your goal provides motivation. Sethi emphasizes behavioral compliance; seeing progress reinforces the habit.
-
 ## Key Takeaways
 
 1. **Your savings rate determines your timeline to financial independence.** A 30% rate beats high income with low savings.
 2. **Automate your savings.** Willpower is finite. Pay yourself first by setting up automatic transfers; let the rest be your budget.
 3. **High-yield savings accounts are foundational, not boring.** 4–5% APY beats inflation and requires zero risk.
-4. **The emergency fund is non-negotiable.** Build 3–6 months of essential expenses before investing for growth.
-5. **Consistency beats optimization.** A modest savings rate you maintain for 30 years outpaces aggressive saving you abandon after 18 months.
+4. **Consistency beats optimization.** A modest savings rate you maintain for 30 years outpaces aggressive saving you abandon after 18 months.
 
-Once your emergency fund is secure and you're saving consistently, your money is ready to grow through investing. That's where the real wealth-building happens.
+With a clear savings rate, automated transfers, and the right account to hold that money, your savings foundation is solid. The next step is protecting those savings with an emergency fund—which is where the next chapter goes.

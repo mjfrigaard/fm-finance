@@ -2,10 +2,47 @@
 
 <br>
 
-**Savings** are the bridge between earning and investing, the third of
-the four levers introduced in the [Foundation](foundations.qmd). This part
-covers how much to save, where to keep it, and how to make the whole
-process [automatic]{style="color:#48a56a; font-weight: bold;"} so willpower isn't part of the equation.
+**Savings** are the bridge between earning and investing, the third of the four levers introduced in the [Foundation](foundations.qmd). This part covers how much to save, where to keep it, and how to make the whole process [automatic]{style="color:#48a56a; font-weight: bold;"} so willpower isn't part of the equation.
+
+## The Financial Order of Operations {#sec-foop}
+
+Before diving into how much to save and where to keep it, you need a strategic framework for where your money goes. Once you know your income and have categorized your expenses, the next question is: **where should your available money actually go?** Brian Preston (The Money Guy Show) answers this with the **Financial Order of Operations (FOO)** — a fixed sequence of nine steps, each one funded before moving to the next.[^savings-foop]
+
+[^savings-foop]: See the full guide at [moneyguy.com/guide/foo](https://moneyguy.com/guide/foo/) [@preston2024foo].
+
+| Step | Priority | Why it comes first |
+|----|----------------------|--------------------------------------|
+| 1 | Deductibles covered | Cash on hand for your insurance deductibles avoids new debt from a routine claim. |
+| 2 | Employer match | Free money from a 401(k)/403(b) match beats any other use of the next dollar. |
+| 3 | High-interest debt | Toxic-rate debt compounds faster than any investment; see [Managing Debt](managing_debt.qmd). |
+| 4 | Emergency reserves | 3–6 months of essential expenses in cash; see [Emergency Fund](emergency_fund.qmd). |
+| 5 | Roth IRA / HSA | Tax-free growth, funded while your income still qualifies. |
+| 6 | Max-out retirement | Push tax-advantaged retirement accounts to their annual limits. |
+| 7 | Hyperaccumulation | Taxable brokerage investing once retirement accounts are maxed. |
+| 8 | Prepaid future expenses | Kids' education, a down payment, or other planned large costs. |
+| 9 | Low-interest debt | Extra payments on mortgages, once everything above is funded. |
+
+: The Financial Order of Operations (Money Guy Show)
+
+The FOO doesn't replace your budget; it tells you [what to do with the money your budget frees up]{style="color:#48a56a; font-weight: bold;"}, one step at a time.
+
+Steps 1–2 establish protection and capture free employer money. This reflects Bogle's low-cost principle: free money (the employer match) beats any other use of the next dollar. Steps 3–4 eliminate dangerous debt and build emergency reserves — Morgan Housel's insight applies directly here: before your savings can grow, it must be protected from being consumed by emergencies. Steps 5–7 fund tax-advantaged and taxable investing for long-term growth through behavioral compliance and simplicity (Ben Felix and Bogle's emphasis). Steps 8–9 handle planned future expenses and low-interest debt payoff.
+
+This part of the book focuses on steps 1–4, which all involve *saving* before investing. Steps 5–7 (the investing side) are covered in the [Investing](investing.qmd) part. Throughout, Sethi's principle guides us: [pay yourself first]{style="color:#48a56a; font-weight: bold;"} by automating savings before spending, removing willpower from the equation.
+
+## Principles for Consistent Saving
+
+The chapters that follow are grounded in research and experience from five trusted voices in personal finance. Here's what each contributes to building a savings practice that works:
+
+**Morgan Housel** (behavioral finance): [*Consistency beats optimization.*]{style="color:#48a56a; font-weight: bold;"} A modest savings rate you maintain for 30 years outpaces aggressive saving you abandon after 18 months. Before your savings can grow, it must be protected from being consumed by emergencies.
+
+**Ramit Sethi** (conscious spending plan): [*Pay yourself first.*]{style="color:#48a56a; font-weight: bold;"} Automate savings before you see the money. This removes savings from willpower and makes it automatic—your only job is to spend intentionally on what remains.
+
+**Ben Felix** (evidence-based investing): [*Behavioral compliance matters more than perfect strategy.*]{style="color:#48a56a; font-weight: bold;"} A budget or savings plan you follow imperfectly beats one you abandon. The best savings rate is one you can maintain.
+
+**John Bogle** (simplicity principle): [*You don't need complex tactics.*]{style="color:#48a56a; font-weight: bold;"} Low-friction systems that work beat sophisticated ones that don't. Free money (the employer match) beats any other use of the next dollar.
+
+**Brian Preston** (Financial Order of Operations): [*Prioritize ruthlessly.*]{style="color:#48a56a; font-weight: bold;"} Every dollar should flow in a fixed sequence: protection, then employer match, then debt elimination, then emergency reserves, then investing. Know the order before you start.
 
 A practical sequence:
 

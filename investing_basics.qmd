@@ -19,7 +19,7 @@ Saving preserves your purchasing power. Investing grows it. Once your budget is 
 
 [^investing-basics-1]: Ben Felix and John Bogle both emphasize that investing is a decades-long endeavor. The goal is not to beat the market (nearly impossible after fees) but to capture market returns efficiently through low-cost, diversified index funds. Morgan Housel adds: the behavioral discipline to stay invested through downturns matters more than the specific holdings.
 
-## Compounding: The Force Multiplier
+## Compounding (the force multiplier)
 
 Compounding is interest earning interest. Over long horizons, it does the heavy lifting. A dollar invested today becomes several dollars after 30 years, not through luck but through the mathematical force of exponential growth.
 
@@ -45,7 +45,7 @@ balance = [10000 * (1.07) ** y for y in years]
 balance[-1]  # ending balance after 40 years
 ```
 
-## What to Invest In: The Core Portfolio
+## What to Invest In (the core portfolio)
 
 The average person should own three things: stocks, bonds, and cash (which you've already saved). The specific split depends on your time horizon and risk tolerance.
 
@@ -67,11 +67,11 @@ Higher expected return = higher expected volatility. A 100% stock portfolio migh
 
 The right allocation isn't the one with the highest expected return—it's the one you can stick with through downturns. Morgan Housel's principle applies: a portfolio you abandon in a bear market performs worse than a boring portfolio you maintain.
 
-## Diversification: Don't Bet on One Horse
+## Diversification (don't bet on one horse)
 
 Don't bet on one company, one sector, or one country. Broad index funds make this nearly free. A $1 investment in a total stock market index fund gives you ownership in thousands of companies. If one fails, your return barely changes. If you own 10 tech stocks, one failure cuts your portfolio.
 
-## Tax-Advantaged Accounts: Where to Hold Your Investments
+## Tax-Advantaged Accounts (where to hold your investments)
 
 Steps 5–7 of the Financial Order of Operations tell you what accounts to use:
 
@@ -91,7 +91,7 @@ Ramit Sethi's guidance is simple: max the employer match first (step 2), then hi
 A $10,000 investment earning 7% annually grows to $76,000 after 30 years. If held in a regular brokerage account, you pay taxes on the gains (~$46,000 × 20% = ~$9,200). In a Roth IRA, you pay $0. Same investment, account type makes a $9,200 difference over 30 years. Account optimization matters more than stock picking.
 :::
 
-## Common Investing Mistakes
+## Common Investing Mistakes (what to avoid)
 
 1. **Trying to time the market.** Even professionals can't predict short-term market moves. Time *in* the market beats timing the market.
 

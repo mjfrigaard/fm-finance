@@ -765,28 +765,6 @@ Assuming the upfront cost is in cell `A2` and the monthly savings amount is in c
 
 That \$500 membership is worth it if you'll use it longer than 8.33 months.
 
-## The Financial Order of Operations {#sec-foop}
-
-Once you know your income, categorized your expenses, and picked a budgeting framework, the next question is: **where should the leftover money actually go?** Brian Preston (The Money Guy Show) answers this with the **Financial Order of Operations (FOO)** — a fixed sequence of nine steps, each one funded before moving to the next.[^budgeting-3]
-
-[^budgeting-3]: See the full guide at [moneyguy.com/guide/foo](https://moneyguy.com/guide/foo/) [@preston2024foo].
-
-| Step | Priority | Why it comes first |
-|----|----------------------|--------------------------------------|
-| 1 | Deductibles covered | Cash on hand for your insurance deductibles avoids new debt from a routine claim. |
-| 2 | Employer match | Free money from a 401(k)/403(b) match beats any other use of the next dollar. |
-| 3 | High-interest debt | Toxic-rate debt compounds faster than any investment; see [Managing Debt](managing_debt.qmd). |
-| 4 | Emergency reserves | 3–6 months of essential expenses in cash; see [Emergency Fund](emergency_fund.qmd). |
-| 5 | Roth IRA / HSA | Tax-free growth, funded while your income still qualifies. |
-| 6 | Max-out retirement | Push tax-advantaged retirement accounts to their annual limits. |
-| 7 | Hyperaccumulation | Taxable brokerage investing once retirement accounts are maxed. |
-| 8 | Prepaid future expenses | Kids' education, a down payment, or other planned large costs. |
-| 9 | Low-interest debt | Extra payments on mortgages, once everything above is funded. |
-
-: The Financial Order of Operations (Money Guy Show)
-
-The FOO doesn't replace your budget; it tells you [what to do with the money your budget frees up]{style="color:#48a56a; font-weight: bold;"}, one step at a time. Steps 3 and 4 — high-interest debt and emergency reserves — are covered in depth in the next two chapters, and always come before anything else on this list beyond the employer match.
-
 ## Putting It All Together
 
 ```{mermaid}
@@ -809,6 +787,24 @@ flowchart TD
     style O1 fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:3px
     style End fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
 ```
+
+## Financial Order of Operations
+
+A budget tells you how much money is left over each month. But it doesn't tell you what to do with it. That's where **Brian Preston's Financial Order of Operations** (@sec-foop) comes in.
+
+The FOO is a nine-step framework that answers: *In what order should I allocate this money?* It prioritizes ruthlessly. Each step must be funded before moving to the next. The upcoming chapters walk through steps 3 to 8 in depth; here's the complete sequence:
+
+1. **Deductibles covered**: Cash on hand for insurance deductibles
+2. **Employer match**: Capture free money from your 401(k) match
+3. **High-interest debt**: Eliminate toxic-rate debt (credit cards, payday loans)
+4. **Emergency reserves**: Build 3 to 6 months of essential expenses in cash
+5. **Roth IRA / HSA**: Max tax-free retirement accounts
+6. **Max-out retirement**: Push 401(k) to annual limits
+7. **Hyperaccumulation**: Invest in taxable brokerage accounts (the stage where wealth really accelerates)
+8. **Prepaid future expenses**: Save for known large costs (education, down payment)
+9. **Low-interest debt**: Extra payments on mortgages and student loans
+
+Your budget is the foundation. It shows you how much money you have to work with. The FOO is the map. It shows you where that money should go. The order matters because each step protects you from a specific financial risk. Don't invest aggressively (step 7) before you've built an emergency fund (step 4) or captured your employer match (step 2). The chapters ahead will show you why.
 
 ## Key takeaways
 
