@@ -70,6 +70,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -325,8 +328,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#why-automation-matters-the-behavioral-truth" id="toc-why-automation-matters-the-behavioral-truth" class="nav-link active" data-scroll-target="#why-automation-matters-the-behavioral-truth"><span class="header-section-number">8.1</span> Why Automation Matters (the behavioral truth)</a></li>
+  <li><a href="#the-money-flow-diagram" id="toc-the-money-flow-diagram" class="nav-link" data-scroll-target="#the-money-flow-diagram"><span class="header-section-number">8.2</span> The Money Flow Diagram</a></li>
+  <li><a href="#method-1-payroll-direct-deposit-split-cleanest-approach" id="toc-method-1-payroll-direct-deposit-split-cleanest-approach" class="nav-link" data-scroll-target="#method-1-payroll-direct-deposit-split-cleanest-approach"><span class="header-section-number">8.3</span> Method 1: Payroll Direct Deposit Split (cleanest approach)</a></li>
+  <li><a href="#method-2-automatic-bank-transfers-fallback-approach" id="toc-method-2-automatic-bank-transfers-fallback-approach" class="nav-link" data-scroll-target="#method-2-automatic-bank-transfers-fallback-approach"><span class="header-section-number">8.4</span> Method 2: Automatic Bank Transfers (fallback approach)</a></li>
+  <li><a href="#the-pay-yourself-first-math" id="toc-the-pay-yourself-first-math" class="nav-link" data-scroll-target="#the-pay-yourself-first-math"><span class="header-section-number">8.5</span> The “Pay Yourself First” Math</a></li>
+  <li><a href="#escalating-your-contributions-the-long-game" id="toc-escalating-your-contributions-the-long-game" class="nav-link" data-scroll-target="#escalating-your-contributions-the-long-game"><span class="header-section-number">8.6</span> Escalating Your Contributions: The Long Game</a></li>
+  <li><a href="#troubleshooting-when-automation-fails" id="toc-troubleshooting-when-automation-fails" class="nav-link" data-scroll-target="#troubleshooting-when-automation-fails"><span class="header-section-number">8.7</span> Troubleshooting: When Automation Fails</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways"><span class="header-section-number">8.8</span> Key Takeaways</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/automating_savings.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -351,14 +367,289 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><br></p>
-<p>The single most effective trick in personal finance: make saving the <span style="color:#48a56a; font-weight: bold;">default</span>, not a decision. If money leaves your checking account automatically on payday, you’ll adapt your spending to what’s left.</p>
+<p>You now have a savings goal (from <a href="./savings_strategies.html">Savings Strategies</a>) and a place to keep that money (from <a href="./high_yield_accounts.html">High-Yield Savings Accounts</a>). The final step is to make sure money actually flows there—not through willpower, but through automation. This chapter is the most important one in this section.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<section id="why-automation-matters-the-behavioral-truth" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="why-automation-matters-the-behavioral-truth"><span class="header-section-number">8.1</span> Why Automation Matters (the behavioral truth)</h2>
+<p>Most saving advice assumes you’ll make the right choice every month: see your paycheck, decide to save, move money to your HYSA. That doesn’t work. You’ll skip it when you’re tired. You’ll convince yourself “next month.” You’ll see the balance in your checking account and spend it.</p>
+<p>Ramit Sethi’s Conscious Spending Plan solves this by inverting the order. Instead of spending first and saving what’s left, you <span style="color:#48a56a; font-weight: bold;">save first and spend what remains.</span> Automation makes this possible.</p>
+<p>Once you set up automatic transfers, you stop deciding. The money leaves your account like rent or a phone bill—you don’t think about it. Your brain adapts to the money that’s actually there, and saving becomes effortless.</p>
+</section>
+<section id="the-money-flow-diagram" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="the-money-flow-diagram"><span class="header-section-number">8.2</span> The Money Flow Diagram</h2>
+<p>Here’s how your paycheck should move, from the moment it hits your account to where it lives:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"12px"}}}%%
+
+flowchart LR
+    subgraph Income["&lt;strong&gt;INCOME&lt;/strong&gt;"]
+        Paycheck(["Paycheck"])
+    end
+
+    subgraph Allocation["&lt;strong&gt;ALLOCATION&lt;/strong&gt;&lt;br&gt;(First business day)"]
+        Split1{{"Split across&lt;br&gt;accounts"}}
+    end
+
+    subgraph Accounts["&lt;strong&gt;YOUR ACCOUNTS&lt;/strong&gt;"]
+        Checking["Checking Account&lt;br&gt;(Spending)"]
+        HYSA["High-Yield&lt;br&gt;Savings Account&lt;br&gt;(Savings goal)"]
+        Retirement["Retirement Account&lt;br&gt;(401k, IRA)"]
+    end
+
+    subgraph Guardrails["&lt;strong&gt;GUARDRAILS&lt;/strong&gt;"]
+        Automate[["Automatic transfers&lt;br&gt;set for day after&lt;br&gt;payday"]]
+    end
+
+    Paycheck --&gt; Split1
+    Split1 --&gt;|Your savings %| HYSA
+    Split1 --&gt;|Employer match| Retirement
+    Split1 --&gt;|Remaining| Checking
+
+    Checking --&gt; Automate
+    HYSA --&gt; Automate
+    Retirement --&gt; Automate
+
+    style Income fill:#0e9aa7,color:#FFFFFF,stroke:#1C1C1E,stroke-width:2px
+    style Allocation fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Accounts fill:#FFFFFF,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px,rx:10
+    style Guardrails fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Checking fill:#f44242,color:#FFFFFF
+    style HYSA fill:#48a56a,color:#FFFFFF
+    style Retirement fill:#0e9aa7,color:#FFFFFF
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>The key insight: money is allocated as soon as it arrives. It doesn’t sit in your checking account waiting for you to decide. By the end of the first business day, your savings are already in a separate account, earning interest, and away from temptation.</p>
+</section>
+<section id="method-1-payroll-direct-deposit-split-cleanest-approach" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="method-1-payroll-direct-deposit-split-cleanest-approach"><span class="header-section-number">8.3</span> Method 1: Payroll Direct Deposit Split (cleanest approach)</h2>
+<p>The cleanest automation happens before money hits your checking account. Most employers’ payroll systems let you split your direct deposit across multiple accounts.</p>
+<p><strong>Example:</strong> Your gross paycheck is $5,000/month, and your goal is a 25% savings rate ($1,250).</p>
+<p>Your payroll setup would look like:</p>
 <ul>
-<li>Direct deposit splits</li>
-<li>Automatic transfers and the “two-account” setup</li>
-<li>Increasing contributions on a schedule</li>
+<li>Direct Deposit Split #1: $1,250 → HYSA (your savings)</li>
+<li>Direct Deposit Split #2: $1,500 → 401(k) (employer deduction, pre-tax)</li>
+<li>Direct Deposit Split #3: $2,250 → Checking (your spending account)</li>
 </ul>
+<p>The paycheck never sits in your checking account. Savings happens before you see it.</p>
+<p><strong>How to set this up:</strong></p>
+<ol type="1">
+<li>Log into your payroll/HR system (usually a portal like ADP, Guidepoint, or your company’s internal system)</li>
+<li>Find “Direct Deposit” or “Payment Options”</li>
+<li>Add a new account destination:
+<ul>
+<li>Account holder name</li>
+<li>Bank name (your HYSA’s bank)</li>
+<li>Account type (Savings)</li>
+<li>Routing number (from your HYSA welcome email or the bank’s website)</li>
+<li>Account number (from your HYSA welcome email)</li>
+</ul></li>
+<li>Allocate a fixed amount or percentage</li>
+<li>Submit and verify with your HR department</li>
+</ol>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Finding Your Routing Number
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your bank’s routing number is a 9-digit code that identifies the bank. Find it: - On your HYSA welcome email or account statement - On the bank’s website (search “[bank name] routing number”) - By calling the bank’s customer service</p>
+<p>Make sure to copy it correctly—one digit wrong and the transfer fails.</p>
+</div>
+</div>
+<p>If your employer doesn’t support multiple direct deposits, move to Method 2.</p>
+</section>
+<section id="method-2-automatic-bank-transfers-fallback-approach" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="method-2-automatic-bank-transfers-fallback-approach"><span class="header-section-number">8.4</span> Method 2: Automatic Bank Transfers (fallback approach)</h2>
+<p>If your employer only allows one direct deposit, set up an automatic transfer from your checking account to your HYSA. This is slightly less elegant (money sits in checking for 24 hours) but equally effective.</p>
+<p><strong>How to set this up:</strong></p>
+<ol type="1">
+<li>Log into your checking account’s website or app</li>
+<li>Find “Transfers” or “Bill Pay” or “Automatic Transfers”</li>
+<li>Click “Add Recurring Transfer” or “Schedule Transfer”</li>
+<li>Fill in:
+<ul>
+<li><strong>To Account:</strong> Your HYSA’s routing and account numbers</li>
+<li><strong>Amount:</strong> Your monthly savings goal (e.g., $1,250)</li>
+<li><strong>Frequency:</strong> Monthly</li>
+<li><strong>Date:</strong> The day after payday (if paid on the 1st, schedule for the 2nd)</li>
+</ul></li>
+<li>Save and verify with a test transfer</li>
+</ol>
+<p>Most banks now offer templates. When you see “Transfer to external account,” select your HYSA and Quarto will remember it for future transfers.</p>
+<p>The transfer takes 1–2 business days. By day 3 after payday, your savings are in the HYSA, earning interest, and out of reach of impulse spending.</p>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Don’t Schedule on Payday Itself
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you’re paid on the 1st and transfer on the 1st, you risk overdrafting your checking account if other bills are due that day. Schedule the transfer for the next business day (usually the 2nd). The 24-hour delay doesn’t matter; your savings goal is met.</p>
+</div>
+</div>
+</section>
+<section id="the-pay-yourself-first-math" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="the-pay-yourself-first-math"><span class="header-section-number">8.5</span> The “Pay Yourself First” Math</h2>
+<p>How much should you automate? Return to <a href="./savings_strategies.html">Savings Strategies</a> and review your target savings rate.</p>
+<p>If your goal is a 25% savings rate:</p>
+<p><strong>Formula:</strong> Monthly Savings Amount = Gross Monthly Income × 0.25</p>
+<p>Example: $5,000 gross income → $5,000 × 0.25 = <strong>$1,250/month to automate.</strong></p>
+<p>But you might be automating multiple categories:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Destination</th>
+<th>% of Income</th>
+<th>Amount (on $5k income)</th>
+<th>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Emergency fund (until 6 months)</td>
+<td>10%</td>
+<td>$500</td>
+<td>Monthly</td>
+</tr>
+<tr class="even">
+<td>Employer 401(k) match</td>
+<td>5%</td>
+<td>$250</td>
+<td>Per paycheck (pre-tax)</td>
+</tr>
+<tr class="odd">
+<td>Sinking funds (car, gifts, maintenance)</td>
+<td>5%</td>
+<td>$250</td>
+<td>Monthly</td>
+</tr>
+<tr class="even">
+<td>Investing (after emergency fund full)</td>
+<td>5%+</td>
+<td>$250+</td>
+<td>Monthly</td>
+</tr>
+</tbody>
+</table>
+<p>That’s 25% total, split across purposes. Each one goes to the right account automatically.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Sinking Funds: Multiple Sub-Accounts
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Some people open multiple HYSAs at different banks for different goals (one for emergency fund, one for car maintenance, one for annual vacation). Others open sub-savings accounts within one bank. Either approach works. The psychology: separate accounts for separate goals make it harder to raid the emergency fund for a vacation.</p>
+</div>
+</div>
+</section>
+<section id="escalating-your-contributions-the-long-game" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="escalating-your-contributions-the-long-game"><span class="header-section-number">8.6</span> Escalating Your Contributions: The Long Game</h2>
+<p>On day one, you automate 10% of income. On year three, you automate 25%. On year five, 35%. This is feasible because you escalate with raises, not by cutting spending.</p>
+<p><strong>How to escalate:</strong></p>
+<p>Whenever you get a raise, commit to saving half of it. If your income goes from $50k to $52k (+$2k/year), automate an extra $1k/year to savings and keep the other $1k as lifestyle increase.</p>
+<p>Ramit Sethi calls this the “Earnings Escalator”: as income rises, savings rise proportionally. You never feel the savings squeeze because your baseline spending doesn’t increase.</p>
+<p><strong>Escalation timeline:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Year</th>
+<th>Income</th>
+<th>Savings Rate</th>
+<th>Monthly Automated</th>
+<th>Cumulative 30-Year Wealth (at 7% return)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>$50,000</td>
+<td>15%</td>
+<td>$625</td>
+<td>~$520k</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>$54,000</td>
+<td>20%</td>
+<td>$900</td>
+<td>~$680k</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>$58,000</td>
+<td>25%</td>
+<td>$1,208</td>
+<td>~$920k</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>$63,000</td>
+<td>30%</td>
+<td>$1,575</td>
+<td>~$1.3M</td>
+</tr>
+</tbody>
+</table>
+<p>Notice: escalating by just 5% every two years—which is less than keeping pace with inflation—transforms your financial trajectory.</p>
+</section>
+<section id="troubleshooting-when-automation-fails" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="troubleshooting-when-automation-fails"><span class="header-section-number">8.7</span> Troubleshooting: When Automation Fails</h2>
+<p><strong>“The transfer hasn’t arrived yet”</strong></p>
+<p>External bank transfers take 1–2 business days. If it’s been 2 days and the money hasn’t arrived, log into your HYSA’s account and check transaction history. If it shows pending, wait one more day. If it shows failed, check that the routing and account numbers were correct.</p>
+<p><strong>“I keep transferring back to spending”</strong></p>
+<p>This means your automated amount is too high. Reduce it by 25–50% and try again for a month. The goal is a savings rate you can maintain forever, not an ambitious one you abandon. Ramit Sethi’s principle: compliance beats optimization.</p>
+<p><strong>“My paycheck varies (gig work, commission, etc.)”</strong></p>
+<p>Calculate your average monthly income over the last 6 months. Automate a percentage of that, not a fixed dollar amount. If this month’s paycheck is higher, the extra stays in checking (bonus). If it’s lower, you might underfund slightly, but you’re still saving.</p>
+<p><strong>“I’m not sure if my HYSA is even getting funded”</strong></p>
+<p>Log into your HYSA weekly for the first month. Watch the balance grow. That visual confirmation builds the habit and proves the system works. After a month, you can stop checking—trust the automation.</p>
+</section>
+<section id="key-takeaways" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="key-takeaways"><span class="header-section-number">8.8</span> Key Takeaways</h2>
+<ol type="1">
+<li><strong>Automate everything. Willpower is finite; automation is permanent.</strong></li>
+<li><strong>Set up payroll direct deposit splitting if your employer allows it.</strong> Money never sits in checking.</li>
+<li><strong>If not, schedule automatic bank transfers for the day after payday.</strong></li>
+<li><strong>Start with a savings rate you can live with (10–15%), not an ambitious one you’ll abandon.</strong></li>
+<li><strong>Escalate with raises, not with spending cuts.</strong> Half of every raise goes to savings; half is yours.</li>
+<li><strong>Separate banks or sub-accounts prevent raiding sinking funds for impulse spending.</strong></li>
+<li><strong>Check your HYSA weekly the first month to build confidence. After that, trust the system.</strong></li>
+</ol>
+<p>Once your savings are automated, you’ve removed the hardest decision from personal finance: actually saving. The money flows automatically. Your emergency fund grows. Sinking funds accumulate. And your only remaining job is to spend intentionally on what’s left.</p>
+<p>The next chapters (if needed) would cover where to send surplus savings: <a href="./investing_basics.html">Investing Basics</a> for long-term growth.</p>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Morgan Housel’s research emphasizes this: the difference between people who build wealth and people who don’t isn’t income or intelligence. It’s the ability to make good decisions automatic. Willpower is finite. Automation wins.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -820,7 +1111,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/automating_savings.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/automating_savings.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -325,8 +363,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#why-a-separate-account-matters" id="toc-why-a-separate-account-matters" class="nav-link active" data-scroll-target="#why-a-separate-account-matters"><span class="header-section-number">7.1</span> Why a Separate Account Matters</a></li>
+  <li><a href="#choosing-the-right-account-decision-framework" id="toc-choosing-the-right-account-decision-framework" class="nav-link" data-scroll-target="#choosing-the-right-account-decision-framework"><span class="header-section-number">7.2</span> Choosing the Right Account (decision framework)</a></li>
+  <li><a href="#comparing-high-yield-savings-accounts" id="toc-comparing-high-yield-savings-accounts" class="nav-link" data-scroll-target="#comparing-high-yield-savings-accounts"><span class="header-section-number">7.3</span> Comparing High-Yield Savings Accounts</a></li>
+  <li><a href="#how-rates-work-apy-vs.-apr" id="toc-how-rates-work-apy-vs.-apr" class="nav-link" data-scroll-target="#how-rates-work-apy-vs.-apr"><span class="header-section-number">7.4</span> How Rates Work: APY vs.&nbsp;APR</a></li>
+  <li><a href="#fdic-insurance-whats-covered" id="toc-fdic-insurance-whats-covered" class="nav-link" data-scroll-target="#fdic-insurance-whats-covered"><span class="header-section-number">7.5</span> FDIC Insurance: What’s Covered</a></li>
+  <li><a href="#how-to-open-a-high-yield-savings-account" id="toc-how-to-open-a-high-yield-savings-account" class="nav-link" data-scroll-target="#how-to-open-a-high-yield-savings-account"><span class="header-section-number">7.6</span> How to Open a High-Yield Savings Account</a></li>
+  <li><a href="#building-your-savings-hierarchy" id="toc-building-your-savings-hierarchy" class="nav-link" data-scroll-target="#building-your-savings-hierarchy"><span class="header-section-number">7.7</span> Building Your Savings Hierarchy</a></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways"><span class="header-section-number">7.8</span> Key Takeaways</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/high_yield_accounts.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -351,15 +402,247 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><br></p>
-<p>If your cash is sitting in a 0.01% account at a big bank, you’re leaving real money on the table. A high-yield savings account (HYSA) at an online bank or via a money-market fund can pay many multiples more.</p>
+<p>In <a href="./savings_strategies.html">Savings Strategies</a>, I identified high-yield savings accounts (HYSAs) as the foundation for your savings—the place where your emergency fund and sinking funds live. This chapter walks through how to pick one, open it, and use it effectively.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<section id="why-a-separate-account-matters" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="why-a-separate-account-matters"><span class="header-section-number">7.1</span> Why a Separate Account Matters</h2>
+<p>The reason to move your savings to a different bank isn’t about the extra 4–5% interest (though that compounds). It’s behavioral. Ramit Sethi’s research shows that when your savings account is at a different institution, moving money back to spending takes 1–2 days and requires extra steps. That friction prevents midnight impulse purchases.</p>
+<p>If your savings live in the same checking account as your spending money, they don’t survive. You see the balance, you spend it. Out of sight, out of mind works in your favor here.</p>
+</section>
+<section id="choosing-the-right-account-decision-framework" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="choosing-the-right-account-decision-framework"><span class="header-section-number">7.2</span> Choosing the Right Account (decision framework)</h2>
+<p>Different situations call for different account types. The diagram below shows how to navigate the choice.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"13px"}}}%%
+
+flowchart TD
+    Start(["Do I need access&lt;br&gt;to this money&lt;br&gt;within 6 months?"])
+    Start --&gt;|Yes| Q2{"Can I live with&lt;br&gt;money tied up&lt;br&gt;3–60 months?"}
+    Start --&gt;|No| Invest["Invest it&lt;br&gt;(see Investing Basics)"]
+
+    Q2 --&gt;|No| HYSA["High-Yield&lt;br&gt;Savings Account"]
+    Q2 --&gt;|Yes| CD["Certificate&lt;br&gt;of Deposit"]
+
+    HYSA --&gt; HYSA_Details["Ally, Marcus, Discover&lt;br&gt;4–5% APY&lt;br&gt;Access in 1–2 days"]
+    CD --&gt; CD_Details["Online banks, credit unions&lt;br&gt;4–5.5% APY&lt;br&gt;Penalty if withdrawn early"]
+
+    style Start fill:#0e9aa7,color:#FFFFFF,stroke:#1C1C1E,stroke-width:2px
+    style Q2 fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style HYSA fill:#48a56a,color:#FFFFFF,stroke:#1C1C1E,stroke-width:2px
+    style CD fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Invest fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style HYSA_Details fill:#FFFFFF,color:#1C1C1E,stroke:#1C1C1E,stroke-width:1px
+    style CD_Details fill:#FFFFFF,color:#1C1C1E,stroke:#1C1C1E,stroke-width:1px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Most people should start with a high-yield savings account. It’s the default for emergency funds and sinking funds because it balances three things: safety (FDIC-insured), liquidity (money available in 1–2 days), and return (4–5% APY, which beats inflation).</p>
+</section>
+<section id="comparing-high-yield-savings-accounts" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="comparing-high-yield-savings-accounts"><span class="header-section-number">7.3</span> Comparing High-Yield Savings Accounts</h2>
+<p>All HYSAs share the same structure: they’re FDIC-insured and accessible, but they differ in rate, features, and bank reliability. The table below compares common options as of early 2024 (rates change frequently—always verify current rates before opening).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bank</th>
+<th>Current APY</th>
+<th>Min Deposit</th>
+<th>Features</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Ally Bank</strong></td>
+<td>4.2%</td>
+<td>$0</td>
+<td>Clean interface, no fees, no minimums</td>
+<td>Most people</td>
+</tr>
+<tr class="even">
+<td><strong>Marcus by Goldman Sachs</strong></td>
+<td>4.3%</td>
+<td>$0</td>
+<td>Simple, no fees, no minimums</td>
+<td>Simplicity-focused</td>
+</tr>
+<tr class="odd">
+<td><strong>American Express HYSA</strong></td>
+<td>4.4%</td>
+<td>$0</td>
+<td>Tied to Amex ecosystem, premium feel</td>
+<td>Amex card holders</td>
+</tr>
+<tr class="even">
+<td><strong>Discover Bank</strong></td>
+<td>4.35%</td>
+<td>$0</td>
+<td>Paired with Discover checking, strong rates</td>
+<td>Discover customers</td>
+</tr>
+<tr class="odd">
+<td><strong>Capital One 360</strong></td>
+<td>4.2%</td>
+<td>$0</td>
+<td>Tied to Capital One ecosystem</td>
+<td>Capital One users</td>
+</tr>
+<tr class="even">
+<td><strong>Regular Bank (Chase, BoA)</strong></td>
+<td>0.01–0.5%</td>
+<td>$0</td>
+<td>Local branch access (you don’t need)</td>
+<td>Avoid this</td>
+</tr>
+</tbody>
+</table>
+<p>The differences are small—0.1–0.4% between the best and average online banks. At a $10,000 balance, that’s $10–40/year. But they compound: over 30 years, that 0.3% difference on regular contributions adds up to thousands. More importantly, all of these beat the 0.01% rate at traditional banks by a factor of 400×.</p>
+<p><strong>You don’t need a checking account at the same bank.</strong> Most people open a HYSA at one online bank and keep checking at their current bank. Money transfers between them in 1–2 days (internal transfers are faster; external ACH transfers take 1–2 days).</p>
+</section>
+<section id="how-rates-work-apy-vs.-apr" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="how-rates-work-apy-vs.-apr"><span class="header-section-number">7.4</span> How Rates Work: APY vs.&nbsp;APR</h2>
+<p>The rate advertised as “4.35% APY” is Annual Percentage Yield—the total return if you leave money untouched for a year. Interest compounds daily in most HYSAs, meaning you earn interest on your interest.</p>
+<p><strong>Formula:</strong> Ending Balance = Starting Balance × (1 + Daily Rate)^365</p>
+<p>Where Daily Rate = Annual APY ÷ 365</p>
+<p>Example: $10,000 in a 4.35% APY account after one year grows to:</p>
+<p>$10,000 × (1.0435) = $10,435.</p>
+<p>Interest earned: $435 (not $435.35 because compounding daily, but the difference is tiny).</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Excel</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>hysa_balance <span class="ot">&lt;-</span> <span class="cf">function</span>(principal, annual_apy, <span class="at">years =</span> <span class="dv">1</span>) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  principal <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> annual_apy)<span class="sc">^</span>years</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># $10,000 at 4.35% APY after 1 year</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hysa_balance</span>(<span class="at">principal =</span> <span class="dv">10000</span>, <span class="at">annual_apy =</span> <span class="fl">0.0435</span>, <span class="at">years =</span> <span class="dv">1</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 10435</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Same money after 5 years</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">hysa_balance</span>(<span class="at">principal =</span> <span class="dv">10000</span>, <span class="at">annual_apy =</span> <span class="fl">0.0435</span>, <span class="at">years =</span> <span class="dv">5</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 12372.64</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hysa_balance(principal, annual_apy, years<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> principal <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> annual_apy) <span class="op">**</span> years</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># $10,000 at 4.35% APY after 1 year</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(hysa_balance(principal<span class="op">=</span><span class="dv">10000</span>, annual_apy<span class="op">=</span><span class="fl">0.0435</span>, years<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10435.000000000002</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Same money after 5 years</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(hysa_balance(principal<span class="op">=</span><span class="dv">10000</span>, annual_apy<span class="op">=</span><span class="fl">0.0435</span>, years<span class="op">=</span><span class="dv">5</span>))</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12372.636875568507</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Assuming <code>Principal</code> is in cell <code>B2</code>, <code>Annual_APY</code> is in cell <code>C2</code>, and <code>Years</code> is in cell <code>D2</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode swift code-with-copy"><code class="sourceCode swift"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">=</span>B2 <span class="op">*</span> <span class="op">(</span><span class="dv">1</span> <span class="op">+</span> C2<span class="op">)</span> <span class="op">^</span> D2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>Notice: $10,000 at 4.35% becomes $10,435 after 1 year and $12,335 after 5 years. That’s pure growth with zero risk.</p>
+</section>
+<section id="fdic-insurance-whats-covered" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="fdic-insurance-whats-covered"><span class="header-section-number">7.5</span> FDIC Insurance: What’s Covered</h2>
+<p>FDIC (Federal Deposit Insurance Corporation) insurance protects your money if the bank fails. Most online banks are FDIC-insured up to $250,000 per account holder per bank.</p>
+<p><strong>This means:</strong> - A $10,000 HYSA balance is fully protected. - A $500,000 balance? Only the first $250,000 is protected at that bank.</p>
+<p>If you have more than $250,000 to save, open accounts at different banks. Each account gets its own $250,000 of protection.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Money Market Accounts vs.&nbsp;High-Yield Savings
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A Money Market Account is similar to a HYSA but typically offers slightly higher rates (4.5–5.5% vs.&nbsp;4–5%). The trade-off: some money market accounts limit how many withdrawals you can make per month (usually 6 per account). For an emergency fund, you don’t need frequent withdrawals, so a Money Market Account is fine. For a sinking fund you add to monthly, a HYSA is better.</p>
+</div>
+</div>
+</section>
+<section id="how-to-open-a-high-yield-savings-account" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="how-to-open-a-high-yield-savings-account"><span class="header-section-number">7.6</span> How to Open a High-Yield Savings Account</h2>
+<p>The process takes 10–15 minutes. Here’s the path:</p>
+<ol type="1">
+<li>Choose a bank from the table above (or verify current rates at <a href="https://www.depositaccounts.com/">DepositAccounts.com</a>)</li>
+<li>Visit their website and click “Open Account” or “Get Started”</li>
+<li>Provide basic information:
 <ul>
-<li>What to look for in an HYSA</li>
-<li>FDIC / NCUA coverage</li>
-<li>Money market funds as an alternative</li>
-<li>When CDs and T-bills make sense</li>
-</ul>
+<li>Name, address, date of birth, Social Security number</li>
+<li>Employment information (usually)</li>
+<li>Initial deposit amount (optional; many banks allow $0 to start)</li>
+</ul></li>
+<li>Link your existing checking account for initial funding</li>
+<li>Confirm the account via email or text (usually instant)</li>
+<li>Fund the account via ACH transfer (takes 1–2 days to settle)</li>
+</ol>
+<p>You’ll receive account and routing numbers via email. Use these to set up automatic transfers from your checking account to this HYSA.</p>
+<p>Most banks have mobile apps. Once the account is open, you can transfer money through the app (takes 1–2 days) or schedule automatic transfers (set it and forget it).</p>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Withdrawals and Account Restrictions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your HYSA is not a checking account. Some banks limit you to a certain number of transfers per month (though this restriction has loosened since 2020). Never use it as your primary spending account. Keep it separate, transfer money in, and leave it alone.</p>
+<p>If you need to withdraw quickly (true emergency), most online banks let you transfer to your checking account in 1–2 days. That’s fast enough for real emergencies; it just prevents casual spending.</p>
+</div>
+</div>
+</section>
+<section id="building-your-savings-hierarchy" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="building-your-savings-hierarchy"><span class="header-section-number">7.7</span> Building Your Savings Hierarchy</h2>
+<p>Once you have a HYSA open, your savings structure looks like this:</p>
+<ol type="1">
+<li><strong>Emergency fund</strong> (3–6 months essential expenses) → HYSA</li>
+<li><strong>Sinking funds</strong> (car insurance, annual gifts, car maintenance) → HYSA</li>
+<li><strong>Short-term goals</strong> (vacation in 6 months, down payment in 2 years) → HYSA or Money Market Account</li>
+<li><strong>Mid-term goals</strong> (3–5 years) → CD or short-term bonds</li>
+<li><strong>Long-term goals</strong> (5+ years) → Investing (see <a href="./investing_basics.html">Investing Basics</a>)</li>
+</ol>
+<p>Your HYSA is the workhorse of savings. Once it’s funded and growing automatically (covered in <a href="./automating_savings.html">Automating Savings</a>), your money is safe, liquid, and earning enough to stay ahead of inflation.</p>
+</section>
+<section id="key-takeaways" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="key-takeaways"><span class="header-section-number">7.8</span> Key Takeaways</h2>
+<ol type="1">
+<li><strong>Open a high-yield savings account at an online bank.</strong> 4–5% APY beats your regular bank by 400×.</li>
+<li><strong>The friction of a separate bank is a feature, not a bug.</strong> It prevents impulse spending.</li>
+<li><strong>FDIC insurance protects up to $250,000 per bank.</strong> Your emergency fund is safe.</li>
+<li><strong>All major online HYSAs are similar.</strong> Pick one; the 0.1–0.4% difference between them is noise.</li>
+<li><strong>Automate deposits to your HYSA.</strong> The next chapter covers how.</li>
+</ol>
+<p>Now that you know where to keep your savings, the next challenge is making sure money actually arrives there—automatically, without willpower, month after month. That’s automating savings.</p>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>The right account type matters more than most people realize. John Bogle’s principle of simplicity applies: you don’t need a complex strategy. You need safety, liquidity, and a rate that beats inflation. A high-yield savings account delivers all three.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -821,7 +1104,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/high_yield_accounts.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/high_yield_accounts.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

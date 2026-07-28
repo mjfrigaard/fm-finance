@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -325,8 +345,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#sec-foop" id="toc-sec-foop" class="nav-link active" data-scroll-target="#sec-foop">The Financial Order of Operations</a></li>
+  <li><a href="#principles-for-consistent-saving" id="toc-principles-for-consistent-saving" class="nav-link" data-scroll-target="#principles-for-consistent-saving">Principles for Consistent Saving</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/savings.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -352,6 +379,78 @@ ul.task-list li input[type="checkbox"] {
 
 <p><br></p>
 <p><strong>Savings</strong> are the bridge between earning and investing, the third of the four levers introduced in the <a href="./foundations.html">Foundation</a>. This part covers how much to save, where to keep it, and how to make the whole process <span style="color:#48a56a; font-weight: bold;">automatic</span> so willpower isn’t part of the equation.</p>
+<section id="sec-foop" class="level2">
+<h2 class="anchored" data-anchor-id="sec-foop">The Financial Order of Operations</h2>
+<p>Before diving into how much to save and where to keep it, you need a strategic framework for where your money goes. Once you know your income and have categorized your expenses, the next question is: <strong>where should your available money actually go?</strong> Brian Preston (The Money Guy Show) answers this with the <strong>Financial Order of Operations (FOO)</strong> — a fixed sequence of nine steps, each one funded before moving to the next.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<table class="caption-top table">
+<caption>The Financial Order of Operations (Money Guy Show)</caption>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th>Priority</th>
+<th>Why it comes first</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Deductibles covered</td>
+<td>Cash on hand for your insurance deductibles avoids new debt from a routine claim.</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Employer match</td>
+<td>Free money from a 401(k)/403(b) match beats any other use of the next dollar.</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>High-interest debt</td>
+<td>Toxic-rate debt compounds faster than any investment; see <a href="./managing_debt.html">Managing Debt</a>.</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Emergency reserves</td>
+<td>3–6 months of essential expenses in cash; see <a href="./emergency_fund.html">Emergency Fund</a>.</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Roth IRA / HSA</td>
+<td>Tax-free growth, funded while your income still qualifies.</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Max-out retirement</td>
+<td>Push tax-advantaged retirement accounts to their annual limits.</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Hyperaccumulation</td>
+<td>Taxable brokerage investing once retirement accounts are maxed.</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Prepaid future expenses</td>
+<td>Kids’ education, a down payment, or other planned large costs.</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Low-interest debt</td>
+<td>Extra payments on mortgages, once everything above is funded.</td>
+</tr>
+</tbody>
+</table>
+<p>The FOO doesn’t replace your budget; it tells you <span style="color:#48a56a; font-weight: bold;">what to do with the money your budget frees up</span>, one step at a time.</p>
+<p>Steps 1–2 establish protection and capture free employer money. This reflects Bogle’s low-cost principle: free money (the employer match) beats any other use of the next dollar. Steps 3–4 eliminate dangerous debt and build emergency reserves — Morgan Housel’s insight applies directly here: before your savings can grow, it must be protected from being consumed by emergencies. Steps 5–7 fund tax-advantaged and taxable investing for long-term growth through behavioral compliance and simplicity (Ben Felix and Bogle’s emphasis). Steps 8–9 handle planned future expenses and low-interest debt payoff.</p>
+<p>This part of the book focuses on steps 1–4, which all involve <em>saving</em> before investing. Steps 5–7 (the investing side) are covered in the <a href="./investing.html">Investing</a> part. Throughout, Sethi’s principle guides us: <span style="color:#48a56a; font-weight: bold;">pay yourself first</span> by automating savings before spending, removing willpower from the equation.</p>
+</section>
+<section id="principles-for-consistent-saving" class="level2">
+<h2 class="anchored" data-anchor-id="principles-for-consistent-saving">Principles for Consistent Saving</h2>
+<p>The chapters that follow are grounded in research and experience from five trusted voices in personal finance. Here’s what each contributes to building a savings practice that works:</p>
+<p><strong>Morgan Housel</strong> (behavioral finance): <span style="color:#48a56a; font-weight: bold;"><em>Consistency beats optimization.</em></span> A modest savings rate you maintain for 30 years outpaces aggressive saving you abandon after 18 months. Before your savings can grow, it must be protected from being consumed by emergencies.</p>
+<p><strong>Ramit Sethi</strong> (conscious spending plan): <span style="color:#48a56a; font-weight: bold;"><em>Pay yourself first.</em></span> Automate savings before you see the money. This removes savings from willpower and makes it automatic—your only job is to spend intentionally on what remains.</p>
+<p><strong>Ben Felix</strong> (evidence-based investing): <span style="color:#48a56a; font-weight: bold;"><em>Behavioral compliance matters more than perfect strategy.</em></span> A budget or savings plan you follow imperfectly beats one you abandon. The best savings rate is one you can maintain.</p>
+<p><strong>John Bogle</strong> (simplicity principle): <span style="color:#48a56a; font-weight: bold;"><em>You don’t need complex tactics.</em></span> Low-friction systems that work beat sophisticated ones that don’t. Free money (the employer match) beats any other use of the next dollar.</p>
+<p><strong>Brian Preston</strong> (Financial Order of Operations): <span style="color:#48a56a; font-weight: bold;"><em>Prioritize ruthlessly.</em></span> Every dollar should flow in a fixed sequence: protection, then employer match, then debt elimination, then emergency reserves, then investing. Know the order before you start.</p>
 <p>A practical sequence:</p>
 <ol type="1">
 <li>Build a starter buffer (covered in <a href="./emergency_fund.html">Emergency Fund</a>).</li>
@@ -362,6 +461,18 @@ ul.task-list li input[type="checkbox"] {
 <p>From there, the money is ready to feed into <a href="./investing.html">Investing</a>.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-preston2024foo" class="csl-entry" role="listitem">
+Preston, Brian. 2024. <span>“The Financial Order of Operations.”</span> The Money Guy Show; <a href="https://moneyguy.com/guide/foo/" class="uri">https://moneyguy.com/guide/foo/</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>See the full guide at <a href="https://moneyguy.com/guide/foo/">moneyguy.com/guide/foo</a> <span class="citation" data-cites="preston2024foo">(<a href="resources.html#ref-preston2024foo" role="doc-biblioref">Preston 2024</a>)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -823,7 +934,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/savings.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mjfrigaard/fm-finance/edit/main/savings.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mjfrigaard/fm-finance/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
