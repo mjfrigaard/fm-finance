@@ -17,7 +17,9 @@ source("_common.R")
 
 An emergency fund is cash set aside to handle the unexpected without reaching for credit. It's the financial equivalent of a spare tire: you don't need it most of the time, but when you do, nothing else will do the job.
 
-The standard target is **3 to 6 months of essential expenses**, parked somewhere safe and liquid. This chapter covers:
+The standard target is **3 to 6 months of essential expenses**, parked somewhere safe and liquid. This is **Step 4 of the Financial Order of Operations** (@sec-foop), and it comes before investing, before extra debt payoff, before any goal other than capturing your employer match and eliminating high-interest debt.
+
+This chapter covers:
 
 - How much you actually need
 - Where to keep it (and where not to)
