@@ -321,7 +321,7 @@ Felix has been blunt: [cars are depreciating consumption assets, not investments
 
 **The status trap:** Housel's insight applies powerfully here. Nobody is impressed by your car; they're imagining themselves in it. You're paying a fortune for a status signal no one is sending back.
 
-## Debt and the FOO
+## Debt and the FOO {#sec-foo-debt}
 
 Brian Preston's Financial Order of Operations (FOO), introduced in [Budgeting](budgeting.qmd#the-financial-order-of-operations), splits debt into two separate steps rather than treating it as one problem:
 
