@@ -788,7 +788,7 @@ flowchart TD
     style End fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
 ```
 
-## Financial Order of Operations
+## Financial Order of Operations {#sec-foo-intro}
 
 A budget tells you how much money is left over each month. But it doesn't tell you what to do with it. That's where **Brian Preston's Financial Order of Operations** (@sec-foop) comes in.
 

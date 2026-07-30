@@ -4,9 +4,11 @@
 
 **Savings** are the bridge between earning and investing, the third of the four levers introduced in the [Foundation](foundations.qmd). This part covers how much to save, where to keep it, and how to make the whole process [automatic]{style="color:#48a56a; font-weight: bold;"} so willpower isn't part of the equation.
 
-## The Financial Order of Operations {#sec-foop}
+## Savings and the Financial Order of Operations {#sec-foop}
 
-Before diving into how much to save and where to keep it, you need a strategic framework for where your money goes. Once you know your income and have categorized your expenses, the next question is: **where should your available money actually go?** Brian Preston (The Money Guy Show) answers this with the **Financial Order of Operations (FOO)** — a fixed sequence of nine steps, each one funded before moving to the next.[^savings-foop]
+Once you know your income and have categorized your expenses, the next question is: **where should your available money actually go?** We'll largely be using Brian Preston's **Financial Order of Operations (FOO)**.[^foo-budget] The FOO is a fixed sequence of nine steps, each one funded before moving to the next.[^savings-foop]
+
+[^foo-budget]: We introduced the @sec-foo-intro in the [Budgeting](budgeting.qmd) chapter and again in the @sec-foo-debt section of [Managing Debt](managing_debt.qmd).
 
 [^savings-foop]: See the full guide at [moneyguy.com/guide/foo](https://moneyguy.com/guide/foo/) [@preston2024foo].
 
@@ -24,9 +26,15 @@ Before diving into how much to save and where to keep it, you need a strategic f
 
 : The Financial Order of Operations (Money Guy Show)
 
-The FOO doesn't replace your budget; it tells you [what to do with the money your budget frees up]{style="color:#48a56a; font-weight: bold;"}, one step at a time.
+The FOO isn't a budget, its a strategic framework that tells you [what to do with the money your budget frees up]{style="color:#48a56a; font-weight: bold;"}, one step at a time:
 
-Steps 1–2 establish protection and capture free employer money. This reflects Bogle's low-cost principle: free money (the employer match) beats any other use of the next dollar. Steps 3–4 eliminate dangerous debt and build emergency reserves — Morgan Housel's insight applies directly here: before your savings can grow, it must be protected from being consumed by emergencies. Steps 5–7 fund tax-advantaged and taxable investing for long-term growth through behavioral compliance and simplicity (Ben Felix and Bogle's emphasis). Steps 8–9 handle planned future expenses and low-interest debt payoff.
+* **Steps 1–2** establish protection and capture free employer money. This reflects Bogle's low-cost principle: free money (the employer match) beats any other use of the next dollar. 
+
+* **Steps 3–4** eliminate dangerous debt and build emergency reserves — Morgan Housel's insight applies directly here: before your savings can grow, it must be protected from being consumed by emergencies. 
+
+* **Steps 5–7** fund tax-advantaged and taxable investing for long-term growth through behavioral compliance and simplicity (Ben Felix and Bogle's emphasis). 
+
+* **Steps 8–9** handle planned future expenses and low-interest debt payoff.
 
 This part of the book focuses on steps 1–4, which all involve *saving* before investing. Steps 5–7 (the investing side) are covered in the [Investing](investing.qmd) part. Throughout, Sethi's principle guides us: [pay yourself first]{style="color:#48a56a; font-weight: bold;"} by automating savings before spending, removing willpower from the equation.
 
