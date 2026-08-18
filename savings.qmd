@@ -4,7 +4,7 @@
 
 **Savings** are the bridge between earning and investing, the third of the four levers introduced in the [Foundation](foundations.qmd). This part covers how much to save, where to keep it, and how to make the whole process [automatic]{style="color:#48a56a; font-weight: bold;"} so willpower isn't part of the equation.
 
-## Savings and the Financial Order of Operations {#sec-foop}
+## Savings and the Financial Order of Operations {#sec-savings-foop}
 
 Once you know your income and have categorized your expenses, the next question is: **where should your available money actually go?** We'll largely be using Brian Preston's **Financial Order of Operations (FOO)**.[^foo-budget] The FOO is a fixed sequence of nine steps, each one funded before moving to the next.[^savings-foop]
 

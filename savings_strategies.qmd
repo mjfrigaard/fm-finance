@@ -161,7 +161,7 @@ Three strategies improve compliance dramatically:
 
 ### Savings and the FOO {.unnumbered} 
 
-The Financial Order of Operations (@sec-foop) prioritizes savings at every step:
+The Financial Order of Operations (@sec-savings-foop) prioritizes savings at every step:
 
 1. **Steps 1–2:** Save for immediate protection (insurance deductibles, capture employer match)
 2. **Steps 3–4:** Save to eliminate high-interest debt and build emergency reserves
