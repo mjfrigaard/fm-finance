@@ -13,8 +13,3 @@ __pycache__/
 .venv/
 
 **/*.quarto_ipynb
-.posit/assistant
-.claude/
-CLAUDE.md
-CLAUDE.local.md
-AGENTS.md
