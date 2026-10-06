@@ -2,11 +2,11 @@
 
 <br>
 
-**Savings** are the bridge between earning and investing, the third of the four levers introduced in the [Foundation](foundations.qmd). This part covers how much to save, where to keep it, and how to make the whole process [automatic]{style="color:#48a56a; font-weight: bold;"} so willpower isn't part of the equation.
+**Savings** are the bridge between earning and investing; they're the third of the four levers introduced in the [Foundation](foundations.qmd). In this part of the book I'll cover how much to save, where to keep it, and how to make the whole process [automatic]{style="color:#48a56a; font-weight: bold;"} so willpower isn't part of the equation.
 
 ## Savings and the Financial Order of Operations {#sec-savings-foop}
 
-Once you know your income and have categorized your expenses, the next question is: **where should your available money actually go?** We'll largely be using Brian Preston's **Financial Order of Operations (FOO)**.[^foo-budget] The FOO is a fixed sequence of nine steps, each one funded before moving to the next.[^savings-foop]
+Once you know your income and have categorized your expenses, the next question is: **where should your available money actually go?** To answer it, we'll lean on Brian Preston's **Financial Order of Operations (FOO)**.[^foo-budget] The FOO is a fixed sequence of nine steps, each one funded before moving to the next.[^savings-foop]
 
 [^foo-budget]: We introduced the @sec-foo-intro in the [Budgeting](budgeting.qmd) chapter and again in the @sec-foo-debt section of [Managing Debt](managing_debt.qmd).
 
@@ -26,33 +26,71 @@ Once you know your income and have categorized your expenses, the next question 
 
 : The Financial Order of Operations (Money Guy Show)
 
-The FOO isn't a budget, its a strategic framework that tells you [what to do with the money your budget frees up]{style="color:#48a56a; font-weight: bold;"}, one step at a time:
+The diagram below shows the same nine steps as a ladder: fund each rung before you climb to the next.
+
+```{mermaid}
+%%| fig-cap: 'The Financial Order of Operations'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
+
+flowchart TD
+    Start(["Money your<br>budget frees up"]) --> S1
+    S1("i. Deductibles covered")
+    S1 --> S2
+    S2("ii. Employer match")
+    S2 --> S3
+    S3("iii. High-interest debt")
+    S3 --> S4
+    S4("iv. Emergency reserves")
+    S4 --> S5
+    S5("v. Roth IRA / HSA")
+    S5 --> S6
+    S6("vi. Max-out retirement")
+    S6 --> S7
+    S7("vii. Hyperaccumulation")
+    S7 --> S8
+    S8("viii. Prepaid future expenses")
+    S8 --> S9
+    S9("ix. Low-interest debt")
+    style Start fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style S1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style S2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style S3 fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style S4 fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style S5 fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style S6 fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style S7 fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style S8 fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style S9 fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+```
+
+The FOO isn't a budget; it's a strategic framework that tells you [what to do with the money your budget frees up]{style="color:#48a56a; font-weight: bold;"}, one step at a time:
 
 * **Steps 1–2** establish protection and capture free employer money. This reflects Bogle's low-cost principle: free money (the employer match) beats any other use of the next dollar. 
 
-* **Steps 3–4** eliminate dangerous debt and build emergency reserves — Morgan Housel's insight applies directly here: before your savings can grow, it must be protected from being consumed by emergencies. 
+* **Steps 3–4** eliminate dangerous debt and build emergency reserves. Morgan Housel's insight applies directly here: before your savings can grow, they have to be protected from emergencies.
 
-* **Steps 5–7** fund tax-advantaged and taxable investing for long-term growth through behavioral compliance and simplicity (Ben Felix and Bogle's emphasis). 
+* **Steps 5–7** fund tax-advantaged and taxable investing for long-term growth. Ben Felix and Bogle both emphasize what makes this stage work: sticking with the plan (behavioral compliance) and keeping it simple.
 
 * **Steps 8–9** handle planned future expenses and low-interest debt payoff.
 
-This part of the book focuses on steps 1–4, which all involve *saving* before investing. Steps 5–7 (the investing side) are covered in the [Investing](investing.qmd) part. Throughout, Sethi's principle guides us: [pay yourself first]{style="color:#48a56a; font-weight: bold;"} by automating savings before spending, removing willpower from the equation.
+In this part of the book we'll focus on steps 1–4, which all involve *saving* before investing. Steps 5–7 (the investing side) are covered in the [Investing](investing.qmd) part. Throughout, we'll follow Sethi's principle to [pay yourself first]{style="color:#48a56a; font-weight: bold;"}: automate your savings before you spend anything, and willpower drops out of the equation.
 
 ## Principles for Consistent Saving
 
-The chapters that follow are grounded in research and experience from five trusted voices in personal finance. Here's what each contributes to building a savings practice that works:
+The chapters that follow lean on five voices in personal finance that I trust. Here's what I've taken from each of them about building a savings practice that actually works:
 
-**Morgan Housel** (behavioral finance): [*Consistency beats optimization.*]{style="color:#48a56a; font-weight: bold;"} A modest savings rate you maintain for 30 years outpaces aggressive saving you abandon after 18 months. Before your savings can grow, it must be protected from being consumed by emergencies.
+**Morgan Housel** (behavioral finance): [*Consistency beats optimization.*]{style="color:#48a56a; font-weight: bold;"} A modest savings rate you keep up for 30 years outpaces aggressive saving you abandon after 18 months. Before your savings can grow, they have to be protected from emergencies.
 
-**Ramit Sethi** (conscious spending plan): [*Pay yourself first.*]{style="color:#48a56a; font-weight: bold;"} Automate savings before you see the money. This removes savings from willpower and makes it automatic—your only job is to spend intentionally on what remains.
+**Ramit Sethi** (conscious spending plan): [*Pay yourself first.*]{style="color:#48a56a; font-weight: bold;"} Automate your savings before you ever see the money. Once saving no longer depends on willpower, your only job is to spend intentionally on what's left.
 
-**Ben Felix** (evidence-based investing): [*Behavioral compliance matters more than perfect strategy.*]{style="color:#48a56a; font-weight: bold;"} A budget or savings plan you follow imperfectly beats one you abandon. The best savings rate is one you can maintain.
+**Ben Felix** (evidence-based investing): [*Behavioral compliance matters more than perfect strategy.*]{style="color:#48a56a; font-weight: bold;"} A budget or savings plan you follow imperfectly beats one you abandon. The best savings rate is the one you can keep up.
 
 **John Bogle** (simplicity principle): [*You don't need complex tactics.*]{style="color:#48a56a; font-weight: bold;"} Low-friction systems that work beat sophisticated ones that don't. Free money (the employer match) beats any other use of the next dollar.
 
 **Brian Preston** (Financial Order of Operations): [*Prioritize ruthlessly.*]{style="color:#48a56a; font-weight: bold;"} Every dollar should flow in a fixed sequence: protection, then employer match, then debt elimination, then emergency reserves, then investing. Know the order before you start.
 
-A practical sequence:
+Here's the practical sequence we'll follow:
 
   1. Build a starter buffer (covered in [Emergency Fund](emergency_fund.qmd)).
   2. Pick a target **savings rate** ([Savings Strategies](savings_strategies.qmd)).

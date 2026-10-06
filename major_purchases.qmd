@@ -16,13 +16,11 @@ source("_common.R")
 <br>
 
 
-Houses, cars, and weddings are where most people accidentally undo years
-of saving. The mechanics aren't complicated; the discipline is.
+A house is where most people accidentally undo years of saving. The mechanics aren't complicated; the discipline is.
 
-  - Down payment math
-  - Total cost of ownership (the sticker price is the smallest piece)
-  - Financing vs. paying cash
-  - Avoiding lifestyle creep after a raise
+  * Renting vs. buying
+  * The true cost of owning (the sticker price is the smallest piece)
+  * Monthly mortgage payments and how interest is front-loaded
 
 ## Owning vs. Renting: The Most Debated Question
 
@@ -32,37 +30,25 @@ This is where [Ben Felix](https://rationalreminder.ca/)'s research is genuinely 
 
 Felix has produced extensive analysis showing that [renting and investing the difference often matches or beats homeownership]{style="color:#48a56a; font-weight: bold;"}, once you account for the full cost of owning.
 
-```{=html}
-<style>
-
-.codeStyle span:not(.nodeLabel) {
-  font-family: monospace;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #9753b8 !important;
-  background-color: #f6f6f6;
-  padding: 0.2em;
-}
-</style>
-```
-
 ```{mermaid}
 %%| fig-cap: 'Home Ownership'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
-    HomeCosts[True Cost<br>of Ownership] --> Mortgage[Mortgage<br>Interest]
-    HomeCosts --> PropTax[Property Taxes<br>1-2% annually]
-    HomeCosts --> Maintenance[Maintenance<br>~1% annually]
-    HomeCosts --> Insurance[Insurance]
-    HomeCosts --> Closing[Closing<br>Costs 3-5%]
-    HomeCosts --> Opportunity2[Down Payment<br>Opportunity Cost]
+    HomeCosts("True Cost<br>of Ownership") --> Mortgage("Mortgage<br>Interest")
+    HomeCosts --> PropTax("Property Taxes<br>1-2% annually")
+    HomeCosts --> Maintenance("Maintenance<br>~1% annually")
+    HomeCosts --> Insurance("Insurance")
+    HomeCosts --> Closing("Closing<br>Costs 3-5%")
+    HomeCosts --> Opportunity2("Down Payment<br>Opportunity Cost")
 
-    Mortgage --> UnrecovCost[Unrecoverable Costs<br>~5% of home<br>value per year]
+    Mortgage --> UnrecovCost("Unrecoverable Costs<br>~5% of home<br>value per year")
     PropTax --> UnrecovCost
     Maintenance --> UnrecovCost
     Insurance --> UnrecovCost
+    Closing --> UnrecovCost
+    Opportunity2 --> UnrecovCost
     style HomeCosts fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Mortgage fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style PropTax fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
@@ -75,59 +61,60 @@ flowchart TD
 
 ### Felix's "5% Rule" {.unnumbered}
 
-A simplified version of Felix's framework: [the unrecoverable costs of owning are roughly 5% of the home's value per year]{style="color:#f44242; font-weight: bold;"} (property tax ~1%, maintenance ~1%, cost of capital ~3%).
+A simplified version of Felix's framework: [the unrecoverable costs of owning are roughly 5% of the home's value per year]{style="color:#f44242; font-weight: bold;"} (property tax ~1%, maintenance ~1%, and cost of capital ~3%, which is the interest and investment return you give up on the money tied up in the house). The math section below walks through the formula and the code.
 
 **Rule of thumb:** Multiply the home's value by 5% and divide by 12. If you can rent an equivalent property for less than that, [renting and investing the difference is likely the better financial choice.]{style="color:#48a56a; font-weight: bold;"}
-
-Example: $500,000 home × 5% = $25,000/year = ~$2,080/month. If you can rent the same place for less, renting wins financially.
 
 ### When Buying Makes Sense {.unnumbered}
 
 Buying isn't bad, but it should be a [lifestyle decision]{style="color:#48a56a; font-weight: bold;"} more than a financial one. Buy when:
 
-- You're confident you'll stay 7+ years (closing costs need time to amortize)
-- You have a stable income and adequate emergency fund
-- You value the autonomy, stability, and control
-- The local rent-to-price ratio favors buying
-- You won't be "house poor" (housing costs should stay under 28-30% of gross income)
+* You're confident you'll stay 7+ years (closing costs need time to amortize)
+* You have a stable income and adequate emergency fund
+* You value the autonomy, stability, and control
+* The local rent-to-price ratio favors buying
+* You won't be "house poor" (housing costs should stay under 28-30% of gross income)
 
 ### When Renting Makes Sense {.unnumbered}
 
-- You may move within 5-7 years
-- Your career requires geographic flexibility
-- Local home prices are stretched relative to rents
-- You'd rather invest the difference in a diversified portfolio
-- You value flexibility, lower maintenance burden, and predictable costs
+* You may move within 5-7 years
+* Your career requires geographic flexibility
+* Local home prices are stretched relative to rents
+* You'd rather invest the difference in a diversified portfolio
+* You value flexibility, lower maintenance burden, and predictable costs
 
 **The key insight from Felix:** renting is not "throwing money away" any more than buying groceries is throwing money away. [You're paying for shelter either way.]{style="color:#48a56a; font-weight: bold;"} The question is which form of shelter delivers better financial and lifestyle outcomes for your situation.
 
-### The Rent vs. Buy Calculation (Felix's 5% Rule) {.unnumbered}
+Putting the pieces together, here is how I'd walk through the decision:
 
-This deserves its own line because it's the most consequential housing decision most people make.
+```{mermaid}
+%%| fig-cap: 'Rent vs. Buy'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
-**The 5% Rule (Ben Felix's framework):**
-
-> Annual unrecoverable cost of owning ≈ Home Value × 5%
-
-Broken down:
-
-- Property tax: ~1%
-- Maintenance: ~1%
-- Cost of capital (opportunity cost of down payment + mortgage interest): ~3%
-
-**Decision math:**
-
-Monthly equivalent rent threshold = (Home Value × 0.05) ÷ 12
-
-Example: $600,000 home → (600,000 × 0.05) ÷ 12 = **$2,500/month**
-
-If you can rent the equivalent home for less than $2,500/month, renting is financially favorable (when you invest the difference). If rent exceeds that, buying tips ahead.
+flowchart TD
+    Start(["Rent or buy?"]) --> Stay{"Will you stay<br>7+ years?"}
+    Stay -->|"No"| RentFlex("Rent and keep<br>your flexibility")
+    Stay -->|"Yes"| Rule{"Is rent below the<br>5% rule figure?"}
+    Rule -->|"Yes"| RentInvest("Rent and invest<br>the difference")
+    Rule -->|"No"| Ready{"Stable income and<br>an emergency fund?"}
+    Ready -->|"Yes"| Buy("Buying can make<br>financial sense")
+    Ready -->|"No"| Build("Build your<br>cushion first")
+    style Start fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Stay fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Rule fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Ready fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style RentFlex fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style RentInvest fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Buy fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Build fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+```
 
 ### Mortgage Amortization: The Front-Loaded Interest Reality {.unnumbered}
 
 Mortgages are structured so you pay [mostly interest in early years.]{style="color:#f44242; font-weight: bold;"} Understanding this changes how you think about moving and refinancing.
 
-**Key insight:** On a 30-year mortgage at 6%, roughly [75% of your first year's payments go to interest]{style="color:#f44242; font-weight: bold;"}, not principal.
+**Key insight:** On a 30-year mortgage at 6%, more than [80% of your first year's payments go to interest]{style="color:#f44242; font-weight: bold;"}, not principal.
 
 **Rough breakdown of where payments go:**
 
@@ -146,7 +133,7 @@ Big purchases are where small percentage differences turn into tens of thousands
 
 ### The Rent-vs-Buy 5% Rule {.unnumbered}
 
-Felix's rule estimates the annual *unrecoverable* cost of owning as about 5% of the home's value, then compares the monthly equivalent to your rent. The 5% rule isn't magic — it's the sum of three real costs that every homeowner pays whether they realize it or not.
+The 5% rule isn't magic; it's the sum of three real costs that every homeowner pays whether they realize it or not. The chart splits those costs for a \$500,000 home.
 
 ```{r}
 #| label: rent-buy-bar-model
@@ -198,10 +185,12 @@ Add the three percentage slices together and you get 5% of home value per year; 
 
 **Formula:** Monthly cost of owning ≈ (Home Value × 0.05) ÷ 12
 
-Example: a \$600,000 home → (600,000 × 0.05) ÷ 12 = **\$2,500/month**. Rent below that, and renting-and-investing-the-difference tends to win.
+Example: a \$500,000 home → (500,000 × 0.05) ÷ 12 = **\$2,083/month**. Rent below that, and renting-and-investing-the-difference tends to win.
 
 ::: panel-tabset
 ## R
+
+In R, `rent_buy_threshold()` turns the 5% rule into a monthly rent figure.
 
 ```{r}
 #| label: rent-buy-r
@@ -209,19 +198,29 @@ rent_buy_threshold <- function(home_value, unrecoverable_rate = 0.05) {
   (home_value * unrecoverable_rate) / 12
 }
 
-# $600,000 home at the standard 5% unrecoverable rate
-rent_buy_threshold(home_value = 600000)
+# $500,000 home at the standard 5% unrecoverable rate
+rent_buy_threshold(home_value = 500000)
 ```
 
 ## Python
+
+The Python version of `rent_buy_threshold()` works the same way:
 
 ```{python}
 #| label: rent-buy-py
 def rent_buy_threshold(home_value, unrecoverable_rate=0.05):
     return (home_value * unrecoverable_rate) / 12
 
-# $600,000 home at the standard 5% unrecoverable rate
-rent_buy_threshold(home_value=600000)
+# $500,000 home at the standard 5% unrecoverable rate
+rent_buy_threshold(home_value=500000)
+```
+
+## Excel
+
+Assuming the home value is in `A2` and the unrecoverable rate (`0.05`) is in `B2`:
+
+``` swift
+=(A2*B2)/12
 ```
 :::
 
@@ -232,11 +231,11 @@ This is the standard amortization formula behind every mortgage calculator. The 
 ```{r}
 #| label: mortgage-payment-bar-model
 #| echo: false
-#| fig-cap: "Monthly payment on a $400,000 loan at 6.5% across three terms"
+#| fig-cap: "Monthly payment on a $480,000 loan at 6% across three terms"
 #| fig-asp: 0.50
 library(ggplot2)
-P <- 400000
-r <- 0.065 / 12
+P <- 480000
+r <- 0.06 / 12
 terms <- c(15, 20, 30)
 n_vals <- terms * 12
 payments <- round(P * (r * (1 + r)^n_vals) / ((1 + r)^n_vals - 1))
@@ -259,7 +258,7 @@ ggplot(df_mort, aes(x = term, y = payment, fill = term)) +
     limits = c(0, max(payments) * 1.18),
     labels = function(x) paste0("$", format(x, big.mark = ","))
   ) +
-  labs(x = NULL, y = "Monthly payment ($400,000 loan at 6.5%)") +
+  labs(x = NULL, y = "Monthly payment ($480,000 loan at 6%)") +
   theme_minimal(base_size = 12) +
   theme(
     legend.position    = "none",
@@ -268,7 +267,7 @@ ggplot(df_mort, aes(x = term, y = payment, fill = term)) +
   )
 ```
 
-The formula allocates the principal plus all future interest into equal monthly installments — shorter terms mean higher bars because more principal must be retired each month.
+The formula allocates the principal plus all future interest into equal monthly installments; shorter terms mean higher bars because more principal must be retired each month.
 
 **Formula:** M = P × [ r(1 + r)\^n ] ÷ [ (1 + r)\^n − 1 ]
 
@@ -278,6 +277,8 @@ Example: a \$480,000 loan (a \$600,000 home with 20% down) at 6% for 30 years �
 
 ::: panel-tabset
 ## R
+
+In R, `mortgage_payment()` implements the amortization formula.
 
 ```{r}
 #| label: mortgage-payment-r
@@ -293,6 +294,8 @@ mortgage_payment(principal = 480000, annual_rate = 0.06, years = 30)
 
 ## Python
 
+The Python version of `mortgage_payment()` works the same way:
+
 ```{python}
 #| label: mortgage-payment-py
 def mortgage_payment(principal, annual_rate, years):
@@ -303,28 +306,53 @@ def mortgage_payment(principal, annual_rate, years):
 # $480,000 loan at 6% over 30 years
 mortgage_payment(principal=480000, annual_rate=0.06, years=30)
 ```
+
+## Excel
+
+Assuming the loan amount is in `A2`, the annual rate is in `B2` (as a decimal), and the years are in `C2`:
+
+``` swift
+=A2*((B2/12)*(1+B2/12)^(C2*12))/((1+B2/12)^(C2*12)-1)
+```
+
+Excel's built-in `PMT()` function does the same job (it returns a negative number because it treats the payment as money going out, so we flip the sign):
+
+``` swift
+=-PMT(B2/12, C2*12, A2)
+```
 :::
 
 ### Where the First Year's Payments Go {.unnumbered}
 
-The front-loaded-interest reality, in numbers: in month one your interest is simply the balance times the monthly rate, and only the rest reduces the principal. Early mortgage payments are mostly interest — which is why moving after a few years means you've barely touched the principal.
+The front-loaded-interest reality, in numbers: in month one your interest is simply the balance times the monthly rate, and only the rest reduces the principal. Early mortgage payments are mostly interest, which is why moving after a few years means you've barely touched the principal.
 
 ```{r}
 #| label: first-payment-bar-model
 #| echo: false
-#| fig-cap: "Interest vs. principal split at three points on a $400,000 / 6.5% / 30-yr mortgage"
+#| fig-cap: "Interest vs. principal split at three points on a $480,000 / 6% / 30-yr mortgage"
 #| fig-asp: 0.50
 library(ggplot2)
+P <- 480000
+r <- 0.06 / 12
+n <- 360
+pmt <- P * (r * (1 + r)^n) / ((1 + r)^n - 1)
+months <- c(1, 180, 348)
+balance <- P * (1 + r)^(months - 1) - pmt * ((1 + r)^(months - 1) - 1) / r
+interest <- balance * r
+principal <- pmt - interest
+pct <- function(x) paste0(round(x / pmt * 100), "%")
+money <- function(x) paste0("$", format(round(x), big.mark = ","))
 df_amort <- data.frame(
   month    = factor(
-    c("Month 1\n(Year 1)", "Month 180\n(Year 15)", "Month 348\n(Year 29)"),
+    rep(c("Month 1\n(Year 1)", "Month 180\n(Year 15)", "Month 348\n(Year 29)"), each = 2),
     levels = c("Month 1\n(Year 1)", "Month 180\n(Year 15)", "Month 348\n(Year 29)")
   ),
   type     = rep(c("Interest", "Principal"), times = 3),
-  amount   = c(2167, 361, 1380, 1148, 82, 2446),
-  label    = c("$2,167\n(86%)", "$361\n(14%)",
-               "$1,380\n(55%)", "$1,148\n(45%)",
-               "$82\n(3%)", "$2,446\n(97%)")
+  amount   = as.vector(rbind(interest, principal)),
+  label    = as.vector(rbind(
+    paste0(money(interest), "\n(", pct(interest), ")"),
+    paste0(money(principal), "\n(", pct(principal), ")")
+  ))
 )
 ggplot(df_amort, aes(x = month, y = amount, fill = type)) +
   geom_col(width = 0.55, position = "stack") +
@@ -338,10 +366,10 @@ ggplot(df_amort, aes(x = month, y = amount, fill = type)) +
     "Principal" = "#48a56a"
   )) +
   scale_y_continuous(
-    limits = c(0, 2900),
+    limits = c(0, pmt * 1.05),
     labels = function(x) paste0("$", format(x, big.mark = ","))
   ) +
-  labs(x = NULL, y = "Monthly payment (~$2,528)", fill = NULL) +
+  labs(x = NULL, y = paste0("Monthly payment (~", money(pmt), ")"), fill = NULL) +
   theme_minimal(base_size = 12) +
   theme(
     legend.position    = "bottom",
@@ -350,17 +378,19 @@ ggplot(df_amort, aes(x = month, y = amount, fill = type)) +
   )
 ```
 
-Each month's interest is just the outstanding balance times the monthly rate — the principal is what's left over after interest is paid.
+Each month's interest is just the outstanding balance times the monthly rate; the principal is what's left over after interest is paid.
 
 **Formula:**
 
-- First-month interest = Principal × (annual rate ÷ 12)
-- First-month principal = Monthly Payment − First-month interest
+* First-month interest = Principal × (annual rate ÷ 12)
+* First-month principal = Monthly Payment − First-month interest
 
 Example: on that \$480,000 loan, month-one interest is \$2,400 of the \~\$2,878 payment, about [83% interest]{style="color:#f44242; font-weight: bold;"}, leaving only \~\$478 toward principal.
 
 ::: panel-tabset
 ## R
+
+In R, `first_payment_split()` shows how much of the first payment is interest and how much is principal.
 
 ```{r}
 #| label: first-payment-r
@@ -381,6 +411,8 @@ first_payment_split(principal = 480000, annual_rate = 0.06, years = 30)
 
 ## Python
 
+The Python version of `first_payment_split()` works the same way:
+
 ```{python}
 #| label: first-payment-py
 def first_payment_split(principal, annual_rate, years):
@@ -396,4 +428,40 @@ def first_payment_split(principal, annual_rate, years):
 # first payment on a $480,000 loan at 6% over 30 years
 first_payment_split(principal=480000, annual_rate=0.06, years=30)
 ```
+
+## Excel
+
+Assuming the loan amount is in `A2`, the annual rate is in `B2`, and the years are in `C2`, the monthly payment goes in `D2`:
+
+``` swift
+=-PMT(B2/12, C2*12, A2)
+```
+
+The first month's interest goes in `E2`:
+
+``` swift
+=A2*B2/12
+```
+
+The principal portion goes in `F2`:
+
+``` swift
+=D2-E2
+```
+
+And the percent of the payment that is interest goes in `G2` (format the cell as a **Percentage**):
+
+``` swift
+=E2/D2
+```
 :::
+
+## Recap
+
+1. **Renting isn't throwing money away.** You pay for shelter either way. The real question is which option leaves you better off for your situation.
+2. **Use the 5% rule as a quick test.** Multiply the home's value by 5% and divide by 12. On a \$500,000 home that's about \$2,083 a month. If you can rent a comparable place for less, renting and investing the difference usually wins.
+3. **Owning costs more than the mortgage.** Property tax, maintenance, and the return you give up on your down payment add up to roughly 5% of the home's value each year.
+4. **Early mortgage payments are mostly interest.** In the first year, more than 80% of each payment goes to interest, which is why moving after a few years leaves you with barely any principal paid down.
+5. **Buy for lifestyle reasons, not just math.** Buy when you plan to stay 7 or more years, your income is stable, you have an emergency fund, and your housing costs stay under 28 to 30% of your gross income.
+
+A house is the biggest purchase most people ever make, so run the numbers before you fall in love with a floor plan.

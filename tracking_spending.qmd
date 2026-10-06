@@ -19,32 +19,18 @@ pl.Config.set_tbl_rows(20)
 
 You only manage what you measure. This chapter covers how to capture every dollar that leaves your accounts and turn those transactions into insights.
 
-- Capturing every transaction
-- Working with digital bank exports
-- Categorizing what you've captured
-- Reviewing on a monthly cadence
-- Spotting "leak" categories (subscriptions, delivery fees, impulse buys)
+* Capturing every transaction
+* Working with digital bank exports
+* Categorizing what you've captured
+* Reviewing on a monthly cadence
+* Spotting "leak" categories (subscriptions, delivery fees, impulse buys)
 
 Tracking is the *recording* side of personal finance. In the next chapter, we'll cover [budgeting](budgeting.qmd), which is the *allocation* side (i.e., where money is supposed to go). Without tracking, a budget is a guess; with tracking, a budget becomes a feedback loop.
 
-```{=html}
-<style>
-
-.codeStyle span:not(.nodeLabel) {
-  font-family: monospace;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #9753b8 !important;
-  background-color: #f6f6f6;
-  padding: 0.2em;
-}
-</style>
-```
-
 ```{mermaid}
-%%| fig-cap: 'Budget Mindset'
+%%| fig-cap: 'Tracking vs. Budgeting'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart LR
     Tracking(["<strong>TRACKING</strong>"]) --"<em>Where money<br>actually went</em>"--> Compare{"<strong>COMPARE</strong><br/><em>plan vs.<br>reality</em>"}
@@ -88,25 +74,25 @@ Categorizing transactions can get complicated, but it doesn’t need to be. Down
 
 A working starter set:
 
-- **Housing** (rent/mortgage, utilities, insurance)
+* **Housing** (rent/mortgage, utilities, insurance)
 
-- **Transportation** (car payment, fuel, maintenance, transit)
+* **Transportation** (car payment, fuel, maintenance, transit)
 
-- **Food — groceries**
+* **Food: groceries**
 
-- **Food — dining out**
+* **Food: dining out**
 
-- **Subscriptions** (everything recurring and digital)
+* **Subscriptions** (everything recurring and digital)
 
-- **Personal** (clothes, haircuts, gym)
+* **Personal** (clothes, haircuts, gym)
 
-- **Health & insurance**
+* **Health & insurance**
 
-- **Gifts & giving**
+* **Gifts & giving**
 
-- **Fun money** (don’t break this down further — protect it from over-tracking)
+* **Fun money** (don’t break this down further; protect it from over-tracking)
 
-- **Other / one-offs**
+* **Other / one-offs**
 
 Two rules that save hours of bookkeeping:
 
@@ -237,7 +223,7 @@ Once your transactions sit in columns and rows, it's much easier to answer track
 
 [Bogle](https://www.bogleheads.org/) would approve of building a custom spreadsheet because simplicity wins. A well-built spreadsheet beats most apps because it forces you to engage with your numbers.
 
-::::::: {.callout-tip collapse="true"}
+::::::: {.callout-note collapse="true" appearance="default" icon=false}
 ## R vs Python: data frames and pipes
 
 Two ideas the categorization code above relies on:
@@ -247,7 +233,7 @@ Two ideas the categorization code above relies on:
 ::: {layout="[50,50]" layout-valign="top"}
 R's `data.frame` is built into the base language; the `tibble` is the modern replacement (used throughout this book).
 
-Python has no built-in data frame — you need a library; we use `polars` (`pl.DataFrame`).
+Python has no built-in data frame, so you need a library; we use `polars` (`pl.DataFrame`).
 :::
 
 ::: {layout="[50,50]" layout-valign="top"}
@@ -315,14 +301,14 @@ r_bank_statement <- r_bank_statement |>
 r_bank_statement |> knitr::kable()
 ```
 
-:::: {.callout-note collapse="true"}
+:::: {.callout-note collapse="true" appearance="default" icon=false}
 
-### Re-using categories in R
+## Re-using categories in R
 
 For repeated use, the `case_when()` pipeline above can be wrapped into a reusable function that accepts a lookup table, making it easy for users add or edit keyword patterns:
 
-- `df` = `data.frame` with a `Description` column\
-- `rules` = `data.frame` with `Pattern` and `Category` columns
+* `df` = `data.frame` with a `Description` column\
+* `rules` = `data.frame` with `Pattern` and `Category` columns
 
 ```{r}
 #| label: apply-rules-r
@@ -394,14 +380,14 @@ py_bank_statement = py_bank_statement.with_columns(
 py_bank_statement
 ```
 
-:::: {.callout-note collapse='true'}
+:::: {.callout-note collapse="true" appearance="default" icon=false}
 
-### Re-using categories in Python
+## Re-using categories in Python
 
-For use in a Shiny app, the `when().then()` chain above can be wrapped into a reusable function that accepts a rules table — making it easy to let users add or edit keyword patterns at runtime:
+For use in a Shiny app, the `when().then()` chain above can be wrapped into a reusable function that accepts a rules table, making it easy to let users add or edit keyword patterns at runtime:
 
-- `df` = `data.frame` with a `Description` column\
-- `rules` = `data.frame` with `Pattern` and `Category` columns
+* `df` = `data.frame` with a `Description` column\
+* `rules` = `data.frame` with `Pattern` and `Category` columns
 
 ```{python}
 #| label: apply-rules-py
@@ -448,7 +434,7 @@ apply_rules(py_bank_statement, py_rules)
 
 In Excel, the [`IFS()` function](https://support.microsoft.com/en-US/Excel/IFS-function) is the direct analog of `case_when()`/`when().then()`.
 
-- If the statement is laid out with `Date` in column `A`, `Description` in column `B`, and `Amount` in column `C`. Type `Category` in cell `D1`, then paste the formula below into `D2`:
+* If the statement is laid out with `Date` in column `A`, `Description` in column `B`, and `Amount` in column `C`. Type `Category` in cell `D1`, then paste the formula below into `D2`:
 
 ``` swift
 =IFS(
@@ -465,7 +451,7 @@ In Excel, the [`IFS()` function](https://support.microsoft.com/en-US/Excel/IFS-f
 )
 ```
 
-- Then copy `D2` down through every transaction row (select `D2`, double-click the small square in the bottom-right corner, or use `Ctrl+D` after selecting `D2:D{last_row}`).
+* Then copy `D2` down through every transaction row (select `D2`, double-click the small square in the bottom-right corner, or use `Ctrl+D` after selecting `D2:D{last_row}`).
 
 ![`IFS()` in Excel](img/tracking_spending-ifs.png){width="100%" fig-align="center"}
 
@@ -474,7 +460,7 @@ To add a new merchant when one shows up: edit the formula in `D2`, then re-fill 
 
 Each month, add a new pattern when you see a real transaction that didn't match. The goal isn't to classify every edge case up front; the lookup handles 90%+ of your monthly transactions automatically, leaving only the unusual ones to triage by hand.
 
-::::::: {.callout-tip collapse="true"}
+::::::: {.callout-note collapse="true" appearance="default" icon=false}
 
 ## R vs Python: booleans, logicals, and vectorization
 
@@ -566,15 +552,15 @@ This is the most overlooked category in personal finance. Streaming, apps, softw
 ```{mermaid}
 %%| fig-cap: 'Subscription Audit'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
     Subscriptions(["<strong>Monthly<br>Subscriptions</strong>"]) --> Audit("Quarterly<br>Audit")
     Audit --> Use{"Used in<br>the last 30<br>days?"}
-    Use -->|Yes| Worth{"Worth the<br>cost?"}
-    Use -->|No| Cancel(["Cancel<br>Today"])
-    Worth -->|Yes| Keep(["Keep"])
-    Worth -->|No| Cancel
+    Use -->|"Yes"| Worth{"Worth the<br>cost?"}
+    Use -->|"No"| Cancel(["Cancel<br>Today"])
+    Worth -->|"Yes"| Keep(["Keep"])
+    Worth -->|"No"| Cancel
     Cancel --"<em>Redirect to</em>"--> Redirect("<strong>Investments</strong>")
     
     style Subscriptions fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
@@ -609,7 +595,7 @@ Below are some tips and tools for tracking spending. Some can be used to easily 
 
 ### The Subscription Audit Math {.unnumbered}
 
-A \$20/month subscription feels trivial. The chart below shows what that \$240/year could have become if invested instead — each bar is a year when you could have stopped and kept the difference.
+A \$20/month subscription feels trivial. The chart below shows what that \$240/year could have become if invested instead; each bar is a year when you could have stopped and kept the difference.
 
 ```{r}
 #| label: subscription-bar-model
@@ -651,14 +637,14 @@ ggplot(df_sub, aes(x = year, y = value, fill = fill)) +
 
 The formula is just compound growth applied to the annual cost: multiply each year's \$240 by the accumulated growth factor.
 
-**Formula:** Monthly Subscription × 12 × (1.07)\^n = Opportunity cost in *n* years
+**Formula:** Annual cost × ((1.07)\^n − 1) ÷ 0.07 = Opportunity cost in *n* years
 
 Example: A \$20/month subscription you don't really use, over 30 years:
 
-- Annual cost: \$240
-- Invested at 7% real return for 30 years: [\~\$24,000]{style="color:#f44242; font-weight: bold;"}
+* Annual cost: \$240
+* Invested at 7% real return for 30 years: [\~\$22,700]{style="color:#f44242; font-weight: bold;"}
 
-That "small" \$20/month is a \$24,000 decision. [Audit accordingly.]{style="color:#48a56a; font-weight: bold;"}
+That "small" \$20/month is a \$22,700 decision. [Audit accordingly.]{style="color:#48a56a; font-weight: bold;"}
 
 ::: panel-tabset
 ## R
@@ -718,17 +704,17 @@ The formula (given this setup) is below:
 ![Opportunity Cost in Excel](img/tracking_spending-opportunity_cost.png){width="100%" fig-align="center"}
 :::
 
-## Key takeaways
+## Recap
 
 Tracking is the *recording* side of personal finance; without it, your budget is just a guess. Five rules keep it sustainable:
 
-1.  [Pick one capture method and run it for a month.]{style="color:#48a56a; font-weight: bold;"} Spending journal, checkbook register, cash envelopes, or pulling bank statements — any of them work. Switching every week works for nobody.
+1.  [Pick one capture method and run it for a month.]{style="color:#48a56a; font-weight: bold;"} Spending journal, checkbook register, cash envelopes, or pulling bank statements: any of them work. Switching every week works for nobody.
 
 2.  [Keep your categories small and stable.]{style="color:#48a56a; font-weight: bold;"} Six to ten buckets are plenty. Stability is what makes month-to-month comparisons meaningful; rotating "smart" categories destroys the very signal you're trying to build.
 
 3.  [Schedule a monthly review and limit yourself to *one* change.]{style="color:#48a56a; font-weight: bold;"} Pull the statements, categorize them, compare them against your budget, and pick the single biggest leak to plug. Twelve small adjustments per year compound into a budget that actually fits your life.
 
-4.  [Audit subscriptions every quarter.]{style="color:#48a56a; font-weight: bold;"} They're individually small, collectively enormous, and trivially canceled. A \$20/month service you don't really use is roughly a \$24,000 decision over thirty years (see the audit math above), so [Sethi's](https://www.iwillteachyoutoberich.com/) "cut mercilessly on what you don't love" lands hardest here.
+4.  [Audit subscriptions every quarter.]{style="color:#48a56a; font-weight: bold;"} They're individually small, collectively enormous, and trivially canceled. A \$20/month service you don't really use is roughly a \$22,700 decision over thirty years (see the audit math above), so [Sethi's](https://www.iwillteachyoutoberich.com/) "cut mercilessly on what you don't love" lands hardest here.
 
 5.  [Simplicity wins.]{style="color:#48a56a; font-weight: bold;"} As Bogle would have it for investing, the same applies to tracking: a spreadsheet you'll actually open beats any app you won't.
 

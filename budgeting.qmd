@@ -23,9 +23,9 @@ Most people hate budgeting because they're approaching it with some bad assumpti
 
 A good budget builds in flexibility, not rigidity. When you're just getting started, budgeting can be overwhelming.
 
-> "*A budget tells your money where to go instead of wondering where it went.*" - Ramit Sethi
+> "*A budget is telling your money where to go instead of wondering where it went.*" - Dave Ramsey
 
-Just to be clear: **building a budget (especially the first time) is time-consuming**. As with most time-consuming tasks, you might find yourself wondering if you really need a budget. Trust me—you do. Everyone does. Reframe the following thoughts that might interfere with your budgeting practice:
+Just to be clear: **building a budget (especially the first time) is time-consuming**. As with most time-consuming tasks, you might find yourself wondering if you really need a budget. Trust me: you do. Everyone does. Reframe the following thoughts that might interfere with your budgeting practice:
 
 | Thought | Reframe as |
 |------------------------------------|------------------------------------|
@@ -48,36 +48,22 @@ The first skill in budgeting is correctly categorizing your money. Most people l
 
 ### How to approach expense categories {.unnumbered}
 
-The math is the same, but the psychology differs. Fixed expenses reward ruthlessness—John Bogle's principle of low-cost simplicity[^bogle] applies here. Lock in the lowest rate possible (usually your housing cost, which Brian Preston prioritizes early in @sec-foo-intro), then automate and stop thinking about it. This creates room for error elsewhere, as Morgan Housel emphasizes: the less mental energy you waste on fixed costs, the more cushion you have to recover from unexpected swings.
+The math is the same, but the psychology differs. Fixed expenses reward ruthlessness. John Bogle's principle of low-cost simplicity[^bogle] applies here. Lock in the lowest rate possible (usually your housing cost, which Brian Preston prioritizes early in @sec-foo-intro), then automate and stop thinking about it. This creates room for error elsewhere, as Morgan Housel emphasizes: the less mental energy you waste on fixed costs, the more cushion you have to recover from unexpected swings.
 
 Variable expenses demand a different discipline. Ramit Sethi's Conscious Spending Plan[^sethi-csp] teaches us that guilt-free spending on *categories* works better than line-by-line scrutiny. Instead of tracking every grocery receipt, set a monthly limit for groceries and let yourself spend freely within it. This is evidence-based: Ben Felix's research shows that behavioral compliance matters more than perfect optimization.[^felix-behavioral]
 
-Periodic expenses are the outliers. Because they're lumpy and personal (one person budgets for pet care, another for annual car maintenance) you can't borrow someone else's number. The 1/12 rule (setting aside one-twelfth of the annual cost each month) transforms an invisible crisis into visible planning.
+Periodic expenses are the outliers. Because they're lumpy and personal (one person budgets for pet care, another for annual car maintenance) you can't borrow someone else's number. The 1/12 rule (setting aside one-twelfth of the annual cost each month) transforms an invisible crisis into visible planning. Money you set aside each month for a known future expense like this is called a *sinking fund*.
 
 [^bogle]: Bogle advocated for keeping investment costs and financial friction as low as possible. This principle extends directly to fixed expenses: minimize them once through comparison shopping and negotiation, then automate to avoid repeated mental costs. See [Bogleheads](https://www.bogleheads.org/).
 
 [^sethi-csp]: Sethi's Conscious Spending Plan divides spending into fixed costs, savings, guilt-free spending (wants), and investments. The key insight is that tracking categories rather than individual transactions reduces decision fatigue and improves compliance. Learn more at the [Conscious Spending Basics](https://www.iwillteachyoutoberich.com/conscious-spending-basics/) guide.
 
-[^felix-behavioral]: Felix's evidence-based approach to investing and personal finance emphasizes that behavioral factors—consistency, habit, and guilt-free compliance—outweigh optimization. A budget you follow imperfectly beats one you abandon. See [PWL Capital research](https://pwlcapital.com/learn/).
-
-```{=html}
-<style>
-
-.codeStyle span:not(.nodeLabel) {
-  font-family: monospace;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #9753b8 !important;
-  background-color: #f6f6f6;
-  padding: 0.2em;
-}
-</style>
-```
+[^felix-behavioral]: Felix's evidence-based approach to investing and personal finance emphasizes that behavioral factors (consistency, habit, and guilt-free compliance) outweigh optimization. A budget you follow imperfectly beats one you abandon. See [PWL Capital research](https://pwlcapital.com/learn/).
 
 ```{mermaid}
 %%| fig-cap: 'Fixed vs. Variable Expenses'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"14px", 'ganttNumberSectionStyles': 4}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart LR
 
@@ -135,9 +121,9 @@ flowchart LR
 
 If your car insurance is \$1,200/year, don't get blindsided every six months. Save \$100/month into a "Car Insurance" sub-account. When the bill arrives, the money is already there. Repeat for every periodic expense:
 
-- Christmas/gifts: \$600/year → \$50/month
-- Car maintenance: \$1,200/year → \$100/month
-- Annual vacation: \$2,400/year → \$200/month
+* Christmas/gifts: \$600/year → \$50/month
+* Car maintenance: \$1,200/year → \$100/month
+* Annual vacation: \$2,400/year → \$200/month
 
 This single technique eliminates 80% of budget emergencies.
 
@@ -187,14 +173,14 @@ Percentages are great because they’re the proportion of your earnings assigned
 ```{mermaid}
 %%| fig-cap: 'Which Budget To Choose?'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"14px", 'ganttNumberSectionStyles': 4}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
     Choose(["I Need<br>A Budget"]) --> Question1{"In Debt or<br/>Just Starting?"}
-    Question1 -->|Yes| ZeroBased("Zero-Based<br/>for 6-12 months")
-    Question1 -->|No| Question2{"Love Spreadsheets<br/>& Details?"}
-    Question2 -->|Yes| Hybrid["Hybrid Approach"]
-    Question2 -->|No| Percentage["Percentage-Based<br/>Conscious Spending"]
+    Question1 -->|"Yes"| ZeroBased("Zero-Based<br/>for 2-3 months")
+    Question1 -->|"No"| Question2{"Love Spreadsheets<br/>& Details?"}
+    Question2 -->|"Yes"| Hybrid["Hybrid Approach"]
+    Question2 -->|"No"| Percentage["Percentage-Based<br/>Conscious Spending"]
     ZeroBased --> Eventually["Graduate to Percentage<br/>Once Stable"]
     
     
@@ -231,15 +217,15 @@ The `bank_statement` dataset introduced in [Tracking Spending](tracking_spending
 ```{mermaid}
 %%| fig-cap: 'Spreadsheet'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"14px", 'ganttNumberSectionStyles': 4}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart LR
-    Spreadsheet(["Budget<br>Spreadsheet"]) --> Tab1[Tab 1: Income]
-    Spreadsheet --> Tab2[Tab 2: Fixed Expenses]
-    Spreadsheet --> Tab3[Tab 3: Variable Expenses]
-    Spreadsheet --> Tab4[Tab 4: Sinking Funds]
-    Spreadsheet --> Tab5[Tab 5: Net Worth Tracker]
-    Spreadsheet --> Tab6[Tab 6: Summary Dashboard]
+    Spreadsheet(["Budget<br>Spreadsheet"]) --> Tab1("Tab 1: Income")
+    Spreadsheet --> Tab2("Tab 2: Fixed Expenses")
+    Spreadsheet --> Tab3("Tab 3: Variable Expenses")
+    Spreadsheet --> Tab4("Tab 4: Sinking Funds")
+    Spreadsheet --> Tab5("Tab 5: Net Worth Tracker")
+    Spreadsheet --> Tab6("Tab 6: Summary Dashboard")
 
     Tab6 --> Metrics("Key Metrics:<br/>Savings Rate<br/>Fixed Cost %<br/>Monthly Cash Flow")
     style Spreadsheet fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
@@ -314,7 +300,7 @@ Example: Rent is \$1,500, income is \$5,000. → (1,500 ÷ 5,000) × 100 = **30%
 
 Practice until you can do this in your head for the big categories.
 
-::::::: {.callout-note collapse="true"}
+::::::: {.callout-note collapse="true" appearance="default" icon=false}
 ## R vs Python: function bodies and return values
 
 Two more syntax differences become visible the moment you write a function with a body.
@@ -363,6 +349,8 @@ def double_fun(x):
 ::: panel-tabset
 ## R
 
+In R, `percent_of_income()` divides an expense by income and multiplies by 100.
+
 ```{r}
 #| label: percent-r
 #| code-fold: false 
@@ -380,6 +368,8 @@ percent_of_income(expense = 1500, income = 5000)
 ```
 
 ## Python
+
+The Python version of `percent_of_income()` works the same way:
 
 ```{python}
 #| label: percent-py
@@ -413,7 +403,7 @@ Or, more simply, enter `=B2 / C2` and format the cell as a **Percentage** using 
 
 ### Annualizing and Monthly-izing {.unnumbered}
 
-A \$5 daily coffee doesn't feel expensive. The chart below makes the annual version visible — the same habit at four different time scales.
+A \$5 daily coffee doesn't feel expensive. The chart below makes the annual version visible: the same habit at four different time scales.
 
 ```{r}
 #| label: annual-bar-model
@@ -468,6 +458,8 @@ Example: A \$5 daily coffee → \$5 × 365 = [\$1,825/year.]{style="color:#f4424
 ::: panel-tabset
 ## R
 
+In R, `to_annual()` multiplies a recurring amount by the number of times it happens each year.
+
 ```{r}
 #| label: annualize-r
 #| code-fold: false 
@@ -505,6 +497,8 @@ to_monthly(amount = 150, period = "weekly")
 ```
 
 ## Python
+
+The Python version of `to_annual()` works the same way:
 
 ```{python}
 #| label: annualize-py
@@ -588,7 +582,7 @@ The chart below shows what happens when you choose the used car (\$15,000) over 
 ```{r}
 #| label: opp-cost-bar-model
 #| echo: false
-#| fig-cap: "$25,000 invested at 7% — value at each checkpoint"
+#| fig-cap: "$25,000 invested at 7%: value at each checkpoint"
 #| fig-asp: 0.50
 library(ggplot2)
 yrs  <- c(0, 5, 10, 20, 30)
@@ -719,6 +713,8 @@ Example: \$500 ÷ \$60 = **8.3 months to break even.**
 ::: panel-tabset
 ## R
 
+In R, `months_to_break_even()` divides the upfront cost by the monthly savings.
+
 ```{r}
 #| label: break-even-r
 #| code-fold: false
@@ -736,6 +732,8 @@ months_to_break_even(upfront_cost = 500, monthly_savings = 60)
 ```
 
 ## Python
+
+The Python version of `months_to_break_even()` works the same way:
 
 ```{python}
 #| label: break-even-py
@@ -770,14 +768,14 @@ That \$500 membership is worth it if you'll use it longer than 8.33 months.
 ```{mermaid}
 %%| fig-cap: 'Build Your Budget: Three Phases'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px", 'primaryColor':'#0e9aa7', 'primaryBorderColor':'#1C1C1E', 'secondBkgColor':'#f44242', 'tertiaryColor':'#48a56a'}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px", 'primaryColor':'#0e9aa7', 'primaryBorderColor':'#1C1C1E', 'secondBkgColor':'#f44242', 'tertiaryColor':'#48a56a'}}}%%
 
 flowchart TD
-    Start(["Start:<br>Build Your Budget"]) --> S1("<b>SETUP PHASE</b><br><br>1. Track Spending<br>2. Categorize Expenses<br>3. Calculate Savings Rate<br>4. Choose Framework")
+    Start(["Start:<br>Build Your Budget"]) --> S1("<b>SETUP PHASE</b><br><br>i. Track Spending<br>ii. Categorize Expenses<br>iii. Calculate Savings Rate<br>iv. Choose Framework")
 
-    S1 --> I1("<b>IMPLEMENTATION PHASE</b><br><br>5. Set Up Sinking Funds<br>6. Automate Everything")
+    S1 --> I1("<b>IMPLEMENTATION PHASE</b><br><br>v. Set Up Sinking Funds<br>vi. Automate Everything")
 
-    I1 --> O1("<b>ONGOING PHASE</b><br><br>7. Weekly Review<br>Monthly Adjust<br>8. Quarterly Recalibrate")
+    I1 --> O1("<b>ONGOING PHASE</b><br><br>vii. Weekly Review<br>viii. Monthly Adjust<br>ix. Quarterly Recalibrate")
 
     O1 --> End(["Result:<br>Intentional Budget"])
 
@@ -792,21 +790,11 @@ flowchart TD
 
 A budget tells you how much money is left over each month. But it doesn't tell you what to do with it. That's where **Brian Preston's Financial Order of Operations** (see more in [Savings](savings.qmd)) comes in.
 
-The FOO is a nine-step framework that answers: *In what order should I allocate this money?* It prioritizes ruthlessly. Each step must be funded before moving to the next. The upcoming chapters walk through steps 3 to 8 in depth; here's the complete sequence:
-
-1. **Deductibles covered**: Cash on hand for insurance deductibles
-2. **Employer match**: Capture free money from your 401(k) match
-3. **High-interest debt**: Eliminate toxic-rate debt (credit cards, payday loans)
-4. **Emergency reserves**: Build 3 to 6 months of essential expenses in cash
-5. **Roth IRA / HSA**: Max tax-free retirement accounts
-6. **Max-out retirement**: Push 401(k) to annual limits
-7. **Hyperaccumulation**: Invest in taxable brokerage accounts (the stage where wealth really accelerates)
-8. **Prepaid future expenses**: Save for known large costs (education, down payment)
-9. **Low-interest debt**: Extra payments on mortgages and student loans
+The FOO is a nine-step framework that answers: *In what order should I allocate this money?* It prioritizes ruthlessly. Each step must be funded before moving to the next. The upcoming chapters walk through the steps in depth, and the full sequence (with the reason each step comes where it does) is laid out in @sec-savings-foop.
 
 Your budget is the foundation. It shows you how much money you have to work with. The FOO is the map. It shows you where that money should go. The order matters because each step protects you from a specific financial risk. Don't invest aggressively (step 7) before you've built an emergency fund (step 4) or captured your employer match (step 2). The chapters ahead will show you why.
 
-## Key takeaways
+## Recap
 
 A budget is just a plan for your money in advance. Good budgets:
 

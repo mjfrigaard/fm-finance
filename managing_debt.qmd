@@ -19,39 +19,25 @@ Debt isn't inherently good or bad; it's a tool. Used wisely, it can accelerate w
 
 ## The Debt Hierarchy (know your enemy)
 
-Not all debt is created equal. Attack it in order of damage potential.
-
-```{=html}
-<style>
-
-.codeStyle span:not(.nodeLabel) {
-  font-family: monospace;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #9753b8 !important;
-  background-color: #f6f6f6;
-  padding: 0.2em;
-}
-</style>
-```
+Every debt has a price, called the APR (annual percentage rate): the yearly cost of borrowing, shown as a percentage of what you owe. A 20% APR on $1,000 costs about $200 a year in interest. Not all debt is created equal, so attack it in order of damage potential.
 
 ```{mermaid}
 %%| fig-cap: 'Know Your Enemy'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
-    AllDebt[Your Debts] --> Toxic[TOXIC DEBT<br>15-29% APR]
-    AllDebt --> Moderate[MODERATE DEBT<br>5-10% APR]
-    AllDebt --> Strategic[STRATEGIC DEBT<br>3-7% APR]
+    AllDebt("Your Debts") --> Toxic("TOXIC DEBT<br>15-29% APR")
+    AllDebt --> Moderate("MODERATE DEBT<br>5-10% APR")
+    AllDebt --> Strategic("STRATEGIC DEBT<br>3-7% APR")
 
-    Toxic --> CreditCards[Credit Cards<br>Payday Loans]
-    Moderate --> CarLoans[Car Loans<br>Private Student Loans]
-    Strategic --> Mortgages[Mortgages<br>Federal Student Loans]
+    Toxic --> CreditCards("Credit Cards<br>Payday Loans")
+    Moderate --> CarLoans("Car Loans<br>Private Student Loans")
+    Strategic --> Mortgages("Mortgages<br>Federal Student Loans")
 
-    CreditCards --> Attack1[Attack Aggressively<br>Pay Off First]
-    CarLoans --> Attack2[Pay Down Steadily<br>Avoid New Ones]
-    Mortgages --> Attack3[Pay on Schedule<br>Invest the Difference]
+    CreditCards --> Attack1("Attack Aggressively<br>Pay Off First")
+    CarLoans --> Attack2("Pay Down Steadily<br>Avoid New Ones")
+    Mortgages --> Attack3("Pay on Schedule<br>Invest the Difference")
     style AllDebt fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Toxic fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Moderate fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
@@ -68,7 +54,7 @@ flowchart TD
 
 Credit card debt is the single most destructive financial product most people will ever encounter. At 20%+ APR, it grows faster than any reasonable investment can compound.
 
-[Ramit Sethi's approach is uncompromising here:]{style="color:#48a56a; font-weight: bold;"} credit card debt must be eliminated before any other financial goal beyond a starter emergency fund. The math is brutal: you cannot out-invest 24% interest.
+[The rule here is uncompromising:]{style="color:#48a56a; font-weight: bold;"} credit card debt gets paid off before nearly every other financial goal. The exceptions are covering your insurance deductibles and capturing an employer match (see @sec-foo-debt). The math is brutal: you cannot out-invest 24% interest.
 
 ### The Playbook {.unnumbered}
 
@@ -113,40 +99,26 @@ The 1× ceiling itself isn't very illuminating (it's just the salary number agai
 
 At the 1× ceiling, every borrower pays roughly the same share of gross income (about 14%) to student loans. What changes dramatically is [what's left over.]{style="color:#48a56a; font-weight: bold;"}
 
-- A Fine Arts grad with a \$545 payment has roughly \$2,500–\$2,600 after taxes to cover rent, food, transportation, and everything else.
+* A Fine Arts grad with a \$545 payment has roughly \$2,500–\$2,600 after taxes to cover rent, food, transportation, and everything else.
 
-- An engineer with a \$1,080 payment still has \$4,500–\$4,700 for the same categories. Same debt-to-income *ratio*, very different lifestyle headroom.
+* An engineer with a \$1,080 payment still has \$4,500–\$4,700 for the same categories. Same debt-to-income *ratio*, very different lifestyle headroom.
 
 This is why the 1× rule is a ceiling, not a target, and why lower-earning majors often need a lower personal cap.
-
-```{=html}
-<style>
-
-.codeStyle span:not(.nodeLabel) {
-  font-family: monospace;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #9753b8 !important;
-  background-color: #f6f6f6;
-  padding: 0.2em;
-}
-</style>
-```
 
 ```{mermaid}
 %%| fig-cap: 'Major vs. Salary vs. Debt'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
-    MajorChoice([Choose a Major]) --> ResearchSal[Research Expected<br>Starting Salary]
-    ResearchSal --> EstDebt[Estimate Total<br>Loan Debt]
-    EstDebt --> RatioCheck{Debt ÷ Salary}
-    RatioCheck -->|"Below 1.0"| Viable[Financially<br>Viable Path]
-    RatioCheck -->|"1.0–1.5"| IDRPath[Manageable<br>with IDR Plan]
-    RatioCheck -->|"Above 1.5"| HighRisk[High Risk:<br>Reconsider]
+    MajorChoice(["Choose a Major"]) --> ResearchSal("Research Expected<br>Starting Salary")
+    ResearchSal --> EstDebt("Estimate Total<br>Loan Debt")
+    EstDebt --> RatioCheck{"Debt ÷ Salary"}
+    RatioCheck -->|"Below 1.0"| Viable("Financially<br>Viable Path")
+    RatioCheck -->|"1.0–1.5"| IDRPath("Manageable<br>with IDR Plan")
+    RatioCheck -->|"Above 1.5"| HighRisk("High Risk:<br>Reconsider")
     HighRisk --> Alternatives["Alternatives:<br>Community College<br>In-State Tuition<br>Scholarships<br>Change Major"]
-    IDRPath --> IDRSection([See: IDR Plans below])
+    IDRPath --> IDRSection(["See: IDR Plans below"])
     style MajorChoice fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style ResearchSal fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style EstDebt fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
@@ -158,28 +130,28 @@ flowchart TD
     style IDRSection fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
 ```
 
-**Why 1× works:** a loan equal to first-year salary on a standard 10-year plan at \~6.5% interest produces monthly payments of roughly 1% of gross income. This is a level most budgets absorb without crowding out investing. At 2× salary, that doubles and competes directly with building wealth.
+**Why 1× works:** a loan equal to first-year salary on a standard 10-year plan at \~6.5% interest produces monthly payments of roughly 14% of gross income. This is a level most budgets absorb without crowding out investing. At 2× salary, that doubles and competes directly with building wealth.
 
 *See [Math for Managing Debt](#math-for-managing-debt) below for the `loan_income_ratio()` and `monthly_standard_payment()` functions in R and Python.*
 
 ### After Taking Loans {.unnumbered}
 
 ```{mermaid}
-%%| fig-cap: ' Student Loans'
+%%| fig-cap: 'Student Loans'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
-    StudentLoans[Student<br>Loan<br>Balance] --> Type{Federal<br>or Private?}
-    Type -->|Federal| FedOptions[Federal<br>Options]
-    Type -->|Private| PrivOptions[Private<br>Options]
+    StudentLoans("Student<br>Loan<br>Balance") --> Type{"Federal<br>or Private?"}
+    Type -->|"Federal"| FedOptions("Federal<br>Options")
+    Type -->|"Private"| PrivOptions("Private<br>Options")
 
-    FedOptions --> IDR[Income-Driven<br>Repayment]
-    FedOptions --> PSLF[Public<br>Service<br>Forgiveness]
-    FedOptions --> Standard[Standard<br>10-Year]
+    FedOptions --> IDR("Income-Driven<br>Repayment")
+    FedOptions --> PSLF("Public<br>Service<br>Forgiveness")
+    FedOptions --> Standard("Standard<br>10-Year")
 
-    PrivOptions --> Refi[Refinance<br>for<br>Lower Rate]
-    PrivOptions --> PayDown[Aggressive<br>Paydown]
+    PrivOptions --> Refi("Refinance<br>for<br>Lower Rate")
+    PrivOptions --> PayDown("Aggressive<br>Paydown")
     style StudentLoans fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Type fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style FedOptions fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
@@ -197,38 +169,40 @@ When the 1× rule is out of reach, income-driven repayment (IDR) caps monthly pa
 
 > Discretionary Income = AGI − (threshold × Federal Poverty Guideline)
 
+Here, AGI is your adjusted gross income (your yearly income after a few tax adjustments, found on your tax return). The Federal Poverty Guideline (FPG) is the yearly income level the government uses to define poverty; it changes with household size and from year to year.
+
 The threshold and payment rate differ by plan. Using the 2025 federal poverty guideline of \~\$15,650 for a single person in the contiguous U.S.:
 
 | Plan | Income Threshold | Payment Rate | Forgiveness |
 |----|----|----|----|
 | **IBR** (loans after 2014) | 150% FPG | 10% | 20 years |
 | **PAYE** | 150% FPG | 10% | 20 years |
-| **SAVE** *(blocked, 2025)* | 225% FPG | 5% undergrad / 10% grad | 10–25 years |
-| **RAP** *(proposed, 2025)* | 100% FPG | 1–10% sliding | 30 years |
+| **SAVE** *(ended, March 2026)* | 225% FPG | 5% undergrad / 10% grad | 10–25 years |
+| **RAP** *(available July 2026)* | 100% FPG | 1–10% sliding | 30 years |
 
 **SAVE Plan (Saving on a Valuable Education)**
 
 Introduced by the Biden administration in 2023 as a replacement for REPAYE, SAVE was the most borrower-friendly IDR plan ever offered:
 
-- Raised the income exemption to 225% of FPG (from 150% under older plans), lowering monthly payments substantially for most borrowers
-- Applied 5% of discretionary income to undergraduate loan balances; 10% to graduate balances
-- Forgave balances under \$12,000 after 10 years; larger balances after 20–25 years
+* Raised the income exemption to 225% of FPG (from 150% under older plans), lowering monthly payments substantially for most borrowers
+* Applied 5% of discretionary income to undergraduate loan balances; 10% to graduate balances
+* Forgave balances under \$12,000 after 10 years; larger balances after 20–25 years
 
-**Status (2025):** Blocked by the 8th Circuit Court of Appeals. Borrowers enrolled in SAVE at the time of the injunction were moved into an interest-free administrative forbearance while litigation continues.
+**Status (2026):** Ended. A federal court order ended SAVE in March 2026, and borrowers who were enrolled must choose a new repayment plan.
 
 **RAP (Repayment Assistance Plan)**
 
-The Trump administration's proposed replacement for SAVE:
+The replacement for SAVE, created by federal law and available to borrowers starting July 1, 2026:
 
-- Sliding payment scale from 1% of AGI at low incomes to 10% at higher incomes
-- Income exemption at 100% of FPG (narrower than SAVE) means ssomewhat higher payments for most borrowers at low-to-moderate incomes
-- Forgiveness timeline extended to 30 years (longer than SAVE's 10–25 years)
+* Sliding payment scale from 1% of AGI at low incomes to 10% at higher incomes
+* Income exemption at 100% of FPG (narrower than SAVE) means somewhat higher payments for most borrowers at low-to-moderate incomes
+* Forgiveness timeline extended to 30 years (longer than SAVE's 10–25 years)
 
-**Status (2025):** Proposed rule; not yet finalized. Verify current status at [studentaid.gov](https://studentaid.gov/manage-loans/repayment/plans) before enrolling.
+**Status (2026):** Law, not a proposal. Details such as dependents and minimum payments can change, so verify current terms at [studentaid.gov](https://studentaid.gov/manage-loans/repayment/plans) before enrolling.
 
 **IBR: the stable fallback**
 
-IBR predates both SAVE and RAP and has survived every administration since 2007. For borrowers with loans after July 2014: 10% of discretionary income, forgiveness after 20 years. When newer plans are blocked or in flux, IBR is the court-tested option.
+IBR predates both SAVE and RAP and has survived every administration since 2007. For borrowers with loans after July 2014: 10% of discretionary income, forgiveness after 20 years. When newer plans are ended or in flux, IBR is the court-tested option.
 
 **PSLF**
 
@@ -244,30 +218,28 @@ co_box(color = "o",
   fold = FALSE,
   size = "1.10",
   header = "Plans change; verify before enrolling",
-  contents = "IDR rules are set by regulation, not law, meaning each administration can revise them. The SAVE/RAP situation is a live example. Before enrolling in any repayment plan, check current options at studentaid.gov/manage-loans/repayment/plans.")
+  contents = "IDR plans can be changed by Congress, the courts, and the Department of Education. The end of SAVE and the arrival of RAP are a live example. Before enrolling in any repayment plan, check current options at studentaid.gov/manage-loans/repayment/plans.")
 ```
 
 ```{mermaid}
 %%| fig-cap: 'Choosing an IDR Plan'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
-    FedLoans([Federal Loans]) --> LICheck{Loan-to-Income<br>Ratio?}
-    LICheck -->|"Below 1.0"| StdPlan[Standard<br>10-Year Plan]
-    LICheck -->|"Above 1.0"| PubSvc{Public Sector<br>or Non-Profit?}
-    PubSvc -->|Yes| PSLFTrack[IBR + PSLF<br>10-Year Forgiveness]
-    PubSvc -->|No| PlanAvail{Which plan<br>is available?}
-    PlanAvail -->|SAVE active| SAVEOpt[SAVE<br>5–10% / 10–25 yrs]
-    PlanAvail -->|RAP finalized| RAPOpt[RAP<br>1–10% / 30 yrs]
-    PlanAvail -->|Neither| IBROpt[IBR<br>10% / 20 yrs]
+    FedLoans(["Federal Loans"]) --> LICheck{"Loan-to-Income<br>Ratio?"}
+    LICheck -->|"Below 1.0"| StdPlan("Standard<br>10-Year Plan")
+    LICheck -->|"Above 1.0"| PubSvc{"Public Sector<br>or Non-Profit?"}
+    PubSvc -->|"Yes"| PSLFTrack("IBR + PSLF<br>10-Year Forgiveness")
+    PubSvc -->|"No"| PlanAvail{"Which plan<br>fits your income?"}
+    PlanAvail -->|"Low to middle income"| RAPOpt("RAP<br>1–10% / 30 yrs")
+    PlanAvail -->|"Older loans, higher income"| IBROpt("IBR<br>10% / 20 yrs")
     style FedLoans fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style LICheck fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style StdPlan fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style PubSvc fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style PSLFTrack fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style PlanAvail fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style SAVEOpt fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style RAPOpt fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style IBROpt fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
 ```
@@ -278,9 +250,9 @@ flowchart TD
 
 A key insight from Felix's research-driven approach: [compare your loan interest rate to your expected investment return after tax.]{style="color:#48a56a; font-weight: bold;"}
 
-- **Interest rate above \~6%:** Prioritize paying off\
-- **Interest rate 4-6%:** Roughly a wash; do both
-- **Interest rate below 4%:** Pay the minimum, invest the difference
+* **Interest rate above \~6%:** Prioritize paying off\
+* **Interest rate 4-6%:** Roughly a wash; do both
+* **Interest rate below 4%:** Pay the minimum, invest the difference
 
 Don't forget the **psychological factor** Housel emphasizes: some people sleep better debt-free, even if the math slightly favors investing. That peace of mind has real value.
 
@@ -291,14 +263,14 @@ Cars are where middle-class wealth quietly dies. Here's why:
 ```{mermaid}
 %%| fig-cap: 'Car Payments'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
-    NewCar[New Car<br>Purchase] --> Depreciation[Loses 20-30%<br>in Year 1]
-    NewCar --> Payment[$500-700+<br>Monthly Payment]
-    NewCar --> Insurance[Higher<br>Insurance]
-    NewCar --> Opportunity[Opportunity<br>Cost]
-    Opportunity --> LostWealth[$600/mo<br>invested over<br>30 years<br>= ~$700,000]
+    NewCar("New Car<br>Purchase") --> Depreciation("Loses 20-30%<br>in Year 1")
+    NewCar --> Payment("$500-700+<br>Monthly Payment")
+    NewCar --> Insurance("Higher<br>Insurance")
+    NewCar --> Opportunity("Opportunity<br>Cost")
+    Opportunity --> LostWealth("$600/mo<br>invested over<br>30 years<br>= ~$700,000")
     style NewCar fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style Depreciation fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Payment fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
@@ -323,10 +295,10 @@ Felix has been blunt: [cars are depreciating consumption assets, not investments
 
 ## Debt and the FOO {#sec-foo-debt}
 
-Brian Preston's Financial Order of Operations (FOO), introduced in [Budgeting](budgeting.qmd#the-financial-order-of-operations), splits debt into two separate steps rather than treating it as one problem:
+Brian Preston's Financial Order of Operations (FOO), introduced in [Budgeting](budgeting.qmd#sec-foo-intro), splits debt into two separate steps rather than treating it as one problem:
 
-- **Step 3 — High-interest debt.** Credit cards, payday loans, and anything else in the *toxic* tier (see [The Debt Hierarchy](#the-debt-hierarchy-know-your-enemy) below) get paid off before you build a full emergency fund or invest beyond an employer match. The rate is simply too punishing to justify waiting.
-- **Step 9 — Low-interest debt.** Mortgages and other *strategic*-tier debt sit at the very end of the sequence, after retirement accounts are maxed and future expenses are funded. There's no urgency to prepay a 4% mortgage while tax-advantaged growth is still on the table.
+* **Step 3: High-interest debt.** Credit cards, payday loans, and anything else in the *toxic* tier (see [The Debt Hierarchy](#the-debt-hierarchy-know-your-enemy) above) get paid off before you build a full emergency fund or invest beyond an employer match. The rate is simply too punishing to justify waiting.
+* **Step 9: Low-interest debt.** Mortgages and other *strategic*-tier debt sit at the very end of the sequence, after retirement accounts are maxed and future expenses are funded. There's no urgency to prepay a 4% mortgage while tax-advantaged growth is still on the table.
 
 Moderate-tier debt (car loans, private student loans) falls between these two steps in practice: attack it aggressively, but not ahead of the emergency reserves in step 4 (see [Emergency Fund](emergency_fund.qmd)).
 
@@ -335,10 +307,10 @@ Moderate-tier debt (car loans, private student loans) falls between these two st
 ```{mermaid}
 %%| fig-cap: 'Put It All Together'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
-    Start[Manage Your Debt] --> Step1["Eliminate Credit<br>Card Debt"]
+    Start("Manage Your Debt") --> Step1["Eliminate Credit<br>Card Debt"]
     Step1 --> Step2["Build Emergency Fund<br>3-6 Months Expenses"]
     Step2 --> Step3["Address Student Loans<br>Based on Interest Rate"]
     Step3 --> Step4["Drive Used,<br>Modest Cars"]
@@ -361,11 +333,11 @@ Each calculation is also written as an R and Python function, following the same
 
 These two terms get used interchangeably, but they're different, and lenders often quote whichever number makes the loan look better.
 
-- **APR (Annual Percentage Rate):** The stated annual interest rate, not accounting for compounding.
+* **APR (Annual Percentage Rate):** The stated annual interest rate, not accounting for compounding.
 
-- **APY (Annual Percentage Yield):** The effective annual rate, including the impact of compounding.
+* **APY (Annual Percentage Yield):** The effective annual rate, including the impact of compounding.
 
-Credit card companies quote APR, but compounding means you actually pay more. Both bars below represent one year's interest on a $10,000 balance — the taller one is what you really owe.
+Credit card companies quote APR, but compounding means you actually pay more. Both bars below represent one year's interest on a $10,000 balance; the taller one is what you really owe.
 
 ```{r}
 #| label: apr-apy-bar-model
@@ -428,6 +400,8 @@ That 3.1% gap is real money. On a \$10,000 balance, it's an extra \$310/year you
 ::: panel-tabset
 ## R
 
+In R, `apr_to_apy()` converts a quoted APR into the APY you actually pay.
+
 ```{r}
 #| label: apr-apy-r
 apr_to_apy <- function(apr, periods_per_year = 365) {
@@ -440,6 +414,8 @@ apr_to_apy(apr = 0.24)
 
 ## Python
 
+The Python version of `apr_to_apy()` works the same way:
+
 ```{python}
 #| label: apr-apy-py
 def apr_to_apy(apr, periods_per_year=365):
@@ -448,13 +424,27 @@ def apr_to_apy(apr, periods_per_year=365):
 # 24% APR compounded daily
 apr_to_apy(apr=0.24)
 ```
+
+## Excel
+
+Assuming the APR is in `A2` (as a decimal) and the compounding periods per year are in `B2`:
+
+``` swift
+=(1+A2/B2)^B2-1
+```
+
+The built-in `EFFECT()` function returns the same number:
+
+``` swift
+=EFFECT(A2, B2)
+```
 :::
 
 ### Minimum Payments {.unnumbered}
 
 This is the single most important debt calculation you can master. Credit card companies set minimum payments low because [the longer you pay, the more they earn.]{style="color:#f44242; font-weight: bold;"}
 
-A $100 minimum payment on a $5,000 credit card balance sounds reasonable — until you see how little of it actually reduces the debt.
+A $100 minimum payment on a $5,000 credit card balance sounds reasonable, until you see how little of it actually reduces the debt.
 
 ```{r}
 #| label: min-payment-bar-model
@@ -485,33 +475,34 @@ ggplot(df_min, aes(x = label, y = amount, fill = fill)) +
   )
 ```
 
-The payoff time formula divides the balance by only the principal slice — the green bar — because that's the only part that shrinks the debt.
+Only the principal slice (the green bar) shrinks the debt. But as the balance falls, the interest slice shrinks too, so each payment retires a little more principal than the last. The payoff time formula accounts for that.
 
-**Quick approximation for credit card payoff time:**
+**Credit card payoff time:**
 
-> Months to pay off ≈ Balance ÷ (Monthly Payment − Monthly Interest)
+> Months to pay off = −ln(1 − r × Balance ÷ Payment) ÷ ln(1 + r)
 
-Where: Monthly Interest = Balance × (APR ÷ 12)
+Where: r = APR ÷ 12 (this only works if the payment is larger than the first month's interest)
 
 Example: \$5,000 balance at 22% APR, paying \$100/month minimum
 
-- Monthly interest: \$5,000 × (0.22/12) = \~\$92
+* Monthly interest in month one: \$5,000 × (0.22/12) = \~\$92, so only [\$8]{style="color:#f44242; font-weight: bold;"} of the first payment reduces the balance
 
-- Effective principal reduction: \$100 − \$92 = [\$8/month]{style="color:#f44242; font-weight: bold;"}
+* Payoff time: [\~137 months (about 11 years)]{style="color:#f44242; font-weight: bold;"}
 
-- Payoff time: \$5,000 ÷ \$8 = [\~625 months (52 years)]{style="color:#f44242; font-weight: bold;"}
+* Total paid: \~\$13,700 on a \$5,000 purchase
 
-That's not a typo. Minimum payments are designed to keep you in debt for life.
+That's not a typo. Minimum payments are designed to keep you in debt for years.
 
 ::: panel-tabset
 ## R
 
+In R, `months_to_payoff()` estimates how long a balance lasts under a fixed monthly payment.
+
 ```{r}
 #| label: min-payoff-r
 months_to_payoff <- function(balance, monthly_payment, apr) {
-  monthly_interest    <- balance * (apr / 12)
-  principal_reduction <- monthly_payment - monthly_interest
-  balance / principal_reduction
+  r <- apr / 12
+  -log(1 - r * balance / monthly_payment) / log(1 + r)
 }
 
 # $5,000 balance, $100/month, 22% APR
@@ -520,15 +511,26 @@ months_to_payoff(balance = 5000, monthly_payment = 100, apr = 0.22)
 
 ## Python
 
+The Python version of `months_to_payoff()` works the same way:
+
 ```{python}
 #| label: min-payoff-py
+import math
+
 def months_to_payoff(balance, monthly_payment, apr):
-    monthly_interest    = balance * (apr / 12)
-    principal_reduction = monthly_payment - monthly_interest
-    return balance / principal_reduction
+    r = apr / 12
+    return -math.log(1 - r * balance / monthly_payment) / math.log(1 + r)
 
 # $5,000 balance, $100/month, 22% APR
 months_to_payoff(balance=5000, monthly_payment=100, apr=0.22)
+```
+
+## Excel
+
+Assuming the balance is in `A2`, the monthly payment is in `B2`, and the APR is in `C2` (as a decimal), the `NPER()` function solves for the number of months:
+
+``` swift
+=NPER(C2/12, -B2, A2)
 ```
 :::
 
@@ -541,7 +543,7 @@ The sticker price is the same $30,000, but the loan term determines how much ext
 ```{r}
 #| label: total-interest-bar-model
 #| echo: false
-#| fig-cap: "$30,000 car loan — principal vs. interest for 6-year and 4-year terms"
+#| fig-cap: "$30,000 car loan: principal vs. interest for 6-year and 4-year terms"
 #| fig-asp: 0.50
 library(ggplot2)
 df_ti <- data.frame(
@@ -578,28 +580,30 @@ ggplot(df_ti, aes(x = term, y = amount, fill = component)) +
   )
 ```
 
-Subtract the principal from the total payments and the interest layer is what's left — that's the formula.
+Subtract the principal from the total payments and the interest layer is what's left. That's the formula.
 
 **Formula:** Total Interest = (Monthly Payment × Number of Payments) − Loan Principal
 
 Example: \$30,000 car loan at 7% for 6 years (\~\$512/month):
 
-- Total paid: \$512 × 72 = \$36,864
+* Total paid: \$512 × 72 = \$36,864
 
-- Total interest: \$36,864 − \$30,000 = [\$6,864 in interest]{style="color:#f44242; font-weight: bold;"}
+* Total interest: \$36,864 − \$30,000 = [\$6,864 in interest]{style="color:#f44242; font-weight: bold;"}
 
 Now run the same loan at 4 years instead of 6:
 
-- Monthly payment: \~\$719
+* Monthly payment: \~\$719
 
-- Total paid: \$719 × 48 = \$34,512
+* Total paid: \$719 × 48 = \$34,512
 
-- Total interest: [\$4,512]{style="color:#f44242; font-weight: bold;"}
+* Total interest: [\$4,512]{style="color:#f44242; font-weight: bold;"}
 
 You save [\$2,352]{style="color:#48a56a; font-weight: bold;"} by shortening the term: the math behind the 20/4/10 car rule.
 
 ::: panel-tabset
 ## R
+
+In R, `total_interest()` subtracts the principal from everything you pay over the life of the loan.
 
 ```{r}
 #| label: total-interest-r
@@ -614,6 +618,8 @@ total_interest(monthly_payment = 719, n_months = 48, principal = 30000)
 
 ## Python
 
+The Python version of `total_interest()` works the same way:
+
 ```{python}
 #| label: total-interest-py
 def total_interest(monthly_payment, n_months, principal):
@@ -623,14 +629,24 @@ def total_interest(monthly_payment, n_months, principal):
 print(total_interest(monthly_payment=512, n_months=72, principal=30000))
 print(total_interest(monthly_payment=719, n_months=48, principal=30000))
 ```
+
+## Excel
+
+Assuming the monthly payment is in `A2`, the number of months is in `B2`, and the principal is in `C2`:
+
+``` swift
+=A2*B2-C2
+```
 :::
 
 ### Student Loan-to-Income & Standard Payment {.unnumbered}
 
-The 1× rule from [Choosing a Major](#choosing-a-major-the-salary-to-debt-framework) needs two calculations: the ratio of total debt to expected first-year salary, and the standard 10-year monthly payment that ratio produces.
+The 1× rule from [Choosing a Major](#choosing-a-major) needs two calculations: the ratio of total debt to expected first-year salary, and the standard 10-year monthly payment that ratio produces.
 
 ::: panel-tabset
 ## R
+
+In R, `loan_income_ratio()` divides your total student loans by your expected salary, which checks the 1× rule.
 
 ```{r}
 #| label: loan-income-r
@@ -653,6 +669,8 @@ monthly_standard_payment(principal = 45000)
 
 ## Python
 
+The Python version of `loan_income_ratio()` works the same way:
+
 ```{python}
 #| label: loan-income-py
 def loan_income_ratio(loan_total, expected_salary):
@@ -669,6 +687,20 @@ print(loan_income_ratio(loan_total=45000, expected_salary=42000))
 # standard 10-year monthly payment on that $45,000
 print(monthly_standard_payment(principal=45000))
 ```
+
+## Excel
+
+Assuming total loans are in `A2` and expected salary is in `B2`, the ratio goes in `C2`:
+
+``` swift
+=A2/B2
+```
+
+The standard 10-year payment at 6.5% (using `PMT()`, with the sign flipped) goes in `D2`:
+
+``` swift
+=-PMT(0.065/12, 10*12, A2)
+```
 :::
 
 ### Income-Driven Repayment Monthly Payment {.unnumbered}
@@ -681,6 +713,8 @@ The function below takes the AGI, the FPG threshold multiplier (`1.5` for IBR/PA
 
 ::: panel-tabset
 ## R
+
+In R, `idr_monthly_payment()` applies the income-driven repayment formula to your AGI.
 
 ```{r}
 #| label: idr-payment-r
@@ -701,6 +735,8 @@ idr_monthly_payment(agi = 50000, threshold_pct = 2.25, payment_rate = 0.05)
 
 ## Python
 
+The Python version of `idr_monthly_payment()` works the same way:
+
 ```{python}
 #| label: idr-payment-py
 def idr_monthly_payment(agi, poverty_guideline=15650,
@@ -714,6 +750,16 @@ print(idr_monthly_payment(agi=50000))
 # SAVE parameters: 225% FPG threshold, 5% rate (undergraduate loans)
 print(idr_monthly_payment(agi=50000, threshold_pct=2.25, payment_rate=0.05))
 ```
+
+## Excel
+
+Assuming AGI is in `A2`, the poverty guideline is in `B2` (`15650`), the threshold multiplier is in `C2` (`1.5`), and the payment rate is in `D2` (`0.10`):
+
+``` swift
+=ROUND(MAX(0, A2-B2*C2)*D2/12, 2)
+```
+
+For the SAVE parameters, change `C2` to `2.25` and `D2` to `0.05`.
 :::
 
 ### Debt-to-Income Ratio (DTI) {.unnumbered}
@@ -773,16 +819,18 @@ Example:
 
 Benchmarks:
 
-- **Below 20%:** Healthy
+* **Below 20%:** Healthy
 
-- **20-35%:** Manageable but watch carefully
+* **20-35%:** Manageable but watch carefully
 
-- **36-43%:** Stretched; lenders get cautious
+* **36-43%:** Stretched; lenders get cautious
 
-- **Above 43%:** Danger zone; most mortgage lenders won't approve you
+* **Above 43%:** Danger zone; most mortgage lenders won't approve you
 
 ::: panel-tabset
 ## R
+
+In R, `dti_ratio()` divides your monthly debt payments by your gross monthly income.
 
 ```{r}
 #| label: dti-r
@@ -796,6 +844,8 @@ dti_ratio(monthly_debt_payments = 2500, gross_monthly_income = 7000)
 
 ## Python
 
+The Python version of `dti_ratio()` works the same way:
+
 ```{python}
 #| label: dti-py
 def dti_ratio(monthly_debt_payments, gross_monthly_income):
@@ -804,13 +854,21 @@ def dti_ratio(monthly_debt_payments, gross_monthly_income):
 # $2,500 in debt payments on $7,000 gross income
 dti_ratio(monthly_debt_payments=2500, gross_monthly_income=7000)
 ```
+
+## Excel
+
+Assuming monthly debt payments are in `A2` and gross monthly income is in `B2`:
+
+``` swift
+=A2/B2*100
+```
 :::
 
 ### Pay-Off vs. Invest Comparison {.unnumbered}
 
 This is the math behind every "should I pay extra on my mortgage or invest?" debate.
 
-The math slightly favors investing when the loan rate is below expected returns — but the chart adds what the math alone misses: one bar is certain, the other is a probability.
+The math slightly favors investing when the loan rate is below expected returns, but the chart adds what the math alone misses: one bar is certain, the other is a probability.
 
 ```{r}
 #| label: payoff-invest-bar-model
@@ -836,7 +894,7 @@ ggplot(df_pi, aes(x = option, y = rate, fill = option)) +
   ) +
   annotate(
     "text", x = 2, y = 4.0,
-    label = "Expected —\nnot guaranteed",
+    label = "Expected,\nnot guaranteed",
     colour = "white", fontface = "bold", size = 3.2, hjust = 0.5
   ) +
   scale_fill_manual(values = c(
@@ -856,7 +914,7 @@ ggplot(df_pi, aes(x = option, y = rate, fill = option)) +
   )
 ```
 
-When the investment bar exceeds the debt bar, the math says invest; when the debt bar is higher, pay off — but the certainty premium for debt payoff is worth something the formula can't capture.
+When the investment bar exceeds the debt bar, the math says invest; when the debt bar is higher, pay off, but the certainty premium for debt payoff is worth something the formula can't capture.
 
 **The rule of thumb:**
 
@@ -864,14 +922,16 @@ When the investment bar exceeds the debt bar, the math says invest; when the deb
 
 Example: 5% mortgage vs. expected 7% stock market return (real)
 
-- The math favors investing by \~2% per year
+* The math favors investing by \~2% per year
 
-- **But:** the loan return is [guaranteed]{style="color:#48a56a; font-weight: bold;"}, the investment return is not
+* **But:** the loan return is [guaranteed]{style="color:#48a56a; font-weight: bold;"}, the investment return is not
 
 This is where Housel's wisdom matters: [a guaranteed 5% beats a probable 7% for many people psychologically.]{style="color:#48a56a; font-weight: bold;"} Run the math, then add your peace-of-mind premium.
 
 ::: panel-tabset
 ## R
+
+In R, `payoff_vs_invest()` compares your loan rate to your expected return and tells you which one wins.
 
 ```{r}
 #| label: payoff-vs-invest-r
@@ -891,6 +951,8 @@ payoff_vs_invest(loan_rate = 0.05, expected_return = 0.07)
 
 ## Python
 
+The Python version of `payoff_vs_invest()` works the same way:
+
 ```{python}
 #| label: payoff-vs-invest-py
 def payoff_vs_invest(loan_rate, expected_return):
@@ -903,6 +965,14 @@ def payoff_vs_invest(loan_rate, expected_return):
 
 # 5% mortgage vs. expected 7% return
 payoff_vs_invest(loan_rate=0.05, expected_return=0.07)
+```
+
+## Excel
+
+Assuming the loan rate is in `A2` and the expected return is in `B2`:
+
+``` swift
+=IF(A2>B2, "Pay off the debt", IF(A2<B2, "Invest the difference", "Roughly a wash; do both"))
 ```
 :::
 
@@ -952,13 +1022,13 @@ ggplot(df_av, aes(x = factor(order), y = balance, fill = fill)) +
   )
 ```
 
-There's no formula for which order to choose — the code returns the sorted debt list so you can see the order and decide.
+There's no formula for which order to choose; the code returns the sorted debt list so you can see the order and decide.
 
-- **Avalanche method:** Highest APR first. Mathematically optimal.
+* **Avalanche method:** Highest APR first. Mathematically optimal.
 
-- **Snowball method:** Smallest balance first. Psychologically motivating.
+* **Snowball method:** Smallest balance first. Psychologically motivating.
 
-  - **The hidden cost of snowball:** To calculate, find total interest paid under each method using a debt payoff calculator. The difference is what you're "paying" for the psychological win of quick early payoffs.
+  * **The hidden cost of snowball:** To calculate, find total interest paid under each method using a debt payoff calculator. The difference is what you're "paying" for the psychological win of quick early payoffs.
 
 For most people with moderate debt, the snowball costs \$200-\$1,000 extra in interest. [If that's the price of actually finishing the journey, it's often worth it.]{style="color:#48a56a; font-weight: bold;"} If you're disciplined enough for avalanche, take the savings.
 
@@ -966,6 +1036,8 @@ These two functions take a list of your debts and return them in the order each 
 
 ::: panel-tabset
 ## R
+
+In R, these two functions sort a list of debts in avalanche order (highest APR first) and snowball order (smallest balance first):
 
 ```{r}
 #| label: avalanche-snowball-r
@@ -992,6 +1064,8 @@ order_snowball(debts)
 
 ## Python
 
+The Python versions sort the debts the same two ways:
+
 ```{python}
 #| label: avalanche-snowball-py
 # avalanche: highest APR first
@@ -1012,18 +1086,32 @@ debts = [
 order_avalanche(debts)
 order_snowball(debts)
 ```
+
+## Excel
+
+Put the debts in a small table with headers in row 1 (`name`, `balance`, `apr`) and the data in `A2:C4`. For the avalanche order (highest APR first), sort by the APR column from largest to smallest, either with **Data → Sort** or with the `SORT()` function:
+
+``` swift
+=SORT(A2:C4, 3, -1)
+```
+
+For the snowball order (smallest balance first), sort by the balance column from smallest to largest:
+
+``` swift
+=SORT(A2:C4, 2, 1)
+```
 :::
 
 ### Credit Utilization Ratio {.unnumbered}
 
 For credit score health, this calculation matters month to month.
 
-Credit scores penalize high utilization — not because the credit bureau is arbitrary, but because using a large fraction of available credit signals financial stress.
+Credit scores penalize high utilization, not because the credit bureau is arbitrary, but because using a large fraction of available credit signals financial stress.
 
 ```{r}
 #| label: utilization-bar-model
 #| echo: false
-#| fig-cap: "$3,000 balance against a $10,000 credit limit — used vs. unused"
+#| fig-cap: "$3,000 balance against a $10,000 credit limit: used vs. unused"
 #| fig-asp: 0.50
 library(ggplot2)
 df_util <- data.frame(
@@ -1077,6 +1165,8 @@ Example: \$3,000 balance on \$10,000 limit = **30% utilization**, right at the t
 ::: panel-tabset
 ## R
 
+In R, `credit_utilization()` divides your balance by your credit limit.
+
 ```{r}
 #| label: utilization-r
 credit_utilization <- function(balance, credit_limit) {
@@ -1089,6 +1179,8 @@ credit_utilization(balance = 3000, credit_limit = 10000)
 
 ## Python
 
+The Python version of `credit_utilization()` works the same way:
+
 ```{python}
 #| label: utilization-py
 def credit_utilization(balance, credit_limit):
@@ -1097,6 +1189,14 @@ def credit_utilization(balance, credit_limit):
 # $3,000 balance on a $10,000 limit
 credit_utilization(balance=3000, credit_limit=10000)
 ```
+
+## Excel
+
+Assuming the balance is in `A2` and the credit limit is in `B2`:
+
+``` swift
+=A2/B2*100
+```
 :::
 
 ## Putting the Math to Work
@@ -1104,18 +1204,18 @@ credit_utilization(balance=3000, credit_limit=10000)
 ```{mermaid}
 %%| fig-cap: 'Putting the Math to Work'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
-    DebtMath[Debt Math Mastery] --> Decision1[Before Borrowing:<br/>Calculate Total Interest]
-    DebtMath --> Decision2[While Paying Off:<br/>Compare APR to Returns]
-    DebtMath --> Decision3[Managing Credit:<br/>Monitor DTI & Utilization]
+    DebtMath("Debt Math Mastery") --> Decision1("Before Borrowing:<br/>Calculate Total Interest")
+    DebtMath --> Decision2("While Paying Off:<br/>Compare APR to Returns")
+    DebtMath --> Decision3("Managing Credit:<br/>Monitor DTI & Utilization")
 
-    Decision1 --> Outcome[Intentional<br/>Borrowing Decisions]
+    Decision1 --> Outcome("Intentional<br/>Borrowing Decisions")
     Decision2 --> Outcome
     Decision3 --> Outcome
 
-    Outcome --> Freedom[Financial Freedom]
+    Outcome --> Freedom("Financial Freedom")
     style DebtMath fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Decision1 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Decision2 fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
@@ -1124,7 +1224,7 @@ flowchart TD
     style Freedom fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
-## Key takeaways
+## Recap
 
 Debt management isn't about avoiding all debt; it's about being [intentional]{style="color:#48a56a; font-weight: bold;"} with it. The right framework:
 
@@ -1132,6 +1232,6 @@ Debt management isn't about avoiding all debt; it's about being [intentional]{st
 2.  [Think in human capital.]{style="color:#48a56a; font-weight: bold;"} Student loans are an investment; evaluate the return.
 3.  [Resist depreciating debt.]{style="color:#48a56a; font-weight: bold;"} Cars financed at high rates are wealth-killers.
 
-You don't need to be a math genius to do this well, but you do need to be numerically fluent in the calculations above — because lenders absolutely are. The math always tells the truth. Marketing tells you what's possible. Emotions tell you what feels right. [The math tells you what's actually happening to your money.]{style="color:#48a56a; font-weight: bold;"}
+You don't need to be a math genius to do this well, but you do need to be numerically fluent in the calculations above, because lenders absolutely are. The math always tells the truth. Marketing tells you what's possible. Emotions tell you what feels right. [The math tells you what's actually happening to your money.]{style="color:#48a56a; font-weight: bold;"}
 
 As Housel reminds us: the goal isn't to be debt-free for its own sake. The goal is freedom. And freedom comes from controlling your money before it controls you. As Bogle reminded investors: "The miracle of compounding returns is overwhelmed by the tyranny of compounding costs." The same principle applies in reverse to debt: compounding interest is wealth-destroying when it's working against you. Master the math, and you take that weapon out of the lender's hands.

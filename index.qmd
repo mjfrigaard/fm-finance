@@ -15,18 +15,27 @@ source("_common.R")
 
 This is a **Personal Finance field manual**: a working reference for the day-to-day decisions that shape your financial life. It covers budgeting, saving, borrowing, investing, taxes, insurance, and planning.
 
+```{r}
+#| label: intro-disclaimer
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(color = "g", 
+  header = "Who this book is for", 
+  contents = "The primary audience for this book is my children. It contains some of the basic principles I was taught (and others I've learned painfully) about managing personal finances.")
+```
 
 This book aims to answer questions like:
 
-  - "*Where is my money going each month?*"
+  * "*Where is my money going each month?*"
 
-  - "*How much should I have in an emergency fund?*"
+  * "*How much should I have in an emergency fund?*"
 
-  - "*Should I pay down debt or invest first?*"
+  * "*Should I pay down debt or invest first?*"
 
-  - "*Which retirement account makes sense for me?*"
+  * "*Which retirement account makes sense for me?*"
 
-  - "*How do I pick an index fund?*"
+  * "*How do I pick an index fund?*"
 
 ```{r}
 #| label: llm-disclaiamer
@@ -48,7 +57,7 @@ co_box(
 
 The book is divided into five parts:
 
-1. [**Foundations**](foundations.qmd): budgeting, tracking spending, emergency funds, and debt.
+1. [**Foundations**](foundations.qmd): income, tracking spending, budgeting, debt, and emergency funds.
 2. [**Savings**](savings.qmd): savings strategies, high-yield accounts, and automation.
 3. [**Investing**](investing.qmd): the basics, retirement accounts, index funds, and asset allocation.
 4. [**Taxes & insurance**](taxes_insurance.qmd): the protective layer around your finances.
@@ -65,18 +74,48 @@ The five sections of the book map into [four levers]{style="color:#48a56a; font-
 | Savings   | How much is set aside?    |
 | Investing | What happens to the rest? |
 
+The diagram shows how the levers connect, and which part of the book covers each one.
+
+```{mermaid}
+%%| fig-cap: 'The Four Levers'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
+
+flowchart LR
+    subgraph Foundations["<strong>Foundations</strong>"]
+        Income("Income<br>How much comes in?")
+        Spending("Spending<br>How much goes out?")
+    end
+    subgraph SavingsPart["<strong>Savings</strong>"]
+        Savings("Savings<br>How much is set aside?")
+    end
+    subgraph InvestingPart["<strong>Investing</strong>"]
+        Investing("Investing<br>What happens to the rest?")
+    end
+    Income --> Spending
+    Spending --> Savings
+    Savings --> Investing
+    style Income fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Spending fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Savings fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Investing fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Foundations fill:#FFFFFF,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style SavingsPart fill:#FFFFFF,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style InvestingPart fill:#FFFFFF,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+```
+
 Each lever has its own part in this book:
 
-- [Foundations](foundations.qmd): [Income]{style="color:#48a56a; font-weight: bold;"}, [budgeting]{style="color:#48a56a; font-weight: bold;"}, and [spending]{style="color:#48a56a; font-weight: bold;"} are the behaviors that will have the biggest impact on your financial health. You'll also want to manage the money you borrow, and plan for emergencies.
-- [Savings](savings.qmd) covers different ways to put money aside, different kinds of savings accounts, and the most important behavior for disciplined savings: [automation]{style="color:#48a56a; font-weight: bold;"}.\
-- [Investing](investing.qmd) is what happens to the money you save [over the long term]{style="color:#48a56a; font-weight: bold;"}.
-- [Taxes & insurance](taxes_insurance.qmd) & [Planning](planning.qmd) sit around the outside.      
+* [Foundations](foundations.qmd): [Income]{style="color:#48a56a; font-weight: bold;"}, [budgeting]{style="color:#48a56a; font-weight: bold;"}, and [spending]{style="color:#48a56a; font-weight: bold;"} are the behaviors that will have the biggest impact on your financial health. You'll also want to manage the money you borrow, and plan for emergencies.
+* [Savings](savings.qmd) covers different ways to put money aside, different kinds of savings accounts, and the most important behavior for disciplined savings: [automation]{style="color:#48a56a; font-weight: bold;"}.\
+* [Investing](investing.qmd) is what happens to the money you save [over the long term]{style="color:#48a56a; font-weight: bold;"}.
+* [Taxes & insurance](taxes_insurance.qmd) & [Planning](planning.qmd) sit around the outside.      
 
 Each chapter is short and self-contained so you can jump in where you need to.
 
 ## Math
 
-Whatever math is covered in this book can be done with a calculator, spreadsheet, or some basic programming skills. If you're interested in following along or performing any of the calculations yourself, I've provided examples in Microsoft Excel and both **R** and **Python**. 
+Whatever math is covered in this book can be done with a calculator, spreadsheet, or some basic programming skills. If you're interested in following along or performing any of the calculations yourself, I've provided examples in Microsoft Excel and both **R** and **Python**.
 
 Example R code:
 
@@ -95,16 +134,6 @@ Example Python code:
 ```
 
 If you're interested in programming, the book also has an [accompanying website](https://mjfrigaard.github.io/dev-fm-finance/) where I dive a little deeper into R/Python functions, package development, and how to create interactive web applications using the Shiny framework. 
-
-```{r}
-#| label: intro-disclaimer
-#| echo: false
-#| results: asis
-#| eval: true
-co_box(color = "g", 
-  header = "Who this book is for", 
-  contents = "This primary audience for this book is my children. It contains some of the basic principles I was taught (and others I've learned painfully) about managing personal finances.")
-```
 
 ## About the author
 

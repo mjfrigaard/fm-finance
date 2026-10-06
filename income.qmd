@@ -35,24 +35,10 @@ The person driving the flashy car isn't necessarily wealthy; they just spent the
 
 One of Felix's most powerful contributions is reframing how we think about income itself. He encourages investors to view themselves as having two forms of capital. When you're young, your single biggest asset is your future earning potential. 
 
-```{=html}
-<style>
-
-.codeStyle span:not(.nodeLabel) {
-  font-family: monospace;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #9753b8 !important;
-  background-color: #f6f6f6;
-  padding: 0.2em;
-}
-</style>
-```
-
 ```{mermaid}
-%%| fig-cap: ' Human Capital'
+%%| fig-cap: 'Human Capital'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
     TotalWealth(["Your Total<br>Economic Wealth"]) --> HumanCapital("Human Capital:<br/>Future Earning Potential")
@@ -60,7 +46,7 @@ flowchart TD
     HumanCapital --> EarlyCareer("Early Career:<br/>Human Capital is HUGE")
     FinancialCapital --> EarlyCareer2("Early Career:<br/>Financial Capital is small")
     EarlyCareer --> Implication["Implication:<br>Invest in Skills,<br/>Education &<br>Career Growth"]
-    EarlyCareer2 --> Implication2[Implication:<br>Take More Equity<br>Risk When Young]
+    EarlyCareer2 --> Implication2("Implication:<br>Take More Stock<br>Market Risk When Young")
     style TotalWealth fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style HumanCapital fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style FinancialCapital fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
@@ -77,19 +63,19 @@ During this time, investing in skills, education, and career mobility will have 
 
 The academic research on money and well-being tends to show some practical conclusions:
 
-- [Experiences beat possessions.]{style="color:#48a56a; font-weight: bold;"} Research shows experiential purchases generate more lasting happiness than material ones.[^exp-poss] Choose a vacation or night out over new clothes or toys.
+* [Experiences beat possessions.]{style="color:#48a56a; font-weight: bold;"} Research shows experiential purchases generate more lasting happiness than material ones.[^exp-poss] Choose a vacation or night out over new clothes or toys.
 
 [^exp-poss]: Van Boven, L., & Gilovich, T. (2003). "To do or to have? That is the question." *Journal of Personality and Social Psychology*, 85(6), 1193–1202. <https://doi.org/10.1037/0022-3514.85.6.1193>
 
-- [Buying time is one of the highest-return uses of money.]{style="color:#48a56a; font-weight: bold;"} Outsourcing tasks you dislike (cleaning, lawn care, commuting time) correlates strongly with life satisfaction.[^buy-time] Real wealth should be measured in not doing things you don’t like to do (and more time spent doing things you like to do).
+* [Buying time is one of the highest-return uses of money.]{style="color:#48a56a; font-weight: bold;"} Outsourcing tasks you dislike (cleaning, lawn care, commuting time) correlates strongly with life satisfaction.[^buy-time] Real wealth should be measured in not doing things you don’t like to do (and more time spent doing things you like to do).
 
 [^buy-time]: Whillans, A. V., Dunn, E. W., Smeets, P., Bekkers, R., & Norton, M. I. (2017). "Buying time promotes happiness." *Proceedings of the National Academy of Sciences*, 114(32), 8523–8527. <https://doi.org/10.1073/pnas.1706541114>
 
-- [Lifestyle inflation is the silent killer.]{style="color:#f44242; font-weight: bold;"} Hedonic adaptation means each lifestyle upgrade quickly becomes the new baseline, but the financial commitment remains permanent.[^hedonic] This is the classic “keeping up with the Jonses” trap: avoid external comparisons of material wealth. Instead, focus on where you were last year (and where you’d like to be in the next year).
+* [Lifestyle inflation is the silent killer.]{style="color:#f44242; font-weight: bold;"} Hedonic adaptation means each lifestyle upgrade quickly becomes the new baseline, but the financial commitment remains permanent.[^hedonic] This is the classic “keeping up with the Jonses” trap: avoid external comparisons of material wealth. Instead, focus on where you were last year (and where you’d like to be in the next year).
 
 [^hedonic]: Dunn, E. W., Gilbert, D. T., & Wilson, T. D. (2011). "If money doesn't make you happy, then you probably aren't spending it right." *Journal of Consumer Psychology*, 21(2), 115–125. <https://doi.org/10.1016/j.jcps.2011.02.002>
 
-- [Housing is the biggest lever.]{style="color:#48a56a; font-weight: bold;"} Housing is usually your biggest expense, so choosing how much to spend on it greatly affects your wealth. Renting can be as good as (or better than) buying when you crunch the numbers.[^housing]
+* [Housing is the biggest lever.]{style="color:#48a56a; font-weight: bold;"} Housing is usually your biggest expense, so choosing how much to spend on it greatly affects your wealth. Renting can be as good as (or better than) buying when you crunch the numbers.[^housing]
 
 [^housing]: Beracha, E., & Johnson, K. H. (2012). "Lessons from over 30 years of buy versus rent decisions: Is the American dream always wise?" *Real Estate Economics*, 40(2), 217–247. <https://doi.org/10.1111/j.1540-6229.2011.00321.x>. See also Ben Felix's analysis at [PWL Capital](https://pwlcapital.com/services/financial-wellness-coaching/) and the [Rational Reminder](https://rationalreminder.ca/) podcast.
 
@@ -138,7 +124,7 @@ The four variables are the four levers *you* actually control:
 ```{mermaid}
 %%| fig-cap: 'Wealth Formula'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
     Wealth(["<strong>Wealth</strong>"]) --> Focus("Focus is <br><em>ADDITIVE</em>")
@@ -192,22 +178,7 @@ The chart below illustrates this arithmetic.
 library(ggplot2)
 library(tidyr)
 library(dplyr)
-wealth_formula <- function(focus, stoicism, diversification, years) {
-  # Focus contributes linearly: focus * years
-  additive_term <- focus * years
-  
-  # Second term is multiplicative: stoicism × time × diversification
-  # This compounds: stoicism * diversification^years
-  multiplicative_term <- stoicism * (diversification ^ years)
-  
-  return(additive_term + multiplicative_term)
-}
-
-# Generate data
 years_seq <- seq(0, 40, by = 1)
-wealth_values <- sapply(years_seq, function(y) {
-  wealth_formula(focus = 50000, stoicism = 12000, diversification = 1.08, years = y)
-})
 
 # Parameters: median income, savings rate, annual return
 median_income <- 62400
@@ -221,7 +192,7 @@ df <- data.frame(
   focus_contribution = (median_income * savings_rate) * years_seq,
   multiplicative_contribution = (median_income * savings_rate) * (((1 + annual_return)^years_seq - 1) / annual_return)
 )
-df$total_wealth <- df$focus_contribution + df$multiplicative_contribution
+df$total_wealth <- df$multiplicative_contribution
 
 # Plot total wealth
 ggplot(df, aes(x = years, y = total_wealth / 1e6)) +
@@ -231,7 +202,7 @@ ggplot(df, aes(x = years, y = total_wealth / 1e6)) +
   scale_x_continuous(breaks = seq(0, 40, by = 5)) +
   labs(
     title = "Wealth Growth: The Multiplicative Effect Dominates",
-    subtitle = "Median income $62,400/year, 20% savings rate, 8% annual return",
+    subtitle = "Median income $62,400/year, 15% savings rate, 8% annual return",
     x = "Years",
     y = "Total Wealth"
   ) +
@@ -345,9 +316,9 @@ The illustration uses concrete assumptions: median income of $62,400, saving 15%
 This is where most people fail. A raise feels like permission to upgrade everything. Instead, focus on Felix's research-backed advice: *the marginal happiness gained from lifestyle upgrades is much smaller than people expect, while the marginal financial security from saving raises is enormous.*
 
 ```{mermaid}
-%%| fig-cap: 'Interactive debugger with `browser()` or breakpoint'
+%%| fig-cap: 'Raise Diagram'
 %%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
     Raise(["Pay Raise"]) --> Split{"<strong>Split the Raise</strong>"}
@@ -371,7 +342,7 @@ This way, you reward yourself *and* accelerate freedom, without falling into the
 This chapter is mostly about behavior, but I'll cover some numbers below that can turn the behaviors into something you can track. Each calculation below is also written as an R and Python function, which are covered in the callout box below.
 
 
-::::::: {.callout-note collapse="true"}
+::::::: {.callout-note collapse="true" appearance="default" icon=false}
 
 ## R vs Python: assignment and functions
 
@@ -429,18 +400,14 @@ Example: median income \$62,400, saving 15% (\$9,360/year), earning 8% annually 
 
 ## R
 
+In R, `wealth_formula()` returns the future value of saving a fixed amount every year.
+
 ```{r}
 #| label: wealth-formula-r
 wealth_formula <- function(median_income, savings_rate, annual_return, years) {
-  # annual savings contribution over time (additive)
-  focus <- (median_income * savings_rate) * years
-  
-  # compound growth of savings (multiplicative)
+  # future value of saving a fixed amount every year (contributions plus growth)
   annual_savings <- median_income * savings_rate
-  multiplicative <- annual_savings * (((1 + annual_return)^years - 1) / annual_return)
-  
-  # wealth
-  focus + multiplicative
+  annual_savings * (((1 + annual_return)^years - 1) / annual_return)
 }
 ```
 
@@ -458,18 +425,14 @@ wealth_formula(
 
 ## Python
 
+The Python version of `wealth_formula()` works the same way:
+
 ```{python}
 #| label: wealth-formula-py
 def wealth_formula(median_income, savings_rate, annual_return, years):
-    # annual savings contribution over time (additive)
-    focus = (median_income * savings_rate) * years
-    
-    # compound growth of savings (multiplicative)
+    # future value of saving a fixed amount every year (contributions plus growth)
     annual_savings = median_income * savings_rate
-    multiplicative = annual_savings * (((1 + annual_return)**years - 1) / annual_return)
-    
-    # wealth
-    return focus + multiplicative
+    return annual_savings * (((1 + annual_return)**years - 1) / annual_return)
 ```
 
 After 40 years with median income, 15% savings rate, 8% return:
@@ -493,33 +456,29 @@ In Excel, we can break this into two columns for clarity. Let's say we have:
 * `C2`: annual return (0.08)    
 * `D2`: years (40)    
 
-For the focus (additive) component in cell `E2`:
+For the total contributed (the additive focus) in cell `E2`:
 
 ```swift
 =A2*B2*D2
 ```
 
-For the multiplicative component in cell `F2`:
+For total wealth, contributions plus growth, in cell `F2`:
 
 ```swift
 =(A2*B2)*(((1+C2)^D2-1)/C2)
 ```
 
-For total wealth in `G2`:
-
-```swift
-=E2+F2
-```
+`F2` already includes everything in `E2`, so don't add the two together.
 
 ![Wealth formula in Excel](img/income-wealth-formula.png){width='75%' fig-align='center'}
 
 :::
 
-The result is approximately $2.8 million after 40 years—a powerful demonstration of how modest, consistent saving paired with compound growth transforms modest income into substantial wealth.
+The result is approximately \$2.4 million after 40 years, of which only \$374,400 is money you contributed. This is a powerful demonstration of how modest, consistent saving paired with compound growth transforms modest income into substantial wealth.
 
 ### The Fixed-Cost Ratio {.unnumbered}
 
-Fixed costs (rent, loan payments, insurance, utilities) are the commitments you can't easily change month to month. The chart below divides an \$8,000 take-home into its two parts — fixed and flexible — and marks the 60% ceiling that keeps the rest of the budget healthy.
+Fixed costs (rent, loan payments, insurance, utilities) are the commitments you can't easily change month to month. The chart below divides an \$8,000 take-home into its two parts (fixed and flexible) and marks the 60% ceiling that keeps the rest of the budget healthy.
 
 ```{r}
 #| label: fixed-cost-bar-model
@@ -600,7 +559,7 @@ def fixed_cost_ratio(fixed_costs, take_home):
 
 \$4,400 of fixed costs on \$8,000 take-home pay
 
-```{r}
+```{python}
 #| label: fixed-cost-py-apply
 fixed_cost_ratio(fixed_costs=4400, take_home=8000)
 ```
@@ -613,11 +572,11 @@ In Excel there's no function to define: you put the numbers in cells and write t
 =A2/B2
 ```
 
-That gives `0.54`. 
+That gives `0.55`. 
 
 ![Entering a formula in Excel](img/income-fixed-cost-ratio.png){width='75%' fig-align='center'}
 
-Format `C2` as a percentage (`Home → %`, or `Ctrl+Shift+5`) and it displays [54%]{style="color:#48a56a; font-weight: bold;"}.
+Format `C2` as a percentage (`Home → %`, or `Ctrl+Shift+5`) and it displays [55%]{style="color:#48a56a; font-weight: bold;"}.
 
 ![Convert to percent](img/income-fixed-cost-ratio-perc.png){width='75%' fig-align='center'}
 
@@ -632,7 +591,7 @@ To produce the percent *string* directly (the analog of R's `paste0(..., "%")` a
 
 :::
 
-This results in a 55% fixed-cost ratio -- just under the ceiling!
+This results in a 55% fixed-cost ratio, just under the ceiling!
 
 ### What a Raise Is Really Worth {.unnumbered}
 
@@ -641,7 +600,7 @@ This results in a 55% fixed-cost ratio -- just under the ceiling!
 ```{r}
 #| label: raise-value-bar-model
 #| echo: false
-#| fig-cap: "$200/month invested at 7% — value at each 5-year checkpoint"
+#| fig-cap: "$200/month invested at 7%: value at each 5-year checkpoint"
 #| fig-asp: 0.50
 library(ggplot2)
 yrs  <- c(5, 10, 15, 20, 25)
@@ -670,7 +629,7 @@ ggplot(df_raise, aes(x = year, y = value)) +
   )
 ```
 
-Each bar is the previous total plus another year of \$200/month contributions and their growth — the annuity formula sums all those monthly additions into one calculation.
+Each bar is the previous total plus another year of \$200/month contributions and their growth; the annuity formula sums all those monthly additions into one calculation.
 
 **Formula:** FV = PMT × [((1 + r)\^n − 1) ÷ r]
 
@@ -729,9 +688,9 @@ raise_invested_value(monthly_raise=400, invest_share=0.5, rate=0.07, years=25)
 
 Excel actually has a built-in [`FV()` (future value) function](https://support.microsoft.com/en-US/Excel/fv-function), so we don't have to write the formula ourselves. The arguments are `FV(rate, nper, pmt)`:
 
-- `rate` is the return *per period* (monthly here): `7%/12`     
-- `nper` is the number of periods: `25*12`      
-- `pmt` is the amount invested each period, entered as a *negative* number because it's cash leaving your pocket: `-200`      
+* `rate` is the return *per period* (monthly here): `7%/12`     
+* `nper` is the number of periods: `25*12`      
+* `pmt` is the amount invested each period, entered as a *negative* number because it's cash leaving your pocket: `-200`      
 
 ```swift
 =FV(7%/12, 25*12, -200)
@@ -745,7 +704,7 @@ This returns [\$162,014.34]{style="color:#48a56a; font-weight: bold;"}, the same
 
 We can see this results in over \$160K! 
 
-## Key takeaways
+## Recap
 
 1. [Invest in your human capital]{style="color:#48a56a; font-weight: bold;"}: your career is your biggest asset early on and it's the focus part of the wealth equation.
 
