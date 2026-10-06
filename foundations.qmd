@@ -24,7 +24,7 @@ This part walks through those foundations in order:
 As I write this book, we’re in the midst of an “AI revolution.” It’s impossible to predict which technologies will be most useful or relevant for you as a reader. I’ve chosen Excel because spreadsheets remain a near-universal tool in business, and they’re invaluable for managing information. The programming languages I reference are open-source and free, making them accessible and durable choices.
 
 
-If AI systems are handling most technical tasks by the time you read this, consider the next pages a snapshot of how people once approached numbers and information—an artifact from before automation took over.
+If AI systems are handling most technical tasks by the time you read this, consider the next pages a snapshot of how people once approached numbers and information, an artifact from before automation took over.
 
 
 ## Time horizons

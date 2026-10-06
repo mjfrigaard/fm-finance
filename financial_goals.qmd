@@ -19,6 +19,6 @@ source("_common.R")
 A "goal" without a number and a date is a wish. This chapter is about
 turning wishes into plans you can actually execute against.
 
-  - Short / medium / long horizons
-  - Sequencing goals when you can't fund them all at once
-  - Tracking progress without obsessing over it
+  * Short / medium / long horizons
+  * Sequencing goals when you can't fund them all at once
+  * Tracking progress without obsessing over it

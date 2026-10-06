@@ -20,9 +20,9 @@ Insurance is for losses you [can't absorb]{style="color:#48a56a; font-weight: bo
 cover the catastrophic; skip the small policies that turn premiums into a
 slow leak.
 
-  - Health
-  - Auto
-  - Renters / homeowners
-  - Term life (when you have dependents)
-  - Disability
-  - Umbrella
+  * Health
+  * Auto
+  * Renters / homeowners
+  * Term life (when you have dependents)
+  * Disability
+  * Umbrella
