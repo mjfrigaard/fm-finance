@@ -21,7 +21,7 @@ You don't need a complicated trust to do the basics right. When you're starting 
 
 ## Why This Matters When You're Young
 
-Once you turn 18, your parents lose the legal right to make decisions for you. If you're in a car accident and can't speak for yourself, a hospital doesn't have to tell your parents anything about your condition, and they can't pay your rent or talk to your bank on your behalf. Without the right forms, your family may have to go to court to get that authority, which is slow and expensive.
+Once you turn 18, your parents lose the legal right to make decisions for you. If you're in a car accident and can't speak for yourself, a hospital doesn't have to tell your parents anything about your condition ([HHS](https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/personal-representatives/index.html)), and they can't pay your rent or talk to your bank on your behalf. Without the right forms, your family may have to go to court to get that authority, which is slow and expensive.
 
 The other reason to start early is that these decisions are easiest to make while you're healthy and thinking clearly. That sounds obvious, but research suggests people are bad at noticing when that's no longer true. A 2024 study of older Americans found that people tend to underestimate their own cognitive decline, and that those with a serious decline who didn't realize it were more likely to lose wealth, mostly through bad financial decisions [@mazzonna2024aware]. The lesson applies to every age: set up your plan, and choose the people you trust to step in, before you need them.
 
@@ -35,7 +35,7 @@ A beneficiary is the person who gets an account's money when you die. Most finan
 * Bank accounts, through a "payable on death" (POD) designation
 * Brokerage accounts, through a "transfer on death" (TOD) designation
 
-Beneficiary designations override your will. When you die, the bank or plan pays whoever is named on its form, not whoever your will says. If the form is blank or the person named has died, the money usually goes through probate, the court process for settling an estate, which takes longer and costs more.
+Beneficiary designations override your will. When you die, the bank or plan pays whoever is named on its form, not whoever your will says [@moneyguy2024estate]. The Supreme Court upheld this in *Kennedy v. Plan Administrator for DuPont* (2009), where a retirement plan paid an ex spouse who was still named on an old form. If the form is blank or the person named has died, the money usually goes through probate, the court process for settling an estate, which takes longer and costs more.
 
 That makes this the most important task in the chapter, and the easiest. Log into each account, find the beneficiary section, and name a primary beneficiary and a backup (called a contingent beneficiary). Then check them again after any big life change: marriage, divorce, a new child, or a death in the family. An old form naming an ex can still pay out to that ex.
 
@@ -60,7 +60,7 @@ These forms are often free from your state's health department, your hospital, o
 
 A will says who gets anything that doesn't already have a beneficiary, like your car, your belongings, and any accounts without a POD or TOD designation. It also names an executor, the person who settles your estate. If you have children, a will is where you name a guardian for them, which is the most important reason to have one.
 
-If you die without a will, your state's laws decide who gets your things, usually your spouse, children, or parents in a fixed order. For a young single person with few belongings, that may be close to what you'd want anyway. A will becomes essential once you marry, have children, or own a home.
+If you die without a will, your state's laws (called intestate succession, [Cornell LII](https://www.law.cornell.edu/wex/intestate_succession)) decide who gets your things, usually your spouse, children, or parents in a fixed order. For a young single person with few belongings, that may be close to what you'd want anyway. A will becomes essential once you marry, have children, or own a home. Rules vary by state, so a local estate lawyer can confirm what applies to you.
 
 A trust is a legal arrangement that holds assets for someone else and can skip probate. It's useful for people with significant assets, a home in more than one state, or children who will inherit a lot of money. Most people starting out don't need one.
 
@@ -82,7 +82,7 @@ A plan nobody can find doesn't help. Keep your documents somewhere your family c
 
 ## Talking with Your Parents
 
-The cognitive decline research is mainly about people in their 60s and 70s, which may describe your parents or grandparents. They may not notice changes in their own judgment, and those changes are most likely to show up in money decisions [@mazzonna2024aware]. Ask whether they have a power of attorney, a healthcare directive, and current beneficiaries, and where the paperwork is. It's an awkward conversation, but it's far easier to have now than during a crisis.
+The cognitive decline research studied Americans aged 50 to 80, which may describe your parents or grandparents. They may not notice changes in their own judgment, and the losses in the study fell mostly on wealthier people who were managing stock market investments [@mazzonna2024aware]. Ask whether they have a power of attorney, a healthcare directive, and current beneficiaries, and where the paperwork is. It's an awkward conversation, but it's far easier to have now than during a crisis.
 
 ## Math for Estate Planning {#math-for-estate-planning}
 

@@ -17,11 +17,13 @@ source("_common.R")
 
 Building wealth doesn't start with picking the right stock or finding a hot investment; it starts with how you manage the money flowing in and out of your life. Let's break down the foundational principles.
 
+One thing to know before your first paycheck: your salary (gross pay) isn't what lands in your bank account. Your employer first takes out federal and state income tax, Social Security and Medicare (7.65% together), and anything you put into a 401(k) or a health plan. What's left is your take-home pay, and it's the number to plan around. On a \$45,000 salary, take-home pay is often around \$2,700 to \$3,000 a month, depending on your state and benefits. The [Taxes](taxes.qmd) chapter explains each of these deductions.
+
 ## Some Core Truths
 
 Here's a counterintuitive insight from Morgan Housel[^wealth]:
 
-> "*Wealth is the nice cars not purchased. The diamonds not bought. The watches not worn, the clothes forgone and the first-class upgrade declined. Wealth is financial assets that haven’t yet been converted into the stuff you see.*" - [Morgan Housel](https://www.morganhousel.com/)
+> "*Wealth is the nice cars not purchased. The diamonds not bought. The watches not worn, the clothes forgone and the first-class upgrade declined. Wealth is financial assets that haven’t yet been converted into the stuff you see.*" ([Morgan Housel](https://www.morganhousel.com/))
 
 [^wealth]: Read more in [Morgan Housel's The Psychology of Money](https://www.goodreads.com/quotes/11756295-wealth-is-the-nice-cars-not-purchased-the-diamonds-not)
 
@@ -33,7 +35,7 @@ The person driving the flashy car isn't necessarily wealthy; they just spent the
 
 ## Your Human Capital
 
-One of Felix's most powerful contributions is reframing how we think about income itself. He encourages investors to view themselves as having two forms of capital. When you're young, your single biggest asset is your future earning potential. 
+One of Felix's most powerful contributions is reframing how we think about income itself. He encourages investors to view themselves as having two forms of capital: human capital (your ability to earn money in the future) and financial capital (the money you've already saved and invested). When you're young, your single biggest asset is your future earning potential. 
 
 ```{mermaid}
 %%| fig-cap: 'Human Capital'
@@ -57,7 +59,7 @@ flowchart TD
 
 ```
 
-During this time, investing in skills, education, and career mobility will have a higher return than any portfolio decision. Income growth, especially early in your career, is one of the most powerful wealth-building levers available. Time and energy spent developing valuable skills can pay off in later years (when these resources are less readily available). 
+During this time, investing in skills, education, and your ability to move into better jobs will have a higher return than any investment choice. Income growth, especially early in your career, is one of the most powerful wealth-building levers available. Time and energy spent developing valuable skills can pay off in later years (when these resources are less readily available). 
 
 ## Spending and Happiness
 
@@ -71,7 +73,7 @@ The academic research on money and well-being tends to show some practical concl
 
 [^buy-time]: Whillans, A. V., Dunn, E. W., Smeets, P., Bekkers, R., & Norton, M. I. (2017). "Buying time promotes happiness." *Proceedings of the National Academy of Sciences*, 114(32), 8523–8527. <https://doi.org/10.1073/pnas.1706541114>
 
-* [Lifestyle inflation is the silent killer.]{style="color:#f44242; font-weight: bold;"} Hedonic adaptation means each lifestyle upgrade quickly becomes the new baseline, but the financial commitment remains permanent.[^hedonic] This is the classic “keeping up with the Jonses” trap: avoid external comparisons of material wealth. Instead, focus on where you were last year (and where you’d like to be in the next year).
+* [Lifestyle inflation is the silent killer.]{style="color:#f44242; font-weight: bold;"} Hedonic adaptation (getting used to new things until they stop feeling special) means each lifestyle upgrade quickly becomes the new baseline, but the financial commitment remains permanent.[^hedonic] This is the classic “keeping up with the Joneses” trap: avoid external comparisons of material wealth. Instead, focus on where you were last year (and where you’d like to be in the next year).
 
 [^hedonic]: Dunn, E. W., Gilbert, D. T., & Wilson, T. D. (2011). "If money doesn't make you happy, then you probably aren't spending it right." *Journal of Consumer Psychology*, 21(2), 115–125. <https://doi.org/10.1016/j.jcps.2011.02.002>
 
@@ -89,7 +91,7 @@ Love coffee? Buy the $6 latte. But maybe drive a reliable used car instead of a 
 
 ### 2. Housel: "*Build a Gap Between Ego and Income*" {.unnumbered}
 
-The wider the gap between what you earn and what your ego demands you spend, the wealthier you become. Lifestyle creep is the silent killer of financial freedom.[^housel-gap]
+The wider the gap between what you earn and what your ego demands you spend, the wealthier you become. Lifestyle creep (spending more every time you earn more) is the silent killer of financial freedom.[^housel-gap]
 
 [^housel-gap]: Housel, M. (2020). *The Psychology of Money: Timeless lessons on wealth, greed, and happiness*. Harriman House. The "gap between your ego and your income" framing appears in Chapter 10, *Save Money*. The chapter draws on Housel's earlier essay of the same name at [Collaborative Fund](https://collabfund.com/blog/the-psychology-of-money/).
 
@@ -117,9 +119,9 @@ The four variables are the four levers *you* actually control:
 
 [^stoicism]: [What is Stoicism?](https://plato.stanford.edu/entries/stoicism/)
 
-3. Time: The most powerful financial variable is how many compounding years you still have. The earlier you start, the more time you have.
+3. Time: The most powerful financial variable is how many years your money still has to compound (earn returns on its past returns). The earlier you start, the more time you have.
 
-4. Diversification: Don't bet on a single stock, sector, or career outcome. Spread risk across asset classes, geographies, and time.
+4. Diversification: Don't bet on a single stock, sector, or career outcome. Spread risk across types of investments (stocks, bonds, cash), countries, and time.
 
 ```{mermaid}
 %%| fig-cap: 'Wealth Formula'
@@ -313,7 +315,7 @@ The illustration uses concrete assumptions: median income of $62,400, saving 15%
 
 ## As Your Income Grows
 
-This is where most people fail. A raise feels like permission to upgrade everything. Instead, focus on Felix's research-backed advice: *the marginal happiness gained from lifestyle upgrades is much smaller than people expect, while the marginal financial security from saving raises is enormous.*
+This is where most people fail. A raise feels like permission to upgrade everything. Instead, focus on Felix's research-backed advice: *the extra happiness from each lifestyle upgrade is much smaller than people expect, while the extra financial security from saving raises is enormous.*
 
 ```{mermaid}
 %%| fig-cap: 'Raise Diagram'
@@ -390,7 +392,7 @@ def add_fun(a, b):
 
 ### The Wealth Formula {.unnumbered}
 
-Galloway's wealth formula captures the essence of wealth building. To turn it into numbers, picture someone with a median income of \$62,400 who saves 15% (\$9,360) every year and earns 8%. Each bar below is their savings at a checkpoint, split into what they put in and what it grew into.
+Galloway's wealth formula captures the essence of wealth building. To turn it into numbers, picture someone earning \$62,400 a year, about the median for full time workers in 2025 ([BLS](https://www.bls.gov/opub/ted/2026/median-weekly-earnings-were-1204-in-2025.htm): \$1,204 a week). Your first paycheck will probably be smaller; think of this as an average over a career. They save 15% (\$9,360) every year and earn 8%. Each bar below is their savings at a checkpoint, split into what they put in and what it grew into.
 
 ```{r}
 #| label: wealth-bar-model
@@ -403,8 +405,8 @@ put_in <- 9360 * yrs
 total  <- 9360 * ((1.08^yrs - 1) / 0.08)
 df_w <- data.frame(
   year   = factor(rep(paste0("Year ", yrs), 2), levels = paste0("Year ", yrs)),
-  layer  = factor(rep(c("Growth (time × diversification)", "Money put in (stoicism)"), each = 4),
-                  levels = c("Growth (time × diversification)", "Money put in (stoicism)")),
+  layer  = factor(rep(c("Growth", "Money put in"), each = 4),
+                  levels = c("Growth", "Money put in")),
   amount = c(total - put_in, put_in)
 )
 ggplot(df_w, aes(x = year, y = amount, fill = layer)) +
@@ -415,8 +417,7 @@ ggplot(df_w, aes(x = year, y = amount, fill = layer)) +
         label = paste0("$", formatC(round(total / 1000), format = "d", big.mark = ","), "k")),
     inherit.aes = FALSE, vjust = -0.4, fontface = "bold", size = 3.5
   ) +
-  scale_fill_manual(values = c("Money put in (stoicism)" = "#0e9aa7",
-                               "Growth (time × diversification)" = "#48a56a")) +
+  scale_fill_manual(values = c("Money put in" = "#0e9aa7", "Growth" = "#48a56a")) +
   scale_y_continuous(
     limits = c(0, max(total) * 1.12),
     labels = function(x) paste0("$", formatC(round(x / 1000), format = "d", big.mark = ","), "k")
@@ -430,11 +431,13 @@ ggplot(df_w, aes(x = year, y = amount, fill = layer)) +
   )
 ```
 
-The blue layer grows in a straight line, one \$9,360 deposit per year. The green layer is every deposit growing at 8% for the years it has left, and it passes the blue layer after about year 18. Adding up all those growing deposits is what the formula's second term does; in the code below, that sum collapses into the same future value formula used for regular contributions.
+The blue layer grows in a straight line, one \$9,360 deposit per year. The green layer is every deposit growing at 8% for the years it has left, and it passes the blue layer after about year 18. Adding up all those growing deposits is what the formula's second term does. Each piece of Galloway's formula has a place in the math: your income and savings rate set the yearly deposit (stoicism), the number of years is time, and the return is what diversified investing earns.
 
-**Formula:** Wealth = Focus + (Stoicism × Time × Diversification)
+**Formula:** Wealth after *n* years = Yearly savings × [((1 + r)\^n − 1) ÷ r]
 
-Example: median income \$62,400, saving 15% (\$9,360/year), earning 8% annually over 40 years.
+Where: Yearly savings = Income × Savings rate, *r* = the yearly return, and *n* = the number of years.
+
+Example: \$62,400 × 15% = \$9,360 a year. \$9,360 × [((1.08)\^40 − 1) ÷ 0.08] = [about \$2,424,769 after 40 years.]{style="color:#48a56a; font-weight: bold;"} Check: you put in \$9,360 × 40 = \$374,400, so growth did most of the work.
 
 ::: panel-tabset
 
@@ -518,53 +521,47 @@ The result is approximately \$2.4 million after 40 years, of which only \$374,40
 
 ### The Fixed-Cost Ratio {.unnumbered}
 
-Fixed costs (rent, loan payments, insurance, utilities) are the commitments you can't easily change month to month. The chart below divides an \$8,000 take-home into its two parts (fixed and flexible) and marks the 60% ceiling that keeps the rest of the budget healthy.
+Fixed costs (rent, loan payments, insurance, utilities) are the commitments you can't easily change month to month. Take-home pay is what actually lands in your bank account after taxes and other deductions. Picture a first job with \$3,200 of take-home pay a month and \$1,760 of fixed costs. The bar below is that paycheck cut into 10 equal pieces of \$320 (each piece is 10%), with the fixed costs shaded and the 60% ceiling that keeps the rest of the budget healthy marked.
 
 ```{r}
 #| label: fixed-cost-bar-model
 #| echo: false
-#| fig-cap: "Take-home pay divided into fixed costs and flexible spending ($8,000 total)"
-#| fig-asp: 0.50
+#| fig-cap: "$3,200 take-home pay in 10 units of $320: fixed costs vs. flexible spending"
+#| fig-asp: 0.30
 library(ggplot2)
+parts <- c("Fixed costs ($1,760)", "Flexible spending ($1,440)")
 df_fc <- data.frame(
-  label  = factor(c("Fixed costs", "Flexible spending"),
-                  levels = c("Fixed costs", "Flexible spending")),
-  amount = c(4400, 3600),
-  fill   = c("#f44242", "#86ddcd")
+  part   = factor(parts, levels = rev(parts)),
+  amount = c(1760, 1440),
+  bar    = "Take-home pay"
 )
-ggplot(df_fc, aes(x = "", y = amount, fill = fill)) +
-  geom_col(width = 0.4) +
-  geom_text(
-    aes(label = paste0(label, "\n$", format(amount, big.mark = ","))),
-    position = position_stack(vjust = 0.5),
-    colour = "white", fontface = "bold", size = 3.8
-  ) +
-  geom_hline(yintercept = 4800, colour = "#1C1C1E",
-             linetype = "dashed", linewidth = 1) +
-  annotate("text", x = 1.24, y = 5400,
-           label = "60% ceiling: $4,800",
-           colour = "#1C1C1E", fontface = "bold", size = 3.5, hjust = 0) +
-  scale_fill_identity() +
-  scale_y_continuous(
-    limits = c(0, 9000),
-    labels = function(x) paste0("$", format(x, big.mark = ","))
-  ) +
-  labs(x = NULL, y = "Take-home pay ($8,000)") +
+ggplot(df_fc, aes(x = amount, y = bar, fill = part)) +
+  geom_col(width = 0.5, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_vline(xintercept = seq(320, 2880, by = 320), colour = "white", linewidth = 0.5) +
+  geom_vline(xintercept = 1920, colour = "#1C1C1E", linetype = "dashed", linewidth = 1) +
+  annotate("text", x = 1920, y = 1.42, label = "60% ceiling: $1,920",
+           fontface = "bold", size = 3.4, hjust = -0.05) +
+  scale_fill_manual(values = c("Fixed costs ($1,760)" = "#f44242",
+                               "Flexible spending ($1,440)" = "#86ddcd"),
+                    breaks = parts) +
+  scale_x_continuous(breaks = seq(0, 3200, by = 640),
+                     labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  scale_y_discrete(expand = expansion(add = c(0.4, 0.6))) +
+  labs(x = NULL, y = NULL, fill = NULL) +
   theme_minimal(base_size = 12) +
   theme(
-    legend.position    = "none",
-    axis.text.x        = element_blank(),
-    axis.ticks.x       = element_blank(),
-    panel.grid.major.x = element_blank(),
-    panel.grid.minor   = element_blank()
+    legend.position    = "top",
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank(),
+    axis.text.y        = element_blank()
   )
 ```
 
-The formula names the fixed slice as a fraction of the whole bar, converted to a percentage.
+The red section covers 5 and a half of the 10 pieces, so fixed costs take 55% of the paycheck. The formula does the same thing: divide the red section by the whole bar, then multiply by 100.
 
 **Formula:** Fixed-Cost Ratio = Fixed Costs ÷ Take-Home Pay × 100
 
-Example: \$4,400 of fixed costs on \$8,000 take-home
+Example: \$1,760 ÷ \$3,200 × 100 = [55%.]{style="color:#48a56a; font-weight: bold;"} Check: the ceiling is 60% of \$3,200 = \$1,920, and \$1,760 is below it.
 
 ::: panel-tabset
 
@@ -579,11 +576,11 @@ fixed_cost_ratio <- function(fixed_costs, take_home) {
 }
 ```
 
-\$4,400 of fixed costs on \$8,000 take-home pay
+\$1,760 of fixed costs on \$3,200 take-home pay
 
 ```{r}
 #| label: fixed-cost-r-apply
-fixed_cost_ratio(fixed_costs = 4400, take_home = 8000)
+fixed_cost_ratio(fixed_costs = 1760, take_home = 3200)
 ```
 
 ## Python
@@ -597,11 +594,11 @@ def fixed_cost_ratio(fixed_costs, take_home):
 
 ```
 
-\$4,400 of fixed costs on \$8,000 take-home pay
+\$1,760 of fixed costs on \$3,200 take-home pay
 
 ```{python}
 #| label: fixed-cost-py-apply
-fixed_cost_ratio(fixed_costs=4400, take_home=8000)
+fixed_cost_ratio(fixed_costs=1760, take_home=3200)
 ```
 
 ## Excel
@@ -635,7 +632,7 @@ This results in a 55% fixed-cost ratio, just under the ceiling!
 
 ### What a Raise Is Really Worth {.unnumbered}
 
-\$200/month doesn't sound like much. The chart below shows what that single habit produces when invested at 7% over 25 years.
+Say you get a raise that adds \$400 a month to your take-home pay, and you follow the split from the diagram above: \$200 goes to your lifestyle and \$200 gets invested. \$200/month doesn't sound like much. The chart below shows what that single habit produces when invested at 7% over 25 years, split into the money you put in and what it grew into.
 
 ```{r}
 #| label: raise-value-bar-model
@@ -649,8 +646,16 @@ df_raise <- data.frame(
   year  = factor(paste0("Year ", yrs), levels = paste0("Year ", yrs)),
   value = vals
 )
+df_layers <- data.frame(
+  year   = rep(df_raise$year, 2),
+  layer  = factor(rep(c("Growth", "Money put in"), each = length(yrs)),
+                  levels = c("Growth", "Money put in")),
+  amount = c(vals - 200 * 12 * yrs, 200 * 12 * yrs)
+)
 ggplot(df_raise, aes(x = year, y = value)) +
-  geom_col(fill = "#0e9aa7", width = 0.6) +
+  geom_col(data = df_layers, aes(x = year, y = amount, fill = layer),
+           width = 0.6, colour = "#1C1C1E", linewidth = 0.4, inherit.aes = FALSE) +
+  scale_fill_manual(values = c("Money put in" = "#0e9aa7", "Growth" = "#48a56a")) +
   geom_text(
     aes(label = paste0("$", formatC(round(value / 1000), format = "d",
                                     big.mark = ","), "k")),
@@ -660,22 +665,23 @@ ggplot(df_raise, aes(x = year, y = value)) +
     limits = c(0, max(vals) * 1.2),
     labels = function(x) paste0("$", round(x / 1000), "k")
   ) +
-  labs(x = NULL, y = NULL,
+  labs(x = NULL, y = NULL, fill = NULL,
        subtitle = "$200/month invested at 7% annual return") +
   theme_minimal(base_size = 12) +
   theme(
+    legend.position    = "top",
     panel.grid.major.x = element_blank(),
     panel.grid.minor   = element_blank()
   )
 ```
 
-Each bar is the previous total plus another year of \$200/month contributions and their growth; the annuity formula sums all those monthly additions into one calculation.
+Each bar is the previous total plus another year of \$200/month contributions and their growth; the future value formula adds up all those monthly deposits, each with its own growth, in one calculation.
 
 **Formula:** FV = PMT × [((1 + r)\^n − 1) ÷ r]
 
 PMT is the amount invested each month, *r* is the monthly return, and *n* is the number of months. We will revisit this future-value-of-contributions formula in the [Investing Basics](investing_basics.qmd) chapter.
 
-Example: a \$400/month raise, half of it invested (\$200/month) for 25 years at a 7% annual return.
+Example: \$200 × [((1 + 0.07 ÷ 12)\^300 − 1) ÷ (0.07 ÷ 12)] = [about \$162,014 after 25 years (300 months).]{style="color:#48a56a; font-weight: bold;"} Check: you put in \$200 × 300 = \$60,000, so growth added about \$102,000.
 
 ::: panel-tabset
 
@@ -755,5 +761,7 @@ We can see this results in over \$160K!
 4. [Keep it simple]{style="color:#48a56a; font-weight: bold;"}: Bogle’s philosophy is diversification at the portfolio level, and time is on the side of the compounding effect (which we will return to in [Investing](investing.qmd)).
 
 Wealth is a combination of growing your income, protecting your savings, and making sure you're spending money on what actually makes you happy.
+
+The next chapter turns to the other side of income: tracking where your money actually goes.
 
 

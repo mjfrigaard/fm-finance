@@ -17,12 +17,12 @@ pl.Config.set_tbl_rows(20)
 
 <br>
 
-You only manage what you measure. This chapter covers how to capture every dollar that leaves your accounts and turn those transactions into insights.
+You only manage what you measure. This chapter covers how to capture every dollar that leaves your accounts and turn that list of purchases into something you can learn from.
 
 * Capturing every transaction
 * Working with digital bank exports
 * Categorizing what you've captured
-* Reviewing on a monthly cadence
+* Reviewing once a month
 * Spotting "leak" categories (subscriptions, delivery fees, impulse buys)
 
 Tracking is the *recording* side of personal finance. In the next chapter, we'll cover [budgeting](budgeting.qmd), which is the *allocation* side (i.e., where money is supposed to go). Without tracking, a budget is a guess; with tracking, a budget becomes a feedback loop.
@@ -56,11 +56,11 @@ A small notebook, kept in a pocket or bag. Every time money leaves your hands, y
 
 ### Checkbook registers {.unnumbered}
 
-Every paper checkbook used to come with a register that recorded each transaction on its own line, with a running balance. Registers work for any account where you can list debits and credits. One page per month is plenty. The habit of writing each entry keeps you disciplined and honest about the balance.
+Every paper checkbook used to come with a register that recorded each transaction on its own line, with a running balance. Registers work for any account where you can list money going out (debits) and money coming in (credits). One page per month is plenty. The habit of writing each entry keeps you disciplined and honest about the balance.
 
 ### Cash envelope system {.unnumbered}
 
-If you’re a fan of low-tech solutions, you can withdraw monthly amounts in cash for groceries, dining, gas and fun money, then split them into labeled physical envelopes. When an envelope is empty, that category is done for the month. Depression-era families used envelopes because they had to. The system has stuck around because the physical, finite nature of cash slows spending more reliably than any reminder ever will.[^tracking_spending-1]
+If you’re a fan of low-tech solutions, you can withdraw monthly amounts in cash for groceries, dining, gas and fun money, then split them into labeled physical envelopes. When an envelope is empty, that category is done for the month. Families during the Great Depression of the 1930s used envelopes because they had to. The system has stuck around because the physical, finite nature of cash slows spending more reliably than any reminder ever will.[^tracking_spending-1]
 
 [^tracking_spending-1]: Stashing cash around the house was actually quite common for people who lived through the depression. Read more [here](https://www.chicagotribune.com/2005/04/17/inheritance-hide-and-seek/).
 
@@ -70,7 +70,7 @@ Today, we make purchases digitally (via debit and credit cards), so every transa
 
 ## Categorizing Transactions {#sec-categorizing-transactions}
 
-Categorizing transactions can get complicated, but it doesn’t need to be. Downloading a bank statement is easy, but today, transactions might be handled by multiple services (Amazon, PayPal, Venmo, etc.). Transactions like these can be difficult to reconcile, so I recommend starting with about 10 buckets and a small, stable list.
+Categorizing transactions can get complicated, but it doesn’t need to be. Downloading a bank statement is easy, but today, transactions might be handled by multiple services (Amazon, PayPal, Venmo, etc.). Transactions like these can be difficult to match up with what you actually bought, so I recommend starting with about 10 buckets and a small, stable list.
 
 A working starter set:
 
@@ -104,7 +104,7 @@ Two rules that save hours of bookkeeping:
 
 Digital tracking is the bank-statement method above, but some of the work is done for you. Most banks allow you to export your monthly statement, and they typically include at least three columns: `Date`, `Description`, and `Amount` (negative for money going out, positive for money coming in).
 
-Not all exported bank statements include a category, but you can add it yourself, and we'll do it in [buidling categories](#sec-building-categories) section below.
+Not all exported bank statements include a category, but you can add it yourself, and we'll do it in the [building categories](#sec-building-categories) section below.
 
 ::: panel-tabset
 ## R
@@ -210,7 +210,7 @@ The `bank_statement` can also be copied + pasted into Excel:
 
 ![`bank_statement` in Excel](img/tracking_spending-bank-statement.png){width="75%" fig-align="center"}
 
-Excel also has a handy table format, which give many tools for sorting and analyzing data.[^tracking_spending-2] I'll go into using tables more on the [accompanying website](https://mjfrigaard.github.io/dev-fm-finance/) for the book.
+Excel also has a handy table format, which gives you many tools for sorting and analyzing data.[^tracking_spending-2] I'll go into using tables more on the [accompanying website](https://mjfrigaard.github.io/dev-fm-finance/) for the book.
 :::
 
 [^tracking_spending-2]: Read the [Overview of Excel tables](https://support.microsoft.com/en-us/excel/overview-of-excel-tables) on the Microsoft documentation.
@@ -219,7 +219,7 @@ Once your transactions sit in columns and rows, it's much easier to answer track
 
 1.  What is the total spent on subscriptions?\
 2.  What percentage of my income is going to fixed costs?\
-3.  What was my biggest variable category last month?
+3.  What was my biggest variable category (one that changes from month to month, like dining out) last month?
 
 [Bogle](https://www.bogleheads.org/) would approve of building a custom spreadsheet because simplicity wins. A well-built spreadsheet beats most apps because it forces you to engage with your numbers.
 
@@ -305,7 +305,7 @@ r_bank_statement |> knitr::kable()
 
 ## Re-using categories in R
 
-For repeated use, the `case_when()` pipeline above can be wrapped into a reusable function that accepts a lookup table, making it easy for users add or edit keyword patterns:
+For repeated use, the `case_when()` pipeline above can be wrapped into a reusable function that accepts a lookup table, making it easy for users to add or edit keyword patterns:
 
 * `df` = `data.frame` with a `Description` column\
 * `rules` = `data.frame` with `Pattern` and `Category` columns
@@ -458,7 +458,7 @@ In Excel, the [`IFS()` function](https://support.microsoft.com/en-US/Excel/IFS-f
 To add a new merchant when one shows up: edit the formula in `D2`, then re-fill down. Keep the new merchant near the bottom of its category group so the existing patterns still resolve first.
 :::
 
-Each month, add a new pattern when you see a real transaction that didn't match. The goal isn't to classify every edge case up front; the lookup handles 90%+ of your monthly transactions automatically, leaving only the unusual ones to triage by hand.
+Each month, add a new pattern when you see a real transaction that didn't match. The goal isn't to classify every edge case up front; the lookup handles 90%+ of your monthly transactions automatically, leaving only the unusual ones to sort out by hand.
 
 ::::::: {.callout-note collapse="true" appearance="default" icon=false}
 
@@ -466,7 +466,7 @@ Each month, add a new pattern when you see a real transaction that didn't match.
 
 The categorization code above uses all three of these ideas at once to create the keyword test:
 
-1.  We use `grepl()` / `str.contains()`) to return a true/false result for every row at once
+1.  We use `grepl()` / `str.contains()` to return a true/false result for every row at once
 
 2.  Then logical-OR alternation chooses between merchants
 
@@ -543,7 +543,7 @@ The ritual has four steps:
 3.  [Compare]{style="color:#48a56a; font-weight: bold;"} category totals to your budget. Where did you go over budget? Where did you come in under budget?
 4.  [Pick one change]{style="color:#48a56a; font-weight: bold;"} for next month. *One.* The point is sustainable adjustment, not perfection.
 
-Over a year, twelve small adjustments compound into a budget that actually fits your life. That's the real return on tracking: the calibration loop, not the spreadsheet itself.
+Over a year, twelve small adjustments compound into a budget that actually fits your life. That's the real return on tracking: the habit of checking and adjusting, not the spreadsheet itself.
 
 ## Online Subscriptions
 
@@ -575,9 +575,9 @@ flowchart TD
 
 ### The Subscription Reality Check {.unnumbered}
 
-The average household spends [\$200–\$300/month]{style="color:#f44242; font-weight: bold;"} on subscriptions, often without realizing it.[^tracking_spending-3] At \$250/month invested at a 7% real return over 30 years, that's roughly [\$300,000 in lost wealth]{style="color:#f44242; font-weight: bold;"}.
+A 2022 survey by C+R Research found Americans spend about [\$219/month]{style="color:#f44242; font-weight: bold;"} on subscriptions, and guessed \$133 less than that when asked.[^tracking_spending-3] At \$219/month invested at a 7% real return (the return after inflation) over 30 years, that's roughly [\$267,000 in lost wealth]{style="color:#f44242; font-weight: bold;"}.
 
-[^tracking_spending-3]: These numbers are reported on [Next Gen Personal Finance](https://www.ngpf.org/blog/question-of-the-day/question-of-the-day-how-much-does-the-average-consumer-spend-per-month-on-subscription-services/) and [CBS News](https://www.cbsnews.com/newyork/news/experts-suggest-taking-stock-of-how-much-your-monthly-subscriptions-really-cost-before-the-end-of-the-year/)
+[^tracking_spending-3]: C+R Research's 2022 subscription survey of 1,000 US adults, as reported by [The Motley Fool](https://fool.com/the-ascent/personal-finance/articles/survey-finds-americans-spend-133-more-than-they-realize-on-monthly-subscription-fees/). Similar numbers appear on [Next Gen Personal Finance](https://www.ngpf.org/blog/question-of-the-day/question-of-the-day-how-much-does-the-average-consumer-spend-per-month-on-subscription-services/) and [CBS News](https://www.cbsnews.com/newyork/news/experts-suggest-taking-stock-of-how-much-your-monthly-subscriptions-really-cost-before-the-end-of-the-year/).
 
 **Action steps:**
 
@@ -591,58 +591,58 @@ This isn't deprivation; it's the [Sethi](https://www.iwillteachyoutoberich.com/)
 
 ## Math for tracking spending
 
-Below are some tips and tools for tracking spending. Some can be used to easily categorize purchases; others can be used to check how much you’re spending on subscriptions.
+The math in this chapter answers one question: what does a subscription really cost? The answer is its opportunity cost, the money you give up by spending instead of investing.
 
 ### The Subscription Audit Math {.unnumbered}
 
-A \$20/month subscription feels trivial. The chart below shows what that \$240/year could have become if invested instead; each bar is a year when you could have stopped and kept the difference.
+A \$20/month subscription feels trivial. Imagine canceling it and investing the \$240 a year instead. The chart below shows what that money grows into at each checkpoint, split into the money you put in and the growth it earned.
 
 ```{r}
 #| label: subscription-bar-model
 #| echo: false
-#| fig-cap: "Future value of a $20/month subscription's annual cost if invested at 7%"
+#| fig-cap: "$240 a year invested at 7% instead of a $20/month subscription"
 #| fig-asp: 0.50
 library(ggplot2)
-years <- c(0, 5, 10, 20, 30)
-values <- c(
-  240,
-  240 * ((1.07^5  - 1) / 0.07),
-  240 * ((1.07^10 - 1) / 0.07),
-  240 * ((1.07^20 - 1) / 0.07),
-  240 * ((1.07^30 - 1) / 0.07)
-)
+years  <- c(1, 5, 10, 20, 30)
+values <- 240 * ((1.07^years - 1) / 0.07)
+put_in <- 240 * years
 df_sub <- data.frame(
-  year  = factor(paste0("Year ", years), levels = paste0("Year ", years)),
-  value = values,
-  fill  = c(rep("#0e9aa7", 4), "#f44242")
+  year   = factor(rep(paste0("Year ", years), 2), levels = paste0("Year ", years)),
+  layer  = factor(rep(c("Growth", "Money put in"), each = length(years)),
+                  levels = c("Growth", "Money put in")),
+  amount = c(values - put_in, put_in)
 )
-ggplot(df_sub, aes(x = year, y = value, fill = fill)) +
+ggplot(df_sub, aes(x = year, y = amount, fill = layer)) +
   geom_col(width = 0.6, colour = "#1C1C1E", linewidth = 0.4) +
   geom_text(
-    aes(label = paste0("$", formatC(round(value), format = "d", big.mark = ","))),
-    vjust = -0.4, fontface = "bold", size = 3.5, colour = "#1C1C1E"
+    data = data.frame(year = factor(paste0("Year ", years), levels = paste0("Year ", years)),
+                      total = values),
+    aes(x = year, y = total, label = paste0("$", formatC(round(total), format = "d", big.mark = ","))),
+    inherit.aes = FALSE, vjust = -0.4, fontface = "bold", size = 3.5, colour = "#1C1C1E"
   ) +
-  scale_fill_identity() +
+  scale_fill_manual(values = c("Money put in" = "#0e9aa7", "Growth" = "#f44242")) +
   scale_y_continuous(
     labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ",")),
     expand = expansion(mult = c(0, 0.12))
   ) +
-  labs(x = "Checkpoint", y = "Accumulated value (7% annual return)") +
+  labs(x = NULL, y = NULL, fill = NULL) +
   theme_minimal(base_size = 12) +
   theme(
+    legend.position    = "top",
     panel.grid.major.x = element_blank(),
     panel.grid.minor   = element_blank()
   )
 ```
 
-The formula is just compound growth applied to the annual cost: multiply each year's \$240 by the accumulated growth factor.
+Each bar adds another year's \$240 to everything saved so far, and the whole pile grows by 7%. Adding up every year's \$240, each with its own growth, is what the formula does in one step.
 
 **Formula:** Annual cost × ((1.07)\^n − 1) ÷ 0.07 = Opportunity cost in *n* years
 
 Example: A \$20/month subscription you don't really use, over 30 years:
 
 * Annual cost: \$240
-* Invested at 7% real return for 30 years: [\~\$22,700]{style="color:#f44242; font-weight: bold;"}
+* Invested at a 7% real return for 30 years: \$240 × ((1.07)\^30 − 1) ÷ 0.07 = [\~\$22,700]{style="color:#f44242; font-weight: bold;"}
+* Check: you put in \$240 × 30 = \$7,200, so growth added about \$15,500
 
 That "small" \$20/month is a \$22,700 decision. [Audit accordingly.]{style="color:#48a56a; font-weight: bold;"}
 
@@ -659,7 +659,7 @@ subscription_opportunity_cost <- function(monthly_cost, years, rate = 0.07) {
 }
 ```
 
-Now lets consider a \$20/month subscription for 30 years at 7%:
+Now let's consider a \$20/month subscription for 30 years at 7%:
 
 ```{r}
 subscription_opportunity_cost(monthly_cost = 20, years = 30)
@@ -699,7 +699,7 @@ The formula (given this setup) is below:
 =(A2*12)*((1+C2)^B2-1)/C2
 ```
 
-`A2*12` converts the monthly cost to annual; the rest is the future-value-of-an-annuity formula using the rate in `C2` and the time horizon in `B2`.
+`A2*12` converts the monthly cost to annual; the rest is the future value formula for regular deposits, using the rate in `C2` and the time horizon in `B2`.
 
 ![Opportunity Cost in Excel](img/tracking_spending-opportunity_cost.png){width="100%" fig-align="center"}
 :::

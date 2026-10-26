@@ -60,7 +60,7 @@ Most work plans offer both a Traditional and a Roth option, and IRAs come in bot
 
 When you're just starting out, your income (and your tax rate) is probably the lowest it will be for most of your working life. That makes Roth the better default for most people early in their careers. You pay a small tax bill now, while your rate is low, and every dollar of growth is yours to keep. The math section below shows why this one comparison is all that matters.
 
-Roth isn't always the right answer, though. The Money Guy Show calls Roth accounts the "apex predator" of wealth building, but points out that once your tax rate is high, the tax break you get today from a Traditional account can be worth more. They also recommend holding some money in both kinds of accounts, since nobody knows what tax rates will be in 40 years [@may2025roth]. As your income grows, revisit the choice.
+Roth isn't always the right answer, though. The Money Guy Show calls Roth accounts the "apex predator" of wealth building, but points out that once your tax rate is high, the tax break you get today from a Traditional account can be worth more. They also recommend holding some money in both kinds of accounts, since nobody knows what tax rates will be in 40 years [@may2025roth]. JL Collins makes the same point: use a Roth when your tax bracket is low, and switch to a deductible Traditional account once it's higher [@collins2015buckets]. As your income grows, revisit the choice.
 
 ## The IRA: An Account That's Yours
 

@@ -55,7 +55,7 @@ If your employer offers a high deductible health plan, compare it carefully. The
 
 If you own a car, you're required to carry auto insurance, but the minimum your state requires is usually far too low. Liability coverage is the part that protects you, not your car: if you cause an accident, it pays for the other person's injuries and damage. If your coverage runs out, you can be sued for the rest.
 
-A common recommendation is liability limits of at least 100/300/100: $100,000 per person injured, $300,000 per accident, and $100,000 for property damage. The jump from the state minimum to these limits often costs less than people expect.
+Most experts, including Consumer Reports and the Insurance Information Institute, recommend liability limits of at least 100/300/100 [@cr2025auto]: $100,000 per person injured, $300,000 per accident, and $100,000 for property damage. The jump from the state minimum to these limits often costs less than people expect.
 
 Auto policies have two other main parts:
 
@@ -76,13 +76,13 @@ Your biggest financial asset when you're starting out isn't your savings. It's y
 
 This is the policy young people most often overlook, even though the risk is real. The Social Security Administration estimates that about 1 in 4 of today's 20 year olds will become disabled before reaching retirement age [@ssa2026disability].
 
-Check your benefits at work first. Many employers offer long term disability insurance that replaces about 60% of your pay, often for free or a few dollars a month. If it's offered, take it. If it's not, look into an individual policy once you have a steady income.
+Check your benefits at work first. Many employers offer long term disability insurance that replaces about 60% of your pay [@moneyguy2024disability], often for free or a few dollars a month. If it's offered, take it. If it's not, look into an individual policy once you have a steady income.
 
 ## Life Insurance
 
 Life insurance pays money to someone else when you die. That means you only need it if someone depends on your income: a spouse, a child, or a family member you support. If no one would be hurt financially by losing your paycheck, you don't need it yet.
 
-When you do need it, buy term life insurance. It covers you for a set number of years (often 20 or 30), costs little when you're young and healthy, and pays a large amount if you die during the term. A common starting point is coverage of 10 to 12 times your yearly income, for long enough to get your dependents to adulthood.
+When you do need it, buy term life insurance. It covers you for a set number of years (often 20 or 30), costs little when you're young and healthy, and pays a large amount if you die during the term. A common starting point is coverage of about 10 times your yearly income [@moneyguy2024insurance], for long enough to get your dependents to adulthood.
 
 Avoid whole life and other "permanent" policies that combine insurance with an investment account. They cost many times more than term insurance for the same coverage, and the investment part usually grows more slowly than the index funds from [Index Funds](index_funds.qmd). Salespeople earn large commissions on these policies, which is why they're pushed so hard.
 
