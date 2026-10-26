@@ -15,11 +15,268 @@ source("_common.R")
 
 <br>
 
-A low-cost, broad-market index fund is the closest thing personal finance
-has to a free lunch. You own a tiny slice of thousands of companies, pay
-almost nothing in fees, and beat most active managers over long periods
-[@bogle2017little].
+The last chapter covered the containers: the 401(k), the IRA, the HSA. This chapter covers what to put inside them. For most people, the answer is a low cost index fund that owns a large part of the stock market. It's the closest thing personal finance has to a free lunch. You own a tiny slice of thousands of companies, you pay almost nothing in fees, and over long periods you'll do better than most professional investors [@bogle2017little].
 
-  * Expense ratios: why a 0.04% vs. 1% fee matters
-  * Total-market vs. S&P 500 vs. international
-  * ETFs vs. mutual funds
+You don't have to know how to pick stocks to invest well. In fact, the research says you're better off not trying.
+
+## What Is an Index Fund?
+
+An index is just a list of companies. The S&P 500, for example, is a list of about 500 of the largest companies in the US. People use indexes to measure how "the market" is doing; when the news says the market went up 1% today, they usually mean an index like the S&P 500.
+
+A fund is a pool of money from many investors that buys a group of investments. An index fund is a fund that buys everything on an index's list. If you buy one share of an S&P 500 index fund, you own a small piece of all 500 companies at once.
+
+Nobody at an index fund decides which companies are good bets. The fund holds each company in proportion to its size, so bigger companies make up a bigger share of the fund. That's why index funds are called passive. Funds where a manager picks the investments are called active.
+
+Holding companies by size (called market cap weighting) is also what Ben Felix recommends. Some newer funds give every company an equal share instead, and they've sometimes done better in the past. Felix's view is that those results came from accidentally owning more small and cheap companies, not from the equal weighting itself, and that equal weight funds add costs and risks a regular investor doesn't need. His conclusion on equal weight funds: "I wouldn't use these things" [@felix2026equal].
+
+## Why Index Funds Win
+
+Active funds hire professionals to pick the companies they think will do best. It sounds like that should work better than buying everything. It usually doesn't.
+
+S&P Dow Jones Indices tracks how active funds do against their index every year in a report called [SPIVA](https://www.spglobal.com/spdji/en/spiva/article/spiva-us-year-end-2025/). In 2025, 79% of active funds that invest in large US companies did worse than the S&P 500. Over 15 years, about 9 out of 10 did worse. The few that do win in one period rarely keep winning in the next, so there's no reliable way to pick them ahead of time.
+
+John Bogle, who started the first index fund for regular investors in 1976, explained why with simple math. All investors together own the whole market, so before costs, the average investor earns the market's return. After costs, the average investor must earn less. Active funds charge more and trade more, so most of them end up behind. Index funds keep costs close to zero, so they keep almost all of the market's return [@bogle2017little].
+
+::: {.callout-tip}
+## The short version
+
+You can't control what the market does. You can control what you pay. Low cost index funds win because they give away less of the return to fees.
+:::
+
+## Expense Ratios: Small Numbers, Big Costs
+
+An expense ratio is the yearly fee a fund charges, shown as a percentage of the money you have in it. You never get a bill. The fund takes the fee out a little at a time, so it's easy to miss.
+
+The difference looks tiny on paper. A broad index fund might charge 0.04% a year, and an active fund might charge 1%. On $10,000, that's $4 a year compared to $100 a year. But the fee comes out every year, and money paid in fees can't grow. Over a working lifetime, a 1% fee can cost you close to a quarter of your money. The math section below shows how.
+
+When you compare funds, look for an expense ratio under 0.10%. Many broad index funds from Fidelity, Schwab, and Vanguard charge 0.05% or less.
+
+## Total Market vs. S&P 500 vs. International
+
+Index funds come in many flavors. Three matter for most people:
+
+* S&P 500 funds own about 500 of the largest US companies.
+* Total US market funds own nearly every public US company, around 4,000 of them, from the largest to the smallest.
+* International funds own companies outside the US, in places like Europe, Japan, and emerging countries like India and Brazil.
+
+The first two are closer than they sound. The 500 largest companies make up most of the US market's value, so an S&P 500 fund and a total market fund rise and fall almost together. Either is a fine choice; use whichever has the lower fee in your account.
+
+International funds are different. The US is only part of the world's stock market, and no country stays on top forever. Some years US stocks do better; some years international stocks do better, and nobody can tell ahead of time which it will be. Owning both spreads your money across more of the world. How much to put in each is an asset allocation question, which the next chapter covers. It's also the question where the experts in this book disagree the most.
+
+::: {.callout-important}
+## Where the experts disagree: international stocks
+
+John Bogle said US investors don't need international stocks at all, and if they want some, they shouldn't go over 20% [@bogle2017international]. JL Collins agrees and recommends a single total US market fund. Both point out that big US companies already earn a lot of their money overseas [@collins2016simple].
+
+Ben Felix doesn't pick a single number. He points to research showing that results were about the same for investors who kept anywhere from 10% to 60% of their stocks in their home country, and says he has no strong opinion on whether a US investor should hold more or less than the world market's share of US stocks [@felix2026questions].
+
+What they agree on: own a broad, low cost index fund, and pick a split you can stick with. Holding none, some, or a market share of international stocks is a reasonable choice. Switching back and forth based on which did better last year is not.
+:::
+
+## ETFs vs. Mutual Funds
+
+Index funds come in two packages: mutual funds and ETFs (exchange traded funds). The investments inside can be identical. The difference is how you buy and sell them.
+
+| | Mutual fund | ETF |
+|:---|:---|:---|
+| When you can buy or sell | Once a day, at the closing price | Any time the market is open |
+| How much you can buy | Often has a starting minimum (some are $0, some are $1,000 or more) | One share, or less if your brokerage sells partial shares |
+| Taxes in a taxable account | Can be a little higher | Usually a little lower |
+| Automatic monthly investing | Easy at most brokerages | Depends on the brokerage |
+
+In an IRA, either works. Mutual funds make automatic investing a little easier; ETFs have no minimums. In a taxable account, ETFs usually have a small tax advantage. In a 401(k), you don't get to choose the package; you pick from your plan's list of funds, and that list rarely includes ETFs.
+
+Bogle had one warning about ETFs: because you can buy and sell them all day, they make it easy to trade too often [@bogle2017little]. The fund itself isn't the problem. Buying an ETF and checking the price every hour is.
+
+## How to Pick an Index Fund
+
+Picking an index fund takes a few minutes once you know what to look for:
+
+1. Pick broad: a total US market fund, an S&P 500 fund, a total international fund, or a total world fund that holds both.
+2. Check the expense ratio. Under 0.10% is good; under 0.05% is great.
+3. In a 401(k), look through the fund list for the word "index" and pick the one with the lowest expense ratio in each category. If there's no good index fund, a target date fund (covered in the next chapter) is a reasonable fallback.
+4. Buy it, set up automatic contributions, and leave it alone.
+
+That last step is the hard one. Morgan Housel points out that the investors who do best aren't the smartest; they're the ones who can sit still the longest [@housel2020psychology].
+
+## Math for Index Funds {#math-for-index-funds}
+
+Index fund math is about one thing: what fees cost you. The first calculation shows the fee for a single year. The second shows how that fee grows over a lifetime of investing.
+
+### The Fee This Year {.unnumbered}
+
+Imagine $10,000 in two funds. Each year, both funds take a slice of your money as a fee. The chart below shows how big each slice is.
+
+```{r}
+#| label: fee-bar-model
+#| echo: false
+#| fig-cap: "One year of fees on $10,000"
+#| fig-asp: 0.30
+library(ggplot2)
+df_fee <- data.frame(
+  fund  = factor(c("Index fund (0.04%)", "Active fund (1%)"),
+                 levels = c("Active fund (1%)", "Index fund (0.04%)")),
+  fee   = c(10000 * 0.0004, 10000 * 0.01),
+  fill  = c("#0e9aa7", "#f44242")
+)
+ggplot(df_fee, aes(x = fee, y = fund, fill = fill)) +
+  geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_text(
+    aes(label = paste0("$", fee)),
+    hjust = -0.3, fontface = "bold", size = 3.5
+  ) +
+  scale_fill_identity() +
+  scale_x_continuous(
+    limits = c(0, 120),
+    labels = function(x) paste0("$", x)
+  ) +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+Each bar is the balance multiplied by the expense ratio.
+
+Formula: Yearly fee = Balance × Expense ratio
+
+Example: $10,000 × 0.0004 = $4. $10,000 × 0.01 = [$100, or 25 times as much.]{style="color:#f44242; font-weight: bold;"}
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: fee-r
+yearly_fee <- function(balance, expense_ratio) {
+  balance * expense_ratio
+}
+
+# $10,000 in an index fund vs. an active fund
+yearly_fee(balance = 10000, expense_ratio = c(0.0004, 0.01))
+```
+
+## Python
+
+```{python}
+#| label: fee-py
+import numpy as np
+
+def yearly_fee(balance, expense_ratio):
+    return balance * expense_ratio
+
+# $10,000 in an index fund vs. an active fund
+yearly_fee(balance=10000, expense_ratio=np.array([0.0004, 0.01]))
+```
+
+## Excel
+
+Assuming `Balance` is in cell `B2` and `Expense ratio` is in cell `C2`:
+
+``` swift
+=B2 * C2
+```
+:::
+
+### What Fees Cost Over a Lifetime {.unnumbered}
+
+A yearly fee is small, but it comes out every year, and each dollar it takes would have kept growing. The chart below follows someone who invests $300 a month at a 7% return. The only difference between the two bars at each checkpoint is the fee.
+
+```{r}
+#| label: fee-drag-bar-model
+#| echo: false
+#| fig-cap: "$300/month at 7%, with a 0.04% fee vs. a 1% fee"
+#| fig-asp: 0.55
+library(ggplot2)
+fv_series <- function(pmt, r, n) pmt * (((1 + r)^n - 1) / r)
+yrs <- c(10, 20, 30, 40)
+low  <- fv_series(300, (0.07 - 0.0004) / 12, yrs * 12)
+high <- fv_series(300, (0.07 - 0.01) / 12, yrs * 12)
+df_drag <- data.frame(
+  year = factor(rep(paste0("Year ", yrs), 2), levels = paste0("Year ", yrs)),
+  fund = factor(rep(c("Index fund (0.04%)", "Active fund (1%)"), each = length(yrs)),
+                levels = c("Index fund (0.04%)", "Active fund (1%)")),
+  value = c(low, high)
+)
+ggplot(df_drag, aes(x = year, y = value, fill = fund)) +
+  geom_col(position = position_dodge(width = 0.7), width = 0.65,
+           colour = "#1C1C1E", linewidth = 0.4) +
+  geom_text(
+    aes(label = paste0("$", round(value / 1000), "k")),
+    position = position_dodge(width = 0.7),
+    vjust = -0.4, fontface = "bold", size = 3.2
+  ) +
+  scale_fill_manual(values = c("Index fund (0.04%)" = "#0e9aa7",
+                               "Active fund (1%)"   = "#f44242")) +
+  scale_y_continuous(
+    limits = c(0, max(low) * 1.12),
+    labels = function(x) paste0("$", round(x / 1000), "k")
+  ) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank(),
+    legend.position    = "top"
+  )
+```
+
+The fee comes out of the return, so the formula is the same one from [Investing Basics](investing_basics.qmd#math-for-investing-basics) with a smaller rate: subtract the expense ratio from the return before you compound it.
+
+Formula: FV = PMT × [((1 + r)\^n − 1) ÷ r], where r = (return − expense ratio) ÷ 12
+
+Where: PMT = the monthly contribution, n = the number of months.
+
+Example: After 40 years, the index fund grows to about $778,655 and the active fund to about $597,447. Both people put in the same $144,000. The 1% fee cost [$181,207, about 23% of what the index fund investor ended up with.]{style="color:#f44242; font-weight: bold;"}
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: fee-drag-r
+future_value_after_fees <- function(contribution, annual_return, expense_ratio, years) {
+  rate <- (annual_return - expense_ratio) / 12
+  periods <- years * 12
+  contribution * (((1 + rate)^periods - 1) / rate)
+}
+
+# $300/month for 40 years at 7%, index fund vs. active fund
+index_fund  <- future_value_after_fees(300, 0.07, 0.0004, 40)
+active_fund <- future_value_after_fees(300, 0.07, 0.01, 40)
+c(index_fund = index_fund, active_fund = active_fund, cost_of_fees = index_fund - active_fund)
+```
+
+## Python
+
+```{python}
+#| label: fee-drag-py
+def future_value_after_fees(contribution, annual_return, expense_ratio, years):
+    rate = (annual_return - expense_ratio) / 12
+    periods = years * 12
+    return contribution * (((1 + rate) ** periods - 1) / rate)
+
+# $300/month for 40 years at 7%, index fund vs. active fund
+index_fund = future_value_after_fees(300, 0.07, 0.0004, 40)
+active_fund = future_value_after_fees(300, 0.07, 0.01, 40)
+print(round(index_fund), round(active_fund), round(index_fund - active_fund))
+```
+
+## Excel
+
+Assuming `Contribution` is in `B2`, `Return` is in `C2`, `Expense ratio` is in `D2`, and `Years` is in `E2`:
+
+``` swift
+=FV((C2 - D2) / 12, E2 * 12, -B2)
+```
+:::
+
+## Key Takeaways
+
+1. An index fund buys everything on a list, like the S&P 500, instead of trying to pick winners.
+2. Most professional fund managers do worse than the index over long periods, mostly because of what they charge.
+3. Expense ratios look tiny, but a 1% fee can cost you close to a quarter of your money over a working lifetime. Look for funds under 0.10%.
+4. A total US market fund and an S&P 500 fund are nearly the same. Add an international fund to own more of the world.
+5. ETFs and mutual funds can hold the same investments. Pick whichever fits your account and lets you invest automatically.
+
+The next chapter answers the question this one left open: how to split your money between US stocks, international stocks, and bonds.
