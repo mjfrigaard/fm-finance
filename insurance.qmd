@@ -15,14 +15,266 @@ source("_common.R")
 
 <br>
 
+Insurance is for losses you [can't absorb]{style="color:#48a56a; font-weight: bold;"} on your own. You pay a small, certain cost (the premium) to avoid a large, uncertain one. Your emergency fund handles the small surprises; insurance handles the ones that would wipe it out and keep going.
 
-Insurance is for losses you [can't absorb]{style="color:#48a56a; font-weight: bold;"} on your own. Buy enough to
-cover the catastrophic; skip the small policies that turn premiums into a
-slow leak.
+That idea gives you a simple rule for every policy in this chapter: buy enough to cover the catastrophic, and skip the small policies that turn premiums into a slow leak. Morgan Housel calls this leaving room for error. The goal isn't to avoid every bad outcome; it's to make sure no single bad outcome can knock you out of the game [@housel2020psychology].
 
-  * Health
-  * Auto
-  * Renters / homeowners
-  * Term life (when you have dependents)
-  * Disability
-  * Umbrella
+## Insurance Words You'll See Everywhere
+
+Every type of insurance uses the same handful of terms:
+
+* Premium: what you pay every month or year to keep the policy.
+* Deductible: what you pay for a claim before insurance starts paying.
+* Claim: a request for the insurance company to pay for a loss.
+* Coverage limit: the most the insurance company will pay.
+* Liability: damage or injury you cause to someone else. Liability coverage pays them so you don't have to.
+
+Premiums and deductibles move in opposite directions. A higher deductible means a lower premium, because you're agreeing to cover more of each loss yourself. Once you have an emergency fund, a higher deductible is often the cheaper choice. The math section below shows how to check.
+
+## Health Insurance
+
+Health insurance is the one policy nobody should go without. A single hospital stay can cost tens of thousands of dollars, and medical bills are one of the most common reasons people fall into debt.
+
+You have three common ways to get it when you're starting out:
+
+1. Stay on a parent's plan. Under the Affordable Care Act, you can stay on a parent's health plan until you turn 26, even if you've moved out, married, or have your own job ([HealthCare.gov](https://www.healthcare.gov/young-adults/children-under-26/)).
+2. Get it through your job. Most full time jobs offer a health plan, and your employer usually pays a large part of the premium.
+3. Buy it yourself through the marketplace at HealthCare.gov or your state's site. Depending on your income, you may qualify for help paying the premium.
+
+Health plans add three more terms to the list:
+
+* Copay: a flat fee for a visit or a prescription, like $25 to see a doctor.
+* Coinsurance: the percentage of a bill you pay after your deductible, like 20%.
+* Out of pocket maximum: the most you'll pay in a year for covered care, not counting premiums. After you hit it, the plan pays 100%.
+
+The out of pocket maximum is the most important number on the plan. It's your worst case. In 2026, it can't be higher than $10,600 for one person, and many employer plans set it much lower [@mercer2025hdhp].
+
+If your employer offers a high deductible health plan, compare it carefully. These plans have lower premiums and let you open an HSA, the account covered in [Retirement Accounts](retirement_accounts.qmd). In 2026, a plan qualifies if its deductible is at least $1,700 and its out of pocket maximum is no more than $8,500 for one person [@mercer2025hdhp]. For a healthy young person, especially one whose employer adds money to the HSA, the high deductible plan is often the cheaper choice. The math section compares two plans side by side.
+
+## Auto Insurance
+
+If you own a car, you're required to carry auto insurance, but the minimum your state requires is usually far too low. Liability coverage is the part that protects you, not your car: if you cause an accident, it pays for the other person's injuries and damage. If your coverage runs out, you can be sued for the rest.
+
+A common recommendation is liability limits of at least 100/300/100: $100,000 per person injured, $300,000 per accident, and $100,000 for property damage. The jump from the state minimum to these limits often costs less than people expect.
+
+Auto policies have two other main parts:
+
+* Collision pays to fix your car after an accident.
+* Comprehensive pays for theft, hail, fire, and other damage that isn't a crash.
+
+If your car is worth only a few thousand dollars, consider dropping collision and comprehensive. If the most they'd ever pay is the car's value minus your deductible, a few years of premiums can add up to more than that.
+
+## Renters Insurance
+
+Renters insurance is the best deal in insurance for someone who just moved out. Your landlord's insurance covers the building, not your things. Renters insurance covers your belongings if they're stolen or destroyed, pays for a place to stay if your apartment becomes unlivable, and includes liability coverage if someone gets hurt in your home or you accidentally damage someone else's.
+
+It typically costs about $13 to $23 a month, depending on where you live and how much coverage you choose [@nerdwallet2026renters]. Some landlords require it. Even if yours doesn't, get it. Choose "replacement cost" coverage, which pays what it costs to buy your things new, instead of "actual cash value," which pays what your used things were worth.
+
+## Disability Insurance
+
+Your biggest financial asset when you're starting out isn't your savings. It's your ability to earn a paycheck for the next 40 years. Disability insurance replaces part of your income if an illness or injury keeps you from working.
+
+This is the policy young people most often overlook, even though the risk is real. The Social Security Administration estimates that about 1 in 4 of today's 20 year olds will become disabled before reaching retirement age [@ssa2026disability].
+
+Check your benefits at work first. Many employers offer long term disability insurance that replaces about 60% of your pay, often for free or a few dollars a month. If it's offered, take it. If it's not, look into an individual policy once you have a steady income.
+
+## Life Insurance
+
+Life insurance pays money to someone else when you die. That means you only need it if someone depends on your income: a spouse, a child, or a family member you support. If no one would be hurt financially by losing your paycheck, you don't need it yet.
+
+When you do need it, buy term life insurance. It covers you for a set number of years (often 20 or 30), costs little when you're young and healthy, and pays a large amount if you die during the term. A common starting point is coverage of 10 to 12 times your yearly income, for long enough to get your dependents to adulthood.
+
+Avoid whole life and other "permanent" policies that combine insurance with an investment account. They cost many times more than term insurance for the same coverage, and the investment part usually grows more slowly than the index funds from [Index Funds](index_funds.qmd). Salespeople earn large commissions on these policies, which is why they're pushed so hard.
+
+## Umbrella Insurance
+
+An umbrella policy adds extra liability coverage on top of your auto and renters or homeowners insurance, usually in amounts of $1 million or more, for a few hundred dollars a year. It protects people who have a lot to lose in a lawsuit. When you're starting out, you probably don't need it. Revisit it once your net worth or income grows, or if you own a home, a pool, or a dog.
+
+## What to Skip
+
+Plenty of insurance products cost more than they're worth. Some common ones:
+
+* Extended warranties on electronics and appliances.
+* Phone insurance, if you can afford to replace your phone from your emergency fund.
+* Life insurance when no one depends on your income.
+* Flight insurance, cancer insurance, and other policies that only cover one narrow event.
+
+The test for each one is the same: if the loss would hurt but wouldn't wreck your finances, cover it yourself.
+
+## Math for Insurance {#math-for-insurance}
+
+Insurance math helps you make two everyday choices: which deductible to pick, and which health plan costs less over a year.
+
+### Choosing a Deductible {.unnumbered}
+
+Say your car insurance costs $1,500 a year with a $500 deductible, or $1,350 a year with a $1,000 deductible. The higher deductible saves $150 a year, but costs you $500 more each time you file a claim. Each bar below is the savings piling up year after year; the red line is the extra $500 you'd pay on a claim.
+
+```{r}
+#| label: deductible-bar-model
+#| echo: false
+#| fig-cap: "Savings from a $1,000 deductible vs. a $500 deductible, year by year"
+#| fig-asp: 0.50
+library(ggplot2)
+df_ded <- data.frame(
+  year    = factor(paste0("Year ", 1:5), levels = paste0("Year ", 1:5)),
+  savings = 150 * 1:5
+)
+df_ded$fill <- ifelse(df_ded$savings >= 500, "#48a56a", "#0e9aa7")
+ggplot(df_ded, aes(x = year, y = savings, fill = fill)) +
+  geom_col(width = 0.6, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_hline(yintercept = 500, colour = "#f44242", linewidth = 1, linetype = "dashed") +
+  annotate("text", x = 0.6, y = 550, label = "Extra $500 per claim",
+           hjust = 0, colour = "#f44242", fontface = "bold", size = 3.5) +
+  geom_text(aes(label = paste0("$", savings)), vjust = -0.4, fontface = "bold", size = 3.5) +
+  scale_fill_identity() +
+  scale_y_continuous(limits = c(0, 850), labels = function(x) paste0("$", x)) +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+The savings pass the extra deductible a little after year 3. If you file a claim less often than that, the higher deductible comes out ahead.
+
+Formula: Break even years = (Higher deductible − Lower deductible) ÷ Yearly premium savings
+
+Example: ($1,000 − $500) ÷ $150 = [about 3.3 years.]{style="color:#48a56a; font-weight: bold;"} Most drivers go much longer than that between claims. Pick the higher deductible only if your emergency fund can cover it.
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: deductible-r
+break_even_years <- function(high_deductible, low_deductible, yearly_savings) {
+  (high_deductible - low_deductible) / yearly_savings
+}
+
+# $1,000 vs. $500 deductible, saving $150 a year
+break_even_years(high_deductible = 1000, low_deductible = 500, yearly_savings = 150)
+```
+
+## Python
+
+```{python}
+#| label: deductible-py
+def break_even_years(high_deductible, low_deductible, yearly_savings):
+    return (high_deductible - low_deductible) / yearly_savings
+
+# $1,000 vs. $500 deductible, saving $150 a year
+break_even_years(high_deductible=1000, low_deductible=500, yearly_savings=150)
+```
+
+## Excel
+
+Assuming the higher deductible is in `B2`, the lower deductible is in `C2`, and the yearly savings is in `D2`:
+
+``` swift
+=(B2 - C2) / D2
+```
+:::
+
+### Comparing Two Health Plans {.unnumbered}
+
+Imagine your job offers two plans. Plan A has a $100 monthly premium, a low deductible, and a $3,000 out of pocket maximum. Plan B is a high deductible plan with a $40 monthly premium, a $5,000 out of pocket maximum, and $500 a year that your employer puts into your HSA. The chart below shows what each plan costs in a healthy year (about $300 in doctor visits and prescriptions) and in the worst year possible.
+
+```{r}
+#| label: health-bar-model
+#| echo: false
+#| fig-cap: "Total yearly cost of two health plans in a healthy year and the worst year"
+#| fig-asp: 0.55
+library(ggplot2)
+plan_cost <- function(monthly_premium, medical_cost, oop_max, employer_hsa) {
+  monthly_premium * 12 + min(medical_cost, oop_max) - employer_hsa
+}
+df_hp <- data.frame(
+  plan  = factor(rep(c("Plan A (low deductible)", "Plan B (high deductible + HSA)"), 2),
+                 levels = c("Plan A (low deductible)", "Plan B (high deductible + HSA)")),
+  year  = factor(rep(c("Healthy year", "Worst year"), each = 2),
+                 levels = c("Healthy year", "Worst year")),
+  cost  = c(plan_cost(100, 300, 3000, 0), plan_cost(40, 300, 5000, 500),
+            plan_cost(100, Inf, 3000, 0), plan_cost(40, Inf, 5000, 500))
+)
+ggplot(df_hp, aes(x = year, y = cost, fill = plan)) +
+  geom_col(position = position_dodge(width = 0.7), width = 0.65,
+           colour = "#1C1C1E", linewidth = 0.4) +
+  geom_text(
+    aes(label = paste0("$", formatC(cost, format = "d", big.mark = ","))),
+    position = position_dodge(width = 0.7),
+    vjust = -0.4, fontface = "bold", size = 3.5
+  ) +
+  scale_fill_manual(values = c("Plan A (low deductible)" = "#0e9aa7",
+                               "Plan B (high deductible + HSA)" = "#48a56a")) +
+  scale_y_continuous(limits = c(0, 5600),
+                     labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank(),
+    legend.position    = "top"
+  )
+```
+
+Each bar is a year of premiums, plus your share of medical bills (never more than the out of pocket maximum), minus any money your employer adds to your HSA.
+
+Formula: Yearly cost = (Monthly premium × 12) + min(Medical bills, Out of pocket max) − Employer HSA money
+
+Where: this simple version assumes you pay all medical bills up to the out of pocket maximum, which makes it a slight overestimate for plans with coinsurance.
+
+Example: In a healthy year, Plan A costs $1,500 and Plan B costs $280. In the worst year, Plan A costs $4,200 and Plan B costs $4,980. [Plan B saves $1,220 in a normal year]{style="color:#48a56a; font-weight: bold;"} and costs $780 more in the worst year. If you put the savings into the HSA, one or two healthy years cover the difference.
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: health-r
+plan_cost <- function(monthly_premium, medical_cost, oop_max, employer_hsa = 0) {
+  monthly_premium * 12 + pmin(medical_cost, oop_max) - employer_hsa
+}
+
+# Plan A vs. Plan B in a healthy year ($300 of care) and the worst year
+data.frame(
+  year   = c("healthy", "worst"),
+  plan_a = plan_cost(100, c(300, Inf), oop_max = 3000),
+  plan_b = plan_cost(40, c(300, Inf), oop_max = 5000, employer_hsa = 500)
+)
+```
+
+## Python
+
+```{python}
+#| label: health-py
+import polars as pl
+
+def plan_cost(monthly_premium, medical_cost, oop_max, employer_hsa=0):
+    return monthly_premium * 12 + min(medical_cost, oop_max) - employer_hsa
+
+# Plan A vs. Plan B in a healthy year ($300 of care) and the worst year
+pl.DataFrame({
+    "year": ["healthy", "worst"],
+    "plan_a": [plan_cost(100, c, oop_max=3000) for c in (300, float("inf"))],
+    "plan_b": [plan_cost(40, c, oop_max=5000, employer_hsa=500) for c in (300, float("inf"))],
+})
+```
+
+## Excel
+
+Assuming the monthly premium is in `B2`, medical bills in `C2`, the out of pocket maximum in `D2`, and employer HSA money in `E2`:
+
+``` swift
+=B2 * 12 + MIN(C2, D2) - E2
+```
+:::
+
+## Key Takeaways
+
+1. Insure the losses that would wreck your finances. Cover the small ones from your emergency fund.
+2. Never go without health insurance. Know your plan's out of pocket maximum; it's your worst case.
+3. Raise your auto liability limits above the state minimum, and get renters insurance as soon as you move out.
+4. Take long term disability insurance if your job offers it. Your paycheck is your biggest asset.
+5. Buy term life insurance only when someone depends on your income. Skip whole life.
+6. Once you have an emergency fund, higher deductibles usually save money.
+
+This chapter closes the taxes and insurance part of the book. The next part turns to planning: setting goals, making big purchases, and getting your affairs in order.

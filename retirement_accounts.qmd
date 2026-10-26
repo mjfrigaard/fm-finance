@@ -15,15 +15,308 @@ source("_common.R")
 
 <br>
 
-Retirement accounts are tax-advantaged wrappers that hold your
-investments. Choosing the right one is often worth more than picking the
-right fund.
+The last chapter covered what to invest in. This chapter covers where to keep those investments. A retirement account is a box that holds your investments, and the government gives you a tax break for using it. Picking the right box is often worth more than picking the right fund, because the tax break applies to every dollar you put in for the rest of your life.
 
-  * **401(k) / 403(b) / TSP**: employer plans, often with a match
-  * **Traditional IRA**: tax-deferred contributions
-  * **Roth IRA**: tax-free growth
-  * **HSA**: the most tax-advantaged account available if you qualify
-  * **Taxable brokerage**: for everything above the limits
+You don't have to understand every rule to get this right. Most people only need three things: sign up for the plan at work, get the full employer match, and open an IRA when they have money left over to invest.
 
-A good default order: capture the **employer match**, max the **HSA** (if
-eligible), max **IRA**, then back to the **401(k)** up to the limit.
+::: {.callout-note}
+## The numbers in this chapter
+
+Contribution limits change every year. All limits below are for 2026, from the [IRS](https://www.irs.gov/retirement-plans/cola-increases-for-dollar-limitations-on-benefits-and-contributions). Check the current year's numbers before you make a plan.
+:::
+
+## What Is a Retirement Account?
+
+A retirement account is not an investment. It's a container, and you choose what goes inside it (usually the index funds from the last chapter). The container decides how your money gets taxed.
+
+Without a retirement account, you pay tax three times: on the paycheck you earned, on any yearly earnings like dividends, and on your profit when you sell. Retirement accounts remove one or more of those taxes. In return, you agree to leave the money alone until you're 59 and a half. If you take it out early, you usually owe a 10% penalty on top of regular income tax.
+
+| Account | Who can open it | 2026 limit | Tax break |
+|:---|:---|:---|:---|
+| 401(k), 403(b), TSP | Employees whose job offers one | $24,500 | Pay tax now or later; often comes with an employer match |
+| Traditional IRA | Anyone with earned income | $7,500 | Pay tax later |
+| Roth IRA | Earned income under $153,000 (single) | $7,500 | Pay tax now, never again |
+| HSA | People with an HSA eligible health plan | $4,400 (self) | No tax going in, growing, or coming out for medical costs |
+| Taxable brokerage | Anyone | No limit | None, but no rules about when you take money out |
+
+The IRA limit is shared. If you put $3,000 in a Roth IRA, you can only put $4,500 in a Traditional IRA that same year.
+
+## The Plan at Work: 401(k), 403(b), and TSP
+
+The plan at work is usually the first retirement account you'll have. The name depends on who you work for: a 401(k) at most companies, a 403(b) at schools, hospitals, and nonprofits, and the TSP (Thrift Savings Plan) for federal employees and the military. They all work the same way. You pick a percentage of your paycheck, and that money goes into the account before it ever reaches your bank.
+
+The best part of a work plan is the employer match. Many employers add money to your account when you contribute. A common deal is "50% of the first 6%": if you put in 6% of your pay, your employer adds another 3%. That's an instant 50% return on your money, which no investment can promise. If you skip the match, you're turning down part of your pay.
+
+Two terms come up when you sign up:
+
+* Vesting: how long you have to work there before the employer's money is fully yours. Your own contributions are always yours. If you leave before you're vested, you may lose some or all of the match.
+* Automatic enrollment: many employers sign you up at a low rate (often 3%). That rate is a starting point, not a recommendation. Check that it's high enough to get the full match.
+
+## Traditional vs. Roth: Pay Taxes Now or Later?
+
+Every retirement account makes you pay income tax at some point. The only question is when. With a Traditional account, you skip the tax now and pay it when you take the money out in retirement. With a Roth account, you pay the tax now and never pay it again, even on decades of growth.
+
+Most work plans offer both a Traditional and a Roth option, and IRAs come in both versions too. The right choice depends on one comparison: is your tax rate lower now or later?
+
+When you're just starting out, your income (and your tax rate) is probably the lowest it will be for most of your working life. That makes Roth the better default for most people early in their careers. You pay a small tax bill now, while your rate is low, and every dollar of growth is yours to keep. The math section below shows why this one comparison is all that matters.
+
+Roth isn't always the right answer, though. The Money Guy Show calls Roth accounts the "apex predator" of wealth building, but points out that once your tax rate is high, the tax break you get today from a Traditional account can be worth more. They also recommend holding some money in both kinds of accounts, since nobody knows what tax rates will be in 40 years [@may2025roth]. As your income grows, revisit the choice.
+
+## The IRA: An Account That's Yours
+
+An IRA (Individual Retirement Account) is a retirement account you open yourself, at a brokerage like Fidelity, Schwab, or Vanguard. It doesn't depend on your job, so you keep it no matter where you work. You need earned income (a paycheck or self employment) to contribute, and you can't put in more than you earned that year.
+
+A Roth IRA has a feature that makes it a good first investment account: you can take out the money you put in (not the earnings) at any time, with no tax or penalty. I don't recommend using it as a second emergency fund, but it means your money isn't locked away if something goes badly wrong. A Roth IRA has an income limit. In 2026, single people can contribute the full amount if they earn under $153,000, and can't contribute at all above $168,000.
+
+## The HSA: The Best Account Most People Don't Use
+
+A Health Savings Account (HSA) is only available if your health insurance is an HSA eligible plan, also called a high deductible health plan. A deductible is what you pay for medical care each year before insurance starts paying. If your plan qualifies, the HSA gets the best tax treatment of any account:
+
+1. Money goes in before tax.
+2. It grows without tax.
+3. It comes out without tax when you spend it on medical costs.
+
+Most people use their HSA like a debit card for doctor visits. If you can afford to pay medical bills from your regular budget, you can instead invest the HSA and let it grow for decades. After age 65, you can take money out for anything (you'll pay income tax if it isn't for medical costs, the same as a Traditional account).
+
+## The Taxable Brokerage Account
+
+A taxable brokerage account is a regular investment account with no tax break. It has no limit, and you can take money out whenever you want. Use it after you've filled the accounts above, or for goals that come before retirement (like a house down payment in ten years).
+
+## Which Account First?
+
+When money is tight, the order you fund accounts matters more than the accounts themselves. The Financial Order of Operations [@preston2024foo] gives a good default, and earlier chapters already covered the first steps:
+
+1. Keep enough cash to cover your highest insurance deductible.
+2. Contribute enough to your work plan to get the full employer match.
+3. Pay off high interest debt ([Managing Debt](managing_debt.qmd)).
+4. Build your emergency fund ([Emergency Fund](emergency_fund.qmd)).
+5. Fund an HSA (if you're eligible) and a Roth IRA.
+6. Go back to your work plan and raise your contribution toward the limit.
+7. Invest anything left in a taxable brokerage account.
+
+You won't finish this list in your first year, and that's fine. The goal is to move down it one raise at a time. A common target is to save 15% of your income for retirement, counting the employer match.
+
+::: {.callout-important}
+## Where the experts disagree: which account to fund first
+
+Ramit Sethi's "ladder of personal finance" starts the same way: get the employer match, then pay off high interest debt. After that, it puts the Roth IRA next, then maxing out the 401(k), and only then the HSA [@sethi2019will]. He treats the emergency fund as something you build alongside the ladder rather than a step on it.
+
+Brian Preston's Financial Order of Operations makes the emergency fund its own step before any Roth IRA money, and puts the HSA right next to the Roth IRA, ahead of maxing out the 401(k) [@preston2024foo].
+
+What they agree on: get the full match first, clear high interest debt second, and use a Roth IRA before putting more into a 401(k). The order of the HSA and the emergency fund is the only real difference. If you have an HSA eligible health plan and enough cash to handle a surprise bill, either order works.
+:::
+
+## What Happens When You Change Jobs?
+
+Your 401(k) stays yours when you leave a job (minus any match that hasn't vested). You have three good options: leave it where it is, move it into your new employer's plan, or move it into an IRA. Moving money between retirement accounts is called a rollover, and it's tax free if you do it directly from one account to the other.
+
+The one bad option is cashing out. Your old plan will offer to send you a check, and for a small balance it can be tempting. You'll owe income tax plus the 10% penalty, and you lose decades of growth. A $5,000 balance cashed out at 22 leaves you about $3,900 after a 12% tax and the 10% penalty; left invested at 7%, it would grow to about $100,000 by 67.
+
+::: {.callout-warning}
+## Don't cash out an old 401(k)
+
+When you leave a job, roll your old plan into an IRA or your new employer's plan. Ask for a "direct rollover" so the money goes straight from one account to the other and never touches your bank account.
+:::
+
+## Math for Retirement Accounts {#math-for-retirement-accounts}
+
+Retirement account math comes down to two questions: how much free money is the employer match worth, and does paying tax now or later leave you with more? Each calculation follows the same pattern as the earlier chapters.
+
+### The Employer Match {.unnumbered}
+
+Think of your salary as one long bar. A slice of that bar goes into your 401(k), and your employer adds a second, smaller slice on top. The chart below shows a $45,000 salary with a 6% contribution and a "50% of the first 6%" match.
+
+```{r}
+#| label: match-bar-model
+#| echo: false
+#| fig-cap: "6% of a $45,000 salary, plus a 50% employer match"
+#| fig-asp: 0.25
+library(ggplot2)
+df_match <- data.frame(
+  part   = factor(
+    c("Your contribution ($2,700)", "Employer match ($1,350)"),
+    levels = c("Employer match ($1,350)", "Your contribution ($2,700)")
+  ),
+  amount = c(2700, 1350),
+  bar    = "401(k) deposits"
+)
+ggplot(df_match, aes(x = amount, y = bar, fill = part)) +
+  geom_col(width = 0.5, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_text(
+    aes(label = part),
+    position = position_stack(vjust = 0.5),
+    fontface = "bold", size = 3.5, colour = "#1C1C1E"
+  ) +
+  scale_fill_manual(
+    values = c("Your contribution ($2,700)" = "#0e9aa7",
+               "Employer match ($1,350)"    = "#48a56a")
+  ) +
+  scale_x_continuous(labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "none",
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank(),
+    axis.text.y        = element_blank()
+  )
+```
+
+The green slice is your contribution (up to the match limit) multiplied by the match rate. If you contribute less than the limit, the green slice shrinks with it.
+
+Formula: Match = Salary × min(Your %, Match limit %) × Match rate
+
+Where: min() means "the smaller of the two." The employer only matches up to the limit, no matter how much you put in.
+
+Example: $45,000 × min(6%, 6%) × 50% = [$1,350 a year in free money.]{style="color:#48a56a; font-weight: bold;"} At 3%, you'd only get $675.
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: match-r
+employer_match <- function(salary, contribution_pct, match_limit_pct, match_rate) {
+  salary * min(contribution_pct, match_limit_pct) * match_rate
+}
+
+# $45,000 salary, 6% contribution, 50% match on the first 6%
+employer_match(salary = 45000, contribution_pct = 0.06,
+               match_limit_pct = 0.06, match_rate = 0.50)
+
+# same job, but only contributing 3%
+employer_match(salary = 45000, contribution_pct = 0.03,
+               match_limit_pct = 0.06, match_rate = 0.50)
+```
+
+## Python
+
+```{python}
+#| label: match-py
+def employer_match(salary, contribution_pct, match_limit_pct, match_rate):
+    return salary * min(contribution_pct, match_limit_pct) * match_rate
+
+# $45,000 salary, 6% contribution, 50% match on the first 6%
+print(employer_match(salary=45000, contribution_pct=0.06,
+                     match_limit_pct=0.06, match_rate=0.50))
+
+# same job, but only contributing 3%
+print(employer_match(salary=45000, contribution_pct=0.03,
+                     match_limit_pct=0.06, match_rate=0.50))
+```
+
+## Excel
+
+Assuming `Salary` is in `B2`, `Your %` is in `C2`, `Match limit %` is in `D2`, and `Match rate` is in `E2`:
+
+``` swift
+=B2 * MIN(C2, D2) * E2
+```
+:::
+
+### Traditional vs. Roth {.unnumbered}
+
+Imagine you set aside $1,000 of your paycheck for retirement, your tax rate is 12% today, and the money grows for 40 years at 7%. With a Roth, the tax comes out first and the rest grows. With a Traditional account, the whole $1,000 grows and the tax comes out at the end. The chart below shows both, assuming your tax rate is still 12% in retirement.
+
+```{r}
+#| label: roth-bar-model
+#| echo: false
+#| fig-cap: "$1,000 after 40 years at 7%, with a 12% tax rate now and later"
+#| fig-asp: 0.50
+library(ggplot2)
+grow <- 1.07^40
+roth_keep <- 1000 * (1 - 0.12) * grow
+trad_total <- 1000 * grow
+trad_tax <- trad_total * 0.12
+df_rt <- data.frame(
+  account = factor(rep(c("Roth (tax now)", "Traditional (tax later)"), each = 2),
+                   levels = c("Roth (tax now)", "Traditional (tax later)")),
+  layer   = factor(rep(c("Taxes (plus the growth they would have earned)", "Yours to spend"), 2),
+                   levels = c("Taxes (plus the growth they would have earned)", "Yours to spend")),
+  amount  = c(trad_total - roth_keep, roth_keep, trad_tax, trad_total - trad_tax)
+)
+totals_rt <- data.frame(
+  account = factor(c("Roth (tax now)", "Traditional (tax later)"),
+                   levels = c("Roth (tax now)", "Traditional (tax later)")),
+  keep    = c(roth_keep, trad_total - trad_tax),
+  top     = c(trad_total, trad_total)
+)
+ggplot(df_rt, aes(x = account, y = amount, fill = layer)) +
+  geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_text(
+    data = totals_rt,
+    aes(x = account, y = top,
+        label = paste0("$", formatC(round(keep), format = "d", big.mark = ","), " yours")),
+    inherit.aes = FALSE,
+    vjust = -0.4, fontface = "bold", size = 3.5
+  ) +
+  scale_fill_manual(values = c("Taxes (plus the growth they would have earned)" = "#f44242",
+                               "Yours to spend" = "#0e9aa7")) +
+  scale_y_continuous(
+    limits = c(0, trad_total * 1.15),
+    labels = function(x) paste0("$", round(x / 1000), "k")
+  ) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank(),
+    legend.position    = "top"
+  )
+```
+
+The $120 of Roth tax looks small today, but it would have grown along with everything else. Counted that way, both bars are the same, because multiplying by (1 − tax rate) gives the same answer whether you do it first or last. The only thing that changes the result is whether the tax rate is different now and later.
+
+Formula: Amount you keep = Contribution × (1 − tax rate) × (1 + r)^n
+
+Where: r = yearly return, n = years invested. For Roth, use today's tax rate. For Traditional, use your tax rate in retirement.
+
+Example: With 12% now and 12% later, both accounts leave you about $13,178. If your tax rate in retirement is 22% instead, the Traditional account leaves you about $11,680. A Roth wins when your rate today is lower than your rate in retirement.
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: roth-r
+after_tax_value <- function(contribution, tax_rate, rate, years) {
+  contribution * (1 - tax_rate) * (1 + rate)^years
+}
+
+# Roth: taxed at today's 12% rate
+after_tax_value(contribution = 1000, tax_rate = 0.12, rate = 0.07, years = 40)
+
+# Traditional: taxed at a 22% rate in retirement
+after_tax_value(contribution = 1000, tax_rate = 0.22, rate = 0.07, years = 40)
+```
+
+## Python
+
+```{python}
+#| label: roth-py
+def after_tax_value(contribution, tax_rate, rate, years):
+    return contribution * (1 - tax_rate) * (1 + rate) ** years
+
+# Roth: taxed at today's 12% rate
+print(after_tax_value(contribution=1000, tax_rate=0.12, rate=0.07, years=40))
+
+# Traditional: taxed at a 22% rate in retirement
+print(after_tax_value(contribution=1000, tax_rate=0.22, rate=0.07, years=40))
+```
+
+## Excel
+
+Assuming `Contribution` is in `B2`, `Tax rate` is in `C2`, `Return` is in `D2`, and `Years` is in `E2`:
+
+``` swift
+=B2 * (1 - C2) * (1 + D2) ^ E2
+```
+:::
+
+## Key Takeaways
+
+1. A retirement account is a container, not an investment. It decides how your investments get taxed.
+2. Always get the full employer match. It's part of your pay, and it's the best return you'll find anywhere.
+3. Early in your career, Roth is usually the better choice, because your tax rate is likely the lowest it will be.
+4. Fund accounts in order: deductibles, match, high interest debt, emergency fund, HSA and Roth IRA, more 401(k), then taxable.
+5. When you change jobs, roll your old plan over. Never cash it out.
+
+The next chapter looks inside the container: the index funds that most people should hold in every one of these accounts.

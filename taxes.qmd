@@ -15,12 +15,294 @@ source("_common.R")
 
 <br>
 
+Taxes come out of almost every dollar you earn, and they're the biggest bill most people pay. You don't need to be a tax expert. You need to know enough to read your paycheck, avoid the most common mistakes, and capture the easy wins.
 
-You don't need to be a tax expert; you need to know enough to avoid
-obvious mistakes and capture obvious wins.
+This chapter covers the basics for someone with a regular job: where your paycheck goes, how tax brackets actually work, the difference between deductions and credits, and how to file.
 
-  * Marginal vs. effective tax rates
-  * Pre-tax vs. Roth contributions
-  * Tax-loss harvesting in taxable accounts
-  * Common deductions and credits
-  * When to hire a CPA
+::: {.callout-note}
+## The numbers in this chapter
+
+Tax brackets, the standard deduction, and credit limits change every year. All numbers below are federal amounts for 2026 for a single filer, from the [IRS](https://www.irs.gov/newsroom/working-families-tax-cuts-individuals-and-workers). State taxes vary by state and aren't covered here.
+:::
+
+## Where Your Paycheck Goes
+
+Your salary and your paycheck are two different numbers. Before your pay reaches your bank, your employer takes out several taxes and sends them to the government for you. This is called withholding. Your pay stub lists each one:
+
+* Federal income tax: based on your income and the form you filled out when you were hired (more on that below).
+* Social Security tax: 6.2% of your pay. It funds retirement and disability benefits.
+* Medicare tax: 1.45% of your pay. It funds health insurance for people 65 and older.
+* State and local income tax: depends on where you live. A few states have none.
+
+Social Security and Medicare together are called FICA taxes, and they add up to 7.65%. Unlike income tax, they start with your first dollar of pay; there's no deduction that shrinks them. On a $45,000 salary, FICA takes about $3,443 a year.
+
+Retirement contributions come out of your paycheck too, but they aren't a tax. They're your money, moved into your 401(k). If you use the Traditional option, that money also lowers your income tax (see [Retirement Accounts](retirement_accounts.qmd)).
+
+## How Tax Brackets Actually Work
+
+The US has a progressive income tax. That means the tax rate goes up as income goes up, but only on the dollars in each higher range. Each range is called a tax bracket.
+
+This is the most misunderstood idea in personal finance. People say "I don't want a raise, it'll push me into a higher bracket," as if the higher rate would apply to all of their income. It doesn't. Only the dollars above the bracket line get the higher rate. A raise always leaves you with more money after tax.
+
+Two numbers describe your tax:
+
+* Your marginal tax rate is the rate on your next dollar of income (your top bracket).
+* Your effective tax rate is your total tax divided by your total income. It's always lower than your marginal rate.
+
+| 2026 tax rate | Taxable income (single) |
+|:---|:---|
+| 10% | $0 to $12,400 |
+| 12% | $12,400 to $50,400 |
+| 22% | $50,400 to $105,700 |
+| 24% | $105,700 to $201,775 |
+| 32% | $201,775 to $256,225 |
+| 35% | $256,225 to $640,600 |
+| 37% | Over $640,600 |
+
+Taxable income is your income after deductions, which the next section covers. Someone earning $45,000 has a marginal rate of 12% but an effective federal income tax rate of about 7%. The math section below walks through it.
+
+## Deductions vs. Credits
+
+Deductions and credits both lower your tax bill, but they work differently.
+
+A deduction lowers the income you pay tax on. Everyone gets the standard deduction, which in 2026 is $16,100 for a single filer. If you earn $45,000, you only pay income tax on $28,900. You can itemize deductions instead (listing things like mortgage interest and charitable donations), but most people starting out have nothing close to $16,100 to list, so the standard deduction is the right choice.
+
+A credit lowers your tax bill directly, dollar for dollar. A $500 credit cuts your tax by $500. That makes a credit worth more than a deduction of the same size. A few credits that matter for people just starting out:
+
+* The Saver's Credit pays you back part of what you put into a retirement account if your income is low. In 2026, single filers with income up to $40,250 can qualify, and the credit can be worth up to $1,000 [@irs2025limits].
+* The American Opportunity Tax Credit covers part of college costs for the first four years of school.
+* The Earned Income Tax Credit helps workers with low incomes, especially those with children.
+
+The Saver's Credit is the one people most often miss. If you're early in your career, contributing to a 401(k) or IRA, and earning under the limit, check for it when you file.
+
+## The W-4 and Your Refund
+
+When you start a job, you fill out a Form W-4. It tells your employer how much federal income tax to withhold from each paycheck. If you're single with one job and no other income, the default settings usually come close.
+
+At the end of the year, you file a tax return that adds up what you actually owed. If your employer withheld more than you owed, you get a refund. If it withheld less, you pay the difference.
+
+A big refund feels like a bonus, but it's your own money coming back. You lent it to the government for a year without interest. If you have high interest debt or no emergency fund, that money would have done more good in your paycheck; you can fill out a new W-4 any time to change it. On the other hand, some people like a refund because it works like forced savings. Either way, aim to get close. A small refund or a small bill is the sign your withholding is about right.
+
+::: {.callout-warning}
+## Side income changes the math
+
+If you earn money outside your regular job (freelancing, delivery apps, selling things you make), no one withholds tax on it. You'll owe income tax plus self employment tax of about 15.3%, which covers both halves of Social Security and Medicare. Set aside about 25% to 30% of side income for taxes, and look up quarterly estimated payments if it adds up to more than a few thousand dollars a year.
+:::
+
+## Filing Your Return
+
+Federal tax returns are due around April 15 for the year before. For a simple return (one job, the standard deduction, maybe a student loan or retirement credit), you can file for free:
+
+* IRS Free File: free guided software from private companies for people under an income limit.
+* VITA (Volunteer Income Tax Assistance): free help from IRS trained volunteers for people with low to moderate income.
+* Free File Fillable Forms: free electronic versions of the paper forms, with no guidance.
+
+The IRS also ran its own free filing tool, Direct File, but it isn't available for the 2026 filing season [@nextgov2025directfile]. Be careful with commercial tax software that advertises "free" and then charges for state returns or common forms.
+
+## Tax Loss Harvesting
+
+Tax loss harvesting means selling an investment that has lost value in a taxable brokerage account so you can use the loss to lower your taxes, then buying something similar to stay invested. You'll see it advertised by investing apps.
+
+For most people starting out, it doesn't matter yet. It only works in a taxable account, and your money should be in a 401(k), IRA, or HSA first. Even when it applies, most of the benefit comes from delaying taxes rather than avoiding them, since buying back in at a lower price means a bigger taxable gain later [@kitces2014tlh]. It's worth learning about once you're investing in a taxable account, but it isn't a reason to open one.
+
+## When to Hire a Tax Professional
+
+You don't need a CPA (Certified Public Accountant) or tax preparer for a simple return. It's worth paying for help when your situation gets complicated:
+
+* You have meaningful self employment or side income.
+* You own a rental property or a business.
+* You got married, divorced, or had a child, and aren't sure what changed.
+* You received a letter from the IRS that you don't understand.
+* You sold a lot of investments in a taxable account.
+
+A good preparer often saves more than they cost in these situations. For everything else, free software is enough.
+
+## Math for Taxes {#math-for-taxes}
+
+Tax math comes down to one idea: each slice of income is taxed at its own rate. The two calculations below show how much tax you pay on a salary, and how much of a raise you keep.
+
+### Your Tax Bill, Bracket by Bracket {.unnumbered}
+
+Think of a $45,000 salary as one long bar. The first $16,100 is covered by the standard deduction and isn't taxed. The next $12,400 is taxed at 10%. The rest, $16,500, is taxed at 12%.
+
+```{r}
+#| label: bracket-bar-model
+#| echo: false
+#| fig-cap: "A $45,000 salary, sliced by the standard deduction and 2026 tax brackets"
+#| fig-asp: 0.30
+library(ggplot2)
+slices <- c("Standard deduction (0%)", "10% bracket", "12% bracket")
+df_br <- data.frame(
+  slice  = factor(slices, levels = rev(slices)),
+  amount = c(16100, 12400, 16500),
+  bar    = "$45,000 salary"
+)
+df_br$label <- paste0("$", formatC(df_br$amount, format = "d", big.mark = ","),
+                      "\n", c("$0 tax", "$1,240 tax", "$1,980 tax"))
+ggplot(df_br, aes(x = amount, y = bar, fill = slice)) +
+  geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_text(
+    aes(label = label),
+    position = position_stack(vjust = 0.5),
+    fontface = "bold", size = 3.3, colour = "#1C1C1E"
+  ) +
+  scale_fill_manual(
+    values = c("Standard deduction (0%)" = "#86ddcd",
+               "10% bracket" = "#0e9aa7",
+               "12% bracket" = "#48a56a"),
+    breaks = slices
+  ) +
+  scale_x_continuous(labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "top",
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank(),
+    axis.text.y        = element_blank()
+  )
+```
+
+Each slice is multiplied by its own rate, and the tax is the sum of the slices. Dividing that total by the whole salary gives the effective rate.
+
+Formula: Tax = Σ (Rate × Income in that bracket), and Effective rate = Tax ÷ Income
+
+Where: Σ means "add up all of these." Only income after the standard deduction goes into the brackets.
+
+Example: ($12,400 × 10%) + ($16,500 × 12%) = $1,240 + $1,980 = $3,220. $3,220 ÷ $45,000 = [an effective rate of about 7.2%, even though the top bracket is 12%.]{style="color:#48a56a; font-weight: bold;"}
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: bracket-r
+income_tax <- function(income, deduction = 16100) {
+  taxable <- max(income - deduction, 0)
+  lower <- c(0, 12400, 50400, 105700, 201775, 256225, 640600)
+  upper <- c(lower[-1], Inf)
+  rate  <- c(0.10, 0.12, 0.22, 0.24, 0.32, 0.35, 0.37)
+  sum(rate * pmax(pmin(taxable, upper) - lower, 0))
+}
+
+# 2026 federal income tax on a $45,000 salary (single filer)
+tax <- income_tax(income = 45000)
+tax
+# effective rate
+tax / 45000
+```
+
+## Python
+
+```{python}
+#| label: bracket-py
+import numpy as np
+
+def income_tax(income, deduction=16100):
+    taxable = max(income - deduction, 0)
+    lower = np.array([0, 12400, 50400, 105700, 201775, 256225, 640600])
+    upper = np.append(lower[1:], np.inf)
+    rate = np.array([0.10, 0.12, 0.22, 0.24, 0.32, 0.35, 0.37])
+    return float(np.sum(rate * np.clip(np.minimum(taxable, upper) - lower, 0, None)))
+
+# 2026 federal income tax on a $45,000 salary (single filer)
+tax = income_tax(income=45000)
+print(tax)
+# effective rate
+print(tax / 45000)
+```
+
+## Excel
+
+Assuming `Income` is in `B2`, the bracket lower limits are in `E2:E8`, and the extra rate each bracket adds over the one below it (10%, 2%, 10%, 2%, 8%, 3%, 2%) is in `G2:G8`:
+
+``` swift
+=SUMPRODUCT(--(MAX(B2 - 16100, 0) > E2:E8), MAX(B2 - 16100, 0) - E2:E8, G2:G8)
+```
+
+This formula taxes every dollar above each bracket line at that bracket's extra rate, which adds up to the same total as taxing each slice at its full rate.
+:::
+
+### How Much of a Raise You Keep {.unnumbered}
+
+Now imagine you earn $66,000 and get a $2,000 raise. Your taxable income goes from $49,900 to $51,900, crossing the 22% line at $50,400. The bar below is just the raise, split by what happens to each slice.
+
+```{r}
+#| label: raise-bar-model
+#| echo: false
+#| fig-cap: "A $2,000 raise that crosses into the 22% bracket"
+#| fig-asp: 0.30
+library(ggplot2)
+parts <- c("You keep ($1,610)", "Tax at 12% ($60)", "Tax at 22% ($330)")
+df_raise <- data.frame(
+  part   = factor(parts, levels = rev(parts)),
+  amount = c(1610, 60, 330),
+  bar    = "$2,000 raise"
+)
+ggplot(df_raise, aes(x = amount, y = bar, fill = part)) +
+  geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
+  scale_fill_manual(
+    values = c("You keep ($1,610)" = "#0e9aa7",
+               "Tax at 12% ($60)" = "#86ddcd",
+               "Tax at 22% ($330)" = "#f44242"),
+    breaks = parts
+  ) +
+  scale_x_continuous(labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "top",
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank(),
+    axis.text.y        = element_blank()
+  )
+```
+
+The first $500 of the raise fills the rest of the 12% bracket; only the last $1,500 is taxed at 22%. The tax on the raise is the tax on the new income minus the tax on the old income.
+
+Formula: Tax on raise = Tax(new income) − Tax(old income), and Amount kept = Raise − Tax on raise
+
+Example: $6,130 − $5,740 = $390 in extra federal income tax. [You keep $1,610 of the $2,000 raise]{style="color:#48a56a; font-weight: bold;"} (before FICA and state tax). Crossing into a higher bracket never makes a raise cost you money.
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: raise-r
+raise_kept <- function(old_income, raise) {
+  raise - (income_tax(old_income + raise) - income_tax(old_income))
+}
+
+# $2,000 raise on a $66,000 salary
+raise_kept(old_income = 66000, raise = 2000)
+```
+
+## Python
+
+```{python}
+#| label: raise-py
+def raise_kept(old_income, raise_amount):
+    return raise_amount - (income_tax(old_income + raise_amount) - income_tax(old_income))
+
+# $2,000 raise on a $66,000 salary
+raise_kept(old_income=66000, raise_amount=2000)
+```
+
+## Excel
+
+Assuming the tax on the old income is in `B2` (from the formula above), the tax on the new income is in `C2`, and the raise is in `D2`:
+
+``` swift
+=D2 - (C2 - B2)
+```
+:::
+
+## Key Takeaways
+
+1. Your paycheck is smaller than your salary because of federal income tax, FICA (7.65%), state tax, and any retirement contributions.
+2. Higher tax brackets only apply to the dollars above each line. A raise always leaves you with more money.
+3. Your effective tax rate is much lower than your top bracket. On a $45,000 salary, it's about 7% for federal income tax.
+4. Credits beat deductions of the same size. If your income is low and you save for retirement, check for the Saver's Credit.
+5. Aim for a small refund or a small bill. A big refund is an interest free loan to the government.
+6. File for free if your return is simple. Pay for help when it isn't.
+
+The next chapter covers the other half of the protective layer: insurance, for the losses you can't afford to pay on your own.
