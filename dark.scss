@@ -45,6 +45,14 @@ $footer-fg:        $term-muted;
 $headings-font-family: "IBM Plex Mono", SFMono-Regular, Menlo, Consolas, monospace;
 $font-family-monospace: "IBM Plex Mono", SFMono-Regular, Menlo, Consolas, monospace;
 
+// monospace caps run wide, so scale headings down to match the light theme
+$h1-font-size: 2rem;
+$h2-font-size: 1.6rem;
+$h3-font-size: 1.35rem;
+$h4-font-size: 1.15rem;
+$h5-font-size: 1rem;
+$h6-font-size: 0.9rem;
+
 /*-- scss:rules --*/
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap');
 
@@ -55,7 +63,7 @@ code {
 // ticker style headings
 h1, h2, h3, h4, h5, h6, .title {
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 
 h2, .h2 {
