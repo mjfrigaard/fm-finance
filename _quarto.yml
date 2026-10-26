@@ -56,15 +56,18 @@ bibliography: references.bib
 
 format:
   html:
-    theme: [flatly, custom.scss]
-    highlight-style: arrow
+    theme:
+      light: [flatly, custom.scss]
+      dark: [darkly, custom.scss, dark.scss]
+    highlight-style:
+      light: arrow
+      dark: monokai
     toc: true
     toc-depth: 5
     toc-location: right
     toc-expand: 3
     toc-title: Contents
     code-link: false
-    code-block-bg: "#f8f8f8"
     code-block-border-left: "#99bbc9"
     code-annotations: hover
     number-sections: true
