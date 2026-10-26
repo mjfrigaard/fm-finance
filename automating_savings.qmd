@@ -145,11 +145,76 @@ If you're paid on the 1st and transfer on the 1st, you risk overdrafting your ch
 
 How much should you automate? Go back to [Savings Strategies](savings_strategies.qmd) and check the target savings rate you picked.
 
-If your goal is a 25% savings rate:
+If your goal is a 25% savings rate, picture your $5,000 monthly income as one bar. A quarter of it gets carved off for savings before you ever see it; the rest is what you live on.
 
-**Formula:** Monthly Savings Amount = Gross Monthly Income × 0.25
+```{r}
+#| label: pyf-bar-model
+#| echo: false
+#| fig-cap: "A $5,000 paycheck with 25% automated to savings"
+#| fig-asp: 0.25
+library(ggplot2)
+parts <- c("Automated savings ($1,250)", "Everything else ($3,750)")
+df_pyf <- data.frame(
+  part   = factor(parts, levels = rev(parts)),
+  amount = c(1250, 3750),
+  bar    = "Paycheck"
+)
+ggplot(df_pyf, aes(x = amount, y = bar, fill = part)) +
+  geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_vline(xintercept = c(1250, 2500, 3750), colour = "#1C1C1E",
+             linewidth = 0.3, linetype = "dotted") +
+  scale_fill_manual(values = c("Automated savings ($1,250)" = "#48a56a",
+                               "Everything else ($3,750)" = "#0e9aa7"),
+                    breaks = parts) +
+  scale_x_continuous(labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "top",
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank(),
+    axis.text.y        = element_blank()
+  )
+```
+
+The dotted lines cut the bar into four equal quarters, and the green slice is one of them. Taking one quarter of the bar is the same as multiplying it by 0.25.
+
+**Formula:** Monthly Savings Amount = Gross Monthly Income × Savings Rate
 
 Example: $5,000 gross income → $5,000 × 0.25 = **$1,250/month to automate.**
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: pyf-r
+monthly_savings <- function(gross_monthly_income, savings_rate) {
+  gross_monthly_income * savings_rate
+}
+
+# $5,000 gross monthly income, 25% savings rate
+monthly_savings(gross_monthly_income = 5000, savings_rate = 0.25)
+```
+
+## Python
+
+```{python}
+#| label: pyf-py
+def monthly_savings(gross_monthly_income, savings_rate):
+    return gross_monthly_income * savings_rate
+
+# $5,000 gross monthly income, 25% savings rate
+monthly_savings(gross_monthly_income=5000, savings_rate=0.25)
+```
+
+## Excel
+
+Assuming gross monthly income is in `A2` and the savings rate is in `B2`:
+
+``` swift
+=A2 * B2
+```
+:::
 
 In practice, you'll probably be automating several categories at once:
 

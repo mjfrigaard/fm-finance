@@ -38,7 +38,7 @@ They don't agree on how much is "mostly," or on whether you need bonds at all.
 ::: {.callout-important}
 ## Where the experts disagree: bonds for young investors
 
-John Bogle is linked to a well known rule of thumb: hold roughly your age in bonds (20% bonds at 20, 40% at 40). He didn't treat it as a strict rule, and he later said younger investors could reasonably hold 80% to 85% stocks.
+John Bogle is linked to a well known rule of thumb: hold roughly your age in bonds (20% bonds at 20, 40% at 40). He called it a rough starting point, to be adjusted for your goals, your comfort with risk, and other income like Social Security [@bogle2010common]. He later said younger investors could reasonably hold 80% to 85% stocks [@bogle2014fool].
 
 Ramit Sethi recommends 80% to 90% stocks and 10% to 20% bonds for people in their twenties and thirties, or a target date fund that picks the split for you [@sethi2025allocation].
 
@@ -46,7 +46,7 @@ JL Collins recommends 100% stocks while you're building wealth, and adding bonds
 
 Ben Felix has discussed research by Scott Cederburg that goes further: across many countries and long time periods, a portfolio of 100% stocks spread across the US and the rest of the world did better over a lifetime than mixes with bonds, and ran out of money less often in retirement. Felix calls it "a super interesting finding," but warns that the result is "sensitive to the assumptions" behind it [@felix2025lifecycle].
 
-Morgan Housel goes the other way. He keeps more cash than most advisors would recommend, because it lets him sleep at night and avoid selling in a panic. He calls this being reasonable rather than perfectly rational [@housel2020psychology].
+Morgan Housel goes the other way. He keeps more cash than most advisors would recommend, because it lets him sleep at night and avoid selling in a panic. He calls this being reasonable rather than perfectly rational [@housel2020psychology, ch. 20].
 
 What they agree on: a young investor should hold mostly stocks, use low cost index funds, and choose a split they won't abandon in a crash. The difference between 80% and 100% stocks matters much less than staying invested.
 :::
@@ -55,7 +55,7 @@ If you want a starting point, 80% to 90% stocks is a reasonable split for someon
 
 ## US vs. International
 
-The previous chapter covered the other part of the split: how much of your stock money goes into US companies vs. companies in the rest of the world. The experts disagree there too. Bogle and Collins kept most or all of it in the US; Felix and the Cederburg research favor spreading it across the world. A split anywhere from 60/40 to 80/20 (US/international) is common and reasonable.
+The previous chapter covered the other part of the split: how much of your stock money goes into US companies vs. companies in the rest of the world. The experts disagree there too. Bogle and Collins kept most or all of it in the US; Felix and the Cederburg research favor spreading it across the world. A split anywhere from 60/40 to 80/20 (US/international) is common and reasonable. The Cederburg research Felix discusses goes further, with about a third in the US and two thirds abroad [@felix2025lifecycle].
 
 ## Target Date Funds: Asset Allocation on Autopilot
 
@@ -81,6 +81,8 @@ If you'd rather choose your own split, you only need three funds:
 
 This is called the three fund portfolio, and it's popular with the Bogleheads, a community of investors who follow Bogle's ideas [@larimore2018three]. Together, those three funds own nearly every public company in the world and a large share of the US bond market, for a fee of around 0.05%. You set the percentages once; for example, 60% US stocks, 30% international stocks, and 10% bonds. If you decide you don't want bonds, drop the third fund.
 
+JL Collins takes simplicity a step further. He recommends a single total US stock market fund while you're building wealth, and adds a bond fund only when you're close to living off your investments [@collins2016simple].
+
 ## Rebalancing: Keeping Your Split on Track
 
 Your split won't stay where you set it. If stocks have a great year, they'll grow into a bigger share of your portfolio than you planned; after a crash, they'll shrink into a smaller one. Rebalancing means moving money back to your target split.
@@ -95,7 +97,7 @@ Asset allocation math is about two things: what a split does in a good year and 
 
 ### Good Years and Bad Years {.unnumbered}
 
-Imagine $10,000 split three different ways. For this example, assume stocks earn 10% in an average year and lose 40% in a bad year, and bonds earn 4% in an average year and break even in a bad year. These are round numbers for illustration, not predictions.
+Imagine $10,000 split three different ways. For this example, assume stocks earn 10% in an average year and lose 40% in a bad year, and bonds earn 4% in an average year and break even in a bad year. These are round numbers for illustration, not predictions. For a real example, in 2008 the S&P 500 lost about 37% including dividends, while broad US investment grade bond indexes gained roughly 4% to 5% ([First Trust](https://ftportfolios.com/Commentary/Insights/2008/12/29/week_of_december_29th)).
 
 ```{r}
 #| label: mix-bar-model

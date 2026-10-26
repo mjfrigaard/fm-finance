@@ -477,9 +477,7 @@ ggplot(df_min, aes(x = label, y = amount, fill = fill)) +
 
 Only the principal slice (the green bar) shrinks the debt. But as the balance falls, the interest slice shrinks too, so each payment retires a little more principal than the last. The payoff time formula accounts for that.
 
-**Credit card payoff time:**
-
-> Months to pay off = −ln(1 − r × Balance ÷ Payment) ÷ ln(1 + r)
+**Formula:** Months to pay off = −ln(1 − r × Balance ÷ Payment) ÷ ln(1 + r)
 
 Where: r = APR ÷ 12 (this only works if the payment is larger than the first month's interest)
 
@@ -641,7 +639,42 @@ Assuming the monthly payment is in `A2`, the number of months is in `B2`, and th
 
 ### Student Loan-to-Income & Standard Payment {.unnumbered}
 
-The 1× rule from [Choosing a Major](#choosing-a-major) needs two calculations: the ratio of total debt to expected first-year salary, and the standard 10-year monthly payment that ratio produces.
+The 1× rule from [Choosing a Major](#choosing-a-major) needs two calculations: the ratio of total debt to expected first-year salary, and the standard 10-year monthly payment that ratio produces. Picture two bars side by side: what you borrowed and what your first job pays. The rule says the loan bar shouldn't be longer than the salary bar.
+
+```{r}
+#| label: loan-income-bar-model
+#| echo: false
+#| fig-cap: "$45,000 in student loans vs. a $42,000 starting salary"
+#| fig-asp: 0.30
+library(ggplot2)
+df_li <- data.frame(
+  item   = factor(c("Student loans", "Starting salary"),
+                  levels = c("Starting salary", "Student loans")),
+  amount = c(45000, 42000),
+  fill   = c("#f44242", "#0e9aa7")
+)
+ggplot(df_li, aes(x = amount, y = item, fill = fill)) +
+  geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_vline(xintercept = 42000, colour = "#1C1C1E", linetype = "dashed") +
+  geom_text(aes(label = paste0("$", formatC(amount, format = "d", big.mark = ","))),
+            hjust = 1.1, colour = "white", fontface = "bold", size = 3.6) +
+  scale_fill_identity() +
+  scale_x_continuous(labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+The loan bar runs past the dashed salary line, so this borrower is a little over the 1× rule. Dividing the loan bar by the salary bar gives the ratio. The monthly payment then spreads the loan, plus interest, over 120 equal payments.
+
+**Formula:** Loan to income ratio = Total loans ÷ Expected salary, and Monthly payment = Loan × r(1 + r)\^n ÷ ((1 + r)\^n − 1)
+
+Where: r = the yearly interest rate ÷ 12, and n = the number of monthly payments (120 for 10 years).
+
+Example: \$45,000 ÷ \$42,000 = about 1.07×, and the standard payment at 6.5% is [about \$511 a month.]{style="color:#f44242; font-weight: bold;"}
 
 ::: panel-tabset
 ## R
@@ -708,6 +741,45 @@ The standard 10-year payment at 6.5% (using `PMT()`, with the sign flipped) goes
 When the 1× rule is out of reach, federal IDR plans cap monthly payments as a percentage of *discretionary income*, where:
 
 > Discretionary income = AGI − (threshold × Federal Poverty Guideline)
+
+Think of your income (AGI) as one bar. The plan protects the first part of it, a multiple of the poverty guideline, and only the rest counts as discretionary. Your payment is a small slice of that discretionary part.
+
+```{r}
+#| label: idr-bar-model
+#| echo: false
+#| fig-cap: "$50,000 AGI under IBR: protected income, discretionary income, and the yearly payment"
+#| fig-asp: 0.42
+library(ggplot2)
+protected <- 15650 * 1.5
+disc <- 50000 - protected
+parts <- c("Protected (1.5 × $15,650 = $23,475)",
+           "Payment (10% of discretionary = $2,653/yr)",
+           "Rest of discretionary ($23,873)")
+df_idr <- data.frame(
+  part   = factor(parts, levels = rev(parts)),
+  amount = c(protected, disc * 0.10, disc * 0.90),
+  bar    = "AGI"
+)
+ggplot(df_idr, aes(x = amount, y = bar, fill = part)) +
+  geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
+  scale_fill_manual(values = setNames(c("#86ddcd", "#f44242", "#0e9aa7"), parts), breaks = parts) +
+  scale_x_continuous(labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "top",
+    legend.direction   = "vertical",
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank(),
+    axis.text.y        = element_blank()
+  )
+```
+
+Subtract the protected part from the bar, take the payment rate of what's left, and divide by 12 for the monthly amount.
+
+**Formula:** Monthly payment = (AGI − threshold × Federal Poverty Guideline) × payment rate ÷ 12
+
+Example: (\$50,000 − 1.5 × \$15,650) × 10% ÷ 12 = [about \$221 a month.]{style="color:#48a56a; font-weight: bold;"}
 
 The function below takes the AGI, the FPG threshold multiplier (`1.5` for IBR/PAYE, `2.25` for SAVE), and the payment rate (`0.10` for most plans, `0.05` for SAVE undergraduate loans), and returns the monthly payment.
 
@@ -916,11 +988,11 @@ ggplot(df_pi, aes(x = option, y = rate, fill = option)) +
 
 When the investment bar exceeds the debt bar, the math says invest; when the debt bar is higher, pay off, but the certainty premium for debt payoff is worth something the formula can't capture.
 
-**The rule of thumb:**
+**Formula:** Yearly edge of investing = Expected after-tax investment return − After-tax loan interest rate
 
-> If after-tax loan interest rate \> expected after-tax investment return → Pay off the debt If after-tax loan interest rate \< expected after-tax investment return → Invest the difference
+A positive answer means the math favors investing; a negative answer means paying off the debt wins.
 
-Example: 5% mortgage vs. expected 7% stock market return (real)
+Example: 5% mortgage vs. expected 7% stock market return (real) → 7% − 5% = 2%
 
 * The math favors investing by \~2% per year
 
@@ -1022,7 +1094,11 @@ ggplot(df_av, aes(x = factor(order), y = balance, fill = fill)) +
   )
 ```
 
-There's no formula for which order to choose; the code returns the sorted debt list so you can see the order and decide.
+Which order saves the most comes down to one number for each debt: how much interest each extra dollar stops. A dollar sent to the debt with the highest APR stops the most interest, which is why avalanche wins on paper.
+
+**Formula:** Monthly interest saved by an extra payment = Extra payment × APR ÷ 12
+
+Example: An extra \$100 on Card B (24%) saves \$100 × 0.24 ÷ 12 = \$2.00 of interest next month; the same \$100 on Card A (18%) saves \$1.50. The code below returns the debts sorted in each order so you can see the plan and decide.
 
 * **Avalanche method:** Highest APR first. Mathematically optimal.
 

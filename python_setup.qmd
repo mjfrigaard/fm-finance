@@ -53,7 +53,7 @@ Opening an OS-level terminal outside the IDE also avoids the inherited state.
 Add the package name to the `py_require()` call in `_common.R`:
 
 ```r
-reticulate::py_require(c("numpy", "polars", "matplotlib"))
+reticulate::py_require(c("numpy", "polars"))
 ```
 
 On the next render, `reticulate` will resolve to a new `env` hash and build the updated environment automatically.

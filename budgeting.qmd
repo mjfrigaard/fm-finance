@@ -439,6 +439,8 @@ ggplot(df_annual, aes(x = period, y = cost, fill = period)) +
 
 Each bar is the previous bar scaled by the number of periods it contains. The annual bar is 365× the daily bar; the monthly bar is ≈ 4.33× the weekly bar. Those multipliers are the formula.
 
+**Formula:** Cost over a longer period = Cost per period × Number of periods it contains
+
 **Daily habit → Weekly:** Multiply by 7
 
 **Weekly → Monthly:** Multiply by 4.33 (not 4)

@@ -15,10 +15,262 @@ source("_common.R")
 
 <br>
 
+A "goal" without a number and a date is a wish. This chapter is about turning wishes into plans you can actually follow: picking a number, picking a date, figuring out how much to set aside each month, and deciding what to do first when you can't afford everything at once.
 
-A "goal" without a number and a date is a wish. This chapter is about
-turning wishes into plans you can actually execute against.
+The earlier parts of this book gave you the pieces: a budget, an emergency fund, retirement accounts, and index funds. Goals are where you put those pieces to work on the things you actually want.
 
-  * Short / medium / long horizons
-  * Sequencing goals when you can't fund them all at once
-  * Tracking progress without obsessing over it
+## Short, Medium, and Long Goals
+
+The first question for any goal is when you'll need the money. That one answer decides where the money should live.
+
+| Horizon | When you need it | Examples | Where to keep it |
+|:---|:---|:---|:---|
+| Short | Less than 3 years | A trip, a laptop, moving costs, a car repair fund | High yield savings account |
+| Medium | 3 to 10 years | A car, a wedding, a house down payment | High yield savings, or a mix of bonds and stocks for the longer end |
+| Long | More than 10 years | Retirement, financial independence | Index funds in retirement accounts |
+
+The rule behind the table comes from [Investing Basics](investing_basics.qmd): stocks can drop 30% or more in a bad year and take years to recover. Money you need soon can't wait for a recovery, so it belongs in savings, even though it grows more slowly. Money you won't touch for decades can ride out the drops, so it belongs in stocks.
+
+## Turning a Wish into a Goal
+
+"I want to buy a house someday" is a wish. "I want $15,000 for a down payment in five years" is a goal. The difference is that a goal tells you what to do this month.
+
+Every goal needs three things:
+
+1. A number: how much it will cost. Look it up instead of guessing.
+2. A date: when you want it. Be honest about how soon.
+3. A monthly amount: the number divided by the months you have, adjusted for any interest it earns. The math section below shows how.
+
+Once you have the monthly amount, put it on autopilot. Give each goal its own savings account (many banks let you open several and name them), and set up an automatic transfer on payday, as described in [Automating Savings](automating_savings.qmd). Watching a "Down Payment" account grow is far more motivating than one big pile of savings.
+
+::: {.callout-important}
+## Where the experts disagree: do you need a goal to save?
+
+Ramit Sethi builds saving around specific goals. His Conscious Spending Plan sets aside 5% to 10% of take home pay for savings goals like a vacation, a wedding, or a down payment, separate from long term investing [@sethi2019will]. Brian Preston's Financial Order of Operations also gives planned future expenses their own step, after retirement saving is on track [@preston2024foo].
+
+Morgan Housel argues the opposite: you don't need a specific reason to save. Saving for a particular purchase makes sense in a predictable world, but the world isn't predictable. Money saved without a goal gives you options and flexibility when something unexpected happens, good or bad [@housel2020psychology].
+
+What they agree on: saving more than you need for today is the foundation of everything else. Named goals make saving easier to stick with; savings without a goal give you room for the surprises no plan can predict. Most people do best with both.
+:::
+
+## How Much Should You Save?
+
+Your goals compete for the same paycheck, so it helps to have an overall savings target. The experts give different numbers.
+
+::: {.callout-important}
+## Where the experts disagree: how much to save
+
+Ramit Sethi recommends about 10% of take home pay for investing and 5% to 10% for savings goals [@sethi2019will].
+
+The Money Guy Show sets an aspirational target of 25% of gross income (your pay before taxes), counting retirement accounts and the employer match. They base it on someone who starts in their mid 30s; starting younger means you can reach the same place with less [@moneyguy2023invest].
+
+The [Retirement Accounts](retirement_accounts.qmd) chapter used 15% for retirement as a common starting point.
+
+What they agree on: the numbers aren't as far apart as they look, since they're measured from different starting points (take home vs. gross pay) and count different things. All of them say to start with what you can and increase it over time.
+:::
+
+The practical answer for someone starting out: save what you can now, even if it's 5%, and raise it by a percentage point or two every time you get a raise. Sethi suggests doing this every December [@sethi2019will].
+
+## Sequencing Goals When You Can't Fund Them All
+
+Most people have more goals than money. The [Financial Order of Operations](retirement_accounts.qmd) handles the first priorities: cover your deductibles, get the employer match, pay off high interest debt, and build your emergency fund. Don't skip those to save for a vacation. Every goal is easier with them in place.
+
+After that, you have two ways to fund the rest:
+
+* One at a time: put everything toward the most important goal until it's done, then move to the next.
+* All at once: split your savings across several goals and fund them in parallel.
+
+One at a time gets you to your first goal sooner. All at once makes progress on everything, which helps if your goals have fixed dates (a wedding next summer, a car that's about to die). As the math section shows, both approaches finish the last goal on the same day, so the choice is really about which goal you want first.
+
+## Tracking Progress Without Obsessing
+
+Checking your accounts every day doesn't make them grow faster. It mostly makes you anxious, especially when investments drop. A simple rhythm works better:
+
+* Monthly: glance at your goal accounts to make sure the automatic transfers happened.
+* Every few months: compare each goal's balance to where it should be by now. If you're behind, adjust the amount or the date.
+* Once a year: add up your net worth (everything you own minus everything you owe) and reset your goals for the year ahead.
+
+Goals will change, and that's fine. Housel's warning is about the opposite problem: moving the goalposts every time you reach one, so that nothing ever feels like enough [@housel2020psychology]. When you hit a goal, take a moment to notice it before you set the next one.
+
+## Math for Financial Goals {#math-for-financial-goals}
+
+The [Emergency Fund](emergency_fund.qmd) chapter showed how to find the monthly amount for a goal with a deadline. Goal math adds two things: interest that helps you along the way, and choosing the order of several goals.
+
+### Saving for a Goal with Interest {.unnumbered}
+
+Imagine a $15,000 down payment in five years, saved in a high yield savings account earning 4%. Your monthly deposits build most of it, and interest fills in the rest. The bar below shows how the $15,000 splits between the two.
+
+```{r}
+#| label: goal-bar-model
+#| echo: false
+#| fig-cap: "A $15,000 goal in 5 years at 4%: your deposits plus interest"
+#| fig-asp: 0.25
+library(ggplot2)
+r <- 0.04 / 12
+n <- 60
+pmt <- 15000 * r / ((1 + r)^n - 1)
+deposits <- pmt * n
+parts <- c(sprintf("Your deposits ($%s)", formatC(round(deposits), format = "d", big.mark = ",")),
+           sprintf("Interest ($%s)", formatC(round(15000 - deposits), format = "d", big.mark = ",")))
+df_goal <- data.frame(
+  part   = factor(parts, levels = rev(parts)),
+  amount = c(deposits, 15000 - deposits),
+  bar    = "$15,000 goal"
+)
+ggplot(df_goal, aes(x = amount, y = bar, fill = part)) +
+  geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
+  scale_fill_manual(values = setNames(c("#0e9aa7", "#48a56a"), parts), breaks = parts) +
+  scale_x_continuous(labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "top",
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank(),
+    axis.text.y        = element_blank()
+  )
+```
+
+Without interest, you'd divide $15,000 by 60 months and save $250 a month. Interest does part of the work, so you can save a little less. The formula works backward from the future value formula in [Investing Basics](investing_basics.qmd#math-for-investing-basics): instead of asking what a monthly deposit grows into, it asks what monthly deposit grows into your goal.
+
+Formula: Monthly amount = Goal × r ÷ ((1 + r)\^n − 1)
+
+Where: r = the yearly interest rate ÷ 12, and n = the number of months.
+
+Example: $15,000 × 0.00333 ÷ ((1.00333)\^60 − 1) = [about $226 a month,]{style="color:#48a56a; font-weight: bold;"} $24 less than saving without interest. Over five years, interest adds about $1,425.
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: goal-r
+monthly_for_goal <- function(goal, annual_rate, months) {
+  r <- annual_rate / 12
+  if (r == 0) return(goal / months)
+  goal * r / ((1 + r)^months - 1)
+}
+
+# $15,000 in 5 years at 4%, compared to no interest
+monthly_for_goal(goal = 15000, annual_rate = 0.04, months = 60)
+monthly_for_goal(goal = 15000, annual_rate = 0, months = 60)
+```
+
+## Python
+
+```{python}
+#| label: goal-py
+def monthly_for_goal(goal, annual_rate, months):
+    r = annual_rate / 12
+    if r == 0:
+        return goal / months
+    return goal * r / ((1 + r) ** months - 1)
+
+# $15,000 in 5 years at 4%, compared to no interest
+print(monthly_for_goal(goal=15000, annual_rate=0.04, months=60))
+print(monthly_for_goal(goal=15000, annual_rate=0, months=60))
+```
+
+## Excel
+
+Assuming the goal is in `B2`, the yearly rate is in `C2`, and the number of months is in `D2`:
+
+``` swift
+=PMT(C2 / 12, D2, 0, -B2)
+```
+:::
+
+### One Goal at a Time vs. All at Once {.unnumbered}
+
+Say you can save $600 a month toward two goals: a $3,000 trip and a $9,000 car. Each bar below is a goal on a timeline, starting at month 0 and ending the month it's fully funded. The top pair funds the trip first, then the car. The bottom pair splits the $600 evenly until the trip is paid for, then sends everything to the car.
+
+```{r}
+#| label: sequence-bar-model
+#| echo: false
+#| fig-cap: "Two goals funded with $600/month: one at a time vs. split evenly"
+#| fig-asp: 0.40
+library(ggplot2)
+df_seq <- data.frame(
+  plan  = factor(rep(c("One at a time", "Split evenly"), each = 2),
+                 levels = c("Split evenly", "One at a time")),
+  goal  = factor(rep(c("Trip ($3,000)", "Car ($9,000)"), 2),
+                 levels = c("Trip ($3,000)", "Car ($9,000)")),
+  done  = c(5, 20, 10, 20)
+)
+ggplot(df_seq, aes(x = done, y = plan, fill = goal)) +
+  geom_col(position = position_dodge(width = 0.7), width = 0.6,
+           colour = "#1C1C1E", linewidth = 0.4) +
+  geom_text(
+    aes(label = paste0("Month ", done)),
+    position = position_dodge(width = 0.7),
+    hjust = -0.15, fontface = "bold", size = 3.4
+  ) +
+  scale_fill_manual(values = c("Trip ($3,000)" = "#86ddcd", "Car ($9,000)" = "#0e9aa7")) +
+  scale_x_continuous(limits = c(0, 24), breaks = seq(0, 24, 4)) +
+  labs(x = "Months", y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "top",
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+The trip finishes at month 5 or month 10, depending on the plan, but the car finishes at month 20 either way. That's because the last goal is done when all of the money is saved, no matter what order it went in.
+
+Formula: Months to finish all goals = Total of all goals ÷ Monthly savings, and Months to finish the first goal = First goal ÷ Amount going to it each month
+
+Example: ($3,000 + $9,000) ÷ $600 = [20 months for both goals, either way.]{style="color:#48a56a; font-weight: bold;"} The trip takes $3,000 ÷ $600 = 5 months one at a time, or $3,000 ÷ $300 = 10 months split evenly.
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: sequence-r
+months_to_fund <- function(goal, monthly) {
+  ceiling(goal / monthly)
+}
+
+# one at a time: trip first, then car
+months_to_fund(3000, 600)
+months_to_fund(3000 + 9000, 600)
+
+# split evenly: trip gets half until it's done
+months_to_fund(3000, 300)
+months_to_fund(3000 + 9000, 600)
+```
+
+## Python
+
+```{python}
+#| label: sequence-py
+import math
+
+def months_to_fund(goal, monthly):
+    return math.ceil(goal / monthly)
+
+# one at a time: trip first, then car
+print(months_to_fund(3000, 600), months_to_fund(3000 + 9000, 600))
+
+# split evenly: trip gets half until it's done
+print(months_to_fund(3000, 300), months_to_fund(3000 + 9000, 600))
+```
+
+## Excel
+
+Assuming the goal is in `B2` and the monthly amount going to it is in `C2`:
+
+``` swift
+=ROUNDUP(B2 / C2, 0)
+```
+:::
+
+## Key Takeaways
+
+1. A goal needs a number, a date, and a monthly amount. Without them, it's a wish.
+2. When you need the money decides where it lives: savings for less than 3 years, stocks for more than 10.
+3. Give each goal its own account and automate the transfers.
+4. The experts disagree on how much to save and whether every dollar needs a goal. Start with what you can, raise it with every raise, and keep some savings with no goal attached.
+5. Funding goals one at a time gets you the first one sooner; the last one finishes on the same day either way.
+6. Check progress every few months, not every day.
+
+The next chapter takes the biggest goals most people ever save for, a car and a home, and walks through how to buy them without wrecking the rest of your plan.

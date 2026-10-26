@@ -76,7 +76,44 @@ You don't need a checking account at the same bank. Most people open a HYSA at o
 
 When you see a rate advertised as "4.35% APY," that's the Annual Percentage Yield: the total return if you leave your money untouched for a year. Interest compounds daily in most HYSAs, which means you earn interest on your interest.
 
-Because APY already includes the effect of compounding, we don't need to break it into daily pieces.
+Because APY already includes the effect of compounding, we don't need to break it into daily pieces. The chart below follows $10,000 for five years at 4.35% APY, splitting each bar into the money you put in and the interest it has earned so far.
+
+```{r}
+#| label: hysa-bar-model
+#| echo: false
+#| fig-cap: "$10,000 at 4.35% APY: deposit and interest earned, year by year"
+#| fig-asp: 0.50
+library(ggplot2)
+yrs <- 0:5
+bal <- 10000 * (1.0435)^yrs
+df_hysa <- data.frame(
+  year   = factor(rep(paste0("Year ", yrs), 2), levels = paste0("Year ", yrs)),
+  layer  = factor(rep(c("Interest earned", "Your deposit"), each = length(yrs)),
+                  levels = c("Interest earned", "Your deposit")),
+  amount = c(bal - 10000, rep(10000, length(yrs)))
+)
+ggplot(df_hysa, aes(x = year, y = amount, fill = layer)) +
+  geom_col(width = 0.6, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_text(
+    data = data.frame(year = factor(paste0("Year ", yrs), levels = paste0("Year ", yrs)), total = bal),
+    aes(x = year, y = total, label = paste0("$", formatC(round(total), format = "d", big.mark = ","))),
+    inherit.aes = FALSE, vjust = -0.4, fontface = "bold", size = 3.3
+  ) +
+  scale_fill_manual(values = c("Your deposit" = "#0e9aa7", "Interest earned" = "#48a56a")) +
+  scale_y_continuous(
+    limits = c(0, 13500),
+    labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))
+  ) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "top",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+Each bar is the previous one multiplied by (1 + APY), so the green layer grows a little more each year. Multiplying by (1 + APY) once per year, for the number of years you hold the money, is the formula.
 
 **Formula:** Ending Balance = Starting Balance × (1 + APY)^years
 

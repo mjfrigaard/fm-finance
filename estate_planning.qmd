@@ -15,11 +15,250 @@ source("_common.R")
 
 <br>
 
+Estate planning sounds like something for rich, old people. It isn't. Your estate is just everything you own and owe, and estate planning answers two questions about it: who can make decisions for you if you can't make them yourself, and who gets your money if you die.
 
-You don't need a complicated trust to do the basics right. A will, named
-beneficiaries on every account, and a power of attorney cover most people.
+You don't need a complicated trust to do the basics right. When you're starting out, four things cover almost everything: named beneficiaries on every account, a financial power of attorney, a healthcare directive, and (eventually) a will. Most of them are free or cheap, and the most important one takes about ten minutes.
 
-  * Will and (sometimes) trust
-  * Beneficiary designations override your will; keep them current
-  * Power of attorney and healthcare directives
-  * Where to keep the paperwork so it can actually be found
+## Why This Matters When You're Young
+
+Once you turn 18, your parents lose the legal right to make decisions for you. If you're in a car accident and can't speak for yourself, a hospital doesn't have to tell your parents anything about your condition, and they can't pay your rent or talk to your bank on your behalf. Without the right forms, your family may have to go to court to get that authority, which is slow and expensive.
+
+The other reason to start early is that these decisions are easiest to make while you're healthy and thinking clearly. That sounds obvious, but research suggests people are bad at noticing when that's no longer true. A 2024 study of older Americans found that people tend to underestimate their own cognitive decline, and that those with a serious decline who didn't realize it were more likely to lose wealth, mostly through bad financial decisions [@mazzonna2024aware]. The lesson applies to every age: set up your plan, and choose the people you trust to step in, before you need them.
+
+## Beneficiary Designations: The Ten Minute Task
+
+A beneficiary is the person who gets an account's money when you die. Most financial accounts let you name one directly:
+
+* 401(k), 403(b), and other work retirement plans
+* IRAs and HSAs
+* Life insurance, including any free coverage through your job
+* Bank accounts, through a "payable on death" (POD) designation
+* Brokerage accounts, through a "transfer on death" (TOD) designation
+
+Beneficiary designations override your will. When you die, the bank or plan pays whoever is named on its form, not whoever your will says. If the form is blank or the person named has died, the money usually goes through probate, the court process for settling an estate, which takes longer and costs more.
+
+That makes this the most important task in the chapter, and the easiest. Log into each account, find the beneficiary section, and name a primary beneficiary and a backup (called a contingent beneficiary). Then check them again after any big life change: marriage, divorce, a new child, or a death in the family. An old form naming an ex can still pay out to that ex.
+
+## Power of Attorney
+
+A financial power of attorney is a legal document that names someone (called your agent) to handle your money if you can't. Your agent can pay your bills, deal with your bank, file your taxes, and manage your accounts. Without one, your family may have to ask a court to appoint someone, even for simple tasks.
+
+A "durable" power of attorney stays in effect if you become unable to make decisions yourself, which is the whole point. Choose someone you trust completely, since they'll have real access to your money. Many states have a standard form you can fill out yourself, and an estate lawyer can prepare one for a modest fee.
+
+## Healthcare Directive and HIPAA Release
+
+Two documents cover medical decisions:
+
+* A healthcare power of attorney (also called a healthcare proxy) names someone to make medical decisions for you if you can't.
+* A living will says what treatment you do and don't want if you're seriously ill or injured.
+
+Many states combine these into one form called an advance healthcare directive. Pair it with a HIPAA authorization, a form that lets doctors share your medical information with the people you name. Without the HIPAA form, your agent may be able to make decisions but still have trouble getting information.
+
+These forms are often free from your state's health department, your hospital, or your doctor's office.
+
+## A Will (and Sometimes a Trust)
+
+A will says who gets anything that doesn't already have a beneficiary, like your car, your belongings, and any accounts without a POD or TOD designation. It also names an executor, the person who settles your estate. If you have children, a will is where you name a guardian for them, which is the most important reason to have one.
+
+If you die without a will, your state's laws decide who gets your things, usually your spouse, children, or parents in a fixed order. For a young single person with few belongings, that may be close to what you'd want anyway. A will becomes essential once you marry, have children, or own a home.
+
+A trust is a legal arrangement that holds assets for someone else and can skip probate. It's useful for people with significant assets, a home in more than one state, or children who will inherit a lot of money. Most people starting out don't need one.
+
+::: {.callout-tip}
+## Start here
+
+If you only do one thing from this chapter, log into your 401(k), IRA, and any life insurance through work and fill in a primary and contingent beneficiary. It takes about ten minutes and covers most of the money a young person has.
+:::
+
+## Where to Keep the Paperwork
+
+A plan nobody can find doesn't help. Keep your documents somewhere your family can actually get to:
+
+1. Store originals of signed documents (will, powers of attorney) in a fireproof box at home or with your lawyer. Avoid a safe deposit box that only you can open.
+2. Give copies of your healthcare directive to your healthcare agent and your doctor.
+3. Keep a simple list of your accounts: the bank or company, the type of account, and how to reach them. Don't write passwords on it.
+4. Use a password manager and set up its emergency access feature, so a trusted person can get into your accounts if something happens.
+5. Tell the people you've named where everything is.
+
+## Talking with Your Parents
+
+The cognitive decline research is mainly about people in their 60s and 70s, which may describe your parents or grandparents. They may not notice changes in their own judgment, and those changes are most likely to show up in money decisions [@mazzonna2024aware]. Ask whether they have a power of attorney, a healthcare directive, and current beneficiaries, and where the paperwork is. It's an awkward conversation, but it's far easier to have now than during a crisis.
+
+## Math for Estate Planning {#math-for-estate-planning}
+
+Estate planning math is about two things: what your estate is worth, and how much of it your beneficiary forms control.
+
+### What You Own and What You Owe {.unnumbered}
+
+Your estate starts with your net worth: everything you own minus everything you owe. Imagine a 25 year old with a 401(k), a Roth IRA, some savings, and a car with a loan and a small credit card balance. The bar below puts assets on one side and debts on the other.
+
+```{r}
+#| label: networth-bar-model
+#| echo: false
+#| fig-cap: "Assets, debts, and net worth for a 25 year old"
+#| fig-asp: 0.40
+library(ggplot2)
+parts <- c("401(k)", "Roth IRA", "Savings", "Car", "Car loan", "Credit card")
+df_nw <- data.frame(
+  side   = factor(rep(c("What you own", "What you owe"), c(4, 2)),
+                  levels = c("What you owe", "What you own")),
+  part   = factor(parts, levels = rev(parts)),
+  amount = c(12000, 6000, 8000, 9000, 6000, 1000)
+)
+# label positions: centered in each segment, except the small credit card
+# segment, which is labeled just past the end of its bar
+ends  <- ave(df_nw$amount, df_nw$side, FUN = cumsum)
+df_lab <- data.frame(
+  side  = df_nw$side,
+  x     = ifelse(df_nw$part == "Credit card", ends + 300, ends - df_nw$amount / 2),
+  hjust = ifelse(df_nw$part == "Credit card", 0, 0.5),
+  label = paste0(df_nw$part, "\n$", formatC(df_nw$amount, format = "d", big.mark = ","))
+)
+ggplot(df_nw, aes(x = amount, y = side, fill = part)) +
+  geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_text(
+    data = df_lab,
+    aes(x = x, y = side, label = label, hjust = hjust),
+    inherit.aes = FALSE,
+    fontface = "bold", size = 2.9, colour = "#1C1C1E"
+  ) +
+  scale_fill_manual(values = c("401(k)" = "#0e9aa7", "Roth IRA" = "#48a56a",
+                               "Savings" = "#86ddcd", "Car" = "#5ec8be",
+                               "Car loan" = "#f44242", "Credit card" = "#e07070")) +
+  scale_x_continuous(labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "none",
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+Net worth is the length of the top bar minus the length of the bottom bar.
+
+Formula: Net worth = Total assets − Total debts
+
+Example: ($12,000 + $6,000 + $8,000 + $9,000) − ($6,000 + $1,000) = $35,000 − $7,000 = [a net worth of $28,000.]{style="color:#48a56a; font-weight: bold;"}
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: networth-r
+net_worth <- function(assets, debts) {
+  sum(assets) - sum(debts)
+}
+
+assets <- c(k401 = 12000, roth_ira = 6000, savings = 8000, car = 9000)
+debts  <- c(car_loan = 6000, credit_card = 1000)
+net_worth(assets, debts)
+```
+
+## Python
+
+```{python}
+#| label: networth-py
+def net_worth(assets, debts):
+    return sum(assets.values()) - sum(debts.values())
+
+assets = {"401k": 12000, "roth_ira": 6000, "savings": 8000, "car": 9000}
+debts = {"car_loan": 6000, "credit_card": 1000}
+net_worth(assets, debts)
+```
+
+## Excel
+
+Assuming assets are listed in `B2:B5` and debts in `C2:C3`:
+
+``` swift
+=SUM(B2:B5) - SUM(C2:C3)
+```
+:::
+
+### How Much Your Beneficiary Forms Control {.unnumbered}
+
+Now add one more item: life insurance through work. Many employers give free coverage equal to one year of salary, say $45,000. It isn't part of your net worth while you're alive, but it pays out when you die. The bar below shows everything that would pass to someone else, split by what decides who gets it.
+
+```{r}
+#| label: beneficiary-bar-model
+#| echo: false
+#| fig-cap: "What decides who gets each part of the estate"
+#| fig-asp: 0.30
+library(ggplot2)
+groups <- c("Beneficiary forms ($63,000)", "Savings with POD ($8,000)", "Your will or state law ($9,000)")
+df_ben <- data.frame(
+  group  = factor(groups, levels = rev(groups)),
+  amount = c(12000 + 6000 + 45000, 8000, 9000),
+  bar    = "Estate"
+)
+ggplot(df_ben, aes(x = amount, y = bar, fill = group)) +
+  geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
+  scale_fill_manual(values = c("Beneficiary forms ($63,000)" = "#0e9aa7",
+                               "Savings with POD ($8,000)" = "#86ddcd",
+                               "Your will or state law ($9,000)" = "#f44242"),
+                    breaks = groups) +
+  scale_x_continuous(labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "top",
+    legend.direction   = "vertical",
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank(),
+    axis.text.y        = element_blank()
+  )
+```
+
+The blue sections are controlled by forms you fill out online; only the red section depends on a will. Dividing the blue sections by the whole bar shows how much of the estate those forms decide.
+
+Formula: Share controlled by beneficiary forms = Assets with a named beneficiary ÷ Total estate
+
+Example: ($12,000 + $6,000 + $45,000 + $8,000) ÷ $80,000 = [about 89% of the estate,]{style="color:#48a56a; font-weight: bold;"} decided by forms that take minutes to fill out. That's why beneficiary designations come before a will for most young people.
+
+::: panel-tabset
+## R
+
+```{r}
+#| label: beneficiary-r
+beneficiary_share <- function(with_beneficiary, without_beneficiary) {
+  sum(with_beneficiary) / (sum(with_beneficiary) + sum(without_beneficiary))
+}
+
+with_beneficiary    <- c(k401 = 12000, roth_ira = 6000, life_insurance = 45000, savings_pod = 8000)
+without_beneficiary <- c(car = 9000)
+beneficiary_share(with_beneficiary, without_beneficiary)
+```
+
+## Python
+
+```{python}
+#| label: beneficiary-py
+def beneficiary_share(with_beneficiary, without_beneficiary):
+    named = sum(with_beneficiary.values())
+    return named / (named + sum(without_beneficiary.values()))
+
+with_beneficiary = {"401k": 12000, "roth_ira": 6000, "life_insurance": 45000, "savings_pod": 8000}
+without_beneficiary = {"car": 9000}
+beneficiary_share(with_beneficiary, without_beneficiary)
+```
+
+## Excel
+
+Assuming assets with a named beneficiary are in `B2:B5` and assets without one are in `C2`:
+
+``` swift
+=SUM(B2:B5) / (SUM(B2:B5) + SUM(C2))
+```
+:::
+
+## Key Takeaways
+
+1. Estate planning isn't just for the wealthy. It decides who can act for you and who gets your money.
+2. Beneficiary designations override your will. Fill them in on every account, with a backup, and update them after big life changes.
+3. A durable financial power of attorney and a healthcare directive (with a HIPAA release) let people you trust step in if you can't.
+4. A will matters most once you marry, have children, or own a home. Most young people don't need a trust.
+5. Set things up while you're thinking clearly; people often don't notice when that changes.
+6. Keep the paperwork where your family can find it, and tell them where it is.
+
+This is the last chapter of the book. The appendices that follow collect resources, reference material for R and Python, and setup instructions.
