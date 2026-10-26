@@ -62,7 +62,7 @@ Your goals compete for the same paycheck, so it helps to have an overall savings
 
 Ramit Sethi recommends about 10% of take home pay for investing and 5% to 10% for savings goals [@sethi2019will].
 
-The Money Guy Show sets an aspirational target of 25% of gross income (your pay before taxes), counting retirement accounts and the employer match. They base it on someone who starts in their mid 30s; starting younger means you can reach the same place with less [@moneyguy2023invest].
+The Money Guy Show sets an aspirational target of 25% of gross income (your pay before taxes), and money saved in retirement accounts counts toward it. In your 20s and 30s, they say it's fine to aim for a percentage and check later whether you're on track [@moneyguy2023invest].
 
 The [Retirement Accounts](retirement_accounts.qmd) chapter used 15% for retirement as a common starting point.
 

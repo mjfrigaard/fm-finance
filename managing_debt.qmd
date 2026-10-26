@@ -163,7 +163,7 @@ flowchart TD
     style PayDown fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
-### Federal IDR Plans: SAVE vs. RAP {.unnumbered}
+### Federal IDR Plans: SAVE vs. RAP {#sec-idr-plans .unnumbered}
 
 When the 1× rule is out of reach, income-driven repayment (IDR) caps monthly payments as a percentage of **discretionary income** rather than loan balance:
 
@@ -781,7 +781,7 @@ Subtract the protected part from the bar, take the payment rate of what's left, 
 
 Example: (\$50,000 − 1.5 × \$15,650) × 10% ÷ 12 = [about \$221 a month.]{style="color:#48a56a; font-weight: bold;"}
 
-The function below takes the AGI, the FPG threshold multiplier (`1.5` for IBR/PAYE, `2.25` for SAVE), and the payment rate (`0.10` for most plans, `0.05` for SAVE undergraduate loans), and returns the monthly payment.
+The function below takes the AGI, the FPG threshold multiplier (`1.5` for IBR), and the payment rate (`0.10` for IBR on loans after July 2014, `0.15` for older loans), and returns the monthly payment. SAVE used the same formula with a 225% threshold, but it ended in 2026. RAP, its replacement, bases payments on a percentage of your total AGI instead (see [Federal IDR Plans](#sec-idr-plans) above), so this function doesn't cover it.
 
 ::: panel-tabset
 ## R
@@ -801,8 +801,8 @@ idr_monthly_payment <- function(agi,
 # IBR: $50,000 AGI, 150% FPG threshold, 10% rate
 idr_monthly_payment(agi = 50000)
 
-# SAVE parameters: 225% FPG threshold, 5% rate (undergraduate loans)
-idr_monthly_payment(agi = 50000, threshold_pct = 2.25, payment_rate = 0.05)
+# IBR for loans before July 2014: 15% rate
+idr_monthly_payment(agi = 50000, payment_rate = 0.15)
 ```
 
 ## Python
@@ -819,8 +819,8 @@ def idr_monthly_payment(agi, poverty_guideline=15650,
 # IBR: $50,000 AGI, 150% FPG threshold, 10% rate
 print(idr_monthly_payment(agi=50000))
 
-# SAVE parameters: 225% FPG threshold, 5% rate (undergraduate loans)
-print(idr_monthly_payment(agi=50000, threshold_pct=2.25, payment_rate=0.05))
+# IBR for loans before July 2014: 15% rate
+print(idr_monthly_payment(agi=50000, payment_rate=0.15))
 ```
 
 ## Excel
@@ -831,7 +831,7 @@ Assuming AGI is in `A2`, the poverty guideline is in `B2` (`15650`), the thresho
 =ROUND(MAX(0, A2-B2*C2)*D2/12, 2)
 ```
 
-For the SAVE parameters, change `C2` to `2.25` and `D2` to `0.05`.
+For IBR on loans from before July 2014, change `D2` to `0.15`.
 :::
 
 ### Debt-to-Income Ratio (DTI) {.unnumbered}
