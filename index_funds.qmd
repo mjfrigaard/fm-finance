@@ -33,7 +33,7 @@ Holding companies by size (called market cap weighting) is also what Ben Felix r
 
 Active funds hire professionals to pick the companies they think will do best. It sounds like that should work better than buying everything. It usually doesn't.
 
-S&P Dow Jones Indices tracks how active funds do against their index every year in a report called [SPIVA](https://www.spglobal.com/spdji/en/spiva/article/spiva-us-year-end-2025/). In 2025, 79% of active funds that invest in large US companies did worse than the S&P 500. Over 15 years, about 9 out of 10 did worse. The few that do win in one period rarely keep winning in the next, so there's no reliable way to pick them ahead of time.
+S&P Dow Jones Indices tracks how active funds do against their index every year in a report called [SPIVA](https://www.spglobal.com/spdji/en/spiva/article/spiva-us-year-end-2025/). In 2025, 79% of active funds that invest in large US companies did worse than the S&P 500. Over the 15 years through 2024, about 9 out of 10 did worse. The few that do win in one period rarely keep winning in the next, so there's no reliable way to pick them ahead of time.
 
 John Bogle, who started the first index fund for regular investors in 1976, explained why with simple math. All investors together own the whole market, so before costs, the average investor earns the market's return. After costs, the average investor must earn less. Active funds charge more and trade more, so most of them end up behind. Index funds keep costs close to zero, so they keep almost all of the market's return [@bogle2017little].
 

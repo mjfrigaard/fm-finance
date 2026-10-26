@@ -380,7 +380,38 @@ Assuming essential monthly expenses are in cell `A2` and the number of months is
 
 ### Months to Reach Your Target {.unnumbered}
 
-Given your current balance and a monthly contribution, how long until you reach the target?
+Given your current balance and a monthly contribution, how long until you reach the target? Think of the target as one bar. Part of it is already filled by what you've saved; the rest is the gap your monthly contributions have to close.
+
+```{r}
+#| label: ef-months-bar-model
+#| echo: false
+#| fig-cap: "A $14,000 target with $2,000 saved: the $12,000 gap, filled $500 at a time"
+#| fig-asp: 0.25
+library(ggplot2)
+df_gap <- data.frame(
+  part   = factor(c("Already saved ($2,000)", "Still needed ($12,000 = 24 × $500)"),
+                  levels = c("Still needed ($12,000 = 24 × $500)", "Already saved ($2,000)")),
+  amount = c(2000, 12000),
+  bar    = "Target"
+)
+ggplot(df_gap, aes(x = amount, y = bar, fill = part)) +
+  geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_vline(xintercept = seq(2500, 13500, by = 500), colour = "white", linewidth = 0.3) +
+  scale_fill_manual(values = c("Already saved ($2,000)" = "#48a56a",
+                               "Still needed ($12,000 = 24 × $500)" = "#0e9aa7"),
+                    breaks = c("Already saved ($2,000)", "Still needed ($12,000 = 24 × $500)")) +
+  scale_x_continuous(labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "top",
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank(),
+    axis.text.y        = element_blank()
+  )
+```
+
+Each thin slice of the blue section is one $500 contribution. Counting the slices is the same as dividing the gap by the monthly contribution.
 
 **Formula:** Months to Goal = (Target − Current Balance) ÷ Monthly Contribution
 
@@ -429,7 +460,37 @@ Assuming the target is in `A2`, your current balance is in `B2`, and your monthl
 
 ### Contribution Needed by a Deadline {.unnumbered}
 
-Working backwards: if you want to reach your target in a specific number of months, how much do you need to save each month?
+Working backwards: if you want to reach your target in a specific number of months, how much do you need to save each month? This time the number of slices is fixed (one per month), and the question is how wide each slice has to be.
+
+```{r}
+#| label: ef-contrib-bar-model
+#| echo: false
+#| fig-cap: "The same $12,000 gap, cut into 18 equal monthly slices"
+#| fig-asp: 0.25
+library(ggplot2)
+df_slices <- data.frame(
+  slice  = factor(c("saved", paste0("m", 1:18)), levels = rev(c("saved", paste0("m", 1:18)))),
+  amount = c(2000, rep(12000 / 18, 18)),
+  fill   = c("#48a56a", rep(c("#0e9aa7", "#86ddcd"), 9)),
+  bar    = "Target"
+)
+ggplot(df_slices, aes(x = amount, y = bar, fill = fill, group = slice)) +
+  geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.3) +
+  annotate("text", x = 1000, y = 1.55, label = "Saved $2,000", fontface = "bold", size = 3.2) +
+  annotate("text", x = 8000, y = 1.55, label = "18 slices of about $667", fontface = "bold", size = 3.2) +
+  scale_fill_identity() +
+  scale_x_continuous(labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  scale_y_discrete(expand = expansion(add = c(0.4, 0.7))) +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank(),
+    axis.text.y        = element_blank()
+  )
+```
+
+Splitting the gap into equal slices is division: the gap divided by the number of months gives the width of each slice.
 
 **Formula:** Monthly Contribution = (Target − Current Balance) ÷ Months Remaining
 
@@ -476,13 +537,45 @@ Assuming the target is in `A2`, your current balance is in `B2`, and the number 
 
 ### What the Fund Earns While You Build It {.unnumbered}
 
-Keeping the fund in a HYSA means it earns interest as it grows. This won't dramatically change your timeline, but it's real money.
+Keeping the fund in a HYSA means it earns interest as it grows. This won't dramatically change your timeline, but it's real money. The bar below shows a full $14,000 fund after a year: your money, plus a small slice of interest on the end.
+
+```{r}
+#| label: ef-growth-bar-model
+#| echo: false
+#| fig-cap: "$14,000 at 4.5% for 12 months: your balance plus interest"
+#| fig-asp: 0.25
+library(ggplot2)
+fv <- 14000 * (1 + 0.045 / 12)^12
+parts <- c("Your balance ($14,000)", sprintf("Interest ($%s)", round(fv - 14000)))
+df_int <- data.frame(
+  part   = factor(parts, levels = rev(parts)),
+  amount = c(14000, fv - 14000),
+  bar    = "After 12 months"
+)
+ggplot(df_int, aes(x = amount, y = bar, fill = part)) +
+  geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
+  scale_fill_manual(values = setNames(c("#0e9aa7", "#48a56a"), parts), breaks = parts) +
+  scale_x_continuous(
+    limits = c(0, 15500),
+    labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))
+  ) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "top",
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor   = element_blank(),
+    axis.text.y        = element_blank()
+  )
+```
+
+Each month, the balance is multiplied by (1 + the monthly rate), so the green slice grows a little faster every month. After 12 multiplications, that pattern becomes the formula.
 
 **Formula:** Future Value = Balance × (1 + monthly rate)\^months
 
 Where monthly rate = annual rate ÷ 12.
 
-Example: \$14,000 in a HYSA at 4.5% APY, untouched for 12 months → [\~\$14,630.]{style="color:#48a56a; font-weight: bold;"} The interest pays for a car repair without reducing your fund.
+Example: \$14,000 in a HYSA at 4.5% APY, untouched for 12 months → [\~\$14,643.]{style="color:#48a56a; font-weight: bold;"} The interest pays for a car repair without reducing your fund.
 
 ::: panel-tabset
 ## R

@@ -33,11 +33,16 @@ The code below grows \$10,000 at 7% for 40 years: R plots the balance each year,
 
 ```{r}
 #| label: compounding-r
-years   <- 0:40
-balance <- 10000 * (1.07)^years
-plot(years, balance, type = "l",
-     xlab = "Years", ylab = "Balance ($)",
-     main = "$10,000 at 7% compounded annually")
+library(ggplot2)
+growth <- data.frame(years = 0:40)
+growth$balance <- 10000 * (1.07)^growth$years
+ggplot(growth, aes(x = years, y = balance)) +
+  geom_line(colour = "#0e9aa7", linewidth = 1.2) +
+  scale_y_continuous(labels = function(x) paste0("$", round(x / 1000), "k")) +
+  labs(x = "Years", y = "Balance",
+       title = "$10,000 at 7% compounded annually") +
+  theme_minimal(base_size = 12) +
+  theme(panel.grid.minor = element_blank())
 ```
 
 ```{python}

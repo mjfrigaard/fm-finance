@@ -390,7 +390,47 @@ def add_fun(a, b):
 
 ### The Wealth Formula {.unnumbered}
 
-Galloway's wealth formula captures the essence of wealth building:
+Galloway's wealth formula captures the essence of wealth building. To turn it into numbers, picture someone with a median income of \$62,400 who saves 15% (\$9,360) every year and earns 8%. Each bar below is their savings at a checkpoint, split into what they put in and what it grew into.
+
+```{r}
+#| label: wealth-bar-model
+#| echo: false
+#| fig-cap: "$9,360 saved every year at 8%: money put in vs. growth"
+#| fig-asp: 0.50
+library(ggplot2)
+yrs <- c(10, 20, 30, 40)
+put_in <- 9360 * yrs
+total  <- 9360 * ((1.08^yrs - 1) / 0.08)
+df_w <- data.frame(
+  year   = factor(rep(paste0("Year ", yrs), 2), levels = paste0("Year ", yrs)),
+  layer  = factor(rep(c("Growth (time × diversification)", "Money put in (stoicism)"), each = 4),
+                  levels = c("Growth (time × diversification)", "Money put in (stoicism)")),
+  amount = c(total - put_in, put_in)
+)
+ggplot(df_w, aes(x = year, y = amount, fill = layer)) +
+  geom_col(width = 0.6, colour = "#1C1C1E", linewidth = 0.4) +
+  geom_text(
+    data = data.frame(year = factor(paste0("Year ", yrs), levels = paste0("Year ", yrs)), total = total),
+    aes(x = year, y = total,
+        label = paste0("$", formatC(round(total / 1000), format = "d", big.mark = ","), "k")),
+    inherit.aes = FALSE, vjust = -0.4, fontface = "bold", size = 3.5
+  ) +
+  scale_fill_manual(values = c("Money put in (stoicism)" = "#0e9aa7",
+                               "Growth (time × diversification)" = "#48a56a")) +
+  scale_y_continuous(
+    limits = c(0, max(total) * 1.12),
+    labels = function(x) paste0("$", formatC(round(x / 1000), format = "d", big.mark = ","), "k")
+  ) +
+  labs(x = NULL, y = NULL, fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position    = "top",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank()
+  )
+```
+
+The blue layer grows in a straight line, one \$9,360 deposit per year. The green layer is every deposit growing at 8% for the years it has left, and it passes the blue layer after about year 18. Adding up all those growing deposits is what the formula's second term does; in the code below, that sum collapses into the same future value formula used for regular contributions.
 
 **Formula:** Wealth = Focus + (Stoicism × Time × Diversification)
 
