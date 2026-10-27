@@ -15,24 +15,26 @@ source("_common.R")
 
 <br>
 
-How much should you save? The honest answer is: **as much as you can sustain**. In this chapter I'll cover the principle that makes saving possible: automation, built on a simple formula that works with your budget instead of against it. Most people fail at saving because they treat it as an afterthought (whatever's left over at the end of the month). The path to financial independence flips this around: decide how much to save first, automate it, and let the rest be your budget.[^savings-strategies-1]
+How much should you save? The honest answer is: **as much as you can sustain**. In this chapter I'll cover the principle that makes saving possible: automation, built on a simple formula that works with your budget instead of against it. Most people fail at saving because they treat it as an afterthought (whatever's left over at the end of the month). The path to financial independence (having enough invested that you no longer need a paycheck to cover your bills) flips this around: decide how much to save first, automate it, and let the rest be your budget.[^savings-strategies-1]
 
-[^savings-strategies-1]: Ramit Sethi's Conscious Spending Plan embeds this principle: pay yourself (savings and investments) first as a percentage of income, then allocate the remainder to fixed costs, flexible spending, and guilt-free wants. This removes savings from willpower and makes it automatic.
+[^savings-strategies-1]: Ramit Sethi's Conscious Spending Plan embeds this principle: pay yourself (savings and investments) first as a percentage of income, then split the rest among fixed costs, flexible spending, and guilt-free wants. This removes savings from willpower and makes it automatic.
 
 ## Savings Rate (the most important metric)
 
 If you only track one number, make it this one. [Ben Felix](https://rationalreminder.ca/) and [John Bogle](https://www.bogleheads.org/) both stress it above all else.
 
-Your savings rate is the single lever you fully control that determines how fast wealth accumulates. As both of them point out, income is not destiny. A $40,000/year earner with a 40% savings rate will reach financial independence faster than a $120,000/year earner with a 10% rate. In other words, your savings rate matters more than your income.
+Your savings rate is the single lever you fully control that determines how fast wealth accumulates. As both of them point out, income is not destiny. Someone earning \$45,000 and saving 20% builds wealth faster than someone earning \$75,000 and saving 10%, and they've learned to live on far less. In other words, your savings rate matters more than your income.
 
 **Benchmarks to know:**
 
-* **<10%:** Danger zone; financial independence feels impossible
-* **10-20%:** Average; slow but steady progress
-* **20-30%:** Strong; real wealth building begins
-* **30%+:** Path to financial independence within a decade or two
+* **Under 10%:** Danger zone; financial independence feels impossible
+* **10% to 20%:** Average; slow but steady progress
+* **20% to 30%:** Strong; real wealth building begins
+* **30% or more:** Path to financial independence within a decade or two
 
-The difference is bigger than most people expect. In the chart below we compare two scenarios: someone making $40,000/year and saving 40% reaches financial independence faster than someone making $120,000/year and saving only 10%. Despite earning $80,000 less every year, the higher savings rate compounds to wealth faster.
+Experts don't agree on a single target; the [Financial Goals](financial_goals.qmd) chapter compares their numbers. If 20% feels out of reach on a first paycheck, start lower and raise it with every raise.
+
+The difference is bigger than most people expect. The chart below compares two people who both earn 7% a year on what they invest: one makes \$45,000 and saves 20% (\$9,000 a year), the other makes \$75,000 and saves 10% (\$7,500 a year). Despite earning \$30,000 less every year, the higher saver builds wealth faster.
 
 ```{r}
 #| label: savings-rate-beats-income
@@ -61,8 +63,8 @@ calculate_wealth <- function(annual_payment, years, rate) {
 years <- 0:30
 return_rate <- 0.07
 
-wealth_low_income <- calculate_wealth(16000, years, return_rate)
-wealth_high_income <- calculate_wealth(12000, years, return_rate)
+wealth_low_income <- calculate_wealth(9000, years, return_rate)
+wealth_high_income <- calculate_wealth(7500, years, return_rate)
 
 wealth_data <- data.frame(
   year = years,
@@ -72,25 +74,25 @@ wealth_data <- data.frame(
   pivot_longer(-year, names_to = "scenario", values_to = "wealth") |> 
   mutate(scenario = factor(scenario,
     levels = c("low_income_high_rate", "high_income_low_rate"),
-    labels = c("$40k/year\n(40% rate/$16k saved)",
-               "$120k/year\n(10% rate/$12k saved)")))
+    labels = c("$45k/year\n(20% rate, $9,000 saved)",
+               "$75k/year\n(10% rate, $7,500 saved)")))
 
 ggplot(wealth_data, aes(x = year, y = wealth, color = scenario, linewidth = scenario)) +
   geom_line() +
   geom_point(size = 1.8, alpha = 0.6) +
   geom_hline(yintercept = 500000, linetype = "dashed", color = "#1C1C1E", linewidth = 0.7, alpha = 0.5) +
-  annotate("text", x = 27.5, y = 540000, label = "$500k FI target",
+  annotate("text", x = 4, y = 540000, label = "$500k milestone",
            size = 3, color = "#1C1C1E", fontface = "italic") +
   scale_color_manual(values = c(
-    "$40k/year\n(40% rate/$16k saved)" = "#48a56a",
-    "$120k/year\n(10% rate/$12k saved)" = "#0e9aa7"
+    "$45k/year\n(20% rate, $9,000 saved)" = "#48a56a",
+    "$75k/year\n(10% rate, $7,500 saved)" = "#0e9aa7"
   )) +
   scale_linewidth_manual(values = c(
-    "$40k/year\n(40% rate/$16k saved)" = 1.1,
-    "$120k/year\n(10% rate/$12k saved)" = 1.1
+    "$45k/year\n(20% rate, $9,000 saved)" = 1.1,
+    "$75k/year\n(10% rate, $7,500 saved)" = 1.1
   )) +
-  scale_y_continuous(labels = function(x) paste0("$", format(x/1000, big.mark = ","), "k"),
-                     limits = c(0, 1700000)) +
+  scale_y_continuous(labels = function(x) paste0("$", format(x/1000, big.mark = ",", trim = TRUE), "k"),
+                     limits = c(0, 1000000)) +
   scale_x_continuous(breaks = seq(0, 30, 5)) +
   labs(x = "Years", y = "Total wealth", color = NULL, linewidth = NULL) +
   theme_minimal(base_size = 12) +
@@ -102,17 +104,17 @@ ggplot(wealth_data, aes(x = year, y = wealth, color = scenario, linewidth = scen
   )
 ```
 
-The low-income earner reaches $500k in 18 years. The high-income earner? 21 years. Your savings rate sets the speed, not your salary.
+The \$45,000 earner reaches \$500,000 in 24 years. The \$75,000 earner? 26 years. And the \$45,000 earner lives on \$36,000 a year, so they need a much smaller pile to stop working. Your savings rate sets the speed, not your salary.
 
-The chart below shows what each benchmark tier looks like in actual dollars on an \$80,000 income.
+The chart below shows what each benchmark tier looks like in actual dollars on a \$45,000 income.
 
 ```{r}
 #| label: savings-rate-bar-model-intro
 #| echo: false
-#| fig-cap: "Annual dollars saved at four savings-rate tiers on an $80,000 income"
+#| fig-cap: "Annual dollars saved at four savings-rate tiers on a $45,000 income"
 #| fig-asp: 0.70
 library(ggplot2)
-income <- 80000
+income <- 45000
 tiers <- data.frame(
   label   = c("8% (danger zone)", "15% (average)", "25% (strong)", "35% (FI path)"),
   rate    = c(0.08, 0.15, 0.25, 0.35),
@@ -138,7 +140,7 @@ ggplot(tiers, aes(x = label, y = saved, fill = label)) +
     labels = function(x) paste0("$", format(x, big.mark = ",")),
     limits = c(0, income * 0.45)
   ) +
-  labs(x = NULL, y = "Annual savings (on $80,000 income)") +
+  labs(x = NULL, y = "Annual savings (on $45,000 income)") +
   theme_minimal(base_size = 12) +
   theme(
     legend.position = "none",
@@ -159,33 +161,33 @@ Four strategies make it much easier to stick with:
 
 3. **Label the account by purpose.** "Emergency Fund" or "Car Repair Fund" is more protective than generic "Savings." The label triggers commitment: you've told yourself what the money is for.
 
-4. **Track your progress visually.** A chart showing balance rising toward your goal provides motivation. Sethi emphasizes behavioral compliance; seeing progress reinforces the habit.
+4. **Track your progress visually.** A chart showing balance rising toward your goal provides motivation. Sethi emphasizes sticking with the plan; seeing progress reinforces the habit.
 
 ### Savings and the FOO {.unnumbered} 
 
 If we look back at the Financial Order of Operations (@sec-savings-foop), saving shows up at nearly every step: protection first, then debt and emergency reserves, then investing, then planned future expenses.
 
-The order is deliberate. Morgan Housel's insight applies directly: before your savings can grow, they have to be protected from emergencies. Ben Felix makes a related point: behavioral compliance (actually following through) matters more than optimization. The right savings rate is the one you can keep up for decades, not one that looks impressive on a spreadsheet for six months.
+The order is deliberate. Morgan Housel's insight applies directly: before your savings can grow, they have to be protected from emergencies. Ben Felix makes a related point: actually following through matters more than having the perfect plan. The right savings rate is the one you can keep up for decades, not one that looks impressive on a spreadsheet for six months.
 
 ## Savings Account Types
 
-Not all savings accounts are equal. The right account depends on when you'll need the money and how much growth you need.
+Not all savings accounts are equal. The right account depends on when you'll need the money and how much growth you need. Liquidity, in the table below, is how quickly you can get your money out. Rates are what top accounts paid in late 2026; they change often.
 
 | Account Type | Liquidity | Interest Rate | Best For |
 |---|---|---|---|
-| **High-Yield Savings** | Immediate (1–2 days) | 4–5% APY | Emergency fund, sinking funds |
-| **Money Market Account** | Quick (3–5 days) | 4.5–5.5% APY | Emergency fund, flexibility |
-| **Certificate of Deposit (CD)** | Fixed term (3–5 years) | 4–5.5% APY | Known future goal, discipline |
-| **Regular Savings** | Immediate | 0.01–0.5% APY | Avoid; losing to inflation |
+| **High-Yield Savings** | Fast (1 to 2 days) | About 4% APY | Emergency fund, sinking funds |
+| **Money Market Account** | Fast (1 to 2 days, often with checks or a debit card) | About 4% APY | Emergency fund, flexibility |
+| **Certificate of Deposit (CD)** | Locked for a fixed term (3 months to 5 years) | About 4% APY | Known future goal, discipline |
+| **Regular Savings** | Immediate | 0.01% to 0.5% APY | Avoid; losing to inflation |
 
-**High-yield savings accounts (HYSAs)** are the foundation. John Bogle's principle of simplicity applies here: a HYSA costs nothing, requires no stock-picking, and guarantees you won't lose your principal. You earn 4–5% APY while keeping money liquid for emergencies.
+**High-yield savings accounts (HYSAs)** are the foundation. John Bogle's principle of simplicity applies here: a HYSA costs nothing, requires no stock picking, and guarantees you won't lose the money you put in. Top accounts paid around 4% APY in 2026 while keeping the money available for emergencies.
 
-Ramit Sethi recommends automating your savings into a separate high-yield account at a different bank, not your regular checking account. That friction (money takes 1–2 days to transfer back) is the point; it prevents impulsive withdrawals and puts a psychological barrier between you and your savings.
+Ramit Sethi recommends automating your savings into a separate high-yield account at a different bank, not your regular checking account. That friction (money takes 1 to 2 days to transfer back) is the point; it prevents impulsive withdrawals and puts a psychological barrier between you and your savings.
 
 ::: {.callout-note appearance="default" icon=false}
 ## FDIC Insurance and Account Limits
 
-FDIC insurance protects up to $250,000 per account holder per bank. If you save more than $250k, open accounts at different institutions. Most online banks (Ally, Marcus, American Express, Discover) offer competitive rates (4–5% APY).
+FDIC insurance protects up to \$250,000 per account holder per bank. If you save more than \$250,000, open accounts at different institutions. Most online banks (Ally, Marcus, American Express, Capital One) offer competitive rates (around 4% APY in 2026).
 :::
 
 ## Math for Saving {#math-for-saving}
@@ -194,46 +196,39 @@ FDIC insurance protects up to $250,000 per account holder per bank. If you save 
 
 Think of your income as a single bar, just like we did in the Budgeting chapter. Every dollar goes to either spending or savings, and the savings rate just measures *what slice of that bar is savings.*
 
-The chart below shows how this slice changes across four savings-rate tiers, all from the same $60,000 income.
+The bar below is a first job's \$3,200 monthly take-home pay: \$2,720 spent and \$480 saved.
 
 ```{r}
 #| label: savings-rate-bar-model
 #| echo: false
-#| fig-cap: "Savings slice as a percentage of income (same $60k income, different rates)"
-#| fig-asp: 0.50
+#| fig-cap: "$3,200 take-home pay: spending vs. savings"
+#| fig-asp: 0.35
 library(ggplot2)
-income <- 60000
-tiers <- data.frame(
-  label   = c("8% (danger zone)", "15% (average)", "25% (strong)", "35% (FI path)"),
-  rate    = c(0.08, 0.15, 0.25, 0.35),
-  fill    = c("#f44242", "#0e9aa7", "#48a56a", "#86ddcd"),
-  stringsAsFactors = FALSE
+df_sr <- data.frame(
+  label  = c("Spending\n$2,720 (85%)", "Savings\n$480\n(15%)"),
+  amount = c(2720, 480)
 )
-tiers$saved   <- income * tiers$rate
-tiers$bar_lbl <- paste0("saves $", format(tiers$saved, big.mark = ",", scientific = FALSE), "/yr")
-tiers$label   <- factor(tiers$label, levels = rev(tiers$label))
-
-ggplot(tiers, aes(x = label, y = saved, fill = label)) +
-  geom_col(width = 0.6, colour = "#1C1C1E", linewidth = 0.3) +
+df_sr$label <- factor(df_sr$label, levels = rev(df_sr$label))
+ggplot(df_sr, aes(x = "", y = amount, fill = label)) +
+  geom_col(width = 0.8) +
   geom_text(
-    aes(label = bar_lbl),
-    hjust = -0.08,
-    fontface = "bold",
-    size = 3.5,
-    colour = "#1C1C1E"
+    aes(label = label),
+    position = position_stack(vjust = 0.5),
+    colour = "white", fontface = "bold", size = 3.5
   ) +
   coord_flip() +
-  scale_fill_manual(values = setNames(tiers$fill, tiers$label)) +
-  scale_y_continuous(
-    labels = function(x) paste0("$", format(x, big.mark = ",")),
-    limits = c(0, income * 0.45)
-  ) +
-  labs(x = NULL, y = "Annual savings (on $60,000 income)") +
+  scale_fill_manual(values = c(
+    "Spending\n$2,720 (85%)" = "#0e9aa7",
+    "Savings\n$480\n(15%)"    = "#48a56a"
+  )) +
+  scale_y_continuous(labels = function(x) paste0("$", format(x, big.mark = ",", trim = TRUE))) +
+  labs(x = NULL, y = "Monthly take-home pay ($3,200)") +
   theme_minimal(base_size = 12) +
   theme(
     legend.position = "none",
-    panel.grid.minor = element_blank(),
-    panel.grid.major.y = element_blank()
+    axis.text.y     = element_blank(),
+    axis.ticks.y    = element_blank(),
+    panel.grid      = element_blank()
   )
 ```
 
@@ -241,7 +236,7 @@ The formula translates this visual: divide the savings slice by the total bar, t
 
 **Formula:** Savings Rate = (Income − Spending) ÷ Income × 100
 
-Example: You take home $5,000 and spend $3,500. → (5,000 − 3,500) ÷ 5,000 = [30% savings rate.]{style="color:#48a56a; font-weight: bold;"}
+Example: You take home \$3,200 and spend \$2,720. → (3,200 − 2,720) ÷ 3,200 × 100 = [15% savings rate.]{style="color:#48a56a; font-weight: bold;"}
 
 ::: panel-tabset
 
@@ -255,8 +250,8 @@ savings_rate <- function(income, spending) {
   ((income - spending) / income) * 100
 }
 
-# $5,000 take-home, $3,500 spent
-savings_rate(income = 5000, spending = 3500)
+# $3,200 take-home, $2,720 spent
+savings_rate(income = 3200, spending = 2720)
 ```
 
 ## Python
@@ -268,8 +263,8 @@ The Python version of `savings_rate()` works the same way:
 def savings_rate(income, spending):
     return ((income - spending) / income) * 100
 
-# $5,000 take-home, $3,500 spent
-savings_rate(income=5000, spending=3500)
+# $3,200 take-home, $2,720 spent
+savings_rate(income=3200, spending=2720)
 ```
 
 ## Excel
@@ -285,7 +280,7 @@ Assuming `Income` is in cell `B2` and `Spending` is in cell `C2`:
 
 1. **Your savings rate determines your timeline** to financial independence. Saving 30% will get you there sooner than a big paycheck with a low savings rate.
 2. **Automate your savings.** You won't have the willpower every month (nobody does), so pay yourself first with automatic transfers and let whatever is left be your budget.
-3. **High-yield savings accounts are foundational, not boring.** Earning 4–5% APY beats inflation without putting your savings at risk.
+3. **High-yield savings accounts are foundational, not boring.** Earning around 4% APY usually beats inflation without putting your savings at risk.
 4. **Consistency beats optimization.** A modest savings rate you keep up for 30 years will outpace aggressive saving you give up on after 18 months.
 
 Once you have a clear savings rate, automated transfers, and the right account to hold that money, your savings foundation is solid. In the next chapter we'll take a closer look at the high-yield accounts that hold that money.

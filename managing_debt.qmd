@@ -15,7 +15,7 @@ source("_common.R")
 
 <br>
 
-Debt isn't inherently good or bad; it's a tool. Used wisely, it can accelerate wealth-building (think low-rate mortgages or strategic education). Used poorly, it can quietly destroy decades of financial progress. Let's break down each type with evidence-based advice from [Housel](https://www.morganhousel.com/), [Sethi](https://www.iwillteachyoutoberich.com/), [Bogle](https://www.bogleheads.org/), and [Ben Felix](https://rationalreminder.ca/).
+Debt isn't inherently good or bad; it's a tool. Used wisely, it can help you build wealth faster (think of a low-rate loan for a degree that raises your pay, or a mortgage later in life). Used poorly, it can quietly destroy decades of financial progress. Let's break down each type with evidence-based advice from [Housel](https://www.morganhousel.com/), [Sethi](https://www.iwillteachyoutoberich.com/), [Bogle](https://www.bogleheads.org/), and [Ben Felix](https://rationalreminder.ca/).
 
 ## The Debt Hierarchy (know your enemy)
 
@@ -27,9 +27,9 @@ Every debt has a price, called the APR (annual percentage rate): the yearly cost
 %%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
-    AllDebt("Your Debts") --> Toxic("TOXIC DEBT<br>15-29% APR")
-    AllDebt --> Moderate("MODERATE DEBT<br>5-10% APR")
-    AllDebt --> Strategic("STRATEGIC DEBT<br>3-7% APR")
+    AllDebt("Your Debts") --> Toxic("TOXIC DEBT<br>15% to 29% APR")
+    AllDebt --> Moderate("MODERATE DEBT<br>5% to 10% APR")
+    AllDebt --> Strategic("STRATEGIC DEBT<br>3% to 7% APR")
 
     Toxic --> CreditCards("Credit Cards<br>Payday Loans")
     Moderate --> CarLoans("Car Loans<br>Private Student Loans")
@@ -52,7 +52,7 @@ flowchart TD
 
 ## Credit Cards (destroyers of wealth)
 
-Credit card debt is the single most destructive financial product most people will ever encounter. At 20%+ APR, it grows faster than any reasonable investment can compound.
+Credit card debt is the single most destructive financial product most people will ever encounter. At 20% APR or more, it grows faster than any reasonable investment can.
 
 [The rule here is uncompromising:]{style="color:#48a56a; font-weight: bold;"} credit card debt gets paid off before nearly every other financial goal. The exceptions are covering your insurance deductibles and capturing an employer match (see @sec-foo-debt). The math is brutal: you cannot out-invest 24% interest.
 
@@ -62,13 +62,13 @@ Credit card debt is the single most destructive financial product most people wi
 |----|----|
 | **1. Stop the bleeding** | Stop using cards. Pay cash or debit until balances are zero. |
 | **2. Call and negotiate** | Call each issuer. Ask for a lower APR. It works more often than you'd think. |
-| **3. Choose a method** | **Avalanche** (highest APR first; saves most money) or **Snowball** (smallest balance first; builds momentum). |
-| **4. Consider consolidation** | A 0% balance transfer card or personal loan at 8-10% beats 24% every time. |
-| **5. Automate minimums** | Never miss a payment; it triggers penalty APRs and credit damage. |
+| **3. Choose a method** | **Avalanche** (highest APR first; saves the most money) or **Snowball** (smallest balance first; builds momentum). |
+| **4. Consider consolidation** | Consolidation means moving several debts into one cheaper one. A 0% balance transfer card (a new card that charges no interest on debt you move to it, usually for 12 to 21 months) or a personal loan at 8% to 10% beats 24% every time. |
+| **5. Automate minimums** | Never miss a payment; it can raise your APR (a penalty APR) and lower your credit score. |
 
 ### Use Credit Cards as a Tool, Not a Trap {.unnumbered}
 
-Once you're paying off your balance [in full every month]{style="color:#48a56a; font-weight: bold;"}, credit cards become powerful: cashback, travel rewards, fraud protection, and credit-building. The key is using them as a payment method, not a financing tool.
+Once you're paying off your balance [in full every month]{style="color:#48a56a; font-weight: bold;"}, credit cards become powerful: cash back, travel rewards, fraud protection, and a stronger credit score. The key is using them as a way to pay, not a way to borrow.
 
 ## Student Loans
 
@@ -76,7 +76,7 @@ Student loans sit in a complicated middle ground. Ben Felix's human capital fram
 
 ### Before Taking Loans {.unnumbered}
 
-Felix would frame it this way: [the return on educational debt depends on the income premium that degree generates.]{style="color:#48a56a; font-weight: bold;"} A \$40,000 loan for a degree that boosts lifetime earnings by \$1M+ is a great trade. The same \$40,000 for a degree with no clear earnings path is not.
+Felix would frame it this way: [the return on a student loan depends on how much more you'll earn because of the degree.]{style="color:#48a56a; font-weight: bold;"} A \$40,000 loan for a degree that adds \$1 million or more to your lifetime earnings is a great trade. The same \$40,000 for a degree with no clear earnings path is not.
 
 ### Choosing a Major {#choosing-a-major .unnumbered}
 
@@ -84,7 +84,7 @@ Felix's human capital lens turns the major decision into a measurable one: which
 
 **The 1× Rule:** total student debt at graduation should not exceed your expected first-year salary. Above that threshold, loan payments begin to crowd out saving and investing before your financial life has really started.
 
-The 1× ceiling itself isn't very illuminating (it's just the salary number again). What matters is the *monthly bill* that ceiling produces. Under a standard 10-year federal repayment at \~6.5%, every dollar borrowed costs roughly \$0.0114/month. Applied to each major:
+The 1× ceiling itself isn't very illuminating (it's just the salary number again). What matters is the *monthly bill* that ceiling produces. Under a standard 10-year federal repayment plan at about 6.5%, every dollar borrowed costs roughly \$0.0114/month. Applied to each major:
 
 | Major Category | Typical Starting Salary | Monthly Payment at 1× Ceiling |
 |----|----|----|
@@ -95,13 +95,13 @@ The 1× ceiling itself isn't very illuminating (it's just the salary number agai
 | Education | \$38,000–\$46,000 | \$430–\$520 |
 | Fine Arts / Humanities | \$35,000–\$48,000 | \$395–\$545 |
 
-*Salaries: BLS Occupational Outlook Handbook median entry-level estimates. Payments: 10-year standard repayment at 6.5%, the federal direct unsubsidized rate as of 2024.*
+*Salaries: BLS Occupational Outlook Handbook median entry-level estimates. Payments: 10-year standard repayment at 6.5%, close to the federal undergraduate loan rate for 2026–27 (6.52%).*
 
 At the 1× ceiling, every borrower pays roughly the same share of gross income (about 14%) to student loans. What changes dramatically is [what's left over.]{style="color:#48a56a; font-weight: bold;"}
 
-* A Fine Arts grad with a \$545 payment has roughly \$2,500–\$2,600 after taxes to cover rent, food, transportation, and everything else.
+* A Fine Arts grad with a \$545 payment has roughly \$2,500 to \$2,600 after taxes to cover rent, food, transportation, and everything else.
 
-* An engineer with a \$1,080 payment still has \$4,500–\$4,700 for the same categories. Same debt-to-income *ratio*, very different lifestyle headroom.
+* An engineer with a \$1,080 payment still has \$4,500 to \$4,700 for the same categories. Same share of income going to the loan, very different amount left to live on.
 
 This is why the 1× rule is a ceiling, not a target, and why lower-earning majors often need a lower personal cap.
 
@@ -115,7 +115,7 @@ flowchart TD
     ResearchSal --> EstDebt("Estimate Total<br>Loan Debt")
     EstDebt --> RatioCheck{"Debt ÷ Salary"}
     RatioCheck -->|"Below 1.0"| Viable("Financially<br>Viable Path")
-    RatioCheck -->|"1.0–1.5"| IDRPath("Manageable<br>with IDR Plan")
+    RatioCheck -->|"1.0 to 1.5"| IDRPath("Manageable<br>with IDR Plan")
     RatioCheck -->|"Above 1.5"| HighRisk("High Risk:<br>Reconsider")
     HighRisk --> Alternatives["Alternatives:<br>Community College<br>In-State Tuition<br>Scholarships<br>Change Major"]
     IDRPath --> IDRSection(["See: IDR Plans below"])
@@ -130,7 +130,7 @@ flowchart TD
     style IDRSection fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
 ```
 
-**Why 1× works:** a loan equal to first-year salary on a standard 10-year plan at \~6.5% interest produces monthly payments of roughly 14% of gross income. This is a level most budgets absorb without crowding out investing. At 2× salary, that doubles and competes directly with building wealth.
+**Why 1× works:** a loan equal to first-year salary on a standard 10-year plan at about 6.5% interest produces monthly payments of roughly 14% of gross income. This is a level most budgets absorb without crowding out investing. At 2× salary, that doubles and competes directly with building wealth.
 
 *See [Math for Managing Debt](#math-for-managing-debt) below for the `loan_income_ratio()` and `monthly_standard_payment()` functions in R and Python.*
 
@@ -171,14 +171,14 @@ When the 1× rule is out of reach, income-driven repayment (IDR) caps monthly pa
 
 Here, AGI is your adjusted gross income (your yearly income after a few tax adjustments, found on your tax return). The Federal Poverty Guideline (FPG) is the yearly income level the government uses to define poverty; it changes with household size and from year to year.
 
-The threshold and payment rate differ by plan. Using the 2025 federal poverty guideline of \~\$15,650 for a single person in the contiguous U.S.:
+The threshold and payment rate differ by plan. Using the 2026 federal poverty guideline of \$15,960 for a single person in the contiguous U.S.:
 
 | Plan | Income Threshold | Payment Rate | Forgiveness |
 |----|----|----|----|
-| **IBR** (loans after 2014) | 150% FPG | 10% | 20 years |
+| **IBR** (loans from July 2014 to June 2026) | 150% FPG | 10% | 20 years |
 | **PAYE** | 150% FPG | 10% | 20 years |
-| **SAVE** *(ended, March 2026)* | 225% FPG | 5% undergrad / 10% grad | 10–25 years |
-| **RAP** *(available July 2026)* | 100% FPG | 1–10% sliding | 30 years |
+| **SAVE** *(ended, March 2026)* | 225% FPG | 5% undergrad / 10% grad | 10 to 25 years |
+| **RAP** *(since July 2026)* | 100% FPG | 1% to 10% sliding | 30 years |
 
 **SAVE Plan (Saving on a Valuable Education)**
 
@@ -186,27 +186,28 @@ Introduced by the Biden administration in 2023 as a replacement for REPAYE, SAVE
 
 * Raised the income exemption to 225% of FPG (from 150% under older plans), lowering monthly payments substantially for most borrowers
 * Applied 5% of discretionary income to undergraduate loan balances; 10% to graduate balances
-* Forgave balances under \$12,000 after 10 years; larger balances after 20–25 years
+* Forgave balances under \$12,000 after 10 years; larger balances after 20 to 25 years
 
-**Status (2026):** Ended. A federal court order ended SAVE in March 2026, and borrowers who were enrolled must choose a new repayment plan.
+**Status (2026):** Ended. A federal court order ended SAVE in March 2026. Starting July 1, 2026, loan servicers began telling enrolled borrowers to pick a new plan; anyone who doesn't choose within 90 days is moved to a standard plan.
 
 **RAP (Repayment Assistance Plan)**
 
-The replacement for SAVE, created by federal law and available to borrowers starting July 1, 2026:
+The replacement for SAVE, created by federal law and open to borrowers since July 1, 2026:
 
 * Sliding payment scale from 1% of AGI at low incomes to 10% at higher incomes
-* Income exemption at 100% of FPG (narrower than SAVE) means somewhat higher payments for most borrowers at low-to-moderate incomes
-* Forgiveness timeline extended to 30 years (longer than SAVE's 10–25 years)
+* Income exemption at 100% of FPG (narrower than SAVE) means somewhat higher payments for most borrowers at low and moderate incomes
+* Forgiveness timeline extended to 30 years (longer than SAVE's 10 to 25 years)
+* If your first federal loan is made on or after July 1, 2026, RAP is the only income-driven plan you can use (your other choice is a standard plan). If you borrowed before then, you can choose between RAP and IBR until July 1, 2028.
 
-**Status (2026):** Law, not a proposal. Details such as dependents and minimum payments can change, so verify current terms at [studentaid.gov](https://studentaid.gov/manage-loans/repayment/plans) before enrolling.
+**Status (2026):** Law, and open since July 1, 2026. Details such as dependents and minimum payments can change, so verify current terms at [studentaid.gov](https://studentaid.gov/manage-loans/repayment/plans) before enrolling.
 
 **IBR: the stable fallback**
 
-IBR predates both SAVE and RAP and has survived every administration since 2007. For borrowers with loans after July 2014: 10% of discretionary income, forgiveness after 20 years. When newer plans are ended or in flux, IBR is the court-tested option.
+IBR predates both SAVE and RAP and has survived every administration since 2007. For borrowers with loans from July 2014 on: 10% of discretionary income, forgiveness after 20 years. It's closed to loans made on or after July 1, 2026, so it only helps if you borrowed before then.
 
 **PSLF**
 
-If you work for a government agency or qualifying non-profit, Public Service Loan Forgiveness cancels the remaining balance after 10 years of qualifying IDR payments (regardless of what's left). Teachers, nurses, social workers, and public defenders are common candidates. IBR + PSLF is often the most powerful tool available for high-debt borrowers in public service careers.
+If you work for a government agency or qualifying nonprofit, Public Service Loan Forgiveness cancels the remaining balance after 10 years of qualifying IDR payments (regardless of what's left). Teachers, nurses, social workers, and public defenders are common candidates. An income-driven plan (RAP, or IBR for older loans) plus PSLF is often the most powerful tool available for high-debt borrowers in public service careers.
 
 ```{r}
 #| label: idr-note-r
@@ -230,10 +231,10 @@ flowchart TD
     FedLoans(["Federal Loans"]) --> LICheck{"Loan-to-Income<br>Ratio?"}
     LICheck -->|"Below 1.0"| StdPlan("Standard<br>10-Year Plan")
     LICheck -->|"Above 1.0"| PubSvc{"Public Sector<br>or Non-Profit?"}
-    PubSvc -->|"Yes"| PSLFTrack("IBR + PSLF<br>10-Year Forgiveness")
-    PubSvc -->|"No"| PlanAvail{"Which plan<br>fits your income?"}
-    PlanAvail -->|"Low to middle income"| RAPOpt("RAP<br>1–10% / 30 yrs")
-    PlanAvail -->|"Older loans, higher income"| IBROpt("IBR<br>10% / 20 yrs")
+    PubSvc -->|"Yes"| PSLFTrack("RAP or IBR + PSLF<br>10-Year Forgiveness")
+    PubSvc -->|"No"| PlanAvail{"When was your<br>first loan made?"}
+    PlanAvail -->|"July 2026 or later"| RAPOpt("RAP<br>1% to 10% / 30 yrs")
+    PlanAvail -->|"Before July 2026"| IBROpt("Compare RAP<br>and IBR (10% / 20 yrs)")
     style FedLoans fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style LICheck fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
     style StdPlan fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
@@ -248,13 +249,27 @@ flowchart TD
 
 ### The Pay-Off vs. Invest Decision {.unnumbered}
 
-A key insight from Felix's research-driven approach: [compare your loan interest rate to your expected investment return after tax.]{style="color:#48a56a; font-weight: bold;"}
+A key insight from Felix's research-driven approach: [compare your loan interest rate to what you expect your investments to earn after taxes.]{style="color:#48a56a; font-weight: bold;"}
 
-* **Interest rate above \~6%:** Prioritize paying off\
-* **Interest rate 4-6%:** Roughly a wash; do both
+* **Interest rate above about 6%:** Prioritize paying off
+* **Interest rate 4% to 6%:** Roughly a wash; do both
 * **Interest rate below 4%:** Pay the minimum, invest the difference
 
 Don't forget the **psychological factor** Housel emphasizes: some people sleep better debt-free, even if the math slightly favors investing. That peace of mind has real value.
+
+::: {.callout-important}
+## Where the experts disagree: paying off cheap debt early
+
+Brian Preston's Financial Order of Operations puts low-interest debt (like a mortgage) last, step 9, after retirement saving is on track and future expenses are funded. Paying it early means giving up years of investment growth [^preston2024foo].
+
+[^preston2024foo]: [The Financial Order of Operations](https://moneyguy.com/guide/foo/). Preston, Brian. 2024.
+
+Morgan Housel paid off his own mortgage anyway. He calls it the worst financial decision and the best money decision his family has made: the math said invest, but owning the house outright gave them a feeling of independence that was worth more to them than the returns [^housel2020psychology].
+
+[^housel2020psychology]: [The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness](https://www.harriman-house.com/psychologyofmoney). Housel, Morgan. 2020.
+
+What they agree on: high-interest debt comes first, always. For cheap debt the math usually favors investing, and choosing peace of mind instead is a fair trade as long as you know what it costs.
+:::
 
 ## Car Payments (wealth killers in disguise)
 
@@ -266,8 +281,8 @@ Cars are where middle-class wealth quietly dies. Here's why:
 %%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
-    NewCar("New Car<br>Purchase") --> Depreciation("Loses 20-30%<br>in Year 1")
-    NewCar --> Payment("$500-700+<br>Monthly Payment")
+    NewCar("New Car<br>Purchase") --> Depreciation("Loses 20% to 30%<br>in Year 1")
+    NewCar --> Payment("$500 to $700<br>Monthly Payment")
     NewCar --> Insurance("Higher<br>Insurance")
     NewCar --> Opportunity("Opportunity<br>Cost")
     Opportunity --> LostWealth("$600/mo<br>invested over<br>30 years<br>= ~$700,000")
@@ -281,24 +296,24 @@ flowchart TD
 
 <br>
 
-Felix has been blunt: [cars are depreciating consumption assets, not investments.]{style="color:#f44242; font-weight: bold;"} Financing a depreciating asset at 7-9% interest while it loses value is one of the worst financial moves available, yet it's culturally normalized.
+Felix has been blunt: [cars are things you use up, not investments.]{style="color:#f44242; font-weight: bold;"} A car depreciates (loses value) every year you own it. Borrowing at 7% to 9% interest to buy something that's losing value is one of the worst financial moves available, yet almost everyone does it.
 
 ### The Rules of Smart Car Ownership {.unnumbered}
 
-1.  [Buy used, 2-4 years old.]{style="color:#48a56a; font-weight: bold;"} Let someone else absorb the steep first-year depreciation.
+1.  [Buy used, 2 to 4 years old.]{style="color:#48a56a; font-weight: bold;"} Let someone else take the big loss in value from the first year.
 2.  [Pay cash when possible.]{style="color:#48a56a; font-weight: bold;"} If you can't pay cash, you can't really afford it.
 3.  [If financing, keep it under 36 months]{style="color:#48a56a; font-weight: bold;"} at the lowest rate available.
 4.  [The 20/4/10 rule:]{style="color:#48a56a; font-weight: bold;"} 20% down, financed no longer than 4 years, total transportation costs under 10% of gross income.
 5.  [Drive it until the wheels fall off.]{style="color:#48a56a; font-weight: bold;"} The cheapest car you'll ever own is the reliable one you already have.
 
-**The status trap:** Housel's insight applies powerfully here. Nobody is impressed by your car; they're imagining themselves in it. You're paying a fortune for a status signal no one is sending back.
+**The status trap:** Housel's insight applies here. Nobody is impressed by your car; they're imagining themselves in it. You're paying a fortune for a status signal no one is sending back.
 
 ## Debt and the FOO {#sec-foo-debt}
 
 Brian Preston's Financial Order of Operations (FOO), introduced in [Budgeting](budgeting.qmd#sec-foo-intro), splits debt into two separate steps rather than treating it as one problem:
 
 * **Step 3: High-interest debt.** Credit cards, payday loans, and anything else in the *toxic* tier (see [The Debt Hierarchy](#the-debt-hierarchy-know-your-enemy) above) get paid off before you build a full emergency fund or invest beyond an employer match. The rate is simply too punishing to justify waiting.
-* **Step 9: Low-interest debt.** Mortgages and other *strategic*-tier debt sit at the very end of the sequence, after retirement accounts are maxed and future expenses are funded. There's no urgency to prepay a 4% mortgage while tax-advantaged growth is still on the table.
+* **Step 9: Low-interest debt.** Mortgages and other *strategic*-tier debt sit at the very end of the sequence, after retirement accounts are maxed and future expenses are funded. There's no urgency to pay off a 4% mortgage early while your money could still be growing in retirement accounts, where it isn't taxed every year.
 
 Moderate-tier debt (car loans, private student loans) falls between these two steps in practice: attack it aggressively, but not ahead of the emergency reserves in step 4 (see [Emergency Fund](emergency_fund.qmd)).
 
@@ -311,7 +326,7 @@ Moderate-tier debt (car loans, private student loans) falls between these two st
 
 flowchart TD
     Start("Manage Your Debt") --> Step1["Eliminate Credit<br>Card Debt"]
-    Step1 --> Step2["Build Emergency Fund<br>3-6 Months Expenses"]
+    Step1 --> Step2["Build Emergency Fund<br>3 to 6 Months Expenses"]
     Step2 --> Step3["Address Student Loans<br>Based on Interest Rate"]
     Step3 --> Step4["Drive Used,<br>Modest Cars"]
     Step4 --> Freedom["Financial Freedom"]
@@ -337,35 +352,35 @@ These two terms get used interchangeably, but they're different, and lenders oft
 
 * **APY (Annual Percentage Yield):** The effective annual rate, including the impact of compounding.
 
-Credit card companies quote APR, but compounding means you actually pay more. Both bars below represent one year's interest on a $10,000 balance; the taller one is what you really owe.
+Credit card companies quote APR, but compounding (charging interest on interest you haven't paid yet) means you actually pay more. Both bars below represent one year's interest on a \$5,000 balance; the taller one is what you really owe.
 
 ```{r}
 #| label: apr-apy-bar-model
 #| echo: false
-#| fig-cap: "APR cost vs. APY cost on a $10,000 balance (24% APR, daily compounding)"
+#| fig-cap: "APR cost vs. APY cost on a $5,000 balance (24% APR, daily compounding)"
 #| fig-asp: 0.50
 library(ggplot2)
 df_apr <- data.frame(
   type   = c("APR cost\n(stated)", "APY cost\n(actual)"),
-  cost   = c(2400, 2710)
+  cost   = c(1200, 1356)
 )
 df_apr$type <- factor(df_apr$type, levels = df_apr$type)
 ggplot(df_apr, aes(x = type, y = cost, fill = type)) +
   geom_col(width = 0.5) +
   geom_text(
-    aes(label = paste0("$", format(cost, big.mark = ","))),
+    aes(label = paste0("$", format(cost, big.mark = ",", trim = TRUE))),
     vjust = -0.4, fontface = "bold", size = 4
   ) +
   annotate(
     "segment",
-    x = 2, xend = 2, y = 2400, yend = 2710,
+    x = 2, xend = 2, y = 1200, yend = 1356,
     colour = "#1C1C1E", linewidth = 0.8,
     arrow = arrow(ends = "both", length = unit(0.08, "inches"))
   ) +
   annotate(
     "text",
-    x = 2.35, y = 2555,
-    label = "+$310\nhidden\ncost",
+    x = 2.35, y = 1278,
+    label = "+$156\nhidden\ncost",
     colour = "#1C1C1E", fontface = "bold", size = 3.2, hjust = 0
   ) +
   scale_fill_manual(values = c(
@@ -373,10 +388,10 @@ ggplot(df_apr, aes(x = type, y = cost, fill = type)) +
     "APY cost\n(actual)" = "#f44242"
   )) +
   scale_y_continuous(
-    limits = c(0, 3100),
-    labels = function(x) paste0("$", format(x, big.mark = ","))
+    limits = c(0, 1550),
+    labels = function(x) paste0("$", format(x, big.mark = ",", trim = TRUE))
   ) +
-  labs(x = NULL, y = "Annual interest on $10,000 balance") +
+  labs(x = NULL, y = "Annual interest on $5,000 balance") +
   theme_minimal(base_size = 12) +
   theme(
     legend.position    = "none",
@@ -395,7 +410,7 @@ Where *n* = number of compounding periods per year.
 
 APY = (1 + 0.24/365)\^365 − 1 = [\~27.1%]{style="color:#f44242; font-weight: bold;"}
 
-That 3.1% gap is real money. On a \$10,000 balance, it's an extra \$310/year you didn't realize you were paying.
+That 3.1% gap is real money. On a \$5,000 balance, it's an extra \$156 a year you didn't realize you were paying.
 
 ::: panel-tabset
 ## R
@@ -444,7 +459,7 @@ The built-in `EFFECT()` function returns the same number:
 
 This is the single most important debt calculation you can master. Credit card companies set minimum payments low because [the longer you pay, the more they earn.]{style="color:#f44242; font-weight: bold;"}
 
-A $100 minimum payment on a $5,000 credit card balance sounds reasonable, until you see how little of it actually reduces the debt.
+A \$100 minimum payment on a \$5,000 credit card balance sounds reasonable, until you see how little of it actually reduces the debt. The principal is the amount you borrowed; interest is what the lender charges on top.
 
 ```{r}
 #| label: min-payment-bar-model
@@ -534,20 +549,20 @@ Assuming the balance is in `A2`, the monthly payment is in `B2`, and the APR is 
 
 ### Total Interest Over a Loan's Life {.unnumbered}
 
-For any installment loan (car, mortgage, student loan), this is the number that should drive your decisions.
+For any installment loan (a loan you repay in equal monthly payments, like a car loan, student loan, or mortgage), this is the number that should drive your decisions.
 
-The sticker price is the same $30,000, but the loan term determines how much extra you pay in interest. The chart below stacks the principal and interest layers so the true cost of each term is visible.
+Picture a \$20,000 loan for a used car. The amount borrowed is the same either way, but the loan term (how many years you take to repay it) determines how much extra you pay in interest. The chart below stacks the principal and interest layers so the true cost of each term is visible.
 
 ```{r}
 #| label: total-interest-bar-model
 #| echo: false
-#| fig-cap: "$30,000 car loan: principal vs. interest for 6-year and 4-year terms"
+#| fig-cap: "$20,000 car loan at 7%: principal vs. interest for 6-year and 4-year terms"
 #| fig-asp: 0.50
 library(ggplot2)
 df_ti <- data.frame(
   term      = c("6-year loan", "6-year loan", "4-year loan", "4-year loan"),
   component = c("Principal", "Interest", "Principal", "Interest"),
-  amount    = c(30000, 6864, 30000, 4512)
+  amount    = c(20000, 4551, 20000, 2988)
 )
 df_ti$term      <- factor(df_ti$term, levels = c("6-year loan", "4-year loan"))
 df_ti$component <- factor(df_ti$component, levels = c("Interest", "Principal"))
@@ -556,8 +571,8 @@ ggplot(df_ti, aes(x = term, y = amount, fill = component)) +
   geom_text(
     aes(label = ifelse(
       component == "Interest",
-      paste0("Interest\n$", format(amount, big.mark = ",")),
-      paste0("Principal\n$", format(amount, big.mark = ","))
+      paste0("Interest $", format(amount, big.mark = ",", trim = TRUE)),
+      paste0("Principal\n$", format(amount, big.mark = ",", trim = TRUE))
     )),
     position = position_stack(vjust = 0.5),
     colour = "white", fontface = "bold", size = 3.5
@@ -567,7 +582,7 @@ ggplot(df_ti, aes(x = term, y = amount, fill = component)) +
     "Interest"  = "#f44242"
   )) +
   scale_y_continuous(
-    labels = function(x) paste0("$", format(x, big.mark = ","))
+    labels = function(x) paste0("$", format(x, big.mark = ",", trim = TRUE))
   ) +
   labs(x = NULL, y = "Total paid") +
   theme_minimal(base_size = 12) +
@@ -582,21 +597,21 @@ Subtract the principal from the total payments and the interest layer is what's 
 
 **Formula:** Total Interest = (Monthly Payment × Number of Payments) − Loan Principal
 
-Example: \$30,000 car loan at 7% for 6 years (\~\$512/month):
+Example: \$20,000 car loan at 7% for 6 years (\$340.98 a month):
 
-* Total paid: \$512 × 72 = \$36,864
+* Total paid: \$340.98 × 72 = \$24,550.56
 
-* Total interest: \$36,864 − \$30,000 = [\$6,864 in interest]{style="color:#f44242; font-weight: bold;"}
+* Total interest: \$24,550.56 − \$20,000 = [\$4,550.56 in interest]{style="color:#f44242; font-weight: bold;"}
 
 Now run the same loan at 4 years instead of 6:
 
-* Monthly payment: \~\$719
+* Monthly payment: \$478.92
 
-* Total paid: \$719 × 48 = \$34,512
+* Total paid: \$478.92 × 48 = \$22,988.16
 
-* Total interest: [\$4,512]{style="color:#f44242; font-weight: bold;"}
+* Total interest: [\$2,988.16]{style="color:#f44242; font-weight: bold;"}
 
-You save [\$2,352]{style="color:#48a56a; font-weight: bold;"} by shortening the term: the math behind the 20/4/10 car rule.
+You save [\$1,562.40]{style="color:#48a56a; font-weight: bold;"} by shortening the term: the math behind the 20/4/10 car rule.
 
 ::: panel-tabset
 ## R
@@ -609,9 +624,9 @@ total_interest <- function(monthly_payment, n_months, principal) {
   (monthly_payment * n_months) - principal
 }
 
-# 6-year car loan vs. 4-year, $30,000 principal
-total_interest(monthly_payment = 512, n_months = 72, principal = 30000)
-total_interest(monthly_payment = 719, n_months = 48, principal = 30000)
+# 6-year car loan vs. 4-year, $20,000 principal at 7%
+total_interest(monthly_payment = 340.98, n_months = 72, principal = 20000)
+total_interest(monthly_payment = 478.92, n_months = 48, principal = 20000)
 ```
 
 ## Python
@@ -623,9 +638,9 @@ The Python version of `total_interest()` works the same way:
 def total_interest(monthly_payment, n_months, principal):
     return (monthly_payment * n_months) - principal
 
-# 6-year car loan vs. 4-year, $30,000 principal
-print(total_interest(monthly_payment=512, n_months=72, principal=30000))
-print(total_interest(monthly_payment=719, n_months=48, principal=30000))
+# 6-year car loan vs. 4-year, $20,000 principal at 7%
+print(round(total_interest(monthly_payment=340.98, n_months=72, principal=20000), 2))
+print(round(total_interest(monthly_payment=478.92, n_months=48, principal=20000), 2))
 ```
 
 ## Excel
@@ -750,11 +765,11 @@ Think of your income (AGI) as one bar. The plan protects the first part of it, a
 #| fig-cap: "$50,000 AGI under IBR: protected income, discretionary income, and the yearly payment"
 #| fig-asp: 0.42
 library(ggplot2)
-protected <- 15650 * 1.5
+protected <- 15960 * 1.5
 disc <- 50000 - protected
-parts <- c("Protected (1.5 × $15,650 = $23,475)",
-           "Payment (10% of discretionary = $2,653/yr)",
-           "Rest of discretionary ($23,873)")
+parts <- c("Protected (1.5 × $15,960 = $23,940)",
+           "Payment (10% of discretionary = $2,606/yr)",
+           "Rest of discretionary ($23,454)")
 df_idr <- data.frame(
   part   = factor(parts, levels = rev(parts)),
   amount = c(protected, disc * 0.10, disc * 0.90),
@@ -779,9 +794,9 @@ Subtract the protected part from the bar, take the payment rate of what's left, 
 
 **Formula:** Monthly payment = (AGI − threshold × Federal Poverty Guideline) × payment rate ÷ 12
 
-Example: (\$50,000 − 1.5 × \$15,650) × 10% ÷ 12 = [about \$221 a month.]{style="color:#48a56a; font-weight: bold;"}
+Example: (\$50,000 − 1.5 × \$15,960) × 10% ÷ 12 = [about \$217 a month.]{style="color:#48a56a; font-weight: bold;"}
 
-The function below takes the AGI, the FPG threshold multiplier (`1.5` for IBR), and the payment rate (`0.10` for IBR on loans after July 2014, `0.15` for older loans), and returns the monthly payment. SAVE used the same formula with a 225% threshold, but it ended in 2026. RAP, its replacement, bases payments on a percentage of your total AGI instead (see [Federal IDR Plans](#sec-idr-plans) above), so this function doesn't cover it.
+The function below takes the AGI, the FPG threshold multiplier (`1.5` for IBR), and the payment rate (`0.10` for IBR on loans from July 2014 on, `0.15` for older loans), and returns the monthly payment. SAVE used the same formula with a 225% threshold, but it ended in 2026. RAP, its replacement, bases payments on a percentage of your total AGI instead (see [Federal IDR Plans](#sec-idr-plans) above), so this function doesn't cover it.
 
 ::: panel-tabset
 ## R
@@ -791,7 +806,7 @@ In R, `idr_monthly_payment()` applies the income-driven repayment formula to you
 ```{r}
 #| label: idr-payment-r
 idr_monthly_payment <- function(agi,
-                                poverty_guideline = 15650,
+                                poverty_guideline = 15960,
                                 threshold_pct     = 1.5,
                                 payment_rate      = 0.10) {
   discretionary <- max(0, agi - poverty_guideline * threshold_pct)
@@ -811,7 +826,7 @@ The Python version of `idr_monthly_payment()` works the same way:
 
 ```{python}
 #| label: idr-payment-py
-def idr_monthly_payment(agi, poverty_guideline=15650,
+def idr_monthly_payment(agi, poverty_guideline=15960,
                         threshold_pct=1.5, payment_rate=0.10):
     discretionary = max(0, agi - poverty_guideline * threshold_pct)
     return round((discretionary * payment_rate) / 12, 2)
@@ -825,7 +840,7 @@ print(idr_monthly_payment(agi=50000, payment_rate=0.15))
 
 ## Excel
 
-Assuming AGI is in `A2`, the poverty guideline is in `B2` (`15650`), the threshold multiplier is in `C2` (`1.5`), and the payment rate is in `D2` (`0.10`):
+Assuming AGI is in `A2`, the poverty guideline is in `B2` (`15960`), the threshold multiplier is in `C2` (`1.5`), and the payment rate is in `D2` (`0.10`):
 
 ``` swift
 =ROUND(MAX(0, A2-B2*C2)*D2/12, 2)
@@ -838,40 +853,40 @@ For IBR on loans from before July 2014, change `D2` to `0.15`.
 
 This is what lenders calculate about you. You should calculate it about yourself.
 
-Lenders look at how much of your gross income is already spoken for by debt. The chart below shows your income divided into what goes to debt and what you actually keep.
+Lenders look at how much of your gross income (your pay before taxes) is already spoken for by debt. Picture a first job paying \$45,000 a year, or \$3,750 a month before taxes, with a \$511 student loan payment, a \$450 car payment, and \$100 in credit card minimums. The chart below shows that income divided into what goes to debt and what's left.
 
 ```{r}
 #| label: dti-bar-model
 #| echo: false
-#| fig-cap: "$7,000 monthly income split into debt payments and remaining income"
+#| fig-cap: "$3,750 gross monthly income split into debt payments and remaining income"
 #| fig-asp: 0.50
 library(ggplot2)
 df_dti <- data.frame(
-  component = c("Debt payments\n$2,500 (36%)", "Remaining income\n$4,500 (64%)"),
-  amount    = c(2500, 4500)
+  component = c("Debt payments\n$1,061 (28%)", "Remaining income\n$2,689 (72%)"),
+  amount    = c(1061, 2689)
 )
 df_dti$component <- factor(df_dti$component, levels = df_dti$component)
 ggplot(df_dti, aes(x = "", y = amount, fill = component)) +
-  geom_col(width = 0.45) +
+  geom_col(width = 0.45, position = position_stack(reverse = TRUE)) +
   geom_text(
     aes(label = component),
-    position = position_stack(vjust = 0.5),
+    position = position_stack(vjust = 0.5, reverse = TRUE),
     colour = "white", fontface = "bold", size = 3.8
   ) +
-  geom_hline(yintercept = 7000 * 0.43, colour = "#1C1C1E",
+  geom_hline(yintercept = 3750 * 0.43, colour = "#1C1C1E",
              linewidth = 1, linetype = "dashed") +
-  annotate("text", x = 1.35, y = 7000 * 0.43 + 80,
+  annotate("text", x = 1.35, y = 3750 * 0.43 + 40,
            label = "43% danger zone",
            colour = "#1C1C1E", fontface = "bold", size = 3.2, hjust = 0) +
   coord_flip() +
   scale_fill_manual(values = c(
-    "Debt payments\n$2,500 (36%)"     = "#f44242",
-    "Remaining income\n$4,500 (64%)"  = "#0e9aa7"
+    "Debt payments\n$1,061 (28%)"     = "#f44242",
+    "Remaining income\n$2,689 (72%)"  = "#0e9aa7"
   )) +
   scale_y_continuous(
-    labels = function(x) paste0("$", format(x, big.mark = ","))
+    labels = function(x) paste0("$", format(x, big.mark = ",", trim = TRUE))
   ) +
-  labs(x = NULL, y = "Gross monthly income ($7,000)") +
+  labs(x = NULL, y = "Gross monthly income ($3,750)") +
   theme_minimal(base_size = 12) +
   theme(
     legend.position = "none",
@@ -887,15 +902,15 @@ DTI is just the debt slice as a fraction of the whole income bar, expressed as a
 
 Example:
 
-\$2,500 in monthly debt payments on \$7,000 gross income → 2,500 ÷ 7,000 = [\~36% DTI]{style="color:#f44242; font-weight: bold;"}
+\$1,061 in monthly debt payments on \$3,750 gross income → 1,061 ÷ 3,750 = [about 28% DTI]{style="color:#f44242; font-weight: bold;"}, which is manageable but worth watching. Another loan or two would push it into the stretched range.
 
 Benchmarks:
 
 * **Below 20%:** Healthy
 
-* **20-35%:** Manageable but watch carefully
+* **20% to 35%:** Manageable but watch carefully
 
-* **36-43%:** Stretched; lenders get cautious
+* **Over 35% to 43%:** Stretched; lenders get cautious
 
 * **Above 43%:** Danger zone; most mortgage lenders won't approve you
 
@@ -910,8 +925,8 @@ dti_ratio <- function(monthly_debt_payments, gross_monthly_income) {
   (monthly_debt_payments / gross_monthly_income) * 100
 }
 
-# $2,500 in debt payments on $7,000 gross income
-dti_ratio(monthly_debt_payments = 2500, gross_monthly_income = 7000)
+# $1,061 in debt payments on $3,750 gross income
+dti_ratio(monthly_debt_payments = 1061, gross_monthly_income = 3750)
 ```
 
 ## Python
@@ -923,8 +938,8 @@ The Python version of `dti_ratio()` works the same way:
 def dti_ratio(monthly_debt_payments, gross_monthly_income):
     return (monthly_debt_payments / gross_monthly_income) * 100
 
-# $2,500 in debt payments on $7,000 gross income
-dti_ratio(monthly_debt_payments=2500, gross_monthly_income=7000)
+# $1,061 in debt payments on $3,750 gross income
+dti_ratio(monthly_debt_payments=1061, gross_monthly_income=3750)
 ```
 
 ## Excel
@@ -938,7 +953,7 @@ Assuming monthly debt payments are in `A2` and gross monthly income is in `B2`:
 
 ### Pay-Off vs. Invest Comparison {.unnumbered}
 
-This is the math behind every "should I pay extra on my mortgage or invest?" debate.
+This is the math behind every "should I pay extra on my student loans or invest?" debate.
 
 The math slightly favors investing when the loan rate is below expected returns, but the chart adds what the math alone misses: one bar is certain, the other is a probability.
 
@@ -986,17 +1001,17 @@ ggplot(df_pi, aes(x = option, y = rate, fill = option)) +
   )
 ```
 
-When the investment bar exceeds the debt bar, the math says invest; when the debt bar is higher, pay off, but the certainty premium for debt payoff is worth something the formula can't capture.
+When the investment bar exceeds the debt bar, the math says invest; when the debt bar is higher, pay off. But the certainty of paying off debt is worth something the formula can't capture.
 
 **Formula:** Yearly edge of investing = Expected after-tax investment return − After-tax loan interest rate
 
 A positive answer means the math favors investing; a negative answer means paying off the debt wins.
 
-Example: 5% mortgage vs. expected 7% stock market return (real) → 7% − 5% = 2%
+Example: 5% student loan vs. expected 7% stock market return → 7% − 5% = 2%
 
 * The math favors investing by \~2% per year
 
-* **But:** the loan return is [guaranteed]{style="color:#48a56a; font-weight: bold;"}, the investment return is not
+* **But:** the return from paying off the loan is [guaranteed]{style="color:#48a56a; font-weight: bold;"}, the investment return is not
 
 This is where Housel's wisdom matters: [a guaranteed 5% beats a probable 7% for many people psychologically.]{style="color:#48a56a; font-weight: bold;"} Run the math, then add your peace-of-mind premium.
 
@@ -1017,7 +1032,7 @@ payoff_vs_invest <- function(loan_rate, expected_return) {
   }
 }
 
-# 5% mortgage vs. expected 7% return
+# 5% student loan vs. expected 7% return
 payoff_vs_invest(loan_rate = 0.05, expected_return = 0.07)
 ```
 
@@ -1033,9 +1048,9 @@ def payoff_vs_invest(loan_rate, expected_return):
     elif loan_rate < expected_return:
         return "Invest the difference"
     else:
-        return "Roughly a wash - do both"
+        return "Roughly a wash; do both"
 
-# 5% mortgage vs. expected 7% return
+# 5% student loan vs. expected 7% return
 payoff_vs_invest(loan_rate=0.05, expected_return=0.07)
 ```
 
@@ -1083,7 +1098,7 @@ ggplot(df_av, aes(x = factor(order), y = balance, fill = fill)) +
   scale_x_discrete(labels = c("1st", "2nd", "3rd")) +
   scale_y_continuous(
     limits = c(0, 7800),
-    labels = function(x) paste0("$", format(x, big.mark = ","))
+    labels = function(x) paste0("$", format(x, big.mark = ",", trim = TRUE))
   ) +
   labs(x = "Attack order", y = "Balance") +
   theme_minimal(base_size = 12) +
@@ -1106,7 +1121,7 @@ Example: An extra \$100 on Card B (24%) saves \$100 × 0.24 ÷ 12 = \$2.00 of in
 
   * **The hidden cost of snowball:** To calculate, find total interest paid under each method using a debt payoff calculator. The difference is what you're "paying" for the psychological win of quick early payoffs.
 
-For most people with moderate debt, the snowball costs \$200-\$1,000 extra in interest. [If that's the price of actually finishing the journey, it's often worth it.]{style="color:#48a56a; font-weight: bold;"} If you're disciplined enough for avalanche, take the savings.
+For most people with moderate debt, the snowball costs \$200 to \$1,000 extra in interest. [If that's the price of actually finishing the journey, it's often worth it.]{style="color:#48a56a; font-weight: bold;"} If you're disciplined enough for avalanche, take the savings.
 
 These two functions take a list of your debts and return them in the order each method says to attack them.
 
@@ -1182,45 +1197,45 @@ For the snowball order (smallest balance first), sort by the balance column from
 
 For credit score health, this calculation matters month to month.
 
-Credit scores penalize high utilization, not because the credit bureau is arbitrary, but because using a large fraction of available credit signals financial stress.
+Credit utilization is how much of your available credit you're using. Credit scores penalize high utilization, not because the credit bureaus (the companies that calculate your score) are arbitrary, but because using most of your available credit is a sign of money trouble. Picture a first credit card with a \$3,000 limit.
 
 ```{r}
 #| label: utilization-bar-model
 #| echo: false
-#| fig-cap: "$3,000 balance against a $10,000 credit limit: used vs. unused"
+#| fig-cap: "$900 balance against a $3,000 credit limit: used vs. unused"
 #| fig-asp: 0.50
 library(ggplot2)
 df_util <- data.frame(
-  component = c("Used balance\n$3,000 (30%)", "Unused credit\n$7,000 (70%)"),
-  amount    = c(3000, 7000)
+  component = c("Used balance\n$900 (30%)", "Unused credit\n$2,100 (70%)"),
+  amount    = c(900, 2100)
 )
 df_util$component <- factor(df_util$component, levels = df_util$component)
 ggplot(df_util, aes(x = "", y = amount, fill = component)) +
-  geom_col(width = 0.45) +
+  geom_col(width = 0.45, position = position_stack(reverse = TRUE)) +
   geom_text(
     aes(label = component),
-    position = position_stack(vjust = 0.5),
+    position = position_stack(vjust = 0.5, reverse = TRUE),
     colour = "white", fontface = "bold", size = 4
   ) +
-  geom_hline(yintercept = 10000 * 0.10, colour = "#48a56a",
+  geom_hline(yintercept = 3000 * 0.10, colour = "#48a56a",
              linewidth = 1, linetype = "dashed") +
-  annotate("text", x = 1.32, y = 10000 * 0.10 + 120,
+  annotate("text", x = 1.32, y = 3000 * 0.10 + 40,
            label = "10% ideal",
            colour = "#48a56a", fontface = "bold", size = 3.2, hjust = 0) +
-  geom_hline(yintercept = 10000 * 0.30, colour = "#f44242",
+  geom_hline(yintercept = 3000 * 0.30, colour = "#f44242",
              linewidth = 1, linetype = "dashed") +
-  annotate("text", x = 1.32, y = 10000 * 0.30 + 120,
+  annotate("text", x = 1.32, y = 3000 * 0.30 + 40,
            label = "30% threshold",
            colour = "#f44242", fontface = "bold", size = 3.2, hjust = 0) +
   coord_flip() +
   scale_fill_manual(values = c(
-    "Used balance\n$3,000 (30%)"  = "#f44242",
-    "Unused credit\n$7,000 (70%)" = "#86ddcd"
+    "Used balance\n$900 (30%)"    = "#f44242",
+    "Unused credit\n$2,100 (70%)" = "#86ddcd"
   )) +
   scale_y_continuous(
-    labels = function(x) paste0("$", format(x, big.mark = ","))
+    labels = function(x) paste0("$", format(x, big.mark = ",", trim = TRUE))
   ) +
-  labs(x = NULL, y = "Credit limit ($10,000)") +
+  labs(x = NULL, y = "Credit limit ($3,000)") +
   theme_minimal(base_size = 12) +
   theme(
     legend.position = "none",
@@ -1236,7 +1251,7 @@ Utilization is just the used slice as a fraction of the total bar, converted to 
 
 Keep this under **30%** on any individual card and across all cards in total. Under **10%** is ideal for maximum score impact.
 
-Example: \$3,000 balance on \$10,000 limit = **30% utilization**, right at the threshold.
+Example: \$900 balance on a \$3,000 limit = **30% utilization**, right at the threshold.
 
 ::: panel-tabset
 ## R
@@ -1249,8 +1264,8 @@ credit_utilization <- function(balance, credit_limit) {
   (balance / credit_limit) * 100
 }
 
-# $3,000 balance on a $10,000 limit
-credit_utilization(balance = 3000, credit_limit = 10000)
+# $900 balance on a $3,000 limit
+credit_utilization(balance = 900, credit_limit = 3000)
 ```
 
 ## Python
@@ -1262,8 +1277,8 @@ The Python version of `credit_utilization()` works the same way:
 def credit_utilization(balance, credit_limit):
     return (balance / credit_limit) * 100
 
-# $3,000 balance on a $10,000 limit
-credit_utilization(balance=3000, credit_limit=10000)
+# $900 balance on a $3,000 limit
+credit_utilization(balance=900, credit_limit=3000)
 ```
 
 ## Excel

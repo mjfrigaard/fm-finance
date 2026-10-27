@@ -62,7 +62,7 @@ Every paper checkbook used to come with a register that recorded each transactio
 
 If you’re a fan of low-tech solutions, you can withdraw monthly amounts in cash for groceries, dining, gas and fun money, then split them into labeled physical envelopes. When an envelope is empty, that category is done for the month. Families during the Great Depression of the 1930s used envelopes because they had to. The system has stuck around because the physical, finite nature of cash slows spending more reliably than any reminder ever will.[^tracking_spending-1]
 
-[^tracking_spending-1]: Stashing cash around the house was actually quite common for people who lived through the depression. Read more [here](https://www.chicagotribune.com/2005/04/17/inheritance-hide-and-seek/).
+[^tracking_spending-1]: [Inheritance hide-and-seek](https://www.chicagotribune.com/2005/04/17/inheritance-hide-and-seek/). Chicago Tribune. 2005. Stashing cash around the house was actually quite common for people who lived through the depression.
 
 ### Bank statements {.unnumbered}
 
@@ -577,7 +577,7 @@ flowchart TD
 
 A 2022 survey by C+R Research found Americans spend about [\$219/month]{style="color:#f44242; font-weight: bold;"} on subscriptions, and guessed \$133 less than that when asked.[^tracking_spending-3] At \$219/month invested at a 7% real return (the return after inflation) over 30 years, that's roughly [\$267,000 in lost wealth]{style="color:#f44242; font-weight: bold;"}.
 
-[^tracking_spending-3]: C+R Research's 2022 subscription survey of 1,000 US adults, as reported by [The Motley Fool](https://fool.com/the-ascent/personal-finance/articles/survey-finds-americans-spend-133-more-than-they-realize-on-monthly-subscription-fees/). Similar numbers appear on [Next Gen Personal Finance](https://www.ngpf.org/blog/question-of-the-day/question-of-the-day-how-much-does-the-average-consumer-spend-per-month-on-subscription-services/) and [CBS News](https://www.cbsnews.com/newyork/news/experts-suggest-taking-stock-of-how-much-your-monthly-subscriptions-really-cost-before-the-end-of-the-year/).
+[^tracking_spending-3]: [Survey Finds Americans Spend \$133 More Than They Realize on Monthly Subscription Fees](https://fool.com/the-ascent/personal-finance/articles/survey-finds-americans-spend-133-more-than-they-realize-on-monthly-subscription-fees/). The Motley Fool. 2022. The survey of 1,000 US adults was run by C+R Research. Similar numbers appear on [Next Gen Personal Finance](https://www.ngpf.org/blog/question-of-the-day/question-of-the-day-how-much-does-the-average-consumer-spend-per-month-on-subscription-services/) and [CBS News](https://www.cbsnews.com/newyork/news/experts-suggest-taking-stock-of-how-much-your-monthly-subscriptions-really-cost-before-the-end-of-the-year/).
 
 **Action steps:**
 

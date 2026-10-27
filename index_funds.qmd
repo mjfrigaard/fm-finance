@@ -15,7 +15,9 @@ source("_common.R")
 
 <br>
 
-The last chapter covered the containers: the 401(k), the IRA, the HSA. This chapter covers what to put inside them. For most people, the answer is a low cost index fund that owns a large part of the stock market. It's the closest thing personal finance has to a free lunch. You own a tiny slice of thousands of companies, you pay almost nothing in fees, and over long periods you'll do better than most professional investors [@bogle2017little].
+The last chapter covered the containers: the 401(k), the IRA, the HSA. This chapter covers what to put inside them. For most people, the answer is a low cost index fund that owns a large part of the stock market. It's the closest thing personal finance has to a free lunch. You own a tiny slice of thousands of companies, you pay almost nothing in fees, and over long periods you'll do better than most professional investors [^bogle2017little].
+
+[^bogle2017little]: [The Little Book of Common Sense Investing (10th Anniversary ed.)](https://www.wiley.com/en-us/The+Little+Book+of+Common+Sense+Investing%3A+The+Only+Way+to+Guarantee+Your+Fair+Share+of+Stock+Market+Returns%2C+10th+Anniversary+Edition-p-9781119404507). Bogle, John C. 2017.
 
 You don't have to know how to pick stocks to invest well. In fact, the research says you're better off not trying.
 
@@ -27,7 +29,9 @@ A fund is a pool of money from many investors that buys a group of investments. 
 
 Nobody at an index fund decides which companies are good bets. The fund holds each company in proportion to its size, so bigger companies make up a bigger share of the fund. That's why index funds are called passive. Funds where a manager picks the investments are called active.
 
-Holding companies by size (called market cap weighting) is also what Ben Felix recommends. Some newer funds give every company an equal share instead, and they've sometimes done better in the past. Felix's view is that those results came from accidentally owning more small and cheap companies, not from the equal weighting itself, and that equal weight funds add costs and risks a regular investor doesn't need. His conclusion on equal weight funds: "I wouldn't use these things" [@felix2026equal].
+Holding companies by size (called market cap weighting) is also what Ben Felix recommends. Some newer funds give every company an equal share instead, and they've sometimes done better in the past. Felix's view is that those results came from accidentally owning more small and cheap companies, not from the equal weighting itself, and that equal weight funds add costs and risks a regular investor doesn't need. His conclusion on equal weight funds: "I wouldn't use these things" [^felix2026equal].
+
+[^felix2026equal]: [Episode 394: Equal Weight vs. Market Cap Weight Index Funds](https://rationalreminder.ca/podcast/394). Felix, Ben and Bortolotti, Dan and Wilson, Ben. 2026.
 
 ## Why Index Funds Win
 
@@ -35,7 +39,7 @@ Active funds hire professionals to pick the companies they think will do best. I
 
 S&P Dow Jones Indices tracks how active funds do against their index every year in a report called [SPIVA](https://www.spglobal.com/spdji/en/spiva/article/spiva-us-year-end-2025/). In 2025, 79% of active funds that invest in large US companies did worse than the S&P 500. Over the 15 years through 2024, about 9 out of 10 did worse. The few that do win in one period rarely keep winning in the next, so there's no reliable way to pick them ahead of time.
 
-John Bogle, who started the first index fund for regular investors in 1976, explained why with simple math. All investors together own the whole market, so before costs, the average investor earns the market's return. After costs, the average investor must earn less. Active funds charge more and trade more, so most of them end up behind. Index funds keep costs close to zero, so they keep almost all of the market's return [@bogle2017little].
+John Bogle, who started the first index fund for regular investors in 1976, explained why with simple math. All investors together own the whole market, so before costs, the average investor earns the market's return. After costs, the average investor must earn less. Active funds charge more and trade more, so most of them end up behind. Index funds keep costs close to zero, so they keep almost all of the market's return [^bogle2017little].
 
 ::: {.callout-tip}
 ## The short version
@@ -66,9 +70,15 @@ International funds are different. The US is only part of the world's stock mark
 ::: {.callout-important}
 ## Where the experts disagree: international stocks
 
-John Bogle said US investors don't need international stocks at all, and if they want some, they shouldn't go over 20% [@bogle2017international]. JL Collins agrees and recommends a single total US market fund. Both point out that big US companies already earn a lot of their money overseas [@collins2016simple].
+John Bogle said US investors don't need international stocks at all, and if they want some, they shouldn't go over 20% [^bogle2017international]. JL Collins agrees and recommends a single total US market fund. Both point out that big US companies already earn a lot of their money overseas [^collins2016simple].
 
-Ben Felix doesn't pick a single number. He points to research showing that results were about the same for investors who kept anywhere from 10% to 60% of their stocks in their home country, and says he has no strong opinion on whether a US investor should hold more or less than the world market's share of US stocks [@felix2026questions].
+[^bogle2017international]: [John Bogle Says Investors Don't Need to Own International Stocks](https://investmentnews.com/investing/news/john-bogle-says-investors-dont-need-to-own-international-stocks-71216). Waggoner, John. 2017.
+
+[^collins2016simple]: [The Simple Path to Wealth](https://jlcollinsnh.com/the-simple-path-to-wealth/). Collins, J. L. 2016.
+
+Ben Felix doesn't pick a single number. He points to research showing that results were about the same for investors who kept anywhere from 10% to 60% of their stocks in their home country, and says he has no strong opinion on whether a US investor should hold more or less than the world market's share of US stocks [^felix2026questions].
+
+[^felix2026questions]: [Episode 414: Answering Your Financial Questions](https://rationalreminder.ca/podcast/414). Felix, Ben and Wilson, Ben. 2026.
 
 What they agree on: own a broad, low cost index fund, and pick a split you can stick with. Holding none, some, or a market share of international stocks is a reasonable choice. Switching back and forth based on which did better last year is not.
 :::
@@ -86,7 +96,7 @@ Index funds come in two packages: mutual funds and ETFs (exchange traded funds).
 
 In an IRA, either works. Mutual funds make automatic investing a little easier; ETFs have no minimums. In a taxable account, ETFs usually have a small tax advantage. In a 401(k), you don't get to choose the package; you pick from your plan's list of funds, and that list rarely includes ETFs.
 
-Bogle had one warning about ETFs: because you can buy and sell them all day, they make it easy to trade too often [@bogle2017little]. The fund itself isn't the problem. Buying an ETF and checking the price every hour is.
+Bogle had one warning about ETFs: because you can buy and sell them all day, they make it easy to trade too often [^bogle2017little]. The fund itself isn't the problem. Buying an ETF and checking the price every hour is.
 
 ## How to Pick an Index Fund
 
@@ -97,7 +107,9 @@ Picking an index fund takes a few minutes once you know what to look for:
 3. In a 401(k), look through the fund list for the word "index" and pick the one with the lowest expense ratio in each category. If there's no good index fund, a target date fund (covered in the next chapter) is a reasonable fallback.
 4. Buy it, set up automatic contributions, and leave it alone.
 
-That last step is the hard one. Morgan Housel points out that the investors who do best aren't the smartest; they're the ones who can sit still the longest [@housel2020psychology].
+That last step is the hard one. Morgan Housel points out that the investors who do best aren't the smartest; they're the ones who can sit still the longest [^housel2020psychology].
+
+[^housel2020psychology]: [The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness](https://www.harriman-house.com/psychologyofmoney). Housel, Morgan. 2020.
 
 ## Math for Index Funds {#math-for-index-funds}
 

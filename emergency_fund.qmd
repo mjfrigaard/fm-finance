@@ -17,7 +17,7 @@ source("_common.R")
 
 An emergency fund is cash set aside to handle the unexpected without reaching for credit. It's the financial equivalent of a spare tire: you don't need it most of the time, but when you do, nothing else will do the job.
 
-The standard target is **3 to 6 months of essential expenses**, parked somewhere safe and liquid. This is **Step 4 of the Financial Order of Operations** (@sec-savings-foop), and it comes before investing, before extra debt payoff, before any goal other than capturing your employer match and eliminating high-interest debt.
+The standard target is **3 to 6 months of essential expenses**, parked somewhere safe and liquid (easy to turn into cash quickly, without losing value). This is **Step 4 of the Financial Order of Operations** (@sec-savings-foop), and it comes before investing, before extra debt payoff, before any goal other than capturing your employer match and eliminating high-interest debt.
 
 This chapter covers:
 
@@ -39,7 +39,7 @@ flowchart TD
     Crisis(["Unexpected Expense"]) --> NoFund{"Emergency Fund?"}
     NoFund -->|"No"| CreditCard("Charge It to<br>Credit Card")
     NoFund -->|"Yes"| EFund("Draw from<br>Emergency Fund")
-    CreditCard --> Interest("Pay 20-24% Interest<br>for Months/Years")
+    CreditCard --> Interest("Pay 20% to 24% Interest<br>for Months or Years")
     CreditCard --> Stress("Financial Stress<br>& Anxiety")
     EFund --> Solved("Problem Solved<br>No Debt Added")
     EFund --> Rebuild("Rebuild the Fund<br>Over Next Few Months")
@@ -53,11 +53,29 @@ flowchart TD
     style Rebuild fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
-Housel's framing is useful here: an emergency fund isn't about the return on the money. It's about buying *options*: the ability to not be forced into a bad financial decision at a bad time. That optionality is worth more than any interest rate [@housel2020psychology].
+Housel's framing is useful here: an emergency fund isn't about the return on the money. It's about buying *options*: the ability to not be forced into a bad financial decision at a bad time. Having those options is worth more than any interest rate [^housel2020psychology].
+
+[^housel2020psychology]: [The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness](https://www.harriman-house.com/psychologyofmoney). Housel, Morgan. 2020.
 
 ## How Much Do You Actually Need?
 
 "3 to 6 months of expenses" is the standard answer, and it's a reasonable starting range. But it isn't a single number, because emergencies don't affect everyone equally.
+
+::: {.callout-important}
+## Where the experts disagree: how many months
+
+Brian Preston's Financial Order of Operations uses the standard 3 to 6 months of living expenses for step 4, and adds more for people whose income is less certain [^preston2024foo].
+
+[^preston2024foo]: [The Financial Order of Operations](https://moneyguy.com/guide/foo/). Preston, Brian. 2024.
+
+Ramit Sethi now asks for more: his first money rule is to always have one year of emergency funds in cash, or at least six months [^sethi2024rules]. He raised the number after watching people lose jobs during the pandemic.
+
+[^sethi2024rules]: [10 Easy Money Rules (by Ramit Sethi)](https://www.iwillteachyoutoberich.com/money-rules/). Sethi, Ramit. 2024.
+
+Morgan Housel doesn't give a number, but he keeps more cash than most advisors would say is efficient, because cash is what lets you get through a bad stretch without selling anything [^housel2020psychology].
+
+What they agree on: the fund belongs in cash, not investments, and starting small is better than waiting. The 3 to 6 month range is a floor to build toward; a bigger fund buys more freedom once the basics are covered.
+:::
 
 ### The Essential Expenses Baseline {.unnumbered}
 
@@ -69,7 +87,7 @@ Start by calculating your *essential expenses*: what it actually costs to keep t
 | **Food** | Groceries (not dining out) |
 | **Utilities** | Electricity, water, gas, internet |
 | **Transportation** | Car payment, insurance, fuel, transit pass |
-| **Health** | Insurance premiums, critical medications |
+| **Health** | Health insurance payments (premiums), medications you can't skip |
 | **Minimum debt payments** | Credit card minimums, loan payments |
 
 Entertainment, subscriptions, gym memberships, and dining out are *not* essential expenses for this calculation. In a true emergency, you can cut them. Your emergency fund is sized to cover the life you *need*, not the one you currently live.
@@ -86,10 +104,10 @@ The right target depends on how much income risk you carry. More risk = more mon
 flowchart TD
     Start(["How many months?"]) --> Job{"Job Stability?"}
     Job -->|"Stable<br>single income"| Dep{"Dependents?"}
-    Job -->|"Variable / Self-Employed"| More("Lean toward<br>6–9 months")
+    Job -->|"Variable / Self-Employed"| More("Lean toward<br>6 to 9 months")
     Dep -->|"No"| Insure{"Good health &<br>disability coverage?"}
     Dep -->|"Yes: kids, aging parents"| SixPlus("6 months minimum")
-    Insure -->|"Yes"| ThreeToSix("3–4 months<br>is sufficient")
+    Insure -->|"Yes"| ThreeToSix("3 to 4 months<br>is sufficient")
     Insure -->|"No"| SixMonths("Closer to<br>6 months")
     style Start fill:#48a56a,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
     style Job fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
@@ -101,7 +119,7 @@ flowchart TD
     style SixMonths fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
 ```
 
-A two-income household where both partners work stable salaried jobs has a lower emergency risk than a self-employed single parent. The fund should reflect that difference.
+A two-income household where both partners work stable salaried jobs has a lower emergency risk than a self-employed single parent. If you're single with one paycheck, you're the only income, so lean toward the higher end of your range. The fund should reflect that difference.
 
 ```{r}
 #| label: ef-size-rec
@@ -113,7 +131,7 @@ co_box(color = "g",
   fold = FALSE,
   size = "1.10",
   header = "If you're just starting out",
-  contents = "Don't let the 3-to-6 month target paralyze you. A $1,000 starter fund is meaningfully better than zero. It handles most routine emergencies (car repair, small medical bills, appliance replacement) and gives you a buffer while you pay down high-interest debt. Once toxic debt is cleared, build toward your full target.")
+  contents = "Don't let the 3 to 6 month target paralyze you. A $1,000 starter fund is meaningfully better than zero. It handles most routine emergencies (car repair, small medical bills, appliance replacement) and gives you a buffer while you pay down high-interest debt. Once toxic debt is cleared, build toward your full target.")
 ```
 
 ### The Starter Fund First {.unnumbered}
@@ -124,13 +142,13 @@ The sequence matters:
 
 1. Build $1,000 starter fund
 2. Eliminate credit card and high-interest debt (see [Managing Debt](managing_debt.qmd))
-3. Build full 3–6 month fund
+3. Build full 3 to 6 month fund
 
 ## Emergency Reserves in the Financial Order of Operations
 
-This sequence mirrors step 4 of Brian Preston's Financial Order of Operations, introduced in [Budgeting](budgeting.qmd#sec-foo-intro): emergency reserves are funded immediately after high-interest debt (step 3) and before Roth IRA/HSA contributions (step 5). See [Managing Debt](managing_debt.qmd#sec-foo-debt) for how the two debt steps bracket this one.
+This sequence mirrors step 4 of Brian Preston's Financial Order of Operations, introduced in [Budgeting](budgeting.qmd#sec-foo-intro): emergency reserves are funded immediately after high-interest debt (step 3) and before Roth IRA and HSA contributions (step 5). See [Managing Debt](managing_debt.qmd#sec-foo-debt) for how the two debt steps bracket this one.
 
-Skipping ahead to invest before this step is funded exposes you to the exact sequencing risk described in [Why Not the Stock Market?](#why-not-the-stock-market) below. A market downturn and a job loss tend to arrive together.
+Skipping ahead to invest before this step is funded exposes you to the exact timing problem described in [Why Not the Stock Market?](#why-not-the-stock-market) below. A market downturn and a job loss tend to arrive together.
 
 ## Where to Keep It (and Where Not To)
 
@@ -172,17 +190,17 @@ flowchart LR
 
 ### The Right Account {.unnumbered}
 
-A **high-yield savings account (HYSA)** at an FDIC-insured bank is the default recommendation. It earns meaningfully more than a standard checking account while keeping the money one business day away. Credit union equivalents covered by NCUA insurance work the same way.
+A **high-yield savings account (HYSA)** at an FDIC-insured bank is the default recommendation. FDIC insurance is a federal guarantee that you get your money back, up to \$250,000, even if the bank fails. A HYSA earns meaningfully more than a standard checking account while keeping the money one business day away. Credit unions offer the same thing, insured by the NCUA instead of the FDIC.
 
 See [High-Yield Accounts](high_yield_accounts.qmd) for a full breakdown of how to find and open one.
 
 ### Why Not the Stock Market? {.unnumbered}
 
-This is the most common mistake people make with emergency funds. The logic seems sound: "*my money would earn more in index funds.*" The problem is sequencing risk.
+This is the most common mistake people make with emergency funds. The logic seems sound: "*my money would earn more in index funds.*" The problem is timing: bad things tend to happen at the same time.
 
 If you lose your job in February and the stock market is down 25% at the same moment (which historically happens; recessions cause both), you're forced to sell at the worst possible time. The emergency fund's job isn't to grow wealth; it's to be there when you need it, at full value, on demand.
 
-[Ben Felix approaches this through the lens of human capital.]{style="color:#48a56a; font-weight: bold;"} For most, your ability to earn an income is your largest asset. An emergency fund is a hedge against the volatility of that human capital. If your income is highly variable (e.g., sales commissions, freelancing, or business ownership), you should lean toward a larger cash buffer to protect your ability to maintain your lifestyle during lean periods.
+[Ben Felix approaches this through the lens of human capital.]{style="color:#48a56a; font-weight: bold;"} For most, your ability to earn an income is your largest asset. An emergency fund protects you when that income stops or drops. If your income goes up and down a lot (for example, sales commissions, freelancing, or running a business), lean toward a larger cash buffer so you can cover your bills during lean months.
 
 ```{r}
 #| label: ef-invest-warning
@@ -194,25 +212,25 @@ co_box(color = "o",
   fold = FALSE,
   size = "1.10",
   header = "The temptation to invest it",
-  contents = "Every bull market produces the same question: 'Why am I sitting on cash earning 4% when the market is up 20%?' The answer is that emergency funds serve a different function than investments. Conflating them exposes you to the exact sequence-of-returns risk you're trying to insure against. Keep your emergency fund in cash. Period.")
+  contents = "Every time the stock market rises for a while, the same question comes up: 'Why am I sitting on cash earning 4% when the market is up 20%?' The answer is that emergency funds do a different job than investments. Mixing them up exposes you to the exact risk you're trying to protect against: needing the money right when the market is down. Keep your emergency fund in cash. Period.")
 ```
 
 ## Building Your Emergency Fund
 
-For most people, building the fund from zero to 3–6 months takes 12–24 months of consistent contribution. The chart below shows the monthly balance for three different monthly contribution amounts toward a $15,000 target.
+For most people, building the full fund takes one to two years of steady saving. Picture a first job with \$2,400 a month in essential expenses and a four-month target of \$9,600. The chart below shows how long that takes at three different monthly contribution amounts.
 
 ```{r}
 #| label: ef-build-bar-model
 #| echo: false
 #| message: false 
 #| warning: false
-#| fig-cap: "Months to reach a $15,000 emergency fund at three contribution levels"
+#| fig-cap: "Months to reach a $9,600 emergency fund at three contribution levels"
 #| fig-asp: 0.618
 library(ggplot2)
 library(dplyr)
 
-target <- 15000
-contribs <- c(300, 500, 750)
+target <- 9600
+contribs <- c(200, 400, 600)
 colors <- c("#86ddcd", "#0e9aa7", "#48a56a")
 
 df_build <- purrr::map2_dfr(contribs, colors, function(c, col) {
@@ -235,7 +253,7 @@ ggplot(df_build, aes(x = monthly, y = months, fill = monthly)) +
   scale_fill_manual(values = setNames(df_build$fill, df_build$monthly)) +
   scale_y_continuous(limits = c(0, 55), labels = function(x) paste0(x, " mo")) +
   labs(x = "Monthly contribution", y = NULL,
-       subtitle = "Target: $15,000 (approx. 3 months of $5,000/month expenses)") +
+       subtitle = "Target: $9,600 (4 months of $2,400/month essential expenses)") +
   theme_minimal(base_size = 12) +
   theme(
     legend.position    = "none",
@@ -305,10 +323,10 @@ The chart below shows how the target grows as you add months; each bar is the pr
 ```{r}
 #| label: ef-target-bar-model
 #| echo: false
-#| fig-cap: "Emergency fund target at $3,500/month essential expenses"
+#| fig-cap: "Emergency fund target at $2,400/month essential expenses"
 #| fig-asp: 0.50
 library(ggplot2)
-monthly_exp <- 3500
+monthly_exp <- 2400
 months_vec  <- 1:6
 df_target   <- data.frame(
   months = factor(paste0(months_vec, " mo"), levels = paste0(months_vec, " mo")),
@@ -318,13 +336,13 @@ df_target   <- data.frame(
 ggplot(df_target, aes(x = months, y = target, fill = months)) +
   geom_col(width = 0.6) +
   geom_text(
-    aes(label = paste0("$", format(target, big.mark = ","))),
+    aes(label = paste0("$", format(target, big.mark = ",", trim = TRUE))),
     vjust = -0.4, fontface = "bold", size = 3.8
   ) +
   scale_fill_manual(values = setNames(df_target$fill, df_target$months)) +
   scale_y_continuous(
     limits = c(0, monthly_exp * 7.5),
-    labels = function(x) paste0("$", format(x, big.mark = ","))
+    labels = function(x) paste0("$", format(x, big.mark = ",", trim = TRUE))
   ) +
   labs(x = "Months of expenses covered", y = NULL) +
   theme_minimal(base_size = 12) +
@@ -337,7 +355,7 @@ ggplot(df_target, aes(x = months, y = target, fill = months)) +
 
 **Formula:** Target = Monthly Essential Expenses × Months of Coverage
 
-Example: \$3,500/month in essential expenses × 4 months = [\$14,000 target.]{style="color:#48a56a; font-weight: bold;"}
+Example: \$2,400/month in essential expenses × 4 months = [\$9,600 target.]{style="color:#48a56a; font-weight: bold;"}
 
 ::: panel-tabset
 ## R
@@ -350,9 +368,9 @@ emergency_fund_target <- function(monthly_expenses, months = 3) {
   monthly_expenses * months
 }
 
-# $3,500/month in essential expenses, 3-month and 6-month targets
-emergency_fund_target(monthly_expenses = 3500, months = 3)
-emergency_fund_target(monthly_expenses = 3500, months = 6)
+# $2,400/month in essential expenses, 3-month and 6-month targets
+emergency_fund_target(monthly_expenses = 2400, months = 3)
+emergency_fund_target(monthly_expenses = 2400, months = 6)
 ```
 
 ## Python
@@ -364,9 +382,9 @@ The Python version of `emergency_fund_target()` works the same way:
 def emergency_fund_target(monthly_expenses, months=3):
     return monthly_expenses * months
 
-# $3,500/month in essential expenses, 3-month and 6-month targets
-print(emergency_fund_target(monthly_expenses=3500, months=3))
-print(emergency_fund_target(monthly_expenses=3500, months=6))
+# $2,400/month in essential expenses, 3-month and 6-month targets
+print(emergency_fund_target(monthly_expenses=2400, months=3))
+print(emergency_fund_target(monthly_expenses=2400, months=6))
 ```
 
 ## Excel
@@ -385,22 +403,22 @@ Given your current balance and a monthly contribution, how long until you reach 
 ```{r}
 #| label: ef-months-bar-model
 #| echo: false
-#| fig-cap: "A $14,000 target with $2,000 saved: the $12,000 gap, filled $500 at a time"
+#| fig-cap: "A $9,600 target with $1,200 saved: the $8,400 gap, filled $400 at a time"
 #| fig-asp: 0.25
 library(ggplot2)
 df_gap <- data.frame(
-  part   = factor(c("Already saved ($2,000)", "Still needed ($12,000 = 24 × $500)"),
-                  levels = c("Still needed ($12,000 = 24 × $500)", "Already saved ($2,000)")),
-  amount = c(2000, 12000),
+  part   = factor(c("Already saved ($1,200)", "Still needed ($8,400 = 21 × $400)"),
+                  levels = c("Still needed ($8,400 = 21 × $400)", "Already saved ($1,200)")),
+  amount = c(1200, 8400),
   bar    = "Target"
 )
 ggplot(df_gap, aes(x = amount, y = bar, fill = part)) +
   geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
-  geom_vline(xintercept = seq(2500, 13500, by = 500), colour = "white", linewidth = 0.3) +
-  scale_fill_manual(values = c("Already saved ($2,000)" = "#48a56a",
-                               "Still needed ($12,000 = 24 × $500)" = "#0e9aa7"),
-                    breaks = c("Already saved ($2,000)", "Still needed ($12,000 = 24 × $500)")) +
-  scale_x_continuous(labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  geom_vline(xintercept = seq(1600, 9200, by = 400), colour = "white", linewidth = 0.3) +
+  scale_fill_manual(values = c("Already saved ($1,200)" = "#48a56a",
+                               "Still needed ($8,400 = 21 × $400)" = "#0e9aa7"),
+                    breaks = c("Already saved ($1,200)", "Still needed ($8,400 = 21 × $400)")) +
+  scale_x_continuous(breaks = seq(0, 8000, 2000), labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
   labs(x = NULL, y = NULL, fill = NULL) +
   theme_minimal(base_size = 12) +
   theme(
@@ -411,11 +429,11 @@ ggplot(df_gap, aes(x = amount, y = bar, fill = part)) +
   )
 ```
 
-Each thin slice of the blue section is one $500 contribution. Counting the slices is the same as dividing the gap by the monthly contribution.
+Each thin slice of the blue section is one \$400 contribution. Counting the slices is the same as dividing the gap by the monthly contribution.
 
 **Formula:** Months to Goal = (Target − Current Balance) ÷ Monthly Contribution
 
-Example: \$14,000 target, \$2,000 already saved, contributing \$500/month → (14,000 − 2,000) ÷ 500 = [24 months.]{style="color:#48a56a; font-weight: bold;"}
+Example: \$9,600 target, \$1,200 already saved, contributing \$400/month → (9,600 − 1,200) ÷ 400 = [21 months.]{style="color:#48a56a; font-weight: bold;"}
 
 ::: panel-tabset
 ## R
@@ -429,8 +447,8 @@ months_to_ef_goal <- function(target, current_balance, monthly_contribution) {
   ceiling(remaining / monthly_contribution)
 }
 
-# $14,000 target, $2,000 saved, $500/month contribution
-months_to_ef_goal(target = 14000, current_balance = 2000, monthly_contribution = 500)
+# $9,600 target, $1,200 saved, $400/month contribution
+months_to_ef_goal(target = 9600, current_balance = 1200, monthly_contribution = 400)
 ```
 
 ## Python
@@ -445,8 +463,8 @@ def months_to_ef_goal(target, current_balance, monthly_contribution):
     remaining = max(0, target - current_balance)
     return math.ceil(remaining / monthly_contribution)
 
-# $14,000 target, $2,000 saved, $500/month contribution
-print(months_to_ef_goal(target=14000, current_balance=2000, monthly_contribution=500))
+# $9,600 target, $1,200 saved, $400/month contribution
+print(months_to_ef_goal(target=9600, current_balance=1200, monthly_contribution=400))
 ```
 
 ## Excel
@@ -465,21 +483,21 @@ Working backwards: if you want to reach your target in a specific number of mont
 ```{r}
 #| label: ef-contrib-bar-model
 #| echo: false
-#| fig-cap: "The same $12,000 gap, cut into 18 equal monthly slices"
+#| fig-cap: "The same $8,400 gap, cut into 18 equal monthly slices"
 #| fig-asp: 0.25
 library(ggplot2)
 df_slices <- data.frame(
   slice  = factor(c("saved", paste0("m", 1:18)), levels = rev(c("saved", paste0("m", 1:18)))),
-  amount = c(2000, rep(12000 / 18, 18)),
+  amount = c(1200, rep(8400 / 18, 18)),
   fill   = c("#48a56a", rep(c("#0e9aa7", "#86ddcd"), 9)),
   bar    = "Target"
 )
 ggplot(df_slices, aes(x = amount, y = bar, fill = fill, group = slice)) +
   geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.3) +
-  annotate("text", x = 1000, y = 1.55, label = "Saved $2,000", fontface = "bold", size = 3.2) +
-  annotate("text", x = 8000, y = 1.55, label = "18 slices of about $667", fontface = "bold", size = 3.2) +
+  annotate("text", x = 600, y = 1.55, label = "Saved $1,200", fontface = "bold", size = 3.2) +
+  annotate("text", x = 5400, y = 1.55, label = "18 slices of about $467", fontface = "bold", size = 3.2) +
   scale_fill_identity() +
-  scale_x_continuous(labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
+  scale_x_continuous(breaks = seq(0, 8000, 2000), labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
   scale_y_discrete(expand = expansion(add = c(0.4, 0.7))) +
   labs(x = NULL, y = NULL) +
   theme_minimal(base_size = 12) +
@@ -494,7 +512,7 @@ Splitting the gap into equal slices is division: the gap divided by the number o
 
 **Formula:** Monthly Contribution = (Target − Current Balance) ÷ Months Remaining
 
-Example: You want a full \$14,000 fund in 18 months and have \$2,000 now → (14,000 − 2,000) ÷ 18 = [\$667/month.]{style="color:#48a56a; font-weight: bold;"}
+Example: You want a full \$9,600 fund in 18 months and have \$1,200 now → (9,600 − 1,200) ÷ 18 = [\$467/month]{style="color:#48a56a; font-weight: bold;"}
 
 ::: panel-tabset
 ## R
@@ -508,8 +526,8 @@ monthly_contribution_needed <- function(target, current_balance, months) {
   ceiling(remaining / months)
 }
 
-# $14,000 target, $2,000 saved, want to finish in 18 months
-monthly_contribution_needed(target = 14000, current_balance = 2000, months = 18)
+# $9,600 target, $1,200 saved, want to finish in 18 months
+monthly_contribution_needed(target = 9600, current_balance = 1200, months = 18)
 ```
 
 ## Python
@@ -522,8 +540,8 @@ def monthly_contribution_needed(target, current_balance, months):
     remaining = max(0, target - current_balance)
     return math.ceil(remaining / months)
 
-# $14,000 target, $2,000 saved, want to finish in 18 months
-print(monthly_contribution_needed(target=14000, current_balance=2000, months=18))
+# $9,600 target, $1,200 saved, want to finish in 18 months
+print(monthly_contribution_needed(target=9600, current_balance=1200, months=18))
 ```
 
 ## Excel
@@ -537,26 +555,26 @@ Assuming the target is in `A2`, your current balance is in `B2`, and the number 
 
 ### What the Fund Earns While You Build It {.unnumbered}
 
-Keeping the fund in a HYSA means it earns interest as it grows. This won't dramatically change your timeline, but it's real money. The bar below shows a full $14,000 fund after a year: your money, plus a small slice of interest on the end.
+Keeping the fund in a HYSA means it earns interest as it grows. This won't dramatically change your timeline, but it's real money. Savings accounts advertise their APY (annual percentage yield): what your money earns in a year, with the monthly compounding already included. Top HYSAs paid a little over 4% APY in late 2026. The bar below shows a full \$9,600 fund after a year at 4% APY: your money, plus a small slice of interest on the end.
 
 ```{r}
 #| label: ef-growth-bar-model
 #| echo: false
-#| fig-cap: "$14,000 at 4.5% for 12 months: your balance plus interest"
+#| fig-cap: "$9,600 at 4% APY for 12 months: your balance plus interest"
 #| fig-asp: 0.25
 library(ggplot2)
-fv <- 14000 * (1 + 0.045 / 12)^12
-parts <- c("Your balance ($14,000)", sprintf("Interest ($%s)", round(fv - 14000)))
+fv <- 9600 * (1 + 0.04)^(12 / 12)
+parts <- c("Your balance ($9,600)", sprintf("Interest ($%s)", round(fv - 9600)))
 df_int <- data.frame(
   part   = factor(parts, levels = rev(parts)),
-  amount = c(14000, fv - 14000),
+  amount = c(9600, fv - 9600),
   bar    = "After 12 months"
 )
 ggplot(df_int, aes(x = amount, y = bar, fill = part)) +
   geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
   scale_fill_manual(values = setNames(c("#0e9aa7", "#48a56a"), parts), breaks = parts) +
   scale_x_continuous(
-    limits = c(0, 15500),
+    limits = c(0, 10500),
     labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))
   ) +
   labs(x = NULL, y = NULL, fill = NULL) +
@@ -569,28 +587,25 @@ ggplot(df_int, aes(x = amount, y = bar, fill = part)) +
   )
 ```
 
-Each month, the balance is multiplied by (1 + the monthly rate), so the green slice grows a little faster every month. After 12 multiplications, that pattern becomes the formula.
+Each year, the balance is multiplied by (1 + APY), so the green slice grows a little faster every year. For a number of months, use the fraction of a year: 12 months is one multiplication, 6 months is half of one. That pattern is the formula.
 
-**Formula:** Future Value = Balance × (1 + monthly rate)\^months
+**Formula:** Future Value = Balance × (1 + APY)\^(months ÷ 12)
 
-Where monthly rate = annual rate ÷ 12.
-
-Example: \$14,000 in a HYSA at 4.5% APY, untouched for 12 months → [\~\$14,643.]{style="color:#48a56a; font-weight: bold;"} The interest pays for a car repair without reducing your fund.
+Example: \$9,600 in a HYSA at 4% APY, untouched for 12 months → \$9,600 × 1.04 = [\$9,984.]{style="color:#48a56a; font-weight: bold;"} The interest pays for a car repair without reducing your fund.
 
 ::: panel-tabset
 ## R
 
-In R, `ef_growth()` grows a balance month by month at a given annual rate.
+In R, `ef_growth()` grows a balance for a number of months at a given APY.
 
 ```{r}
 #| label: ef-growth-r
-ef_growth <- function(balance, annual_rate, months) {
-  monthly_rate <- annual_rate / 12
-  balance * (1 + monthly_rate)^months
+ef_growth <- function(balance, apy, months) {
+  balance * (1 + apy)^(months / 12)
 }
 
-# $14,000 at 4.5% APY for 12 months
-ef_growth(balance = 14000, annual_rate = 0.045, months = 12)
+# $9,600 at 4% APY for 12 months
+ef_growth(balance = 9600, apy = 0.04, months = 12)
 ```
 
 ## Python
@@ -599,20 +614,19 @@ The Python version of `ef_growth()` works the same way:
 
 ```{python}
 #| label: ef-growth-py
-def ef_growth(balance, annual_rate, months):
-    monthly_rate = annual_rate / 12
-    return balance * (1 + monthly_rate) ** months
+def ef_growth(balance, apy, months):
+    return balance * (1 + apy) ** (months / 12)
 
-# $14,000 at 4.5% APY for 12 months
-print(ef_growth(balance=14000, annual_rate=0.045, months=12))
+# $9,600 at 4% APY for 12 months
+print(ef_growth(balance=9600, apy=0.04, months=12))
 ```
 
 ## Excel
 
-Assuming the balance is in `A2`, the annual rate is in `B2` (as a decimal), and the number of months is in `C2`:
+Assuming the balance is in `A2`, the APY is in `B2` (as a decimal), and the number of months is in `C2`:
 
 ``` swift
-=A2*(1+B2/12)^C2
+=A2*(1+B2)^(C2/12)
 ```
 :::
 
@@ -625,7 +639,7 @@ Assuming the balance is in `A2`, the annual rate is in `B2` (as a decimal), and 
 
 flowchart TD
     Start(["Build Your<br>Emergency Fund"]) --> Step1("i. Calculate monthly<br>essential expenses")
-    Step1 --> Step2("ii. Choose your target:<br>3–6 months, based on risk")
+    Step1 --> Step2("ii. Choose your target:<br>3 to 6 months, based on risk")
     Step2 --> Step3("iii. Open a<br>dedicated HYSA")
     Step3 --> Step4("iv. Set up automatic<br>monthly transfer on payday")
     Step4 --> Step5("v. Build $1,000 starter<br>fund first if in debt")
@@ -645,7 +659,7 @@ flowchart TD
 
 ## Recap
 
-An emergency fund is not an investment. It's insurance, and the cost of that insurance is the interest you *don't* earn by keeping it in cash instead of equities. That's a reasonable price for what it buys.
+An emergency fund is not an investment. It's insurance, and the cost of that insurance is the extra growth you *don't* get by keeping it in cash instead of stocks. That's a reasonable price for what it buys.
 
 1.  [Size it to your actual risk.]{style="color:#48a56a; font-weight: bold;"} Stable salaried job with good coverage? Three months is fine. Variable income or dependents? Six months or more.
 2.  [Keep it separate.]{style="color:#48a56a; font-weight: bold;"} A dedicated HYSA with a slight friction to transfer prevents casual spending from eroding the fund.

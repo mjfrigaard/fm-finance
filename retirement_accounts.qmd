@@ -60,7 +60,11 @@ Most work plans offer both a Traditional and a Roth option, and IRAs come in bot
 
 When you're just starting out, your income (and your tax rate) is probably the lowest it will be for most of your working life. That makes Roth the better default for most people early in their careers. You pay a small tax bill now, while your rate is low, and every dollar of growth is yours to keep. The math section below shows why this one comparison is all that matters.
 
-Roth isn't always the right answer, though. The Money Guy Show calls Roth accounts the "apex predator" of wealth building, but points out that once your tax rate is high, the tax break you get today from a Traditional account can be worth more. They also recommend holding some money in both kinds of accounts, since nobody knows what tax rates will be in 40 years [@may2025roth]. JL Collins makes the same point: use a Roth when your tax bracket is low, and switch to a deductible Traditional account once it's higher [@collins2015buckets]. As your income grows, revisit the choice.
+Roth isn't always the right answer, though. The Money Guy Show calls Roth accounts the "apex predator" of wealth building, but points out that once your tax rate is high, the tax break you get today from a Traditional account can be worth more. They also recommend holding some money in both kinds of accounts, since nobody knows what tax rates will be in 40 years [^may2025roth]. JL Collins makes the same point: use a Roth when your tax bracket is low, and switch to a deductible Traditional account once it's higher [^collins2015buckets]. As your income grows, revisit the choice.
+
+[^may2025roth]: [Here's Why Roth Isn't Always Better Than Pre-Tax](https://moneyguy.com/article/heres-why-roth-isnt-always-better-than-pre-tax/). May, Daniel. 2025.
+
+[^collins2015buckets]: [Stocks, Part VIII: The 401(k), 403(b), TSP, IRA and Roth Buckets](https://jlcollinsnh.com/2015/06/02/stocks-part-viii-the-401k-403b-tsp-ira-roth-buckets/). Collins, J. L. 2015.
 
 ## The IRA: An Account That's Yours
 
@@ -84,7 +88,9 @@ A taxable brokerage account is a regular investment account with no tax break. I
 
 ## Which Account First?
 
-When money is tight, the order you fund accounts matters more than the accounts themselves. The Financial Order of Operations [@preston2024foo] gives a good default, and earlier chapters already covered the first steps:
+When money is tight, the order you fund accounts matters more than the accounts themselves. The Financial Order of Operations [^preston2024foo] gives a good default, and earlier chapters already covered the first steps:
+
+[^preston2024foo]: [The Financial Order of Operations](https://moneyguy.com/guide/foo/). Preston, Brian. 2024.
 
 1. Keep enough cash to cover your highest insurance deductible.
 2. Contribute enough to your work plan to get the full employer match.
@@ -99,9 +105,11 @@ You won't finish this list in your first year, and that's fine. The goal is to m
 ::: {.callout-important}
 ## Where the experts disagree: which account to fund first
 
-Ramit Sethi's "ladder of personal finance" starts the same way: get the employer match, then pay off high interest debt. After that, it puts the Roth IRA next, then maxing out the 401(k), and only then the HSA [@sethi2019will]. He treats the emergency fund as something you build alongside the ladder rather than a step on it.
+Ramit Sethi's "ladder of personal finance" starts the same way: get the employer match, then pay off high interest debt. After that, it puts the Roth IRA next, then maxing out the 401(k), and only then the HSA [^sethi2019will]. He treats the emergency fund as something you build alongside the ladder rather than a step on it.
 
-Brian Preston's Financial Order of Operations makes the emergency fund its own step before any Roth IRA money, and puts the HSA right next to the Roth IRA, ahead of maxing out the 401(k) [@preston2024foo].
+[^sethi2019will]: [I Will Teach You to Be Rich (2nd ed.)](https://www.hachettebookgroup.com/titles/ramit-sethi/i-will-teach-you-to-be-rich-second-edition/9781523505746/). Sethi, Ramit. 2019.
+
+Brian Preston's Financial Order of Operations makes the emergency fund its own step before any Roth IRA money, and puts the HSA right next to the Roth IRA, ahead of maxing out the 401(k) [^preston2024foo].
 
 What they agree on: get the full match first, clear high interest debt second, and use a Roth IRA before putting more into a 401(k). The order of the HSA and the emergency fund is the only real difference. If you have an HSA eligible health plan and enough cash to handle a surprise bill, either order works.
 :::
@@ -110,7 +118,7 @@ What they agree on: get the full match first, clear high interest debt second, a
 
 Your 401(k) stays yours when you leave a job (minus any match that hasn't vested). You have three good options: leave it where it is, move it into your new employer's plan, or move it into an IRA. Moving money between retirement accounts is called a rollover, and it's tax free if you do it directly from one account to the other.
 
-The one bad option is cashing out. Your old plan will offer to send you a check, and for a small balance it can be tempting. You'll owe income tax plus the 10% penalty, and you lose decades of growth. A $5,000 balance cashed out at 22 leaves you about $3,900 after a 12% tax and the 10% penalty; left invested at 7%, it would grow to about $100,000 by 67.
+The one bad option is cashing out. Your old plan will offer to send you a check, and for a small balance it can be tempting. You'll owe income tax plus the 10% penalty, and you lose decades of growth. A $5,000 balance cashed out at 22 leaves you about $3,900 after a 12% tax and the 10% penalty; left invested at 7%, it would grow to more than $100,000 by 67.
 
 ::: {.callout-warning}
 ## Don't cash out an old 401(k)

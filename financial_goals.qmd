@@ -46,9 +46,15 @@ Once you have the monthly amount, put it on autopilot. Give each goal its own sa
 ::: {.callout-important}
 ## Where the experts disagree: do you need a goal to save?
 
-Ramit Sethi builds saving around specific goals. His Conscious Spending Plan sets aside 5% to 10% of take home pay for savings goals like a vacation, a wedding, or a down payment, separate from long term investing [@sethi2019will]. Brian Preston's Financial Order of Operations also gives planned future expenses their own step, after retirement saving is on track [@preston2024foo].
+Ramit Sethi builds saving around specific goals. His Conscious Spending Plan sets aside 5% to 10% of take home pay for savings goals like a vacation, a wedding, or a down payment, separate from long term investing [^sethi2019will]. Brian Preston's Financial Order of Operations also gives planned future expenses their own step, after retirement saving is on track [^preston2024foo].
 
-Morgan Housel argues the opposite: you don't need a specific reason to save. Saving for a particular purchase makes sense in a predictable world, but the world isn't predictable. Money saved without a goal gives you options and flexibility when something unexpected happens, good or bad [@housel2020psychology].
+[^sethi2019will]: [I Will Teach You to Be Rich (2nd ed.)](https://www.hachettebookgroup.com/titles/ramit-sethi/i-will-teach-you-to-be-rich-second-edition/9781523505746/). Sethi, Ramit. 2019.
+
+[^preston2024foo]: [The Financial Order of Operations](https://moneyguy.com/guide/foo/). Preston, Brian. 2024.
+
+Morgan Housel argues the opposite: you don't need a specific reason to save. Saving for a particular purchase makes sense in a predictable world, but the world isn't predictable. Money saved without a goal gives you options and flexibility when something unexpected happens, good or bad [^housel2020psychology].
+
+[^housel2020psychology]: [The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness](https://www.harriman-house.com/psychologyofmoney). Housel, Morgan. 2020.
 
 What they agree on: saving more than you need for today is the foundation of everything else. Named goals make saving easier to stick with; savings without a goal give you room for the surprises no plan can predict. Most people do best with both.
 :::
@@ -60,16 +66,18 @@ Your goals compete for the same paycheck, so it helps to have an overall savings
 ::: {.callout-important}
 ## Where the experts disagree: how much to save
 
-Ramit Sethi recommends about 10% of take home pay for investing and 5% to 10% for savings goals [@sethi2019will].
+Ramit Sethi recommends about 10% of take home pay for investing and 5% to 10% for savings goals [^sethi2019will].
 
-The Money Guy Show sets an aspirational target of 25% of gross income (your pay before taxes), and money saved in retirement accounts counts toward it. In your 20s and 30s, they say it's fine to aim for a percentage and check later whether you're on track [@moneyguy2023invest].
+The Money Guy Show sets an aspirational target of 25% of gross income (your pay before taxes), and money saved in retirement accounts counts toward it. In your 20s and 30s, they say it's fine to aim for a percentage and check later whether you're on track [^moneyguy2023invest].
+
+[^moneyguy2023invest]: [I'm Decades Away from Retirement: How Much Should I Invest?](https://moneyguy.com/article/im-decades-away-from-retirement-how-much-should-i-invest). May, Daniel. 2026.
 
 The [Retirement Accounts](retirement_accounts.qmd) chapter used 15% for retirement as a common starting point.
 
 What they agree on: the numbers aren't as far apart as they look, since they're measured from different starting points (take home vs. gross pay) and count different things. All of them say to start with what you can and increase it over time.
 :::
 
-The practical answer for someone starting out: save what you can now, even if it's 5%, and raise it by a percentage point or two every time you get a raise. Sethi suggests doing this every December [@sethi2019will].
+The practical answer for someone starting out: save what you can now, even if it's 5%, and raise it by a percentage point or two every time you get a raise. Sethi suggests doing this every December [^sethi2019will].
 
 ## Sequencing Goals When You Can't Fund Them All
 
@@ -90,7 +98,7 @@ Checking your accounts every day doesn't make them grow faster. It mostly makes 
 * Every few months: compare each goal's balance to where it should be by now. If you're behind, adjust the amount or the date.
 * Once a year: add up your net worth (everything you own minus everything you owe) and reset your goals for the year ahead.
 
-Goals will change, and that's fine. Housel's warning is about the opposite problem: moving the goalposts every time you reach one, so that nothing ever feels like enough [@housel2020psychology]. When you hit a goal, take a moment to notice it before you set the next one.
+Goals will change, and that's fine. Housel's warning is about the opposite problem: moving the goalposts every time you reach one, so that nothing ever feels like enough [^housel2020psychology]. When you hit a goal, take a moment to notice it before you set the next one.
 
 ## Math for Financial Goals {#math-for-financial-goals}
 

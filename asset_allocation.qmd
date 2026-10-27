@@ -38,15 +38,27 @@ They don't agree on how much is "mostly," or on whether you need bonds at all.
 ::: {.callout-important}
 ## Where the experts disagree: bonds for young investors
 
-John Bogle is linked to a well known rule of thumb: hold roughly your age in bonds (20% bonds at 20, 40% at 40). He called it a rough starting point, to be adjusted for your goals, your comfort with risk, and other income like Social Security [@bogle2010common]. He later said younger investors could reasonably hold 80% to 85% stocks [@bogle2014fool].
+John Bogle is linked to a well known rule of thumb: hold roughly your age in bonds (20% bonds at 20, 40% at 40). He called it a rough starting point, to be adjusted for your goals, your comfort with risk, and other income like Social Security [^bogle2010common]. He later said younger investors could reasonably hold 80% to 85% stocks [^bogle2014fool].
 
-Ramit Sethi recommends 80% to 90% stocks and 10% to 20% bonds for people in their twenties and thirties, or a target date fund that picks the split for you [@sethi2025allocation].
+[^bogle2010common]: [Common Sense on Mutual Funds (10th Anniversary ed.)](https://www.wiley.com/en-us/Common+Sense+on+Mutual+Funds%2C+10th+Anniversary+Edition-p-9780470138137). Bogle, John C. 2010.
 
-JL Collins recommends 100% stocks while you're building wealth, and adding bonds only when you're close to living off your investments [@collins2016simple].
+[^bogle2014fool]: [How Many Index Funds Should You Own?](https://www.fool.com/investing/mutual-funds/2014/03/16/how-many-index-funds-should-you-own.aspx). The Motley Fool. 2014.
 
-Ben Felix has discussed research by Scott Cederburg that goes further: across many countries and long time periods, a portfolio of 100% stocks spread across the US and the rest of the world did better over a lifetime than mixes with bonds, and ran out of money less often in retirement. Felix calls it "a super interesting finding," but warns that the result is "sensitive to the assumptions" behind it [@felix2025lifecycle].
+Ramit Sethi recommends 80% to 90% stocks and 10% to 20% bonds for people in their twenties and thirties, or a target date fund that picks the split for you [^sethi2025allocation].
 
-Morgan Housel goes the other way. He keeps more cash than most advisors would recommend, because it lets him sleep at night and avoid selling in a panic. He calls this being reasonable rather than perfectly rational [@housel2020psychology, ch. 20].
+[^sethi2025allocation]: [Asset Allocation by Age (+ Specific Recommendations)](https://iwillteachyoutoberich.com/asset-allocation-by-age). Sethi, Ramit. 2025.
+
+JL Collins recommends 100% stocks while you're building wealth, and adding bonds only when you're close to living off your investments [^collins2016simple].
+
+[^collins2016simple]: [The Simple Path to Wealth](https://jlcollinsnh.com/the-simple-path-to-wealth/). Collins, J. L. 2016.
+
+Ben Felix has discussed research by Scott Cederburg that goes further: across many countries and long time periods, a portfolio of 100% stocks spread across the US and the rest of the world did better over a lifetime than mixes with bonds, and ran out of money less often in retirement. Felix calls it "a super interesting finding," but warns that the result is "sensitive to the assumptions" behind it [^felix2025lifecycle].
+
+[^felix2025lifecycle]: [Episode 350: Scott Cederburg: A Critical Assessment of Lifecycle Investment Advice](https://rationalreminder.ca/podcast/350). Felix, Ben and Cederburg, Scott. 2025.
+
+Morgan Housel goes the other way. He keeps more cash than most advisors would recommend, because it lets him sleep at night and avoid selling in a panic. He calls this being reasonable rather than perfectly rational [^housel2020psychology-ch20].
+
+[^housel2020psychology-ch20]: [The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness](https://www.harriman-house.com/psychologyofmoney). Housel, Morgan. 2020. Chapter 20.
 
 What they agree on: a young investor should hold mostly stocks, use low cost index funds, and choose a split they won't abandon in a crash. The difference between 80% and 100% stocks matters much less than staying invested.
 :::
@@ -55,15 +67,15 @@ If you want a starting point, 80% to 90% stocks is a reasonable split for someon
 
 ## US vs. International
 
-The previous chapter covered the other part of the split: how much of your stock money goes into US companies vs. companies in the rest of the world. The experts disagree there too. Bogle and Collins kept most or all of it in the US; Felix and the Cederburg research favor spreading it across the world. A split anywhere from 60/40 to 80/20 (US/international) is common and reasonable. The Cederburg research Felix discusses goes further, with about a third in the US and two thirds abroad [@felix2025lifecycle].
+The previous chapter covered the other part of the split: how much of your stock money goes into US companies vs. companies in the rest of the world. The experts disagree there too. Bogle and Collins kept most or all of it in the US; Felix and the Cederburg research favor spreading it across the world. A split anywhere from 60/40 to 80/20 (US/international) is common and reasonable. The Cederburg research Felix discusses goes further, with about a third in the US and two thirds abroad [^felix2025lifecycle].
 
 ## Target Date Funds: Asset Allocation on Autopilot
 
 A target date fund is a single fund that holds US stocks, international stocks, and bonds, and picks the split for you. You choose the fund by the year you expect to retire (a "2070 fund," for example), and it starts out mostly in stocks. As that year gets closer, the fund slowly moves money from stocks into bonds. That planned shift over time is called a glide path.
 
-Target date funds solve the hardest problem in investing: doing nothing. You never have to rebalance or decide when to add bonds, and they're often the default choice in a 401(k). Sethi recommends them for exactly that reason [@sethi2025allocation].
+Target date funds solve the hardest problem in investing: doing nothing. You never have to rebalance or decide when to add bonds, and they're often the default choice in a 401(k). Sethi recommends them for exactly that reason [^sethi2025allocation].
 
-They have two downsides. First, check the expense ratio. Index based target date funds from big providers cost around 0.10% or less, but some 401(k) plans offer versions that charge much more. Second, they add bonds earlier than some research says you need to. The Cederburg study found that an all stock portfolio ran out of money less often in retirement than a typical target date fund [@felix2025lifecycle]. For most beginners, the simplicity is worth it.
+They have two downsides. First, check the expense ratio. Index based target date funds from big providers cost around 0.10% or less, but some 401(k) plans offer versions that charge much more. Second, they add bonds earlier than some research says you need to. The Cederburg study found that an all stock portfolio ran out of money less often in retirement than a typical target date fund [^felix2025lifecycle]. For most beginners, the simplicity is worth it.
 
 ::: {.callout-tip}
 ## One fund only
@@ -79,15 +91,17 @@ If you'd rather choose your own split, you only need three funds:
 2. A total international stock index fund
 3. A total US bond market index fund
 
-This is called the three fund portfolio, and it's popular with the Bogleheads, a community of investors who follow Bogle's ideas [@larimore2018three]. Together, those three funds own nearly every public company in the world and a large share of the US bond market, for a fee of around 0.05%. You set the percentages once; for example, 60% US stocks, 30% international stocks, and 10% bonds. If you decide you don't want bonds, drop the third fund.
+This is called the three fund portfolio, and it's popular with the Bogleheads, a community of investors who follow Bogle's ideas [^larimore2018three]. Together, those three funds own nearly every public company in the world and a large share of the US bond market, for a fee of around 0.05%. You set the percentages once; for example, 60% US stocks, 30% international stocks, and 10% bonds. If you decide you don't want bonds, drop the third fund.
 
-JL Collins takes simplicity a step further. He recommends a single total US stock market fund while you're building wealth, and adds a bond fund only when you're close to living off your investments [@collins2016simple].
+[^larimore2018three]: [The Bogleheads' Guide to the Three-Fund Portfolio](https://www.wiley.com/en-us/The+Bogleheads%27+Guide+to+the+Three+Fund+Portfolio-p-9781119487333). Larimore, Taylor. 2018.
+
+JL Collins takes simplicity a step further. He recommends a single total US stock market fund while you're building wealth, and adds a bond fund only when you're close to living off your investments [^collins2016simple].
 
 ## Rebalancing: Keeping Your Split on Track
 
 Your split won't stay where you set it. If stocks have a great year, they'll grow into a bigger share of your portfolio than you planned; after a crash, they'll shrink into a smaller one. Rebalancing means moving money back to your target split.
 
-You don't have to watch it closely. Check once a year, and rebalance if any part has drifted more than about 5 percentage points from your target [@sethi2025allocation]. The easiest way is to send new contributions to whatever is below its target, so you don't have to sell anything. In a 401(k) or IRA, selling doesn't trigger taxes, so you can also just move money between funds.
+You don't have to watch it closely. Check once a year, and rebalance if any part has drifted more than about 5 percentage points from your target [^sethi2025allocation]. The easiest way is to send new contributions to whatever is below its target, so you don't have to sell anything. In a 401(k) or IRA, selling doesn't trigger taxes, so you can also just move money between funds.
 
 Rebalancing has a hidden benefit: it makes you buy stocks after they've fallen, which is the opposite of what fear tells you to do. The math section below shows how.
 

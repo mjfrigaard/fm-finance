@@ -25,13 +25,13 @@ Here's a counterintuitive insight from Morgan Housel[^wealth]:
 
 > "*Wealth is the nice cars not purchased. The diamonds not bought. The watches not worn, the clothes forgone and the first-class upgrade declined. Wealth is financial assets that haven’t yet been converted into the stuff you see.*" ([Morgan Housel](https://www.morganhousel.com/))
 
-[^wealth]: Read more in [Morgan Housel's The Psychology of Money](https://www.goodreads.com/quotes/11756295-wealth-is-the-nice-cars-not-purchased-the-diamonds-not)
+[^wealth]: [The Psychology of Money](https://www.goodreads.com/quotes/11756295-wealth-is-the-nice-cars-not-purchased-the-diamonds-not). Housel, Morgan. 2020.
 
 The person driving the flashy car isn't necessarily wealthy; they just spent their money on a car. True wealth is the income you *didn't* spend, quietly compounding in the background.
 
 [Ben Felix](https://rationalreminder.ca/) reinforces this with hard data. Research consistently shows that *conspicuous consumption (signaling wealth through purchases) is negatively correlated with actual wealth.*[^consp-consump] People who *look* rich usually aren’t, while the people who *are* rich typically live below their income level.
 
-[^consp-consump]:Read more in [Social class, social self-esteem, and conspicuous consumption.](https://pmc.ncbi.nlm.nih.gov/articles/PMC7905187/#sec6)
+[^consp-consump]: [Social class, social self-esteem, and conspicuous consumption](https://pmc.ncbi.nlm.nih.gov/articles/PMC7905187/#sec6). Oh, Ga-Eun (Grace). 2021.
 
 ## Your Human Capital
 
@@ -67,19 +67,19 @@ The academic research on money and well-being tends to show some practical concl
 
 * [Experiences beat possessions.]{style="color:#48a56a; font-weight: bold;"} Research shows experiential purchases generate more lasting happiness than material ones.[^exp-poss] Choose a vacation or night out over new clothes or toys.
 
-[^exp-poss]: Van Boven, L., & Gilovich, T. (2003). "To do or to have? That is the question." *Journal of Personality and Social Psychology*, 85(6), 1193–1202. <https://doi.org/10.1037/0022-3514.85.6.1193>
+[^exp-poss]: [To do or to have? That is the question](https://doi.org/10.1037/0022-3514.85.6.1193). Van Boven, Leaf and Gilovich, Thomas. 2003.
 
 * [Buying time is one of the highest-return uses of money.]{style="color:#48a56a; font-weight: bold;"} Outsourcing tasks you dislike (cleaning, lawn care, commuting time) correlates strongly with life satisfaction.[^buy-time] Real wealth should be measured in not doing things you don’t like to do (and more time spent doing things you like to do).
 
-[^buy-time]: Whillans, A. V., Dunn, E. W., Smeets, P., Bekkers, R., & Norton, M. I. (2017). "Buying time promotes happiness." *Proceedings of the National Academy of Sciences*, 114(32), 8523–8527. <https://doi.org/10.1073/pnas.1706541114>
+[^buy-time]: [Buying time promotes happiness](https://doi.org/10.1073/pnas.1706541114). Whillans, Ashley V. and Dunn, Elizabeth W. and Smeets, Paul and Bekkers, Rene and Norton, Michael I. 2017.
 
 * [Lifestyle inflation is the silent killer.]{style="color:#f44242; font-weight: bold;"} Hedonic adaptation (getting used to new things until they stop feeling special) means each lifestyle upgrade quickly becomes the new baseline, but the financial commitment remains permanent.[^hedonic] This is the classic “keeping up with the Joneses” trap: avoid external comparisons of material wealth. Instead, focus on where you were last year (and where you’d like to be in the next year).
 
-[^hedonic]: Dunn, E. W., Gilbert, D. T., & Wilson, T. D. (2011). "If money doesn't make you happy, then you probably aren't spending it right." *Journal of Consumer Psychology*, 21(2), 115–125. <https://doi.org/10.1016/j.jcps.2011.02.002>
+[^hedonic]: [If money doesn't make you happy, then you probably aren't spending it right](https://doi.org/10.1016/j.jcps.2011.02.002). Dunn, Elizabeth W. and Gilbert, Daniel T. and Wilson, Timothy D. 2011.
 
 * [Housing is the biggest lever.]{style="color:#48a56a; font-weight: bold;"} Housing is usually your biggest expense, so choosing how much to spend on it greatly affects your wealth. Renting can be as good as (or better than) buying when you crunch the numbers.[^housing]
 
-[^housing]: Beracha, E., & Johnson, K. H. (2012). "Lessons from over 30 years of buy versus rent decisions: Is the American dream always wise?" *Real Estate Economics*, 40(2), 217–247. <https://doi.org/10.1111/j.1540-6229.2011.00321.x>. See also Ben Felix's analysis at [PWL Capital](https://pwlcapital.com/services/financial-wellness-coaching/) and the [Rational Reminder](https://rationalreminder.ca/) podcast.
+[^housing]: [Lessons from over 30 years of buy versus rent decisions: Is the American dream always wise?](https://doi.org/10.1111/j.1540-6229.2011.00321.x). Beracha, Eli and Johnson, Ken H. 2012. See also Ben Felix's analysis at [PWL Capital](https://pwlcapital.com/services/financial-wellness-coaching/) and the [Rational Reminder](https://rationalreminder.ca/) podcast.
 
 ## Three Anchoring Rules 
 
@@ -87,25 +87,25 @@ The academic research on money and well-being tends to show some practical concl
 
 Love coffee? Buy the $6 latte. But maybe drive a reliable used car instead of a luxury lease. The goal isn't deprivation; it's intentionality.[^sethi-dials]
 
-[^sethi-dials]: Sethi, R. (2019). *I Will Teach You to Be Rich* (2nd ed.). Workman Publishing. The phrase "spend extravagantly on the things you love, and cut costs mercilessly on the things you don't" is the core of Sethi's "Conscious Spending Plan" (see Chapter 4, *Conscious Spending*). More at <https://www.iwillteachyoutoberich.com/>.
+[^sethi-dials]: [I Will Teach You to Be Rich (2nd ed.)](https://www.hachettebookgroup.com/titles/ramit-sethi/i-will-teach-you-to-be-rich-second-edition/9781523505746/). Sethi, Ramit. 2019. The phrase "spend extravagantly on the things you love, and cut costs mercilessly on the things you don't" is the core of Sethi's "Conscious Spending Plan" (see Chapter 4, *Conscious Spending*). More at <https://www.iwillteachyoutoberich.com/>.
 
 ### 2. Housel: "*Build a Gap Between Ego and Income*" {.unnumbered}
 
 The wider the gap between what you earn and what your ego demands you spend, the wealthier you become. Lifestyle creep (spending more every time you earn more) is the silent killer of financial freedom.[^housel-gap]
 
-[^housel-gap]: Housel, M. (2020). *The Psychology of Money: Timeless lessons on wealth, greed, and happiness*. Harriman House. The "gap between your ego and your income" framing appears in Chapter 10, *Save Money*. The chapter draws on Housel's earlier essay of the same name at [Collaborative Fund](https://collabfund.com/blog/the-psychology-of-money/).
+[^housel-gap]: [The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness](https://www.harriman-house.com/psychologyofmoney). Housel, Morgan. 2020. The "gap between your ego and your income" framing appears in Chapter 10, *Save Money*. The chapter draws on Housel's earlier essay of the same name at [Collaborative Fund](https://collabfund.com/blog/the-psychology-of-money/).
 
 ### 3. Bogle: "*Keep It Simple*" {.unnumbered}
 
 Bogle's philosophy applies to spending, too: complexity is the enemy. The more complicated your financial life, the easier it is to lose track. Automate, simplify, repeat.[^bogle-simple]
 
-[^bogle-simple]: Bogle, J. C. (2017). *The Little Book of Common Sense Investing: The Only Way to Guarantee Your Fair Share of Stock Market Returns* (10th Anniversary ed.). Wiley. Bogle's recurring mantra ("Simplicity is the master key to financial success") runs throughout the book and his earlier *Common Sense on Mutual Funds*. The investor community he inspired distills these ideas at <https://www.bogleheads.org/wiki/Bogleheads%C2%AE_investment_philosophy>.
+[^bogle-simple]: [The Little Book of Common Sense Investing (10th Anniversary ed.)](https://www.wiley.com/en-us/The+Little+Book+of+Common+Sense+Investing%3A+The+Only+Way+to+Guarantee+Your+Fair+Share+of+Stock+Market+Returns%2C+10th+Anniversary+Edition-p-9781119404507). Bogle, John C. 2017. Bogle's recurring mantra ("Simplicity is the master key to financial success") runs throughout the book and his earlier *Common Sense on Mutual Funds*. The investor community he inspired distills these ideas at <https://www.bogleheads.org/wiki/Bogleheads%C2%AE_investment_philosophy>.
 
 ## Wealth vs Income
 
 [Scott Galloway](https://www.profgalloway.com/), an NYU Stern professor and host of the *Prof G* podcasts, distills the whole problem into a single equation in his 2024 book *The Algebra of Wealth*:[^algebra-of-wealth]
 
-[^algebra-of-wealth]: Galloway, S. (2024). *The Algebra of Wealth: A Simple Formula for Financial Security*. Portfolio (Penguin Random House). See [profgalloway.com](https://www.profgalloway.com/) for his writing, podcasts, and the weekly *No Mercy / No Malice* newsletter.
+[^algebra-of-wealth]: [The Algebra of Wealth: A Simple Formula for Financial Security](https://www.stern.nyu.edu/experience-stern/faculty-research/algebra-wealth-simple-formula-financial-security). Galloway, Scott. 2024. See [profgalloway.com](https://www.profgalloway.com/) for his writing, podcasts, and the weekly *No Mercy / No Malice* newsletter.
 
 The **Wealth Formula**:
 
@@ -117,7 +117,7 @@ The four variables are the four levers *you* actually control:
 
 2. Stoicism: your willingness to live below your means without needing to signal otherwise will keep you from spending money you don't have on things you don't really need. Galloway, Housel, and Sethi all agree here; spending discipline is a character trait before it's a budget.[^stoicism]
 
-[^stoicism]: [What is Stoicism?](https://plato.stanford.edu/entries/stoicism/)
+[^stoicism]: [Stoicism](https://plato.stanford.edu/entries/stoicism/). Durand, Marion and Shogry, Simon and Baltzly, Dirk. 2023.
 
 3. Time: The most powerful financial variable is how many years your money still has to compound (earn returns on its past returns). The earlier you start, the more time you have.
 

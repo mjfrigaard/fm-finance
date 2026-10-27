@@ -17,7 +17,9 @@ source("_common.R")
 
 Insurance is for losses you [can't absorb]{style="color:#48a56a; font-weight: bold;"} on your own. You pay a small, certain cost (the premium) to avoid a large, uncertain one. Your emergency fund handles the small surprises; insurance handles the ones that would wipe it out and keep going.
 
-That idea gives you a simple rule for every policy in this chapter: buy enough to cover the catastrophic, and skip the small policies that turn premiums into a slow leak. Morgan Housel calls this leaving room for error. The goal isn't to avoid every bad outcome; it's to make sure no single bad outcome can knock you out of the game [@housel2020psychology].
+That idea gives you a simple rule for every policy in this chapter: buy enough to cover the catastrophic, and skip the small policies that turn premiums into a slow leak. Morgan Housel calls this leaving room for error. The goal isn't to avoid every bad outcome; it's to make sure no single bad outcome can knock you out of the game [^housel2020psychology].
+
+[^housel2020psychology]: [The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness](https://www.harriman-house.com/psychologyofmoney). Housel, Morgan. 2020.
 
 ## Insurance Words You'll See Everywhere
 
@@ -47,15 +49,19 @@ Health plans add three more terms to the list:
 * Coinsurance: the percentage of a bill you pay after your deductible, like 20%.
 * Out of pocket maximum: the most you'll pay in a year for covered care, not counting premiums. After you hit it, the plan pays 100%.
 
-The out of pocket maximum is the most important number on the plan. It's your worst case. In 2026, it can't be higher than $10,600 for one person, and many employer plans set it much lower [@mercer2025hdhp].
+The out of pocket maximum is the most important number on the plan. It's your worst case. In 2026, it can't be higher than $10,600 for one person, and many employer plans set it much lower [^mercer2025hdhp].
 
-If your employer offers a high deductible health plan, compare it carefully. These plans have lower premiums and let you open an HSA, the account covered in [Retirement Accounts](retirement_accounts.qmd). In 2026, a plan qualifies if its deductible is at least $1,700 and its out of pocket maximum is no more than $8,500 for one person [@mercer2025hdhp]. For a healthy young person, especially one whose employer adds money to the HSA, the high deductible plan is often the cheaper choice. The math section compares two plans side by side.
+[^mercer2025hdhp]: [2026 HSA, HDHP and Excepted-Benefit HRA Figures Set](https://www.mercer.com/en-us/insights/law-and-policy/2026-hsa-hdhp-and-excepted-benefit-hra-figures-set/). Mercer. 2025.
+
+If your employer offers a high deductible health plan, compare it carefully. These plans have lower premiums and let you open an HSA, the account covered in [Retirement Accounts](retirement_accounts.qmd). In 2026, a plan qualifies if its deductible is at least $1,700 and its out of pocket maximum is no more than $8,500 for one person [^mercer2025hdhp]. For a healthy young person, especially one whose employer adds money to the HSA, the high deductible plan is often the cheaper choice. The math section compares two plans side by side.
 
 ## Auto Insurance
 
 If you own a car, you're required to carry auto insurance, but the minimum your state requires is usually far too low. Liability coverage is the part that protects you, not your car: if you cause an accident, it pays for the other person's injuries and damage. If your coverage runs out, you can be sued for the rest.
 
-Most experts, including Consumer Reports and the Insurance Information Institute, recommend liability limits of at least 100/300/100 [@cr2025auto]: $100,000 per person injured, $300,000 per accident, and $100,000 for property damage. The jump from the state minimum to these limits often costs less than people expect.
+Most experts, including Consumer Reports and the Insurance Information Institute, recommend liability limits of at least 100/300/100 [^cr2025auto]: $100,000 per person injured, $300,000 per accident, and $100,000 for property damage. The jump from the state minimum to these limits often costs less than people expect.
+
+[^cr2025auto]: [How Much Car Insurance Do I Need?](https://www.consumerreports.org/money/car-insurance/how-much-car-insurance-do-i-need-a1487104747/). Consumer Reports. 2025.
 
 Auto policies have two other main parts:
 
@@ -68,21 +74,29 @@ If your car is worth only a few thousand dollars, consider dropping collision an
 
 Renters insurance is the best deal in insurance for someone who just moved out. Your landlord's insurance covers the building, not your things. Renters insurance covers your belongings if they're stolen or destroyed, pays for a place to stay if your apartment becomes unlivable, and includes liability coverage if someone gets hurt in your home or you accidentally damage someone else's.
 
-It typically costs about $13 to $23 a month, depending on where you live and how much coverage you choose [@nerdwallet2026renters]. Some landlords require it. Even if yours doesn't, get it. Choose "replacement cost" coverage, which pays what it costs to buy your things new, instead of "actual cash value," which pays what your used things were worth.
+It typically costs about $13 to $23 a month, depending on where you live and how much coverage you choose [^nerdwallet2026renters]. Some landlords require it. Even if yours doesn't, get it. Choose "replacement cost" coverage, which pays what it costs to buy your things new, instead of "actual cash value," which pays what your used things were worth.
+
+[^nerdwallet2026renters]: [The Average Renters Insurance Cost for 2026](https://www.nerdwallet.com/insurance/renters/learn/how-much-is-renters-insurance). NerdWallet. 2026.
 
 ## Disability Insurance
 
 Your biggest financial asset when you're starting out isn't your savings. It's your ability to earn a paycheck for the next 40 years. Disability insurance replaces part of your income if an illness or injury keeps you from working.
 
-This is the policy young people most often overlook, even though the risk is real. The Social Security Administration estimates that about 1 in 4 of today's 20 year olds will become disabled before reaching retirement age [@ssa2026disability].
+This is the policy young people most often overlook, even though the risk is real. The Social Security Administration estimates that about 1 in 4 of today's 20 year olds will become disabled before reaching retirement age [^ssa2026disability].
 
-Check your benefits at work first. Many employers offer long term disability insurance that replaces about 60% of your pay [@moneyguy2024disability], often for free or a few dollars a month. If it's offered, take it. If it's not, look into an individual policy once you have a steady income.
+[^ssa2026disability]: [Actuarial Note Number 2026.6](https://www.ssa.gov/OACT/NOTES/ran6/an2026-6.pdf). Social Security Administration, Office of the Chief Actuary. 2026.
+
+Check your benefits at work first. Many employers offer long term disability insurance that replaces about 60% of your pay [^moneyguy2024disability], often for free or a few dollars a month. If it's offered, take it. If it's not, look into an individual policy once you have a steady income.
+
+[^moneyguy2024disability]: [Is Disability Insurance a Necessity? (And How Much Do You Need?)](https://moneyguy.com/article/is-disability-insurance-a-necessity-and-how-much-do-you-need/). The Money Guy Show. 2024.
 
 ## Life Insurance
 
 Life insurance pays money to someone else when you die. That means you only need it if someone depends on your income: a spouse, a child, or a family member you support. If no one would be hurt financially by losing your paycheck, you don't need it yet.
 
-When you do need it, buy term life insurance. It covers you for a set number of years (often 20 or 30), costs little when you're young and healthy, and pays a large amount if you die during the term. A common starting point is coverage of about 10 times your yearly income [@moneyguy2024insurance], for long enough to get your dependents to adulthood.
+When you do need it, buy term life insurance. It covers you for a set number of years (often 20 or 30), costs little when you're young and healthy, and pays a large amount if you die during the term. A common starting point is coverage of about 10 times your yearly income [^moneyguy2024insurance], for long enough to get your dependents to adulthood.
+
+[^moneyguy2024insurance]: [How Much Insurance Do I Need?](https://moneyguy.com/episode/how-much-insurance-do-i-need/). The Money Guy Show. 2024.
 
 Avoid whole life and other "permanent" policies that combine insurance with an investment account. They cost many times more than term insurance for the same coverage, and the investment part usually grows more slowly than the index funds from [Index Funds](index_funds.qmd). Salespeople earn large commissions on these policies, which is why they're pushed so hard.
 

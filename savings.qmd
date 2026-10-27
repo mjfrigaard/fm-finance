@@ -10,7 +10,7 @@ Once you know your income and have categorized your expenses, the next question 
 
 [^foo-budget]: We introduced the @sec-foo-intro in the [Budgeting](budgeting.qmd) chapter and again in the @sec-foo-debt section of [Managing Debt](managing_debt.qmd).
 
-[^savings-foop]: See the full guide at [moneyguy.com/guide/foo](https://moneyguy.com/guide/foo/) [@preston2024foo].
+[^savings-foop]: [The Financial Order of Operations](https://moneyguy.com/guide/foo/). Preston, Brian. 2024.
 
 | Step | Priority | Why it comes first |
 |----|----------------------|--------------------------------------|
