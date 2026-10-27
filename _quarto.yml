@@ -57,8 +57,8 @@ bibliography: references.bib
 format:
   html:
     theme:
-      light: [flatly, custom.scss]
-      dark: [darkly, custom.scss, dark.scss]
+      light: [flatly, custom.scss, terminal.scss, light.scss]
+      dark: [darkly, custom.scss, terminal.scss, dark.scss]
     highlight-style:
       light: arrow
       dark: monokai
