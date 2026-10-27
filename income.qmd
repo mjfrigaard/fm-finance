@@ -505,6 +505,8 @@ For the total contributed (the additive focus) in cell `E2`:
 =A2*B2*D2
 ```
 
+![Contributed additive focus](img/income-additive-focus.png){width='75%' fig-align='center'}
+
 For total wealth, contributions plus growth, in cell `F2`:
 
 ```swift
