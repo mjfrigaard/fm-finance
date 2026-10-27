@@ -18,13 +18,15 @@ source("_common.R")
 
 A house is where most people accidentally undo years of saving. The mechanics aren't complicated; the discipline is.
 
+If you just moved out, buying a home is probably years away: the typical first-time buyer in 2025 was 40 years old ([NAR](https://www.nar.realtor/newsroom/first-time-home-buyer-share-falls-to-historic-low-of-21-median-age-rises-to-40)). The examples below use home prices common in many U.S. cities. Read this chapter now so you know what the decision involves, and so the next person who tells you renting is throwing money away doesn't rush you. This chapter covers:
+
   * Renting vs. buying
   * The true cost of owning (the sticker price is the smallest piece)
   * Monthly mortgage payments and how interest is front-loaded
 
 ## Owning vs. Renting: The Most Debated Question
 
-This is where [Ben Felix](https://rationalreminder.ca/)'s research is genuinely groundbreaking. The conventional wisdom ("renting is throwing money away") is one of the most persistent myths in personal finance.
+This is where [Ben Felix](https://rationalreminder.ca/)'s research is especially useful. The conventional wisdom ("renting is throwing money away") is one of the most persistent myths in personal finance.
 
 ### The Real Math {.unnumbered}
 
@@ -37,13 +39,13 @@ Felix has produced extensive analysis showing that [renting and investing the di
 
 flowchart TD
     HomeCosts("True Cost<br>of Ownership") --> Mortgage("Mortgage<br>Interest")
-    HomeCosts --> PropTax("Property Taxes<br>1-2% annually")
-    HomeCosts --> Maintenance("Maintenance<br>~1% annually")
+    HomeCosts --> PropTax("Property Taxes<br>1% to 2% a year")
+    HomeCosts --> Maintenance("Maintenance<br>about 1% a year")
     HomeCosts --> Insurance("Insurance")
-    HomeCosts --> Closing("Closing<br>Costs 3-5%")
-    HomeCosts --> Opportunity2("Down Payment<br>Opportunity Cost")
+    HomeCosts --> Closing("Closing<br>Costs 3% to 5%")
+    HomeCosts --> Opportunity2("Return Given Up<br>on the Down Payment")
 
-    Mortgage --> UnrecovCost("Unrecoverable Costs<br>~5% of home<br>value per year")
+    Mortgage --> UnrecovCost("Unrecoverable Costs<br>about 5% of home<br>value per year")
     PropTax --> UnrecovCost
     Maintenance --> UnrecovCost
     Insurance --> UnrecovCost
@@ -61,7 +63,7 @@ flowchart TD
 
 ### Felix's "5% Rule" {.unnumbered}
 
-A simplified version of Felix's framework: [the unrecoverable costs of owning are roughly 5% of the home's value per year]{style="color:#f44242; font-weight: bold;"} (property tax ~1%, maintenance ~1%, and cost of capital ~3%, which is the interest and investment return you give up on the money tied up in the house). The math section below walks through the formula and the code.
+A simplified version of Felix's framework: [the unrecoverable costs of owning are roughly 5% of the home's value per year]{style="color:#f44242; font-weight: bold;"}. Unrecoverable costs are money you spend and never get back, the same way rent is. They are property tax (about 1%), maintenance (about 1%), and the cost of capital (about 3%, which is the mortgage interest you pay plus the investment return you give up on the money tied up in the house). The math section below walks through the formula and the code.
 
 **Rule of thumb:** Multiply the home's value by 5% and divide by 12. If you can rent an equivalent property for less than that, [renting and investing the difference is likely the better financial choice.]{style="color:#48a56a; font-weight: bold;"}
 
@@ -69,15 +71,15 @@ A simplified version of Felix's framework: [the unrecoverable costs of owning ar
 
 Buying isn't bad, but it should be a [lifestyle decision]{style="color:#48a56a; font-weight: bold;"} more than a financial one. Buy when:
 
-* You're confident you'll stay 7+ years (closing costs need time to amortize)
+* You're confident you'll stay 7 years or more (it takes that long for the one-time costs of buying and selling to be spread thin)
 * You have a stable income and adequate emergency fund
 * You value the autonomy, stability, and control
-* The local rent-to-price ratio favors buying
-* You won't be "house poor" (housing costs should stay under 28-30% of gross income)
+* Homes near you are cheap compared to rents (the 5% rule below is a quick check)
+* You won't be "house poor" (housing costs should stay under 28% to 30% of gross income)
 
 ### When Renting Makes Sense {.unnumbered}
 
-* You may move within 5-7 years
+* You may move within 5 to 7 years
 * Your career requires geographic flexibility
 * Local home prices are stretched relative to rents
 * You'd rather invest the difference in a diversified portfolio
@@ -93,7 +95,7 @@ Putting the pieces together, here is how I'd walk through the decision:
 %%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
-    Start(["Rent or buy?"]) --> Stay{"Will you stay<br>7+ years?"}
+    Start(["Rent or buy?"]) --> Stay{"Will you stay<br>7 years or more?"}
     Stay -->|"No"| RentFlex("Rent and keep<br>your flexibility")
     Stay -->|"Yes"| Rule{"Is rent below the<br>5% rule figure?"}
     Rule -->|"Yes"| RentInvest("Rent and invest<br>the difference")
@@ -112,18 +114,18 @@ flowchart TD
 
 ### Mortgage Amortization: The Front-Loaded Interest Reality {.unnumbered}
 
-Mortgages are structured so you pay [mostly interest in early years.]{style="color:#f44242; font-weight: bold;"} Understanding this changes how you think about moving and refinancing.
+Mortgages are structured so you pay [mostly interest in early years.]{style="color:#f44242; font-weight: bold;"} This is called amortization: every payment is the same size, but the split between interest and principal (paying down the loan itself) shifts over time. Understanding this changes how you think about moving and refinancing (replacing your loan with a new one).
 
 **Key insight:** On a 30-year mortgage at 6%, more than [80% of your first year's payments go to interest]{style="color:#f44242; font-weight: bold;"}, not principal.
 
-**Rough breakdown of where payments go:**
+**Where payments go on a 30-year mortgage at 6%:**
 
-| Years | Approx. % to Interest | Approx. % to Principal |
-|-------|----------------------|------------------------|
-| 1-5 | 70-80% | 20-30% |
-| 6-15 | 50-70% | 30-50% |
-| 16-25 | 25-50% | 50-75% |
-| 26-30 | 5-25% | 75-95% |
+| Years | % to Interest | % to Principal |
+|-------|---------------|----------------|
+| 1 to 5 | 78% to 83% | 17% to 22% |
+| 6 to 15 | 59% to 78% | 22% to 41% |
+| 16 to 25 | 26% to 59% | 41% to 74% |
+| 26 to 30 | under 1% to 26% | 74% to almost 100% |
 
 This is why moving every 5 years is so financially destructive: you're essentially renting from the bank while paying ownership costs on top.
 
@@ -133,7 +135,7 @@ Big purchases are where small percentage differences turn into tens of thousands
 
 ### The Rent-vs-Buy 5% Rule {.unnumbered}
 
-The 5% rule isn't magic; it's the sum of three real costs that every homeowner pays whether they realize it or not. The chart splits those costs for a \$500,000 home.
+The 5% rule isn't magic; it's the sum of three real costs that every homeowner pays whether they realize it or not. The chart splits those costs for a \$500,000 home, about what a starter home costs in many U.S. cities.
 
 ```{r}
 #| label: rent-buy-bar-model
@@ -174,7 +176,7 @@ ggplot(df_5pct, aes(x = "", y = amount, fill = component)) +
   )) +
   scale_y_continuous(
     breaks = c(0, 5000, 10000, 15000, 20000, 25000),
-    labels = function(x) paste0("$", format(x, big.mark = ","))
+    labels = function(x) paste0("$", format(x, big.mark = ",", trim = TRUE))
   ) +
   labs(x = NULL, y = "Annual unrecoverable cost (Total = $25,000/yr = $2,083/mo)") +
   theme_minimal(base_size = 12) +
@@ -190,7 +192,7 @@ Add the three percentage slices together and you get 5% of home value per year; 
 
 **Formula:** Monthly cost of owning ≈ (Home Value × 0.05) ÷ 12
 
-Example: a \$500,000 home → (500,000 × 0.05) ÷ 12 = **\$2,083/month**. Rent below that, and renting-and-investing-the-difference tends to win.
+Example: a \$500,000 home → (500,000 × 0.05) ÷ 12 = **\$2,083/month**. If you can rent a similar place for less than that, renting and investing the difference tends to win.
 
 ::: panel-tabset
 ## R
@@ -231,7 +233,7 @@ Assuming the home value is in `A2` and the unrecoverable rate (`0.05`) is in `B2
 
 ### The Monthly Mortgage Payment {.unnumbered}
 
-This is the standard amortization formula behind every mortgage calculator. The same loan produces very different monthly payments depending on how many months you spread it over.
+This is the standard formula behind every mortgage calculator. The same loan produces very different monthly payments depending on how many months you spread it over.
 
 ```{r}
 #| label: mortgage-payment-bar-model
@@ -272,13 +274,13 @@ ggplot(df_mort, aes(x = term, y = payment, fill = term)) +
   )
 ```
 
-The formula allocates the principal plus all future interest into equal monthly installments; shorter terms mean higher bars because more principal must be retired each month.
+The formula spreads the principal plus all future interest into equal monthly payments; shorter terms mean higher bars because more of the loan has to be paid off each month.
 
 **Formula:** M = P × [ r(1 + r)\^n ] ÷ [ (1 + r)\^n − 1 ]
 
 Where: P = the loan principal, *r* = the monthly interest rate (annual ÷ 12), *n* = the total number of payments (years × 12).
 
-Example: a \$480,000 loan (a \$600,000 home with 20% down) at 6% for 30 years → **\~\$2,878/month**.
+Example: a \$480,000 loan (a \$600,000 home with 20% down) at 6% for 30 years → **about \$2,878/month**.
 
 ::: panel-tabset
 ## R
@@ -329,7 +331,7 @@ Excel's built-in `PMT()` function does the same job (it returns a negative numbe
 
 ### Where the First Year's Payments Go {.unnumbered}
 
-The front-loaded-interest reality, in numbers: in month one your interest is simply the balance times the monthly rate, and only the rest reduces the principal. Early mortgage payments are mostly interest, which is why moving after a few years means you've barely touched the principal.
+Here is what front-loaded interest looks like in numbers: in month one your interest is simply the balance times the monthly rate, and only the rest reduces the principal. Early mortgage payments are mostly interest, which is why moving after a few years means you've barely touched the principal.
 
 ```{r}
 #| label: first-payment-bar-model
@@ -398,7 +400,7 @@ Each month's interest is just the outstanding balance times the monthly rate; th
 * First-month interest = Principal × (annual rate ÷ 12)
 * First-month principal = Monthly Payment − First-month interest
 
-Example: on that \$480,000 loan, month-one interest is \$2,400 of the \~\$2,878 payment, about [83% interest]{style="color:#f44242; font-weight: bold;"}, leaving only \~\$478 toward principal.
+Example: on that \$480,000 loan, month-one interest is \$2,400 of the \$2,878 payment, about [83% interest]{style="color:#f44242; font-weight: bold;"}, leaving only \$478 toward principal.
 
 ::: panel-tabset
 ## R

@@ -23,7 +23,7 @@ You now have a savings goal (from [Savings Strategies](savings_strategies.qmd)) 
 
 Most saving advice assumes you'll make the right choice every month: see your paycheck, decide to save, move money to your HYSA. That doesn't work. You'll skip it when you're tired. You'll convince yourself "next month." You'll see the balance in your checking account and spend it.
 
-Ramit Sethi's Conscious Spending Plan solves this by inverting the order. Instead of spending first and saving what's left, you [save first and spend what remains.]{style="color:#48a56a; font-weight: bold;"} Automation makes this possible.
+Ramit Sethi's Conscious Spending Plan solves this by flipping the order. Instead of spending first and saving what's left, you [save first and spend what remains.]{style="color:#48a56a; font-weight: bold;"} Automation makes this possible.
 
 Once you set up automatic transfers, you stop deciding. The money leaves your account like rent or a phone bill: you don't think about it. Your brain adapts to the money that's actually there, and saving becomes effortless.
 
@@ -77,12 +77,12 @@ The important part is that money gets allocated as soon as it arrives. It doesn'
 
 The cleanest automation happens before money hits your checking account. Most employers' payroll systems let you split your direct deposit across multiple accounts.
 
-**Example:** Your gross paycheck is $5,000/month, and your goal is a 25% savings rate ($1,250). Your 401(k) contribution is 10% of gross ($500), which payroll deducts before taxes, so that part is already handled. Taxes take about $750, which leaves $3,750 to deposit.
+**Example:** You earn \$48,000 a year, so your gross pay (before taxes) is \$4,000 a month, and your goal is a 20% savings rate (\$800). Your 401(k) contribution is 5% of gross (\$200, enough to get a typical employer match), which payroll takes out before taxes, so that part is already handled. Taxes and other deductions take about \$700, which leaves \$3,100 to deposit.
 
 Your direct deposit setup would look like this:
 
-* Direct Deposit Split #1: $750 → HYSA (the rest of your savings goal)
-* Direct Deposit Split #2: $3,000 → Checking (your spending account)
+* Direct Deposit Split #1: \$600 → HYSA (the rest of your savings goal)
+* Direct Deposit Split #2: \$2,500 → Checking (your spending account)
 
 The paycheck never sits in your checking account; the saving happens before you even see it.
 
@@ -116,7 +116,7 @@ If your employer doesn't support multiple direct deposits, move to Method 2.
 
 ## Method 2: Automatic Bank Transfers (fallback approach)
 
-If your employer only allows one direct deposit, set up an automatic transfer from your checking account to your HYSA. This is slightly less elegant (money sits in checking for 24 hours) but equally effective.
+If your employer only allows one direct deposit, set up an automatic transfer from your checking account to your HYSA. This is slightly less tidy (money sits in checking for a day) but works just as well.
 
 **How to set this up:**
 
@@ -126,14 +126,14 @@ If your employer only allows one direct deposit, set up an automatic transfer fr
 4. Fill in:
 
    * **To Account:** Your HYSA's routing and account numbers
-   * **Amount:** Your monthly savings goal (e.g., $1,250)
+   * **Amount:** Your monthly savings goal (for example, \$600)
    * **Frequency:** Monthly
    * **Date:** The day after payday (if paid on the 1st, schedule for the 2nd)
 5. Save and verify with a test transfer
 
 Most banks now offer templates. When you see "Transfer to external account," select your HYSA and your bank will remember it for future transfers.
 
-The transfer takes 1–2 business days. By day 3 after payday, your savings are in the HYSA, earning interest, and out of reach of impulse spending.
+The transfer takes 1 to 2 business days. By day 3 after payday, your savings are in the HYSA, earning interest, and out of reach of impulse spending.
 
 ::: {.callout-warning appearance="default" icon=false}
 ## Don't Schedule on Payday Itself
@@ -145,26 +145,26 @@ If you're paid on the 1st and transfer on the 1st, you risk overdrafting your ch
 
 How much should you automate? Go back to [Savings Strategies](savings_strategies.qmd) and check the target savings rate you picked.
 
-If your goal is a 25% savings rate, picture your $5,000 monthly income as one bar. A quarter of it gets carved off for savings before you ever see it; the rest is what you live on.
+If your goal is a 20% savings rate, picture the \$4,000 gross monthly pay from the example above as one bar. A fifth of it gets carved off for savings before you ever see it; the rest is what you live on. (Here the rate is measured on gross pay, because 401(k) contributions come out before taxes.)
 
 ```{r}
 #| label: pyf-bar-model
 #| echo: false
-#| fig-cap: "A $5,000 paycheck with 25% automated to savings"
+#| fig-cap: "$4,000 of gross monthly pay with 20% automated to savings"
 #| fig-asp: 0.25
 library(ggplot2)
-parts <- c("Automated savings ($1,250)", "Everything else ($3,750)")
+parts <- c("Automated savings ($800)", "Everything else ($3,200)")
 df_pyf <- data.frame(
   part   = factor(parts, levels = rev(parts)),
-  amount = c(1250, 3750),
+  amount = c(800, 3200),
   bar    = "Paycheck"
 )
 ggplot(df_pyf, aes(x = amount, y = bar, fill = part)) +
   geom_col(width = 0.55, colour = "#1C1C1E", linewidth = 0.4) +
-  geom_vline(xintercept = c(1250, 2500, 3750), colour = "#1C1C1E",
+  geom_vline(xintercept = c(800, 1600, 2400, 3200), colour = "#1C1C1E",
              linewidth = 0.3, linetype = "dotted") +
-  scale_fill_manual(values = c("Automated savings ($1,250)" = "#48a56a",
-                               "Everything else ($3,750)" = "#0e9aa7"),
+  scale_fill_manual(values = c("Automated savings ($800)" = "#48a56a",
+                               "Everything else ($3,200)" = "#0e9aa7"),
                     breaks = parts) +
   scale_x_continuous(labels = function(x) paste0("$", formatC(x, format = "d", big.mark = ","))) +
   labs(x = NULL, y = NULL, fill = NULL) +
@@ -177,11 +177,11 @@ ggplot(df_pyf, aes(x = amount, y = bar, fill = part)) +
   )
 ```
 
-The dotted lines cut the bar into four equal quarters, and the green slice is one of them. Taking one quarter of the bar is the same as multiplying it by 0.25.
+The dotted lines cut the bar into five equal fifths, and the green slice is one of them. Taking one fifth of the bar is the same as multiplying it by 0.20.
 
 **Formula:** Monthly Savings Amount = Gross Monthly Income × Savings Rate
 
-Example: $5,000 gross income → $5,000 × 0.25 = **$1,250/month to automate.**
+Example: \$4,000 gross income → \$4,000 × 0.20 = **\$800/month to automate.**
 
 ::: panel-tabset
 ## R
@@ -192,8 +192,8 @@ monthly_savings <- function(gross_monthly_income, savings_rate) {
   gross_monthly_income * savings_rate
 }
 
-# $5,000 gross monthly income, 25% savings rate
-monthly_savings(gross_monthly_income = 5000, savings_rate = 0.25)
+# $4,000 gross monthly income, 20% savings rate
+monthly_savings(gross_monthly_income = 4000, savings_rate = 0.20)
 ```
 
 ## Python
@@ -203,8 +203,8 @@ monthly_savings(gross_monthly_income = 5000, savings_rate = 0.25)
 def monthly_savings(gross_monthly_income, savings_rate):
     return gross_monthly_income * savings_rate
 
-# $5,000 gross monthly income, 25% savings rate
-monthly_savings(gross_monthly_income=5000, savings_rate=0.25)
+# $4,000 gross monthly income, 20% savings rate
+monthly_savings(gross_monthly_income=4000, savings_rate=0.20)
 ```
 
 ## Excel
@@ -218,14 +218,13 @@ Assuming gross monthly income is in `A2` and the savings rate is in `B2`:
 
 In practice, you'll probably be automating several categories at once:
 
-| Destination | % of Income | Amount (on $5k income) | Frequency |
+| Destination | % of Income | Amount (on \$4,000 gross) | Frequency |
 |---|---|---|---|
-| Emergency fund (until 6 months) | 10% | $500 | Monthly |
-| Employer 401(k) match | 5% | $250 | Per paycheck (pre-tax) |
-| Sinking funds (car, gifts, maintenance) | 5% | $250 | Monthly |
-| Investing (after emergency fund full) | 5%+ | $250+ | Monthly |
+| Emergency fund (until it's full) | 10% | \$400 | Monthly |
+| Employer 401(k) match | 5% | \$200 | Per paycheck (before taxes) |
+| Sinking funds (car, gifts, maintenance) | 5% | \$200 | Monthly |
 
-That's 25% total, split across purposes. Each one goes to the right account automatically.
+That's 20% total, split across purposes. Once the emergency fund is full, send its \$400 to investing instead. Each one goes to the right account automatically.
 
 ::: {.callout-note appearance="default" icon=false}
 ## Sinking Funds: Multiple Sub-Accounts
@@ -239,7 +238,7 @@ On day one, you automate 15% of income. By year three, you automate 20%. By year
 
 **How to escalate:**
 
-Whenever you get a raise, commit to saving half of it. If your income goes from $50k to $52k (+$2k/year), automate an extra $1k/year to savings and keep the other $1k as lifestyle increase.
+Whenever you get a raise, commit to saving half of it. If your income goes from \$50,000 to \$52,000 (a \$2,000 raise), automate an extra \$1,000 a year to savings and keep the other \$1,000 to spend.
 
 This is the idea behind Save More Tomorrow, a program designed by the economists Richard Thaler and Shlomo Benartzi: commit now to saving a share of every future raise, so savings rise as income does. You never feel the savings squeeze because your baseline spending doesn't increase.
 
@@ -258,13 +257,13 @@ Notice that raising your savings rate by just 5 percentage points every two year
 
 **"The transfer hasn't arrived yet"**
 
-External bank transfers take 1–2 business days. If it's been 2 days and the money hasn't arrived, log into your HYSA's account and check transaction history. If it shows pending, wait one more day. If it shows failed, check that the routing and account numbers were correct.
+Transfers between banks take 1 to 2 business days. If it's been 2 days and the money hasn't arrived, log into your HYSA's account and check transaction history. If it shows pending, wait one more day. If it shows failed, check that the routing and account numbers were correct.
 
 **"I keep transferring back to spending"**
 
-That's a sign your automated amount is too high. Reduce it by 25–50% and try again for a month. The goal is a savings rate you can keep up forever, not an ambitious one you abandon. Ramit Sethi's principle applies here: compliance beats optimization.
+That's a sign your automated amount is too high. Reduce it by a quarter to a half and try again for a month. The goal is a savings rate you can keep up forever, not an ambitious one you abandon. Ramit Sethi's principle applies here: a plan you stick with beats a perfect plan you don't.
 
-**"My paycheck varies (gig work, commission, etc.)"**
+**"My paycheck varies (gig work, commission, and so on)"**
 
 Calculate your average monthly income over the last 6 months. Automate a percentage of that, not a fixed dollar amount. If this month's paycheck is higher, the extra stays in checking (bonus). If it's lower, you might underfund slightly, but you're still saving.
 
@@ -277,7 +276,7 @@ Log into your HYSA weekly for the first month. Watch the balance grow. That visu
 1. **Automate everything.** Your willpower is finite, but automation is permanent.
 2. **Split your direct deposit** if your employer allows it. That way, the money never sits in your checking account.
 3. **If you can't split it, schedule automatic bank transfers** for the day after payday.
-4. **Start with a savings rate you can live with** (10–15%), not an ambitious one you'll give up on.
+4. **Start with a savings rate you can live with** (10% to 15%), not an ambitious one you'll give up on.
 5. **Escalate with raises, not with spending cuts.** Half of every raise goes to savings, and the other half is yours to enjoy.
 6. **Use separate banks or sub-accounts.** They keep you from raiding your sinking funds for impulse spending.
 7. **Check your HYSA weekly for the first month** to build confidence. After that, trust the system.

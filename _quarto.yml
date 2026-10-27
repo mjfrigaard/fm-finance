@@ -18,6 +18,7 @@ book:
 
   chapters:
     - index.qmd
+    - background.qmd
     - part: foundations.qmd
       chapters:
         - income.qmd
@@ -79,7 +80,7 @@ format:
     fig-format: retina
     fig-asp: 0.618
     lightbox: true
-    fontsize: 1.025em
+    fontsize: 1.010em
     linestretch: 1.30
 
 execute:

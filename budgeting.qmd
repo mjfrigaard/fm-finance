@@ -15,7 +15,7 @@ source("_common.R")
 
 <br>
 
-Most people hate budgeting because they're approaching it with some bad assumptions. Traditional budgets typically fail because they assume humans will robotically track every penny and restrict every joy, all with a kind of mindless automation. But a good budget shouldn't make you feel constrained; it should make you feel intentional about how you allocate your financial resources.[^budgeting-1]
+Most people hate budgeting because they're approaching it with some bad assumptions. Traditional budgets typically fail because they assume humans will robotically track every penny and restrict every joy, all with a kind of mindless automation. But a good budget shouldn't make you feel constrained; it should make you feel intentional about where your money goes.[^budgeting-1]
 
 [^budgeting-1]: I've included frameworks from [Sethi](https://www.iwillteachyoutoberich.com/), [Housel](https://www.morganhousel.com/), [Bogle](https://www.bogleheads.org/wiki/Main_Page), and [Felix](https://www.linkedin.com/in/benjaminwfelix/) because they are designed for how humans actually behave.
 
@@ -23,7 +23,7 @@ Most people hate budgeting because they're approaching it with some bad assumpti
 
 A good budget builds in flexibility, not rigidity. When you're just getting started, budgeting can be overwhelming.
 
-> "*A budget is telling your money where to go instead of wondering where it went.*" - Dave Ramsey
+> "*A budget is telling your money where to go instead of wondering where it went.*" (Dave Ramsey)
 
 Just to be clear: **building a budget (especially the first time) is time-consuming**. As with most time-consuming tasks, you might find yourself wondering if you really need a budget. Trust me: you do. Everyone does. Reframe the following thoughts that might interfere with your budgeting practice:
 
@@ -42,15 +42,15 @@ The first skill in budgeting is correctly categorizing your money. Most people l
 
 | Category | Definition | Strategy |
 |-------------|------------------------------|--------------------------|
-| **Fixed** | Costs that remain the same each month, such as rent, mortgage payments, or subscription services. | Lock these in and forget them (minimize them once, then automate). Biggest leverage point: housing. |
+| **Fixed** | Costs that remain the same each month, such as rent, a car payment, or subscription services. | Lock these in and forget them (make them as small as you can once, then automate). Housing is usually the biggest, so it's where a good decision saves the most. |
 | **Variable** | Costs that change from month to month, such as groceries, utilities, and entertainment. | This is the category where most budgeting efforts fail. Use **categories with limits**, not line-by-line tracking. |
-| **Periodic** | Costs that occur less frequently than monthly, such as annual insurance premiums, holiday gifts, or car maintenance. | These are silent budget killers. Set aside 1/12 of the annual cost for these each month. |
+| **Periodic** | Costs that occur less frequently than monthly, such as insurance you pay once or twice a year, holiday gifts, or car maintenance. | These are silent budget killers. Set aside 1/12 of the annual cost for these each month. |
 
 ### How to approach expense categories {.unnumbered}
 
-The math is the same, but the psychology differs. Fixed expenses reward ruthlessness. John Bogle's principle of low-cost simplicity[^bogle] applies here. Lock in the lowest rate possible (usually your housing cost, which Brian Preston prioritizes early in @sec-foo-intro), then automate and stop thinking about it. This creates room for error elsewhere, as Morgan Housel emphasizes: the less mental energy you waste on fixed costs, the more cushion you have to recover from unexpected swings.
+The math is the same, but the psychology differs. Fixed expenses reward ruthlessness. John Bogle's principle of low-cost simplicity[^bogle] applies here. Find the lowest cost you can for each one (housing is usually the biggest), then automate the payment and stop thinking about it. This creates room for error elsewhere, as Morgan Housel emphasizes: the less mental energy you waste on fixed costs, the more cushion you have to recover from unexpected swings.
 
-Variable expenses demand a different discipline. Ramit Sethi's Conscious Spending Plan[^sethi-csp] teaches us that guilt-free spending on *categories* works better than line-by-line scrutiny. Instead of tracking every grocery receipt, set a monthly limit for groceries and let yourself spend freely within it. This is evidence-based: Ben Felix's research shows that behavioral compliance matters more than perfect optimization.[^felix-behavioral]
+Variable expenses demand a different discipline. Ramit Sethi's Conscious Spending Plan[^sethi-csp] teaches us that guilt-free spending on *categories* works better than line-by-line scrutiny. Instead of tracking every grocery receipt, set a monthly limit for groceries and let yourself spend freely within it. Ben Felix points to research showing that sticking with a plan matters more than having the perfect plan.[^felix-behavioral]
 
 Periodic expenses are the outliers. Because they're lumpy and personal (one person budgets for pet care, another for annual car maintenance) you can't borrow someone else's number. The 1/12 rule (setting aside one-twelfth of the annual cost each month) transforms an invisible crisis into visible planning. Money you set aside each month for a known future expense like this is called a *sinking fund*.
 
@@ -58,7 +58,7 @@ Periodic expenses are the outliers. Because they're lumpy and personal (one pers
 
 [^sethi-csp]: Sethi's Conscious Spending Plan divides spending into fixed costs, savings, guilt-free spending (wants), and investments. The key insight is that tracking categories rather than individual transactions reduces decision fatigue and improves compliance. Learn more at the [Conscious Spending Basics](https://www.iwillteachyoutoberich.com/conscious-spending-basics/) guide.
 
-[^felix-behavioral]: Felix's evidence-based approach to investing and personal finance emphasizes that behavioral factors (consistency, habit, and guilt-free compliance) outweigh optimization. A budget you follow imperfectly beats one you abandon. See [PWL Capital research](https://pwlcapital.com/learn/).
+[^felix-behavioral]: Felix's evidence-based approach to investing and personal finance emphasizes that behavioral factors (consistency, habit, and spending without guilt) matter more than finding the perfect plan. A budget you follow imperfectly beats one you abandon. See [PWL Capital research](https://pwlcapital.com/learn/).
 
 ```{mermaid}
 %%| fig-cap: 'Fixed vs. Variable Expenses'
@@ -70,8 +70,8 @@ flowchart LR
     Expenses(["Monthly<br>Expenses"])
     
     subgraph Fixed["<strong>FIXED EXPENSES</strong>"]
-        Rent("Rent or<br>Mortgage")
-        Insurance("Insurance<br>Premiums")
+        Rent("Rent")
+        Insurance("Insurance")
         Subs("Stable<br>Subscriptions")
         Loans("Loan<br>Payments")
     end
@@ -84,7 +84,7 @@ flowchart LR
     end
 
     subgraph Periodic["<strong>PERIODIC EXPENSES</strong>"]
-        Taxes("Property<br>Taxes")
+        Taxes("Car<br>Registration")
         CarMaint("Car<br>Maintenance")
         Gifts("Gifts/Holidays")
         Medical("Medical Costs")
@@ -129,22 +129,22 @@ This single technique eliminates 80% of budget emergencies.
 
 ## Types of Budgets
 
-Two dominant frameworks exist: zero-based and percentage. Either one will work; just pick the one that matches your personality. Zero-based budgets offer tight control and are detail-oriented, making them ideal for anyone rebuilding from debt or with irregular income. Percentage budgets are for big-picture thinkers, stable income earners, and people who hate detailed tracking.
+Two dominant frameworks exist: zero-based and percentage. Either one will work; just pick the one that matches your personality. Zero-based budgets offer tight control and focus on details, making them ideal for anyone getting out of debt or with a paycheck that changes from month to month. Percentage budgets are for big-picture thinkers, stable income earners, and people who hate detailed tracking.
 
 ### Zero-Based Budgeting {.unnumbered}
 
-Every dollar gets a job. Income minus all allocations equals zero. Assume you have a monthly income of \$5000:
+Every dollar gets a job. Your income minus everything you assign it to equals zero. Assume you take home \$3,200 a month (the first job example from [Income](income.qmd)):
 
 | Category      | Amount      |
 |:--------------|:------------|
-| Rent          | \$1,500     |
-| Groceries     | \$500       |
+| Rent          | \$960       |
+| Groceries     | \$350       |
 | Transport     | \$300       |
-| Investments   | \$1,000     |
-| Savings       | \$500       |
-| Fun Money     | \$700       |
+| Investments   | \$320       |
+| Savings       | \$320       |
+| Fun Money     | \$450       |
 | Other         | \$500       |
-| **Total**     | **\$5,000** |
+| **Total**     | **\$3,200** |
 | **Remaining** | **\$0**     |
 
 : Zero-Based Budgeting
@@ -155,20 +155,24 @@ Zero-based budgets provide maximum awareness, make every dollar spent/saved/inve
 
 Allocate by percentages, not dollars. This is the foundation of Sethi's Conscious Spending Plan[^budgeting-2] and another popular framework (50/30/20).
 
-[^budgeting-2]: This plan is covered on his [website](https://www.iwillteachyoutoberich.com/conscious-spending-basics/) and in [this Reddit post](https://www.reddit.com/r/singaporefi/comments/1oohihc/do_you_have_your_own_version_of_conscious/)
+[^budgeting-2]: [Conscious Spending Basics](https://www.iwillteachyoutoberich.com/conscious-spending-basics/). Sethi, Ramit. 2024. Readers share their own versions in [this Reddit post](https://www.reddit.com/r/singaporefi/comments/1oohihc/do_you_have_your_own_version_of_conscious/)
 
 | Bucket              | Conscious Spending Plan (Sethi) | 50/30/20 Rule    |
 |---------------------|---------------------------------|------------------|
-| Fixed Costs         | 50–60%                          | 50% Needs        |
-| Investments         | 10%+                            | 20% Savings/Debt |
-| Savings Goals       | 5–10%                           | (combined above) |
-| Guilt-Free Spending | 20–35%                          | 30% Wants        |
+| Fixed Costs         | 50% to 60%                      | 50% Needs        |
+| Investments         | 10% or more                     | 20% Savings/Debt |
+| Savings Goals       | 5% to 10%                       | (combined above) |
+| Guilt-Free Spending | 20% to 35%                      | 30% Wants        |
 
 : Percentage-Based Budgeting
 
 Percentages are great because they’re the proportion of your earnings assigned to each category, which means they scale to any income and, after you’ve categorized your expenses, they are low maintenance. However, they are also less granular, can mask overspending in certain categories, and require you to be brutally honest about the category boundaries.
 
+The two plans disagree on how much to save, and other experts give different numbers again. The [Financial Goals](financial_goals.qmd) chapter compares them; for now, pick one plan and start.
+
 ### Which Should You Choose? {.unnumbered}
+
+A hybrid approach uses percentages for the big buckets and zero-based tracking for one or two categories you want to watch closely (like dining out).
 
 ```{mermaid}
 %%| fig-cap: 'Which Budget To Choose?'
@@ -177,7 +181,7 @@ Percentages are great because they’re the proportion of your earnings assigned
 
 flowchart TD
     Choose(["I Need<br>A Budget"]) --> Question1{"In Debt or<br/>Just Starting?"}
-    Question1 -->|"Yes"| ZeroBased("Zero-Based<br/>for 2-3 months")
+    Question1 -->|"Yes"| ZeroBased("Zero-Based<br/>for 2 to 3 months")
     Question1 -->|"No"| Question2{"Love Spreadsheets<br/>& Details?"}
     Question2 -->|"Yes"| Hybrid["Hybrid Approach"]
     Question2 -->|"No"| Percentage["Percentage-Based<br/>Conscious Spending"]
@@ -203,7 +207,7 @@ co_box(color = "g",
   fold = FALSE,
   size = "1.10",
   header = "My recommendation", 
-  contents = "Start with zero-based for 2-3 months to truly understand your spending. Then transition to a percentage-based system with automation. You get the awareness without the long-term burden.")
+  contents = "Start with zero-based for 2 to 3 months to truly understand your spending. Then transition to a percentage-based system with automation. You get the awareness without the long-term burden.")
 ```
 
 ## Build a Budgeting Tool
@@ -238,6 +242,8 @@ flowchart LR
     style Metrics fill:#86ddcd,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
 ```
 
+Three of these terms come up again in later chapters. Your net worth is everything you own minus everything you owe. Your savings rate is the share of your take-home pay that you save. Your monthly cash flow is the money that comes in minus the money that goes out.
+
 ### What Actually Matters {.unnumbered}
 
 Don't overthink this. The best budgeting tool is [the one you'll actually use.]{style="color:#48a56a; font-weight: bold;"}
@@ -262,12 +268,12 @@ Think of your monthly income as a single horizontal bar. Every category of spend
 ```{r}
 #| label: pct-bar-model
 #| echo: false
-#| fig-cap: "Rent ($1,500) as a share of a $5,000 paycheck"
+#| fig-cap: "Rent ($960) as a share of $3,200 take-home pay"
 #| fig-asp: 0.25
 library(ggplot2)
 df_pct <- data.frame(
-  label  = c("Rent\n$1,500", "Remaining\n$3,500"),
-  amount = c(1500, 3500)
+  label  = c("Rent\n$960", "Remaining\n$2,240"),
+  amount = c(960, 2240)
 )
 ggplot(df_pct, aes(x = "", y = amount, fill = label)) +
   geom_col(width = 0.5) +
@@ -278,11 +284,11 @@ ggplot(df_pct, aes(x = "", y = amount, fill = label)) +
   ) +
   coord_flip() +
   scale_fill_manual(values = c(
-    "Rent\n$1,500"      = "#f44242",
-    "Remaining\n$3,500" = "#0e9aa7"
+    "Rent\n$960"        = "#f44242",
+    "Remaining\n$2,240" = "#0e9aa7"
   )) +
-  scale_y_continuous(labels = function(x) paste0("$", format(x, big.mark = ","))) +
-  labs(x = NULL, y = "Monthly income ($5,000)") +
+  scale_y_continuous(labels = function(x) paste0("$", format(x, big.mark = ",", trim = TRUE))) +
+  labs(x = NULL, y = "Monthly take-home pay ($3,200)") +
   theme_minimal(base_size = 12) +
   theme(
     legend.position = "none",
@@ -296,7 +302,7 @@ The formula follows directly from the bar: divide the slice width by the total b
 
 **Formula:** (Expense ÷ Income) × 100
 
-Example: Rent is \$1,500, income is \$5,000. → (1,500 ÷ 5,000) × 100 = **30% of income on rent.**
+Example: Rent is \$960, take-home pay is \$3,200. → (960 ÷ 3,200) × 100 = **30% of income on rent.**
 
 Practice until you can do this in your head for the big categories.
 
@@ -359,12 +365,12 @@ percent_of_income <- function(expense, income) {
 }
 ```
 
-Rent of \$1,500 against \$5,000 take-home pay
+Rent of \$960 against \$3,200 take-home pay
 
 ```{r}
 #| label: percent-r-apply
 #| code-fold: false 
-percent_of_income(expense = 1500, income = 5000)
+percent_of_income(expense = 960, income = 3200)
 ```
 
 ## Python
@@ -378,12 +384,12 @@ def percent_of_income(expense, income):
     return (expense / income) * 100
 ```
 
-Rent of \$1,500 against \$5,000 take-home pay
+Rent of \$960 against \$3,200 take-home pay
 
 ```{python}
 #| label: percent-py-apply
 #| code-fold: false 
-percent_of_income(expense=1500, income=5000)
+percent_of_income(expense=960, income=3200)
 ```
 
 ## Excel
@@ -554,7 +560,7 @@ Finally, we get the annual cost in cell `A4`:
 =A1 * 365
 ```
 
-Format cells `A1` - `A4` as **Currency** or **Accounting**.
+Format cells `A1` through `A4` as **Currency** or **Accounting**.
 
 ![](img/budget_daily2yearly_formula.png){width="100%" fig-align="center"}
 
@@ -570,7 +576,7 @@ To convert the monthly cost to an annual cost, enter the following in cell `A3`:
 =A2 * 12
 ```
 
-Format cells `A1` - `A3` as **Currency** or **Accounting**.
+Format cells `A1` through `A3` as **Currency** or **Accounting**.
 
 ![](img/budget_weekly2yearly_formula.png){width="100%" fig-align="center"}
 :::
@@ -672,7 +678,7 @@ That's not a car payment difference; that's a retirement chapter.
 
 ### Break-Even and Payback Calculations {.unnumbered}
 
-Useful for evaluating subscriptions, refinances, and big purchases.
+Useful for deciding whether something that costs money up front (a membership, a better phone plan, a used bike for commuting) pays for itself.
 
 Each month, the cumulative savings bar grows by the monthly savings amount. Break-even is the first month that bar meets the upfront cost line.
 

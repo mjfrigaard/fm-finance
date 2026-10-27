@@ -6,18 +6,30 @@ A short, opinionated list of further reading and tools.
 
 ## Books
 
-  * *The Psychology of Money*, by [Morgan Housel](https://www.morganhousel.com/) [@housel2020psychology]
-  * *I Will Teach You to Be Rich* (2nd ed.), by [Ramit Sethi](https://www.iwillteachyoutoberich.com/) [@sethi2019will]
-  * *The Algebra of Wealth*, by [Scott Galloway](https://www.profgalloway.com/) [@galloway2024algebra]
-  * *The Little Book of Common Sense Investing*, by John C. Bogle [@bogle2017little]
-  * *The Simple Path to Wealth*, by J. L. Collins [@collins2016simple]
+  * *The Psychology of Money*, by [Morgan Housel](https://www.morganhousel.com/) [^housel2020psychology]
+  * *I Will Teach You to Be Rich* (2nd ed.), by [Ramit Sethi](https://www.iwillteachyoutoberich.com/) [^sethi2019will]
+  * *The Algebra of Wealth*, by [Scott Galloway](https://www.profgalloway.com/) [^galloway2024algebra]
+  * *The Little Book of Common Sense Investing*, by John C. Bogle [^bogle2017little]
+  * *The Simple Path to Wealth*, by J. L. Collins [^collins2016simple]
+
+[^housel2020psychology]: [The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness](https://www.harriman-house.com/psychologyofmoney). Housel, Morgan. 2020.
+
+[^sethi2019will]: [I Will Teach You to Be Rich (2nd ed.)](https://www.hachettebookgroup.com/titles/ramit-sethi/i-will-teach-you-to-be-rich-second-edition/9781523505746/). Sethi, Ramit. 2019.
+
+[^galloway2024algebra]: [The Algebra of Wealth: A Simple Formula for Financial Security](https://www.stern.nyu.edu/experience-stern/faculty-research/algebra-wealth-simple-formula-financial-security). Galloway, Scott. 2024.
+
+[^bogle2017little]: [The Little Book of Common Sense Investing (10th Anniversary ed.)](https://www.wiley.com/en-us/The+Little+Book+of+Common+Sense+Investing%3A+The+Only+Way+to+Guarantee+Your+Fair+Share+of+Stock+Market+Returns%2C+10th+Anniversary+Edition-p-9781119404507). Bogle, John C. 2017.
+
+[^collins2016simple]: [The Simple Path to Wealth](https://jlcollinsnh.com/the-simple-path-to-wealth/). Collins, J. L. 2016.
 
 ## Podcasts & channels
 
   * [Rational Reminder](https://rationalreminder.ca/): Ben Felix and Cameron Passmore's evidence-based investing podcast (also on [YouTube](https://www.youtube.com/@rationalreminder))
   * [Common Sense Investing](https://www.youtube.com/@BenFelixCSI): Ben Felix's short-form video series at PWL Capital
   * [The Prof G Pod](https://www.profgalloway.com/podcasts/) and *Prof G Markets*: Scott Galloway's podcasts on business, markets, and personal finance
-  * [The Money Guy Show](https://moneyguy.com/): Brian Preston and Bo Hanson's show, home of the [Financial Order of Operations](https://moneyguy.com/guide/foo/) referenced in Budgeting, Managing Debt, and Emergency Fund [@preston2024foo]
+  * [The Money Guy Show](https://moneyguy.com/): Brian Preston and Bo Hanson's show, home of the [Financial Order of Operations](https://moneyguy.com/guide/foo/) referenced in Budgeting, Managing Debt, and Emergency Fund [^preston2024foo]
+
+[^preston2024foo]: [The Financial Order of Operations](https://moneyguy.com/guide/foo/). Preston, Brian. 2024.
 
 ## Blogs & sites
 

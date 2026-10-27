@@ -69,11 +69,13 @@ A deduction lowers the income you pay tax on. Everyone gets the standard deducti
 
 A credit lowers your tax bill directly, dollar for dollar. A $500 credit cuts your tax by $500. That makes a credit worth more than a deduction of the same size. A few credits that matter for people just starting out:
 
-* The Saver's Credit pays you back part of what you put into a retirement account if your income is low. In 2026, single filers with income up to $40,250 can qualify, and the credit can be worth up to $1,000 [@irs2025limits].
+* The Saver's Credit pays you back part of what you put into a retirement account if your income is low. In 2026, single filers with income up to $40,250 can qualify, and the credit can be worth up to $1,000 [^irs2025limits].
 * The American Opportunity Tax Credit covers part of college costs for the first four years of school.
 * The Earned Income Tax Credit helps workers with low incomes, especially those with children.
 
 The Saver's Credit is the one people most often miss. If you're early in your career, contributing to a 401(k) or IRA, and earning under the limit, check for it when you file.
+
+[^irs2025limits]: [Notice 2025-67: 2026 Amounts Relating to Retirement Plans and IRAs](https://www.irs.gov/pub/irs-drop/n-25-67.pdf). Internal Revenue Service. 2025.
 
 ## The W-4 and Your Refund
 
@@ -97,13 +99,17 @@ Federal tax returns are due around April 15 for the year before. For a simple re
 * VITA (Volunteer Income Tax Assistance): free help from IRS trained volunteers for people with low to moderate income.
 * Free File Fillable Forms: free electronic versions of the paper forms, with no guidance.
 
-The IRS also ran its own free filing tool, Direct File, but it isn't available for the 2026 filing season [@nextgov2025directfile]. Be careful with commercial tax software that advertises "free" and then charges for state returns or common forms.
+The IRS also ran its own free filing tool, Direct File, but it isn't available for the 2026 filing season [^nextgov2025directfile]. Be careful with commercial tax software that advertises "free" and then charges for state returns or common forms.
+
+[^nextgov2025directfile]: [Direct File Won't Happen in 2026, IRS Tells States](https://www.nextgov.com/digital-government/2025/11/direct-file-wont-happen-2026-irs-tells-states/409309). Nextgov/FCW. 2025.
 
 ## Tax Loss Harvesting
 
 Tax loss harvesting means selling an investment that has lost value in a taxable brokerage account so you can use the loss to lower your taxes, then buying something similar to stay invested. You'll see it advertised by investing apps.
 
-For most people starting out, it doesn't matter yet. It only works in a taxable account, and your money should be in a 401(k), IRA, or HSA first. Even when it applies, most of the benefit comes from delaying taxes rather than avoiding them, since buying back in at a lower price means a bigger taxable gain later [@kitces2014tlh]. It's worth learning about once you're investing in a taxable account, but it isn't a reason to open one.
+For most people starting out, it doesn't matter yet. It only works in a taxable account, and your money should be in a 401(k), IRA, or HSA first. Even when it applies, most of the benefit comes from delaying taxes rather than avoiding them, since buying back in at a lower price means a bigger taxable gain later [^kitces2014tlh]. It's worth learning about once you're investing in a taxable account, but it isn't a reason to open one.
+
+[^kitces2014tlh]: [Evaluating the Tax Deferral and Tax Bracket Arbitrage Benefits of Tax Loss Harvesting](https://www.kitces.com/blog/evaluating-the-tax-deferral-and-tax-bracket-arbitrage-benefits-of-tax-loss-harvesting/). Kitces, Michael. 2014.
 
 ## When to Hire a Tax Professional
 

@@ -1,0 +1,205 @@
+# Background {.unnumbered}
+
+Most of the money advice I heard from my parents, older coworkers, and the internet was right when I learned it. Some of it isn’t anymore. Laws and accounts have changed, and investing costs have fallen to almost nothing. This chapter will walk you through how the advice covered in this book has changed over the last 30 years (roughly 1996 to 2026), so you can tell which old rules still hold and which ones were built for a world that’s gone.
+
+Look for the callout boxes that compare then and now.
+
+## Budgeting
+
+In the 1990s, budgeting meant a paper checkbook register, cash in envelopes, or a spreadsheet you built yourself. Advice focused on tracking every dollar and cutting small expenses.
+
+In 2005, Elizabeth Warren and Amelia Warren Tyagi gave people a simpler target: 50% of take-home pay to needs, 30% to wants, and 20% to savings.[^warren2005worth] Later writers moved the focus from cutting lattes to getting the big decisions right (rent, car, savings rate) and spending freely on the things you care about.[^sethi2019will]
+
+[^warren2005worth]: [All Your Worth: The Ultimate Lifetime Money Plan](https://www.simonandschuster.com/books/All-Your-Worth/Elizabeth-Warren/9780743279741). Warren, Elizabeth and Tyagi, Amelia Warren. 2005.
+
+[^sethi2019will]: [I Will Teach You to Be Rich (2nd ed.)](https://www.hachettebookgroup.com/titles/ramit-sethi/i-will-teach-you-to-be-rich-second-edition/9781523505746/). Sethi, Ramit. 2019.
+
+We'll cover these topics in the [Budgeting chapter](budgeting.qmd). 
+
+::: {.callout-note}
+
+## What changed: budgeting
+
+**Then**: budgeting meant tracking every dollar and obsessing over small expenses.
+
+**Now**: focus on setting broad spending categories, automate your savings, and use an app to handle the details. The biggest impact comes from your choices about housing, transportation, and food—not from skipping small luxuries.
+
+:::
+
+## Debt and credit
+
+Credit cards used to be easy to get at 18. Card companies set up tables on college campuses and mailed offers to students. The Credit CARD Act of 2009 changed that: since February 2010, anyone under 21 needs either their own income or a cosigner to open a card.[^fed2011cardact]
+
+[^fed2011cardact]: [Compliance Requirements for Young Consumers](https://www.consumercomplianceoutlook.org/articles/2011/second-issue-2011/compliance-requirements-for-young-consumers). Federal Reserve System. 2011.
+
+Student debt changed even more. Americans owed about \$240 billion in student loans in 2003, the first year the New York Fed tracked it, and about \$1.65 trillion in 2026.[^nyfed2026hhdc] Repayment changed with it. The standard 10-year plan was the norm in the 1990s; income-based plans grew common after 2009 and multiplied; and in July 2026 the Repayment Assistance Plan (RAP) replaced them for new loans.[^studentaid2026plans]
+
+We'll cover these topics in the [Managing Debt chapter](managing_debt.qmd).
+
+[^nyfed2026hhdc]: [Quarterly Report on Household Debt and Credit](https://www.newyorkfed.org/microeconomics/hhdc). Federal Reserve Bank of New York. 2026.
+
+[^studentaid2026plans]: [Repayment Plans](https://studentaid.gov/manage-loans/repayment/plans). Federal Student Aid. 2026.
+
+::: {.callout-note}
+## What changed: debt and credit
+
+**Then**: campus credit cards were handed out, and most student loans had one fixed payment for 10 years.
+
+**Now**: you need income (or a cosigner) for a card before 21, student debt is about seven times larger than in 2003, and your payment on new federal loans depends on your income.
+:::
+
+## Emergency funds and savings accounts
+
+The "3 to 6 months of expenses" rule has been around for decades, and most experts still start there.[^preston2024foo] Some now say more: Ramit Sethi suggests a full year. [^sethi2024rules]
+
+[^preston2024foo]: [The Financial Order of Operations](https://moneyguy.com/guide/foo/). Preston, Brian. 2024.
+
+[^sethi2024rules]: [10 Easy Money Rules (by Ramit Sethi)](https://www.iwillteachyoutoberich.com/money-rules/). Sethi, Ramit. 2024.
+
+What changed is where the money sits. In 2008, the FDIC raised the amount it insures from \$100,000 to \$250,000 per depositor per bank, and made it permanent in 2010.[^fdic2010permanent] From 2009 to 2021, savings accounts paid almost nothing, so keeping cash felt like losing money.[^nasdaq2024savingshistory] Since 2023, online banks have paid around 4%, while the average bank savings account still pays well under 1%.
+
+We'll cover these topics in [Emergency Fund chapter](emergency_fund.qmd) and the [Savings section](savings.qmd).
+
+[^fdic2010permanent]: [Permanent Increase in Standard Coverage Amount to \$250,000](https://www.fdic.gov/news/financial-institution-letters/2010/fil10049.html). Federal Deposit Insurance Corporation. 2010.
+
+[^nasdaq2024savingshistory]: [History of Savings Account Interest Rates](https://www.nasdaq.com/articles/history-of-savings-account-interest-rates). Nasdaq. 2024.
+
+::: {.callout-note}
+
+## What changed: emergency funds
+
+**Then**: the old advice was to tuck away 3 to 6 months of living expenses in a savings account at your local bank.
+
+**Now**: that target hasn’t really changed (though some experts now suggest saving more), but the real update is about where your money sits. Today, it makes sense to keep your emergency fund in a high-yield online savings account so your cash can earn something.
+
+:::
+
+## Automating savings
+
+“Pay yourself first” is an old idea, but in 1996 it took willpower: you wrote a check to savings each month. David Bach’s The Automatic Millionaire (2004) argued that you should decide once and then automate it.[^bach2004automatic]
+
+[^bach2004automatic]: [The Automatic Millionaire: A Powerful One-Step Plan to Live and Finish Rich](https://davidbach.com/the-automatic-millionaire/). Bach, David. 2004.
+
+The law followed. The Pension Protection Act of 2006 made it easier for employers to enroll workers in a 401(k) automatically, and SECURE 2.0 requires most new 401(k) and 403(b) plans started after 2022 to auto-enroll workers beginning in 2025.[^milliman2025autoenroll] By the end of 2025, 61% of Vanguard plans used automatic enrollment, and 94% of auto-enrolled workers were saving, compared with 64% in plans where workers had to sign up themselves.[^vanguard2026has]
+
+We'll cover this in [Automated savings](automating_savings.qmd)
+
+[^milliman2025autoenroll]: [SECURE 2.0: IRS Regulations on Mandatory Automatic Enrollment](https://www.milliman.com/en/insight/secure-2-irs-regulations-mandatory-automatic-enrollment). Milliman. 2025.
+
+[^vanguard2026has]: [How America Saves 2026](https://workplace.vanguard.com/how-america-saves). Vanguard. 2026.
+
+::: {.callout-note}
+
+## What changed: automating savings
+
+**Then**: you had to choose to save every month and sign up for the 401(k) yourself.
+
+**Now**: many employers sign you up by default, and the best advice is to make every savings move automatic so willpower isn’t part of it.
+
+:::
+
+## Investing and index funds
+
+John Bogle started the first index fund for regular investors in 1976,[^bogle2017little] but in 1996 most people still paid a broker or picked actively managed funds. In 1996 the average stock mutual fund cost about 1.04% a year; by 2025 it was 0.40%, a 62% drop.[^ici2026factbook]  Broad index funds now cost as little as 0.03%.
+
+[^bogle2017little]: [The Little Book of Common Sense Investing (10th Anniversary ed.)](https://www.wiley.com/en-us/The+Little+Book+of+Common+Sense+Investing%3A+The+Only+Way+to+Guarantee+Your+Fair+Share+of+Stock+Market+Returns%2C+10th+Anniversary+Edition-p-9781119404507). Bogle, John C. 2017.
+
+[^ici2026factbook]: [2026 Investment Company Fact Book, Chapter 6: Mutual Fund Expenses and Fees](https://www.icifactbook.org/pdf/2026-factbook-ch6.pdf). Investment Company Institute. 2026.
+
+Trading costs disappeared too. Charles Schwab dropped online stock and ETF commissions to \$0 in October 2019, and the other big brokers followed within days.[^schwab2019commissions] At the end of 2023, money in passive (index) funds passed money in active funds in the U.S. for the first time.[^hl2024passive]
+
+We'll cover these topics in the [Investing section](investing.qmd).
+
+[^schwab2019commissions]: [Schwab Removes the Final Pricing Barrier to Investing Online by Eliminating U.S. Stock, ETF and Options Commissions](https://pressroom.aboutschwab.com/press-releases/press-release/2019/In-Conjunction-With-Chuck-Schwabs-New-Book-Invested-Schwab-Removes-the-Final-Pricing-Barrier-to-Investing-Online-by-Eliminating-U.S.-Stock-ETF-and-Options-Commissions/default.aspx). Charles Schwab. 2019.
+
+[^hl2024passive]: [Passive Eclipses Active in US Fund Market as Assets Swell to \$13.3tn](https://www.hl.co.uk/news/passive-eclipses-active-in-us-fund-market-as-assets-swell-to-133tn). Hargreaves Lansdown. 2024.
+
+::: {.callout-note}
+
+## What changed: investing
+
+**Then**: investing meant a broker, \$20 or more per trade, and funds that charged 1% or more a year to try to beat the market.
+
+**Now**: you can buy the whole market for almost nothing, trades are free, and index funds hold more money than funds that try to beat them.
+
+:::
+
+## Retirement accounts
+
+The Roth IRA didn't exist until the Taxpayer Relief Act of 1997; the first accounts opened in 1998.[^congress1997tra] The Health Savings Account (HSA) came from a 2003 law and opened in 2004.[^govinfo2003mma] Both are now central to the advice in this book.
+
+[^congress1997tra]: [H.R. 2014, Taxpayer Relief Act of 1997](https://www.congress.gov/bill/105th-congress/house-bill/2014). U.S. Congress. 1997.
+
+[^govinfo2003mma]: [Public Law 108-173, Medicare Prescription Drug, Improvement, and Modernization Act of 2003](https://www.govinfo.gov/app/details/PLAW-108publ173). U.S. Government Publishing Office. 2003.
+
+The default investment changed too. Target date funds first appeared in the early 1990s, but they became common after the 2006 law let employers use them as the default for auto enrolled workers. In 2025, 98% of Vanguard plans that picked a default chose a target date fund.[^vanguard2026has]
+
+We'll cover this in the [Retirement Accounts chapter](retirement_accounts.qmd).
+
+::: {.callout-note}
+
+## What changed: retirement accounts
+
+**Then**: a traditional IRA and, if you were lucky, a pension.
+
+**Now**: most people have no pension, so the 401(k), Roth IRA, and HSA do the work. A Roth IRA is often the first account recommended to young savers, and a target date fund is often the default investment.
+
+:::
+
+## Asset allocation
+
+A common rule of thumb was to hold your age in bonds: 20% bonds at 20, 40% at 40. Bogle offered it as a rough starting point.[^bogle2010common] Target date funds today hold much less in bonds for young investors, often about 90% stocks in your 20s.
+
+[^bogle2010common]: [Common Sense on Mutual Funds (10th Anniversary ed.)](https://www.wiley.com/en-us/Common+Sense+on+Mutual+Funds%2C+10th+Anniversary+Edition-p-9780470138137). Bogle, John C. 2010.
+
+The question is still open. Some researchers now argue that young investors may not need bonds at all.[^felix2025lifecycle] The [Asset Allocation](asset_allocation.qmd) chapter covers that debate.
+
+[^felix2025lifecycle]: [Episode 350: Scott Cederburg: A Critical Assessment of Lifecycle Investment Advice](https://rationalreminder.ca/podcast/350). Felix, Ben and Cederburg, Scott. 2025.
+
+For retirement spending, William Bengen's 1994 study introduced the 4% rule: spend 4% of your savings in the first year of retirement and adjust for inflation after that.[^bengen1994withdrawal] Financial planners still use it as a starting point 30 years later.
+
+[^bengen1994withdrawal]: [Determining Withdrawal Rates Using Historical Data](https://www.financialplanningassociation.org/sites/default/files/2021-04/MAR04%20Determining%20Withdrawal%20Rates%20Using%20Historical%20Data.pdf). Bengen, William P. 1994.
+
+::: {.callout-note}
+
+## What changed: asset allocation
+
+**Then**: "your age in bonds" was the standard advice.
+
+**Now**: most young investors are told to hold mostly stocks, and some experts question whether they need bonds at all. The 4% rule is still the most common starting point for retirement.
+
+:::
+
+## Buying a home
+
+In the 1990s, most families treated buying a home as the safest investment they could make, and renting as “throwing money away.” The 2008 housing crash showed that home prices can fall and that selling a house quickly is hard. Today, many experts treat buying versus renting as a math problem, not a milestone (see [Major Purchases](major_purchases.qmd)).
+
+Buyers are older, too. In National Association of Realtors surveys, the median first-time buyer was 29 in 1981 and 32 in 2000.[^cato2025firsttime] In 2025, it was 40, the oldest on record.[^nar2025firsttime] Mortgage records show a smaller rise so the NAR figure may overstate it, but the direction is the same.[^cato2025firsttime]
+
+[^cato2025firsttime]: [The First-Time Homebuyer Crisis: Fact or Fiction?](https://www.cato.org/blog/first-time-homebuyer-crisis-fact-or-fiction). Cato Institute. 2025.
+
+[^nar2025firsttime]: [First-Time Home Buyer Share Falls to Historic Low of 21\%, Median Age Rises to 40](https://www.nar.realtor/press-releases/first-time-home-buyer-share-falls-to-historic-low-of-21-median-age-rises-to-40). National Association of Realtors. 2025.
+
+::: {.callout-note}
+
+## What changed: buying a home
+
+**Then**: buy as soon as you can; renting is throwing money away.
+
+**Now**: compare the true cost of owning with the rent for a similar place. Renting and investing the difference can come out ahead, and most people buy later than their parents did.
+
+:::
+
+## What hasn't changed
+
+The tools changed, but the core advice is the same as it was in 1996:
+
+::: {.callout-tip}
+
+## Still true after 30 years
+
+Spend less than you earn. Save first, not last. Keep cash for emergencies. Avoid high-interest debt. Invest for the long term in low-cost, diversified funds, and don’t panic when the market drops. Time in the market is your biggest advantage.[^housel2020psychology][^bogle2017little]
+
+:::
+
+[^housel2020psychology]: [The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness](https://www.harriman-house.com/psychologyofmoney). Housel, Morgan. 2020.
