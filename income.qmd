@@ -17,7 +17,7 @@ source("_common.R")
 
 Building wealth doesn't start with picking the right stock or finding a hot investment; it starts with how you manage the money flowing in and out of your life. Let's break down the foundational principles.
 
-One thing to know before your first paycheck: your salary (gross pay) isn't what lands in your bank account. Your employer first takes out federal and state income tax, Social Security and Medicare (7.65% together), and anything you put into a 401(k) or a health plan. What's left is your take-home pay, and it's the number to plan around. On a \$45,000 salary, take-home pay is often around \$2,700 to \$3,000 a month, depending on your state and benefits. The [Taxes](taxes.qmd) chapter explains each of these deductions.
+One thing to know before your first paycheck: your salary (gross pay) isn’t what lands in your bank account. Your employer first takes out federal and state income tax, Social Security and Medicare (7.65% combined), and anything you contribute to a 401(k) or health plan. What’s left is your take-home pay, the number you should plan around. On a $45,000 salary, take-home pay is often around $2,700 to $3,000 a month, depending on your state and benefits. The [Taxes](taxes.qmd) chapter explains each of these deductions.
 
 ## Some Core Truths
 
@@ -27,9 +27,9 @@ Here's a counterintuitive insight from Morgan Housel[^wealth]:
 
 [^wealth]: [The Psychology of Money](https://www.goodreads.com/quotes/11756295-wealth-is-the-nice-cars-not-purchased-the-diamonds-not). Housel, Morgan. 2020.
 
-The person driving the flashy car isn't necessarily wealthy; they just spent their money on a car. True wealth is the income you *didn't* spend, quietly compounding in the background.
+The person driving the flashy car isn’t necessarily wealthy; they just spent their money on a car. True wealth is the income you *didn’t* spend, quietly compounding in the background.
 
-[Ben Felix](https://rationalreminder.ca/) reinforces this with hard data. Research consistently shows that *conspicuous consumption (signaling wealth through purchases) is negatively correlated with actual wealth.*[^consp-consump] People who *look* rich usually aren’t, while the people who *are* rich typically live below their income level.
+[Ben Felix](https://rationalreminder.ca/) reinforces this with hard data. Research consistently shows that *conspicuous consumption (signaling wealth through purchases) is negatively correlated with actual wealth.*[^consp-consump] People who *look* rich usually aren’t, while the truly rich typically live below their income level.
 
 [^consp-consump]: [Social class, social self-esteem, and conspicuous consumption](https://pmc.ncbi.nlm.nih.gov/articles/PMC7905187/#sec6). Oh, Ga-Eun (Grace). 2021.
 
@@ -59,7 +59,7 @@ flowchart TD
 
 ```
 
-During this time, investing in skills, education, and your ability to move into better jobs will have a higher return than any investment choice. Income growth, especially early in your career, is one of the most powerful wealth-building levers available. Time and energy spent developing valuable skills can pay off in later years (when these resources are less readily available). 
+During this time, investing in skills, education, and career mobility will return more than any portfolio decision. Income growth, especially early in your career, is one of the most powerful wealth-building levers available. Time and energy spent developing valuable skills can pay off in later years (when these resources are less readily available).
 
 ## Spending and Happiness
 
@@ -73,7 +73,7 @@ The academic research on money and well-being tends to show some practical concl
 
 [^buy-time]: [Buying time promotes happiness](https://doi.org/10.1073/pnas.1706541114). Whillans, Ashley V. and Dunn, Elizabeth W. and Smeets, Paul and Bekkers, Rene and Norton, Michael I. 2017.
 
-* [Lifestyle inflation is the silent killer.]{style="color:#f44242; font-weight: bold;"} Hedonic adaptation (getting used to new things until they stop feeling special) means each lifestyle upgrade quickly becomes the new baseline, but the financial commitment remains permanent.[^hedonic] This is the classic “keeping up with the Joneses” trap: avoid external comparisons of material wealth. Instead, focus on where you were last year (and where you’d like to be in the next year).
+* [Lifestyle inflation is the silent killer.]{style="color:#f44242; font-weight: bold;"} Hedonic adaptation means each lifestyle upgrade quickly becomes the new baseline, but the financial commitment remains permanent.[^hedonic] This is the classic “keeping up with the Joneses” trap: avoid external comparisons of material wealth. Instead, focus on where you were last year (and where you’d like to be in the next year).
 
 [^hedonic]: [If money doesn't make you happy, then you probably aren't spending it right](https://doi.org/10.1016/j.jcps.2011.02.002). Dunn, Elizabeth W. and Gilbert, Daniel T. and Wilson, Timothy D. 2011.
 
@@ -85,25 +85,25 @@ The academic research on money and well-being tends to show some practical concl
 
 ### 1. Sethi: "*Spend on What You Love, Cut on What You Don't*" {.unnumbered}
 
-Love coffee? Buy the $6 latte. But maybe drive a reliable used car instead of a luxury lease. The goal isn't deprivation; it's intentionality.[^sethi-dials]
+Love coffee? Buy the $6 latte. But maybe buy a reliable used car instead of leasing a luxury one. The goal isn’t deprivation; it’s intentionality.[^sethi-dials]
 
 [^sethi-dials]: [I Will Teach You to Be Rich (2nd ed.)](https://www.hachettebookgroup.com/titles/ramit-sethi/i-will-teach-you-to-be-rich-second-edition/9781523505746/). Sethi, Ramit. 2019. The phrase "spend extravagantly on the things you love, and cut costs mercilessly on the things you don't" is the core of Sethi's "Conscious Spending Plan" (see Chapter 4, *Conscious Spending*). More at <https://www.iwillteachyoutoberich.com/>.
 
 ### 2. Housel: "*Build a Gap Between Ego and Income*" {.unnumbered}
 
-The wider the gap between what you earn and what your ego demands you spend, the wealthier you become. Lifestyle creep (spending more every time you earn more) is the silent killer of financial freedom.[^housel-gap]
+The wider the gap between what you earn and what your ego demands you spend, the wealthier you become. Lifestyle creep silently kills financial freedom.[^housel-gap]
 
 [^housel-gap]: [The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness](https://www.harriman-house.com/psychologyofmoney). Housel, Morgan. 2020. The "gap between your ego and your income" framing appears in Chapter 10, *Save Money*. The chapter draws on Housel's earlier essay of the same name at [Collaborative Fund](https://collabfund.com/blog/the-psychology-of-money/).
 
 ### 3. Bogle: "*Keep It Simple*" {.unnumbered}
 
-Bogle's philosophy applies to spending, too: complexity is the enemy. The more complicated your financial life, the easier it is to lose track. Automate, simplify, repeat.[^bogle-simple]
+Bogle’s philosophy applies to spending, too: complexity is the enemy. The more complicated your financial life, the easier it is to lose track. Automate, simplify, repeat.[^bogle-simple]
 
 [^bogle-simple]: [The Little Book of Common Sense Investing (10th Anniversary ed.)](https://www.wiley.com/en-us/The+Little+Book+of+Common+Sense+Investing%3A+The+Only+Way+to+Guarantee+Your+Fair+Share+of+Stock+Market+Returns%2C+10th+Anniversary+Edition-p-9781119404507). Bogle, John C. 2017. Bogle's recurring mantra ("Simplicity is the master key to financial success") runs throughout the book and his earlier *Common Sense on Mutual Funds*. The investor community he inspired distills these ideas at <https://www.bogleheads.org/wiki/Bogleheads%C2%AE_investment_philosophy>.
 
 ## Wealth vs Income
 
-[Scott Galloway](https://www.profgalloway.com/), an NYU Stern professor and host of the *Prof G* podcasts, distills the whole problem into a single equation in his 2024 book *The Algebra of Wealth*:[^algebra-of-wealth]
+[Scott Galloway](https://www.profgalloway.com/), an NYU Stern professor and host of the Prof G podcasts, distills the whole problem into a single equation in his 2024 book *The Algebra of Wealth*:[^algebra-of-wealth]
 
 [^algebra-of-wealth]: [The Algebra of Wealth: A Simple Formula for Financial Security](https://www.stern.nyu.edu/experience-stern/faculty-research/algebra-wealth-simple-formula-financial-security). Galloway, Scott. 2024. See [profgalloway.com](https://www.profgalloway.com/) for his writing, podcasts, and the weekly *No Mercy / No Malice* newsletter.
 
@@ -113,15 +113,15 @@ The **Wealth Formula**:
 
 The four variables are the four levers *you* actually control:
 
-1. Focus: pick something economically valuable and become great at it. Career, geography, and skill choice compound harder than any single financial decision early on. This is Galloway's version of Felix's human capital; [your earning engine is the asset you build first.]{style="color:#48a56a; font-weight: bold;"}
+1. Focus: pick something economically valuable and become great at it. Career, geography, and skill choice compound harder than any single early financial decision. This is Galloway’s version of Felix’s human capital; [you build your earning engine first.]{style="color:#48a56a; font-weight: bold;"}
 
-2. Stoicism: your willingness to live below your means without needing to signal otherwise will keep you from spending money you don't have on things you don't really need. Galloway, Housel, and Sethi all agree here; spending discipline is a character trait before it's a budget.[^stoicism]
+2. Stoicism: your willingness to live below your means, without needing to signal otherwise, will keep you from spending money you don’t have on things you don’t really need. Galloway, Housel, and Sethi all agree here; spending discipline is a character trait before it’s a budget.[^stoicism]
 
 [^stoicism]: [Stoicism](https://plato.stanford.edu/entries/stoicism/). Durand, Marion and Shogry, Simon and Baltzly, Dirk. 2023.
 
-3. Time: The most powerful financial variable is how many years your money still has to compound (earn returns on its past returns). The earlier you start, the more time you have.
+3. Time: the most powerful financial variable is how many years of compounding you still have. The earlier you start, the more time you have.
 
-4. Diversification: Don't bet on a single stock, sector, or career outcome. Spread risk across types of investments (stocks, bonds, cash), countries, and time.
+4. Diversification: don’t bet on a single stock, sector, or career outcome. Spread risk across asset classes, geographies, and time.
 
 ```{mermaid}
 %%| fig-cap: 'Wealth Formula'
@@ -157,10 +157,12 @@ flowchart TD
 ```
 
 
-The arithmetic does a lot of the teaching on its own. Focus is [additive](https://en.wikipedia.org/wiki/Additive_function), which means even with poor execution on the other three, a strong income engine still builds some wealth. 
+The arithmetic does a lot of the teaching on its own. Focus is [additive](https://en.wikipedia.org/wiki/Additive_function), meaning that even with poor execution on the other three, a strong income engine still builds wealth. 
 
 
-However, stoicism, time, and diversification are [multiplicative](https://en.wikipedia.org/wiki/Multiplicative_function), so a zero on any one of these collapses the whole second term. In plain language: [spending above your means (i.e., saving and investing nothing) for forty years compounds to nothing]{style="color:#f44242; font-weight: bold;"}.
+However, stoicism, time, and diversification are [multiplicative](https://en.wikipedia.org/wiki/Multiplicative_function), so a zero on any one of these collapses the whole second term. 
+
+In plain language: [spending above your means while not saving or investing for forty years compounds to nothing]{style="color:#f44242; font-weight: bold;"}.
 
 The chart below illustrates this arithmetic. 
 
@@ -754,15 +756,15 @@ We can see this results in over \$160K!
 
 ## Recap
 
-1. [Invest in your human capital]{style="color:#48a56a; font-weight: bold;"}: your career is your biggest asset early on and it's the focus part of the wealth equation.
+1. [Invest in your human capital]{style="color:#48a56a; font-weight: bold;"}: your career is your biggest asset early on, and it’s the focus part of the wealth equation.
 
-2. [Track your fixed costs]{style="color:#48a56a; font-weight: bold;"}: aim to keep them under 60% of your take-home pay. Stoicism aligns with Housel’s “*gap between ego and income*.” Living within your means isn’t about restriction; it’s about control and intention.
+2. [Track your fixed costs]{style="color:#48a56a; font-weight: bold;"}: aim to keep them under 60% of your take-home pay. Stoicism aligns with Housel’s “*gap between ego and income.*” Living within your means isn’t about restriction; it’s about control and intention.
 
-3. [Spend the rest without guilt]{style="color:#48a56a; font-weight: bold;"} on what genuinely brings you joy: prioritize experiences and time over possessions. As Housel puts it, the highest form of wealth is the ability to wake up and say, "*I can do whatever I want today.*"
+3. [Spend the rest without guilt]{style="color:#48a56a; font-weight: bold;"} on what genuinely brings you joy: prioritize experiences and time over possessions. As Housel puts it, the highest form of wealth is the ability to wake up and say, “*I can do whatever I want today.*”
 
-4. [Keep it simple]{style="color:#48a56a; font-weight: bold;"}: Bogle’s philosophy is diversification at the portfolio level, and time is on the side of the compounding effect (which we will return to in [Investing](investing.qmd)).
+4. [Keep it simple]{style="color:#48a56a; font-weight: bold;"}: Bogle’s philosophy is portfolio-level diversification, and time is on the side of compounding (which we will return to in [Investing](investing.qmd)).
 
-Wealth is a combination of growing your income, protecting your savings, and making sure you're spending money on what actually makes you happy.
+Wealth comes from growing your income, protecting your savings, and spending money on what actually makes you happy.
 
 The next chapter turns to the other side of income: tracking where your money actually goes.
 
