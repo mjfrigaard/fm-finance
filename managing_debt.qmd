@@ -404,7 +404,7 @@ The formula converts the stated rate into the effective rate by accounting for h
 
 **Formula:** APY = (1 + APR/n)\^n − 1
 
-Where *n* = number of compounding periods per year.
+  * *Where*: APR = the stated yearly rate, and *n* = number of compounding periods per year.
 
 **Example**: A credit card with a 24% APR compounded daily
 
@@ -412,19 +412,21 @@ APY = (1 + 0.24/365)\^365 − 1 = [\~27.1%]{style="color:#f44242; font-weight: b
 
 That 3.1% gap is real money. On a \$5,000 balance, it's an extra \$156 a year you didn't realize you were paying.
 
+**Check**: compounding monthly gives (1 + 0.24/12)\^12 − 1 ≈ 26.8%, and compounding more often always adds a little more, so daily compounding at about 27.1% fits.
+
 ::: panel-tabset
-## R
+## Excel
 
-In R, `apr_to_apy()` converts a quoted APR into the APY you actually pay.
+Assuming the APR is in `A2` (as a decimal) and the compounding periods per year are in `B2`:
 
-```{r}
-#| label: apr-apy-r
-apr_to_apy <- function(apr, periods_per_year = 365) {
-  (1 + apr / periods_per_year)^periods_per_year - 1
-}
+``` swift
+=(1+A2/B2)^B2-1
+```
 
-# 24% APR compounded daily
-apr_to_apy(apr = 0.24)
+The built-in `EFFECT()` function returns the same number:
+
+``` swift
+=EFFECT(A2, B2)
 ```
 
 ## Python
@@ -440,19 +442,20 @@ def apr_to_apy(apr, periods_per_year=365):
 apr_to_apy(apr=0.24)
 ```
 
-## Excel
+## R
 
-Assuming the APR is in `A2` (as a decimal) and the compounding periods per year are in `B2`:
+In R, `apr_to_apy()` converts a quoted APR into the APY you actually pay.
 
-``` swift
-=(1+A2/B2)^B2-1
+```{r}
+#| label: apr-apy-r
+apr_to_apy <- function(apr, periods_per_year = 365) {
+  (1 + apr / periods_per_year)^periods_per_year - 1
+}
+
+# 24% APR compounded daily
+apr_to_apy(apr = 0.24)
 ```
 
-The built-in `EFFECT()` function returns the same number:
-
-``` swift
-=EFFECT(A2, B2)
-```
 :::
 
 ### Minimum Payments {.unnumbered}
@@ -494,9 +497,9 @@ Only the principal slice (the green bar) shrinks the debt. But as the balance fa
 
 **Formula:** Months to pay off = −ln(1 − r × Balance ÷ Payment) ÷ ln(1 + r)
 
-Where: r = APR ÷ 12 (this only works if the payment is larger than the first month's interest)
+  * *Where*: r = APR ÷ 12, Balance = what you owe today, and Payment = your fixed monthly payment (this only works if the payment is larger than the first month's interest).
 
-Example: \$5,000 balance at 22% APR, paying \$100/month minimum
+**Example**: \$5,000 balance at 22% APR, paying \$100/month minimum
 
 * Monthly interest in month one: \$5,000 × (0.22/12) = \~\$92, so only [\$8]{style="color:#f44242; font-weight: bold;"} of the first payment reduces the balance
 
@@ -504,22 +507,17 @@ Example: \$5,000 balance at 22% APR, paying \$100/month minimum
 
 * Total paid: \~\$13,700 on a \$5,000 purchase
 
+**Check**: plug the numbers back in: −ln(1 − (0.22 ÷ 12) × \$5,000 ÷ \$100) ÷ ln(1 + 0.22 ÷ 12) ≈ 136.8, which rounds to 137 months, and 137 × \$100 = \$13,700 matches the total paid.
+
 That's not a typo. Minimum payments are designed to keep you in debt for years.
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, `months_to_payoff()` estimates how long a balance lasts under a fixed monthly payment.
+Assuming the balance is in `A2`, the monthly payment is in `B2`, and the APR is in `C2` (as a decimal), the `NPER()` function solves for the number of months:
 
-```{r}
-#| label: min-payoff-r
-months_to_payoff <- function(balance, monthly_payment, apr) {
-  r <- apr / 12
-  -log(1 - r * balance / monthly_payment) / log(1 + r)
-}
-
-# $5,000 balance, $100/month, 22% APR
-months_to_payoff(balance = 5000, monthly_payment = 100, apr = 0.22)
+``` swift
+=NPER(C2/12, -B2, A2)
 ```
 
 ## Python
@@ -538,13 +536,21 @@ def months_to_payoff(balance, monthly_payment, apr):
 months_to_payoff(balance=5000, monthly_payment=100, apr=0.22)
 ```
 
-## Excel
+## R
 
-Assuming the balance is in `A2`, the monthly payment is in `B2`, and the APR is in `C2` (as a decimal), the `NPER()` function solves for the number of months:
+In R, `months_to_payoff()` estimates how long a balance lasts under a fixed monthly payment.
 
-``` swift
-=NPER(C2/12, -B2, A2)
+```{r}
+#| label: min-payoff-r
+months_to_payoff <- function(balance, monthly_payment, apr) {
+  r <- apr / 12
+  -log(1 - r * balance / monthly_payment) / log(1 + r)
+}
+
+# $5,000 balance, $100/month, 22% APR
+months_to_payoff(balance = 5000, monthly_payment = 100, apr = 0.22)
 ```
+
 :::
 
 ### Total Interest Over a Loan's Life {.unnumbered}
@@ -597,7 +603,9 @@ Subtract the principal from the total payments and the interest layer is what's 
 
 **Formula:** Total Interest = (Monthly Payment × Number of Payments) − Loan Principal
 
-Example: \$20,000 car loan at 7% for 6 years (\$340.98 a month):
+  * *Where*: Monthly Payment = the fixed amount you pay each month, Number of Payments = the loan term in months, and Loan Principal = the amount you borrowed.
+
+**Example**: \$20,000 car loan at 7% for 6 years (\$340.98 a month):
 
 * Total paid: \$340.98 × 72 = \$24,550.56
 
@@ -613,20 +621,15 @@ Now run the same loan at 4 years instead of 6:
 
 You save [\$1,562.40]{style="color:#48a56a; font-weight: bold;"} by shortening the term: the math behind the 20/4/10 car rule.
 
+**Check**: \$4,550.56 ÷ 6 years ≈ \$758 of interest a year, about 3.8% of the \$20,000 you borrowed, which is roughly half of 7% because you pay down the balance as you go.
+
 ::: panel-tabset
-## R
+## Excel
 
-In R, `total_interest()` subtracts the principal from everything you pay over the life of the loan.
+Assuming the monthly payment is in `A2`, the number of months is in `B2`, and the principal is in `C2`:
 
-```{r}
-#| label: total-interest-r
-total_interest <- function(monthly_payment, n_months, principal) {
-  (monthly_payment * n_months) - principal
-}
-
-# 6-year car loan vs. 4-year, $20,000 principal at 7%
-total_interest(monthly_payment = 340.98, n_months = 72, principal = 20000)
-total_interest(monthly_payment = 478.92, n_months = 48, principal = 20000)
+``` swift
+=A2*B2-C2
 ```
 
 ## Python
@@ -643,13 +646,21 @@ print(round(total_interest(monthly_payment=340.98, n_months=72, principal=20000)
 print(round(total_interest(monthly_payment=478.92, n_months=48, principal=20000), 2))
 ```
 
-## Excel
+## R
 
-Assuming the monthly payment is in `A2`, the number of months is in `B2`, and the principal is in `C2`:
+In R, `total_interest()` subtracts the principal from everything you pay over the life of the loan.
 
-``` swift
-=A2*B2-C2
+```{r}
+#| label: total-interest-r
+total_interest <- function(monthly_payment, n_months, principal) {
+  (monthly_payment * n_months) - principal
+}
+
+# 6-year car loan vs. 4-year, $20,000 principal at 7%
+total_interest(monthly_payment = 340.98, n_months = 72, principal = 20000)
+total_interest(monthly_payment = 478.92, n_months = 48, principal = 20000)
 ```
+
 :::
 
 ### Student Loan-to-Income & Standard Payment {.unnumbered}
@@ -687,32 +698,25 @@ The loan bar runs past the dashed salary line, so this borrower is a little over
 
 **Formula:** Loan to income ratio = Total loans ÷ Expected salary, and Monthly payment = Loan × r(1 + r)\^n ÷ ((1 + r)\^n − 1)
 
-Where: r = the yearly interest rate ÷ 12, and n = the number of monthly payments (120 for 10 years).
+  * *Where*: Total loans = everything you borrow for school, Expected salary = your expected starting salary, Loan = the amount you repay, r = the yearly interest rate ÷ 12, and n = the number of monthly payments (120 for 10 years).
 
-Example: \$45,000 ÷ \$42,000 = about 1.07×, and the standard payment at 6.5% is [about \$511 a month.]{style="color:#f44242; font-weight: bold;"}
+**Example**: \$45,000 ÷ \$42,000 = about 1.07×, and the standard payment at 6.5% is [about \$511 a month.]{style="color:#f44242; font-weight: bold;"}
+
+**Check**: 1.07 × \$42,000 = \$44,940, close to the \$45,000 loan, and \$511 × 120 = \$61,320 repays the \$45,000 plus about \$16,320 of interest.
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, `loan_income_ratio()` divides your total student loans by your expected salary, which checks the 1× rule.
+Assuming total loans are in `A2` and expected salary is in `B2`, the ratio goes in `C2`:
 
-```{r}
-#| label: loan-income-r
-loan_income_ratio <- function(loan_total, expected_salary) {
-  loan_total / expected_salary
-}
+``` swift
+=A2/B2
+```
 
-monthly_standard_payment <- function(principal, annual_rate = 0.065, years = 10) {
-  r <- annual_rate / 12
-  n <- years * 12
-  principal * (r * (1 + r)^n) / ((1 + r)^n - 1)
-}
+The standard 10-year payment at 6.5% (using `PMT()`, with the sign flipped) goes in `D2`:
 
-# $45,000 in loans, $42,000 expected starting salary
-loan_income_ratio(loan_total = 45000, expected_salary = 42000)
-
-# standard 10-year monthly payment on that $45,000
-monthly_standard_payment(principal = 45000)
+``` swift
+=-PMT(0.065/12, 10*12, A2)
 ```
 
 ## Python
@@ -736,19 +740,29 @@ print(loan_income_ratio(loan_total=45000, expected_salary=42000))
 print(monthly_standard_payment(principal=45000))
 ```
 
-## Excel
+## R
 
-Assuming total loans are in `A2` and expected salary is in `B2`, the ratio goes in `C2`:
+In R, `loan_income_ratio()` divides your total student loans by your expected salary, which checks the 1× rule.
 
-``` swift
-=A2/B2
+```{r}
+#| label: loan-income-r
+loan_income_ratio <- function(loan_total, expected_salary) {
+  loan_total / expected_salary
+}
+
+monthly_standard_payment <- function(principal, annual_rate = 0.065, years = 10) {
+  r <- annual_rate / 12
+  n <- years * 12
+  principal * (r * (1 + r)^n) / ((1 + r)^n - 1)
+}
+
+# $45,000 in loans, $42,000 expected starting salary
+loan_income_ratio(loan_total = 45000, expected_salary = 42000)
+
+# standard 10-year monthly payment on that $45,000
+monthly_standard_payment(principal = 45000)
 ```
 
-The standard 10-year payment at 6.5% (using `PMT()`, with the sign flipped) goes in `D2`:
-
-``` swift
-=-PMT(0.065/12, 10*12, A2)
-```
 :::
 
 ### Income-Driven Repayment Monthly Payment {.unnumbered}
@@ -794,11 +808,43 @@ Subtract the protected part from the bar, take the payment rate of what's left, 
 
 **Formula:** Monthly payment = (AGI − threshold × Federal Poverty Guideline) × payment rate ÷ 12
 
-Example: (\$50,000 − 1.5 × \$15,960) × 10% ÷ 12 = [about \$217 a month.]{style="color:#48a56a; font-weight: bold;"}
+  * *Where*: AGI = your adjusted gross income, threshold = the multiple of the guideline that is protected (1.5 for IBR), Federal Poverty Guideline = \$15,960 for a single person, and payment rate = the share of the rest you pay (10% or 15% for IBR).
+
+**Example**: (\$50,000 − 1.5 × \$15,960) × 10% ÷ 12 = [about \$217 a month.]{style="color:#48a56a; font-weight: bold;"}
+
+**Check**: \$217 × 12 = \$2,604 a year, which is 10% of \$26,060, and \$26,060 + \$23,940 (1.5 × \$15,960) = \$50,000.
 
 The function below takes the AGI, the FPG threshold multiplier (`1.5` for IBR), and the payment rate (`0.10` for IBR on loans from July 2014 on, `0.15` for older loans), and returns the monthly payment. SAVE used the same formula with a 225% threshold, but it ended in 2026. RAP, its replacement, bases payments on a percentage of your total AGI instead (see [Federal IDR Plans](#sec-idr-plans) above), so this function doesn't cover it.
 
 ::: panel-tabset
+## Excel
+
+Assuming AGI is in `A2`, the poverty guideline is in `B2` (`15960`), the threshold multiplier is in `C2` (`1.5`), and the payment rate is in `D2` (`0.10`):
+
+``` swift
+=ROUND(MAX(0, A2-B2*C2)*D2/12, 2)
+```
+
+For IBR on loans from before July 2014, change `D2` to `0.15`.
+
+## Python
+
+The Python version of `idr_monthly_payment()` works the same way:
+
+```{python}
+#| label: idr-payment-py
+def idr_monthly_payment(agi, poverty_guideline=15960,
+                        threshold_pct=1.5, payment_rate=0.10):
+    discretionary = max(0, agi - poverty_guideline * threshold_pct)
+    return round((discretionary * payment_rate) / 12, 2)
+
+# IBR: $50,000 AGI, 150% FPG threshold, 10% rate
+print(idr_monthly_payment(agi=50000))
+
+# IBR for loans before July 2014: 15% rate
+print(idr_monthly_payment(agi=50000, payment_rate=0.15))
+```
+
 ## R
 
 In R, `idr_monthly_payment()` applies the income-driven repayment formula to your AGI.
@@ -820,33 +866,6 @@ idr_monthly_payment(agi = 50000)
 idr_monthly_payment(agi = 50000, payment_rate = 0.15)
 ```
 
-## Python
-
-The Python version of `idr_monthly_payment()` works the same way:
-
-```{python}
-#| label: idr-payment-py
-def idr_monthly_payment(agi, poverty_guideline=15960,
-                        threshold_pct=1.5, payment_rate=0.10):
-    discretionary = max(0, agi - poverty_guideline * threshold_pct)
-    return round((discretionary * payment_rate) / 12, 2)
-
-# IBR: $50,000 AGI, 150% FPG threshold, 10% rate
-print(idr_monthly_payment(agi=50000))
-
-# IBR for loans before July 2014: 15% rate
-print(idr_monthly_payment(agi=50000, payment_rate=0.15))
-```
-
-## Excel
-
-Assuming AGI is in `A2`, the poverty guideline is in `B2` (`15960`), the threshold multiplier is in `C2` (`1.5`), and the payment rate is in `D2` (`0.10`):
-
-``` swift
-=ROUND(MAX(0, A2-B2*C2)*D2/12, 2)
-```
-
-For IBR on loans from before July 2014, change `D2` to `0.15`.
 :::
 
 ### Debt-to-Income Ratio (DTI) {.unnumbered}
@@ -900,9 +919,13 @@ DTI is just the debt slice as a fraction of the whole income bar, expressed as a
 
 **Formula:** DTI = (Total Monthly Debt Payments ÷ Gross Monthly Income) × 100
 
-Example:
+  * *Where*: Total Monthly Debt Payments = the minimum you owe each month on all your debts, and Gross Monthly Income = what you earn each month before taxes.
+
+**Example**:
 
 \$1,061 in monthly debt payments on \$3,750 gross income → 1,061 ÷ 3,750 = [about 28% DTI]{style="color:#f44242; font-weight: bold;"}, which is manageable but worth watching. Another loan or two would push it into the stretched range.
+
+**Check**: 28% of \$3,750 is \$1,050, just under the \$1,061 you pay, so the DTI rounds to about 28%.
 
 Benchmarks:
 
@@ -915,18 +938,12 @@ Benchmarks:
 * **Above 43%:** Danger zone; most mortgage lenders won't approve you
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, `dti_ratio()` divides your monthly debt payments by your gross monthly income.
+Assuming monthly debt payments are in `A2` and gross monthly income is in `B2`:
 
-```{r}
-#| label: dti-r
-dti_ratio <- function(monthly_debt_payments, gross_monthly_income) {
-  (monthly_debt_payments / gross_monthly_income) * 100
-}
-
-# $1,061 in debt payments on $3,750 gross income
-dti_ratio(monthly_debt_payments = 1061, gross_monthly_income = 3750)
+``` swift
+=A2/B2*100
 ```
 
 ## Python
@@ -942,13 +959,20 @@ def dti_ratio(monthly_debt_payments, gross_monthly_income):
 dti_ratio(monthly_debt_payments=1061, gross_monthly_income=3750)
 ```
 
-## Excel
+## R
 
-Assuming monthly debt payments are in `A2` and gross monthly income is in `B2`:
+In R, `dti_ratio()` divides your monthly debt payments by your gross monthly income.
 
-``` swift
-=A2/B2*100
+```{r}
+#| label: dti-r
+dti_ratio <- function(monthly_debt_payments, gross_monthly_income) {
+  (monthly_debt_payments / gross_monthly_income) * 100
+}
+
+# $1,061 in debt payments on $3,750 gross income
+dti_ratio(monthly_debt_payments = 1061, gross_monthly_income = 3750)
 ```
+
 :::
 
 ### Pay-Off vs. Invest Comparison {.unnumbered}
@@ -1005,35 +1029,27 @@ When the investment bar exceeds the debt bar, the math says invest; when the deb
 
 **Formula:** Yearly edge of investing = Expected after-tax investment return − After-tax loan interest rate
 
+  * *Where*: Expected after-tax investment return = what you expect your investments to earn each year after taxes, and After-tax loan interest rate = what the loan costs each year after any tax break.
+
 A positive answer means the math favors investing; a negative answer means paying off the debt wins.
 
-Example: 5% student loan vs. expected 7% stock market return → 7% − 5% = 2%
+**Example**: 5% student loan vs. expected 7% stock market return → 7% − 5% = 2%
 
 * The math favors investing by \~2% per year
 
 * **But:** the return from paying off the loan is [guaranteed]{style="color:#48a56a; font-weight: bold;"}, the investment return is not
 
+**Check**: on \$10,000, investing at 7% earns about \$700 a year and paying off the 5% loan saves \$500, a gap of \$200, which is 2% of \$10,000.
+
 This is where Housel's wisdom matters: [a guaranteed 5% beats a probable 7% for many people psychologically.]{style="color:#48a56a; font-weight: bold;"} Run the math, then add your peace-of-mind premium.
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, `payoff_vs_invest()` compares your loan rate to your expected return and tells you which one wins.
+Assuming the loan rate is in `A2` and the expected return is in `B2`:
 
-```{r}
-#| label: payoff-vs-invest-r
-payoff_vs_invest <- function(loan_rate, expected_return) {
-  if (loan_rate > expected_return) {
-    "Pay off the debt"
-  } else if (loan_rate < expected_return) {
-    "Invest the difference"
-  } else {
-    "Roughly a wash; do both"
-  }
-}
-
-# 5% student loan vs. expected 7% return
-payoff_vs_invest(loan_rate = 0.05, expected_return = 0.07)
+``` swift
+=IF(A2>B2, "Pay off the debt", IF(A2<B2, "Invest the difference", "Roughly a wash; do both"))
 ```
 
 ## Python
@@ -1054,13 +1070,26 @@ def payoff_vs_invest(loan_rate, expected_return):
 payoff_vs_invest(loan_rate=0.05, expected_return=0.07)
 ```
 
-## Excel
+## R
 
-Assuming the loan rate is in `A2` and the expected return is in `B2`:
+In R, `payoff_vs_invest()` compares your loan rate to your expected return and tells you which one wins.
 
-``` swift
-=IF(A2>B2, "Pay off the debt", IF(A2<B2, "Invest the difference", "Roughly a wash; do both"))
+```{r}
+#| label: payoff-vs-invest-r
+payoff_vs_invest <- function(loan_rate, expected_return) {
+  if (loan_rate > expected_return) {
+    "Pay off the debt"
+  } else if (loan_rate < expected_return) {
+    "Invest the difference"
+  } else {
+    "Roughly a wash; do both"
+  }
+}
+
+# 5% student loan vs. expected 7% return
+payoff_vs_invest(loan_rate = 0.05, expected_return = 0.07)
 ```
+
 :::
 
 ### Avalanche vs. Snowball Math {.unnumbered}
@@ -1113,7 +1142,9 @@ Which order saves the most comes down to one number for each debt: how much inte
 
 **Formula:** Monthly interest saved by an extra payment = Extra payment × APR ÷ 12
 
-Example: An extra \$100 on Card B (24%) saves \$100 × 0.24 ÷ 12 = \$2.00 of interest next month; the same \$100 on Card A (18%) saves \$1.50. The code below returns the debts sorted in each order so you can see the plan and decide.
+  * *Where*: Extra payment = the dollars you send above the minimum, and APR = the yearly rate on the debt you send them to.
+
+**Example**: An extra \$100 on Card B (24%) saves \$100 × 0.24 ÷ 12 = \$2.00 of interest next month; the same \$100 on Card A (18%) saves \$1.50. The code below returns the debts sorted in each order so you can see the plan and decide.
 
 * **Avalanche method:** Highest APR first. Mathematically optimal.
 
@@ -1121,36 +1152,25 @@ Example: An extra \$100 on Card B (24%) saves \$100 × 0.24 ÷ 12 = \$2.00 of in
 
   * **The hidden cost of snowball:** To calculate, find total interest paid under each method using a debt payoff calculator. The difference is what you're "paying" for the psychological win of quick early payoffs.
 
+**Check**: over 12 months, \$2.00 × 12 = \$24 on Card B and \$1.50 × 12 = \$18 on Card A, which is 24% and 18% of \$100, each card's APR.
+
 For most people with moderate debt, the snowball costs \$200 to \$1,000 extra in interest. [If that's the price of actually finishing the journey, it's often worth it.]{style="color:#48a56a; font-weight: bold;"} If you're disciplined enough for avalanche, take the savings.
 
 These two functions take a list of your debts and return them in the order each method says to attack them.
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, these two functions sort a list of debts in avalanche order (highest APR first) and snowball order (smallest balance first):
+Put the debts in a small table with headers in row 1 (`name`, `balance`, `apr`) and the data in `A2:C4`. For the avalanche order (highest APR first), sort by the APR column from largest to smallest, either with **Data → Sort** or with the `SORT()` function:
 
-```{r}
-#| label: avalanche-snowball-r
-# avalanche: highest APR first
-order_avalanche <- function(debts) {
-  debts[order(-debts$apr), ]
-}
+``` swift
+=SORT(A2:C4, 3, -1)
+```
 
-# snowball: smallest balance first
-order_snowball <- function(debts) {
-  debts[order(debts$balance), ]
-}
+For the snowball order (smallest balance first), sort by the balance column from smallest to largest:
 
-# your debts, as a small table
-debts <- data.frame(
-  name    = c("Card A", "Card B", "Card C"),
-  balance = c(1000, 5000, 2000),
-  apr     = c(0.18, 0.24, 0.15)
-)
-
-order_avalanche(debts)
-order_snowball(debts)
+``` swift
+=SORT(A2:C4, 2, 1)
 ```
 
 ## Python
@@ -1178,19 +1198,33 @@ order_avalanche(debts)
 order_snowball(debts)
 ```
 
-## Excel
+## R
 
-Put the debts in a small table with headers in row 1 (`name`, `balance`, `apr`) and the data in `A2:C4`. For the avalanche order (highest APR first), sort by the APR column from largest to smallest, either with **Data → Sort** or with the `SORT()` function:
+In R, these two functions sort a list of debts in avalanche order (highest APR first) and snowball order (smallest balance first):
 
-``` swift
-=SORT(A2:C4, 3, -1)
+```{r}
+#| label: avalanche-snowball-r
+# avalanche: highest APR first
+order_avalanche <- function(debts) {
+  debts[order(-debts$apr), ]
+}
+
+# snowball: smallest balance first
+order_snowball <- function(debts) {
+  debts[order(debts$balance), ]
+}
+
+# your debts, as a small table
+debts <- data.frame(
+  name    = c("Card A", "Card B", "Card C"),
+  balance = c(1000, 5000, 2000),
+  apr     = c(0.18, 0.24, 0.15)
+)
+
+order_avalanche(debts)
+order_snowball(debts)
 ```
 
-For the snowball order (smallest balance first), sort by the balance column from smallest to largest:
-
-``` swift
-=SORT(A2:C4, 2, 1)
-```
 :::
 
 ### Credit Utilization Ratio {.unnumbered}
@@ -1249,23 +1283,21 @@ Utilization is just the used slice as a fraction of the total bar, converted to 
 
 **Formula:** Utilization = (Current Balance ÷ Credit Limit) × 100
 
+  * *Where*: Current Balance = what you owe on the card now, and Credit Limit = the most the card lets you borrow.
+
 Keep this under **30%** on any individual card and across all cards in total. Under **10%** is ideal for maximum score impact.
 
-Example: \$900 balance on a \$3,000 limit = **30% utilization**, right at the threshold.
+**Example**: \$900 balance on a \$3,000 limit = **30% utilization**, right at the threshold.
+
+**Check**: 10% of \$3,000 is \$300, and \$900 is three times that, so the balance uses 3 × 10% = 30% of the limit.
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, `credit_utilization()` divides your balance by your credit limit.
+Assuming the balance is in `A2` and the credit limit is in `B2`:
 
-```{r}
-#| label: utilization-r
-credit_utilization <- function(balance, credit_limit) {
-  (balance / credit_limit) * 100
-}
-
-# $900 balance on a $3,000 limit
-credit_utilization(balance = 900, credit_limit = 3000)
+``` swift
+=A2/B2*100
 ```
 
 ## Python
@@ -1281,13 +1313,20 @@ def credit_utilization(balance, credit_limit):
 credit_utilization(balance=900, credit_limit=3000)
 ```
 
-## Excel
+## R
 
-Assuming the balance is in `A2` and the credit limit is in `B2`:
+In R, `credit_utilization()` divides your balance by your credit limit.
 
-``` swift
-=A2/B2*100
+```{r}
+#| label: utilization-r
+credit_utilization <- function(balance, credit_limit) {
+  (balance / credit_limit) * 100
+}
+
+# $900 balance on a $3,000 limit
+credit_utilization(balance = 900, credit_limit = 3000)
 ```
+
 :::
 
 ## Putting the Math to Work

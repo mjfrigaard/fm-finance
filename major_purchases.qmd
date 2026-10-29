@@ -135,7 +135,7 @@ Big purchases are where small percentage differences turn into tens of thousands
 
 ### The Rent-vs-Buy 5% Rule {.unnumbered}
 
-The 5% rule isn't magic; it's the sum of three real costs that every homeowner pays whether they realize it or not. The chart splits those costs for a \$500,000 home, about what a starter home costs in many U.S. cities.
+The 5% rule isn't magic, it's just the sum of three real costs that every homeowner pays whether they realize it or not. The chart splits those costs for a \$500,000 home, about what a starter home costs in many U.S. cities.
 
 ```{r}
 #| label: rent-buy-bar-model
@@ -192,21 +192,19 @@ Add the three percentage slices together and you get 5% of home value per year; 
 
 **Formula:** Monthly cost of owning ≈ (Home Value × 0.05) ÷ 12
 
-Example: a \$500,000 home → (500,000 × 0.05) ÷ 12 = **\$2,083/month**. If you can rent a similar place for less than that, renting and investing the difference tends to win.
+  * *Where*: Home Value = what the home is worth, 0.05 = the 5% of that value you lose each year to property tax, maintenance, and the cost of capital, and 12 turns the yearly cost into a monthly one.
+
+**Example**: a \$500,000 home → (500,000 × 0.05) ÷ 12 = **\$2,083/month**. If you can rent a similar place for less than **\$2,083/month**, then you should choose to rent and invest the difference.
+
+**Check**: add the three slices from the chart: \$5,000 + \$5,000 + \$15,000 = \$25,000 a year, and \$25,000 ÷ 12 ≈ \$2,083.
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, `rent_buy_threshold()` turns the 5% rule into a monthly rent figure.
+Assuming the home value is in `A2` and the unrecoverable rate (`0.05`) is in `B2`:
 
-```{r}
-#| label: rent-buy-r
-rent_buy_threshold <- function(home_value, unrecoverable_rate = 0.05) {
-  (home_value * unrecoverable_rate) / 12
-}
-
-# $500,000 home at the standard 5% unrecoverable rate
-rent_buy_threshold(home_value = 500000)
+``` swift
+=(A2*B2)/12
 ```
 
 ## Python
@@ -222,13 +220,20 @@ def rent_buy_threshold(home_value, unrecoverable_rate=0.05):
 rent_buy_threshold(home_value=500000)
 ```
 
-## Excel
+## R
 
-Assuming the home value is in `A2` and the unrecoverable rate (`0.05`) is in `B2`:
+In R, `rent_buy_threshold()` turns the 5% rule into a monthly rent figure.
 
-``` swift
-=(A2*B2)/12
+```{r}
+#| label: rent-buy-r
+rent_buy_threshold <- function(home_value, unrecoverable_rate = 0.05) {
+  (home_value * unrecoverable_rate) / 12
+}
+
+# $500,000 home at the standard 5% unrecoverable rate
+rent_buy_threshold(home_value = 500000)
 ```
+
 :::
 
 ### The Monthly Mortgage Payment {.unnumbered}
@@ -278,25 +283,25 @@ The formula spreads the principal plus all future interest into equal monthly pa
 
 **Formula:** M = P × [ r(1 + r)\^n ] ÷ [ (1 + r)\^n − 1 ]
 
-Where: P = the loan principal, *r* = the monthly interest rate (annual ÷ 12), *n* = the total number of payments (years × 12).
+  * *Where*: P = the loan principal, *r* = the monthly interest rate (annual ÷ 12), *n* = the total number of payments (years × 12).
 
-Example: a \$480,000 loan (a \$600,000 home with 20% down) at 6% for 30 years → **about \$2,878/month**.
+**Example**: a \$480,000 loan (a \$600,000 home with 20% down) at 6% for 30 years → **about \$2,878/month**.
+
+**Check**: the payment must cover the first month's interest, \$480,000 × 0.005 = \$2,400, and stay below \$2,400 + (\$480,000 ÷ 360) ≈ \$3,733. \$2,878 sits between the two.
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, `mortgage_payment()` implements the amortization formula.
+Assuming the loan amount is in `A2`, the annual rate is in `B2` (as a decimal), and the years are in `C2`:
 
-```{r}
-#| label: mortgage-payment-r
-mortgage_payment <- function(principal, annual_rate, years) {
-  r <- annual_rate / 12
-  n <- years * 12
-  principal * (r * (1 + r)^n) / ((1 + r)^n - 1)
-}
+``` swift
+=A2*((B2/12)*(1+B2/12)^(C2*12))/((1+B2/12)^(C2*12)-1)
+```
 
-# $480,000 loan at 6% over 30 years
-mortgage_payment(principal = 480000, annual_rate = 0.06, years = 30)
+Excel's built-in `PMT()` function does the same job (it returns a negative number because it treats the payment as money going out, so we flip the sign):
+
+``` swift
+=-PMT(B2/12, C2*12, A2)
 ```
 
 ## Python
@@ -314,19 +319,22 @@ def mortgage_payment(principal, annual_rate, years):
 mortgage_payment(principal=480000, annual_rate=0.06, years=30)
 ```
 
-## Excel
+## R
 
-Assuming the loan amount is in `A2`, the annual rate is in `B2` (as a decimal), and the years are in `C2`:
+In R, `mortgage_payment()` implements the amortization formula.
 
-``` swift
-=A2*((B2/12)*(1+B2/12)^(C2*12))/((1+B2/12)^(C2*12)-1)
+```{r}
+#| label: mortgage-payment-r
+mortgage_payment <- function(principal, annual_rate, years) {
+  r <- annual_rate / 12
+  n <- years * 12
+  principal * (r * (1 + r)^n) / ((1 + r)^n - 1)
+}
+
+# $480,000 loan at 6% over 30 years
+mortgage_payment(principal = 480000, annual_rate = 0.06, years = 30)
 ```
 
-Excel's built-in `PMT()` function does the same job (it returns a negative number because it treats the payment as money going out, so we flip the sign):
-
-``` swift
-=-PMT(B2/12, C2*12, A2)
-```
 :::
 
 ### Where the First Year's Payments Go {.unnumbered}
@@ -400,50 +408,15 @@ Each month's interest is just the outstanding balance times the monthly rate; th
 * First-month interest = Principal × (annual rate ÷ 12)
 * First-month principal = Monthly Payment − First-month interest
 
-Example: on that \$480,000 loan, month-one interest is \$2,400 of the \$2,878 payment, about [83% interest]{style="color:#f44242; font-weight: bold;"}, leaving only \$478 toward principal.
+<!-- -->
+
+  * *Where*: Principal = the amount you still owe, annual rate ÷ 12 = the monthly interest rate, and Monthly Payment = the fixed payment from the formula above.
+
+**Example**: on that \$480,000 loan, month-one interest is \$2,400 of the \$2,878 payment, about [83% interest]{style="color:#f44242; font-weight: bold;"}, leaving only \$478 toward principal.
+
+**Check**: add the two parts back together: \$2,400 + \$478 = \$2,878, the full payment.
 
 ::: panel-tabset
-## R
-
-In R, `first_payment_split()` shows how much of the first payment is interest and how much is principal.
-
-```{r}
-#| label: first-payment-r
-first_payment_split <- function(principal, annual_rate, years) {
-  payment  <- mortgage_payment(principal, annual_rate, years)
-  interest <- principal * (annual_rate / 12)
-  data.frame(
-    payment      = payment,
-    interest     = interest,
-    principal    = payment - interest,
-    pct_interest = (interest / payment) * 100
-  )
-}
-
-# first payment on a $480,000 loan at 6% over 30 years
-first_payment_split(principal = 480000, annual_rate = 0.06, years = 30)
-```
-
-## Python
-
-The Python version of `first_payment_split()` works the same way:
-
-```{python}
-#| label: first-payment-py
-def first_payment_split(principal, annual_rate, years):
-    payment = mortgage_payment(principal, annual_rate, years)
-    interest = principal * (annual_rate / 12)
-    return {
-        "payment": payment,
-        "interest": interest,
-        "principal": payment - interest,
-        "pct_interest": (interest / payment) * 100,
-    }
-
-# first payment on a $480,000 loan at 6% over 30 years
-first_payment_split(principal=480000, annual_rate=0.06, years=30)
-```
-
 ## Excel
 
 Assuming the loan amount is in `A2`, the annual rate is in `B2`, and the years are in `C2`, the monthly payment goes in `D2`:
@@ -469,6 +442,48 @@ And the percent of the payment that is interest goes in `G2` (format the cell as
 ``` swift
 =E2/D2
 ```
+
+## Python
+
+The Python version of `first_payment_split()` works the same way:
+
+```{python}
+#| label: first-payment-py
+def first_payment_split(principal, annual_rate, years):
+    payment = mortgage_payment(principal, annual_rate, years)
+    interest = principal * (annual_rate / 12)
+    return {
+        "payment": payment,
+        "interest": interest,
+        "principal": payment - interest,
+        "pct_interest": (interest / payment) * 100,
+    }
+
+# first payment on a $480,000 loan at 6% over 30 years
+first_payment_split(principal=480000, annual_rate=0.06, years=30)
+```
+
+## R
+
+In R, `first_payment_split()` shows how much of the first payment is interest and how much is principal.
+
+```{r}
+#| label: first-payment-r
+first_payment_split <- function(principal, annual_rate, years) {
+  payment  <- mortgage_payment(principal, annual_rate, years)
+  interest <- principal * (annual_rate / 12)
+  data.frame(
+    payment      = payment,
+    interest     = interest,
+    principal    = payment - interest,
+    pct_interest = (interest / payment) * 100
+  )
+}
+
+# first payment on a $480,000 loan at 6% over 30 years
+first_payment_split(principal = 480000, annual_rate = 0.06, years = 30)
+```
+
 :::
 
 ## Recap

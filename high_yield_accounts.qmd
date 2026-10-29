@@ -116,31 +116,25 @@ Each bar is the previous one multiplied by (1 + APY), so the green layer grows a
 
 **Formula:** Ending Balance = Starting Balance × (1 + APY)\^years
 
+  * *Where*: Starting Balance = the money you deposit, APY = the yearly rate after compounding, and years = how long you leave the money in.
+
 (The daily math belongs to the APR, the rate before compounding: APY = (1 + APR ÷ 365)\^365 − 1.)
 
-Example: \$9,600 in a 4% APY account after one year grows to:
+**Example**: \$9,600 in a 4% APY account after one year grows to:
 
 \$9,600 × (1.04) = \$9,984.
 
 Interest earned: \$384.
 
+**Check**: \$9,984 ÷ 1.04 = \$9,600, your starting deposit, and 4% of \$9,600 is the \$384 of interest.
+
 ::: panel-tabset
-## R
+## Excel
 
-In R, `hysa_balance()` grows a deposit at the APY for a given number of years.
+Assuming `Principal` is in cell `B2`, `Annual_APY` is in cell `C2`, and `Years` is in cell `D2`:
 
-```{r}
-#| label: hysa-balance-r
-#| code-fold: false
-hysa_balance <- function(principal, annual_apy, years = 1) {
-  principal * (1 + annual_apy)^years
-}
-
-# $9,600 at 4% APY after 1 year
-hysa_balance(principal = 9600, annual_apy = 0.04, years = 1)
-
-# Same money after 5 years
-hysa_balance(principal = 9600, annual_apy = 0.04, years = 5)
+``` swift
+=B2 * (1 + C2) ^ D2
 ```
 
 ## Python
@@ -160,13 +154,24 @@ print(round(hysa_balance(principal=9600, annual_apy=0.04, years=1), 2))
 print(round(hysa_balance(principal=9600, annual_apy=0.04, years=5), 2))
 ```
 
-## Excel
+## R
 
-Assuming `Principal` is in cell `B2`, `Annual_APY` is in cell `C2`, and `Years` is in cell `D2`:
+In R, `hysa_balance()` grows a deposit at the APY for a given number of years.
 
-``` swift
-=B2 * (1 + C2) ^ D2
+```{r}
+#| label: hysa-balance-r
+#| code-fold: false
+hysa_balance <- function(principal, annual_apy, years = 1) {
+  principal * (1 + annual_apy)^years
+}
+
+# $9,600 at 4% APY after 1 year
+hysa_balance(principal = 9600, annual_apy = 0.04, years = 1)
+
+# Same money after 5 years
+hysa_balance(principal = 9600, annual_apy = 0.04, years = 5)
 ```
+
 :::
 
 Notice that \$9,600 at 4% becomes \$9,984 after 1 year and \$11,680 after 5 years. That's growth without putting a single dollar of what you deposited at risk.

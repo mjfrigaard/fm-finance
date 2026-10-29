@@ -141,26 +141,21 @@ ggplot(df_goal, aes(x = amount, y = bar, fill = part)) +
 
 Without interest, you'd divide $15,000 by 60 months and save $250 a month. Interest does part of the work, so you can save a little less. The formula works backward from the future value formula in [Investing Basics](investing_basics.qmd#math-for-investing-basics): instead of asking what a monthly deposit grows into, it asks what monthly deposit grows into your goal.
 
-Formula: Monthly amount = Goal × r ÷ ((1 + r)\^n − 1)
+**Formula:** Monthly amount = Goal × r ÷ ((1 + r)\^n − 1)
 
-Where: r = the yearly interest rate ÷ 12, and n = the number of months.
+  * *Where*: r = the yearly interest rate ÷ 12, and n = the number of months.
 
-Example: $15,000 × 0.00333 ÷ ((1.00333)\^60 − 1) = [about $226 a month,]{style="color:#48a56a; font-weight: bold;"} $24 less than saving without interest. Over five years, interest adds about $1,425.
+**Example**: $15,000 × 0.00333 ÷ ((1.00333)\^60 − 1) = [about $226 a month,]{style="color:#48a56a; font-weight: bold;"} $24 less than saving without interest. Over five years, interest adds about $1,425.
+
+**Check**: your deposits come to about $226.25 × 60 = $13,575, and $13,575 + $1,425 of interest = $15,000, the goal.
 
 ::: panel-tabset
-## R
+## Excel
 
-```{r}
-#| label: goal-r
-monthly_for_goal <- function(goal, annual_rate, months) {
-  r <- annual_rate / 12
-  if (r == 0) return(goal / months)
-  goal * r / ((1 + r)^months - 1)
-}
+Assuming the goal is in `B2`, the yearly rate is in `C2`, and the number of months is in `D2`:
 
-# $15,000 in 5 years at 4%, compared to no interest
-monthly_for_goal(goal = 15000, annual_rate = 0.04, months = 60)
-monthly_for_goal(goal = 15000, annual_rate = 0, months = 60)
+``` swift
+=PMT(C2 / 12, D2, 0, -B2)
 ```
 
 ## Python
@@ -178,13 +173,21 @@ print(monthly_for_goal(goal=15000, annual_rate=0.04, months=60))
 print(monthly_for_goal(goal=15000, annual_rate=0, months=60))
 ```
 
-## Excel
+## R
 
-Assuming the goal is in `B2`, the yearly rate is in `C2`, and the number of months is in `D2`:
+```{r}
+#| label: goal-r
+monthly_for_goal <- function(goal, annual_rate, months) {
+  r <- annual_rate / 12
+  if (r == 0) return(goal / months)
+  goal * r / ((1 + r)^months - 1)
+}
 
-``` swift
-=PMT(C2 / 12, D2, 0, -B2)
+# $15,000 in 5 years at 4%, compared to no interest
+monthly_for_goal(goal = 15000, annual_rate = 0.04, months = 60)
+monthly_for_goal(goal = 15000, annual_rate = 0, months = 60)
 ```
+
 :::
 
 ### One Goal at a Time vs. All at Once {.unnumbered}
@@ -225,26 +228,21 @@ ggplot(df_seq, aes(x = done, y = plan, fill = goal)) +
 
 The trip finishes at month 5 or month 10, depending on the plan, but the car finishes at month 20 either way. That's because the last goal is done when all of the money is saved, no matter what order it went in.
 
-Formula: Months to finish all goals = Total of all goals ÷ Monthly savings, and Months to finish the first goal = First goal ÷ Amount going to it each month
+**Formula:** Months to finish all goals = Total of all goals ÷ Monthly savings, and Months to finish the first goal = First goal ÷ Amount going to it each month
 
-Example: ($3,000 + $9,000) ÷ $600 = [20 months for both goals, either way.]{style="color:#48a56a; font-weight: bold;"} The trip takes $3,000 ÷ $600 = 5 months one at a time, or $3,000 ÷ $300 = 10 months split evenly.
+  * *Where*: Total of all goals is what every goal costs added together, Monthly savings is all you save each month, First goal is the cost of the goal that finishes first, and Amount going to it each month is the part of your savings set aside for that goal.
+
+**Example**: ($3,000 + $9,000) ÷ $600 = [20 months for both goals, either way.]{style="color:#48a56a; font-weight: bold;"} The trip takes $3,000 ÷ $600 = 5 months one at a time, or $3,000 ÷ $300 = 10 months split evenly.
+
+**Check**: split evenly, the car has 10 × $300 = $3,000 when the trip is done, so the full $600 covers the last $6,000 in 10 more months, and 10 + 10 = 20.
 
 ::: panel-tabset
-## R
+## Excel
 
-```{r}
-#| label: sequence-r
-months_to_fund <- function(goal, monthly) {
-  ceiling(goal / monthly)
-}
+Assuming the goal is in `B2` and the monthly amount going to it is in `C2`:
 
-# one at a time: trip first, then car
-months_to_fund(3000, 600)
-months_to_fund(3000 + 9000, 600)
-
-# split evenly: trip gets half until it's done
-months_to_fund(3000, 300)
-months_to_fund(3000 + 9000, 600)
+``` swift
+=ROUNDUP(B2 / C2, 0)
 ```
 
 ## Python
@@ -263,13 +261,23 @@ print(months_to_fund(3000, 600), months_to_fund(3000 + 9000, 600))
 print(months_to_fund(3000, 300), months_to_fund(3000 + 9000, 600))
 ```
 
-## Excel
+## R
 
-Assuming the goal is in `B2` and the monthly amount going to it is in `C2`:
+```{r}
+#| label: sequence-r
+months_to_fund <- function(goal, monthly) {
+  ceiling(goal / monthly)
+}
 
-``` swift
-=ROUNDUP(B2 / C2, 0)
+# one at a time: trip first, then car
+months_to_fund(3000, 600)
+months_to_fund(3000 + 9000, 600)
+
+# split evenly: trip gets half until it's done
+months_to_fund(3000, 300)
+months_to_fund(3000 + 9000, 600)
 ```
+
 :::
 
 ## Key Takeaways

@@ -152,21 +152,21 @@ ggplot(df_ded, aes(x = year, y = savings, fill = fill)) +
 
 The savings pass the extra deductible a little after year 3. If you file a claim less often than that, the higher deductible comes out ahead.
 
-Formula: Break even years = (Higher deductible − Lower deductible) ÷ Yearly premium savings
+**Formula:** Break even years = (Higher deductible − Lower deductible) ÷ Yearly premium savings
 
-Example: ($1,000 − $500) ÷ $150 = [about 3.3 years.]{style="color:#48a56a; font-weight: bold;"} Most drivers go much longer than that between claims. Pick the higher deductible only if your emergency fund can cover it.
+  * *Where*: Higher deductible − Lower deductible is the extra amount you pay per claim, and Yearly premium savings is how much less the higher deductible policy costs each year.
+
+**Example**: ($1,000 − $500) ÷ $150 = [about 3.3 years.]{style="color:#48a56a; font-weight: bold;"} Most drivers go much longer than that between claims. Pick the higher deductible only if your emergency fund can cover it.
+
+**Check**: after 3 years you have saved 3 × $150 = $450, and after 4 years $600, so the $500 gap is passed between year 3 and year 4.
 
 ::: panel-tabset
-## R
+## Excel
 
-```{r}
-#| label: deductible-r
-break_even_years <- function(high_deductible, low_deductible, yearly_savings) {
-  (high_deductible - low_deductible) / yearly_savings
-}
+Assuming the higher deductible is in `B2`, the lower deductible is in `C2`, and the yearly savings is in `D2`:
 
-# $1,000 vs. $500 deductible, saving $150 a year
-break_even_years(high_deductible = 1000, low_deductible = 500, yearly_savings = 150)
+``` swift
+=(B2 - C2) / D2
 ```
 
 ## Python
@@ -180,13 +180,18 @@ def break_even_years(high_deductible, low_deductible, yearly_savings):
 break_even_years(high_deductible=1000, low_deductible=500, yearly_savings=150)
 ```
 
-## Excel
+## R
 
-Assuming the higher deductible is in `B2`, the lower deductible is in `C2`, and the yearly savings is in `D2`:
+```{r}
+#| label: deductible-r
+break_even_years <- function(high_deductible, low_deductible, yearly_savings) {
+  (high_deductible - low_deductible) / yearly_savings
+}
 
-``` swift
-=(B2 - C2) / D2
+# $1,000 vs. $500 deductible, saving $150 a year
+break_even_years(high_deductible = 1000, low_deductible = 500, yearly_savings = 150)
 ```
+
 :::
 
 ### Comparing Two Health Plans {.unnumbered}
@@ -233,30 +238,26 @@ ggplot(df_hp, aes(x = year, y = cost, fill = plan)) +
 
 Each bar is a year of premiums, plus your share of medical bills (never more than the out of pocket maximum), minus any money your employer adds to your HSA.
 
-Formula: Yearly cost = (Monthly premium × 12) + min(Medical bills, Out of pocket max) − Employer HSA money
+**Formula:** Yearly cost = (Monthly premium × 12) + min(Medical bills, Out of pocket max) − Employer HSA money
 
-Where: this simple version assumes you pay all medical bills up to the out of pocket maximum, which makes it a slight overestimate for plans with coinsurance.
+  * *Where*: min() takes the smaller of your medical bills and the out of pocket maximum, and Employer HSA money is what your employer puts into your HSA each year.
 
-Example: In a healthy year, Plan A costs $1,500 and Plan B costs $280. In the worst year, Plan A costs $4,200 and Plan B costs $4,980. [Plan B saves $1,220 in a normal year]{style="color:#48a56a; font-weight: bold;"} and costs $780 more in the worst year. If you put the savings into the HSA, one or two healthy years cover the difference.
+This simple version assumes you pay all medical bills up to the out of pocket maximum, which makes it a slight overestimate for plans with coinsurance.
+
+**Example**: In a healthy year, Plan A costs $1,500 and Plan B costs $280. In the worst year, Plan A costs $4,200 and Plan B costs $4,980. [Plan B saves $1,220 in a normal year]{style="color:#48a56a; font-weight: bold;"} and costs $780 more in the worst year. If you put the savings into the HSA, one or two healthy years cover the difference.
+
+**Check**: in a healthy year the bills match, so the gap is the premiums plus the HSA money: $1,200 − $480 + $500 = $1,220. In the worst year the $2,000 gap in out of pocket maximums eats that, leaving $2,000 − $1,220 = $780.
 
 ::: panel-tabset
-## R
+## Excel
 
-```{r}
-#| label: health-r
-plan_cost <- function(monthly_premium, medical_cost, oop_max, employer_hsa = 0) {
-  monthly_premium * 12 + pmin(medical_cost, oop_max) - employer_hsa
-}
+Assuming the monthly premium is in `B2`, medical bills in `C2`, the out of pocket maximum in `D2`, and employer HSA money in `E2`:
 
-# Plan A vs. Plan B in a healthy year ($300 of care) and the worst year
-data.frame(
-  year   = c("healthy", "worst"),
-  plan_a = plan_cost(100, c(300, Inf), oop_max = 3000),
-  plan_b = plan_cost(40, c(300, Inf), oop_max = 5000, employer_hsa = 500)
-)
+``` swift
+=B2 * 12 + MIN(C2, D2) - E2
 ```
 
-## Python
+## Python (polars)
 
 ```{python}
 #| label: health-py
@@ -273,13 +274,55 @@ pl.DataFrame({
 })
 ```
 
-## Excel
+## Python (pandas)
 
-Assuming the monthly premium is in `B2`, medical bills in `C2`, the out of pocket maximum in `D2`, and employer HSA money in `E2`:
+```{python}
+#| label: health-pd
+import pandas as pd
 
-``` swift
-=B2 * 12 + MIN(C2, D2) - E2
+def plan_cost(monthly_premium, medical_cost, oop_max, employer_hsa=0):
+    return monthly_premium * 12 + min(medical_cost, oop_max) - employer_hsa
+
+# Plan A vs. Plan B in a healthy year ($300 of care) and the worst year
+pd.DataFrame({
+    "year": ["healthy", "worst"],
+    "plan_a": [plan_cost(100, c, oop_max=3000) for c in (300, float("inf"))],
+    "plan_b": [plan_cost(40, c, oop_max=5000, employer_hsa=500) for c in (300, float("inf"))],
+})
 ```
+
+## R (base)
+
+```{r}
+#| label: health-r
+plan_cost <- function(monthly_premium, medical_cost, oop_max, employer_hsa = 0) {
+  monthly_premium * 12 + pmin(medical_cost, oop_max) - employer_hsa
+}
+
+# Plan A vs. Plan B in a healthy year ($300 of care) and the worst year
+data.frame(
+  year   = c("healthy", "worst"),
+  plan_a = plan_cost(100, c(300, Inf), oop_max = 3000),
+  plan_b = plan_cost(40, c(300, Inf), oop_max = 5000, employer_hsa = 500)
+)
+```
+
+## R (data.table)
+
+```{r}
+#| label: health-dt
+plan_cost <- function(monthly_premium, medical_cost, oop_max, employer_hsa = 0) {
+  monthly_premium * 12 + pmin(medical_cost, oop_max) - employer_hsa
+}
+
+# Plan A vs. Plan B in a healthy year ($300 of care) and the worst year
+data.table::data.table(
+  year   = c("healthy", "worst"),
+  plan_a = plan_cost(100, c(300, Inf), oop_max = 3000),
+  plan_b = plan_cost(40, c(300, Inf), oop_max = 5000, employer_hsa = 500)
+)
+```
+
 :::
 
 ## Key Takeaways

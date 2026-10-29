@@ -355,22 +355,19 @@ ggplot(df_target, aes(x = months, y = target, fill = months)) +
 
 **Formula:** Target = Monthly Essential Expenses × Months of Coverage
 
-Example: \$2,400/month in essential expenses × 4 months = [\$9,600 target.]{style="color:#48a56a; font-weight: bold;"}
+  * *Where*: Monthly Essential Expenses = what it costs each month to keep the lights on (not your total spending), and Months of Coverage = how many months you want the fund to last, usually 3 to 6.
+
+**Example**: \$2,400/month in essential expenses × 4 months = [\$9,600 target.]{style="color:#48a56a; font-weight: bold;"}
+
+**Check**: \$9,600 ÷ \$2,400 = 4, so the fund covers exactly 4 months.
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, `emergency_fund_target()` multiplies your essential monthly expenses by the number of months you want covered.
+Assuming essential monthly expenses are in cell `A2` and the number of months is in `B2`:
 
-```{r}
-#| label: ef-target-r
-emergency_fund_target <- function(monthly_expenses, months = 3) {
-  monthly_expenses * months
-}
-
-# $2,400/month in essential expenses, 3-month and 6-month targets
-emergency_fund_target(monthly_expenses = 2400, months = 3)
-emergency_fund_target(monthly_expenses = 2400, months = 6)
+``` swift
+=A2*B2
 ```
 
 ## Python
@@ -387,13 +384,21 @@ print(emergency_fund_target(monthly_expenses=2400, months=3))
 print(emergency_fund_target(monthly_expenses=2400, months=6))
 ```
 
-## Excel
+## R
 
-Assuming essential monthly expenses are in cell `A2` and the number of months is in `B2`:
+In R, `emergency_fund_target()` multiplies your essential monthly expenses by the number of months you want covered.
 
-``` swift
-=A2*B2
+```{r}
+#| label: ef-target-r
+emergency_fund_target <- function(monthly_expenses, months = 3) {
+  monthly_expenses * months
+}
+
+# $2,400/month in essential expenses, 3-month and 6-month targets
+emergency_fund_target(monthly_expenses = 2400, months = 3)
+emergency_fund_target(monthly_expenses = 2400, months = 6)
 ```
+
 :::
 
 ### Months to Reach Your Target {.unnumbered}
@@ -433,22 +438,19 @@ Each thin slice of the blue section is one \$400 contribution. Counting the slic
 
 **Formula:** Months to Goal = (Target − Current Balance) ÷ Monthly Contribution
 
-Example: \$9,600 target, \$1,200 already saved, contributing \$400/month → (9,600 − 1,200) ÷ 400 = [21 months.]{style="color:#48a56a; font-weight: bold;"}
+  * *Where*: Target = the size of the fund you want, Current Balance = what you have saved now, and Monthly Contribution = how much you add each month.
+
+**Example**: \$9,600 target, \$1,200 already saved, contributing \$400/month → (9,600 − 1,200) ÷ 400 = [21 months.]{style="color:#48a56a; font-weight: bold;"}
+
+**Check**: 21 × \$400 = \$8,400, and \$8,400 + \$1,200 = \$9,600, which hits the target.
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, `months_to_ef_goal()` subtracts what you've already saved from the target, then divides what's left by your monthly contribution.
+Assuming the target is in `A2`, your current balance is in `B2`, and your monthly contribution is in `C2`:
 
-```{r}
-#| label: ef-months-r
-months_to_ef_goal <- function(target, current_balance, monthly_contribution) {
-  remaining <- max(0, target - current_balance)
-  ceiling(remaining / monthly_contribution)
-}
-
-# $9,600 target, $1,200 saved, $400/month contribution
-months_to_ef_goal(target = 9600, current_balance = 1200, monthly_contribution = 400)
+``` swift
+=ROUNDUP(MAX(0, A2-B2)/C2, 0)
 ```
 
 ## Python
@@ -467,13 +469,21 @@ def months_to_ef_goal(target, current_balance, monthly_contribution):
 print(months_to_ef_goal(target=9600, current_balance=1200, monthly_contribution=400))
 ```
 
-## Excel
+## R
 
-Assuming the target is in `A2`, your current balance is in `B2`, and your monthly contribution is in `C2`:
+In R, `months_to_ef_goal()` subtracts what you've already saved from the target, then divides what's left by your monthly contribution.
 
-``` swift
-=ROUNDUP(MAX(0, A2-B2)/C2, 0)
+```{r}
+#| label: ef-months-r
+months_to_ef_goal <- function(target, current_balance, monthly_contribution) {
+  remaining <- max(0, target - current_balance)
+  ceiling(remaining / monthly_contribution)
+}
+
+# $9,600 target, $1,200 saved, $400/month contribution
+months_to_ef_goal(target = 9600, current_balance = 1200, monthly_contribution = 400)
 ```
+
 :::
 
 ### Contribution Needed by a Deadline {.unnumbered}
@@ -512,22 +522,19 @@ Splitting the gap into equal slices is division: the gap divided by the number o
 
 **Formula:** Monthly Contribution = (Target − Current Balance) ÷ Months Remaining
 
-Example: You want a full \$9,600 fund in 18 months and have \$1,200 now → (9,600 − 1,200) ÷ 18 = [\$467/month]{style="color:#48a56a; font-weight: bold;"}
+  * *Where*: Target = the size of the fund you want, Current Balance = what you have saved now, and Months Remaining = how many months you have left to reach the target.
+
+**Example**: You want a full \$9,600 fund in 18 months and have \$1,200 now → (9,600 − 1,200) ÷ 18 = [\$467/month]{style="color:#48a56a; font-weight: bold;"}
+
+**Check**: \$467 × 18 = \$8,406, and \$8,406 + \$1,200 = \$9,606, a few dollars over the target because \$467 is rounded up.
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, `monthly_contribution_needed()` flips the question: given a deadline, it returns the monthly amount you need to save.
+Assuming the target is in `A2`, your current balance is in `B2`, and the number of months is in `C2`:
 
-```{r}
-#| label: ef-contrib-r
-monthly_contribution_needed <- function(target, current_balance, months) {
-  remaining <- max(0, target - current_balance)
-  ceiling(remaining / months)
-}
-
-# $9,600 target, $1,200 saved, want to finish in 18 months
-monthly_contribution_needed(target = 9600, current_balance = 1200, months = 18)
+``` swift
+=ROUNDUP(MAX(0, A2-B2)/C2, 0)
 ```
 
 ## Python
@@ -544,13 +551,21 @@ def monthly_contribution_needed(target, current_balance, months):
 print(monthly_contribution_needed(target=9600, current_balance=1200, months=18))
 ```
 
-## Excel
+## R
 
-Assuming the target is in `A2`, your current balance is in `B2`, and the number of months is in `C2`:
+In R, `monthly_contribution_needed()` flips the question: given a deadline, it returns the monthly amount you need to save.
 
-``` swift
-=ROUNDUP(MAX(0, A2-B2)/C2, 0)
+```{r}
+#| label: ef-contrib-r
+monthly_contribution_needed <- function(target, current_balance, months) {
+  remaining <- max(0, target - current_balance)
+  ceiling(remaining / months)
+}
+
+# $9,600 target, $1,200 saved, want to finish in 18 months
+monthly_contribution_needed(target = 9600, current_balance = 1200, months = 18)
 ```
+
 :::
 
 ### What the Fund Earns While You Build It {.unnumbered}
@@ -591,21 +606,19 @@ Each year, the balance is multiplied by (1 + APY), so the green slice grows a li
 
 **Formula:** Future Value = Balance × (1 + APY)\^(months ÷ 12)
 
-Example: \$9,600 in a HYSA at 4% APY, untouched for 12 months → \$9,600 × 1.04 = [\$9,984.]{style="color:#48a56a; font-weight: bold;"} The interest pays for a car repair without reducing your fund.
+  * *Where*: Balance = what is in the account today, APY = the yearly return after compounding, written as a decimal (4% = 0.04), and months = how long you leave the money untouched.
+
+**Example**: \$9,600 in a HYSA at 4% APY, untouched for 12 months → \$9,600 × 1.04 = [\$9,984.]{style="color:#48a56a; font-weight: bold;"} The interest pays for a car repair without reducing your fund.
+
+**Check**: 4% of \$9,600 is \$384 of interest, and \$9,600 + \$384 = \$9,984.
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, `ef_growth()` grows a balance for a number of months at a given APY.
+Assuming the balance is in `A2`, the APY is in `B2` (as a decimal), and the number of months is in `C2`:
 
-```{r}
-#| label: ef-growth-r
-ef_growth <- function(balance, apy, months) {
-  balance * (1 + apy)^(months / 12)
-}
-
-# $9,600 at 4% APY for 12 months
-ef_growth(balance = 9600, apy = 0.04, months = 12)
+``` swift
+=A2*(1+B2)^(C2/12)
 ```
 
 ## Python
@@ -621,13 +634,20 @@ def ef_growth(balance, apy, months):
 print(ef_growth(balance=9600, apy=0.04, months=12))
 ```
 
-## Excel
+## R
 
-Assuming the balance is in `A2`, the APY is in `B2` (as a decimal), and the number of months is in `C2`:
+In R, `ef_growth()` grows a balance for a number of months at a given APY.
 
-``` swift
-=A2*(1+B2)^(C2/12)
+```{r}
+#| label: ef-growth-r
+ef_growth <- function(balance, apy, months) {
+  balance * (1 + apy)^(months / 12)
+}
+
+# $9,600 at 4% APY for 12 months
+ef_growth(balance = 9600, apy = 0.04, months = 12)
 ```
+
 :::
 
 ## Putting It All Together

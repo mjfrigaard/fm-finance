@@ -107,7 +107,112 @@ Digital tracking is the bank-statement method above, but some of the work is don
 Not all exported bank statements include a category, but you can add it yourself, and we'll do it in the [building categories](#sec-building-categories) section below.
 
 ::: panel-tabset
-## R
+## Excel
+
+The `bank_statement` can also be copied + pasted into Excel:
+
+![`bank_statement` in Excel](img/tracking_spending-bank-statement.png){width="75%" fig-align="center"}
+
+Excel also has a handy table format, which gives you many tools for sorting and analyzing data.[^tracking_spending-2] I'll go into using tables more on the [accompanying website](https://mjfrigaard.github.io/dev-fm-finance/) for the book.
+
+## Python (polars)
+
+Create the `bank_statement` data in Python (with `polars`):
+
+```{python}
+#| label: bank-statement-py
+#| code-fold: show
+#| code-summary: 'show/hide Python bank_statement'
+import polars as pl
+
+py_bank_statement = pl.DataFrame({
+    "Date": [
+        "2026-01-02", "2026-01-02", "2026-01-03", "2026-01-03",
+        "2026-01-04", "2026-01-04", "2026-01-05", "2026-01-06",
+        "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-10",
+        "2026-01-11", "2026-01-12", "2026-01-13", "2026-01-14",
+        "2026-01-15"
+    ],
+    "Description": [
+        "Employer Payroll",     "Rent",
+        "Comcast Internet",     "Trader Joe's",
+        "Shell Gas",            "Netflix",
+        "Starbucks",            "PG&E Electric",
+        "AT&T Wireless",        "Spotify",
+        "Whole Foods",          "Chipotle",
+        "Geico Auto Insurance", "NYTimes Digital",
+        "Shell Gas",            "Costco",
+        "24 Hour Fitness"
+    ],
+    "Amount": [
+         2400.00, -1500.00,
+          -75.00,   -82.45,
+          -45.20,   -15.99,
+           -6.75,  -142.30,
+          -85.00,   -10.99,
+          -64.12,   -14.50,
+         -125.00,   -17.00,
+          -42.80,  -156.78,
+          -39.99
+    ]
+}).with_columns(pl.col("Date").str.to_date())
+```
+
+```{python}
+#| label: print-bank-statement-py
+py_bank_statement
+```
+
+## Python (pandas)
+
+Create the `bank_statement` data in Python (with `pandas`):
+
+```{python}
+#| label: bank-statement-pd
+#| code-fold: show
+#| code-summary: 'show/hide pandas bank_statement'
+import pandas as pd
+
+pd_bank_statement = pd.DataFrame({
+    "Date": [
+        "2026-01-02", "2026-01-02", "2026-01-03", "2026-01-03",
+        "2026-01-04", "2026-01-04", "2026-01-05", "2026-01-06",
+        "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-10",
+        "2026-01-11", "2026-01-12", "2026-01-13", "2026-01-14",
+        "2026-01-15"
+    ],
+    "Description": [
+        "Employer Payroll",     "Rent",
+        "Comcast Internet",     "Trader Joe's",
+        "Shell Gas",            "Netflix",
+        "Starbucks",            "PG&E Electric",
+        "AT&T Wireless",        "Spotify",
+        "Whole Foods",          "Chipotle",
+        "Geico Auto Insurance", "NYTimes Digital",
+        "Shell Gas",            "Costco",
+        "24 Hour Fitness"
+    ],
+    "Amount": [
+         2400.00, -1500.00,
+          -75.00,   -82.45,
+          -45.20,   -15.99,
+           -6.75,  -142.30,
+          -85.00,   -10.99,
+          -64.12,   -14.50,
+         -125.00,   -17.00,
+          -42.80,  -156.78,
+          -39.99
+    ]
+})
+pd_bank_statement["Date"] = pd.to_datetime(pd_bank_statement["Date"])
+```
+
+```{python}
+#| label: print-bank-statement-pd
+pd_bank_statement
+```
+
+## R (tidyverse)
 
 Create the `bank_statement` data in R:
 
@@ -156,61 +261,52 @@ We'll use `knitr::kable()` to make the output pretty:
 r_bank_statement |> knitr::kable()
 ```
 
-## Python
+## R (data.table)
 
-Create the `bank_statement` data in Python (with `polars`):
+Create the `bank_statement` data in R (with `data.table`):
 
-```{python}
-#| label: bank-statement-py
+```{r}
+#| label: bank-statement-dt
 #| code-fold: show
-#| code-summary: 'show/hide Python bank_statement'
-import polars as pl
-
-py_bank_statement = pl.DataFrame({
-    "Date": [
-        "2026-01-02", "2026-01-02", "2026-01-03", "2026-01-03",
-        "2026-01-04", "2026-01-04", "2026-01-05", "2026-01-06",
-        "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-10",
-        "2026-01-11", "2026-01-12", "2026-01-13", "2026-01-14",
-        "2026-01-15"
-    ],
-    "Description": [
-        "Employer Payroll",     "Rent",
-        "Comcast Internet",     "Trader Joe's",
-        "Shell Gas",            "Netflix",
-        "Starbucks",            "PG&E Electric",
-        "AT&T Wireless",        "Spotify",
-        "Whole Foods",          "Chipotle",
-        "Geico Auto Insurance", "NYTimes Digital",
-        "Shell Gas",            "Costco",
-        "24 Hour Fitness"
-    ],
-    "Amount": [
-         2400.00, -1500.00,
-          -75.00,   -82.45,
-          -45.20,   -15.99,
-           -6.75,  -142.30,
-          -85.00,   -10.99,
-          -64.12,   -14.50,
-         -125.00,   -17.00,
-          -42.80,  -156.78,
-          -39.99
-    ]
-}).with_columns(pl.col("Date").str.to_date())
+#| code-summary: 'show/hide data.table bank_statement'
+dt_bank_statement <- data.table::data.table(
+  Date = as.Date(c(
+    "2026-01-02", "2026-01-02", "2026-01-03", "2026-01-03",
+    "2026-01-04", "2026-01-04", "2026-01-05", "2026-01-06",
+    "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-10",
+    "2026-01-11", "2026-01-12", "2026-01-13", "2026-01-14",
+    "2026-01-15"
+  )),
+  Description = c(
+    "Employer Payroll",       "Rent",
+    "Comcast Internet",       "Trader Joe's",
+    "Shell Gas",              "Netflix",
+    "Starbucks",              "PG&E Electric",
+    "AT&T Wireless",          "Spotify",
+    "Whole Foods",            "Chipotle",
+    "Geico Auto Insurance",   "NYTimes Digital",
+    "Shell Gas",              "Costco",
+    "24 Hour Fitness"
+  ),
+  Amount = c(
+     2400.00, -1500.00,
+      -75.00,   -82.45,
+      -45.20,   -15.99,
+       -6.75,  -142.30,
+      -85.00,   -10.99,
+      -64.12,   -14.50,
+     -125.00,   -17.00,
+      -42.80,  -156.78,
+      -39.99
+  )
+)
 ```
 
-```{python}
-#| label: print-bank-statement-py
-py_bank_statement
+```{r}
+#| label: print-bank-statement-dt
+dt_bank_statement |> knitr::kable()
 ```
 
-## Excel
-
-The `bank_statement` can also be copied + pasted into Excel:
-
-![`bank_statement` in Excel](img/tracking_spending-bank-statement.png){width="75%" fig-align="center"}
-
-Excel also has a handy table format, which gives you many tools for sorting and analyzing data.[^tracking_spending-2] I'll go into using tables more on the [accompanying website](https://mjfrigaard.github.io/dev-fm-finance/) for the book.
 :::
 
 [^tracking_spending-2]: Read the [Overview of Excel tables](https://support.microsoft.com/en-us/excel/overview-of-excel-tables) on the Microsoft documentation.
@@ -275,7 +371,181 @@ df.filter(pl.col("x") > 2)
 The `bank_statement` dataset above includes the columns typically found in a real bank export (`Date`, `Description`, and `Amount`).  To get to a `Category` column, we have to map descriptions to the buckets. A small lookup of keyword patterns does the job in one pass.
 
 ::: panel-tabset
-## R
+## Excel
+
+In Excel, the [`IFS()` function](https://support.microsoft.com/en-US/Excel/IFS-function) is the direct analog of `case_when()`/`when().then()`.
+
+* If the statement is laid out with `Date` in column `A`, `Description` in column `B`, and `Amount` in column `C`. Type `Category` in cell `D1`, then paste the formula below into `D2`:
+
+``` swift
+=IFS(
+  ISNUMBER(SEARCH("Payroll", B2)), "Income",
+  ISNUMBER(SEARCH("Rent", B2)), "Housing",
+  OR(ISNUMBER(SEARCH("Comcast",B2)), ISNUMBER(SEARCH("PG&E",B2)), ISNUMBER(SEARCH("AT&T",B2))), "Utilities",
+  OR(ISNUMBER(SEARCH("Trader Joe",B2)), ISNUMBER(SEARCH("Whole Foods",B2)), ISNUMBER(SEARCH("Costco",B2))), "Groceries",
+  ISNUMBER(SEARCH("Shell", B2)), "Transportation",
+  OR(ISNUMBER(SEARCH("Starbucks",B2)), ISNUMBER(SEARCH("Chipotle",B2))), "Dining",
+  OR(ISNUMBER(SEARCH("Netflix",B2)), ISNUMBER(SEARCH("Spotify",B2)),
+     ISNUMBER(SEARCH("NYTimes",B2)), ISNUMBER(SEARCH("24 Hour Fitness",B2))), "Subscriptions",
+  ISNUMBER(SEARCH("Geico", B2)), "Insurance",
+  TRUE, "Other"
+)
+```
+
+* Then copy `D2` down through every transaction row (select `D2`, double-click the small square in the bottom-right corner, or use `Ctrl+D` after selecting `D2:D{last_row}`).
+
+![`IFS()` in Excel](img/tracking_spending-ifs.png){width="100%" fig-align="center"}
+
+To add a new merchant when one shows up: edit the formula in `D2`, then re-fill down. Keep the new merchant near the bottom of its category group so the existing patterns still resolve first.
+
+## Python (polars)
+
+`polars` closely mirrors the `dplyr` code:
+
+```{python}
+#| label: categorize-py
+#| code-fold: show
+#| code-summary: 'show/hide py categorize transactions'
+py_bank_statement = py_bank_statement.with_columns(
+    Category = pl.when(pl.col("Description").str.contains("Payroll")).then(pl.lit("Income"))
+        .when(pl.col("Description").str.contains("Rent")).then(pl.lit("Housing"))
+        .when(pl.col("Description").str.contains("Comcast|PG&E|AT&T")).then(pl.lit("Utilities"))
+        .when(pl.col("Description").str.contains("Trader Joe|Whole Foods|Costco")).then(pl.lit("Groceries"))
+        .when(pl.col("Description").str.contains("Shell")).then(pl.lit("Transportation"))
+        .when(pl.col("Description").str.contains("Starbucks|Chipotle")).then(pl.lit("Dining"))
+        .when(pl.col("Description").str.contains("Netflix|Spotify|NYTimes|24 Hour Fitness")).then(pl.lit("Subscriptions"))
+        .when(pl.col("Description").str.contains("Geico")).then(pl.lit("Insurance"))
+        .otherwise(pl.lit("Other"))
+)
+
+py_bank_statement
+```
+
+:::: {.callout-note collapse="true" appearance="default" icon=false}
+
+## Re-using categories in Python
+
+For use in a Shiny app, the `when().then()` chain above can be wrapped into a reusable function that accepts a rules table, making it easy to let users add or edit keyword patterns at runtime:
+
+* `df` = `data.frame` with a `Description` column\
+* `rules` = `data.frame` with `Pattern` and `Category` columns
+
+```{python}
+#| label: apply-rules-py
+#| code-fold: true
+#| code-summary: 'show/hide Python apply_rules() function'
+# Apply keyword rules to categorize transactions.
+
+def apply_rules(df, rules):
+    df = df.with_columns(pl.lit("Other").alias("Category"))
+    for row in rules.iter_rows(named=True):
+        df = df.with_columns(
+            pl.when(
+                pl.col("Description").str.contains(row["Pattern"])
+                & (pl.col("Category") == "Other")
+            )
+            .then(pl.lit(row["Category"]))
+            .otherwise(pl.col("Category"))
+            .alias("Category")
+        )
+    return df
+```
+
+Pass the same keyword lookup as `rules` and the function returns the data frame with a `Category` column appended:
+
+```{python}
+#| label: apply-rules-py-demo
+#| code-fold: true
+#| code-summary: 'show/hide Python apply_rules() demo'
+py_rules = pl.DataFrame({
+    "Pattern":  ["Payroll", "Rent", "Comcast|PG&E|AT&T",
+                 "Trader Joe|Whole Foods|Costco", "Shell",
+                 "Starbucks|Chipotle",
+                 "Netflix|Spotify|NYTimes|24 Hour Fitness", "Geico"],
+    "Category": ["Income", "Housing", "Utilities", "Groceries",
+                 "Transportation", "Dining", "Subscriptions", "Insurance"]
+})
+
+apply_rules(py_bank_statement, py_rules)
+```
+
+::::
+
+## Python (pandas)
+
+In `pandas`, `numpy.select()` takes a list of conditions and a matching list of categories, and returns the first category whose condition is true:
+
+```{python}
+#| label: categorize-pd
+#| code-fold: show
+#| code-summary: 'show/hide pandas categorize transactions'
+import numpy as np
+
+desc = pd_bank_statement["Description"]
+
+pd_bank_statement["Category"] = np.select(
+    [
+        desc.str.contains("Payroll"),
+        desc.str.contains("Rent"),
+        desc.str.contains("Comcast|PG&E|AT&T"),
+        desc.str.contains("Trader Joe|Whole Foods|Costco"),
+        desc.str.contains("Shell"),
+        desc.str.contains("Starbucks|Chipotle"),
+        desc.str.contains("Netflix|Spotify|NYTimes|24 Hour Fitness"),
+        desc.str.contains("Geico"),
+    ],
+    ["Income", "Housing", "Utilities", "Groceries",
+     "Transportation", "Dining", "Subscriptions", "Insurance"],
+    default="Other",
+)
+
+pd_bank_statement
+```
+
+:::: {.callout-note collapse="true" appearance="default" icon=false}
+
+## Re-using categories in pandas
+
+The same rules table approach works in `pandas`:
+
+* `df` = `DataFrame` with a `Description` column\
+* `rules` = `DataFrame` with `Pattern` and `Category` columns
+
+```{python}
+#| label: apply-rules-pd
+#| code-fold: true
+#| code-summary: 'show/hide pandas apply_rules_pd() function'
+# Apply keyword rules to categorize transactions.
+
+def apply_rules_pd(df, rules):
+    df = df.assign(Category="Other")
+    for row in rules.itertuples():
+        hits = df["Description"].str.contains(row.Pattern) & (df["Category"] == "Other")
+        df.loc[hits, "Category"] = row.Category
+    return df
+```
+
+Pass the same keyword lookup as `rules` and the function returns the data frame with a `Category` column appended:
+
+```{python}
+#| label: apply-rules-pd-demo
+#| code-fold: true
+#| code-summary: 'show/hide pandas apply_rules_pd() demo'
+pd_rules = pd.DataFrame({
+    "Pattern":  ["Payroll", "Rent", "Comcast|PG&E|AT&T",
+                 "Trader Joe|Whole Foods|Costco", "Shell",
+                 "Starbucks|Chipotle",
+                 "Netflix|Spotify|NYTimes|24 Hour Fitness", "Geico"],
+    "Category": ["Income", "Housing", "Utilities", "Groceries",
+                 "Transportation", "Dining", "Subscriptions", "Insurance"]
+})
+
+apply_rules_pd(pd_bank_statement, pd_rules)
+```
+
+::::
+
+## R (tidyverse)
 
 In R, a lookup table can be created using `dplyr`:
 
@@ -351,111 +621,91 @@ Pass the same keyword lookup as `rules` and the function returns the data frame 
 #| label: apply-rules-r-demo
 #| code-fold: show
 #| code-summary: 'show/hide R apply_rules() demo'
-apply_rules(r_bank_statement, r_rules) |> 
+apply_rules(r_bank_statement, r_rules) |>
   knitr::kable()
 ```
 
 ::::
 
-## Python
+## R (data.table)
 
-`polars` closely mirrors the `dplyr` code:
+In `data.table`, `fcase()` is the analog of `case_when()`, and `:=` adds the column in place:
 
-```{python}
-#| label: categorize-py
+```{r}
+#| label: categorize-dt
 #| code-fold: show
-#| code-summary: 'show/hide py categorize transactions'
-py_bank_statement = py_bank_statement.with_columns(
-    Category = pl.when(pl.col("Description").str.contains("Payroll")).then(pl.lit("Income"))
-        .when(pl.col("Description").str.contains("Rent")).then(pl.lit("Housing"))
-        .when(pl.col("Description").str.contains("Comcast|PG&E|AT&T")).then(pl.lit("Utilities"))
-        .when(pl.col("Description").str.contains("Trader Joe|Whole Foods|Costco")).then(pl.lit("Groceries"))
-        .when(pl.col("Description").str.contains("Shell")).then(pl.lit("Transportation"))
-        .when(pl.col("Description").str.contains("Starbucks|Chipotle")).then(pl.lit("Dining"))
-        .when(pl.col("Description").str.contains("Netflix|Spotify|NYTimes|24 Hour Fitness")).then(pl.lit("Subscriptions"))
-        .when(pl.col("Description").str.contains("Geico")).then(pl.lit("Insurance"))
-        .otherwise(pl.lit("Other"))
-)
+#| code-summary: 'show/hide data.table categorize transactions'
+dt_bank_statement[, Category := data.table::fcase(
+  grepl("Payroll",                                 Description), "Income",
+  grepl("Rent",                                    Description), "Housing",
+  grepl("Comcast|PG&E|AT&T",                       Description), "Utilities",
+  grepl("Trader Joe|Whole Foods|Costco",           Description), "Groceries",
+  grepl("Shell",                                   Description), "Transportation",
+  grepl("Starbucks|Chipotle",                      Description), "Dining",
+  grepl("Netflix|Spotify|NYTimes|24 Hour Fitness", Description), "Subscriptions",
+  grepl("Geico",                                   Description), "Insurance",
+  default = "Other"
+)]
 
-py_bank_statement
+dt_bank_statement |> knitr::kable()
 ```
 
 :::: {.callout-note collapse="true" appearance="default" icon=false}
 
-## Re-using categories in Python
+## Re-using categories in data.table
 
-For use in a Shiny app, the `when().then()` chain above can be wrapped into a reusable function that accepts a rules table, making it easy to let users add or edit keyword patterns at runtime:
+The same rules table approach works in `data.table`:
 
-* `df` = `data.frame` with a `Description` column\
-* `rules` = `data.frame` with `Pattern` and `Category` columns
+* `dt` = `data.table` with a `Description` column\
+* `rules` = `data.table` with `Pattern` and `Category` columns
 
-```{python}
-#| label: apply-rules-py
+```{r}
+#| label: apply-rules-dt
 #| code-fold: true
-#| code-summary: 'show/hide Python apply_rules() function'
-# Apply keyword rules to categorize transactions.
-
-def apply_rules(df, rules):
-    df = df.with_columns(pl.lit("Other").alias("Category"))
-    for row in rules.iter_rows(named=True):
-        df = df.with_columns(
-            pl.when(
-                pl.col("Description").str.contains(row["Pattern"])
-                & (pl.col("Category") == "Other")
-            )
-            .then(pl.lit(row["Category"]))
-            .otherwise(pl.col("Category"))
-            .alias("Category")
-        )
-    return df
+#| code-summary: 'show/hide data.table apply_rules_dt() function'
+# Apply keyword rules to categorize transactions
+apply_rules_dt <- function(dt, rules) {
+  dt <- data.table::copy(dt)
+  dt[, Category := "Other"]
+  for (i in seq_len(nrow(rules))) {
+    dt[Category == "Other" & grepl(rules$Pattern[i], Description, ignore.case = TRUE),
+       Category := rules$Category[i]]
+  }
+  dt[]
+}
 ```
 
-Pass the same keyword lookup as `rules` and the function returns the data frame with a `Category` column appended:
+Create a `data.table` with `Pattern` and `Category`:
 
-```{python}
-#| label: apply-rules-py-demo
+```{r}
+#| label: dt_rules
 #| code-fold: true
-#| code-summary: 'show/hide Python apply_rules() demo'
-py_rules = pl.DataFrame({
-    "Pattern":  ["Payroll", "Rent", "Comcast|PG&E|AT&T",
-                 "Trader Joe|Whole Foods|Costco", "Shell",
-                 "Starbucks|Chipotle",
-                 "Netflix|Spotify|NYTimes|24 Hour Fitness", "Geico"],
-    "Category": ["Income", "Housing", "Utilities", "Groceries",
-                 "Transportation", "Dining", "Subscriptions", "Insurance"]
-})
+#| code-summary: 'show/hide data.table rules'
+dt_rules <- data.table::data.table(
+  Pattern  = c("Payroll", "Rent", "Comcast|PG&E|AT&T",
+               "Trader Joe|Whole Foods|Costco", "Shell",
+               "Starbucks|Chipotle",
+               "Netflix|Spotify|NYTimes|24 Hour Fitness", "Geico"),
+  Category = c("Income", "Housing", "Utilities", "Groceries",
+               "Transportation", "Dining", "Subscriptions", "Insurance")
+)
 
-apply_rules(py_bank_statement, py_rules)
+dt_rules |>
+  knitr::kable()
+```
+
+Pass the same keyword lookup as `rules` and the function returns a copy with a `Category` column appended:
+
+```{r}
+#| label: apply-rules-dt-demo
+#| code-fold: show
+#| code-summary: 'show/hide data.table apply_rules_dt() demo'
+apply_rules_dt(dt_bank_statement, dt_rules) |>
+  knitr::kable()
 ```
 
 ::::
 
-## Excel
-
-In Excel, the [`IFS()` function](https://support.microsoft.com/en-US/Excel/IFS-function) is the direct analog of `case_when()`/`when().then()`.
-
-* If the statement is laid out with `Date` in column `A`, `Description` in column `B`, and `Amount` in column `C`. Type `Category` in cell `D1`, then paste the formula below into `D2`:
-
-``` swift
-=IFS(
-  ISNUMBER(SEARCH("Payroll", B2)), "Income",
-  ISNUMBER(SEARCH("Rent", B2)), "Housing",
-  OR(ISNUMBER(SEARCH("Comcast",B2)), ISNUMBER(SEARCH("PG&E",B2)), ISNUMBER(SEARCH("AT&T",B2))), "Utilities",
-  OR(ISNUMBER(SEARCH("Trader Joe",B2)), ISNUMBER(SEARCH("Whole Foods",B2)), ISNUMBER(SEARCH("Costco",B2))), "Groceries",
-  ISNUMBER(SEARCH("Shell", B2)), "Transportation",
-  OR(ISNUMBER(SEARCH("Starbucks",B2)), ISNUMBER(SEARCH("Chipotle",B2))), "Dining",
-  OR(ISNUMBER(SEARCH("Netflix",B2)), ISNUMBER(SEARCH("Spotify",B2)),
-     ISNUMBER(SEARCH("NYTimes",B2)), ISNUMBER(SEARCH("24 Hour Fitness",B2))), "Subscriptions",
-  ISNUMBER(SEARCH("Geico", B2)), "Insurance",
-  TRUE, "Other"
-)
-```
-
-* Then copy `D2` down through every transaction row (select `D2`, double-click the small square in the bottom-right corner, or use `Ctrl+D` after selecting `D2:D{last_row}`).
-
-![`IFS()` in Excel](img/tracking_spending-ifs.png){width="100%" fig-align="center"}
-
-To add a new merchant when one shows up: edit the formula in `D2`, then re-fill down. Keep the new merchant near the bottom of its category group so the existing patterns still resolve first.
 :::
 
 Each month, add a new pattern when you see a real transaction that didn't match. The goal isn't to classify every edge case up front; the lookup handles 90%+ of your monthly transactions automatically, leaving only the unusual ones to sort out by hand.
@@ -638,32 +888,35 @@ Each bar adds another year's \$240 to everything saved so far, and the whole pil
 
 **Formula:** Annual cost × ((1.07)\^n − 1) ÷ 0.07 = Opportunity cost in *n* years
 
-Example: A \$20/month subscription you don't really use, over 30 years:
+  * *Where*: Annual cost = the monthly cost × 12, 0.07 = a 7% real yearly return, and *n* = the number of years.
+
+**Example**: A \$20/month subscription you don't really use, over 30 years:
 
 * Annual cost: \$240
 * Invested at a 7% real return for 30 years: \$240 × ((1.07)\^30 − 1) ÷ 0.07 = [\~\$22,700]{style="color:#f44242; font-weight: bold;"}
-* Check: you put in \$240 × 30 = \$7,200, so growth added about \$15,500
+
+**Check**: you put in \$240 × 30 = \$7,200, so growth added about \$15,500
 
 That "small" \$20/month is a \$22,700 decision. [Audit accordingly.]{style="color:#48a56a; font-weight: bold;"}
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, this is a simple function definition with the formula.
+In Excel, create a new sheet with the inputs:
 
-```{r}
-#| label: subscription-opp-cost-r
-subscription_opportunity_cost <- function(monthly_cost, years, rate = 0.07) {
-  annual_cost <- monthly_cost * 12
-  annual_cost * ((1 + rate)^years - 1) / rate
-}
+| Monthly cost | Number of Years | Annual Return (as decimal) | Opportunity Cost |
+|----------------|----------------|-------------------------|----------------|
+| \$20         | 30              | 0.07                       | *Formula below*  |
+
+The formula (given this setup) is below:
+
+``` swift
+=(A2*12)*((1+C2)^B2-1)/C2
 ```
 
-Now let's consider a \$20/month subscription for 30 years at 7%:
+`A2*12` converts the monthly cost to annual; the rest is the future value formula for regular deposits, using the rate in `C2` and the time horizon in `B2`.
 
-```{r}
-subscription_opportunity_cost(monthly_cost = 20, years = 30)
-```
+![Opportunity Cost in Excel](img/tracking_spending-opportunity_cost.png){width="100%" fig-align="center"}
 
 ## Python
 
@@ -685,23 +938,24 @@ The same \$20/month subscription for 30 years at 7%:
 subscription_opportunity_cost(monthly_cost=20, years=30)
 ```
 
-## Excel
+## R
 
-In Excel, create a new sheet with the inputs:
+In R, this is a simple function definition with the formula.
 
-| Monthly cost | Number of Years | Annual Return (as decimal) | Opportunity Cost |
-|----------------|----------------|-------------------------|----------------|
-| \$20         | 30              | 0.07                       | *Formula below*  |
-
-The formula (given this setup) is below:
-
-``` swift
-=(A2*12)*((1+C2)^B2-1)/C2
+```{r}
+#| label: subscription-opp-cost-r
+subscription_opportunity_cost <- function(monthly_cost, years, rate = 0.07) {
+  annual_cost <- monthly_cost * 12
+  annual_cost * ((1 + rate)^years - 1) / rate
+}
 ```
 
-`A2*12` converts the monthly cost to annual; the rest is the future value formula for regular deposits, using the rate in `C2` and the time horizon in `B2`.
+Now let's consider a \$20/month subscription for 30 years at 7%:
 
-![Opportunity Cost in Excel](img/tracking_spending-opportunity_cost.png){width="100%" fig-align="center"}
+```{r}
+subscription_opportunity_cost(monthly_cost = 20, years = 30)
+```
+
 :::
 
 ## Recap

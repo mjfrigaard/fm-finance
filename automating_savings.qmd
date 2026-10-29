@@ -181,19 +181,19 @@ The dotted lines cut the bar into five equal fifths, and the green slice is one 
 
 **Formula:** Monthly Savings Amount = Gross Monthly Income × Savings Rate
 
-Example: \$4,000 gross income → \$4,000 × 0.20 = **\$800/month to automate.**
+  * *Where*: Gross Monthly Income = your pay before taxes, and Savings Rate = the share of it you plan to save, written as a decimal (20% = 0.20).
+
+**Example**: \$4,000 gross income → \$4,000 × 0.20 = **\$800/month to automate.**
+
+**Check**: the bar has five slices of \$800, and \$800 × 5 = \$4,000, so one slice is your savings.
 
 ::: panel-tabset
-## R
+## Excel
 
-```{r}
-#| label: pyf-r
-monthly_savings <- function(gross_monthly_income, savings_rate) {
-  gross_monthly_income * savings_rate
-}
+Assuming gross monthly income is in `A2` and the savings rate is in `B2`:
 
-# $4,000 gross monthly income, 20% savings rate
-monthly_savings(gross_monthly_income = 4000, savings_rate = 0.20)
+``` swift
+=A2 * B2
 ```
 
 ## Python
@@ -207,13 +207,18 @@ def monthly_savings(gross_monthly_income, savings_rate):
 monthly_savings(gross_monthly_income=4000, savings_rate=0.20)
 ```
 
-## Excel
+## R
 
-Assuming gross monthly income is in `A2` and the savings rate is in `B2`:
+```{r}
+#| label: pyf-r
+monthly_savings <- function(gross_monthly_income, savings_rate) {
+  gross_monthly_income * savings_rate
+}
 
-``` swift
-=A2 * B2
+# $4,000 gross monthly income, 20% savings rate
+monthly_savings(gross_monthly_income = 4000, savings_rate = 0.20)
 ```
+
 :::
 
 In practice, you'll probably be automating several categories at once:

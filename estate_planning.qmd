@@ -141,22 +141,21 @@ ggplot(df_nw, aes(x = amount, y = side, fill = part)) +
 
 Net worth is the length of the top bar minus the length of the bottom bar.
 
-Formula: Net worth = Total assets − Total debts
+**Formula:** Net worth = Total assets − Total debts
 
-Example: ($12,000 + $6,000 + $8,000 + $9,000) − ($6,000 + $1,000) = $35,000 − $7,000 = [a net worth of $28,000.]{style="color:#48a56a; font-weight: bold;"}
+  * *Where*: Total assets is everything you own (your 401(k), Roth IRA, savings, and car), and Total debts is everything you owe (your car loan and credit card).
+
+**Example**: ($12,000 + $6,000 + $8,000 + $9,000) − ($6,000 + $1,000) = $35,000 − $7,000 = [a net worth of $28,000.]{style="color:#48a56a; font-weight: bold;"}
+
+**Check**: add the debts back to your net worth, $28,000 + $7,000 = $35,000, and you get your total assets.
 
 ::: panel-tabset
-## R
+## Excel
 
-```{r}
-#| label: networth-r
-net_worth <- function(assets, debts) {
-  sum(assets) - sum(debts)
-}
+Assuming assets are listed in `B2:B5` and debts in `C2:C3`:
 
-assets <- c(k401 = 12000, roth_ira = 6000, savings = 8000, car = 9000)
-debts  <- c(car_loan = 6000, credit_card = 1000)
-net_worth(assets, debts)
+``` swift
+=SUM(B2:B5) - SUM(C2:C3)
 ```
 
 ## Python
@@ -171,13 +170,19 @@ debts = {"car_loan": 6000, "credit_card": 1000}
 net_worth(assets, debts)
 ```
 
-## Excel
+## R
 
-Assuming assets are listed in `B2:B5` and debts in `C2:C3`:
+```{r}
+#| label: networth-r
+net_worth <- function(assets, debts) {
+  sum(assets) - sum(debts)
+}
 
-``` swift
-=SUM(B2:B5) - SUM(C2:C3)
+assets <- c(k401 = 12000, roth_ira = 6000, savings = 8000, car = 9000)
+debts  <- c(car_loan = 6000, credit_card = 1000)
+net_worth(assets, debts)
 ```
+
 :::
 
 ### How Much Your Beneficiary Forms Control {.unnumbered}
@@ -216,22 +221,21 @@ ggplot(df_ben, aes(x = amount, y = bar, fill = group)) +
 
 The blue sections are controlled by forms you fill out online; only the red section depends on a will. Dividing the blue sections by the whole bar shows how much of the estate those forms decide.
 
-Formula: Share controlled by beneficiary forms = Assets with a named beneficiary ÷ Total estate
+**Formula:** Share controlled by beneficiary forms = Assets with a named beneficiary ÷ Total estate
 
-Example: ($12,000 + $6,000 + $45,000 + $8,000) ÷ $80,000 = [about 89% of the estate,]{style="color:#48a56a; font-weight: bold;"} decided by forms that take minutes to fill out. That's why beneficiary designations come before a will for most young people.
+  * *Where*: Assets with a named beneficiary are accounts that pass by a form (your 401(k), Roth IRA, life insurance, and savings with POD), and Total estate is everything you own when you die.
+
+**Example**: ($12,000 + $6,000 + $45,000 + $8,000) ÷ $80,000 = [about 89% of the estate,]{style="color:#48a56a; font-weight: bold;"} decided by forms that take minutes to fill out. That's why beneficiary designations come before a will for most young people.
+
+**Check**: the only asset left to your will is the $9,000 car, and $9,000 ÷ $80,000 is about 11%, so the forms cover the other 89%.
 
 ::: panel-tabset
-## R
+## Excel
 
-```{r}
-#| label: beneficiary-r
-beneficiary_share <- function(with_beneficiary, without_beneficiary) {
-  sum(with_beneficiary) / (sum(with_beneficiary) + sum(without_beneficiary))
-}
+Assuming assets with a named beneficiary are in `B2:B5` and assets without one are in `C2`:
 
-with_beneficiary    <- c(k401 = 12000, roth_ira = 6000, life_insurance = 45000, savings_pod = 8000)
-without_beneficiary <- c(car = 9000)
-beneficiary_share(with_beneficiary, without_beneficiary)
+``` swift
+=SUM(B2:B5) / (SUM(B2:B5) + SUM(C2))
 ```
 
 ## Python
@@ -247,13 +251,19 @@ without_beneficiary = {"car": 9000}
 beneficiary_share(with_beneficiary, without_beneficiary)
 ```
 
-## Excel
+## R
 
-Assuming assets with a named beneficiary are in `B2:B5` and assets without one are in `C2`:
+```{r}
+#| label: beneficiary-r
+beneficiary_share <- function(with_beneficiary, without_beneficiary) {
+  sum(with_beneficiary) / (sum(with_beneficiary) + sum(without_beneficiary))
+}
 
-``` swift
-=SUM(B2:B5) / (SUM(B2:B5) + SUM(C2))
+with_beneficiary    <- c(k401 = 12000, roth_ira = 6000, life_insurance = 45000, savings_pod = 8000)
+without_beneficiary <- c(car = 9000)
+beneficiary_share(with_beneficiary, without_beneficiary)
 ```
+
 :::
 
 ## Key Takeaways
