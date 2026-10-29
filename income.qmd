@@ -437,60 +437,13 @@ The blue layer grows in a straight line, one \$9,360 deposit per year. The green
 
 **Formula:** Wealth after *n* years = Yearly savings × [((1 + r)\^n − 1) ÷ r]
 
-Where: Yearly savings = Income × Savings rate, *r* = the yearly return, and *n* = the number of years.
+  * *Where*: Yearly savings = Income × Savings rate, *r* = the yearly return, and *n* = the number of years.
 
-Example: \$62,400 × 15% = \$9,360 a year. \$9,360 × [((1.08)\^40 − 1) ÷ 0.08] = [about \$2,424,769 after 40 years.]{style="color:#48a56a; font-weight: bold;"} Check: you put in \$9,360 × 40 = \$374,400, so growth did most of the work.
+**Example**: \$62,400 × 15% = \$9,360 a year. \$9,360 × [((1.08)\^40 − 1) ÷ 0.08] = [about \$2,424,769 after 40 years.]{style="color:#48a56a; font-weight: bold;"} 
+
+**Check**: you put in \$9,360 × 40 = \$374,400, so growth did most of the work.
 
 ::: panel-tabset
-
-## R
-
-In R, `wealth_formula()` returns the future value of saving a fixed amount every year.
-
-```{r}
-#| label: wealth-formula-r
-wealth_formula <- function(median_income, savings_rate, annual_return, years) {
-  # future value of saving a fixed amount every year (contributions plus growth)
-  annual_savings <- median_income * savings_rate
-  annual_savings * (((1 + annual_return)^years - 1) / annual_return)
-}
-```
-
-After 40 years with median income, 15% savings rate, 8% return:
-
-```{r}
-#| label: wealth-formula-r-apply
-wealth_formula(
-  median_income = 62400,
-  savings_rate = 0.15,
-  annual_return = 0.08,
-  years = 40
-)
-```
-
-## Python
-
-The Python version of `wealth_formula()` works the same way:
-
-```{python}
-#| label: wealth-formula-py
-def wealth_formula(median_income, savings_rate, annual_return, years):
-    # future value of saving a fixed amount every year (contributions plus growth)
-    annual_savings = median_income * savings_rate
-    return annual_savings * (((1 + annual_return)**years - 1) / annual_return)
-```
-
-After 40 years with median income, 15% savings rate, 8% return:
-
-```{python}
-#| label: wealth-formula-py-apply
-wealth_formula(
-    median_income=62400,
-    savings_rate=0.15,
-    annual_return=0.08,
-    years=40
-)
-```
 
 ## Excel
 
@@ -518,6 +471,55 @@ For total wealth, contributions plus growth, in cell `F2`:
 `F2` already includes everything in `E2`, so don't add the two together.
 
 ![Wealth formula in Excel](img/income-wealth-formula.png){width='75%' fig-align='center'}
+
+## Python
+
+The Python version of `wealth_formula()` works the same way:
+
+```{python}
+#| label: wealth-formula-py
+def wealth_formula(median_income, savings_rate, annual_return, years):
+    # future value of saving a fixed amount every year (contributions plus growth)
+    annual_savings = median_income * savings_rate
+    return annual_savings * (((1 + annual_return)**years - 1) / annual_return)
+```
+
+After 40 years with median income, 15% savings rate, 8% return:
+
+```{python}
+#| label: wealth-formula-py-apply
+wealth_formula(
+    median_income=62400,
+    savings_rate=0.15,
+    annual_return=0.08,
+    years=40
+)
+```
+
+## R
+
+In R, `wealth_formula()` returns the future value of saving a fixed amount every year.
+
+```{r}
+#| label: wealth-formula-r
+wealth_formula <- function(median_income, savings_rate, annual_return, years) {
+  # future value of saving a fixed amount every year (contributions plus growth)
+  annual_savings <- median_income * savings_rate
+  annual_savings * (((1 + annual_return)^years - 1) / annual_return)
+}
+```
+
+After 40 years with median income, 15% savings rate, 8% return:
+
+```{r}
+#| label: wealth-formula-r-apply
+wealth_formula(
+  median_income = 62400,
+  savings_rate = 0.15,
+  annual_return = 0.08,
+  years = 40
+)
+```
 
 :::
 
@@ -565,45 +567,13 @@ The red section covers 5 and a half of the 10 pieces, so fixed costs take 55% of
 
 **Formula:** Fixed-Cost Ratio = Fixed Costs ÷ Take-Home Pay × 100
 
-Example: \$1,760 ÷ \$3,200 × 100 = [55%.]{style="color:#48a56a; font-weight: bold;"} Check: the ceiling is 60% of \$3,200 = \$1,920, and \$1,760 is below it.
+  * *Where*: Fixed Costs = the monthly commitments you can't easily change (rent, loan payments, insurance, utilities), and Take-Home Pay = what lands in your bank account after taxes and other deductions.
+
+**Example**: \$1,760 ÷ \$3,200 × 100 = [55%.]{style="color:#48a56a; font-weight: bold;"}
+
+**Check**: the ceiling is 60% of \$3,200 = \$1,920, and \$1,760 is below it.
 
 ::: panel-tabset
-
-## R
-
-Below is an implementation of this function in R:
-
-```{r}
-#| label: fixed-cost-r
-fixed_cost_ratio <- function(fixed_costs, take_home) {
-  (fixed_costs / take_home) * 100
-}
-```
-
-\$1,760 of fixed costs on \$3,200 take-home pay
-
-```{r}
-#| label: fixed-cost-r-apply
-fixed_cost_ratio(fixed_costs = 1760, take_home = 3200)
-```
-
-## Python
-
-The same formula in Python:
-
-```{python}
-#| label: fixed-cost-py
-def fixed_cost_ratio(fixed_costs, take_home):
-    return (fixed_costs / take_home) * 100
-
-```
-
-\$1,760 of fixed costs on \$3,200 take-home pay
-
-```{python}
-#| label: fixed-cost-py-apply
-fixed_cost_ratio(fixed_costs=1760, take_home=3200)
-```
 
 ## Excel
 
@@ -629,6 +599,41 @@ To produce the percent *string* directly (the analog of R's `paste0(..., "%")` a
 
 ![Convert to percent with `TEXT`](img/income-fixed-cost-ratio-text-perc.png){width='75%' fig-align='center'}
 
+## Python
+
+The same formula in Python:
+
+```{python}
+#| label: fixed-cost-py
+def fixed_cost_ratio(fixed_costs, take_home):
+    return (fixed_costs / take_home) * 100
+
+```
+
+\$1,760 of fixed costs on \$3,200 take-home pay
+
+```{python}
+#| label: fixed-cost-py-apply
+fixed_cost_ratio(fixed_costs=1760, take_home=3200)
+```
+
+## R
+
+Below is an implementation of this function in R:
+
+```{r}
+#| label: fixed-cost-r
+fixed_cost_ratio <- function(fixed_costs, take_home) {
+  (fixed_costs / take_home) * 100
+}
+```
+
+\$1,760 of fixed costs on \$3,200 take-home pay
+
+```{r}
+#| label: fixed-cost-r-apply
+fixed_cost_ratio(fixed_costs = 1760, take_home = 3200)
+```
 
 :::
 
@@ -683,11 +688,51 @@ Each bar is the previous total plus another year of \$200/month contributions an
 
 **Formula:** FV = PMT × [((1 + r)\^n − 1) ÷ r]
 
-PMT is the amount invested each month, *r* is the monthly return, and *n* is the number of months. We will revisit this future-value-of-contributions formula in the [Investing Basics](investing_basics.qmd) chapter.
+  * *Where*: PMT is the amount invested each month, *r* is the monthly return, and *n* is the number of months.
 
-Example: \$200 × [((1 + 0.07 ÷ 12)\^300 − 1) ÷ (0.07 ÷ 12)] = [about \$162,014 after 25 years (300 months).]{style="color:#48a56a; font-weight: bold;"} Check: you put in \$200 × 300 = \$60,000, so growth added about \$102,000.
+We will revisit this future-value-of-contributions formula in the [Investing Basics](investing_basics.qmd) chapter.
+
+**Example**: \$200 × [((1 + 0.07 ÷ 12)\^300 − 1) ÷ (0.07 ÷ 12)] = [about \$162,014 after 25 years (300 months).]{style="color:#48a56a; font-weight: bold;"}
+
+**Check**: you put in \$200 × 300 = \$60,000, so growth added about \$102,000.
 
 ::: panel-tabset
+
+## Excel
+
+Excel actually has a built-in [`FV()` (future value) function](https://support.microsoft.com/en-US/Excel/fv-function), so we don't have to write the formula ourselves. The arguments are `FV(rate, nper, pmt)`:
+
+* `rate` is the return *per period* (monthly here): `7%/12`     
+* `nper` is the number of periods: `25*12`      
+* `pmt` is the amount invested each period, entered as a *negative* number because it's cash leaving your pocket: `-200`      
+
+```swift
+=FV(7%/12, 25*12, -200)
+```
+
+![Future value in Excel](img/income-future-value.png){width='75%' fig-align='center'}
+
+This returns [\$162,014.34]{style="color:#48a56a; font-weight: bold;"}, the same result as the R and Python functions above. (Excel reports a positive number because the contributions were entered as negative cash flows.)
+
+## Python
+
+Below is the same function in Python:
+
+```{python}
+#| label: raise-value-py
+def raise_invested_value(monthly_raise, invest_share, rate, years):
+    contribution = monthly_raise * invest_share
+    monthly_rate = rate / 12
+    periods = years * 12
+    return contribution * (((1 + monthly_rate) ** periods - 1) / monthly_rate)
+```
+
+Half of a \$400/month raise, invested for 25 years at 7%
+
+```{python}
+#| label: raise-value-py-apply
+raise_invested_value(monthly_raise=400, invest_share=0.5, rate=0.07, years=25)
+```
 
 ## R
 
@@ -713,42 +758,6 @@ raise_invested_value(
   rate = 0.07, 
   years = 25)
 ```
-
-## Python
-
-Below is the same function in Python:
-
-```{python}
-#| label: raise-value-py
-def raise_invested_value(monthly_raise, invest_share, rate, years):
-    contribution = monthly_raise * invest_share
-    monthly_rate = rate / 12
-    periods = years * 12
-    return contribution * (((1 + monthly_rate) ** periods - 1) / monthly_rate)
-```
-
-Half of a \$400/month raise, invested for 25 years at 7%
-
-```{python}
-#| label: raise-value-py-apply
-raise_invested_value(monthly_raise=400, invest_share=0.5, rate=0.07, years=25)
-```
-
-## Excel
-
-Excel actually has a built-in [`FV()` (future value) function](https://support.microsoft.com/en-US/Excel/fv-function), so we don't have to write the formula ourselves. The arguments are `FV(rate, nper, pmt)`:
-
-* `rate` is the return *per period* (monthly here): `7%/12`     
-* `nper` is the number of periods: `25*12`      
-* `pmt` is the amount invested each period, entered as a *negative* number because it's cash leaving your pocket: `-200`      
-
-```swift
-=FV(7%/12, 25*12, -200)
-```
-
-![Future value in Excel](img/income-future-value.png){width='75%' fig-align='center'}
-
-This returns [\$162,014.34]{style="color:#48a56a; font-weight: bold;"}, the same result as the R and Python functions above. (Excel reports a positive number because the contributions were entered as negative cash flows.)
 
 :::
 

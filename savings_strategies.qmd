@@ -236,22 +236,20 @@ The formula translates this visual: divide the savings slice by the total bar, t
 
 **Formula:** Savings Rate = (Income − Spending) ÷ Income × 100
 
-Example: You take home \$3,200 and spend \$2,720. → (3,200 − 2,720) ÷ 3,200 × 100 = [15% savings rate.]{style="color:#48a56a; font-weight: bold;"}
+  * *Where*: Income = your monthly take-home pay, and Spending = everything you spend from it in a month.
+
+**Example**: You take home \$3,200 and spend \$2,720. → (3,200 − 2,720) ÷ 3,200 × 100 = [15% savings rate.]{style="color:#48a56a; font-weight: bold;"}
+
+**Check**: 15% of \$3,200 is \$480, and \$2,720 + \$480 = \$3,200, so the savings and spending add back up to the whole paycheck.
 
 ::: panel-tabset
 
-## R
+## Excel
 
-In R, `savings_rate()` subtracts spending from income and divides by income.
+Assuming `Income` is in cell `B2` and `Spending` is in cell `C2`:
 
-```{r}
-#| label: savings-rate-r
-savings_rate <- function(income, spending) {
-  ((income - spending) / income) * 100
-}
-
-# $3,200 take-home, $2,720 spent
-savings_rate(income = 3200, spending = 2720)
+``` swift
+=((B2 - C2) / B2) * 100
 ```
 
 ## Python
@@ -267,13 +265,20 @@ def savings_rate(income, spending):
 savings_rate(income=3200, spending=2720)
 ```
 
-## Excel
+## R
 
-Assuming `Income` is in cell `B2` and `Spending` is in cell `C2`:
+In R, `savings_rate()` subtracts spending from income and divides by income.
 
-``` swift
-=((B2 - C2) / B2) * 100
+```{r}
+#| label: savings-rate-r
+savings_rate <- function(income, spending) {
+  ((income - spending) / income) * 100
+}
+
+# $3,200 take-home, $2,720 spent
+savings_rate(income = 3200, spending = 2720)
 ```
+
 :::
 
 ## Recap

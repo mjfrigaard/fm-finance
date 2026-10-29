@@ -171,31 +171,24 @@ ggplot(df_br, aes(x = amount, y = bar, fill = slice)) +
 
 Each slice is multiplied by its own rate, and the tax is the sum of the slices. Dividing that total by the whole salary gives the effective rate.
 
-Formula: Tax = Σ (Rate × Income in that bracket), and Effective rate = Tax ÷ Income
+**Formula:** Tax = Σ (Rate × Income in that bracket), and Effective rate = Tax ÷ Income
 
-Where: Σ means "add up all of these." Only income after the standard deduction goes into the brackets.
+  * *Where*: Σ means "add up all of these." Only income after the standard deduction goes into the brackets.
 
-Example: ($12,400 × 10%) + ($16,500 × 12%) = $1,240 + $1,980 = $3,220. $3,220 ÷ $45,000 = [an effective rate of about 7.2%, even though the top bracket is 12%.]{style="color:#48a56a; font-weight: bold;"}
+**Example**: ($12,400 × 10%) + ($16,500 × 12%) = $1,240 + $1,980 = $3,220. $3,220 ÷ $45,000 = [an effective rate of about 7.2%, even though the top bracket is 12%.]{style="color:#48a56a; font-weight: bold;"}
+
+**Check**: $45,000 − $16,100 = $28,900, which matches $12,400 + $16,500. Taxing all $28,900 at 12% would be $3,468, so $3,220 has to come in a little under that.
 
 ::: panel-tabset
-## R
+## Excel
 
-```{r}
-#| label: bracket-r
-income_tax <- function(income, deduction = 16100) {
-  taxable <- max(income - deduction, 0)
-  lower <- c(0, 12400, 50400, 105700, 201775, 256225, 640600)
-  upper <- c(lower[-1], Inf)
-  rate  <- c(0.10, 0.12, 0.22, 0.24, 0.32, 0.35, 0.37)
-  sum(rate * pmax(pmin(taxable, upper) - lower, 0))
-}
+Assuming `Income` is in `B2`, the bracket lower limits are in `E2:E8`, and the extra rate each bracket adds over the one below it (10%, 2%, 10%, 2%, 8%, 3%, 2%) is in `G2:G8`:
 
-# 2026 federal income tax on a $45,000 salary (single filer)
-tax <- income_tax(income = 45000)
-tax
-# effective rate
-tax / 45000
+``` swift
+=SUMPRODUCT(--(MAX(B2 - 16100, 0) > E2:E8), MAX(B2 - 16100, 0) - E2:E8, G2:G8)
 ```
+
+This formula taxes every dollar above each bracket line at that bracket's extra rate, which adds up to the same total as taxing each slice at its full rate.
 
 ## Python
 
@@ -217,15 +210,25 @@ print(tax)
 print(tax / 45000)
 ```
 
-## Excel
+## R
 
-Assuming `Income` is in `B2`, the bracket lower limits are in `E2:E8`, and the extra rate each bracket adds over the one below it (10%, 2%, 10%, 2%, 8%, 3%, 2%) is in `G2:G8`:
+```{r}
+#| label: bracket-r
+income_tax <- function(income, deduction = 16100) {
+  taxable <- max(income - deduction, 0)
+  lower <- c(0, 12400, 50400, 105700, 201775, 256225, 640600)
+  upper <- c(lower[-1], Inf)
+  rate  <- c(0.10, 0.12, 0.22, 0.24, 0.32, 0.35, 0.37)
+  sum(rate * pmax(pmin(taxable, upper) - lower, 0))
+}
 
-``` swift
-=SUMPRODUCT(--(MAX(B2 - 16100, 0) > E2:E8), MAX(B2 - 16100, 0) - E2:E8, G2:G8)
+# 2026 federal income tax on a $45,000 salary (single filer)
+tax <- income_tax(income = 45000)
+tax
+# effective rate
+tax / 45000
 ```
 
-This formula taxes every dollar above each bracket line at that bracket's extra rate, which adds up to the same total as taxing each slice at its full rate.
 :::
 
 ### How Much of a Raise You Keep {.unnumbered}
@@ -265,21 +268,21 @@ ggplot(df_raise, aes(x = amount, y = bar, fill = part)) +
 
 The first $500 of the raise fills the rest of the 12% bracket; only the last $1,500 is taxed at 22%. The tax on the raise is the tax on the new income minus the tax on the old income.
 
-Formula: Tax on raise = Tax(new income) − Tax(old income), and Amount kept = Raise − Tax on raise
+**Formula:** Tax on raise = Tax(new income) − Tax(old income), and Amount kept = Raise − Tax on raise
 
-Example: $6,130 − $5,740 = $390 in extra federal income tax. [You keep $1,610 of the $2,000 raise]{style="color:#48a56a; font-weight: bold;"} (before FICA and state tax). Crossing into a higher bracket never makes a raise cost you money.
+  * *Where*: Tax(new income) is the federal income tax on your salary after the raise, Tax(old income) is the tax on your salary before it, and Raise is the extra pay.
+
+**Example**: $6,130 − $5,740 = $390 in extra federal income tax. [You keep $1,610 of the $2,000 raise]{style="color:#48a56a; font-weight: bold;"} (before FICA and state tax). Crossing into a higher bracket never makes a raise cost you money.
+
+**Check**: taxing the raise slice by slice gives ($500 × 12%) + ($1,500 × 22%) = $60 + $330 = $390, and $2,000 − $390 = $1,610.
 
 ::: panel-tabset
-## R
+## Excel
 
-```{r}
-#| label: raise-r
-raise_kept <- function(old_income, raise) {
-  raise - (income_tax(old_income + raise) - income_tax(old_income))
-}
+Assuming the tax on the old income is in `B2` (from the formula above), the tax on the new income is in `C2`, and the raise is in `D2`:
 
-# $2,000 raise on a $66,000 salary
-raise_kept(old_income = 66000, raise = 2000)
+``` swift
+=D2 - (C2 - B2)
 ```
 
 ## Python
@@ -293,13 +296,18 @@ def raise_kept(old_income, raise_amount):
 raise_kept(old_income=66000, raise_amount=2000)
 ```
 
-## Excel
+## R
 
-Assuming the tax on the old income is in `B2` (from the formula above), the tax on the new income is in `C2`, and the raise is in `D2`:
+```{r}
+#| label: raise-r
+raise_kept <- function(old_income, raise) {
+  raise - (income_tax(old_income + raise) - income_tax(old_income))
+}
 
-``` swift
-=D2 - (C2 - B2)
+# $2,000 raise on a $66,000 salary
+raise_kept(old_income = 66000, raise = 2000)
 ```
+
 :::
 
 ## Key Takeaways

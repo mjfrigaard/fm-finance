@@ -183,15 +183,64 @@ Multiplying by (1 + r) once gives next year's value; multiplying by it n times g
 
 **Formula:** FV = PV × (1 + r)\^n
 
-Where: FV = future value, PV = present value (today's amount), *r* = annual return, *n* = years.
+  * *Where*: FV = future value, PV = present value (today's amount), *r* = annual return, *n* = years.
 
 The companion shortcut is the **Rule of 72**: divide 72 by the return percentage to estimate how many years it takes your money to double.
 
 > Years to double ≈ 72 ÷ annual return %
 
-Example: \$10,000 at 7% for 10 years grows to \~\$19,672, and at 7% money doubles roughly every 10 years.
+**Example**: \$10,000 at 7% for 10 years grows to \~\$19,672, and at 7% money doubles roughly every 10 years.
+
+**Check**: the Rule of 72 gives 72 ÷ 7 ≈ 10.3 years to double, so \$10,000 should be close to \$20,000 after 10 years.
 
 ::: panel-tabset
+## Excel
+
+Assuming the present value is in `A2`, the rate is in `B2` (as a decimal), and the years are in `C2`:
+
+``` swift
+=A2*(1+B2)^C2
+```
+
+Excel also has a built-in function that returns the same number:
+
+``` swift
+=FV(B2, C2, 0, -A2)
+```
+
+For the Rule of 72, put the annual return as a whole number (`7`, not `0.07`) in `E2`:
+
+``` swift
+=72/E2
+```
+
+To compare several horizons, list the years down column `C` and copy the first formula down.
+
+## Python
+
+The Python version of `future_value()` works the same way:
+
+```{python}
+#| label: compound-py
+import numpy as np
+
+def future_value(present_value, rate, years):
+    return present_value * (1 + rate) ** years
+
+def rule_of_72(annual_return_pct):
+    return 72 / annual_return_pct
+
+# scalar: $10,000 at 7% for 10 years
+print(future_value(present_value=10000, rate=0.07, years=10))
+
+# how long until your money doubles at 7%?
+print(rule_of_72(annual_return_pct=7))
+
+# vectorized: numpy lets us pass an array of horizons in one call
+horizons = np.array([5, 10, 20, 30])
+future_value(present_value=10000, rate=0.07, years=horizons)
+```
+
 ## R
 
 In R, `future_value()` multiplies a starting amount by (1 + rate) once for every year.
@@ -219,52 +268,6 @@ data.frame(
 )
 ```
 
-## Python
-
-The Python version of `future_value()` works the same way:
-
-```{python}
-#| label: compound-py
-import numpy as np
-
-def future_value(present_value, rate, years):
-    return present_value * (1 + rate) ** years
-
-def rule_of_72(annual_return_pct):
-    return 72 / annual_return_pct
-
-# scalar: $10,000 at 7% for 10 years
-print(future_value(present_value=10000, rate=0.07, years=10))
-
-# how long until your money doubles at 7%?
-print(rule_of_72(annual_return_pct=7))
-
-# vectorized: numpy lets us pass an array of horizons in one call
-horizons = np.array([5, 10, 20, 30])
-future_value(present_value=10000, rate=0.07, years=horizons)
-```
-
-## Excel
-
-Assuming the present value is in `A2`, the rate is in `B2` (as a decimal), and the years are in `C2`:
-
-``` swift
-=A2*(1+B2)^C2
-```
-
-Excel also has a built-in function that returns the same number:
-
-``` swift
-=FV(B2, C2, 0, -A2)
-```
-
-For the Rule of 72, put the annual return as a whole number (`7`, not `0.07`) in `E2`:
-
-``` swift
-=72/E2
-```
-
-To compare several horizons, list the years down column `C` and copy the first formula down.
 :::
 
 ### Future Value of Regular Contributions {.unnumbered}
@@ -328,23 +331,25 @@ Each contribution grows for a different number of months, and the formula below 
 
 **Formula:** FV = PMT × [((1 + r)\^n − 1) ÷ r]
 
-Where: PMT = the amount contributed each period, *r* = the return per period, *n* = the number of periods.
+  * *Where*: PMT = the amount contributed each period, *r* = the return per period, *n* = the number of periods.
 
-Example: \$500/month for 30 years (360 months) at a 7% annual return (about 0.583% per month) grows to about \$610,000, of which only \$180,000 is money you actually put in.
+**Example**: \$500/month for 30 years (360 months) at a 7% annual return (about 0.583% per month) grows to about \$610,000, of which only \$180,000 is money you actually put in.
+
+**Check**: you put in \$500 × 360 = \$180,000, so growth added about \$430,000, more than twice what you contributed.
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, `future_value_series()` applies the formula to a regular contribution.
+Assuming the monthly contribution is in `A2`, the annual rate is in `B2` (as a decimal), and the number of years is in `C2`:
 
-```{r}
-#| label: fv-series-r
-future_value_series <- function(contribution, rate, periods) {
-  contribution * (((1 + rate)^periods - 1) / rate)
-}
+``` swift
+=A2*(((1+B2/12)^(C2*12)-1)/(B2/12))
+```
 
-# $500/month for 30 years at a 7% annual return (monthly rate = 0.07 / 12)
-future_value_series(contribution = 500, rate = 0.07 / 12, periods = 30 * 12)
+The built-in `FV()` function gives the same answer:
+
+``` swift
+=FV(B2/12, C2*12, -A2)
 ```
 
 ## Python
@@ -360,19 +365,20 @@ def future_value_series(contribution, rate, periods):
 future_value_series(contribution=500, rate=0.07 / 12, periods=30 * 12)
 ```
 
-## Excel
+## R
 
-Assuming the monthly contribution is in `A2`, the annual rate is in `B2` (as a decimal), and the number of years is in `C2`:
+In R, `future_value_series()` applies the formula to a regular contribution.
 
-``` swift
-=A2*(((1+B2/12)^(C2*12)-1)/(B2/12))
+```{r}
+#| label: fv-series-r
+future_value_series <- function(contribution, rate, periods) {
+  contribution * (((1 + rate)^periods - 1) / rate)
+}
+
+# $500/month for 30 years at a 7% annual return (monthly rate = 0.07 / 12)
+future_value_series(contribution = 500, rate = 0.07 / 12, periods = 30 * 12)
 ```
 
-The built-in `FV()` function gives the same answer:
-
-``` swift
-=FV(B2/12, C2*12, -A2)
-```
 :::
 
 ### Real (Inflation-Adjusted) Return {.unnumbered}
@@ -416,21 +422,19 @@ The real return is what's left after inflation takes its slice. It's not a simpl
 
 **Formula:** Real Return = (1 + nominal) ÷ (1 + inflation) − 1
 
-Example: (1.07 ÷ 1.03) − 1 = \~3.88%, slightly less than the 4% you'd get by simple subtraction.
+  * *Where*: nominal = the yearly return before inflation, and inflation = the yearly rise in prices.
+
+**Example**: (1.07 ÷ 1.03) − 1 = \~3.88%, slightly less than the 4% you'd get by simple subtraction.
+
+**Check**: plug the answer back in: 1.03 × 1.0388 ≈ 1.07, the nominal return you started with.
 
 ::: panel-tabset
-## R
+## Excel
 
-In R, `real_return()` takes a nominal return and an inflation rate, and returns what's left after inflation.
+Assuming the nominal return is in `A2` and inflation is in `B2` (both as decimals):
 
-```{r}
-#| label: real-return-r
-real_return <- function(nominal, inflation) {
-  (1 + nominal) / (1 + inflation) - 1
-}
-
-# 7% nominal return against 3% inflation
-real_return(nominal = 0.07, inflation = 0.03)
+``` swift
+=(1+A2)/(1+B2)-1
 ```
 
 ## Python
@@ -446,13 +450,20 @@ def real_return(nominal, inflation):
 real_return(nominal=0.07, inflation=0.03)
 ```
 
-## Excel
+## R
 
-Assuming the nominal return is in `A2` and inflation is in `B2` (both as decimals):
+In R, `real_return()` takes a nominal return and an inflation rate, and returns what's left after inflation.
 
-``` swift
-=(1+A2)/(1+B2)-1
+```{r}
+#| label: real-return-r
+real_return <- function(nominal, inflation) {
+  (1 + nominal) / (1 + inflation) - 1
+}
+
+# 7% nominal return against 3% inflation
+real_return(nominal = 0.07, inflation = 0.03)
 ```
+
 :::
 
 ## Recap

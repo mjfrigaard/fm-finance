@@ -155,12 +155,57 @@ ggplot(df_mix, aes(x = mix, y = change, fill = year)) +
 
 Each bar is a weighted average: the stock return times the share in stocks, plus the bond return times the share in bonds. Adding bonds shrinks the blue bars a little and the red bars a lot.
 
-Formula: Portfolio return = (Stock % × Stock return) + (Bond % × Bond return)
+**Formula:** Portfolio return = (Stock % × Stock return) + (Bond % × Bond return)
 
-Example: An 80/20 split in a bad year: (0.80 × −40%) + (0.20 × 0%) = [−32%, or −$3,200 on $10,000.]{style="color:#f44242; font-weight: bold;"} In an average year: (0.80 × 10%) + (0.20 × 4%) = 8.8%, or +$880.
+  * *Where*: Stock % and Bond % = the shares of your money in each (they add to 100%), and Stock return and Bond return = what each one earned that year.
+
+**Example**: An 80/20 split in a bad year: (0.80 × −40%) + (0.20 × 0%) = [−32%, or −$3,200 on $10,000.]{style="color:#f44242; font-weight: bold;"} In an average year: (0.80 × 10%) + (0.20 × 4%) = 8.8%, or +$880.
+
+**Check**: a weighted average always lands between its parts: −32% sits between −40% and 0%, and 8.8% sits between 4% and 10%.
 
 ::: panel-tabset
-## R
+## Excel
+
+Assuming `Stock %` is in `B2`, `Stock return` is in `C2`, and `Bond return` is in `D2`:
+
+``` swift
+=B2 * C2 + (1 - B2) * D2
+```
+
+## Python (polars)
+
+```{python}
+#| label: mix-py
+import polars as pl
+
+def portfolio_return(stock_pct, stock_return, bond_return):
+    return stock_pct * stock_return + (1 - stock_pct) * bond_return
+
+# 100/0, 80/20, and 60/40 in an average year and a bad year
+pl.DataFrame({"stocks": [1.0, 0.8, 0.6]}).with_columns(
+    average=portfolio_return(pl.col("stocks"), 0.10, 0.04),
+    bad=portfolio_return(pl.col("stocks"), -0.40, 0.0),
+)
+```
+
+## Python (pandas)
+
+```{python}
+#| label: mix-pd
+import pandas as pd
+
+def portfolio_return(stock_pct, stock_return, bond_return):
+    return stock_pct * stock_return + (1 - stock_pct) * bond_return
+
+# 100/0, 80/20, and 60/40 in an average year and a bad year
+mix = pd.DataFrame({"stocks": [1.0, 0.8, 0.6]})
+mix.assign(
+    average=portfolio_return(mix["stocks"], 0.10, 0.04),
+    bad=portfolio_return(mix["stocks"], -0.40, 0.0),
+)
+```
+
+## R (base)
 
 ```{r}
 #| label: mix-r
@@ -177,29 +222,23 @@ data.frame(
 )
 ```
 
-## Python
+## R (data.table)
 
-```{python}
-#| label: mix-py
-import polars as pl
-
-def portfolio_return(stock_pct, stock_return, bond_return):
-    return stock_pct * stock_return + (1 - stock_pct) * bond_return
+```{r}
+#| label: mix-dt
+portfolio_return <- function(stock_pct, stock_return, bond_return) {
+  stock_pct * stock_return + (1 - stock_pct) * bond_return
+}
 
 # 100/0, 80/20, and 60/40 in an average year and a bad year
-pl.DataFrame({"stocks": [1.0, 0.8, 0.6]}).with_columns(
-    average=portfolio_return(pl.col("stocks"), 0.10, 0.04),
-    bad=portfolio_return(pl.col("stocks"), -0.40, 0.0),
-)
+mix <- data.table::data.table(stocks = c(1, 0.8, 0.6))
+mix[, `:=`(
+  average = portfolio_return(stocks, stock_return = 0.10, bond_return = 0.04),
+  bad     = portfolio_return(stocks, stock_return = -0.40, bond_return = 0)
+)]
+mix[]
 ```
 
-## Excel
-
-Assuming `Stock %` is in `B2`, `Stock return` is in `C2`, and `Bond return` is in `D2`:
-
-``` swift
-=B2 * C2 + (1 - B2) * D2
-```
 :::
 
 ### How Much to Move When You Rebalance {.unnumbered}
@@ -240,21 +279,21 @@ ggplot(df_rb, aes(x = amount, y = stage, fill = asset)) +
 
 After the drop, the total is $7,600 and stocks are only about 74% of it. The target for stocks is 80% of the new total; the difference between that target and what you have is the amount to move.
 
-Formula: Amount to move = (Target % × Total) − Current amount
+**Formula:** Amount to move = (Target % × Total) − Current amount
 
-Example: (0.80 × $7,600) − $5,600 = [$480 moved from bonds into stocks.]{style="color:#48a56a; font-weight: bold;"} You're buying stocks while they're down, which is exactly what rebalancing is for.
+  * *Where*: Target % = the share you want in stocks, Total = what the whole portfolio is worth now, and Current amount = what you have in stocks now.
+
+**Example**: (0.80 × $7,600) − $5,600 = [$480 moved from bonds into stocks.]{style="color:#48a56a; font-weight: bold;"} You're buying stocks while they're down, which is exactly what rebalancing is for.
+
+**Check**: after the move you have $5,600 + $480 = $6,080 in stocks, and $6,080 ÷ $7,600 = 80%, back on target.
 
 ::: panel-tabset
-## R
+## Excel
 
-```{r}
-#| label: rebalance-r
-rebalance_amount <- function(target_pct, total, current_amount) {
-  target_pct * total - current_amount
-}
+Assuming `Target %` is in `B2`, `Stocks` is in `C2`, and `Bonds` is in `D2`:
 
-# $5,600 in stocks and $2,000 in bonds after a 30% stock drop
-rebalance_amount(target_pct = 0.80, total = 5600 + 2000, current_amount = 5600)
+``` swift
+=B2 * (C2 + D2) - C2
 ```
 
 ## Python
@@ -268,13 +307,18 @@ def rebalance_amount(target_pct, total, current_amount):
 rebalance_amount(target_pct=0.80, total=5600 + 2000, current_amount=5600)
 ```
 
-## Excel
+## R
 
-Assuming `Target %` is in `B2`, `Stocks` is in `C2`, and `Bonds` is in `D2`:
+```{r}
+#| label: rebalance-r
+rebalance_amount <- function(target_pct, total, current_amount) {
+  target_pct * total - current_amount
+}
 
-``` swift
-=B2 * (C2 + D2) - C2
+# $5,600 in stocks and $2,000 in bonds after a 30% stock drop
+rebalance_amount(target_pct = 0.80, total = 5600 + 2000, current_amount = 5600)
 ```
+
 :::
 
 A positive answer means buy that much of the asset; a negative answer means sell that much.
