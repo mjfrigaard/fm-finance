@@ -37,7 +37,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install Python packages
-        run: pip install numpy polars jupyter pyyaml
+        run: pip install numpy polars pandas jupyter pyyaml
 
       - name: Point reticulate at the CI Python
         run: echo "RETICULATE_PYTHON=$(which python)" >> "$GITHUB_ENV"
