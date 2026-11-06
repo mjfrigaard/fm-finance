@@ -70,6 +70,43 @@ Credit card debt is the single most destructive financial product most people wi
 
 Once you're paying off your balance [in full every month]{style="color:#48a56a; font-weight: bold;"}, credit cards become powerful: cash back, travel rewards, fraud protection, and a stronger credit score. The key is using them as a way to pay, not a way to borrow.
 
+## Car Payments (wealth killers in disguise)
+
+Cars are where middle-class wealth quietly dies. Here's why:
+
+```{mermaid}
+%%| fig-cap: 'Car Payments'
+%%| fig-align: center
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
+
+flowchart TD
+    NewCar("New Car<br>Purchase") --> Depreciation("Loses 20% to 30%<br>in Year 1")
+    NewCar --> Payment("$500 to $700<br>Monthly Payment")
+    NewCar --> Insurance("Higher<br>Insurance")
+    NewCar --> Opportunity("Opportunity<br>Cost")
+    Opportunity --> LostWealth("$600/mo<br>invested over<br>30 years<br>= ~$700,000")
+    style NewCar fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
+    style Depreciation fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Payment fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Insurance fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style Opportunity fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+    style LostWealth fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
+```
+
+<br>
+
+Felix has been blunt: [cars are things you use up, not investments.]{style="color:#f44242; font-weight: bold;"} A car depreciates (loses value) every year you own it. Borrowing at 7% to 9% interest to buy something that's losing value is one of the worst financial moves available, yet almost everyone does it.
+
+### The Rules of Smart Car Ownership {.unnumbered}
+
+1.  [Buy used, 2 to 4 years old.]{style="color:#48a56a; font-weight: bold;"} Let someone else take the big loss in value from the first year.
+2.  [Pay cash when possible.]{style="color:#48a56a; font-weight: bold;"} If you can't pay cash, you can't really afford it.
+3.  [If financing, keep it under 36 months]{style="color:#48a56a; font-weight: bold;"} at the lowest rate available.
+4.  [The 20/4/10 rule:]{style="color:#48a56a; font-weight: bold;"} 20% down, financed no longer than 4 years, total transportation costs under 10% of gross income.
+5.  [Drive it until the wheels fall off.]{style="color:#48a56a; font-weight: bold;"} The cheapest car you'll ever own is the reliable one you already have.
+
+**The status trap:** Housel's insight applies here. Nobody is impressed by your car; they're imagining themselves in it. You're paying a fortune for a status signal no one is sending back.
+
 ## Student Loans
 
 Student loans sit in a complicated middle ground. Ben Felix's human capital framework applies powerfully here: education is an investment in your future earning potential, but only when the math works.
@@ -270,43 +307,6 @@ Morgan Housel paid off his own mortgage anyway. He calls it the worst financial 
 
 What they agree on: high-interest debt comes first, always. For cheap debt the math usually favors investing, and choosing peace of mind instead is a fair trade as long as you know what it costs.
 :::
-
-## Car Payments (wealth killers in disguise)
-
-Cars are where middle-class wealth quietly dies. Here's why:
-
-```{mermaid}
-%%| fig-cap: 'Car Payments'
-%%| fig-align: center
-%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
-
-flowchart TD
-    NewCar("New Car<br>Purchase") --> Depreciation("Loses 20% to 30%<br>in Year 1")
-    NewCar --> Payment("$500 to $700<br>Monthly Payment")
-    NewCar --> Insurance("Higher<br>Insurance")
-    NewCar --> Opportunity("Opportunity<br>Cost")
-    Opportunity --> LostWealth("$600/mo<br>invested over<br>30 years<br>= ~$700,000")
-    style NewCar fill:#f0cfcf,color:#1C1C1E,stroke:#1C1C1E,stroke-width:2px
-    style Depreciation fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Payment fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Insurance fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style Opportunity fill:#0e9aa7,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-    style LostWealth fill:#f44242,color:#F5F2E8,stroke:#1C1C1E,stroke-width:2px
-```
-
-<br>
-
-Felix has been blunt: [cars are things you use up, not investments.]{style="color:#f44242; font-weight: bold;"} A car depreciates (loses value) every year you own it. Borrowing at 7% to 9% interest to buy something that's losing value is one of the worst financial moves available, yet almost everyone does it.
-
-### The Rules of Smart Car Ownership {.unnumbered}
-
-1.  [Buy used, 2 to 4 years old.]{style="color:#48a56a; font-weight: bold;"} Let someone else take the big loss in value from the first year.
-2.  [Pay cash when possible.]{style="color:#48a56a; font-weight: bold;"} If you can't pay cash, you can't really afford it.
-3.  [If financing, keep it under 36 months]{style="color:#48a56a; font-weight: bold;"} at the lowest rate available.
-4.  [The 20/4/10 rule:]{style="color:#48a56a; font-weight: bold;"} 20% down, financed no longer than 4 years, total transportation costs under 10% of gross income.
-5.  [Drive it until the wheels fall off.]{style="color:#48a56a; font-weight: bold;"} The cheapest car you'll ever own is the reliable one you already have.
-
-**The status trap:** Housel's insight applies here. Nobody is impressed by your car; they're imagining themselves in it. You're paying a fortune for a status signal no one is sending back.
 
 ## Debt and the FOO {#sec-foo-debt}
 

@@ -7,7 +7,7 @@ set.seed(1014)
 reticulate::use_virtualenv("r-reticulate", required = FALSE)
 
 # Install any missing packages into whichever Python was just pinned.
-for (.pkg in c("numpy", "polars")) {
+for (.pkg in c("numpy", "polars", "pandas")) {
   if (!reticulate::py_module_available(.pkg)) {
     reticulate::py_install(.pkg, pip = TRUE)
   }
