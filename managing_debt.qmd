@@ -27,9 +27,9 @@ Every debt has a price, called the APR (annual percentage rate): the yearly cost
 %%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "darkMode":false, "fontSize":"16px"}}}%%
 
 flowchart TD
-    AllDebt("Your Debts") --> Toxic("TOXIC DEBT<br>15% to 29% APR")
-    AllDebt --> Moderate("MODERATE DEBT<br>5% to 10% APR")
-    AllDebt --> Strategic("STRATEGIC DEBT<br>3% to 7% APR")
+    AllDebt("Your Debts") --> Toxic("TOXIC DEBT<br>15% APR or more")
+    AllDebt --> Moderate("MODERATE DEBT<br>6% up to 15% APR")
+    AllDebt --> Strategic("STRATEGIC DEBT<br>Below 6% APR")
 
     Toxic --> CreditCards("Credit Cards<br>Payday Loans")
     Moderate --> CarLoans("Car Loans<br>Private Student Loans")
